@@ -81,8 +81,8 @@ export interface ComplexNestedErrorData {
 }
 
 /**
- * @public
  * This error is thrown when a request is invalid.
+ * @public
  */
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
@@ -221,8 +221,8 @@ export interface GreetingWithErrorsOutput {
 }
 
 /**
- * @public
  * This error is thrown when an invalid greeting value is provided.
+ * @public
  */
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
@@ -390,14 +390,14 @@ export interface HttpRequestWithLabelsInput {
   float: number | undefined;
   double: number | undefined;
   /**
-   * @public
    * Serialized in the path as true or false.
+   * @public
    */
   boolean: boolean | undefined;
 
   /**
-   * @public
    * Note that this member has no format, so it's serialized as an RFC 3399 date-time.
+   * @public
    */
   timestamp: Date | undefined;
 }
@@ -666,8 +666,8 @@ export interface XmlEmptyListsRequest {
   enumList?: FooEnum[];
   intEnumList?: IntegerEnum[];
   /**
-   * @public
    * A list of lists of strings.
+   * @public
    */
   nestedStringList?: string[][];
 
@@ -692,8 +692,8 @@ export interface XmlEmptyListsResponse {
   enumList?: FooEnum[];
   intEnumList?: IntegerEnum[];
   /**
-   * @public
    * A list of lists of strings.
+   * @public
    */
   nestedStringList?: string[][];
 
@@ -794,8 +794,8 @@ export interface XmlListsRequest {
   enumList?: FooEnum[];
   intEnumList?: IntegerEnum[];
   /**
-   * @public
    * A list of lists of strings.
+   * @public
    */
   nestedStringList?: string[][];
 
@@ -820,8 +820,8 @@ export interface XmlListsResponse {
   enumList?: FooEnum[];
   intEnumList?: IntegerEnum[];
   /**
-   * @public
    * A list of lists of strings.
+   * @public
    */
   nestedStringList?: string[][];
 

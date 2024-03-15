@@ -28,7 +28,6 @@ export interface CancelQueryCommandInput extends CancelQueryRequest {}
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Cancels a query that has been issued. Cancellation is provided only if the query has
  *             not completed running before the cancellation request was issued. Because cancellation
  *             is an idempotent operation, subsequent cancellation requests will return a
@@ -78,6 +77,7 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class CancelQueryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteSSHPublicKeyCommandInput extends DeleteSSHPublicKeyReques
 export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified SSH public key.</p>
  *          <p>The SSH public key deleted by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -62,6 +61,7 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteSSHPublicKeyCommand extends $Command
   .classBuilder<

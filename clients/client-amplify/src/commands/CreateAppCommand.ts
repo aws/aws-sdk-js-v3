@@ -32,7 +32,6 @@ export interface CreateAppCommandInput extends CreateAppRequest {}
 export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -175,6 +174,7 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class CreateAppCommand extends $Command
   .classBuilder<

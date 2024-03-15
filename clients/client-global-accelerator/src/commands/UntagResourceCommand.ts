@@ -31,7 +31,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove tags from a Global Accelerator resource. When you specify a tag key, the action removes both that key and its associated value.
  * 			The operation succeeds even if you attempt to remove tags from an accelerator that was already removed.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
@@ -72,6 +71,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

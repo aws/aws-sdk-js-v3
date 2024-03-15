@@ -32,7 +32,6 @@ export interface UpdatePodIdentityAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a EKS Pod Identity association. Only the IAM role can be changed; an association can't be moved
  *             between clusters, namespaces, or service accounts. If you need to edit the namespace
  *             or service account, you need to delete the association and then create a new
@@ -94,6 +93,7 @@ export interface UpdatePodIdentityAssociationCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class UpdatePodIdentityAssociationCommand extends $Command
   .classBuilder<

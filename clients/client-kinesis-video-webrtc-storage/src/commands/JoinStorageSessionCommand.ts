@@ -31,7 +31,6 @@ export interface JoinStorageSessionCommandInput extends JoinStorageSessionInput 
 export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Join the ongoing one way-video and/or multi-way audio WebRTC session as
  *       a video producing device for an input channel. If there’s no existing
@@ -92,6 +91,7 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisVideoWebRTCStorageServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.</p>
  *
+ * @public
  */
 export class JoinStorageSessionCommand extends $Command
   .classBuilder<

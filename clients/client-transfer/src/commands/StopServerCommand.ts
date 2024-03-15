@@ -27,7 +27,6 @@ export interface StopServerCommandInput extends StopServerRequest {}
 export interface StopServerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the state of a file transfer protocol-enabled server from <code>ONLINE</code> to
  *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
  *       jobs. Information tied to your server, such as server and user properties, are not affected by
@@ -80,6 +79,7 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class StopServerCommand extends $Command
   .classBuilder<

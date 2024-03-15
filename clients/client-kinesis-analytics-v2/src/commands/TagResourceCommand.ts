@@ -31,7 +31,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more key-value tags to a Managed Service for Apache Flink application. Note that the maximum number of application
  *         tags includes system tags. The maximum number of user-defined application tags is 50.
  *       For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
@@ -83,6 +82,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

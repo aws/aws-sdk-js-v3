@@ -27,9 +27,6 @@ export interface AssociateEntityToThingCommandInput extends AssociateEntityToThi
 export interface AssociateEntityToThingCommandOutput extends AssociateEntityToThingResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Associates a device with a concrete thing that is in the user's registry.</p>
  *          <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>
  * @example
@@ -70,6 +67,8 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class AssociateEntityToThingCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateTrustStoreCommandInput extends CreateTrustStoreInput {}
 export interface CreateTrustStoreCommandOutput extends CreateTrustStoreOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreOutput, _
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class CreateTrustStoreCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeFileSystemPolicyCommandInput extends DescribeFileSystem
 export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file
  *       system.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
@@ -72,6 +71,7 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DescribeFileSystemPolicyCommand extends $Command
   .classBuilder<

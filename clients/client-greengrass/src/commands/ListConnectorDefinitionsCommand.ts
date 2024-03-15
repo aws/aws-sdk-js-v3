@@ -27,7 +27,6 @@ export interface ListConnectorDefinitionsCommandInput extends ListConnectorDefin
 export interface ListConnectorDefinitionsCommandOutput extends ListConnectorDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves a list of connector definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListConnectorDefinitionsCommandOutput extends ListConnectorDefi
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListConnectorDefinitionsCommand extends $Command
   .classBuilder<

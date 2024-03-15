@@ -27,7 +27,6 @@ export interface ListRecordsCommandInput extends ListRecordsRequest {}
 export interface ListRecordsCommandOutput extends ListRecordsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets paginated records, optionally changed after a particular sync count for a dataset and
  *          identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus,
  *          the credentials used to make this API call need to have access to the identity data.</p>
@@ -151,6 +150,7 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class ListRecordsCommand extends $Command
   .classBuilder<

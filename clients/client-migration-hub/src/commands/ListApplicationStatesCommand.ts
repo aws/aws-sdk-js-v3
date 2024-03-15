@@ -27,7 +27,6 @@ export interface ListApplicationStatesCommandInput extends ListApplicationStates
 export interface ListApplicationStatesCommandOutput extends ListApplicationStatesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the migration statuses for your applications. If you use the optional
  *             <code>ApplicationIds</code> parameter, only the migration statuses for those
  *          applications will be returned.</p>
@@ -89,6 +88,7 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class ListApplicationStatesCommand extends $Command
   .classBuilder<

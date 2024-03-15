@@ -27,7 +27,6 @@ export interface ListScheduledAuditsCommandInput extends ListScheduledAuditsRequ
 export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of your scheduled audits.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListScheduledAudits</a> action.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListScheduledAuditsCommand extends $Command
   .classBuilder<

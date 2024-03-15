@@ -27,7 +27,6 @@ export interface ListRoomsCommandInput extends ListRoomsRequest {}
 export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class ListRoomsCommand extends $Command
   .classBuilder<

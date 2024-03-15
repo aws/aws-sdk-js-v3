@@ -27,7 +27,6 @@ export interface ListSchemasCommandInput extends ListSchemasRequest {}
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of schemas associated with the account. The response provides the
  *       properties for each schema, including the Amazon Resource Name (ARN).
  *       For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
@@ -70,6 +69,7 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListSchemasCommand extends $Command
   .classBuilder<

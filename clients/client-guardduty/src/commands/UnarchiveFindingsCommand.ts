@@ -27,7 +27,6 @@ export interface UnarchiveFindingsCommandInput extends UnarchiveFindingsRequest 
 export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class UnarchiveFindingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GroupResourcesCommandInput extends GroupResourcesInput {}
 export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified resources to the specified group.</p>
  *          <important>
  *             <p>You can use this operation with only resource groups that are configured with the
@@ -120,6 +119,7 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class GroupResourcesCommand extends $Command
   .classBuilder<

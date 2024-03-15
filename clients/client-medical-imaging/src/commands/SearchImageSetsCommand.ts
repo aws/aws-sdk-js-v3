@@ -32,7 +32,6 @@ export interface SearchImageSetsCommandInput extends SearchImageSetsRequest {}
 export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Search image sets based on defined input attributes.</p>
  *          <note>
  *             <p>
@@ -131,6 +130,7 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class SearchImageSetsCommand extends $Command
   .classBuilder<

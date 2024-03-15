@@ -33,7 +33,6 @@ export interface ListDelegatedAdministratorsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Web Services accounts that are designated as delegated administrators in this
  *             organization.</p>
  *          <p>This operation can be called only from the organization's
@@ -403,6 +402,7 @@ export interface ListDelegatedAdministratorsCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class ListDelegatedAdministratorsCommand extends $Command
   .classBuilder<

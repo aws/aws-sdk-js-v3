@@ -27,7 +27,6 @@ export interface DescribeAddonCommandInput extends DescribeAddonRequest {}
 export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Amazon EKS add-on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __Met
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeAddonCommand extends $Command
   .classBuilder<

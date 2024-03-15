@@ -27,7 +27,6 @@ export interface DeleteRoomMembershipCommandInput extends DeleteRoomMembershipRe
 export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a member from a chat room in an Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class DeleteRoomMembershipCommand extends $Command
   .classBuilder<

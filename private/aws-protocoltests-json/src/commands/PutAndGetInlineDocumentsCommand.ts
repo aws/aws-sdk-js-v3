@@ -25,7 +25,6 @@ export interface PutAndGetInlineDocumentsCommandInput extends PutAndGetInlineDoc
 export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDocumentsInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes an inline document as part of the payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ * @public
  */
 export class PutAndGetInlineDocumentsCommand extends $Command
   .classBuilder<

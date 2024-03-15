@@ -27,7 +27,6 @@ export interface RestoreAnalysisCommandInput extends RestoreAnalysisRequest {}
 export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class RestoreAnalysisCommand extends $Command
   .classBuilder<

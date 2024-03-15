@@ -32,7 +32,6 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the TLS inspection configuration settings for the specified TLS inspection configuration. You use a TLS inspection configuration by
  *         referencing it in one or more firewall policies. When you modify a TLS inspection configuration, you modify all
  *         firewall policies that use the TLS inspection configuration. </p>
@@ -179,6 +178,7 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateTLSInspectionConfigurationCommand extends $Command
   .classBuilder<

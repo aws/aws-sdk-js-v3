@@ -27,7 +27,6 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't
  *          be undone. Datasets that this dataset was merged with will no longer report the merge. Any
  *          subsequent operation on this dataset will result in a
@@ -93,6 +92,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class DeleteDatasetCommand extends $Command
   .classBuilder<

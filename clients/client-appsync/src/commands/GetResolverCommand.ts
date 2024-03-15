@@ -27,7 +27,6 @@ export interface GetResolverCommandInput extends GetResolverRequest {}
 export interface GetResolverCommandOutput extends GetResolverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a <code>Resolver</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetResolverCommand extends $Command
   .classBuilder<

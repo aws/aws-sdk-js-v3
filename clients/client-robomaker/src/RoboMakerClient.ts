@@ -531,8 +531,8 @@ export type RoboMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface RoboMakerClientResolvedConfig extends RoboMakerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This section provides documentation for the AWS RoboMaker API operations.</p>
+ * @public
  */
 export class RoboMakerClient extends __Client<
   __HttpHandlerOptions,

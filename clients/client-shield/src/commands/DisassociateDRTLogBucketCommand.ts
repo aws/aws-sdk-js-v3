@@ -27,7 +27,6 @@ export interface DisassociateDRTLogBucketCommandInput extends DisassociateDRTLog
 export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the Shield Response Team's (SRT) access to the specified Amazon S3 bucket containing the logs that you shared previously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLo
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DisassociateDRTLogBucketCommand extends $Command
   .classBuilder<

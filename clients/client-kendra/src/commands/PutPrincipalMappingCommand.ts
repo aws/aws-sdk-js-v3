@@ -27,7 +27,6 @@ export interface PutPrincipalMappingCommandInput extends PutPrincipalMappingRequ
 export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Maps users to their groups so that you only need to provide the user ID when you issue
  *             the query.</p>
  *          <p>You can also map sub groups to groups. For example, the group "Company Intellectual
@@ -115,6 +114,7 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class PutPrincipalMappingCommand extends $Command
   .classBuilder<

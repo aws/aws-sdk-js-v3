@@ -27,7 +27,6 @@ export interface DescribeStackSummaryCommandInput extends DescribeStackSummaryRe
 export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the number of layers and apps in a specified stack, and the number of instances in
  *       each state, such as <code>running_setup</code> or <code>online</code>.</p>
  *          <p>
@@ -95,6 +94,7 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeStackSummaryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopChannelCommandInput extends StopChannelRequest {}
 export interface StopChannelCommandOutput extends StopChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working with channels</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class StopChannelCommand extends $Command
   .classBuilder<

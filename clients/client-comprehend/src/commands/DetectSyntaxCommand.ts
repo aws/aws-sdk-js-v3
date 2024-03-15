@@ -32,7 +32,6 @@ export interface DetectSyntaxCommandInput extends DetectSyntaxRequest {}
 export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects text for syntax and the part of speech of words in the document. For more
  *       information, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
@@ -89,6 +88,7 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectSyntaxCommand extends $Command
   .classBuilder<

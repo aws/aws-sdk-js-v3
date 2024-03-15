@@ -27,9 +27,6 @@ export interface UndeploySystemInstanceCommandInput extends UndeploySystemInstan
 export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +79,8 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class UndeploySystemInstanceCommand extends $Command
   .classBuilder<

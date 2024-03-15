@@ -32,7 +32,6 @@ export interface UpdateConnectionAliasPermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Shares or unshares a connection alias with one account by specifying whether that
  *          account has permission to associate the connection alias with a directory. If the
  *          association permission is granted, the connection alias is shared with that account. If the
@@ -104,6 +103,7 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class UpdateConnectionAliasPermissionCommand extends $Command
   .classBuilder<

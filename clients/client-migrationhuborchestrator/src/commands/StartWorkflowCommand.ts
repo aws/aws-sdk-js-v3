@@ -31,7 +31,6 @@ export interface StartWorkflowCommandInput extends StartMigrationWorkflowRequest
 export interface StartWorkflowCommandOutput extends StartMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface StartWorkflowCommandOutput extends StartMigrationWorkflowRespon
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class StartWorkflowCommand extends $Command
   .classBuilder<

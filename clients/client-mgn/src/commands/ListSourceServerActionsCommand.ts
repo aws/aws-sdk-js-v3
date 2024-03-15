@@ -27,7 +27,6 @@ export interface ListSourceServerActionsCommandInput extends ListSourceServerAct
 export interface ListSourceServerActionsCommandOutput extends ListSourceServerActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List source server post migration custom actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListSourceServerActionsCommandOutput extends ListSourceServerAc
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class ListSourceServerActionsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface CreateCrossAccountAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a cross-account attachment in Global Accelerator. You create a cross-account attachment to
  * 			specify the <i>principals</i> who have permission to add to accelerators in their own
  * 			account the resources in your account that you also list in the attachment.</p>
@@ -117,6 +116,7 @@ export interface CreateCrossAccountAttachmentCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class CreateCrossAccountAttachmentCommand extends $Command
   .classBuilder<

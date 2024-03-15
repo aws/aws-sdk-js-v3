@@ -27,7 +27,6 @@ export interface ListCrlsCommandInput extends ListRequest {}
 export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all certificate revocation lists (CRL) in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -78,6 +77,7 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class ListCrlsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateSuiteDefinitionCommandInput extends CreateSuiteDefinition
 export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Device Advisor test suite.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSuiteDefinition</a> action.</p>
  * @example
@@ -82,6 +81,7 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * @public
  */
 export class CreateSuiteDefinitionCommand extends $Command
   .classBuilder<

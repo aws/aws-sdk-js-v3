@@ -27,7 +27,6 @@ export interface CreateDistributionCommandInput extends CreateDistributionReques
 export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>A distribution is a globally distributed network of caching servers that improve the
  *       performance of your website or web application hosted on a Lightsail instance. For more
@@ -215,6 +214,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateDistributionCommand extends $Command
   .classBuilder<

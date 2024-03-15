@@ -27,7 +27,6 @@ export interface CreateIAMPolicyAssignmentCommandInput extends CreateIAMPolicyAs
 export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an assignment with one specified IAM policy, identified by its
  * 			Amazon Resource Name (ARN). This policy assignment is attached to the specified groups
  * 			or users of Amazon QuickSight. Assignment names are unique per Amazon Web Services
@@ -103,6 +102,7 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateIAMPolicyAssignmentCommand extends $Command
   .classBuilder<

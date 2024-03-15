@@ -27,7 +27,6 @@ export interface DeleteDetectorModelCommandInput extends DeleteDetectorModelRequ
 export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a detector model. Any active instances of the detector model are also
  *       deleted.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DeleteDetectorModelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetHealthCheckStatusCommandInput extends GetHealthCheckStatusRe
 export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets status of a specified health check. </p>
  *          <important>
  *             <p>This API is intended for use during development to diagnose behavior. It doesn’t
@@ -75,6 +74,7 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetHealthCheckStatusCommand extends $Command
   .classBuilder<

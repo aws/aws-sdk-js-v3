@@ -27,7 +27,6 @@ export interface DeleteBackendAuthCommandInput extends DeleteBackendAuthRequest 
 export interface DeleteBackendAuthCommandOutput extends DeleteBackendAuthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing backend authentication resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteBackendAuthCommandOutput extends DeleteBackendAuthRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class DeleteBackendAuthCommand extends $Command
   .classBuilder<

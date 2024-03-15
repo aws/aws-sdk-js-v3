@@ -339,7 +339,6 @@ export type EMRContainersClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface EMRContainersClientResolvedConfig extends EMRContainersClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows
  *          you to run open-source big data frameworks on Amazon Elastic Kubernetes Service (Amazon EKS).
  *          With this deployment option, you can focus on running analytics workloads while Amazon EMR on EKS builds, configures, and manages containers for open-source applications.
@@ -364,6 +363,7 @@ export interface EMRContainersClientResolvedConfig extends EMRContainersClientRe
  *                   <a href="https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints">Amazon EMR on EKSService Endpoints</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class EMRContainersClient extends __Client<
   __HttpHandlerOptions,

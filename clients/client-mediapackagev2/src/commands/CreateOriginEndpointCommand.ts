@@ -27,7 +27,6 @@ export interface CreateOriginEndpointCommandInput extends CreateOriginEndpointRe
 export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The endpoint is attached to a channel, and represents the output of the live content. You can associate multiple endpoints to a single channel. Each endpoint gives players and downstream CDNs (such as Amazon CloudFront) access to the content for playback. Content can't be served from a channel until it has an endpoint. You can create only one endpoint with each request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -231,6 +230,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class CreateOriginEndpointCommand extends $Command
   .classBuilder<

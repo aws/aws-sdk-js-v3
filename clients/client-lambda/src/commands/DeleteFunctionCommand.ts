@@ -27,7 +27,6 @@ export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
 export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
  *       Otherwise, all versions and aliases are deleted. This doesn't require the user to have explicit
  *       permissions for <a>DeleteAlias</a>.</p>
@@ -73,6 +72,7 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteFunctionCommand extends $Command
   .classBuilder<

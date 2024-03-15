@@ -27,7 +27,6 @@ export interface ListContactsCommandInput extends ListContactsRequest {}
 export interface ListContactsCommandOutput extends ListContactsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all contacts and escalation plans in Incident Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListContactsCommand extends $Command
   .classBuilder<

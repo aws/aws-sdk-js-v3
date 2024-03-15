@@ -31,7 +31,6 @@ export interface UpdateHostCommandInput extends UpdateHostInput {}
 export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified host with the provided configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class UpdateHostCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateProtectionGroupCommandInput extends CreateProtectionGroup
 export interface CreateProtectionGroupCommandOutput extends CreateProtectionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateProtectionGroupCommandOutput extends CreateProtectionGrou
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class CreateProtectionGroupCommand extends $Command
   .classBuilder<

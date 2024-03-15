@@ -27,7 +27,6 @@ export interface PutMetricAlarmCommandInput extends PutMetricAlarmInput {}
 export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
  * 			anomaly detection model, or Metrics Insights query. For more information about using
  * 			a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
@@ -169,6 +168,7 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class PutMetricAlarmCommand extends $Command
   .classBuilder<

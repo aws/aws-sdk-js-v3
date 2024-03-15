@@ -27,7 +27,6 @@ export interface DeleteBucketAccessKeyCommandInput extends DeleteBucketAccessKey
 export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKeyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an access key for the specified Amazon Lightsail bucket.</p>
  *          <p>We recommend that you delete an access key if the secret access key is compromised.</p>
  *          <p>For more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
@@ -100,6 +99,7 @@ export interface DeleteBucketAccessKeyCommandOutput extends DeleteBucketAccessKe
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteBucketAccessKeyCommand extends $Command
   .classBuilder<

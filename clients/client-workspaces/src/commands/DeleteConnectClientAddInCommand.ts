@@ -27,7 +27,6 @@ export interface DeleteConnectClientAddInCommandInput extends DeleteConnectClien
 export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClientAddInResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a client-add-in for Amazon Connect that is configured within a
  *          directory.</p>
  * @example
@@ -64,6 +63,7 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DeleteConnectClientAddInCommand extends $Command
   .classBuilder<

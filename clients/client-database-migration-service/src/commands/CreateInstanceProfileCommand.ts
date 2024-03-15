@@ -31,7 +31,6 @@ export interface CreateInstanceProfileCommandInput extends CreateInstanceProfile
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the instance profile using the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Create Instance Profile
  * ```javascript
  * // Creates the instance profile using the specified parameters.

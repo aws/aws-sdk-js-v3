@@ -27,7 +27,6 @@ export interface BatchGetVariableCommandInput extends BatchGetVariableRequest {}
 export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a batch of variables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class BatchGetVariableCommand extends $Command
   .classBuilder<

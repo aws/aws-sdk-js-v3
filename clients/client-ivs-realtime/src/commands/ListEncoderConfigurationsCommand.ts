@@ -27,7 +27,6 @@ export interface ListEncoderConfigurationsCommandInput extends ListEncoderConfig
 export interface ListEncoderConfigurationsCommandOutput extends ListEncoderConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about all EncoderConfigurations in your account, in the AWS
  *          region where the API request is processed.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListEncoderConfigurationsCommandOutput extends ListEncoderConfi
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class ListEncoderConfigurationsCommand extends $Command
   .classBuilder<

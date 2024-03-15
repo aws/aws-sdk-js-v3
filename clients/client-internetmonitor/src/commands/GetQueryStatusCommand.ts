@@ -27,7 +27,6 @@ export interface GetQueryStatusCommandInput extends GetQueryStatusInput {}
 export interface GetQueryStatusCommandOutput extends GetQueryStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current status of a query for the Amazon CloudWatch Internet Monitor query interface, for a specified query ID and monitor.
  * 			When you run a query, check the status to make sure that the query has <code>SUCCEEDED</code> before you review the results.</p>
  *          <ul>
@@ -94,6 +93,7 @@ export interface GetQueryStatusCommandOutput extends GetQueryStatusOutput, __Met
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class GetQueryStatusCommand extends $Command
   .classBuilder<

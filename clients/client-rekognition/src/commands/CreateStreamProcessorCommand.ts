@@ -27,7 +27,6 @@ export interface CreateStreamProcessorCommandInput extends CreateStreamProcessor
 export interface CreateStreamProcessorCommandOutput extends CreateStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.</p>
  *          <p>Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. There are two different settings for stream processors in Amazon Rekognition: detecting faces and detecting labels.</p>
  *          <ul>
@@ -170,6 +169,7 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class CreateStreamProcessorCommand extends $Command
   .classBuilder<

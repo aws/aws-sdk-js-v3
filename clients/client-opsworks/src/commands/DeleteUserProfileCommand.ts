@@ -27,7 +27,6 @@ export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest 
 export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user profile.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -63,6 +62,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeleteUserProfileCommand extends $Command
   .classBuilder<

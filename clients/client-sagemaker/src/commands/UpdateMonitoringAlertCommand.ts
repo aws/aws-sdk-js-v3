@@ -27,7 +27,6 @@ export interface UpdateMonitoringAlertCommandInput extends UpdateMonitoringAlert
 export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAlertResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the parameters of a model monitor alert.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface UpdateMonitoringAlertCommandOutput extends UpdateMonitoringAler
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateMonitoringAlertCommand extends $Command
   .classBuilder<

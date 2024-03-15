@@ -31,7 +31,6 @@ export interface AddCustomRoutingEndpointsCommandInput extends AddCustomRoutingE
 export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRoutingEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p>
  *          <p>The listener port range must be large enough to support the number of IP addresses that can be
  * 		specified in your subnet. The number of ports required is: subnet size times the number
@@ -101,6 +100,7 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class AddCustomRoutingEndpointsCommand extends $Command
   .classBuilder<

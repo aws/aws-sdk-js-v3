@@ -27,7 +27,6 @@ export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of an instance of IAM Identity Center. The status can be one of the following:</p>
  *          <ul>
  *             <li>
@@ -92,6 +91,7 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribeInstanceCommand extends $Command
   .classBuilder<

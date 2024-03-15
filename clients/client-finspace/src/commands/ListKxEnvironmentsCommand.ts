@@ -27,7 +27,6 @@ export interface ListKxEnvironmentsCommandInput extends ListKxEnvironmentsReques
 export interface ListKxEnvironmentsCommandOutput extends ListKxEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of kdb environments created in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface ListKxEnvironmentsCommandOutput extends ListKxEnvironmentsRespo
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxEnvironmentsCommand extends $Command
   .classBuilder<

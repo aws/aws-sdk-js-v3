@@ -27,7 +27,6 @@ export interface ModifyVpcAttributeCommandInput extends ModifyVpcAttributeReques
 export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified attribute of the specified VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To modify the enableDnsSupport attribute
  * ```javascript
  * // This example modifies the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for instances in the VPC to their corresponding IP addresses; otherwise, it does not.

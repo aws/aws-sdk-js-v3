@@ -27,7 +27,6 @@ export interface DeleteRolePolicyCommandInput extends DeleteRolePolicyRequest {}
 export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified inline policy that is embedded in the specified IAM
  *             role.</p>
  *          <p>A role can also have managed policies attached to it. To detach a managed policy from
@@ -77,6 +76,7 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To remove a policy from an IAM role
  * ```javascript
  * // The following command removes the policy named ExamplePolicy from the role named Test-Role.

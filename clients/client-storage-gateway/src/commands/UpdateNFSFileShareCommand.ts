@@ -27,7 +27,6 @@ export interface UpdateNFSFileShareCommandInput extends UpdateNFSFileShareInput 
 export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a Network File System (NFS) file share. This operation is only supported in S3
  *          File Gateways.</p>
  *          <note>
@@ -109,6 +108,7 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateNFSFileShareCommand extends $Command
   .classBuilder<

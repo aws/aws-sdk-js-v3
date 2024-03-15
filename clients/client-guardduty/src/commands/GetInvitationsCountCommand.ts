@@ -27,7 +27,6 @@ export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequ
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
  *       member account except the currently accepted invitation.</p>
  * @example
@@ -60,6 +59,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetInvitationsCountCommand extends $Command
   .classBuilder<

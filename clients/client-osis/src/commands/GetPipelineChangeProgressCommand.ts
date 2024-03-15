@@ -27,7 +27,6 @@ export interface GetPipelineChangeProgressCommandInput extends GetPipelineChange
 export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChangeProgressResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns progress information for the current change happening on an OpenSearch Ingestion
  *    pipeline. Currently, this operation only returns information when a pipeline is being
  *    created.</p>
@@ -85,6 +84,7 @@ export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChang
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class GetPipelineChangeProgressCommand extends $Command
   .classBuilder<

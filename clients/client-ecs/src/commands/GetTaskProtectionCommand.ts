@@ -27,7 +27,6 @@ export interface GetTaskProtectionCommandInput extends GetTaskProtectionRequest 
 export interface GetTaskProtectionCommandOutput extends GetTaskProtectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the protection status of tasks in an Amazon ECS service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To get the protection status of a task
  * ```javascript
  * // In this example, we get the protection status for a single task.

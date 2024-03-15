@@ -27,7 +27,6 @@ export interface GetBucketStatisticsCommandInput extends GetBucketStatisticsRequ
 export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) aggregated statistical data about all the S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsRes
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetBucketStatisticsCommand extends $Command
   .classBuilder<

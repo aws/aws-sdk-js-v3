@@ -27,7 +27,6 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyIn
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a resource policy that is identified by its resource ARN. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

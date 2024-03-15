@@ -27,7 +27,6 @@ export interface PollForActivityTaskCommandInput extends PollForActivityTaskInpu
 export interface PollForActivityTaskCommandOutput extends ActivityTask, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by workers to get an <a>ActivityTask</a> from the specified activity
  *         <code>taskList</code>. This initiates a long poll, where the service holds the HTTP
  *       connection open and responds as soon as a task becomes available. The maximum time the service
@@ -114,6 +113,7 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class PollForActivityTaskCommand extends $Command
   .classBuilder<

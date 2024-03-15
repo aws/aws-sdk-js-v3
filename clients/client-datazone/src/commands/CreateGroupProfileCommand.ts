@@ -31,7 +31,6 @@ export interface CreateGroupProfileCommandInput extends CreateGroupProfileInput 
 export interface CreateGroupProfileCommandOutput extends CreateGroupProfileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a group profile in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface CreateGroupProfileCommandOutput extends CreateGroupProfileOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateGroupProfileCommand extends $Command
   .classBuilder<

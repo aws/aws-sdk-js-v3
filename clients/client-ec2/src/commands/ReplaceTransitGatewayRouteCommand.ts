@@ -27,7 +27,6 @@ export interface ReplaceTransitGatewayRouteCommandInput extends ReplaceTransitGa
 export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the specified route in the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ReplaceTransitGatewayRouteCommand extends $Command
   .classBuilder<

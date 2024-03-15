@@ -27,7 +27,6 @@ export interface GetResourceMetadataCommandInput extends GetResourceMetadataRequ
 export interface GetResourceMetadataCommandOutput extends GetResourceMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the metadata for different features. For example, the metadata might indicate
  *             that a feature is turned on or off on a specific DB instance.
  *         </p>
@@ -72,6 +71,7 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class GetResourceMetadataCommand extends $Command
   .classBuilder<

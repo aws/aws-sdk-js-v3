@@ -32,7 +32,6 @@ export interface CreateWatchlistCommandInput extends CreateWatchlistRequest {}
 export interface CreateWatchlistCommandOutput extends CreateWatchlistResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a watchlist that fraudsters can be a part of.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface CreateWatchlistCommandOutput extends CreateWatchlistResponse, _
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class CreateWatchlistCommand extends $Command
   .classBuilder<

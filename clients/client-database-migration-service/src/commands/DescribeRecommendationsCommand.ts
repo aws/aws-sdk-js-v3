@@ -31,7 +31,6 @@ export interface DescribeRecommendationsCommandInput extends DescribeRecommendat
 export interface DescribeRecommendationsCommandOutput extends DescribeRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of target engine recommendations for your source
  *             databases.</p>
  * @example
@@ -113,6 +112,7 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeRecommendationsCommand extends $Command
   .classBuilder<

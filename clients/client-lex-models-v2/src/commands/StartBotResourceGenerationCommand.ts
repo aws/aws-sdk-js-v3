@@ -27,7 +27,6 @@ export interface StartBotResourceGenerationCommandInput extends StartBotResource
 export interface StartBotResourceGenerationCommandOutput extends StartBotResourceGenerationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a request for the descriptive bot builder to generate a bot locale configuration
  *          based on the prompt you provide it. After you make this call, use the <code>DescribeBotResourceGeneration</code>
  *          operation to check on the status of the generation and for the <code>generatedBotLocaleUrl</code> when the
@@ -93,6 +92,7 @@ export interface StartBotResourceGenerationCommandOutput extends StartBotResourc
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class StartBotResourceGenerationCommand extends $Command
   .classBuilder<

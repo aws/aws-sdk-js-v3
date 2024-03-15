@@ -4,49 +4,49 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { TranscribeStreamingServiceException as __BaseException } from "./TranscribeStreamingServiceException";
 
 /**
- * @public
  * <p>Contains entities identified as personally identifiable information (PII) in your
  *       transcription output, along with various associated attributes. Examples include category,
  *       confidence score, type, stability score, and start and end times.</p>
+ * @public
  */
 export interface Entity {
   /**
-   * @public
    * <p>The start time, in milliseconds, of the utterance that was identified as PII.</p>
+   * @public
    */
   StartTime?: number;
 
   /**
-   * @public
    * <p>The end time, in milliseconds, of the utterance that was identified as PII.</p>
+   * @public
    */
   EndTime?: number;
 
   /**
-   * @public
    * <p>The category of information identified. The only category is <code>PII</code>.</p>
+   * @public
    */
   Category?: string;
 
   /**
-   * @public
    * <p>The type of PII identified. For example, <code>NAME</code> or
    *       <code>CREDIT_DEBIT_NUMBER</code>.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The word or words identified as PII.</p>
+   * @public
    */
   Content?: string;
 
   /**
-   * @public
    * <p>The confidence score associated with the identified PII entity in your audio.</p>
    *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *       probability that the identified entity correctly matches the entity spoken in your
    *       media.</p>
+   * @public
    */
   Confidence?: number;
 }
@@ -66,104 +66,104 @@ export const ItemType = {
 export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 /**
- * @public
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various associated
  *       attributes, such as confidence score, type, and start and end times.</p>
+ * @public
  */
 export interface Item {
   /**
-   * @public
    * <p>The start time, in milliseconds, of the transcribed item.</p>
+   * @public
    */
   StartTime?: number;
 
   /**
-   * @public
    * <p>The end time, in milliseconds, of the transcribed item.</p>
+   * @public
    */
   EndTime?: number;
 
   /**
-   * @public
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
+   * @public
    */
   Type?: ItemType;
 
   /**
-   * @public
    * <p>The word or punctuation that was transcribed.</p>
+   * @public
    */
   Content?: string;
 
   /**
-   * @public
    * <p>Indicates whether the specified item matches a word in the vocabulary filter included in
    *       your request. If <code>true</code>, there is a vocabulary filter match.</p>
+   * @public
    */
   VocabularyFilterMatch?: boolean;
 
   /**
-   * @public
    * <p>If speaker partitioning is enabled, <code>Speaker</code> labels the speaker of the
    *       specified item.</p>
+   * @public
    */
   Speaker?: string;
 
   /**
-   * @public
    * <p>The confidence score associated with a word or phrase in your transcript.</p>
    *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *       probability that the identified item correctly matches the item spoken in your media.</p>
+   * @public
    */
   Confidence?: number;
 
   /**
-   * @public
    * <p>If partial result stabilization is enabled, <code>Stable</code> indicates whether the specified
    *       item is stable (<code>true</code>) or if it may change when the segment is complete
    *       (<code>false</code>).</p>
+   * @public
    */
   Stable?: boolean;
 }
 
 /**
- * @public
  * <p>A list of possible alternative transcriptions for the input audio. Each alternative may contain
  *       one or more of <code>Items</code>, <code>Entities</code>, or <code>Transcript</code>.</p>
+ * @public
  */
 export interface Alternative {
   /**
-   * @public
    * <p>Contains transcribed text.</p>
+   * @public
    */
   Transcript?: string;
 
   /**
-   * @public
    * <p>Contains words, phrases, or punctuation marks in your transcription output.</p>
+   * @public
    */
   Items?: Item[];
 
   /**
-   * @public
    * <p>Contains entities identified as personally identifiable information (PII) in your transcription
    *       output.</p>
+   * @public
    */
   Entities?: Entity[];
 }
 
 /**
- * @public
  * <p>A wrapper for your audio chunks. Your audio stream consists of one or more audio
  *       events, which consist of one or more audio chunks.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html">Event stream encoding</a>.</p>
+ * @public
  */
 export interface AudioEvent {
   /**
-   * @public
    * <p>An audio blob that contains the next part of the audio that you want to transcribe. The
    *       maximum audio chunk size is 32 KB.</p>
+   * @public
    */
   AudioChunk?: Uint8Array;
 }
@@ -183,23 +183,23 @@ export const ParticipantRole = {
 export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
 
 /**
- * @public
  * <p>Makes it possible to specify which speaker is on which audio channel. For example, if your
  *       agent is the first participant to speak, you would set <code>ChannelId</code> to
  *       <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
  *       <code>AGENT</code> (to indicate that it's the agent speaking).</p>
+ * @public
  */
 export interface ChannelDefinition {
   /**
-   * @public
    * <p>Specify the audio channel you want to define.</p>
+   * @public
    */
   ChannelId: number | undefined;
 
   /**
-   * @public
    * <p>Specify the speaker you want to define. Omitting this parameter is equivalent to
    *       specifying both participants.</p>
+   * @public
    */
   ParticipantRole: ParticipantRole | undefined;
 }
@@ -219,7 +219,6 @@ export const ContentRedactionOutput = {
 export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeof ContentRedactionOutput];
 
 /**
- * @public
  * <p>Allows you to specify additional settings for your streaming Call Analytics
  *       post-call request, including output locations for your redacted and unredacted
  *       transcript, which IAM role to use, and, optionally, which encryption key to
@@ -227,10 +226,10 @@ export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeo
  *          <p>
  *             <code>ContentRedactionOutput</code>, <code>DataAccessRoleArn</code>, and
  *       <code>OutputLocation</code> are required fields.</p>
+ * @public
  */
 export interface PostCallAnalyticsSettings {
   /**
-   * @public
    * <p>The Amazon S3 location where you want your Call Analytics post-call
    *       transcription output stored. You can use any of the following formats to specify the output
    *       location:</p>
@@ -245,11 +244,11 @@ export interface PostCallAnalyticsSettings {
    *                <p>s3://DOC-EXAMPLE-BUCKET/my-output-folder/my-call-analytics-job.json</p>
    *             </li>
    *          </ol>
+   * @public
    */
   OutputLocation: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *       access the Amazon S3 bucket that contains your input files. If the role that you
    *       specify doesn’t have the appropriate permissions to access the specified Amazon S3
@@ -258,21 +257,21 @@ export interface PostCallAnalyticsSettings {
    *       <code>arn:partition:iam::account:role/role-name-with-path</code>. For example:
    *       <code>arn:aws:iam::111122223333:role/Admin</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *         ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Specify whether you want only a redacted transcript or both a redacted and an unredacted
    *       transcript. If you choose redacted and unredacted, two JSON files are generated and stored in the
    *       Amazon S3 output location you specify.</p>
    *          <p>Note that to include <code>ContentRedactionOutput</code> in your request, you must
    *       enable content redaction (<code>ContentRedactionType</code>).</p>
+   * @public
    */
   ContentRedactionOutput?: ContentRedactionOutput;
 
   /**
-   * @public
    * <p>The KMS key you want to use to encrypt your Call Analytics post-call
    *       output.</p>
    *          <p>If using a key located in the <b>current</b>
@@ -312,34 +311,35 @@ export interface PostCallAnalyticsSettings {
    *          </ol>
    *          <p>Note that the user making the  request must
    *       have permission to use the specified KMS key.</p>
+   * @public
    */
   OutputEncryptionKMSKeyId?: string;
 }
 
 /**
- * @public
  * <p>Allows you to set audio channel definitions and post-call analytics settings.</p>
+ * @public
  */
 export interface ConfigurationEvent {
   /**
-   * @public
    * <p>Indicates which speaker is on which audio channel.</p>
+   * @public
    */
   ChannelDefinitions?: ChannelDefinition[];
 
   /**
-   * @public
    * <p>Provides additional optional settings for your Call Analytics post-call request, including
    *       encryption and output locations for your redacted and unredacted transcript.</p>
+   * @public
    */
   PostCallAnalyticsSettings?: PostCallAnalyticsSettings;
 }
 
 /**
- * @public
  * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
  *       data frames.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
+ * @public
  */
 export type AudioStream =
   | AudioStream.AudioEventMember
@@ -351,10 +351,10 @@ export type AudioStream =
  */
 export namespace AudioStream {
   /**
-   * @public
    * <p>A blob of audio from your application. Your audio stream consists of one or more audio
    *       events.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/event-stream.html">Event stream encoding</a>.</p>
+   * @public
    */
   export interface AudioEventMember {
     AudioEvent: AudioEvent;
@@ -363,8 +363,8 @@ export namespace AudioStream {
   }
 
   /**
-   * @public
    * <p>Contains audio channel definitions and post-call analytics settings.</p>
+   * @public
    */
   export interface ConfigurationEventMember {
     AudioEvent?: never;
@@ -395,11 +395,11 @@ export namespace AudioStream {
 }
 
 /**
- * @public
  * <p>One or more arguments to the <code>StartStreamTranscription</code>,
  *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
  *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
  *       used not valid values. Check the specified parameters and try your request again.</p>
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
@@ -420,104 +420,104 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains entities identified as personally identifiable information (PII) in your
  *       transcription output, along with various associated attributes. Examples include category,
  *       confidence score, content, type, and start and end times.</p>
+ * @public
  */
 export interface CallAnalyticsEntity {
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the identified entity.</p>
+   * @public
    */
   BeginOffsetMillis?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the end of the identified entity.</p>
+   * @public
    */
   EndOffsetMillis?: number;
 
   /**
-   * @public
    * <p>The category of information identified. For example, <code>PII</code>.</p>
+   * @public
    */
   Category?: string;
 
   /**
-   * @public
    * <p>The type of PII identified. For example, <code>NAME</code> or
    *       <code>CREDIT_DEBIT_NUMBER</code>.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The word or words that represent the identified entity.</p>
+   * @public
    */
   Content?: string;
 
   /**
-   * @public
    * <p>The confidence score associated with the identification of an entity in your transcript.</p>
    *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *       probability that the identified entity correctly matches the entity spoken in your
    *       media.</p>
+   * @public
    */
   Confidence?: number;
 }
 
 /**
- * @public
  * <p>A word, phrase, or punctuation mark in your Call Analytics transcription output, along with various
  *       associated attributes, such as confidence score, type, and start and end times.</p>
+ * @public
  */
 export interface CallAnalyticsItem {
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the identified item.</p>
+   * @public
    */
   BeginOffsetMillis?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the end of the identified item.</p>
+   * @public
    */
   EndOffsetMillis?: number;
 
   /**
-   * @public
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
+   * @public
    */
   Type?: ItemType;
 
   /**
-   * @public
    * <p>The word or punctuation that was transcribed.</p>
+   * @public
    */
   Content?: string;
 
   /**
-   * @public
    * <p>The confidence score associated with a word or phrase in your transcript.</p>
    *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *       probability that the identified item correctly matches the item spoken in your media.</p>
+   * @public
    */
   Confidence?: number;
 
   /**
-   * @public
    * <p>Indicates whether the specified item matches a word in the vocabulary filter included in
    *       your Call Analytics request. If <code>true</code>, there is a vocabulary filter match.</p>
+   * @public
    */
   VocabularyFilterMatch?: boolean;
 
   /**
-   * @public
    * <p>If partial result stabilization is enabled, <code>Stable</code> indicates whether the specified
    *       item is stable (<code>true</code>) or if it may change when the segment is complete
    *       (<code>false</code>).</p>
+   * @public
    */
   Stable?: boolean;
 }
@@ -544,59 +544,59 @@ export const CallAnalyticsLanguageCode = {
 export type CallAnalyticsLanguageCode = (typeof CallAnalyticsLanguageCode)[keyof typeof CallAnalyticsLanguageCode];
 
 /**
- * @public
  * <p>Contains the timestamp range (start time through end time) of a matched category.</p>
+ * @public
  */
 export interface TimestampRange {
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the category
    *       match.</p>
+   * @public
    */
   BeginOffsetMillis?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the end of the category
    *       match.</p>
+   * @public
    */
   EndOffsetMillis?: number;
 }
 
 /**
- * @public
  * <p>Contains the timestamps of matched categories.</p>
+ * @public
  */
 export interface PointsOfInterest {
   /**
-   * @public
    * <p>Contains the timestamp ranges (start time through end time) of matched categories and rules.</p>
+   * @public
    */
   TimestampRanges?: TimestampRange[];
 }
 
 /**
- * @public
  * <p>Provides information on any <code>TranscriptFilterType</code> categories that matched your
  *       transcription output. Matches are identified for each segment upon completion of that segment.</p>
+ * @public
  */
 export interface CategoryEvent {
   /**
-   * @public
    * <p>Lists the categories that were matched in your audio segment.</p>
+   * @public
    */
   MatchedCategories?: string[];
 
   /**
-   * @public
    * <p>Contains information about the matched categories, including category names and timestamps.</p>
+   * @public
    */
   MatchedDetails?: Record<string, PointsOfInterest>;
 }
 
 /**
- * @public
  * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -617,9 +617,9 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
  *       processing.</p>
+ * @public
  */
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
@@ -640,9 +640,9 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
  *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -663,8 +663,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The service is currently unavailable. Try your request later.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -685,34 +685,34 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Provides the location, using character count, in your transcript where a match is identified. For example,
  *       the location of an issue or a category match within a segment.</p>
+ * @public
  */
 export interface CharacterOffsets {
   /**
-   * @public
    * <p>Provides the character count of the first character where a match is identified. For example, the first
    *       character associated with an issue or a category match in a segment transcript.</p>
+   * @public
    */
   Begin?: number;
 
   /**
-   * @public
    * <p>Provides the character count of the last character where a match is identified. For example, the last
    *       character associated with an issue or a category match in a segment transcript.</p>
+   * @public
    */
   End?: number;
 }
 
 /**
- * @public
  * <p>Lists the issues that were identified in your audio segment.</p>
+ * @public
  */
 export interface IssueDetected {
   /**
-   * @public
    * <p>Provides the timestamps that identify when in an audio segment the specified issue occurs.</p>
+   * @public
    */
   CharacterOffsets?: CharacterOffsets;
 }
@@ -734,83 +734,83 @@ export const Sentiment = {
 export type Sentiment = (typeof Sentiment)[keyof typeof Sentiment];
 
 /**
- * @public
  * <p>Contains set of transcription results from one or more audio segments, along with additional
  *       information about the parameters included in your request. For example, channel definitions, partial result
  *       stabilization, sentiment, and issue detection.</p>
+ * @public
  */
 export interface UtteranceEvent {
   /**
-   * @public
    * <p>The unique identifier that is associated with the specified <code>UtteranceEvent</code>.</p>
+   * @public
    */
   UtteranceId?: string;
 
   /**
-   * @public
    * <p>Indicates whether the segment in the <code>UtteranceEvent</code> is complete
    *       (<code>FALSE</code>) or partial (<code>TRUE</code>).</p>
+   * @public
    */
   IsPartial?: boolean;
 
   /**
-   * @public
    * <p>Provides the role of the speaker for each audio channel, either <code>CUSTOMER</code> or
    *       <code>AGENT</code>.</p>
+   * @public
    */
   ParticipantRole?: ParticipantRole;
 
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the
    *       <code>UtteranceEvent</code>.</p>
+   * @public
    */
   BeginOffsetMillis?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the
    *       <code>UtteranceEvent</code>.</p>
+   * @public
    */
   EndOffsetMillis?: number;
 
   /**
-   * @public
    * <p>Contains transcribed text.</p>
+   * @public
    */
   Transcript?: string;
 
   /**
-   * @public
    * <p>Contains words, phrases, or punctuation marks that are associated with the specified
    *       <code>UtteranceEvent</code>.</p>
+   * @public
    */
   Items?: CallAnalyticsItem[];
 
   /**
-   * @public
    * <p>Contains entities identified as personally identifiable information (PII) in your transcription
    *       output.</p>
+   * @public
    */
   Entities?: CallAnalyticsEntity[];
 
   /**
-   * @public
    * <p>Provides the sentiment that was detected in the specified segment.</p>
+   * @public
    */
   Sentiment?: Sentiment;
 
   /**
-   * @public
    * <p>Provides the issue that was detected in the specified segment.</p>
+   * @public
    */
   IssuesDetected?: IssueDetected[];
 }
 
 /**
- * @public
  * <p>Contains detailed information about your Call Analytics streaming session. These details are
  *       provided in the <code>UtteranceEvent</code> and <code>CategoryEvent</code> objects.</p>
+ * @public
  */
 export type CallAnalyticsTranscriptResultStream =
   | CallAnalyticsTranscriptResultStream.BadRequestExceptionMember
@@ -827,10 +827,10 @@ export type CallAnalyticsTranscriptResultStream =
  */
 export namespace CallAnalyticsTranscriptResultStream {
   /**
-   * @public
    * <p>Contains set of transcription results from one or more audio segments, along with additional
    *       information per your request parameters. This can include information relating to channel definitions,
    *       partial result stabilization, sentiment, issue detection, and other transcription-related data.</p>
+   * @public
    */
   export interface UtteranceEventMember {
     UtteranceEvent: UtteranceEvent;
@@ -844,9 +844,9 @@ export namespace CallAnalyticsTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>Provides information on matched categories that were used to generate real-time supervisor
    *       alerts.</p>
+   * @public
    */
   export interface CategoryEventMember {
     UtteranceEvent?: never;
@@ -860,11 +860,11 @@ export namespace CallAnalyticsTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>One or more arguments to the <code>StartStreamTranscription</code>,
    *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
    *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
    *       used not valid values. Check the specified parameters and try your request again.</p>
+   * @public
    */
   export interface BadRequestExceptionMember {
     UtteranceEvent?: never;
@@ -878,9 +878,9 @@ export namespace CallAnalyticsTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
    *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * @public
    */
   export interface LimitExceededExceptionMember {
     UtteranceEvent?: never;
@@ -894,9 +894,9 @@ export namespace CallAnalyticsTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
    *       processing.</p>
+   * @public
    */
   export interface InternalFailureExceptionMember {
     UtteranceEvent?: never;
@@ -910,8 +910,8 @@ export namespace CallAnalyticsTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+   * @public
    */
   export interface ConflictExceptionMember {
     UtteranceEvent?: never;
@@ -925,8 +925,8 @@ export namespace CallAnalyticsTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>The service is currently unavailable. Try your request later.</p>
+   * @public
    */
   export interface ServiceUnavailableExceptionMember {
     UtteranceEvent?: never;
@@ -1031,22 +1031,22 @@ export const LanguageCode = {
 export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
- * @public
  * <p>The language code that represents the language identified in your audio, including the associated
  *       confidence score. If you enabled channel identification in your request and each channel contained a
  *       different language, you will have more than one <code>LanguageWithScore</code> result.</p>
+ * @public
  */
 export interface LanguageWithScore {
   /**
-   * @public
    * <p>The language code of the identified language.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The confidence score associated with the identified language code. Confidence scores are values
    *       between zero and one; larger values indicate a higher confidence in the identified language.</p>
+   * @public
    */
   Score?: number;
 }
@@ -1067,117 +1067,117 @@ export const MediaEncoding = {
 export type MediaEncoding = (typeof MediaEncoding)[keyof typeof MediaEncoding];
 
 /**
- * @public
  * <p>Contains entities identified as personal health information (PHI) in your
  *             transcription output, along with various associated attributes. Examples include
  *             category, confidence score, type, stability score, and start and end times.</p>
+ * @public
  */
 export interface MedicalEntity {
   /**
-   * @public
    * <p>The start time, in milliseconds, of the utterance that was identified as PHI.</p>
+   * @public
    */
   StartTime?: number;
 
   /**
-   * @public
    * <p>The end time, in milliseconds, of the utterance that was identified as PHI.</p>
+   * @public
    */
   EndTime?: number;
 
   /**
-   * @public
    * <p>The category of information identified. The only category is <code>PHI</code>.</p>
+   * @public
    */
   Category?: string;
 
   /**
-   * @public
    * <p>The word or words identified as PHI.</p>
+   * @public
    */
   Content?: string;
 
   /**
-   * @public
    * <p>The confidence score associated with the identified PHI entity in your audio.</p>
    *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *             probability that the identified entity correctly matches the entity spoken in your
    *             media.</p>
+   * @public
    */
   Confidence?: number;
 }
 
 /**
- * @public
  * <p>A word, phrase, or punctuation mark in your transcription output, along with various
  *             associated attributes, such as confidence score, type, and start and end times.</p>
+ * @public
  */
 export interface MedicalItem {
   /**
-   * @public
    * <p>The start time, in milliseconds, of the transcribed item.</p>
+   * @public
    */
   StartTime?: number;
 
   /**
-   * @public
    * <p>The end time, in milliseconds, of the transcribed item.</p>
+   * @public
    */
   EndTime?: number;
 
   /**
-   * @public
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken
    *             words) and <code>PUNCTUATION</code>.</p>
+   * @public
    */
   Type?: ItemType;
 
   /**
-   * @public
    * <p>The word or punctuation that was transcribed.</p>
+   * @public
    */
   Content?: string;
 
   /**
-   * @public
    * <p>The confidence score associated with a word or phrase in your transcript.</p>
    *          <p>Confidence scores are values between 0 and 1. A larger value indicates a higher
    *             probability that the identified item correctly matches the item spoken in your
    *             media.</p>
+   * @public
    */
   Confidence?: number;
 
   /**
-   * @public
    * <p>If speaker partitioning is enabled, <code>Speaker</code> labels the speaker of the
    *             specified item.</p>
+   * @public
    */
   Speaker?: string;
 }
 
 /**
- * @public
  * <p>A list of possible alternative transcriptions for the input audio. Each alternative may
  *             contain one or more of <code>Items</code>, <code>Entities</code>, or
  *             <code>Transcript</code>.</p>
+ * @public
  */
 export interface MedicalAlternative {
   /**
-   * @public
    * <p>Contains transcribed text.</p>
+   * @public
    */
   Transcript?: string;
 
   /**
-   * @public
    * <p>Contains words, phrases, or punctuation marks in your transcription output.</p>
+   * @public
    */
   Items?: MedicalItem[];
 
   /**
-   * @public
    * <p>Contains entities identified as personal health information (PHI) in your transcription
    *             output.</p>
+   * @public
    */
   Entities?: MedicalEntity[];
 }
@@ -1197,97 +1197,97 @@ export type MedicalContentIdentificationType =
   (typeof MedicalContentIdentificationType)[keyof typeof MedicalContentIdentificationType];
 
 /**
- * @public
  * <p>The <code>Result</code> associated with a
  *             <code></code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with
  *             additional information per your request parameters. This can include information relating to
  *             alternative transcriptions, channel identification, partial result stabilization, language
  *             identification, and other transcription-related data.</p>
+ * @public
  */
 export interface MedicalResult {
   /**
-   * @public
    * <p>Provides a unique identifier for the <code>Result</code>.</p>
+   * @public
    */
   ResultId?: string;
 
   /**
-   * @public
    * <p>The start time, in milliseconds, of the <code>Result</code>.</p>
+   * @public
    */
   StartTime?: number;
 
   /**
-   * @public
    * <p>The end time, in milliseconds, of the <code>Result</code>.</p>
+   * @public
    */
   EndTime?: number;
 
   /**
-   * @public
    * <p>Indicates if the segment is complete.</p>
    *          <p>If <code>IsPartial</code> is <code>true</code>, the segment is not complete. If
    *                 <code>IsPartial</code> is <code>false</code>, the segment is complete.</p>
+   * @public
    */
   IsPartial?: boolean;
 
   /**
-   * @public
    * <p>A list of possible alternative transcriptions for the input audio. Each alternative may
    *             contain one or more of <code>Items</code>, <code>Entities</code>, or
    *             <code>Transcript</code>.</p>
+   * @public
    */
   Alternatives?: MedicalAlternative[];
 
   /**
-   * @public
    * <p>Indicates the channel identified for the <code>Result</code>.</p>
+   * @public
    */
   ChannelId?: string;
 }
 
 /**
- * @public
  * <p>The <code>MedicalTranscript</code> associated with a
  *             <code></code>.</p>
  *          <p>
  *             <code>MedicalTranscript</code> contains <code>Results</code>, which contains a set of
  *             transcription results from one or more audio segments, along with additional information per your
  *             request parameters.</p>
+ * @public
  */
 export interface MedicalTranscript {
   /**
-   * @public
    * <p>Contains a set of transcription results from one or more audio segments, along with
    *             additional information per your request parameters. This can include information relating to
    *             alternative transcriptions, channel identification, partial result stabilization, language
    *             identification, and other transcription-related data.</p>
+   * @public
    */
   Results?: MedicalResult[];
 }
 
 /**
- * @public
  * <p>The <code>MedicalTranscriptEvent</code> associated with a
  *             <code>MedicalTranscriptResultStream</code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
  *             information per your request parameters.</p>
+ * @public
  */
 export interface MedicalTranscriptEvent {
   /**
-   * @public
    * <p>Contains <code>Results</code>, which contains a set of transcription results from one or
    *             more audio segments, along with additional information per your request parameters. This can
    *             include information relating to alternative transcriptions, channel identification, partial result
    *             stabilization, language identification, and other transcription-related data.</p>
+   * @public
    */
   Transcript?: MedicalTranscript;
 }
 
 /**
- * @public
  * <p>Contains detailed information about your streaming session.</p>
+ * @public
  */
 export type MedicalTranscriptResultStream =
   | MedicalTranscriptResultStream.BadRequestExceptionMember
@@ -1303,13 +1303,13 @@ export type MedicalTranscriptResultStream =
  */
 export namespace MedicalTranscriptResultStream {
   /**
-   * @public
    * <p>The <code>MedicalTranscriptEvent</code> associated with a
    *             <code>MedicalTranscriptResultStream</code>.</p>
    *          <p>Contains a set of transcription results from one or more audio segments, along with
    *             additional information per your request parameters. This can include information relating to
    *             alternative transcriptions, channel identification, partial result stabilization, language
    *             identification, and other transcription-related data.</p>
+   * @public
    */
   export interface TranscriptEventMember {
     TranscriptEvent: MedicalTranscriptEvent;
@@ -1322,11 +1322,11 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>One or more arguments to the <code>StartStreamTranscription</code>,
    *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
    *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
    *       used not valid values. Check the specified parameters and try your request again.</p>
+   * @public
    */
   export interface BadRequestExceptionMember {
     TranscriptEvent?: never;
@@ -1339,9 +1339,9 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
    *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * @public
    */
   export interface LimitExceededExceptionMember {
     TranscriptEvent?: never;
@@ -1354,9 +1354,9 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
    *       processing.</p>
+   * @public
    */
   export interface InternalFailureExceptionMember {
     TranscriptEvent?: never;
@@ -1369,8 +1369,8 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+   * @public
    */
   export interface ConflictExceptionMember {
     TranscriptEvent?: never;
@@ -1383,8 +1383,8 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>The service is currently unavailable. Try your request later.</p>
+   * @public
    */
   export interface ServiceUnavailableExceptionMember {
     TranscriptEvent?: never;
@@ -1448,65 +1448,65 @@ export const PartialResultsStability = {
 export type PartialResultsStability = (typeof PartialResultsStability)[keyof typeof PartialResultsStability];
 
 /**
- * @public
  * <p>The <code>Result</code> associated with a
  *       <code></code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
  *       information per your request parameters. This can include information relating to alternative
  *       transcriptions, channel identification, partial result stabilization, language identification, and other
  *       transcription-related data.</p>
+ * @public
  */
 export interface Result {
   /**
-   * @public
    * <p>Provides a unique identifier for the <code>Result</code>.</p>
+   * @public
    */
   ResultId?: string;
 
   /**
-   * @public
    * <p>The start time, in milliseconds, of the <code>Result</code>.</p>
+   * @public
    */
   StartTime?: number;
 
   /**
-   * @public
    * <p>The end time, in milliseconds, of the <code>Result</code>.</p>
+   * @public
    */
   EndTime?: number;
 
   /**
-   * @public
    * <p>Indicates if the segment is complete.</p>
    *          <p>If <code>IsPartial</code> is <code>true</code>, the segment is not complete. If
    *         <code>IsPartial</code> is <code>false</code>, the segment is complete.</p>
+   * @public
    */
   IsPartial?: boolean;
 
   /**
-   * @public
    * <p>A list of possible alternative transcriptions for the input audio. Each alternative may contain
    *       one or more of <code>Items</code>, <code>Entities</code>, or <code>Transcript</code>.</p>
+   * @public
    */
   Alternatives?: Alternative[];
 
   /**
-   * @public
    * <p>Indicates which audio channel is associated with the <code>Result</code>.</p>
+   * @public
    */
   ChannelId?: string;
 
   /**
-   * @public
    * <p>The language code that represents the language spoken in your audio stream.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The language code of the dominant language identified in your stream.</p>
    *          <p>If you enabled channel identification and each channel of your audio contains a different language,
    *       you may have more than one result.</p>
+   * @public
    */
   LanguageIdentification?: LanguageWithScore[];
 }
@@ -1549,26 +1549,25 @@ export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeo
  */
 export interface StartCallAnalyticsStreamTranscriptionRequest {
   /**
-   * @public
    * <p>Specify the language code that represents the language spoken in your audio.</p>
    *          <p>If you're unsure of the language spoken in your audio, consider using
    *       <code>IdentifyLanguage</code> to enable automatic language identification.</p>
    *          <p>For a list of languages supported with streaming Call Analytics, refer to the
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
+   * @public
    */
   LanguageCode: CallAnalyticsLanguageCode | undefined;
 
   /**
-   * @public
    * <p>The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio,
    *       is typically around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
    *       Note that the sample rate you specify must match that of your audio.</p>
+   * @public
    */
   MediaSampleRateHertz: number | undefined;
 
   /**
-   * @public
    * <p>Specify the encoding of your input audio. Supported formats are:</p>
    *          <ul>
    *             <li>
@@ -1582,88 +1581,88 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
+   * @public
    */
   MediaEncoding: MediaEncoding | undefined;
 
   /**
-   * @public
    * <p>Specify the name of the custom vocabulary that you want to use when processing your
    *       transcription. Note that vocabulary names are case sensitive.</p>
    *          <p>If the language of the specified custom vocabulary doesn't match the language identified in
    *       your media, the custom vocabulary is not applied to your transcription.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>Specify a name for your Call Analytics transcription session. If you don't include this parameter
    *       in your request, Amazon Transcribe generates an ID and returns it in the response.</p>
    *          <p>You can use a session ID to retry a streaming session.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
    *       data frames.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
+   * @public
    */
   AudioStream: AsyncIterable<AudioStream> | undefined;
 
   /**
-   * @public
    * <p>Specify the name of the custom vocabulary filter that you want to use when processing your
    *       transcription. Note that vocabulary filter names are case sensitive.</p>
    *          <p>If the language of the specified custom vocabulary filter doesn't match the language identified in
    *       your media, the vocabulary filter is not applied to your transcription.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using vocabulary filtering with unwanted
    *       words</a>.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>Specify how you want your vocabulary filter applied to your transcript.</p>
    *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
-   * @public
    * <p>Specify the name of the custom language model that you want to use when processing your
    *       transcription. Note that language model names are case sensitive.</p>
    *          <p>The language of the specified language model must match the language code you specify
    *       in your transcription request. If the languages don't match, the custom language model isn't applied.
    *       There are no errors or warnings associated with a language mismatch.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a>.</p>
+   * @public
    */
   LanguageModelName?: string;
 
   /**
-   * @public
    * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce
    *       latency in your output, but may impact accuracy. For more information, see
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *         stabilization</a>.</p>
+   * @public
    */
   EnablePartialResultsStabilization?: boolean;
 
   /**
-   * @public
    * <p>Specify the level of stability to use when you enable partial results stabilization
    *       (<code>EnablePartialResultsStabilization</code>).</p>
    *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly
    *       lower accuracy.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *       stabilization</a>.</p>
+   * @public
    */
   PartialResultsStability?: PartialResultsStability;
 
   /**
-   * @public
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content identification is performed at the segment level; PII specified in
    *       <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment.</p>
@@ -1672,11 +1671,11 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
+   * @public
    */
   ContentIdentificationType?: ContentIdentificationType;
 
   /**
-   * @public
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content redaction is performed at the segment level; PII specified in
    *       <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment.</p>
@@ -1685,11 +1684,11 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
+   * @public
    */
   ContentRedactionType?: ContentRedactionType;
 
   /**
-   * @public
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
    *       transcript. You can include as many types as you'd like, or you can select
    *       <code>ALL</code>.</p>
@@ -1701,6 +1700,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
    *       <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
    *       <code>SSN</code>, or <code>ALL</code>.</p>
+   * @public
    */
   PiiEntityTypes?: string;
 }
@@ -1710,94 +1710,94 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
  */
 export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
-   * @public
    * <p>Provides the identifier for your Call Analytics streaming request.</p>
+   * @public
    */
   RequestId?: string;
 
   /**
-   * @public
    * <p>Provides the language code that you specified in your Call Analytics request.</p>
+   * @public
    */
   LanguageCode?: CallAnalyticsLanguageCode;
 
   /**
-   * @public
    * <p>Provides the sample rate that you specified in your Call Analytics request.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>Provides the media encoding you specified in your Call Analytics request.</p>
+   * @public
    */
   MediaEncoding?: MediaEncoding;
 
   /**
-   * @public
    * <p>Provides the name of the custom vocabulary that you specified in your Call Analytics request.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>Provides the identifier for your Call Analytics transcription session.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>Provides detailed information about your Call Analytics streaming session.</p>
+   * @public
    */
   CallAnalyticsTranscriptResultStream?: AsyncIterable<CallAnalyticsTranscriptResultStream>;
 
   /**
-   * @public
    * <p>Provides the name of the custom vocabulary filter that you specified in your Call Analytics
    *       request.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>Provides the vocabulary filtering method used in your Call Analytics transcription.</p>
+   * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
-   * @public
    * <p>Provides the name of the custom language model that you specified in your Call Analytics
    *       request.</p>
+   * @public
    */
   LanguageModelName?: string;
 
   /**
-   * @public
    * <p>Shows whether partial results stabilization was enabled for your Call Analytics transcription.</p>
+   * @public
    */
   EnablePartialResultsStabilization?: boolean;
 
   /**
-   * @public
    * <p>Provides the stabilization level used for your transcription.</p>
+   * @public
    */
   PartialResultsStability?: PartialResultsStability;
 
   /**
-   * @public
    * <p>Shows whether content identification was enabled for your Call Analytics transcription.</p>
+   * @public
    */
   ContentIdentificationType?: ContentIdentificationType;
 
   /**
-   * @public
    * <p>Shows whether content redaction was enabled for your Call Analytics transcription.</p>
+   * @public
    */
   ContentRedactionType?: ContentRedactionType;
 
   /**
-   * @public
    * <p>Lists the PII entity types you specified in your Call Analytics request.</p>
+   * @public
    */
   PiiEntityTypes?: string;
 }
@@ -1821,24 +1821,23 @@ export type Type = (typeof Type)[keyof typeof Type];
  */
 export interface StartMedicalStreamTranscriptionRequest {
   /**
-   * @public
    * <p>Specify the language code that represents the language spoken in your audio.</p>
    *          <important>
    *             <p>Amazon Transcribe Medical only supports US English (<code>en-US</code>).</p>
    *          </important>
+   * @public
    */
   LanguageCode: LanguageCode | undefined;
 
   /**
-   * @public
    * <p>The sample rate of the input audio (in hertz). Amazon Transcribe Medical supports a
    *             range from 16,000 Hz to 48,000 Hz. Note that the sample rate you specify must match that
    *             of your audio.</p>
+   * @public
    */
   MediaSampleRateHertz: number | undefined;
 
   /**
-   * @public
    * <p>Specify the encoding used for the input audio. Supported formats are:</p>
    *          <ul>
    *             <li>
@@ -1853,80 +1852,81 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
+   * @public
    */
   MediaEncoding: MediaEncoding | undefined;
 
   /**
-   * @public
    * <p>Specify the name of the custom vocabulary that you want to use when processing your
    *             transcription. Note that vocabulary names are case sensitive.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>Specify the medical specialty contained in your audio.</p>
+   * @public
    */
   Specialty: Specialty | undefined;
 
   /**
-   * @public
    * <p>Specify the type of input audio. For example, choose <code>DICTATION</code> for a
    *             provider dictating patient notes and <code>CONVERSATION</code> for a dialogue between a
    *             patient and a medical professional.</p>
+   * @public
    */
   Type: Type | undefined;
 
   /**
-   * @public
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker
    *             partitioning labels the speech from individual speakers in your media file.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
+   * @public
    */
   ShowSpeakerLabel?: boolean;
 
   /**
-   * @public
    * <p>Specify a name for your transcription session. If you don't include this parameter in
    *             your request, Amazon Transcribe Medical generates an ID and returns it in the
    *             response.</p>
    *          <p>You can use a session ID to retry a streaming session.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
    *       data frames.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
+   * @public
    */
   AudioStream: AsyncIterable<AudioStream> | undefined;
 
   /**
-   * @public
    * <p>Enables channel identification in multi-channel audio.</p>
    *          <p>Channel identification transcribes the audio on each channel independently, then appends
    *             the output for each channel into one transcript.</p>
    *          <p>If you have multi-channel audio and do not enable channel identification, your audio is
    *             transcribed in a continuous manner and your transcript is not separated by channel.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
+   * @public
    */
   EnableChannelIdentification?: boolean;
 
   /**
-   * @public
    * <p>Specify the number of channels in your audio stream. Up to two channels are
    *             supported.</p>
+   * @public
    */
   NumberOfChannels?: number;
 
   /**
-   * @public
    * <p>Labels all personal health information (PHI) identified in your transcript.</p>
    *          <p>Content identification is performed at the segment level; PHI is flagged upon complete
    *             transcription of an audio segment.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a
    *             transcription</a>.</p>
+   * @public
    */
   ContentIdentificationType?: MedicalContentIdentificationType;
 }
@@ -1936,81 +1936,81 @@ export interface StartMedicalStreamTranscriptionRequest {
  */
 export interface StartMedicalStreamTranscriptionResponse {
   /**
-   * @public
    * <p>Provides the identifier for your streaming request.</p>
+   * @public
    */
   RequestId?: string;
 
   /**
-   * @public
    * <p>Provides the language code that you specified in your request. This must be
    *                 <code>en-US</code>.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>Provides the sample rate that you specified in your request.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>Provides the media encoding you specified in your request.</p>
+   * @public
    */
   MediaEncoding?: MediaEncoding;
 
   /**
-   * @public
    * <p>Provides the name of the custom vocabulary that you specified in your request.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>Provides the medical specialty that you specified in your request.</p>
+   * @public
    */
   Specialty?: Specialty;
 
   /**
-   * @public
    * <p>Provides the type of audio you specified in your request.</p>
+   * @public
    */
   Type?: Type;
 
   /**
-   * @public
    * <p>Shows whether speaker partitioning was enabled for your transcription.</p>
+   * @public
    */
   ShowSpeakerLabel?: boolean;
 
   /**
-   * @public
    * <p>Provides the identifier for your transcription session.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>Provides detailed information about your streaming session.</p>
+   * @public
    */
   TranscriptResultStream?: AsyncIterable<MedicalTranscriptResultStream>;
 
   /**
-   * @public
    * <p>Shows whether channel identification was enabled for your transcription.</p>
+   * @public
    */
   EnableChannelIdentification?: boolean;
 
   /**
-   * @public
    * <p>Provides the number of channels that you specified in your request.</p>
+   * @public
    */
   NumberOfChannels?: number;
 
   /**
-   * @public
    * <p>Shows whether content identification was enabled for your transcription.</p>
+   * @public
    */
   ContentIdentificationType?: MedicalContentIdentificationType;
 }
@@ -2020,26 +2020,25 @@ export interface StartMedicalStreamTranscriptionResponse {
  */
 export interface StartStreamTranscriptionRequest {
   /**
-   * @public
    * <p>Specify the language code that represents the language spoken in your audio.</p>
    *          <p>If you're unsure of the language spoken in your audio, consider using
    *       <code>IdentifyLanguage</code> to enable automatic language identification.</p>
    *          <p>For a list of languages supported with Amazon Transcribe streaming, refer to the
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio,
    *       is typically around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to 48,000 Hz.
    *       Note that the sample rate you specify must match that of your audio.</p>
+   * @public
    */
   MediaSampleRateHertz: number | undefined;
 
   /**
-   * @public
    * <p>Specify the encoding of your input audio. Supported formats are:</p>
    *          <ul>
    *             <li>
@@ -2053,11 +2052,11 @@ export interface StartStreamTranscriptionRequest {
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
+   * @public
    */
   MediaEncoding: MediaEncoding | undefined;
 
   /**
-   * @public
    * <p>Specify the name of the custom vocabulary that you want to use when processing your
    *       transcription. Note that vocabulary names are case sensitive.</p>
    *          <p>If the language of the specified custom vocabulary doesn't match the language identified in
@@ -2069,27 +2068,27 @@ export interface StartStreamTranscriptionRequest {
    *         the <code>VocabularyNames</code> parameter instead.</p>
    *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>Specify a name for your transcription session. If you don't include this parameter in your request,
    *       Amazon Transcribe generates an ID and returns it in the response.</p>
    *          <p>You can use a session ID to retry a streaming session.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>An encoded stream of audio blobs. Audio streams are encoded as either HTTP/2 or WebSocket
    *       data frames.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
+   * @public
    */
   AudioStream: AsyncIterable<AudioStream> | undefined;
 
   /**
-   * @public
    * <p>Specify the name of the custom vocabulary filter that you want to use when processing your
    *       transcription. Note that vocabulary filter names are case sensitive.</p>
    *          <p>If the language of the specified custom vocabulary filter doesn't match the language identified in
@@ -2102,66 +2101,66 @@ export interface StartStreamTranscriptionRequest {
    *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using vocabulary filtering with unwanted
    *       words</a>.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>Specify how you want your vocabulary filter applied to your transcript.</p>
    *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
-   * @public
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning
    *       labels the speech from individual speakers in your media file.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers (diarization)</a>.</p>
+   * @public
    */
   ShowSpeakerLabel?: boolean;
 
   /**
-   * @public
    * <p>Enables channel identification in multi-channel audio.</p>
    *          <p>Channel identification transcribes the audio on each channel independently, then appends the
    *       output for each channel into one transcript.</p>
    *          <p>If you have multi-channel audio and do not enable channel identification, your audio is
    *       transcribed in a continuous manner and your transcript is not separated by channel.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel audio</a>.</p>
+   * @public
    */
   EnableChannelIdentification?: boolean;
 
   /**
-   * @public
    * <p>Specify the number of channels in your audio stream. Up to two channels are
    *       supported.</p>
+   * @public
    */
   NumberOfChannels?: number;
 
   /**
-   * @public
    * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce
    *       latency in your output, but may impact accuracy. For more information, see
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *       stabilization</a>.</p>
+   * @public
    */
   EnablePartialResultsStabilization?: boolean;
 
   /**
-   * @public
    * <p>Specify the level of stability to use when you enable partial results stabilization
    *       (<code>EnablePartialResultsStabilization</code>).</p>
    *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly
    *       lower accuracy.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *       stabilization</a>.</p>
+   * @public
    */
   PartialResultsStability?: PartialResultsStability;
 
   /**
-   * @public
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content identification is performed at the segment level; PII specified in
    *       <code>PiiEntityTypes</code> is flagged upon complete transcription of an audio segment.</p>
@@ -2170,11 +2169,11 @@ export interface StartStreamTranscriptionRequest {
    *       <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
+   * @public
    */
   ContentIdentificationType?: ContentIdentificationType;
 
   /**
-   * @public
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
    *          <p>Content redaction is performed at the segment level; PII specified in
    *       <code>PiiEntityTypes</code> is redacted upon complete transcription of an audio segment.</p>
@@ -2183,11 +2182,11 @@ export interface StartStreamTranscriptionRequest {
    *       <code>BadRequestException</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
+   * @public
    */
   ContentRedactionType?: ContentRedactionType;
 
   /**
-   * @public
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
    *       transcript. You can include as many types as you'd like, or you can select
    *       <code>ALL</code>.</p>
@@ -2199,22 +2198,22 @@ export interface StartStreamTranscriptionRequest {
    *       <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
    *       <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
    *       <code>SSN</code>, or <code>ALL</code>.</p>
+   * @public
    */
   PiiEntityTypes?: string;
 
   /**
-   * @public
    * <p>Specify the name of the custom language model that you want to use when processing your
    *       transcription. Note that language model names are case sensitive.</p>
    *          <p>The language of the specified language model must match the language code you specify
    *       in your transcription request. If the languages don't match, the custom language model isn't applied.
    *       There are no errors or warnings associated with a language mismatch.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language models</a>.</p>
+   * @public
    */
   LanguageModelName?: string;
 
   /**
-   * @public
    * <p>Enables automatic language identification for your transcription.</p>
    *          <p>If you include <code>IdentifyLanguage</code>, you can optionally include a list of
    *       language codes, using <code>LanguageOptions</code>, that you think may be present in
@@ -2230,11 +2229,11 @@ export interface StartStreamTranscriptionRequest {
    *       fails.</p>
    *          <p>Streaming language identification can't be combined with custom language models or
    *       redaction.</p>
+   * @public
    */
   IdentifyLanguage?: boolean;
 
   /**
-   * @public
    * <p>Specify two or more language codes that represent the languages you think may be present
    *       in your media; including more than five is not recommended. If you're unsure what languages are present, do
    *       not include this parameter.</p>
@@ -2248,29 +2247,29 @@ export interface StartStreamTranscriptionRequest {
    *             <p>You can only include one language dialect per language per stream. For example, you
    *         cannot include <code>en-US</code> and <code>en-AU</code> in the same request.</p>
    *          </important>
+   * @public
    */
   LanguageOptions?: string;
 
   /**
-   * @public
    * <p>Specify a preferred language from the subset of languages codes you specified in
    *       <code>LanguageOptions</code>.</p>
    *          <p>You can only use this parameter if you've included <code>IdentifyLanguage</code> and
    *         <code>LanguageOptions</code> in your request.</p>
+   * @public
    */
   PreferredLanguage?: LanguageCode;
 
   /**
-   * @public
    * <p>Enables automatic multi-language identification in your transcription job request. Use this parameter if your stream contains more than one language. If your stream contains only one language, use IdentifyLanguage instead.</p>
    *          <p>If you include <code>IdentifyMultipleLanguages</code>, you can optionally include a list of language codes, using <code>LanguageOptions</code>, that you think may be present in your stream. Including <code>LanguageOptions</code> restricts <code>IdentifyMultipleLanguages</code> to only the language options that you specify, which can improve transcription accuracy.</p>
    *          <p>If you want to apply a custom vocabulary or a custom vocabulary filter to your automatic multiple language identification request, include <code>VocabularyNames</code> or <code>VocabularyFilterNames</code>.</p>
    *          <p>Note that you must include one of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your request. If you include more than one of these parameters, your transcription job fails.</p>
+   * @public
    */
   IdentifyMultipleLanguages?: boolean;
 
   /**
-   * @public
    * <p>Specify the names of the custom vocabularies that you want to use when processing your
    *       transcription. Note that vocabulary names are case sensitive.</p>
    *          <p>If none of the languages of the specified custom vocabularies match the language identified in
@@ -2282,11 +2281,11 @@ export interface StartStreamTranscriptionRequest {
    *         with your transcription, use the <code>VocabularyName</code> parameter instead.</p>
    *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
+   * @public
    */
   VocabularyNames?: string;
 
   /**
-   * @public
    * <p>Specify the names of the custom vocabulary filters that you want to use when processing
    *       your transcription. Note that vocabulary filter names are case sensitive.</p>
    *          <p>If none of the languages of the specified custom vocabulary filters match the language identified
@@ -2299,51 +2298,52 @@ export interface StartStreamTranscriptionRequest {
    *          </important>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using vocabulary filtering with unwanted
    *       words</a>.</p>
+   * @public
    */
   VocabularyFilterNames?: string;
 }
 
 /**
- * @public
  * <p>The <code>Transcript</code> associated with a
  *       <code></code>.</p>
  *          <p>
  *             <code>Transcript</code> contains <code>Results</code>, which contains a set of transcription
  *       results from one or more audio segments, along with additional information per your request
  *       parameters.</p>
+ * @public
  */
 export interface Transcript {
   /**
-   * @public
    * <p>Contains a set of transcription results from one or more audio segments, along with additional
    *       information per your request parameters. This can include information relating to alternative
    *       transcriptions, channel identification, partial result stabilization, language identification, and other
    *       transcription-related data.</p>
+   * @public
    */
   Results?: Result[];
 }
 
 /**
- * @public
  * <p>The <code>TranscriptEvent</code> associated with a
  *       <code>TranscriptResultStream</code>.</p>
  *          <p>Contains a set of transcription results from one or more audio segments, along with additional
  *       information per your request parameters.</p>
+ * @public
  */
 export interface TranscriptEvent {
   /**
-   * @public
    * <p>Contains <code>Results</code>, which contains a set of transcription results from one or
    *       more audio segments, along with additional information per your request parameters. This can
    *       include information relating to alternative transcriptions, channel identification, partial
    *       result stabilization, language identification, and other transcription-related data.</p>
+   * @public
    */
   Transcript?: Transcript;
 }
 
 /**
- * @public
  * <p>Contains detailed information about your streaming session.</p>
+ * @public
  */
 export type TranscriptResultStream =
   | TranscriptResultStream.BadRequestExceptionMember
@@ -2359,11 +2359,11 @@ export type TranscriptResultStream =
  */
 export namespace TranscriptResultStream {
   /**
-   * @public
    * <p>Contains <code>Transcript</code>, which contains <code>Results</code>. The
    *       <code></code> object contains a set of transcription
    *       results from one or more audio segments, along with additional information per your request
    *       parameters.</p>
+   * @public
    */
   export interface TranscriptEventMember {
     TranscriptEvent: TranscriptEvent;
@@ -2376,9 +2376,9 @@ export namespace TranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>A client error occurred when the stream was created. Check the parameters of the request
    *       and try your request again.</p>
+   * @public
    */
   export interface BadRequestExceptionMember {
     TranscriptEvent?: never;
@@ -2391,9 +2391,9 @@ export namespace TranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
    *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * @public
    */
   export interface LimitExceededExceptionMember {
     TranscriptEvent?: never;
@@ -2406,9 +2406,9 @@ export namespace TranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>A problem occurred while processing the audio. Amazon Transcribe terminated
    *       processing.</p>
+   * @public
    */
   export interface InternalFailureExceptionMember {
     TranscriptEvent?: never;
@@ -2421,9 +2421,9 @@ export namespace TranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>A new stream started with the same session ID. The current stream has been
    *       terminated.</p>
+   * @public
    */
   export interface ConflictExceptionMember {
     TranscriptEvent?: never;
@@ -2436,8 +2436,8 @@ export namespace TranscriptResultStream {
   }
 
   /**
-   * @public
    * <p>The service is currently unavailable. Try your request later.</p>
+   * @public
    */
   export interface ServiceUnavailableExceptionMember {
     TranscriptEvent?: never;
@@ -2490,149 +2490,149 @@ export namespace TranscriptResultStream {
  */
 export interface StartStreamTranscriptionResponse {
   /**
-   * @public
    * <p>Provides the identifier for your streaming request.</p>
+   * @public
    */
   RequestId?: string;
 
   /**
-   * @public
    * <p>Provides the language code that you specified in your request.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>Provides the sample rate that you specified in your request.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>Provides the media encoding you specified in your request.</p>
+   * @public
    */
   MediaEncoding?: MediaEncoding;
 
   /**
-   * @public
    * <p>Provides the name of the custom vocabulary that you specified in your request.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>Provides the identifier for your transcription session.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>Provides detailed information about your streaming session.</p>
+   * @public
    */
   TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
 
   /**
-   * @public
    * <p>Provides the name of the custom vocabulary filter that you specified in your
    *       request.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>Provides the vocabulary filtering method used in your transcription.</p>
+   * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
-   * @public
    * <p>Shows whether speaker partitioning was enabled for your transcription.</p>
+   * @public
    */
   ShowSpeakerLabel?: boolean;
 
   /**
-   * @public
    * <p>Shows whether  channel identification was enabled for your transcription.</p>
+   * @public
    */
   EnableChannelIdentification?: boolean;
 
   /**
-   * @public
    * <p>Provides the number of channels that you specified in your request.</p>
+   * @public
    */
   NumberOfChannels?: number;
 
   /**
-   * @public
    * <p>Shows whether partial results stabilization was enabled for your transcription.</p>
+   * @public
    */
   EnablePartialResultsStabilization?: boolean;
 
   /**
-   * @public
    * <p>Provides the stabilization level used for your transcription.</p>
+   * @public
    */
   PartialResultsStability?: PartialResultsStability;
 
   /**
-   * @public
    * <p>Shows whether content identification was enabled for your transcription.</p>
+   * @public
    */
   ContentIdentificationType?: ContentIdentificationType;
 
   /**
-   * @public
    * <p>Shows whether content redaction was enabled for your transcription.</p>
+   * @public
    */
   ContentRedactionType?: ContentRedactionType;
 
   /**
-   * @public
    * <p>Lists the PII entity types you specified in your request.</p>
+   * @public
    */
   PiiEntityTypes?: string;
 
   /**
-   * @public
    * <p>Provides the name of the custom language model that you specified in your request.</p>
+   * @public
    */
   LanguageModelName?: string;
 
   /**
-   * @public
    * <p>Shows whether automatic language identification was enabled for your
    *       transcription.</p>
+   * @public
    */
   IdentifyLanguage?: boolean;
 
   /**
-   * @public
    * <p>Provides the language codes that you specified in your request.</p>
+   * @public
    */
   LanguageOptions?: string;
 
   /**
-   * @public
    * <p>Provides the preferred language that you specified in your request.</p>
+   * @public
    */
   PreferredLanguage?: LanguageCode;
 
   /**
-   * @public
    * <p>Shows whether automatic multi-language identification was enabled for your transcription.</p>
+   * @public
    */
   IdentifyMultipleLanguages?: boolean;
 
   /**
-   * @public
    * <p>Provides the names of the custom vocabularies that you specified in your request.</p>
+   * @public
    */
   VocabularyNames?: string;
 
   /**
-   * @public
    * <p>Provides the names of the custom vocabulary filters that you specified in your
    *       request.</p>
+   * @public
    */
   VocabularyFilterNames?: string;
 }

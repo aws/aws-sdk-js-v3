@@ -489,7 +489,6 @@ export type CodeDeployClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface CodeDeployClientResolvedConfig extends CodeDeployClientResolvedConfigType {}
 
 /**
- * @public
  * <p>CodeDeploy is a deployment service that automates application deployments
  *             to Amazon EC2 instances, on-premises instances running in your own facility,
  *             serverless Lambda functions, or applications in an Amazon ECS
@@ -583,6 +582,7 @@ export interface CodeDeployClientResolvedConfig extends CodeDeployClientResolved
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CodeDeployClient extends __Client<
   __HttpHandlerOptions,

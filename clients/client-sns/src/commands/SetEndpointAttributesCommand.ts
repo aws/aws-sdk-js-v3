@@ -27,7 +27,6 @@ export interface SetEndpointAttributesCommandInput extends SetEndpointAttributes
 export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the attributes for an endpoint for a device on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -71,6 +70,7 @@ export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class SetEndpointAttributesCommand extends $Command
   .classBuilder<

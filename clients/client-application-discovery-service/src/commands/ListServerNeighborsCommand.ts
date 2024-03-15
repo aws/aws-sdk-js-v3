@@ -31,7 +31,6 @@ export interface ListServerNeighborsCommandInput extends ListServerNeighborsRequ
 export interface ListServerNeighborsCommandOutput extends ListServerNeighborsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of servers that are one network hop away from a specified
  *       server.</p>
  * @example
@@ -93,6 +92,7 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class ListServerNeighborsCommand extends $Command
   .classBuilder<

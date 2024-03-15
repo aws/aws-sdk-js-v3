@@ -28,7 +28,6 @@ export interface UpdateScheduledQueryCommandInput extends UpdateScheduledQueryRe
 export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a scheduled query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class UpdateScheduledQueryCommand extends $Command
   .classBuilder<

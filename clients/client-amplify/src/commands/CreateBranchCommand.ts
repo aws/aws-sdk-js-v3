@@ -32,7 +32,6 @@ export interface CreateBranchCommandInput extends CreateBranchRequest {}
 export interface CreateBranchCommandOutput extends CreateBranchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a new branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class CreateBranchCommand extends $Command
   .classBuilder<

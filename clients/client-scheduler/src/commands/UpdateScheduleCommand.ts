@@ -27,7 +27,6 @@ export interface UpdateScheduleCommandInput extends UpdateScheduleInput {}
 export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Updates the specified schedule. When you call <code>UpdateSchedule</code>, EventBridge Scheduler uses all values, including empty values, specified in the request and
  *          overrides the existing schedule. This is by design. This means that if you do not set an optional field in your request, that field will be set to
@@ -168,6 +167,7 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * @public
  */
 export class UpdateScheduleCommand extends $Command
   .classBuilder<

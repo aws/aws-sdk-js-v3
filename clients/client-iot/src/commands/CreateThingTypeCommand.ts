@@ -27,7 +27,6 @@ export interface CreateThingTypeCommandInput extends CreateThingTypeRequest {}
 export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new thing type.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
  * @example
@@ -88,6 +87,7 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateThingTypeCommand extends $Command
   .classBuilder<

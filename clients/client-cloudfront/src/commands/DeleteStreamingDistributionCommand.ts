@@ -27,7 +27,6 @@ export interface DeleteStreamingDistributionCommandInput extends DeleteStreaming
 export interface DeleteStreamingDistributionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,
  * 			perform the following steps.</p>
  *          <p>
@@ -119,6 +118,7 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteStreamingDistributionCommand extends $Command
   .classBuilder<

@@ -438,8 +438,8 @@ export type TnbClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface TnbClientResolvedConfig extends TnbClientResolvedConfigType {}
 
 /**
- * @public
  * <p> Amazon Web Services Telco Network Builder (TNB) is a network automation service that helps you deploy and manage telecom networks. AWS TNB helps you with the lifecycle management of your telecommunication network functions throughout planning, deployment, and post-deployment activities.</p>
+ * @public
  */
 export class TnbClient extends __Client<
   __HttpHandlerOptions,

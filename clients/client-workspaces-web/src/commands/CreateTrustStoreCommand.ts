@@ -31,7 +31,6 @@ export interface CreateTrustStoreCommandInput extends CreateTrustStoreRequest {}
 export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a trust store that can be associated with a web portal. A trust store contains
  *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
  *          a streaming session will recognize certificates that have been issued using any of the CAs
@@ -90,6 +89,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class CreateTrustStoreCommand extends $Command
   .classBuilder<

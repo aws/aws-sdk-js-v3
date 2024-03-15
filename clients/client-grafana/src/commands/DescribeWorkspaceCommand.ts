@@ -31,7 +31,6 @@ export interface DescribeWorkspaceCommandInput extends DescribeWorkspaceRequest 
 export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays information about one Amazon Managed Grafana workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceCommand extends $Command
   .classBuilder<

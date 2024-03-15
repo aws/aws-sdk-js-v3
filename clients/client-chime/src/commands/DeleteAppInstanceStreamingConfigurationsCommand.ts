@@ -31,9 +31,6 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandInput
 export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Deletes the streaming configurations of an <code>AppInstance</code>.</p>
  *          <important>
  *             <p>
@@ -87,6 +84,8 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
  */
 export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command
   .classBuilder<

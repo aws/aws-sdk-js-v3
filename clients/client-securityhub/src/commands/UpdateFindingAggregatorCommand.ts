@@ -27,7 +27,6 @@ export interface UpdateFindingAggregatorCommandInput extends UpdateFindingAggreg
 export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the finding aggregation configuration. Used to update the Region linking mode and the list of included or excluded Regions. You cannot use <code>UpdateFindingAggregator</code> to change the aggregation Region.</p>
  *          <p>You must run <code>UpdateFindingAggregator</code> from the current aggregation Region.
  *       </p>
@@ -86,6 +85,7 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update cross-Region aggregation settings
  * ```javascript
  * // The following example updates the cross-Region aggregation configuration. You use this operation to change the list of linked Regions and the treatment of new Regions. However, you cannot use this operation to change the aggregation Region.

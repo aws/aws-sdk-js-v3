@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates tags with an AWS re:Post Private resource. Currently, the only resource that can be tagged is the private re:Post.  If you specify a new tag key for the resource, the tag is appended to the list of tags that are associated with the resource. If you specify a tag key that’s already associated with the resource, the new tag value that you specify replaces the previous value for that tag.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

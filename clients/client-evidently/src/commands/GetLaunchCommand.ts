@@ -27,7 +27,6 @@ export interface GetLaunchCommandInput extends GetLaunchRequest {}
 export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details about one launch. You must already know the
  *        launch name. To retrieve a list of launches in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListLaunches.html">ListLaunches</a>.</p>
  * @example
@@ -126,6 +125,7 @@ export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBea
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class GetLaunchCommand extends $Command
   .classBuilder<

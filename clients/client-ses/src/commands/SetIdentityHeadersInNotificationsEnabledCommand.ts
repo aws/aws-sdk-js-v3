@@ -36,7 +36,6 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the
  *             original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified
  *             type.</p>
@@ -69,6 +68,7 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SetIdentityHeadersInNotificationsEnabled
  * ```javascript
  * // The following example configures Amazon SES to include the original email headers in the Amazon SNS bounce notifications for an identity:

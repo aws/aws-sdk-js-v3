@@ -32,7 +32,6 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset
  *       properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying aggregates</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -133,6 +132,7 @@ export interface BatchGetAssetPropertyAggregatesCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class BatchGetAssetPropertyAggregatesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteOrganizationCommandInput extends DeleteOrganizationReques
 export interface DeleteOrganizationCommandOutput extends DeleteOrganizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an WorkMail organization and all underlying AWS resources managed by WorkMail as part of the organization. You can choose whether to delete the associated directory. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/remove_organization.html">Removing an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteOrganizationCommand extends $Command
   .classBuilder<

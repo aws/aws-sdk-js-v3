@@ -27,7 +27,6 @@ export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
 export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more flow logs.</p>
  *          <p>To view the published flow log records, you must view the log destination. For example,
  *             the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose delivery stream.</p>
@@ -99,6 +98,7 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeFlowLogsCommand extends $Command
   .classBuilder<

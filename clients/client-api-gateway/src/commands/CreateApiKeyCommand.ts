@@ -27,7 +27,6 @@ export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
 export interface CreateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an ApiKey resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface CreateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateApiKeyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListContributorInsightsCommandInput extends ListContributorInsi
 export interface ListContributorInsightsCommandOutput extends ListContributorInsightsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary
  *             indexes.</p>
  * @example
@@ -72,6 +71,7 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ListContributorInsightsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateVolumeFromBackupCommandInput extends CreateVolumeFromBack
 export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon FSx for NetApp ONTAP volume from an
  *             existing Amazon FSx volume backup.</p>
  * @example
@@ -695,6 +694,7 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CreateVolumeFromBackupCommand extends $Command
   .classBuilder<

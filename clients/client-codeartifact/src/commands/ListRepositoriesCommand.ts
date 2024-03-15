@@ -27,7 +27,6 @@ export interface ListRepositoriesCommandInput extends ListRepositoriesRequest {}
 export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Returns a list of
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
@@ -91,6 +90,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class ListRepositoriesCommand extends $Command
   .classBuilder<

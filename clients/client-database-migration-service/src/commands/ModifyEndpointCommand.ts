@@ -36,7 +36,6 @@ export interface ModifyEndpointCommandInput extends ModifyEndpointMessage {}
 export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified endpoint.</p>
  *          <note>
  *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
@@ -783,6 +782,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Modify endpoint
  * ```javascript
  * // Modifies the specified endpoint.

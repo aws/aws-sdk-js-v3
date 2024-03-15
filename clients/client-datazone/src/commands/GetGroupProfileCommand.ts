@@ -31,7 +31,6 @@ export interface GetGroupProfileCommandInput extends GetGroupProfileInput {}
 export interface GetGroupProfileCommandOutput extends GetGroupProfileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a group profile in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetGroupProfileCommandOutput extends GetGroupProfileOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetGroupProfileCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides more information on a calculated attribute definition for Customer Profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetCalculatedAttributeDefinitionCommand extends $Command
   .classBuilder<

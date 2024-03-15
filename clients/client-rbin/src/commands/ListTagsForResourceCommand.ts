@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags assigned to a retention rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

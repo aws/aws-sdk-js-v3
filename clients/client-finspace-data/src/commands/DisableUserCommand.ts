@@ -27,9 +27,6 @@ export interface DisableUserCommandInput extends DisableUserRequest {}
 export interface DisableUserCommandOutput extends DisableUserResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Denies access to the FinSpace web application and API for the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +74,8 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class DisableUserCommand extends $Command
   .classBuilder<

@@ -33,7 +33,6 @@ export interface AdminDisableProviderForUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Prevents the user from signing in with the specified external (SAML or social)
  *             identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools
  *             native username + password user, they can't use their password to sign in. If the user
@@ -137,6 +136,7 @@ export interface AdminDisableProviderForUserCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminDisableProviderForUserCommand extends $Command
   .classBuilder<

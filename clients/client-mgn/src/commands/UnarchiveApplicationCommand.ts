@@ -27,7 +27,6 @@ export interface UnarchiveApplicationCommandInput extends UnarchiveApplicationRe
 export interface UnarchiveApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
- * @public
  * <p>Unarchive application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UnarchiveApplicationCommandOutput extends Application, __Metada
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class UnarchiveApplicationCommand extends $Command
   .classBuilder<

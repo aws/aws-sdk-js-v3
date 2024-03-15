@@ -32,7 +32,6 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables resource sharing within your organization in Organizations. This operation creates
  *             a service-linked role called <code>AWSServiceRoleForResourceAccessManager</code> that has the IAM managed policy
  *             named AWSResourceAccessManagerServiceRolePolicy attached. This role permits RAM to retrieve information about
@@ -78,6 +77,7 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class EnableSharingWithAwsOrganizationCommand extends $Command
   .classBuilder<

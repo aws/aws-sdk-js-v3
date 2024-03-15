@@ -35,7 +35,6 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
  *    associated with.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeMaintenanceWindowsForTargetCommand extends $Command
   .classBuilder<

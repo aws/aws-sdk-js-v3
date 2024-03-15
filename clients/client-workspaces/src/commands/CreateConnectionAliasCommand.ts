@@ -27,7 +27,6 @@ export interface CreateConnectionAliasCommandInput extends CreateConnectionAlias
 export interface CreateConnectionAliasCommandOutput extends CreateConnectionAliasResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified connection alias for use with cross-Region redirection. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -81,6 +80,7 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateConnectionAliasCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoli
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>
  *          <p>You can filter the results using <code>ResourceId</code>,
  *          <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p>
@@ -163,6 +162,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To describe scaling policies
  * ```javascript
  * // This example describes the scaling policies for the ECS service namespace.

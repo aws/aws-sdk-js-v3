@@ -27,7 +27,6 @@ export interface UntagStreamCommandInput extends UntagStreamInput {}
 export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
  *             keys; don't specify the value. If you specify a tag key that does not exist, it's
  *             ignored.</p>
@@ -77,6 +76,7 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class UntagStreamCommand extends $Command
   .classBuilder<

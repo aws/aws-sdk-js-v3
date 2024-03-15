@@ -27,7 +27,6 @@ export interface CopyFpgaImageCommandInput extends CopyFpgaImageRequest {}
 export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CopyFpgaImageCommand extends $Command
   .classBuilder<

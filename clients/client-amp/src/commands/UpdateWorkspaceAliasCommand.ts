@@ -27,7 +27,6 @@ export interface UpdateWorkspaceAliasCommandInput extends UpdateWorkspaceAliasRe
 export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the alias of an existing workspace. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class UpdateWorkspaceAliasCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeIdentityUsageCommandInput extends DescribeIdentityUsage
 export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets usage information for an identity, including number of datasets and data usage.</p>
  *       <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
  *       <examples>
@@ -131,6 +130,7 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class DescribeIdentityUsageCommand extends $Command
   .classBuilder<

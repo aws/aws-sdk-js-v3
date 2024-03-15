@@ -31,7 +31,6 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class ListProjectsCommand extends $Command
   .classBuilder<

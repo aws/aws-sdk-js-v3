@@ -30,7 +30,6 @@ export interface DeleteQuerySuggestionsBlockListCommandInput extends DeleteQuery
 export interface DeleteQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a block list used for query suggestions for an index.</p>
  *          <p>A deleted block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to add back the
@@ -87,6 +86,7 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DeleteQuerySuggestionsBlockListCommand extends $Command
   .classBuilder<

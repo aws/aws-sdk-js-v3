@@ -27,7 +27,6 @@ export interface DescribeOrganizationHealthCommandInput extends DescribeOrganiza
 export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganizationHealthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns active insights, predictive insights, and resource hours analyzed in last
  * 			hour.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationHealthCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetRecoveryPointCommandInput extends GetRecoveryPointRequest {}
 export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a recovery point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetRecoveryPointCommandOutput extends GetRecoveryPointResponse,
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class GetRecoveryPointCommand extends $Command
   .classBuilder<

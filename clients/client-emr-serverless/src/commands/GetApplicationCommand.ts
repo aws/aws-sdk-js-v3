@@ -31,7 +31,6 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays detailed information about a specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -163,6 +162,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class GetApplicationCommand extends $Command
   .classBuilder<

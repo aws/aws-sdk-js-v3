@@ -27,7 +27,6 @@ export interface DisableFastLaunchCommandInput extends DisableFastLaunchRequest 
 export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned snapshots.
  * 			After you disable Windows fast launch, the AMI uses the standard launch process for each
  * 			new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable Windows fast launch again.</p>
@@ -76,6 +75,7 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableFastLaunchCommand extends $Command
   .classBuilder<

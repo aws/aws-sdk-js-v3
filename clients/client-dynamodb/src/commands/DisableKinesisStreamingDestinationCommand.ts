@@ -32,7 +32,6 @@ export interface DisableKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
  *             without deleting either of the resources.</p>
  * @example
@@ -100,6 +99,7 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DisableKinesisStreamingDestinationCommand extends $Command
   .classBuilder<

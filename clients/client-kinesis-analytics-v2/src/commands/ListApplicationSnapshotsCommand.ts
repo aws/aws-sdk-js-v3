@@ -31,7 +31,6 @@ export interface ListApplicationSnapshotsCommandInput extends ListApplicationSna
 export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSnapshotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about the current application snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class ListApplicationSnapshotsCommand extends $Command
   .classBuilder<

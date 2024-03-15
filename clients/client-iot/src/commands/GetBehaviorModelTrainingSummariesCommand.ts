@@ -35,7 +35,6 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns a Device Defender's ML Detect Security Profile training model's status.
  *     </p>
@@ -90,6 +89,7 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetBehaviorModelTrainingSummariesCommand extends $Command
   .classBuilder<

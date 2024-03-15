@@ -32,7 +32,6 @@ export interface UpdateMaintenanceWindowCommandInput extends UpdateMaintenanceWi
 export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceWindowResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
  *          <note>
  *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -100,6 +99,7 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateMaintenanceWindowCommand extends $Command
   .classBuilder<

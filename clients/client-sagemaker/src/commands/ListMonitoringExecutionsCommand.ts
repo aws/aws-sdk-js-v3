@@ -27,7 +27,6 @@ export interface ListMonitoringExecutionsCommandInput extends ListMonitoringExec
 export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns list of all monitoring job executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListMonitoringExecutionsCommand extends $Command
   .classBuilder<

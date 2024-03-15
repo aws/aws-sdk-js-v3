@@ -27,7 +27,6 @@ export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
 export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the managed node groups associated with the specified cluster in your Amazon Web Services account in the specified Amazon Web Services Region. Self-managed node
  *             groups aren't listed.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListNodegroupsCommand extends $Command
   .classBuilder<

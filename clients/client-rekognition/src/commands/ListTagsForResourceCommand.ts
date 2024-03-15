@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels
  *       model. </p>
  *          <p>This operation requires permissions to perform the
@@ -80,6 +79,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

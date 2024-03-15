@@ -27,7 +27,6 @@ export interface GetCardinalityCommandInput extends GetCardinalityRequest {}
 export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the approximate count of unique values that match the query.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetCardinality</a> action.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetCardinalityCommand extends $Command
   .classBuilder<

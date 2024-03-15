@@ -27,7 +27,6 @@ export interface CreateSignalCatalogCommandInput extends CreateSignalCatalogRequ
 export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a collection of standardized signals that can be reused to create vehicle
  *             models.</p>
  * @example
@@ -159,6 +158,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class CreateSignalCatalogCommand extends $Command
   .classBuilder<

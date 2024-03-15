@@ -27,7 +27,6 @@ export interface DescribeActivityCommandInput extends DescribeActivityInput {}
 export interface DescribeActivityCommandOutput extends DescribeActivityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an activity.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -66,6 +65,7 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DescribeActivityCommand extends $Command
   .classBuilder<

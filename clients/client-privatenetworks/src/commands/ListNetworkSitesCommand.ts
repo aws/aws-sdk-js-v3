@@ -27,7 +27,6 @@ export interface ListNetworkSitesCommandInput extends ListNetworkSitesRequest {}
 export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists network sites. Add filters to your request to return a more specific list of
  *             results. Use filters to match the status of the network site.</p>
  * @example
@@ -125,6 +124,7 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ListNetworkSitesCommand extends $Command
   .classBuilder<

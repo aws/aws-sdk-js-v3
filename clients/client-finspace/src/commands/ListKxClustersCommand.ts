@@ -27,7 +27,6 @@ export interface ListKxClustersCommandInput extends ListKxClustersRequest {}
 export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __M
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxClustersCommand extends $Command
   .classBuilder<

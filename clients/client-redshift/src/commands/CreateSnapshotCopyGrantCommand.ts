@@ -27,7 +27,6 @@ export interface CreateSnapshotCopyGrantCommandInput extends CreateSnapshotCopyG
 export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopyGrantResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key
  *             from Key Management Service (KMS) to encrypt copied snapshots in a
  *             destination region.</p>
@@ -99,6 +98,7 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateSnapshotCopyGrantCommand extends $Command
   .classBuilder<

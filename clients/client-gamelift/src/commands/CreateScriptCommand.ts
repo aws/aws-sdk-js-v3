@@ -27,7 +27,6 @@ export interface CreateScriptCommandInput extends CreateScriptInput {}
 export interface CreateScriptCommandOutput extends CreateScriptOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that
  *             provide configuration settings and optional custom game logic for your game. The script
  *             is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is
@@ -142,6 +141,7 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateScriptCommand extends $Command
   .classBuilder<

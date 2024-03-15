@@ -27,7 +27,6 @@ export interface GetLoadBalancerTlsPoliciesCommandInput extends GetLoadBalancerT
 export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancerTlsPoliciesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of TLS security policies that you can apply to Lightsail load
  *       balancers.</p>
  *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
@@ -95,6 +94,7 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetLoadBalancerTlsPoliciesCommand extends $Command
   .classBuilder<

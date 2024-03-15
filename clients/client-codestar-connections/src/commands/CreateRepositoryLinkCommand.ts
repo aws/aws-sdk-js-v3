@@ -31,7 +31,6 @@ export interface CreateRepositoryLinkCommandInput extends CreateRepositoryLinkIn
 export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a link to a specified external Git repository. A repository link allows Git sync to monitor and sync changes to files in a specified Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkO
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class CreateRepositoryLinkCommand extends $Command
   .classBuilder<

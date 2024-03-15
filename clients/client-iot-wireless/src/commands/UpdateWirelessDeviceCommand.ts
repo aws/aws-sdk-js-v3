@@ -27,7 +27,6 @@ export interface UpdateWirelessDeviceCommandInput extends UpdateWirelessDeviceRe
 export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates properties of a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class UpdateWirelessDeviceCommand extends $Command
   .classBuilder<

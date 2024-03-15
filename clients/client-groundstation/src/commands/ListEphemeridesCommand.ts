@@ -27,7 +27,6 @@ export interface ListEphemeridesCommandInput extends ListEphemeridesRequest {}
 export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List existing ephemerides.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ListEphemeridesCommand extends $Command
   .classBuilder<

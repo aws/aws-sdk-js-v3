@@ -27,7 +27,6 @@ export interface SendDataSetNotificationCommandInput extends SendDataSetNotifica
 export interface SendDataSetNotificationCommandOutput extends SendDataSetNotificationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The type of event associated with the data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface SendDataSetNotificationCommandOutput extends SendDataSetNotific
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class SendDataSetNotificationCommand extends $Command
   .classBuilder<

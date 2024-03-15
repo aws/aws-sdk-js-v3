@@ -32,7 +32,6 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetProvisionedConcurrencyConfigCommand extends $Command
   .classBuilder<

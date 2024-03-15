@@ -27,7 +27,6 @@ export interface UpdateThemeAliasCommandInput extends UpdateThemeAliasRequest {}
 export interface UpdateThemeAliasCommandOutput extends UpdateThemeAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an alias of a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateThemeAliasCommandOutput extends UpdateThemeAliasResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateThemeAliasCommand extends $Command
   .classBuilder<

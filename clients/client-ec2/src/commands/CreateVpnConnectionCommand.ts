@@ -32,7 +32,6 @@ export interface CreateVpnConnectionCommandInput extends CreateVpnConnectionRequ
 export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a VPN connection between an existing virtual private gateway or transit
  *             gateway and a customer gateway. The supported connection type is
  *             <code>ipsec.1</code>.</p>
@@ -265,6 +264,7 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVpnConnectionCommand extends $Command
   .classBuilder<

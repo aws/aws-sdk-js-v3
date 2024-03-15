@@ -27,7 +27,6 @@ export interface DeleteAccountCommandInput extends DeleteAccountRequest {}
 export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
  *                 <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action
  *             to dodo.</p>
@@ -87,6 +86,7 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class DeleteAccountCommand extends $Command
   .classBuilder<

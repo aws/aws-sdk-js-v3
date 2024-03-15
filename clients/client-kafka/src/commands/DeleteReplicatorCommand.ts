@@ -27,7 +27,6 @@ export interface DeleteReplicatorCommandInput extends DeleteReplicatorRequest {}
 export interface DeleteReplicatorCommandOutput extends DeleteReplicatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a replicator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteReplicatorCommandOutput extends DeleteReplicatorResponse,
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class DeleteReplicatorCommand extends $Command
   .classBuilder<

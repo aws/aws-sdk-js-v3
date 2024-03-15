@@ -32,7 +32,6 @@ export interface StartRecoveryCommandInput extends StartRecoveryRequest {}
 export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches Recovery Instances for the specified Source Servers. For each Source Server you may choose a point in time snapshot to launch from, or use an on demand snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StartRecoveryCommand extends $Command
   .classBuilder<

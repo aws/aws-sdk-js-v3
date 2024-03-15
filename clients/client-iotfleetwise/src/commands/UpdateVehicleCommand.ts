@@ -27,7 +27,6 @@ export interface UpdateVehicleCommandInput extends UpdateVehicleRequest {}
 export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a vehicle. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class UpdateVehicleCommand extends $Command
   .classBuilder<

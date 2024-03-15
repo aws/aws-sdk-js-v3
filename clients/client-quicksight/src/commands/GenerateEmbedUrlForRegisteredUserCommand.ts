@@ -36,7 +36,6 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight experience in your website. This action can be used for any type of user registered in an Amazon QuickSight account.
  *             Before you use this action, make sure that you have configured the relevant Amazon QuickSight resource and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
@@ -166,6 +165,7 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class GenerateEmbedUrlForRegisteredUserCommand extends $Command
   .classBuilder<

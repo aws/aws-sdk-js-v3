@@ -30,7 +30,6 @@ export interface DeleteInstanceOnboardingJobCommandInput extends DeleteInstanceO
 export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Delete the Connect Campaigns onboarding job for the specified Amazon Connect instance.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class DeleteInstanceOnboardingJobCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the URLs that can be used with a Git client to clone a source
  *       repository.</p>
  * @example
@@ -83,6 +82,7 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class GetSourceRepositoryCloneUrlsCommand extends $Command
   .classBuilder<

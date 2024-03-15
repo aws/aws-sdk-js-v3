@@ -27,7 +27,6 @@ export interface CreateVpcLinkCommandInput extends CreateVpcLinkRequest {}
 export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateVpcLinkCommand extends $Command
   .classBuilder<

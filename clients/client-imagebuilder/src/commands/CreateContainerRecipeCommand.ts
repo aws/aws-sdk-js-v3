@@ -27,7 +27,6 @@ export interface CreateContainerRecipeCommandInput extends CreateContainerRecipe
 export interface CreateContainerRecipeCommandOutput extends CreateContainerRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new container recipe. Container recipes define how images are configured,
  * 			tested, and assessed.</p>
  * @example
@@ -149,6 +148,7 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CreateContainerRecipeCommand extends $Command
   .classBuilder<

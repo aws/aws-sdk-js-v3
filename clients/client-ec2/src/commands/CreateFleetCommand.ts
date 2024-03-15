@@ -27,7 +27,6 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an EC2 Fleet that contains the configuration information for On-Demand Instances and Spot Instances.
  *          Instances are launched immediately if there is available capacity.</p>
  *          <p>A single EC2 Fleet can include multiple launch specifications that vary by instance type,
@@ -403,6 +402,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateFleetCommand extends $Command
   .classBuilder<

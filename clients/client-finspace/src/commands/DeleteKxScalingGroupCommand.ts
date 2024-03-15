@@ -27,7 +27,6 @@ export interface DeleteKxScalingGroupCommandInput extends DeleteKxScalingGroupRe
 export interface DeleteKxScalingGroupCommandOutput extends DeleteKxScalingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Deletes the specified scaling group. This action is irreversible. You cannot delete a scaling group until all the clusters running on it have been deleted.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DeleteKxScalingGroupCommandOutput extends DeleteKxScalingGroupR
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class DeleteKxScalingGroupCommand extends $Command
   .classBuilder<

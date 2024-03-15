@@ -31,7 +31,6 @@ export interface BatchGetDevicePositionCommandInput extends BatchGetDevicePositi
 export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the latest device positions for requested devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class BatchGetDevicePositionCommand extends $Command
   .classBuilder<

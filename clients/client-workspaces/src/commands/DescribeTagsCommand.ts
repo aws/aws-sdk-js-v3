@@ -27,7 +27,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified tags for the specified WorkSpaces resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

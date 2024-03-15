@@ -27,7 +27,6 @@ export interface ListTablesCommandInput extends ListTablesRequest {}
 export interface ListTablesCommandOutput extends ListTablesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The ListTables API allows you to retrieve a list of all the tables in a workbook.
  *         </p>
@@ -92,6 +91,7 @@ export interface ListTablesCommandOutput extends ListTablesResult, __MetadataBea
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class ListTablesCommand extends $Command
   .classBuilder<

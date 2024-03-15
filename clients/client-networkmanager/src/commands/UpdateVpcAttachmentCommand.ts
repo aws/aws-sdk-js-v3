@@ -27,7 +27,6 @@ export interface UpdateVpcAttachmentCommandInput extends UpdateVpcAttachmentRequ
 export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class UpdateVpcAttachmentCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ExportServerlessCacheSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the functionality to export the serverless cache snapshot data to Amazon S3. Available for Redis only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ExportServerlessCacheSnapshotCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class ExportServerlessCacheSnapshotCommand extends $Command
   .classBuilder<

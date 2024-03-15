@@ -35,7 +35,6 @@ export interface ImportCertificateCommandInput extends ImportCertificateMessage 
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads the specified certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Import certificate
  * ```javascript
  * // Uploads the specified certificate.

@@ -31,7 +31,6 @@ export interface UnclaimDeviceCommandInput extends UnclaimDeviceRequest {}
 export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a device from your AWS account using its device ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __Met
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class UnclaimDeviceCommand extends $Command
   .classBuilder<

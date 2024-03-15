@@ -32,7 +32,6 @@ export interface DeleteObservabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an App Runner observability configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
  *       configuration that's used by one or more App Runner services.</p>
  * @example
@@ -81,6 +80,7 @@ export interface DeleteObservabilityConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DeleteObservabilityConfigurationCommand extends $Command
   .classBuilder<

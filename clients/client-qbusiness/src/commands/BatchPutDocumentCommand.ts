@@ -27,7 +27,6 @@ export interface BatchPutDocumentCommandInput extends BatchPutDocumentRequest {}
 export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more documents to an Amazon Q index.</p>
  *          <p>You use this API to:</p>
  *          <ul>
@@ -210,6 +209,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class BatchPutDocumentCommand extends $Command
   .classBuilder<

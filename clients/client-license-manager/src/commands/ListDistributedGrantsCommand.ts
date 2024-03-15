@@ -27,7 +27,6 @@ export interface ListDistributedGrantsCommandInput extends ListDistributedGrants
 export interface ListDistributedGrantsCommandOutput extends ListDistributedGrantsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the grants distributed for the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListDistributedGrantsCommand extends $Command
   .classBuilder<

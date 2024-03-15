@@ -27,7 +27,6 @@ export interface StartOnDemandAuditTaskCommandInput extends StartOnDemandAuditTa
 export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an on-demand Device Defender audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartOnDemandAuditTask</a> action.</p>
  * @example
@@ -70,6 +69,7 @@ export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditT
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class StartOnDemandAuditTaskCommand extends $Command
   .classBuilder<

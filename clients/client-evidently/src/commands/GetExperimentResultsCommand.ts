@@ -27,7 +27,6 @@ export interface GetExperimentResultsCommandInput extends GetExperimentResultsRe
 export interface GetExperimentResultsCommandOutput extends GetExperimentResultsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the results of a running or completed experiment. No results are available until
  *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.
  *        To increase the statistical power, Evidently performs an additional offline p-value analysis at the end of the experiment.
@@ -115,6 +114,7 @@ export interface GetExperimentResultsCommandOutput extends GetExperimentResultsR
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class GetExperimentResultsCommand extends $Command
   .classBuilder<

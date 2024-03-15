@@ -27,7 +27,6 @@ export interface ListCustomModelsCommandInput extends ListCustomModelsRequest {}
 export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class ListCustomModelsCommand extends $Command
   .classBuilder<

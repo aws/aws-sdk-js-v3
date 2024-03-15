@@ -27,7 +27,6 @@ export interface GetGraphSummaryCommandInput extends GetGraphSummaryInput {}
 export interface GetGraphSummaryCommandOutput extends GetGraphSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a graph summary for a property graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface GetGraphSummaryCommandOutput extends GetGraphSummaryOutput, __M
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class GetGraphSummaryCommand extends $Command
   .classBuilder<

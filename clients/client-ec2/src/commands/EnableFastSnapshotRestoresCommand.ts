@@ -27,7 +27,6 @@ export interface EnableFastSnapshotRestoresCommandInput extends EnableFastSnapsh
 export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
  *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.
  *       To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
@@ -94,6 +93,7 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableFastSnapshotRestoresCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetJobCommandInput extends GetJobRequest {}
 export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns information about a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -222,6 +221,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class GetJobCommand extends $Command
   .classBuilder<

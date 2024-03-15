@@ -297,7 +297,6 @@ export type EMRServerlessClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface EMRServerlessClientResolvedConfig extends EMRServerlessClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR Serverless provides a serverless runtime environment that simplifies running
  *          analytics applications using the latest open source frameworks such as Apache Spark and
  *          Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize,
@@ -319,6 +318,7 @@ export interface EMRServerlessClientResolvedConfig extends EMRServerlessClientRe
  *                example, <code>emr-serverless.us-east-2.amazonaws.com</code>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class EMRServerlessClient extends __Client<
   __HttpHandlerOptions,

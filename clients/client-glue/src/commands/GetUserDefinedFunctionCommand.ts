@@ -27,7 +27,6 @@ export interface GetUserDefinedFunctionCommandInput extends GetUserDefinedFuncti
 export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a specified function definition from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetUserDefinedFunctionCommand extends $Command
   .classBuilder<

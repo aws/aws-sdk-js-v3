@@ -36,7 +36,6 @@ export interface GetWorkUnitResultsCommandOutput
 }
 
 /**
- * @public
  * <p>Returns the work units resulting from the query. Work units can be executed in any order and in parallel. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetWorkUnitResultsCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetWorkUnitResultsCommand extends $Command
   .classBuilder<

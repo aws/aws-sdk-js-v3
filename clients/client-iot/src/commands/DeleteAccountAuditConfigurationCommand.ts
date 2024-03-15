@@ -32,7 +32,6 @@ export interface DeleteAccountAuditConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores the default settings for Device Defender audits for this account. Any
  *           configuration data you entered is deleted and all audit checks are reset to
  *           disabled.  </p>
@@ -73,6 +72,7 @@ export interface DeleteAccountAuditConfigurationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteAccountAuditConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateModelVersionStatusCommandInput extends UpdateModelVersion
 export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersionStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status of a model version.</p>
  *          <p>You can perform the following status updates:</p>
  *          <ol>
@@ -86,6 +85,7 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateModelVersionStatusCommand extends $Command
   .classBuilder<

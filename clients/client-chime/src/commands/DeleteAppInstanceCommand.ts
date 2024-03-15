@@ -27,9 +27,6 @@ export interface DeleteAppInstanceCommandInput extends DeleteAppInstanceRequest 
 export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteAppInstance in the Amazon Chime SDK Identity Namespace
- *
  * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>
  *          <important>
  *             <p>
@@ -81,6 +78,8 @@ export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteAppInstance in the Amazon Chime SDK Identity Namespace
  */
 export class DeleteAppInstanceCommand extends $Command
   .classBuilder<

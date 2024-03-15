@@ -27,7 +27,6 @@ export interface ListCodeSigningConfigsCommandInput extends ListCodeSigningConfi
 export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
  *         signing configurations</a>. A request returns up to 10,000 configurations per
  *       call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
@@ -80,6 +79,7 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListCodeSigningConfigsCommand extends $Command
   .classBuilder<

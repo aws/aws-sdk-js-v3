@@ -31,7 +31,6 @@ export interface ReloadReplicationTablesCommandInput extends ReloadReplicationTa
 export interface ReloadReplicationTablesCommandOutput extends ReloadReplicationTablesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reloads the target database table with the source data for a given DMS Serverless
  *          replication configuration.</p>
  *          <p>You can only use this operation with a task in the RUNNING state, otherwise the service
@@ -75,6 +74,7 @@ export interface ReloadReplicationTablesCommandOutput extends ReloadReplicationT
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class ReloadReplicationTablesCommand extends $Command
   .classBuilder<

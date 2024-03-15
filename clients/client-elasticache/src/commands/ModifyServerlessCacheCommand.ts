@@ -27,7 +27,6 @@ export interface ModifyServerlessCacheCommandInput extends ModifyServerlessCache
 export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API modifies the attributes of a serverless cache.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCach
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class ModifyServerlessCacheCommand extends $Command
   .classBuilder<

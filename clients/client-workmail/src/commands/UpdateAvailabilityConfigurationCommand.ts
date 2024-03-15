@@ -36,7 +36,6 @@ export interface UpdateAvailabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing <code>AvailabilityConfiguration</code> for the given WorkMail
  *          organization and domain.</p>
  * @example
@@ -86,6 +85,7 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class UpdateAvailabilityConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListEnvironmentVpcsCommandInput extends ListEnvironmentVpcsRequ
 export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual private clouds (VPCs) that are part of the
  *       environment. </p>
  * @example
@@ -91,6 +90,7 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class ListEnvironmentVpcsCommand extends $Command
   .classBuilder<

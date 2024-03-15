@@ -35,7 +35,6 @@ export interface UpdateUserAttributesCommandInput extends UpdateUserAttributesRe
 export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>With this operation, your users can update one or more of their attributes with their
  *             own credentials. You authorize this API request with the user's access token. To delete
  *             an attribute from your user, submit the attribute in your API request with a blank
@@ -180,6 +179,7 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class UpdateUserAttributesCommand extends $Command
   .classBuilder<

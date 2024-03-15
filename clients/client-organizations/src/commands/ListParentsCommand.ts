@@ -27,7 +27,6 @@ export interface ListParentsCommandInput extends ListParentsRequest {}
 export interface ListParentsCommandOutput extends ListParentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the root or organizational units (OUs) that serve as the immediate parent of the
  *             specified child OU or account. This operation, along with <a>ListChildren</a>
  *             enables you to traverse the tree structure that makes up this root.</p>
@@ -206,6 +205,7 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of all of the parents of a child OU or account
  * ```javascript
  * // The following example shows how to list the root or OUs that contain account 444444444444:/n/n

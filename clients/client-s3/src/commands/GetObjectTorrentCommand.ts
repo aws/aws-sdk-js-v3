@@ -33,7 +33,6 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
 }
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -84,6 +83,7 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To retrieve torrent files for an object
  * ```javascript
  * // The following example retrieves torrent files of an object.

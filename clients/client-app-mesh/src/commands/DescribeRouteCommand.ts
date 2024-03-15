@@ -27,7 +27,6 @@ export interface DescribeRouteCommandInput extends DescribeRouteInput {}
 export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -297,6 +296,7 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DescribeRouteCommand extends $Command
   .classBuilder<

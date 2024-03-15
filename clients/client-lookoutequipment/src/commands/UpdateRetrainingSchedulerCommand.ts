@@ -27,7 +27,6 @@ export interface UpdateRetrainingSchedulerCommandInput extends UpdateRetrainingS
 export interface UpdateRetrainingSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a retraining scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateRetrainingSchedulerCommandOutput extends __MetadataBearer
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  * @example Updates a retraining scheduler
  * ```javascript
  * //

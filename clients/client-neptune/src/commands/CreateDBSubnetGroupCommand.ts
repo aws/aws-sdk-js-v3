@@ -27,7 +27,6 @@ export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMess
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
  *       least two AZs in the Amazon Region.</p>
  * @example
@@ -99,6 +98,7 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CreateDBSubnetGroupCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListAccessorsCommandInput extends ListAccessorsInput {}
 export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the accessors and their properties. Accessor objects are containers that have the
  *          information required for token based access to your Ethereum nodes.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class ListAccessorsCommand extends $Command
   .classBuilder<

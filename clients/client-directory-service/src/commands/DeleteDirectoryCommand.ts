@@ -27,7 +27,6 @@ export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Directory Service directory.</p>
  *          <p>Before you call <code>DeleteDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
@@ -68,6 +67,7 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DeleteDirectoryCommand extends $Command
   .classBuilder<

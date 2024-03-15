@@ -31,7 +31,6 @@ export interface StartOutboundVoiceContactCommandInput extends StartOutboundVoic
 export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoiceContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
  *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
  *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
@@ -120,6 +119,7 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StartOutboundVoiceContactCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateMeshCommandInput extends UpdateMeshInput {}
 export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class UpdateMeshCommand extends $Command
   .classBuilder<

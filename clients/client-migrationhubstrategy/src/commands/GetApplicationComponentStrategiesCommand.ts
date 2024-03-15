@@ -39,7 +39,6 @@ export interface GetApplicationComponentStrategiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves a list of all the recommended strategies and tools for an application component
  *       running on a server. </p>
  * @example
@@ -91,6 +90,7 @@ export interface GetApplicationComponentStrategiesCommandOutput
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetApplicationComponentStrategiesCommand extends $Command
   .classBuilder<

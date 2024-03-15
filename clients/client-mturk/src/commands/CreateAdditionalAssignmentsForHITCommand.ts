@@ -35,7 +35,6 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>CreateAdditionalAssignmentsForHIT</code>
@@ -91,6 +90,7 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class CreateAdditionalAssignmentsForHITCommand extends $Command
   .classBuilder<

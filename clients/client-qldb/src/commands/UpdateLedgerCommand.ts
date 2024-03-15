@@ -27,7 +27,6 @@ export interface UpdateLedgerCommandInput extends UpdateLedgerRequest {}
 export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates properties on a ledger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class UpdateLedgerCommand extends $Command
   .classBuilder<

@@ -32,9 +32,6 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace
- *
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains data.</p>
  *          <important>
  *             <p>
@@ -104,6 +101,8 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace
  */
 export class PutAppInstanceRetentionSettingsCommand extends $Command
   .classBuilder<

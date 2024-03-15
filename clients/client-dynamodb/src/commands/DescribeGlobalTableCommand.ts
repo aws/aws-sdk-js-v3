@@ -27,7 +27,6 @@ export interface DescribeGlobalTableCommandInput extends DescribeGlobalTableInpu
 export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified global table.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -105,6 +104,7 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DescribeGlobalTableCommand extends $Command
   .classBuilder<

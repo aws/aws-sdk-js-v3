@@ -31,7 +31,6 @@ export interface DescribeEngineVersionsCommandInput extends DescribeEngineVersio
 export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the replication instance versions used in the project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeEngineVersionsCommand extends $Command
   .classBuilder<

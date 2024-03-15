@@ -29,7 +29,6 @@ export interface ReplaceRouteTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation
  *         completes, the subnet or gateway uses the routes in the new route table. For more
  *         information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
@@ -67,6 +66,7 @@ export interface ReplaceRouteTableAssociationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To replace the route table associated with a subnet
  * ```javascript
  * // This example associates the specified route table with the subnet for the specified route table association.

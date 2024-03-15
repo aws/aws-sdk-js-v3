@@ -32,7 +32,6 @@ export interface PutDeliveryDestinationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to deliver
  *        logs cross-account to a specified destination in this account. To configure the delivery of logs from an
  *      Amazon Web Services service in another account to a logs delivery destination in the current account, you must do the following:</p>
@@ -105,6 +104,7 @@ export interface PutDeliveryDestinationPolicyCommandOutput
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutDeliveryDestinationPolicyCommand extends $Command
   .classBuilder<

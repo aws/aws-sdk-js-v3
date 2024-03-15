@@ -35,7 +35,6 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the security groups currently in effect for a mount target. This operation
  *       requires that the network interface of the mount target has been created and the lifecycle
  *       state of the mount target is not <code>deleted</code>.</p>
@@ -95,6 +94,7 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To describe the security groups for a mount target
  * ```javascript
  * // This operation describes all of the security groups for a file system's mount target.

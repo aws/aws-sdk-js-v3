@@ -32,7 +32,6 @@ export interface DeleteTLSInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified <a>TLSInspectionConfiguration</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface DeleteTLSInspectionConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DeleteTLSInspectionConfigurationCommand extends $Command
   .classBuilder<

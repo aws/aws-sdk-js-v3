@@ -32,7 +32,6 @@ export interface ListMedicalTranscriptionJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of medical transcription jobs that match the specified criteria. If no
  *             criteria are specified, all medical transcription jobs are returned.</p>
  *          <p>To get detailed information about a specific medical transcription job, use the  operation.</p>
@@ -95,6 +94,7 @@ export interface ListMedicalTranscriptionJobsCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListMedicalTranscriptionJobsCommand extends $Command
   .classBuilder<

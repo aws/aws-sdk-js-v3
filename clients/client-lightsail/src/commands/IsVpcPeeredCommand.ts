@@ -27,7 +27,6 @@ export interface IsVpcPeeredCommandInput extends IsVpcPeeredRequest {}
 export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataB
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class IsVpcPeeredCommand extends $Command
   .classBuilder<

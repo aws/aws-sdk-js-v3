@@ -27,7 +27,6 @@ export interface DeleteApiMappingCommandInput extends DeleteApiMappingRequest {}
 export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class DeleteApiMappingCommand extends $Command
   .classBuilder<

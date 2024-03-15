@@ -31,7 +31,6 @@ export interface StartLiveTailCommandInput extends StartLiveTailRequest {}
 export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a Live Tail streaming session for one or more log groups. A Live Tail session returns a stream of
  *       log events that have
  *       been recently ingested in the log groups. For more information, see
@@ -158,6 +157,7 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class StartLiveTailCommand extends $Command
   .classBuilder<

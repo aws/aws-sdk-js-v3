@@ -31,7 +31,6 @@ export interface CreateUsageLimitCommandInput extends CreateUsageLimitRequest {}
 export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a usage limit for a specified Amazon Redshift Serverless usage type. The usage limit is identified by the returned usage limit identifier.
  *       </p>
  * @example
@@ -87,6 +86,7 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class CreateUsageLimitCommand extends $Command
   .classBuilder<

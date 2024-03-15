@@ -35,7 +35,6 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get interpolated values for an asset property for a specified time interval, during a
  *       period of time. If your time series is missing data points during the specified time interval,
  *       you can use interpolation to estimate the missing data.</p>
@@ -122,6 +121,7 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class GetInterpolatedAssetPropertyValuesCommand extends $Command
   .classBuilder<

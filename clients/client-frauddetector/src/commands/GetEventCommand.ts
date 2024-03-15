@@ -27,7 +27,6 @@ export interface GetEventCommandInput extends GetEventRequest {}
 export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details of events stored with Amazon Fraud Detector. This action does not retrieve prediction results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetEventCommand extends $Command
   .classBuilder<

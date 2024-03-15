@@ -27,7 +27,6 @@ export interface CreateComponentCommandInput extends CreateComponentRequest {}
 export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new component that can be used to build, validate, test, and assess your
  * 			image. The component is based on a YAML document that you specify using exactly one of
  * 			the following methods:</p>
@@ -123,6 +122,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CreateComponentCommand extends $Command
   .classBuilder<

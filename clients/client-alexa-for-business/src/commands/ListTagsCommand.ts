@@ -27,9 +27,6 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Lists all tags for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +65,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

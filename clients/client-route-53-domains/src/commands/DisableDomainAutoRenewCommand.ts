@@ -27,7 +27,6 @@ export interface DisableDomainAutoRenewCommandInput extends DisableDomainAutoRen
 export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation disables automatic renewal of domain registration for the specified
  * 			domain.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class DisableDomainAutoRenewCommand extends $Command
   .classBuilder<

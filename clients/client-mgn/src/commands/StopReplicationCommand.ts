@@ -27,7 +27,6 @@ export interface StopReplicationCommandInput extends StopReplicationRequest {}
 export interface StopReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stop Replication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -186,6 +185,7 @@ export interface StopReplicationCommandOutput extends SourceServer, __MetadataBe
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class StopReplicationCommand extends $Command
   .classBuilder<

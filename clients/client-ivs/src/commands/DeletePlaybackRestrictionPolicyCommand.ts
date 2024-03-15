@@ -30,7 +30,6 @@ export interface DeletePlaybackRestrictionPolicyCommandInput extends DeletePlayb
 export interface DeletePlaybackRestrictionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified playback restriction policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeletePlaybackRestrictionPolicyCommandOutput extends __Metadata
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class DeletePlaybackRestrictionPolicyCommand extends $Command
   .classBuilder<

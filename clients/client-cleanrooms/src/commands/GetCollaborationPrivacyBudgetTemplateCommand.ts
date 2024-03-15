@@ -35,7 +35,6 @@ export interface GetCollaborationPrivacyBudgetTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a specified privacy budget template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetCollaborationPrivacyBudgetTemplateCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetCollaborationPrivacyBudgetTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some of the parameters for an existing connector. Provide the
  *         <code>ConnectorId</code> for the connector that you want to update, along with the new
  *       values for the parameters to update.</p>
@@ -96,6 +95,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UpdateConnectorCommand extends $Command
   .classBuilder<

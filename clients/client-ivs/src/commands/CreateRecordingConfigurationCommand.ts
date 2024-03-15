@@ -32,7 +32,6 @@ export interface CreateRecordingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>
  *          <p>
  *             <b>Known issue:</b> In the us-east-1 region, if you use the
@@ -139,6 +138,7 @@ export interface CreateRecordingConfigurationCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class CreateRecordingConfigurationCommand extends $Command
   .classBuilder<

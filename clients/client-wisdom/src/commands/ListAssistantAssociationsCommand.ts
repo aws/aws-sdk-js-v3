@@ -27,7 +27,6 @@ export interface ListAssistantAssociationsCommandInput extends ListAssistantAsso
 export interface ListAssistantAssociationsCommandOutput extends ListAssistantAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about assistant associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListAssistantAssociationsCommandOutput extends ListAssistantAss
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class ListAssistantAssociationsCommand extends $Command
   .classBuilder<

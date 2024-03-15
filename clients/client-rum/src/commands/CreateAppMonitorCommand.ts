@@ -27,7 +27,6 @@ export interface CreateAppMonitorCommandInput extends CreateAppMonitorRequest {}
 export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Amazon CloudWatch RUM app monitor, which collects telemetry data from your application and sends that
  *       data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
  *       and user behavior.</p>
@@ -111,6 +110,7 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class CreateAppMonitorCommand extends $Command
   .classBuilder<

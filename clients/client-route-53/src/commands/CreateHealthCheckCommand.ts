@@ -27,7 +27,6 @@ export interface CreateHealthCheckCommandInput extends CreateHealthCheckRequest 
 export interface CreateHealthCheckCommandOutput extends CreateHealthCheckResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new health check.</p>
  *          <p>For information about adding health checks to resource record sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a> in <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>. </p>
  *          <p>
@@ -196,6 +195,7 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateHealthCheckCommand extends $Command
   .classBuilder<

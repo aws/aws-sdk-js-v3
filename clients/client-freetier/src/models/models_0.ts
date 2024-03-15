@@ -40,98 +40,98 @@ export const MatchOption = {
 export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
 
 /**
- * @public
  * <p>Contains the specifications for the filters to use for your request.</p>
+ * @public
  */
 export interface DimensionValues {
   /**
-   * @public
    * <p>The name of the dimension that you want to filter on.</p>
+   * @public
    */
   Key: Dimension | undefined;
 
   /**
-   * @public
    * <p>The metadata values you can specify to filter upon, so that the results all match at least
    *       one of the specified values.</p>
+   * @public
    */
   Values: string[] | undefined;
 
   /**
-   * @public
    * <p>The match options that you can use to filter your results. You can specify only one of
    *       these values in the array.</p>
+   * @public
    */
   MatchOptions: MatchOption[] | undefined;
 }
 
 /**
- * @public
  * <p>Consists of a Amazon Web Services Free Tier offer’s metadata and your data usage for the offer.</p>
+ * @public
  */
 export interface FreeTierUsage {
   /**
-   * @public
    * <p>The name of the Amazon Web Service providing the Free Tier offer. For example, this can be
    *       Amazon Elastic Compute Cloud.</p>
+   * @public
    */
   service?: string;
 
   /**
-   * @public
    * <p>Describes <code>usageType</code> more granularly with the specific Amazon Web Service API
    *       operation. For example, this can be the <code>RunInstances</code> API operation for
    *       Amazon Elastic Compute Cloud.</p>
+   * @public
    */
   operation?: string;
 
   /**
-   * @public
    * <p>Describes the usage details of the offer. For example, this might be
    *         <code>Global-BoxUsage:freetrial</code>.</p>
+   * @public
    */
   usageType?: string;
 
   /**
-   * @public
    * <p>Describes the Amazon Web Services Region for which this offer is applicable</p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>Describes the actual usage accrued month-to-day (MTD) that you've used so far.</p>
+   * @public
    */
   actualUsageAmount?: number;
 
   /**
-   * @public
    * <p>Describes the forecasted usage by the month that you're expected to use.</p>
+   * @public
    */
   forecastedUsageAmount?: number;
 
   /**
-   * @public
    * <p>Describes the maximum usage allowed in Free Tier.</p>
+   * @public
    */
   limit?: number;
 
   /**
-   * @public
    * <p>Describes the unit of the <code>usageType</code>, such as <code>Hrs</code>.</p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>The description of the Free Tier offer.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Describes the type of the Free Tier offer. For example, the offer can be <code>"12 Months
    *         Free"</code>,  <code>"Always Free"</code>, and <code>"Free Trial"</code>.</p>
+   * @public
    */
   freeTierType?: string;
 }
@@ -141,21 +141,21 @@ export interface FreeTierUsage {
  */
 export interface GetFreeTierUsageResponse {
   /**
-   * @public
    * <p>The list of Free Tier usage objects that meet your filter expression.</p>
+   * @public
    */
   freeTierUsages: FreeTierUsage[] | undefined;
 
   /**
-   * @public
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An unexpected error occurred during the processing of your request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -174,8 +174,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -194,8 +194,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -214,7 +214,6 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Use <code>Expression</code> to filter in the <code>GetFreeTierUsage</code> API operation.</p>
  *          <p>You can use the following patterns:</p>
  *          <ul>
@@ -250,31 +249,32 @@ export class ValidationException extends __BaseException {
  *          </p>
  *          <p>In the following <b>Contents</b>, you must specify exactly one of the
  *       following root operators.</p>
+ * @public
  */
 export interface Expression {
   /**
-   * @public
    * <p>Return results that match any of the <code>Expressions</code>  that you specified. in the
    *       array.</p>
+   * @public
    */
   Or?: Expression[];
 
   /**
-   * @public
    * <p>Return results that match all <code>Expressions</code>  that you specified in the
    *       array.</p>
+   * @public
    */
   And?: Expression[];
 
   /**
-   * @public
    * <p>Return results that don’t match the <code>Expression</code> that you specified.</p>
+   * @public
    */
   Not?: Expression;
 
   /**
-   * @public
    * <p>The specific dimension, values, and match type to filter objects with.</p>
+   * @public
    */
   Dimensions?: DimensionValues;
 }
@@ -284,23 +284,23 @@ export interface Expression {
  */
 export interface GetFreeTierUsageRequest {
   /**
-   * @public
    * <p>An expression that specifies the conditions that you want each <code>FreeTierUsage</code> object
    *     to meet.</p>
+   * @public
    */
   filter?: Expression;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response. <code>MaxResults</code> means
    *       that there can be up to the specified number of values, but there might be fewer results based
    *       on your filters.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
    */
   nextToken?: string;
 }

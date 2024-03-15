@@ -28,7 +28,6 @@ export interface ActivateKeySigningKeyCommandInput extends ActivateKeySigningKey
 export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
  * 			operation changes the KSK status to <code>ACTIVE</code>.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ActivateKeySigningKeyCommand extends $Command
   .classBuilder<

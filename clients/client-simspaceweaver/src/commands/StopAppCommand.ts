@@ -27,7 +27,6 @@ export interface StopAppCommandInput extends StopAppInput {}
 export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the given custom app and shuts down all of its allocated compute resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StopAppCommandOutput extends StopAppOutput, __MetadataBearer {}
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class StopAppCommand extends $Command
   .classBuilder<

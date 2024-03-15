@@ -36,7 +36,6 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes cross account readiness authorization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class DeleteCrossAccountAuthorizationCommand extends $Command
   .classBuilder<

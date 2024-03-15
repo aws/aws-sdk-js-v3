@@ -27,9 +27,6 @@ export interface DeleteSkillGroupCommandInput extends DeleteSkillGroupRequest {}
 export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Deletes a skill group by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +58,8 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteSkillGroupCommand extends $Command
   .classBuilder<

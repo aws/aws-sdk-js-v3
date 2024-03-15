@@ -31,7 +31,6 @@ export interface FailoverPrimaryComputeCommandInput extends FailoverPrimaryCompu
 export interface FailoverPrimaryComputeCommandOutput extends FailoverPrimaryComputeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Fails over the primary compute unit of the specified Multi-AZ cluster to another Availability Zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -260,6 +259,7 @@ export interface FailoverPrimaryComputeCommandOutput extends FailoverPrimaryComp
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class FailoverPrimaryComputeCommand extends $Command
   .classBuilder<

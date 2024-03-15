@@ -27,7 +27,6 @@ export interface CreateNodegroupCommandInput extends CreateNodegroupRequest {}
 export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a managed node group for an Amazon EKS cluster.</p>
  *          <p>You can only create a node group for your cluster that is equal to the current Kubernetes
  *             version for the cluster. All node groups are created with the latest AMI release version
@@ -209,6 +208,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class CreateNodegroupCommand extends $Command
   .classBuilder<

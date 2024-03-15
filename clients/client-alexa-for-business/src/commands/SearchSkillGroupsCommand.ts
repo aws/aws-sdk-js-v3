@@ -27,9 +27,6 @@ export interface SearchSkillGroupsCommandInput extends SearchSkillGroupsRequest 
 export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Searches skill groups and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -81,6 +78,8 @@ export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsRespons
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class SearchSkillGroupsCommand extends $Command
   .classBuilder<

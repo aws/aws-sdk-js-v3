@@ -281,8 +281,8 @@ export interface KinesisVideoArchivedMediaClientResolvedConfig
   extends KinesisVideoArchivedMediaClientResolvedConfigType {}
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class KinesisVideoArchivedMediaClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DeleteScheduledActionCommandInput extends DeleteScheduledAction
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a scheduled action.
  *              </p>
  * @example
@@ -60,6 +59,7 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteScheduledActionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateFunctionUrlConfigCommandInput extends CreateFunctionUrlCo
 export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is
  *       a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
  * @example
@@ -110,6 +109,7 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class CreateFunctionUrlConfigCommand extends $Command
   .classBuilder<

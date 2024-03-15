@@ -36,7 +36,6 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the quota increase request for the specified quota from your quota request
  *             template.</p>
  * @example
@@ -94,6 +93,7 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
   .classBuilder<

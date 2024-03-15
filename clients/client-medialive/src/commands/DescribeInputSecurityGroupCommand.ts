@@ -27,7 +27,6 @@ export interface DescribeInputSecurityGroupCommandInput extends DescribeInputSec
 export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Produces a summary of an Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSe
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DescribeInputSecurityGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays the tags associated with an Amazon Connect Customer Profiles resource. In Connect
  *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
  * @example
@@ -67,6 +66,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

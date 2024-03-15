@@ -27,7 +27,6 @@ export interface DescribeAuditTaskCommandInput extends DescribeAuditTaskRequest 
 export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a Device Defender audit.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuditTask</a> action.</p>
  * @example
@@ -91,6 +90,7 @@ export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeAuditTaskCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDataSetCommandInput extends DeleteDataSetRequest {}
 export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteDataSetCommand extends $Command
   .classBuilder<

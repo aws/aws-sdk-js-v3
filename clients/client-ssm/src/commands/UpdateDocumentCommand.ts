@@ -27,7 +27,6 @@ export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
 export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates one or more values for an SSM document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -170,6 +169,7 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateDocumentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribePlaceIndexCommandInput extends DescribePlaceIndexReques
 export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the place index resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DescribePlaceIndexCommand extends $Command
   .classBuilder<

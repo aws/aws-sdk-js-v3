@@ -303,7 +303,6 @@ export type IotDeviceAdvisorClientResolvedConfigType = __SmithyResolvedConfigura
 export interface IotDeviceAdvisorClientResolvedConfig extends IotDeviceAdvisorClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Web Services IoT Core Device Advisor is a cloud-based, fully managed test capability for validating IoT
  *             devices during device software development. Device Advisor provides pre-built tests that you
  *             can use to validate IoT devices for reliable and secure connectivity with Amazon Web Services IoT Core
@@ -313,6 +312,7 @@ export interface IotDeviceAdvisorClientResolvedConfig extends IotDeviceAdvisorCl
  *             qualification reports to submit to the Amazon Web Services Partner Network to get your device
  *             qualified for the Amazon Web Services Partner Device Catalog without the need to send your device in
  *             and wait for it to be tested.</p>
+ * @public
  */
 export class IotDeviceAdvisorClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface CreateKxChangesetCommandInput extends CreateKxChangesetRequest 
 export interface CreateKxChangesetCommandOutput extends CreateKxChangesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *    Creates a changeset for a kdb database. A changeset allows you to add and delete existing files by using an ordered list of change requests.
  * </p>
@@ -104,6 +103,7 @@ export interface CreateKxChangesetCommandOutput extends CreateKxChangesetRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class CreateKxChangesetCommand extends $Command
   .classBuilder<

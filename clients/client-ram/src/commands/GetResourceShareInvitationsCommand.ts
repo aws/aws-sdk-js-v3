@@ -32,7 +32,6 @@ export interface GetResourceShareInvitationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about invitations that you have received for resource shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface GetResourceShareInvitationsCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class GetResourceShareInvitationsCommand extends $Command
   .classBuilder<

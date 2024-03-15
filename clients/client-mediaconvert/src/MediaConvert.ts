@@ -488,8 +488,8 @@ export interface MediaConvert {
 }
 
 /**
- * @public
  * AWS Elemental MediaConvert
+ * @public
  */
 export class MediaConvert extends MediaConvertClient implements MediaConvert {}
 createAggregatedClient(commands, MediaConvert);

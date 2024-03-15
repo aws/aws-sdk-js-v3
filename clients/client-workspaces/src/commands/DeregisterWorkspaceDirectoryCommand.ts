@@ -32,7 +32,6 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the specified directory. This operation is asynchronous and returns before
  *          the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
  *          directory, you must remove them before you can deregister the directory.</p>
@@ -86,6 +85,7 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DeregisterWorkspaceDirectoryCommand extends $Command
   .classBuilder<

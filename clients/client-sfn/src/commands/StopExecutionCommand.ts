@@ -27,7 +27,6 @@ export interface StopExecutionCommandInput extends StopExecutionInput {}
 export interface StopExecutionCommandOutput extends StopExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an execution.</p>
  *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
  * @example
@@ -67,6 +66,7 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class StopExecutionCommand extends $Command
   .classBuilder<

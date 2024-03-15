@@ -32,7 +32,6 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information on the settings of query suggestions for an index.</p>
  *          <p>This is used to check the current settings applied
  *             to query suggestions.</p>
@@ -102,6 +101,7 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeQuerySuggestionsConfigCommand extends $Command
   .classBuilder<

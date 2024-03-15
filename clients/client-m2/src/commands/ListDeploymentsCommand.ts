@@ -27,7 +27,6 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all deployments of a specific application. A deployment is a
  *          combination of a specific application and a specific version of that application. Each
  *          deployment is mapped to a particular application version.</p>
@@ -85,6 +84,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class ListDeploymentsCommand extends $Command
   .classBuilder<

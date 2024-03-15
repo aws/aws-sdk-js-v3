@@ -27,7 +27,6 @@ export interface SendCisSessionTelemetryCommandInput extends SendCisSessionTelem
 export interface SendCisSessionTelemetryCommandOutput extends SendCisSessionTelemetryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Sends a CIS session telemetry.
  *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
@@ -81,6 +80,7 @@ export interface SendCisSessionTelemetryCommandOutput extends SendCisSessionTele
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class SendCisSessionTelemetryCommand extends $Command
   .classBuilder<

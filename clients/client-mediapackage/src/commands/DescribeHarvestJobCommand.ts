@@ -27,7 +27,6 @@ export interface DescribeHarvestJobCommandInput extends DescribeHarvestJobReques
 export interface DescribeHarvestJobCommandOutput extends DescribeHarvestJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * Gets details about an existing HarvestJob.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeHarvestJobCommandOutput extends DescribeHarvestJobRespo
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class DescribeHarvestJobCommand extends $Command
   .classBuilder<

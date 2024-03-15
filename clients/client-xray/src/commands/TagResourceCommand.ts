@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies tags to an existing Amazon Web Services X-Ray group or sampling rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

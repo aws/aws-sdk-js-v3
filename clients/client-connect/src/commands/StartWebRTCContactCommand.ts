@@ -32,7 +32,6 @@ export interface StartWebRTCContactCommandInput extends StartWebRTCContactReques
 export interface StartWebRTCContactCommandOutput extends StartWebRTCContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Places an inbound in-app, web, or video call to a contact, and then initiates the flow. It
  *    performs the actions in the flow that are specified (in ContactFlowId) and present in the Amazon Connect instance (specified as InstanceId).</p>
  * @example
@@ -124,6 +123,7 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StartWebRTCContactCommand extends $Command
   .classBuilder<

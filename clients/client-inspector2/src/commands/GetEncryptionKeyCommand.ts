@@ -27,7 +27,6 @@ export interface GetEncryptionKeyCommandInput extends GetEncryptionKeyRequest {}
 export interface GetEncryptionKeyCommandOutput extends GetEncryptionKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an encryption key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetEncryptionKeyCommandOutput extends GetEncryptionKeyResponse,
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class GetEncryptionKeyCommand extends $Command
   .classBuilder<

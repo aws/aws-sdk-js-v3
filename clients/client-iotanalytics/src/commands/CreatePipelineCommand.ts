@@ -27,7 +27,6 @@ export interface CreatePipelineCommandInput extends CreatePipelineRequest {}
 export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a pipeline. A pipeline consumes messages from a channel and allows you to process
  *       the messages before storing them in a data store. You must specify both a <code>channel</code>
  *       and a <code>datastore</code> activity and, optionally, as many as 23 additional activities in
@@ -148,6 +147,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class CreatePipelineCommand extends $Command
   .classBuilder<

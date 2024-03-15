@@ -27,7 +27,6 @@ export interface DescribeAlgorithmCommandInput extends DescribeAlgorithmInput {}
 export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of the specified algorithm that is in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -289,6 +288,7 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeAlgorithmCommand extends $Command
   .classBuilder<

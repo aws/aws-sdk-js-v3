@@ -32,7 +32,6 @@ export interface DeleteDistributionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a distribution configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DeleteDistributionConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class DeleteDistributionConfigurationCommand extends $Command
   .classBuilder<

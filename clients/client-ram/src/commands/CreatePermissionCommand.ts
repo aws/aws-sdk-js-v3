@@ -27,7 +27,6 @@ export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
 export interface CreatePermissionCommandOutput extends CreatePermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a customer managed permission for a specified resource type that you can attach to resource shares.
  *             It is created in the Amazon Web Services Region in which you call the operation.</p>
  * @example
@@ -120,6 +119,7 @@ export interface CreatePermissionCommandOutput extends CreatePermissionResponse,
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class CreatePermissionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTablesCommandInput extends ListTablesRequest {}
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of tables for a specified keyspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class ListTablesCommand extends $Command
   .classBuilder<

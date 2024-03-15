@@ -27,7 +27,6 @@ export interface GetUsageTotalsCommandInput extends GetUsageTotalsRequest {}
 export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) aggregated usage data for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetUsageTotalsCommand extends $Command
   .classBuilder<

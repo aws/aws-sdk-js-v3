@@ -27,7 +27,6 @@ export interface CreateUserCommandInput extends CreateUserMessage {}
 export interface CreateUserCommandOutput extends User, __MetadataBearer {}
 
 /**
- * @public
  * <p>For Redis engine version 6.0 onwards: Creates a Redis user. For more information, see
  *                 <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>
  * @example
@@ -111,6 +110,7 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class CreateUserCommand extends $Command
   .classBuilder<

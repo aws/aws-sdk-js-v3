@@ -27,7 +27,6 @@ export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
 export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in
  *             a Region, both for the Region as a whole and for any one DynamoDB table that you create
  *             there.</p>
@@ -130,6 +129,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To determine capacity limits per table and account, in the current AWS region
  * ```javascript
  * // The following example returns the maximum read and write capacity units per table, and for the AWS account, in the current AWS region.

@@ -27,7 +27,6 @@ export interface UpdateDistributionBundleCommandInput extends UpdateDistribution
 export interface UpdateDistributionBundleCommandOutput extends UpdateDistributionBundleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
@@ -106,6 +105,7 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateDistributionBundleCommand extends $Command
   .classBuilder<

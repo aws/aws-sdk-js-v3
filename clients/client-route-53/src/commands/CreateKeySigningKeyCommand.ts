@@ -28,7 +28,6 @@ export interface CreateKeySigningKeyCommandInput extends CreateKeySigningKeyRequ
 export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have
  * 			two KSKs per hosted zone.</p>
  * @example
@@ -120,6 +119,7 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateKeySigningKeyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsRequ
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the recommendations present in your Amazon SES account in the current Amazon Web Services Region.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -80,6 +79,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class ListRecommendationsCommand extends $Command
   .classBuilder<

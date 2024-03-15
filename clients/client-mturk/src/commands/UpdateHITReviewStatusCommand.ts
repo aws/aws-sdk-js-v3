@@ -27,7 +27,6 @@ export interface UpdateHITReviewStatusCommandInput extends UpdateHITReviewStatus
 export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>UpdateHITReviewStatus</code> operation updates the status of a HIT.
  *             If the status is Reviewable, this operation can update the status to Reviewing,
@@ -64,6 +63,7 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class UpdateHITReviewStatusCommand extends $Command
   .classBuilder<

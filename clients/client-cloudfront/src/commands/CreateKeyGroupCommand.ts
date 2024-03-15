@@ -27,7 +27,6 @@ export interface CreateKeyGroupCommandInput extends CreateKeyGroupRequest {}
 export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
  *          <p>To create a key group, you must specify at least one public key for the key group.
  * 			After you create a key group, you can reference it from one or more cache behaviors.
@@ -98,6 +97,7 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateKeyGroupCommand extends $Command
   .classBuilder<

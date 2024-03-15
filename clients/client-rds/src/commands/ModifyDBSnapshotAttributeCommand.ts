@@ -27,7 +27,6 @@ export interface ModifyDBSnapshotAttributeCommandInput extends ModifyDBSnapshotA
 export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshotAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
  *          <p>To share a manual DB snapshot with other Amazon Web Services accounts, specify <code>restore</code>
  *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
@@ -98,6 +97,7 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To allow two AWS accounts to restore a DB snapshot
  * ```javascript
  * // The following example grants permission to two AWS accounts, with the identifiers 111122223333 and 444455556666, to restore the DB snapshot named mydbsnapshot.

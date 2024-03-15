@@ -27,7 +27,6 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an event notification subscription. This action requires a topic ARN (Amazon
  *       Resource Name) created by either the Neptune console, the SNS console, or the SNS API. To
  *       obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The
@@ -120,6 +119,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CreateEventSubscriptionCommand extends $Command
   .classBuilder<

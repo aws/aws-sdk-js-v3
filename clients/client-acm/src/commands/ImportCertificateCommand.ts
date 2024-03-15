@@ -31,7 +31,6 @@ export interface ImportCertificateCommandInput extends ImportCertificateRequest 
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with
  *       ACM. Note that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated
  *         services</a> allow only certificate types and keys they support to be associated with
@@ -158,6 +157,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class ImportCertificateCommand extends $Command
   .classBuilder<

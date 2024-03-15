@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { RolesAnywhereServiceException as __BaseException } from "./RolesAnywhereServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,19 +24,19 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A label that consists of a key and value you define. </p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The tag value.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -46,128 +46,128 @@ export interface Tag {
  */
 export interface CreateProfileRequest {
   /**
-   * @public
    * <p>The name of the profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether instance properties are required in temporary credential requests with this profile. </p>
+   * @public
    */
   requireInstanceProperties?: boolean;
 
   /**
-   * @public
    * <p>A session policy that applies to the trust boundary of the vended session credentials. </p>
+   * @public
    */
   sessionPolicy?: string;
 
   /**
-   * @public
    * <p>A list of IAM roles that this profile can assume in a temporary credential request.</p>
+   * @public
    */
   roleArns: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of managed policy ARNs that apply to the vended session credentials. </p>
+   * @public
    */
   managedPolicyArns?: string[];
 
   /**
-   * @public
    * <p> The number of seconds the vended session credentials are valid for. </p>
+   * @public
    */
   durationSeconds?: number;
 
   /**
-   * @public
    * <p>Specifies whether the profile is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The tags to attach to the profile.</p>
+   * @public
    */
   tags?: Tag[];
 }
 
 /**
- * @public
  * <p>The state of the profile after a read or write operation.</p>
+ * @public
  */
 export interface ProfileDetail {
   /**
-   * @public
    * <p>The unique identifier of the profile.</p>
+   * @public
    */
   profileId?: string;
 
   /**
-   * @public
    * <p>The ARN of the profile.</p>
+   * @public
    */
   profileArn?: string;
 
   /**
-   * @public
    * <p>The name of the profile.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies whether instance properties are required in temporary credential requests with this profile. </p>
+   * @public
    */
   requireInstanceProperties?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether the profile is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Web Services account that created the profile.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>A session policy that applies to the trust boundary of the vended session credentials. </p>
+   * @public
    */
   sessionPolicy?: string;
 
   /**
-   * @public
    * <p>A list of IAM roles that this profile can assume in a temporary credential request.</p>
+   * @public
    */
   roleArns?: string[];
 
   /**
-   * @public
    * <p>A list of managed policy ARNs that apply to the vended session credentials. </p>
+   * @public
    */
   managedPolicyArns?: string[];
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the profile was created. </p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the profile was last updated. </p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p> The number of seconds the vended session credentials are valid for. </p>
+   * @public
    */
   durationSeconds?: number;
 }
@@ -177,15 +177,15 @@ export interface ProfileDetail {
  */
 export interface ProfileDetailResponse {
   /**
-   * @public
    * <p>The state of the profile after a read or write operation.</p>
+   * @public
    */
   profile?: ProfileDetail;
 }
 
 /**
- * @public
  * <p>Validation exception error.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -231,45 +231,45 @@ export const NotificationEvent = {
 export type NotificationEvent = (typeof NotificationEvent)[keyof typeof NotificationEvent];
 
 /**
- * @public
  * <p>
  *          Customizable notification settings that will be applied to notification events.
  *          IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge, and Health Dashboard.
  *       </p>
+ * @public
  */
 export interface NotificationSetting {
   /**
-   * @public
    * <p>Indicates whether the notification setting is enabled.</p>
+   * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>The event to which this notification setting is applied.</p>
+   * @public
    */
   event: NotificationEvent | undefined;
 
   /**
-   * @public
    * <p>The number of days before a notification event. This value is required for a notification setting that is enabled.</p>
+   * @public
    */
   threshold?: number;
 
   /**
-   * @public
    * <p>The specified channel of notification.
    *       IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p>
    *          <note>
    *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
    *          </note>
+   * @public
    */
   channel?: NotificationChannel;
 }
 
 /**
- * @public
  * <p>The data field of the trust anchor depending on its type. </p>
+ * @public
  */
 export type SourceData = SourceData.AcmPcaArnMember | SourceData.X509CertificateDataMember | SourceData.$UnknownMember;
 
@@ -278,8 +278,8 @@ export type SourceData = SourceData.AcmPcaArnMember | SourceData.X509Certificate
  */
 export namespace SourceData {
   /**
-   * @public
    * <p>The PEM-encoded data for the certificate anchor. Included for trust anchors of type <code>CERTIFICATE_BUNDLE</code>. </p>
+   * @public
    */
   export interface X509CertificateDataMember {
     x509CertificateData: string;
@@ -288,11 +288,11 @@ export namespace SourceData {
   }
 
   /**
-   * @public
    * <p>
    *          The root certificate of the Private Certificate Authority specified by this ARN is used in trust
    *          validation for temporary credential requests. Included for trust anchors of type <code>AWS_ACM_PCA</code>.
    *       </p>
+   * @public
    */
   export interface AcmPcaArnMember {
     x509CertificateData?: never;
@@ -338,19 +338,19 @@ export const TrustAnchorType = {
 export type TrustAnchorType = (typeof TrustAnchorType)[keyof typeof TrustAnchorType];
 
 /**
- * @public
  * <p>The trust anchor type and its related certificate data.</p>
+ * @public
  */
 export interface Source {
   /**
-   * @public
    * <p>The type of the trust anchor. </p>
+   * @public
    */
   sourceType?: TrustAnchorType;
 
   /**
-   * @public
    * <p>The data field of the trust anchor depending on its type. </p>
+   * @public
    */
   sourceData?: SourceData;
 }
@@ -360,132 +360,132 @@ export interface Source {
  */
 export interface CreateTrustAnchorRequest {
   /**
-   * @public
    * <p>The name of the trust anchor.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The trust anchor type and its related certificate data.</p>
+   * @public
    */
   source: Source | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the trust anchor is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The tags to attach to the trust anchor.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>A list of notification settings to be associated to the trust anchor.</p>
+   * @public
    */
   notificationSettings?: NotificationSetting[];
 }
 
 /**
- * @public
  * <p>The state of a notification setting.</p>
  *          <p>A notification setting includes information such as event name, threshold, status of
  *          the notification setting, and the channel to notify.</p>
+ * @public
  */
 export interface NotificationSettingDetail {
   /**
-   * @public
    * <p>Indicates whether the notification setting is enabled.</p>
+   * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>The event to which this notification setting is applied.</p>
+   * @public
    */
   event: NotificationEvent | undefined;
 
   /**
-   * @public
    * <p>The number of days before a notification event.</p>
+   * @public
    */
   threshold?: number;
 
   /**
-   * @public
    * <p>The specified channel of notification.
    *       IAM Roles Anywhere uses CloudWatch metrics, EventBridge, and Health Dashboard to notify for an event.</p>
    *          <note>
    *             <p>In the absence of a specific channel, IAM Roles Anywhere applies this setting to 'ALL' channels.</p>
    *          </note>
+   * @public
    */
   channel?: NotificationChannel;
 
   /**
-   * @public
    * <p>The principal that configured the notification setting.
    *       For default settings configured by IAM Roles Anywhere,
    *       the value is <code>rolesanywhere.amazonaws.com</code>, and
    *       for customized notifications settings, it is the respective account ID.
    *       </p>
+   * @public
    */
   configuredBy?: string;
 }
 
 /**
- * @public
  * <p>The state of the trust anchor after a read or write operation. </p>
+ * @public
  */
 export interface TrustAnchorDetail {
   /**
-   * @public
    * <p>The unique identifier of the trust anchor.</p>
+   * @public
    */
   trustAnchorId?: string;
 
   /**
-   * @public
    * <p>The ARN of the trust anchor.</p>
+   * @public
    */
   trustAnchorArn?: string;
 
   /**
-   * @public
    * <p>The name of the trust anchor.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The trust anchor type and its related certificate data.</p>
+   * @public
    */
   source?: Source;
 
   /**
-   * @public
    * <p>Indicates whether the trust anchor is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the trust anchor was created. </p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the trust anchor was last updated. </p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>A list of notification settings to be associated to the trust anchor.</p>
+   * @public
    */
   notificationSettings?: NotificationSettingDetail[];
 }
@@ -495,104 +495,104 @@ export interface TrustAnchorDetail {
  */
 export interface TrustAnchorDetailResponse {
   /**
-   * @public
    * <p>The state of the trust anchor after a read or write operation. </p>
+   * @public
    */
   trustAnchor: TrustAnchorDetail | undefined;
 }
 
 /**
- * @public
  * <p>A record of a presented X509 credential from a temporary credential request. </p>
+ * @public
  */
 export interface CredentialSummary {
   /**
-   * @public
    * <p>The ISO-8601 time stamp of when the certificate was last used in a temporary credential request.</p>
+   * @public
    */
   seenAt?: Date;
 
   /**
-   * @public
    * <p>The serial number of the certificate.</p>
+   * @public
    */
   serialNumber?: string;
 
   /**
-   * @public
    * <p>The fully qualified domain name of the issuing certificate for the presented end-entity certificate.</p>
+   * @public
    */
   issuer?: string;
 
   /**
-   * @public
    * <p>Indicates whether the credential is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The PEM-encoded data of the certificate.</p>
+   * @public
    */
   x509CertificateData?: string;
 
   /**
-   * @public
    * <p>Indicates whether the temporary credential request was successful. </p>
+   * @public
    */
   failed?: boolean;
 }
 
 /**
- * @public
  * <p>The state of the certificate revocation list (CRL) after a read or write operation.</p>
+ * @public
  */
 export interface CrlDetail {
   /**
-   * @public
    * <p>The unique identifier of the certificate revocation list (CRL).</p>
+   * @public
    */
   crlId?: string;
 
   /**
-   * @public
    * <p>The ARN of the certificate revocation list (CRL).</p>
+   * @public
    */
   crlArn?: string;
 
   /**
-   * @public
    * <p>The name of the certificate revocation list (CRL).</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Indicates whether the certificate revocation list (CRL) is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The state of the certificate revocation list (CRL) after a read or write operation.</p>
+   * @public
    */
   crlData?: Uint8Array;
 
   /**
-   * @public
    * <p>The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for. </p>
+   * @public
    */
   trustAnchorArn?: string;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the certificate revocation list (CRL) was created. </p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the certificate revocation list (CRL) was last updated. </p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -602,15 +602,15 @@ export interface CrlDetail {
  */
 export interface CrlDetailResponse {
   /**
-   * @public
    * <p>The state of the certificate revocation list (CRL) after a read or write operation.</p>
+   * @public
    */
   crl: CrlDetail | undefined;
 }
 
 /**
- * @public
  * <p>The resource could not be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -633,8 +633,8 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface ScalarCrlRequest {
   /**
-   * @public
    * <p>The unique identifier of the certificate revocation list (CRL).</p>
+   * @public
    */
   crlId: string | undefined;
 }
@@ -644,32 +644,32 @@ export interface ScalarCrlRequest {
  */
 export interface ImportCrlRequest {
   /**
-   * @public
    * <p>The name of the certificate revocation list (CRL).</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The x509 v3 specified certificate revocation list (CRL).</p>
+   * @public
    */
   crlData: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the certificate revocation list (CRL) is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>A list of tags to attach to the certificate revocation list (CRL).</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.</p>
+   * @public
    */
   trustAnchorArn: string | undefined;
 }
@@ -679,14 +679,14 @@ export interface ImportCrlRequest {
  */
 export interface ListCrlsResponse {
   /**
-   * @public
    * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of certificate revocation lists (CRL). </p>
+   * @public
    */
   crls?: CrlDetail[];
 }
@@ -696,14 +696,14 @@ export interface ListCrlsResponse {
  */
 export interface ListRequest {
   /**
-   * @public
    * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The number of resources in the paginated list. </p>
+   * @public
    */
   pageSize?: number;
 }
@@ -713,20 +713,20 @@ export interface ListRequest {
  */
 export interface UpdateCrlRequest {
   /**
-   * @public
    * <p>The unique identifier of the certificate revocation list (CRL).</p>
+   * @public
    */
   crlId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Crl.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The x509 v3 specified certificate revocation list (CRL).</p>
+   * @public
    */
   crlData?: Uint8Array;
 }
@@ -736,8 +736,8 @@ export interface UpdateCrlRequest {
  */
 export interface ScalarProfileRequest {
   /**
-   * @public
    * <p>The unique identifier of the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 }
@@ -747,8 +747,8 @@ export interface ScalarProfileRequest {
  */
 export interface ScalarTrustAnchorRequest {
   /**
-   * @public
    * <p>The unique identifier of the trust anchor.</p>
+   * @public
    */
   trustAnchorId: string | undefined;
 }
@@ -758,92 +758,92 @@ export interface ScalarTrustAnchorRequest {
  */
 export interface ScalarSubjectRequest {
   /**
-   * @public
    * <p>The unique identifier of the subject. </p>
+   * @public
    */
   subjectId: string | undefined;
 }
 
 /**
- * @public
  * <p>A key-value pair you set that identifies a property of the authenticating instance.</p>
+ * @public
  */
 export interface InstanceProperty {
   /**
-   * @public
    * <p>The ISO-8601 time stamp of when the certificate was last used in a temporary credential request.</p>
+   * @public
    */
   seenAt?: Date;
 
   /**
-   * @public
    * <p>A list of instanceProperty objects. </p>
+   * @public
    */
   properties?: Record<string, string>;
 
   /**
-   * @public
    * <p>Indicates whether the temporary credential request was successful. </p>
+   * @public
    */
   failed?: boolean;
 }
 
 /**
- * @public
  * <p>The state of the subject after a read or write operation.</p>
+ * @public
  */
 export interface SubjectDetail {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   subjectArn?: string;
 
   /**
-   * @public
    * <p>The id of the resource</p>
+   * @public
    */
   subjectId?: string;
 
   /**
-   * @public
    * <p>The enabled status of the subject.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The x509 principal identifier of the authenticating certificate.</p>
+   * @public
    */
   x509Subject?: string;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp of the last time this subject requested temporary session credentials.</p>
+   * @public
    */
   lastSeenAt?: Date;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the subject was created. </p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the subject was last updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The temporary session credentials vended at the last authenticating call with this subject.</p>
+   * @public
    */
   credentials?: CredentialSummary[];
 
   /**
-   * @public
    * <p>The specified instance properties associated with the request.</p>
+   * @public
    */
   instanceProperties?: InstanceProperty[];
 }
@@ -853,8 +853,8 @@ export interface SubjectDetail {
  */
 export interface SubjectDetailResponse {
   /**
-   * @public
    * <p>The state of the subject after a read or write operation.</p>
+   * @public
    */
   subject?: SubjectDetail;
 }
@@ -864,62 +864,62 @@ export interface SubjectDetailResponse {
  */
 export interface ListProfilesResponse {
   /**
-   * @public
    * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of profiles.</p>
+   * @public
    */
   profiles?: ProfileDetail[];
 }
 
 /**
- * @public
  * <p>A summary representation of subjects.</p>
+ * @public
  */
 export interface SubjectSummary {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   subjectArn?: string;
 
   /**
-   * @public
    * <p>The id of the resource.</p>
+   * @public
    */
   subjectId?: string;
 
   /**
-   * @public
    * <p>The enabled status of the subject. </p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The x509 principal identifier of the authenticating certificate.</p>
+   * @public
    */
   x509Subject?: string;
 
   /**
-   * @public
    * <p>The ISO-8601 time stamp of when the certificate was last used in a temporary credential request.</p>
+   * @public
    */
   lastSeenAt?: Date;
 
   /**
-   * @public
    * <p>The ISO-8601 time stamp of when the certificate was first used in a temporary credential request.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The ISO-8601 timestamp when the subject was last updated. </p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -929,14 +929,14 @@ export interface SubjectSummary {
  */
 export interface ListSubjectsResponse {
   /**
-   * @public
    * <p>A list of subjects.</p>
+   * @public
    */
   subjects?: SubjectSummary[];
 
   /**
-   * @public
    * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -946,8 +946,8 @@ export interface ListSubjectsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -957,8 +957,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A list of tags attached to the resource.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -968,34 +968,34 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTrustAnchorsResponse {
   /**
-   * @public
    * <p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of trust anchors.</p>
+   * @public
    */
   trustAnchors?: TrustAnchorDetail[];
 }
 
 /**
- * @public
  * <p>A notification setting key to reset.
  *          A notification setting key includes the event and the channel.
  *       </p>
+ * @public
  */
 export interface NotificationSettingKey {
   /**
-   * @public
    * <p>The notification setting event to reset.</p>
+   * @public
    */
   event: NotificationEvent | undefined;
 
   /**
-   * @public
    * <p>The specified channel of notification.</p>
+   * @public
    */
   channel?: NotificationChannel;
 }
@@ -1005,38 +1005,38 @@ export interface NotificationSettingKey {
  */
 export interface UpdateProfileRequest {
   /**
-   * @public
    * <p>The unique identifier of the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the profile.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A session policy that applies to the trust boundary of the vended session credentials. </p>
+   * @public
    */
   sessionPolicy?: string;
 
   /**
-   * @public
    * <p>A list of IAM roles that this profile can assume in a temporary credential request.</p>
+   * @public
    */
   roleArns?: string[];
 
   /**
-   * @public
    * <p>A list of managed policy ARNs that apply to the vended session credentials. </p>
+   * @public
    */
   managedPolicyArns?: string[];
 
   /**
-   * @public
    * <p> The number of seconds the vended session credentials are valid for. </p>
+   * @public
    */
   durationSeconds?: number;
 }
@@ -1046,14 +1046,14 @@ export interface UpdateProfileRequest {
  */
 export interface PutNotificationSettingsRequest {
   /**
-   * @public
    * <p>The unique identifier of the trust anchor.</p>
+   * @public
    */
   trustAnchorId: string | undefined;
 
   /**
-   * @public
    * <p>A list of notification settings to be associated to the trust anchor.</p>
+   * @public
    */
   notificationSettings: NotificationSetting[] | undefined;
 }
@@ -1063,8 +1063,8 @@ export interface PutNotificationSettingsRequest {
  */
 export interface PutNotificationSettingsResponse {
   /**
-   * @public
    * <p>The state of the trust anchor after a read or write operation. </p>
+   * @public
    */
   trustAnchor: TrustAnchorDetail | undefined;
 }
@@ -1074,16 +1074,16 @@ export interface PutNotificationSettingsResponse {
  */
 export interface ResetNotificationSettingsRequest {
   /**
-   * @public
    * <p>The unique identifier of the trust anchor.</p>
+   * @public
    */
   trustAnchorId: string | undefined;
 
   /**
-   * @public
    * <p>A list of notification setting keys to reset.
    *          A notification setting key includes the event and the channel.
    *       </p>
+   * @public
    */
   notificationSettingKeys: NotificationSettingKey[] | undefined;
 }
@@ -1093,8 +1093,8 @@ export interface ResetNotificationSettingsRequest {
  */
 export interface ResetNotificationSettingsResponse {
   /**
-   * @public
    * <p>The state of the trust anchor after a read or write operation. </p>
+   * @public
    */
   trustAnchor: TrustAnchorDetail | undefined;
 }
@@ -1104,14 +1104,14 @@ export interface ResetNotificationSettingsResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to attach to the resource.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 }
@@ -1122,8 +1122,8 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p>Too many tags.</p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -1146,20 +1146,20 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UpdateTrustAnchorRequest {
   /**
-   * @public
    * <p>The unique identifier of the trust anchor.</p>
+   * @public
    */
   trustAnchorId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the trust anchor.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The trust anchor type and its related certificate data.</p>
+   * @public
    */
   source?: Source;
 }
@@ -1169,14 +1169,14 @@ export interface UpdateTrustAnchorRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of keys. Tag keys are the unique identifiers of tags. </p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

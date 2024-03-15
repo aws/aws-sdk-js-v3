@@ -27,7 +27,6 @@ export interface DescribeHumanTaskUiCommandInput extends DescribeHumanTaskUiRequ
 export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the requested human task user interface (worker task template).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeHumanTaskUiCommand extends $Command
   .classBuilder<

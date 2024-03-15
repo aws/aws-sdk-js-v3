@@ -36,7 +36,6 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an environment for your thin client devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -137,6 +136,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class CreateEnvironmentCommand extends $Command
   .classBuilder<

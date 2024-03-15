@@ -31,7 +31,6 @@ export interface ListEnvironmentBlueprintsCommandInput extends ListEnvironmentBl
 export interface ListEnvironmentBlueprintsCommandOutput extends ListEnvironmentBlueprintsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists blueprints in an Amazon DataZone environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListEnvironmentBlueprintsCommandOutput extends ListEnvironmentB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class ListEnvironmentBlueprintsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetRemainingFreeTrialDaysCommandInput extends GetRemainingFreeT
 export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFreeTrialDaysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the number of days left for each data source used in the free trial
  *       period.</p>
  * @example
@@ -103,6 +102,7 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetRemainingFreeTrialDaysCommand extends $Command
   .classBuilder<

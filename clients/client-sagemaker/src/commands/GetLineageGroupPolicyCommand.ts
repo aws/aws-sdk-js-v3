@@ -27,7 +27,6 @@ export interface GetLineageGroupPolicyCommandInput extends GetLineageGroupPolicy
 export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The resource policy for the lineage group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface GetLineageGroupPolicyCommandOutput extends GetLineageGroupPolic
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class GetLineageGroupPolicyCommand extends $Command
   .classBuilder<

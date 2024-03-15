@@ -27,7 +27,6 @@ export interface DescribeReplicationGroupsCommandInput extends DescribeReplicati
 export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroupMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a particular replication group. If no identifier is
  *             specified, <code>DescribeReplicationGroups</code> returns information about all
  *             replication groups.</p>
@@ -193,6 +192,7 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeReplicationGroups
  * ```javascript
  * // Returns information about the replication group myreplgroup.

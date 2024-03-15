@@ -27,7 +27,6 @@ export interface DeletePermissionCommandInput extends DeletePermissionRequest {}
 export interface DeletePermissionCommandOutput extends DeletePermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified customer managed permission in the Amazon Web Services Region in which you call this operation. You
  *             can delete a customer managed permission only if it isn't attached to any resource share. The operation deletes all
  *             versions associated with the customer managed permission.</p>
@@ -85,6 +84,7 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class DeletePermissionCommand extends $Command
   .classBuilder<

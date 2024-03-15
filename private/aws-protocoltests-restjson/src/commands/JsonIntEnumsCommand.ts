@@ -25,7 +25,6 @@ export interface JsonIntEnumsCommandInput extends JsonIntEnumsInputOutput {}
 export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes intEnums as top level properties, in lists, sets, and maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class JsonIntEnumsCommand extends $Command
   .classBuilder<

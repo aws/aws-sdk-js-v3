@@ -27,7 +27,6 @@ export interface DeleteServerCommandInput extends DeleteServerRequest {}
 export interface DeleteServerCommandOutput extends DeleteServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes the server and the underlying AWS CloudFormation stacks
  *       (including the server's EC2 instance). When you run this command, the server state is updated
@@ -80,6 +79,7 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DeleteServerCommand extends $Command
   .classBuilder<

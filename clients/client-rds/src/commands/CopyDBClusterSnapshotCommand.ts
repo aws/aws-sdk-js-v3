@@ -28,7 +28,6 @@ export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshot
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies a snapshot of a DB cluster.</p>
  *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
  *           must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
@@ -156,6 +155,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To copy a DB cluster snapshot
  * ```javascript
  * // The following example creates a copy of a DB cluster snapshot, including its tags.

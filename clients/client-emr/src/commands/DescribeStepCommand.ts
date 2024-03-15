@@ -27,7 +27,6 @@ export interface DescribeStepCommandInput extends DescribeStepInput {}
 export interface DescribeStepCommandOutput extends DescribeStepOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides more detail about the cluster step.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DescribeStepCommand extends $Command
   .classBuilder<

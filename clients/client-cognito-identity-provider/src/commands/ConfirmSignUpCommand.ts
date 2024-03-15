@@ -35,7 +35,6 @@ export interface ConfirmSignUpCommandInput extends ConfirmSignUpRequest {}
 export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This public API operation provides a code that Amazon Cognito sent to your user when they
  *             signed up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
  *             API operation. After your user enters their code, they confirm ownership of the email
@@ -150,6 +149,7 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ConfirmSignUpCommand extends $Command
   .classBuilder<

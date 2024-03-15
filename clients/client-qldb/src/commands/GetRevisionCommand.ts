@@ -32,7 +32,6 @@ export interface GetRevisionCommandInput extends GetRevisionRequest {}
 export interface GetRevisionCommandOutput extends GetRevisionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a revision data object for a specified document ID and block address. Also
  *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
  *          is provided.</p>
@@ -83,6 +82,7 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class GetRevisionCommand extends $Command
   .classBuilder<

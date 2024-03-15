@@ -32,7 +32,6 @@ export interface StartNextPendingJobExecutionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface StartNextPendingJobExecutionCommandOutput
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ * @public
  */
 export class StartNextPendingJobExecutionCommand extends $Command
   .classBuilder<

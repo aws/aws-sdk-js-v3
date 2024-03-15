@@ -31,7 +31,6 @@ export interface UpdatePipelineStatusCommandInput extends UpdatePipelineStatusRe
 export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
  *             stops or restarts the processing of jobs.</p>
  *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't
@@ -125,6 +124,7 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class UpdatePipelineStatusCommand extends $Command
   .classBuilder<

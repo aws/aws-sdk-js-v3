@@ -27,7 +27,6 @@ export interface GetAccountCommandInput extends GetAccountRequest {}
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details for the specified Amazon Chime account, such as account type and supported
  *             licenses.</p>
  * @example
@@ -93,6 +92,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetAccountCommand extends $Command
   .classBuilder<

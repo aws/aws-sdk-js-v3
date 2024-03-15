@@ -27,7 +27,6 @@ export interface DeleteSchemaMappingCommandInput extends DeleteSchemaMappingInpu
 export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the <code>SchemaMapping</code> with a given name. This operation will succeed
  *          even if a schema with the given name does not exist. This operation will fail if there is a
  *             <code>MatchingWorkflow</code> object that references the <code>SchemaMapping</code> in
@@ -84,6 +83,7 @@ export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOut
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class DeleteSchemaMappingCommand extends $Command
   .classBuilder<

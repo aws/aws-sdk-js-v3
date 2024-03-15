@@ -27,7 +27,6 @@ export interface DescribeAddressesCommandInput extends DescribeAddressesRequest 
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one of
  *       the US regions will return addresses from the list of all addresses associated with this
  *       account in all US regions.</p>
@@ -86,6 +85,7 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To describe all the addresses you've created for AWS Snowball
  * ```javascript
  * // This operation describes all the addresses that you've created for AWS Snowball. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.

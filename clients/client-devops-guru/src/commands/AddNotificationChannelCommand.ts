@@ -27,7 +27,6 @@ export interface AddNotificationChannelCommandInput extends AddNotificationChann
 export interface AddNotificationChannelCommandOutput extends AddNotificationChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Adds a notification channel to DevOps Guru. A notification channel is used to notify you
  * 			about important DevOps Guru events, such as when an insight is generated. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
@@ -100,6 +99,7 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class AddNotificationChannelCommand extends $Command
   .classBuilder<

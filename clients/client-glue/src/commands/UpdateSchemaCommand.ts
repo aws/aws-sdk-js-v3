@@ -27,7 +27,6 @@ export interface UpdateSchemaCommandInput extends UpdateSchemaInput {}
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description, compatibility setting, or version checkpoint for a schema set.</p>
  *          <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
  *          <p>If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code> is optional and this can be used to set/reset a checkpoint for the schema.</p>
@@ -85,6 +84,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateSchemaCommand extends $Command
   .classBuilder<

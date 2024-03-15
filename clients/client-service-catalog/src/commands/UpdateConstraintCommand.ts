@@ -27,7 +27,6 @@ export interface UpdateConstraintCommandInput extends UpdateConstraintInput {}
 export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified constraint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class UpdateConstraintCommand extends $Command
   .classBuilder<

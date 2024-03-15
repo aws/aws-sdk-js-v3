@@ -36,7 +36,6 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       A list of the pricing plans that are associated with a pricing rule.
  *     </p>
@@ -93,6 +92,7 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command
   .classBuilder<

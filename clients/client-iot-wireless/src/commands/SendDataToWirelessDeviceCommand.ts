@@ -27,7 +27,6 @@ export interface SendDataToWirelessDeviceCommandInput extends SendDataToWireless
 export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a decrypted application data frame to a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class SendDataToWirelessDeviceCommand extends $Command
   .classBuilder<

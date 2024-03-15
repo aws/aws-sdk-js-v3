@@ -27,7 +27,6 @@ export interface ListUploadsCommandInput extends ListUploadsRequest {}
 export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataB
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about uploads
  * ```javascript
  * // The following example returns information about uploads, given a specific Device Farm project.

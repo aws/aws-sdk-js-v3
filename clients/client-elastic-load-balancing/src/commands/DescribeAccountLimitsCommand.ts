@@ -31,7 +31,6 @@ export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimits
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -68,6 +67,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  */
 export class DescribeAccountLimitsCommand extends $Command
   .classBuilder<

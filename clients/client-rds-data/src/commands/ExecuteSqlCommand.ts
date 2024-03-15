@@ -27,9 +27,6 @@ export interface ExecuteSqlCommandInput extends ExecuteSqlRequest {}
 export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated The ExecuteSql API is deprecated, please use the ExecuteStatement API.
- *
  * <p>Runs one or more SQL statements.</p>
  *          <note>
  *             <p>This operation isn't supported for Aurora PostgreSQL Serverless v2 and provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
@@ -145,6 +142,8 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * @public
+ * @deprecated The ExecuteSql API is deprecated, please use the ExecuteStatement API.
  */
 export class ExecuteSqlCommand extends $Command
   .classBuilder<

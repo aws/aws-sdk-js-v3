@@ -27,7 +27,6 @@ export interface ListConfigurationSetsCommandInput extends ListConfigurationSets
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ * @public
  */
 export class ListConfigurationSetsCommand extends $Command
   .classBuilder<

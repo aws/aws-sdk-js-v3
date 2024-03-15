@@ -27,7 +27,6 @@ export interface PutTelemetryRecordsCommandInput extends PutTelemetryRecordsRequ
 export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by the Amazon Web Services X-Ray daemon to upload telemetry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class PutTelemetryRecordsCommand extends $Command
   .classBuilder<

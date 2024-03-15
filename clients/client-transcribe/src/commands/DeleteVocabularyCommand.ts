@@ -27,7 +27,6 @@ export interface DeleteVocabularyCommandInput extends DeleteVocabularyRequest {}
 export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom vocabulary. To use this operation, specify the name of the custom
  *             vocabulary you want to delete using <code>VocabularyName</code>. Custom vocabulary names
  *             are case sensitive.</p>
@@ -73,6 +72,7 @@ export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DeleteVocabularyCommand extends $Command
   .classBuilder<

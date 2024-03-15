@@ -27,7 +27,6 @@ export interface DescribeAssetPropertyCommandInput extends DescribeAssetProperty
 export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropertyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an asset property.</p>
  *          <note>
  *             <p>When you call this operation for an attribute property, this response includes the
@@ -250,6 +249,7 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeAssetPropertyCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateGameSessionCommandInput extends UpdateGameSessionInput {}
 export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the mutable properties of a game session. </p>
  *          <p>To update a game session, specify the game session ID and the values you want to
  *             change. </p>
@@ -125,6 +124,7 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateGameSessionCommand extends $Command
   .classBuilder<

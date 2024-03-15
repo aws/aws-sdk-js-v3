@@ -27,7 +27,6 @@ export interface GetStreamSessionCommandInput extends GetStreamSessionRequest {}
 export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets metadata on a specified stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class GetStreamSessionCommand extends $Command
   .classBuilder<

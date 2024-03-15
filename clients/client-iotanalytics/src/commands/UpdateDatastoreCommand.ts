@@ -27,7 +27,6 @@ export interface UpdateDatastoreCommandInput extends UpdateDatastoreRequest {}
 export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to update the settings of a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class UpdateDatastoreCommand extends $Command
   .classBuilder<

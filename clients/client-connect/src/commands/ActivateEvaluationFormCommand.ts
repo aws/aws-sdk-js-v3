@@ -27,7 +27,6 @@ export interface ActivateEvaluationFormCommandInput extends ActivateEvaluationFo
 export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates an evaluation form in the specified Amazon Connect instance. After the
  *    evaluation form is activated, it is available to start new evaluations based on the form. </p>
  * @example
@@ -75,6 +74,7 @@ export interface ActivateEvaluationFormCommandOutput extends ActivateEvaluationF
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ActivateEvaluationFormCommand extends $Command
   .classBuilder<

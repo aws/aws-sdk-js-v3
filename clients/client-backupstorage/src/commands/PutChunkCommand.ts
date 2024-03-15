@@ -30,7 +30,6 @@ export interface PutChunkCommandInput extends Omit<PutChunkInput, "Data"> {
 export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer {}
 
 /**
- * @public
  * Upload chunk.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class PutChunkCommand extends $Command
   .classBuilder<

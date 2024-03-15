@@ -32,7 +32,6 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports resources to Resilience Hub application draft version from different input sources. For more information about the input sources supported by Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
  *         the structure and describe your Resilience Hub application</a>.</p>
  * @example
@@ -124,6 +123,7 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ImportResourcesToDraftAppVersionCommand extends $Command
   .classBuilder<

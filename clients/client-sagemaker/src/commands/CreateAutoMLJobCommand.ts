@@ -27,7 +27,6 @@ export interface CreateAutoMLJobCommandInput extends CreateAutoMLJobRequest {}
 export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.</p>
  *          <note>
  *             <p>We recommend using the new versions <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>, which offer backward compatibility.</p>
@@ -141,6 +140,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateAutoMLJobCommand extends $Command
   .classBuilder<

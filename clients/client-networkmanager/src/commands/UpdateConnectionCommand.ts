@@ -27,7 +27,6 @@ export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the information for an existing connection. To remove information for any of the parameters,
  *             specify an empty string.</p>
  * @example
@@ -96,6 +95,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class UpdateConnectionCommand extends $Command
   .classBuilder<

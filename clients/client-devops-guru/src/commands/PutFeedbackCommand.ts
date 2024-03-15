@@ -27,7 +27,6 @@ export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Collects customer feedback about the specified insight. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class PutFeedbackCommand extends $Command
   .classBuilder<

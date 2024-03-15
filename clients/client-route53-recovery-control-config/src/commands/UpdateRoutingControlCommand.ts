@@ -31,7 +31,6 @@ export interface UpdateRoutingControlCommandInput extends UpdateRoutingControlRe
 export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a routing control. You can only update the name of the routing control. To get or update the routing control state, see the Recovery Cluster (data plane) API actions for Amazon Route 53 Application Recovery Controller.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateRoutingControlCommandOutput extends UpdateRoutingControlR
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class UpdateRoutingControlCommand extends $Command
   .classBuilder<

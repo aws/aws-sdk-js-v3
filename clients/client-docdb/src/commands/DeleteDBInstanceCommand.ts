@@ -27,7 +27,6 @@ export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously provisioned instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -162,6 +161,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DeleteDBInstanceCommand extends $Command
   .classBuilder<

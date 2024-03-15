@@ -30,7 +30,6 @@ export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClust
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
  *       deleted can't be associated with any DB clusters.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command
   .classBuilder<

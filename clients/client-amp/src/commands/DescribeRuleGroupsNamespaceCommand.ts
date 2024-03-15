@@ -32,7 +32,6 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns complete information about one rule groups namespace. To retrieve a list of
  *             rule groups namespaces, use <code>ListRuleGroupsNamespaces</code>.</p>
  * @example
@@ -91,6 +90,7 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DescribeRuleGroupsNamespaceCommand extends $Command
   .classBuilder<

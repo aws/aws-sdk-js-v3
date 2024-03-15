@@ -27,7 +27,6 @@ export interface DissociatePackageCommandInput extends DissociatePackageRequest 
 export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a package from the specified Amazon OpenSearch Service domain. The package can't be
  *    in use with any OpenSearch index for the dissociation to succeed. The package is still available
  *    in OpenSearch Service for association later. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
@@ -90,6 +89,7 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DissociatePackageCommand extends $Command
   .classBuilder<

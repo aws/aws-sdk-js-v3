@@ -27,7 +27,6 @@ export interface AssociateMemberToGroupCommandInput extends AssociateMemberToGro
 export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a member (user or group) to the group's set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class AssociateMemberToGroupCommand extends $Command
   .classBuilder<

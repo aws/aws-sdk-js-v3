@@ -642,10 +642,9 @@ export type AlexaForBusinessClientResolvedConfigType = __SmithyResolvedConfigura
 export interface AlexaForBusinessClientResolvedConfig extends AlexaForBusinessClientResolvedConfigType {}
 
 /**
+ * <p>Alexa for Business has been retired and is no longer supported.</p>
  * @public
  * @deprecated Alexa For Business is no longer supported
- *
- * <p>Alexa for Business has been retired and is no longer supported.</p>
  */
 export class AlexaForBusinessClient extends __Client<
   __HttpHandlerOptions,

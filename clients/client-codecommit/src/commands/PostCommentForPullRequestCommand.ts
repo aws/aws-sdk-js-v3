@@ -27,7 +27,6 @@ export interface PostCommentForPullRequestCommandInput extends PostCommentForPul
 export interface PostCommentForPullRequestCommandOutput extends PostCommentForPullRequestOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Posts a comment on a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -183,6 +182,7 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class PostCommentForPullRequestCommand extends $Command
   .classBuilder<

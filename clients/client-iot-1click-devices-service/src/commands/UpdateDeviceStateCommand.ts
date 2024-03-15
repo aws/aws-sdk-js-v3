@@ -31,7 +31,6 @@ export interface UpdateDeviceStateCommandInput extends UpdateDeviceStateRequest 
 export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Using a Boolean value (true or false), this operation
  *  enables or disables the device given a device ID.</p>
  * @example
@@ -65,6 +64,7 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class UpdateDeviceStateCommand extends $Command
   .classBuilder<

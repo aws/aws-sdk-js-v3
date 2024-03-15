@@ -27,7 +27,6 @@ export interface EnableDirectoryCommandInput extends EnableDirectoryRequest {}
 export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the specified directory. Only disabled directories can be enabled. Once
  *       enabled, the directory can then be read and written to.</p>
  * @example
@@ -82,6 +81,7 @@ export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class EnableDirectoryCommand extends $Command
   .classBuilder<

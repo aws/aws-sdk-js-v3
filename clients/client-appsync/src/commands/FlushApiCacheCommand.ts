@@ -27,7 +27,6 @@ export interface FlushApiCacheCommandInput extends FlushApiCacheRequest {}
 export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Flushes an <code>ApiCache</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class FlushApiCacheCommand extends $Command
   .classBuilder<

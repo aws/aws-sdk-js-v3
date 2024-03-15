@@ -27,7 +27,6 @@ export interface ListVolumeRecoveryPointsCommandInput extends ListVolumeRecovery
 export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecoveryPointsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the recovery points for a specified gateway. This operation is only supported in
  *          the cached volume gateway type.</p>
  *          <p>Each cache volume has one recovery point. A volume recovery point is a point in time at
@@ -76,6 +75,7 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To list recovery points for a gateway
  * ```javascript
  * // Lists the recovery points for a specified gateway in which all data of the volume is consistent and can be used to create a snapshot.

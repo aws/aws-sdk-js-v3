@@ -27,7 +27,6 @@ export interface ModifyPrivateDnsNameOptionsCommandInput extends ModifyPrivateDn
 export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateDnsNameOptionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the options for instance hostnames for the specified instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface ModifyPrivateDnsNameOptionsCommandOutput extends ModifyPrivateD
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyPrivateDnsNameOptionsCommand extends $Command
   .classBuilder<

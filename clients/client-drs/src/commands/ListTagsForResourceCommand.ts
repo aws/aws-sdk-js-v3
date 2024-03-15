@@ -31,7 +31,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all tags for your Elastic Disaster Recovery resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

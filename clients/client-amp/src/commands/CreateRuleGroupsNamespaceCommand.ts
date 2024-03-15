@@ -27,7 +27,6 @@ export interface CreateRuleGroupsNamespaceCommandInput extends CreateRuleGroupsN
 export interface CreateRuleGroupsNamespaceCommandOutput extends CreateRuleGroupsNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateRuleGroupsNamespace</code> operation creates a rule groups namespace
  *             within a workspace. A rule groups namespace is associated with exactly one rules file. A
  *             workspace can have multiple rule groups namespaces.</p>
@@ -95,6 +94,7 @@ export interface CreateRuleGroupsNamespaceCommandOutput extends CreateRuleGroups
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class CreateRuleGroupsNamespaceCommand extends $Command
   .classBuilder<

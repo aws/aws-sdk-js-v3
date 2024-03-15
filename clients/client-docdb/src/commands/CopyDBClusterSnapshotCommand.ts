@@ -28,7 +28,6 @@ export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshot
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies a snapshot of a cluster.</p>
  *          <p>To copy a cluster snapshot from a shared manual cluster snapshot,
  *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
@@ -115,6 +114,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class CopyDBClusterSnapshotCommand extends $Command
   .classBuilder<

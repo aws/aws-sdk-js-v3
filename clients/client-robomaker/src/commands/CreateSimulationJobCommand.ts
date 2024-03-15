@@ -27,7 +27,6 @@ export interface CreateSimulationJobCommandInput extends CreateSimulationJobRequ
 export interface CreateSimulationJobCommandOutput extends CreateSimulationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a simulation job.</p>
  *          <note>
  *             <p>After 90 days, simulation jobs expire and will be deleted. They will no longer be
@@ -355,6 +354,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class CreateSimulationJobCommand extends $Command
   .classBuilder<

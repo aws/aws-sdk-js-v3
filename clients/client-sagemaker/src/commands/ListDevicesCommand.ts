@@ -27,7 +27,6 @@ export interface ListDevicesCommandInput extends ListDevicesRequest {}
 export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListDevicesCommand extends $Command
   .classBuilder<

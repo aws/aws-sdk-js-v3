@@ -27,7 +27,6 @@ export interface UpdateContainerServiceCommandInput extends UpdateContainerServi
 export interface UpdateContainerServiceCommandOutput extends UpdateContainerServiceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of your Amazon Lightsail container service, such as its power,
  *       scale, and public domain names.</p>
  * @example
@@ -192,6 +191,7 @@ export interface UpdateContainerServiceCommandOutput extends UpdateContainerServ
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateContainerServiceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetCommandInvocationCommandInput extends GetCommandInvocationRe
 export interface GetCommandInvocationCommandOutput extends GetCommandInvocationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about command execution for an invocation or plugin.</p>
  *          <p>
  *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
@@ -113,6 +112,7 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetCommandInvocationCommand extends $Command
   .classBuilder<

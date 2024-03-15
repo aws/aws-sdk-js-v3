@@ -27,7 +27,6 @@ export interface DescribeImageAttributeCommandInput extends DescribeImageAttribu
 export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
  *          <note>
  *             <p>The order of the elements in the response, including those within nested
@@ -113,6 +112,7 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the launch permissions for an AMI
  * ```javascript
  * // This example describes the launch permissions for the specified AMI.

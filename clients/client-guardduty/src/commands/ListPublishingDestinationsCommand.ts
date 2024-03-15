@@ -27,7 +27,6 @@ export interface ListPublishingDestinationsCommandInput extends ListPublishingDe
 export interface ListPublishingDestinationsCommandOutput extends ListPublishingDestinationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of publishing destinations associated with the specified
  *         <code>detectorId</code>.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListPublishingDestinationsCommand extends $Command
   .classBuilder<

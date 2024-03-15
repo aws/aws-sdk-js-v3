@@ -27,7 +27,6 @@ export interface ModifyClientPropertiesCommandInput extends ModifyClientProperti
 export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropertiesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifyClientPropertiesCommand extends $Command
   .classBuilder<

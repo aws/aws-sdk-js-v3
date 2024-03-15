@@ -32,7 +32,6 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a domain that contains all Amazon Connect Voice ID data, such as speakers, fraudsters,
  *             customer audio, and voiceprints.  Every domain is created with a default watchlist that fraudsters can be a part of.</p>
  * @example
@@ -119,6 +118,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class CreateDomainCommand extends $Command
   .classBuilder<

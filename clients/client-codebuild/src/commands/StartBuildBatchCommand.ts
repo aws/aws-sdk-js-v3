@@ -27,7 +27,6 @@ export interface StartBuildBatchCommandInput extends StartBuildBatchInput {}
 export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a batch build for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -398,6 +397,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class StartBuildBatchCommand extends $Command
   .classBuilder<

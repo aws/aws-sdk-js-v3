@@ -27,7 +27,6 @@ export interface InviteMembersCommandInput extends InviteMembersRequest {}
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Invites Amazon Web Services accounts to become members of an organization administered by the Amazon Web Services account
  *       that invokes this API. If you are using Amazon Web Services Organizations to manage your GuardDuty environment, this step is not
  *       needed. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html">Managing accounts with organizations</a>.</p>
@@ -88,6 +87,7 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class InviteMembersCommand extends $Command
   .classBuilder<

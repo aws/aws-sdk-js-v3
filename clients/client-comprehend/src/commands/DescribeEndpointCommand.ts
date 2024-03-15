@@ -27,7 +27,6 @@ export interface DescribeEndpointCommandInput extends DescribeEndpointRequest {}
 export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
  *       status of an endpoint.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
@@ -82,6 +81,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeEndpointCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SetResourceAccessForBucketCommandInput extends SetResourceAcces
 export interface SetResourceAccessForBucketCommandOutput extends SetResourceAccessForBucketResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the Amazon Lightsail resources that can access the specified Lightsail
  *       bucket.</p>
  *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
@@ -101,6 +100,7 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class SetResourceAccessForBucketCommand extends $Command
   .classBuilder<

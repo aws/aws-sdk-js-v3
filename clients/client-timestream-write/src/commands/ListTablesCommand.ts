@@ -28,7 +28,6 @@ export interface ListTablesCommandInput extends ListTablesRequest {}
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of tables, along with the name, status, and retention properties of each
  *          table. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code sample</a>
  *          for details. </p>
@@ -116,6 +115,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class ListTablesCommand extends $Command
   .classBuilder<

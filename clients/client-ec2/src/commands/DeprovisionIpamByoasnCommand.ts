@@ -27,7 +27,6 @@ export interface DeprovisionIpamByoasnCommandInput extends DeprovisionIpamByoasn
 export interface DeprovisionIpamByoasnCommandOutput extends DeprovisionIpamByoasnResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprovisions your Autonomous System Number (ASN) from your Amazon Web Services account. This action can only be called after any BYOIP CIDR associations are removed from your Amazon Web Services account with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html">DisassociateIpamByoasn</a>.
  *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeprovisionIpamByoasnCommandOutput extends DeprovisionIpamByoas
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeprovisionIpamByoasnCommand extends $Command
   .classBuilder<

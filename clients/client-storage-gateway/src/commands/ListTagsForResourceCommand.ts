@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags that have been added to the specified resource. This operation is
  *          supported in storage gateways of all types.</p>
  * @example
@@ -73,6 +72,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To list tags that have been added to a resource
  * ```javascript
  * // Lists the tags that have been added to the specified resource.

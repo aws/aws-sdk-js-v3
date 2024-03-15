@@ -32,7 +32,6 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways
  *          do not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in
  *          effect. Use this to initiate or update a gateway's bandwidth rate limit schedule. This
@@ -86,6 +85,7 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateBandwidthRateLimitScheduleCommand extends $Command
   .classBuilder<

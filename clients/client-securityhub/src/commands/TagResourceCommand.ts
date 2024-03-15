@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To tag a resource
  * ```javascript
  * // The following example adds the 'Department' and 'Area' tags to the specified resource.

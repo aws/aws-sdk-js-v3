@@ -36,7 +36,6 @@ export interface GetUICustomizationCommandInput extends GetUICustomizationReques
 export interface GetUICustomizationCommandOutput extends GetUICustomizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the user interface (UI) Customization information for a particular app client's
  *             app UI, if any such information exists for the client. If nothing is set for the
  *             particular client, but there is an existing pool level customization (the app
@@ -95,6 +94,7 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetUICustomizationCommand extends $Command
   .classBuilder<

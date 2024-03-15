@@ -35,7 +35,6 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the source of resource-maps to the draft version of an application. During assessment, Resilience Hub will use these resource-maps to resolve the latest physical ID for each resource in the application template. For more information about different types of resources suported by Resilience Hub and how to add them in your application, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step 2: How is your application managed?</a> in the Resilience Hub User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class AddDraftAppVersionResourceMappingsCommand extends $Command
   .classBuilder<

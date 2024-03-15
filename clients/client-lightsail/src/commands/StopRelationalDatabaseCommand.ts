@@ -27,7 +27,6 @@ export interface StopRelationalDatabaseCommandInput extends StopRelationalDataba
 export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a specific database that is currently running in Amazon Lightsail.</p>
  *          <p>The <code>stop relational database</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -107,6 +106,7 @@ export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatab
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class StopRelationalDatabaseCommand extends $Command
   .classBuilder<

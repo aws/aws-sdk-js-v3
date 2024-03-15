@@ -27,7 +27,6 @@ export interface ListManagedJobTemplatesCommandInput extends ListManagedJobTempl
 export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of managed job templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListManagedJobTemplatesCommand extends $Command
   .classBuilder<

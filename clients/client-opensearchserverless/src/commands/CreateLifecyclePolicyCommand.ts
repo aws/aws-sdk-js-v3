@@ -31,7 +31,6 @@ export interface CreateLifecyclePolicyCommandInput extends CreateLifecyclePolicy
 export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a lifecyle policy to be applied to OpenSearch Serverless indexes. Lifecycle policies define
  *             the number of days or hours to retain the data on an OpenSearch Serverless index. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-create">Creating data lifecycle policies</a>.</p>
  * @example
@@ -87,6 +86,7 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class CreateLifecyclePolicyCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListOpenIDConnectProviderTagsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags that are attached to the specified OpenID Connect (OIDC)-compatible
  *       identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity
  *       federation</a>.</p>
@@ -85,6 +84,7 @@ export interface ListOpenIDConnectProviderTagsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListOpenIDConnectProviderTagsCommand extends $Command
   .classBuilder<

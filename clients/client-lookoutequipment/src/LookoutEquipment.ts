@@ -1015,9 +1015,9 @@ export interface LookoutEquipment {
 }
 
 /**
- * @public
  * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
  *          anomalies in machines from sensor data for use in predictive maintenance. </p>
+ * @public
  */
 export class LookoutEquipment extends LookoutEquipmentClient implements LookoutEquipment {}
 createAggregatedClient(commands, LookoutEquipment);

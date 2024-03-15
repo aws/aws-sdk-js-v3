@@ -27,7 +27,6 @@ export interface ListAppsCommandInput extends ListAppsRequest {}
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your Resilience Hub applications.</p>
  *          <note>
  *             <p>You can filter applications using only one filter at a time or without using any filter.
@@ -101,6 +100,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAnnotationStoreCommandInput extends GetAnnotationStoreReques
 export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface GetAnnotationStoreCommandOutput extends GetAnnotationStoreRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetAnnotationStoreCommand extends $Command
   .classBuilder<

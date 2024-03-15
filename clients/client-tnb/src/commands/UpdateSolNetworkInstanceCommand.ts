@@ -32,7 +32,6 @@ export interface UpdateSolNetworkInstanceCommandInput extends UpdateSolNetworkIn
 export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  * @example
@@ -90,6 +89,7 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class UpdateSolNetworkInstanceCommand extends $Command
   .classBuilder<

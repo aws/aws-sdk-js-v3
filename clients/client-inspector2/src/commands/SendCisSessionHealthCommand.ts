@@ -27,7 +27,6 @@ export interface SendCisSessionHealthCommandInput extends SendCisSessionHealthRe
 export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Sends a CIS session health.
  *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
@@ -74,6 +73,7 @@ export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthR
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class SendCisSessionHealthCommand extends $Command
   .classBuilder<

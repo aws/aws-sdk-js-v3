@@ -27,7 +27,6 @@ export interface BatchStartCommandInput extends BatchStartRequest {}
 export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataBearer {}
 
 /**
- * @public
  * Starts existing resources
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class BatchStartCommand extends $Command
   .classBuilder<

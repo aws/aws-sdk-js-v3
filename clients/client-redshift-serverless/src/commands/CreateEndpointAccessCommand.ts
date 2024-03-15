@@ -31,7 +31,6 @@ export interface CreateEndpointAccessCommandInput extends CreateEndpointAccessRe
 export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Redshift Serverless managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class CreateEndpointAccessCommand extends $Command
   .classBuilder<

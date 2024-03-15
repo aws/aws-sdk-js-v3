@@ -27,7 +27,6 @@ export interface DeleteSignalCatalogCommandInput extends DeleteSignalCatalogRequ
 export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a signal catalog. </p>
  *          <note>
  *             <p>If the signal catalog is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
@@ -76,6 +75,7 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class DeleteSignalCatalogCommand extends $Command
   .classBuilder<

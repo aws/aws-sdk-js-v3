@@ -27,7 +27,6 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyMessage 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the resource policy for a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class PutResourcePolicyCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateEnvironmentProfileCommandInput extends CreateEnvironmentP
 export interface CreateEnvironmentProfileCommandOutput extends CreateEnvironmentProfileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon DataZone environment profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface CreateEnvironmentProfileCommandOutput extends CreateEnvironment
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateEnvironmentProfileCommand extends $Command
   .classBuilder<

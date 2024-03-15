@@ -27,7 +27,6 @@ export interface CreateGroupMembershipCommandInput extends CreateGroupMembership
 export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a relationship between a member and a group. The following identifiers must be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class CreateGroupMembershipCommand extends $Command
   .classBuilder<

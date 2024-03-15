@@ -31,7 +31,6 @@ export interface UpdateContentCommandInput extends UpdateContentRequest {}
 export interface UpdateContentCommandOutput extends UpdateContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information about the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class UpdateContentCommand extends $Command
   .classBuilder<

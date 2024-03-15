@@ -27,7 +27,6 @@ export interface DescribeDBClusterParametersCommandInput extends DescribeDBClust
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -94,6 +93,7 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the parameters in a DB cluster parameter group
  * ```javascript
  * // The following example retrieves details about the parameters in a DB cluster parameter group.

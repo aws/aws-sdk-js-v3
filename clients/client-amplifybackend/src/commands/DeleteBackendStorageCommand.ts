@@ -27,7 +27,6 @@ export interface DeleteBackendStorageCommandInput extends DeleteBackendStorageRe
 export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteBackendStorageCommandOutput extends DeleteBackendStorageR
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class DeleteBackendStorageCommand extends $Command
   .classBuilder<

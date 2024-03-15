@@ -27,7 +27,6 @@ export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersio
 export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the staging labels attached to a version of a secret. Secrets Manager uses staging labels to
  *       track a version as it progresses through the secret rotation process. Each staging label can be
  *       attached to only one version at a time. To add a staging label to a version when it is already
@@ -110,6 +109,7 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To add a staging label attached to a version of a secret
  * ```javascript
  * // The following example shows you how to add a staging label to a version of a secret. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.

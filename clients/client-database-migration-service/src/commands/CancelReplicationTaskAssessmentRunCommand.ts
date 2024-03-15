@@ -39,7 +39,6 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a single premigration assessment run.</p>
  *          <p>This operation prevents any individual assessments from running if they haven't started
  *          running. It also attempts to cancel any individual assessments that are currently
@@ -96,6 +95,7 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class CancelReplicationTaskAssessmentRunCommand extends $Command
   .classBuilder<

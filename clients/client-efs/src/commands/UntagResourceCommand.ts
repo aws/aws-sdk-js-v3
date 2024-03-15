@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes tags from an EFS resource. You can remove tags from EFS file
  *       systems and access points using this API operation.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:UntagResource</code> action.</p>
@@ -73,6 +72,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

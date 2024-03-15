@@ -27,7 +27,6 @@ export interface ExportProjectCommandInput extends ExportProjectRequest {}
 export interface ExportProjectCommandOutput extends ExportProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Exports project configuration to a snapshot which can be downloaded and shared.
  *             Note that mobile app push credentials are encrypted in exported projects, so they
@@ -95,6 +94,7 @@ export interface ExportProjectCommandOutput extends ExportProjectResult, __Metad
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class ExportProjectCommand extends $Command
   .classBuilder<

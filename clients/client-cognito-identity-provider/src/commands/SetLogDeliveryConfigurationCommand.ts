@@ -34,7 +34,6 @@ export interface SetLogDeliveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets up or modifies the detailed activity logging configuration of a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface SetLogDeliveryConfigurationCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class SetLogDeliveryConfigurationCommand extends $Command
   .classBuilder<

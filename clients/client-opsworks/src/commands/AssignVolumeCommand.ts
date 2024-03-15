@@ -27,7 +27,6 @@ export interface AssignVolumeCommandInput extends AssignVolumeRequest {}
 export interface AssignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must
  *       first be registered with the stack by calling <a>RegisterVolume</a>. After you register the
  *       volume, you must call <a>UpdateVolume</a> to specify a mount point before calling
@@ -68,6 +67,7 @@ export interface AssignVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class AssignVolumeCommand extends $Command
   .classBuilder<

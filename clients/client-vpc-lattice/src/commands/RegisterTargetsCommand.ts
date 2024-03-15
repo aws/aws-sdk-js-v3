@@ -27,7 +27,6 @@ export interface RegisterTargetsCommandInput extends RegisterTargetsRequest {}
 export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers the targets with the target group. If it's a Lambda target, you can only have one
  *    target in a target group.</p>
  * @example
@@ -98,6 +97,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class RegisterTargetsCommand extends $Command
   .classBuilder<

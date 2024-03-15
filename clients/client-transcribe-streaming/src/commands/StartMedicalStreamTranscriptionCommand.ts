@@ -43,7 +43,6 @@ export interface StartMedicalStreamTranscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  *             Amazon Transcribe Medical and the transcription results are streamed to your
  *             application.</p>
@@ -208,6 +207,7 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * @throws {@link TranscribeStreamingServiceException}
  * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
+ * @public
  */
 export class StartMedicalStreamTranscriptionCommand extends $Command
   .classBuilder<

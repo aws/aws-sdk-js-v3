@@ -27,7 +27,6 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of services. You can filter the results by cluster, launch type, and
  * 			scheduling strategy.</p>
  * @example
@@ -78,6 +77,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To list the services in a cluster
  * ```javascript
  * // This example lists the services running in the default cluster for an account.

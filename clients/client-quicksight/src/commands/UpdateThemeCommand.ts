@@ -27,7 +27,6 @@ export interface UpdateThemeCommandInput extends UpdateThemeRequest {}
 export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -145,6 +144,7 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateThemeCommand extends $Command
   .classBuilder<

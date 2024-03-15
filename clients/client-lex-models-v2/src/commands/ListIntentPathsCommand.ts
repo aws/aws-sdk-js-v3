@@ -27,7 +27,6 @@ export interface ListIntentPathsCommandInput extends ListIntentPathsRequest {}
 export interface ListIntentPathsCommandOutput extends ListIntentPathsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves summary statistics for a path of intents that users take over sessions with your bot. The following fields are required:</p>
  *          <ul>
  *             <li>
@@ -106,6 +105,7 @@ export interface ListIntentPathsCommandOutput extends ListIntentPathsResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListIntentPathsCommand extends $Command
   .classBuilder<

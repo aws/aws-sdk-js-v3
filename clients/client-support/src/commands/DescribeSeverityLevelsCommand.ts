@@ -27,7 +27,6 @@ export interface DescribeSeverityLevelsCommandInput extends DescribeSeverityLeve
 export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLevelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of severity levels that you can assign to a support case. The
  *             severity level for a case is also a field in the <a>CaseDetails</a> data type
  *             that you include for a <a>CreateCase</a> request.</p>
@@ -79,6 +78,7 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeSeverityLevelsCommand extends $Command
   .classBuilder<

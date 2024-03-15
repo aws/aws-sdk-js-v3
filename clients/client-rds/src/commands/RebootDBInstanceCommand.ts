@@ -27,7 +27,6 @@ export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>You might need to reboot your DB instance, usually for maintenance reasons.
  *         For example, if you make certain modifications,
  *         or if you change the DB parameter group associated with the DB instance,
@@ -294,6 +293,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To reboot a DB instance
  * ```javascript
  * // The following example starts a reboot of the specified DB instance.

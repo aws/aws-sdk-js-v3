@@ -27,7 +27,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsType {}
 export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified tags.</p>
  *          <p>You can use filters to limit the results. For example, you can query for the tags for
  *             a specific Auto Scaling group. You can specify multiple values for a filter. A tag must match at
@@ -88,6 +87,7 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe tags
  * ```javascript
  * // This example describes the tags for the specified Auto Scaling group.

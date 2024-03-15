@@ -27,7 +27,6 @@ export interface DescribeTimeSeriesCommandInput extends DescribeTimeSeriesReques
 export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a time series (data stream).</p>
  *          <p>To identify a time series, do one of the following:</p>
  *          <ul>
@@ -100,6 +99,7 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeTimeSeriesCommand extends $Command
   .classBuilder<

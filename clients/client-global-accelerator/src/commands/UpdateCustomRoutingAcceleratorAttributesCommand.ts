@@ -40,7 +40,6 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the attributes for a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpdateCustomRoutingAcceleratorAttributesCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command
   .classBuilder<

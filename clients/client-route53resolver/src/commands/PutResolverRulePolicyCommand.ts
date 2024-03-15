@@ -27,7 +27,6 @@ export interface PutResolverRulePolicyCommandInput extends PutResolverRulePolicy
 export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies an Amazon Web Services rule that you want to share with another account, the account that you want to share the rule with,
  * 			and the operations that you want the account to be able to perform on the rule.</p>
  * @example
@@ -72,6 +71,7 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class PutResolverRulePolicyCommand extends $Command
   .classBuilder<

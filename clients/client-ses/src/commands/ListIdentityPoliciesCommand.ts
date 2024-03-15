@@ -27,7 +27,6 @@ export interface ListIdentityPoliciesCommandInput extends ListIdentityPoliciesRe
 export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of sending authorization policies that are attached to the given
  *             identity (an email address or a domain). This operation returns only a list. To get the
  *             actual policy content, use <code>GetIdentityPolicies</code>.</p>
@@ -68,6 +67,7 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example ListIdentityPolicies
  * ```javascript
  * // The following example returns a list of sending authorization policies that are attached to an identity:

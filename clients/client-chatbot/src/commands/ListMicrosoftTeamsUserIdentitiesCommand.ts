@@ -32,7 +32,6 @@ export interface ListMicrosoftTeamsUserIdentitiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Lists all Microsoft Teams user identities with a mapped role.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListMicrosoftTeamsUserIdentitiesCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class ListMicrosoftTeamsUserIdentitiesCommand extends $Command
   .classBuilder<

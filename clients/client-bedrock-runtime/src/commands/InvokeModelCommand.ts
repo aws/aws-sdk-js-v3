@@ -47,7 +47,6 @@ export type InvokeModelCommandOutputType = Omit<InvokeModelResponse, "body"> & {
 export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Invokes the specified Bedrock model to run inference using the input provided in the request body.
  *          You use InvokeModel to run inference for text models, image models, and embedding models.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
@@ -109,6 +108,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
  *
+ * @public
  */
 export class InvokeModelCommand extends $Command
   .classBuilder<

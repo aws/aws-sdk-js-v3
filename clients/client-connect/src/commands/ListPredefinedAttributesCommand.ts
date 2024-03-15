@@ -27,7 +27,6 @@ export interface ListPredefinedAttributesCommandInput extends ListPredefinedAttr
 export interface ListPredefinedAttributesCommandOutput extends ListPredefinedAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists predefined attributes for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListPredefinedAttributesCommandOutput extends ListPredefinedAtt
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListPredefinedAttributesCommand extends $Command
   .classBuilder<

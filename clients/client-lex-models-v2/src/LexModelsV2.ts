@@ -2084,8 +2084,8 @@ export interface LexModelsV2 {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class LexModelsV2 extends LexModelsV2Client implements LexModelsV2 {}
 createAggregatedClient(commands, LexModelsV2);

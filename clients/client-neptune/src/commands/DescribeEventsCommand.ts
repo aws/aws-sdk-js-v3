@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
  *       groups for the past 14 days. Events specific to a particular DB instance, DB security group,
  *       database snapshot, or DB parameter group can be obtained by providing the name as a parameter.
@@ -87,6 +86,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

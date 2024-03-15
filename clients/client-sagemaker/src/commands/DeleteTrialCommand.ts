@@ -27,7 +27,6 @@ export interface DeleteTrialCommandInput extends DeleteTrialRequest {}
 export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified trial. All trial components that make up the trial must be deleted
  *       first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a> API to get the list of trial
  *       components.</p>
@@ -60,6 +59,7 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteTrialCommand extends $Command
   .classBuilder<

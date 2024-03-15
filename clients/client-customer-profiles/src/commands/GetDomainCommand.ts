@@ -27,7 +27,6 @@ export interface GetDomainCommandInput extends GetDomainRequest {}
 export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +146,7 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetDomainCommand extends $Command
   .classBuilder<

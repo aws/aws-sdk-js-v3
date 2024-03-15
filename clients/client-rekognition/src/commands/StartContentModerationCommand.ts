@@ -27,7 +27,6 @@ export interface StartContentModerationCommandInput extends StartContentModerati
 export interface StartContentModerationCommandOutput extends StartContentModerationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Starts asynchronous detection of inappropriate, unwanted, or offensive content in a stored video. For a list of moderation labels in Amazon Rekognition, see
  *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using the image and video moderation APIs</a>.</p>
  *          <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
@@ -113,6 +112,7 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartContentModerationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateImpersonationRoleCommandInput extends CreateImpersonation
 export interface CreateImpersonationRoleCommandOutput extends CreateImpersonationRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an impersonation role for the given WorkMail organization.</p>
  *          <p>
  *             <i>Idempotency</i> ensures that an API request completes no more than one
@@ -100,6 +99,7 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class CreateImpersonationRoleCommand extends $Command
   .classBuilder<

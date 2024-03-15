@@ -25,7 +25,6 @@ export interface XmlIntEnumsCommandInput extends XmlIntEnumsRequest {}
 export interface XmlIntEnumsCommandOutput extends XmlIntEnumsResponse, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes enums as top level properties, in lists, sets, and maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsResponse, __Metadat
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlIntEnumsCommand extends $Command
   .classBuilder<

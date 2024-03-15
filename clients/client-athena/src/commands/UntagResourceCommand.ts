@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more tags from an Athena resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

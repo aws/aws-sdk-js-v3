@@ -27,7 +27,6 @@ export interface GetHITCommandInput extends GetHITRequest {}
 export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>GetHIT</code> operation retrieves the details of the specified HIT.
  *         </p>
@@ -101,6 +100,7 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class GetHITCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeHostsCommandInput extends DescribeHostsRequest {}
 export interface DescribeHostsCommandOutput extends DescribeHostsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>
  *          <p>The results describe only the Dedicated Hosts in the Region you're currently using.
  *             All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
@@ -120,6 +119,7 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeHostsCommand extends $Command
   .classBuilder<

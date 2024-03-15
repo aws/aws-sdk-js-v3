@@ -27,7 +27,6 @@ export interface EnableDomainAutoRenewCommandInput extends EnableDomainAutoRenew
 export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation configures Amazon Route 53 to automatically renew the specified domain
  * 			before the domain registration expires. The cost of renewing your domain registration is
  * 			billed to your Amazon Web Services account.</p>
@@ -72,6 +71,7 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class EnableDomainAutoRenewCommand extends $Command
   .classBuilder<

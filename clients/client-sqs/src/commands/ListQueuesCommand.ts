@@ -27,7 +27,6 @@ export interface ListQueuesCommandInput extends ListQueuesRequest {}
 export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of your queues in the current region. The response includes a maximum
  *             of 1,000 results. If you specify a value for the optional <code>QueueNamePrefix</code>
  *             parameter, only queues with a name that begins with the specified value are
@@ -103,6 +102,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class ListQueuesCommand extends $Command
   .classBuilder<

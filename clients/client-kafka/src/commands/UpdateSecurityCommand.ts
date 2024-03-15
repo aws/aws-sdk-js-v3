@@ -27,7 +27,6 @@ export interface UpdateSecurityCommandInput extends UpdateSecurityRequest {}
 export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the security settings for the cluster. You can use this operation to specify encryption and authentication on existing clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateSecurityCommand extends $Command
   .classBuilder<

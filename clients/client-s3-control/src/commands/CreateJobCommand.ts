@@ -28,7 +28,6 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation creates an S3 Batch Operations job.</p>
  *          <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects.
  *          Batch Operations can run a single action on lists of Amazon S3 objects that you specify. For more
@@ -285,6 +284,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class CreateJobCommand extends $Command
   .classBuilder<

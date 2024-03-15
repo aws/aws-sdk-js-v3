@@ -27,7 +27,6 @@ export interface DescribeDataSourceCommandInput extends DescribeDataSourceReques
 export interface DescribeDataSourceCommandOutput extends DescribeDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -359,6 +358,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDataSourceCommand extends $Command
   .classBuilder<

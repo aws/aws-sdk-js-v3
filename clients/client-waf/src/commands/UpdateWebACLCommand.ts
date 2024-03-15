@@ -27,7 +27,6 @@ export interface UpdateWebACLCommandInput extends UpdateWebACLRequest {}
 export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -271,6 +270,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To update a Web ACL
  * ```javascript
  * // The following example deletes an ActivatedRule object in a WebACL with the ID webacl-1472061481310.

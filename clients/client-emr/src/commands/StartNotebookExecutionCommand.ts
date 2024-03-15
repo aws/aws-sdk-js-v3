@@ -27,7 +27,6 @@ export interface StartNotebookExecutionCommandInput extends StartNotebookExecuti
 export interface StartNotebookExecutionCommandOutput extends StartNotebookExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class StartNotebookExecutionCommand extends $Command
   .classBuilder<

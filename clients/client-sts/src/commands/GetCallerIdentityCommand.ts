@@ -27,7 +27,6 @@ export interface GetCallerIdentityCommandInput extends GetCallerIdentityRequest 
 export interface GetCallerIdentityCommandOutput extends GetCallerIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about the IAM user or role whose credentials are used to
  *          call the operation.</p>
  *          <note>
@@ -64,6 +63,7 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  * @example To get details about a calling IAM user
  * ```javascript
  * // This example shows a request and response made with the credentials for a user named Alice in the AWS account 123456789012.

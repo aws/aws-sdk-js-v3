@@ -27,7 +27,6 @@ export interface GetTableVersionCommandInput extends GetTableVersionRequest {}
 export interface GetTableVersionCommandOutput extends GetTableVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a specified version of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,6 +170,7 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetTableVersionCommand extends $Command
   .classBuilder<

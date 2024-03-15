@@ -27,7 +27,6 @@ export interface ListCopyJobsCommandInput extends ListCopyJobsInput {}
 export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata about your copy jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListCopyJobsCommand extends $Command
   .classBuilder<

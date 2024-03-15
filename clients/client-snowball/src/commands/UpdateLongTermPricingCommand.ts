@@ -27,7 +27,6 @@ export interface UpdateLongTermPricingCommandInput extends UpdateLongTermPricing
 export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the long-term pricing type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface UpdateLongTermPricingCommandOutput extends UpdateLongTermPricin
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  */
 export class UpdateLongTermPricingCommand extends $Command
   .classBuilder<

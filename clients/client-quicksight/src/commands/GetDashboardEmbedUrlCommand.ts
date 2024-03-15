@@ -31,7 +31,6 @@ export interface GetDashboardEmbedUrlCommandInput extends GetDashboardEmbedUrlRe
 export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a temporary session URL and authorization code(bearer token) that you can use to embed an Amazon QuickSight read-only dashboard in your website or application. Before you use this command, make sure that you have configured the dashboards and permissions. </p>
  *          <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from the user's browser. The following rules apply to the generated URL:</p>
  *          <ul>
@@ -148,6 +147,7 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class GetDashboardEmbedUrlCommand extends $Command
   .classBuilder<

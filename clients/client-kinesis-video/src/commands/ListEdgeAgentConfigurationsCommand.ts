@@ -34,7 +34,6 @@ export interface ListEdgeAgentConfigurationsCommandInput extends ListEdgeAgentCo
 export interface ListEdgeAgentConfigurationsCommandOutput extends ListEdgeAgentConfigurationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of edge configurations associated with the specified Edge Agent.</p>
  *          <p>In the request, you must specify the Edge Agent <code>HubDeviceArn</code>.</p>
  * @example
@@ -112,6 +111,7 @@ export interface ListEdgeAgentConfigurationsCommandOutput extends ListEdgeAgentC
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class ListEdgeAgentConfigurationsCommand extends $Command
   .classBuilder<

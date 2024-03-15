@@ -27,7 +27,6 @@ export interface MonitorContactCommandInput extends MonitorContactRequest {}
 export interface MonitorContactCommandOutput extends MonitorContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
  *    specified by <i>userId</i> will be set to silent monitoring mode on the
  *    contact.</p>
@@ -85,6 +84,7 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class MonitorContactCommand extends $Command
   .classBuilder<

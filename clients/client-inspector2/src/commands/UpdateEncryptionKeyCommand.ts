@@ -27,7 +27,6 @@ export interface UpdateEncryptionKeyCommandInput extends UpdateEncryptionKeyRequ
 export interface UpdateEncryptionKeyCommandOutput extends UpdateEncryptionKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an encryption key. A <code>ResourceNotFoundException</code> means that an Amazon Web Services owned key is being used for encryption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface UpdateEncryptionKeyCommandOutput extends UpdateEncryptionKeyRes
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class UpdateEncryptionKeyCommand extends $Command
   .classBuilder<

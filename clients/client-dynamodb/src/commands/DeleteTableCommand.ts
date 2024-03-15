@@ -27,7 +27,6 @@ export interface DeleteTableCommandInput extends DeleteTableInput {}
 export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
  *                 <code>DeleteTable</code> request, the specified table is in the
  *                 <code>DELETING</code> state until DynamoDB completes the deletion. If the table is
@@ -241,6 +240,7 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To delete a table
  * ```javascript
  * // This example deletes the Music table.

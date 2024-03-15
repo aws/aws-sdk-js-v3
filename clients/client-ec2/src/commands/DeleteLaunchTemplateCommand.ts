@@ -27,7 +27,6 @@ export interface DeleteLaunchTemplateCommandInput extends DeleteLaunchTemplateRe
 export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a launch template. Deleting a launch template deletes all of its
  *             versions.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a launch template
  * ```javascript
  * // This example deletes the specified launch template.

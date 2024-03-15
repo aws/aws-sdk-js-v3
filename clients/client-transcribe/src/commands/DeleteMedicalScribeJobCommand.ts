@@ -27,7 +27,6 @@ export interface DeleteMedicalScribeJobCommandInput extends DeleteMedicalScribeJ
 export interface DeleteMedicalScribeJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Medical Scribe job. To use this operation, specify the name of the
  *             job you want to delete using <code>MedicalScribeJobName</code>. Job names are
  *             case sensitive.</p>
@@ -69,6 +68,7 @@ export interface DeleteMedicalScribeJobCommandOutput extends __MetadataBearer {}
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DeleteMedicalScribeJobCommand extends $Command
   .classBuilder<

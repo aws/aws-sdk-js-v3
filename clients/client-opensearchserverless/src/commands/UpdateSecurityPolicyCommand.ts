@@ -31,7 +31,6 @@ export interface UpdateSecurityPolicyCommandInput extends UpdateSecurityPolicyRe
 export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
  *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
  *                 rest for Amazon OpenSearch Serverless</a>.</p>
@@ -92,6 +91,7 @@ export interface UpdateSecurityPolicyCommandOutput extends UpdateSecurityPolicyR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class UpdateSecurityPolicyCommand extends $Command
   .classBuilder<

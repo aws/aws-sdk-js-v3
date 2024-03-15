@@ -31,7 +31,6 @@ export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest 
 export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for a Server Message Block (SMB) file
  *       server. DataSync can use this location as a source or destination for
  *       transferring data.</p>
@@ -87,6 +86,7 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationSmbCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListEventIntegrationsCommandInput extends ListEventIntegrations
 export interface ListEventIntegrationsCommandOutput extends ListEventIntegrationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of event integrations in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class ListEventIntegrationsCommand extends $Command
   .classBuilder<

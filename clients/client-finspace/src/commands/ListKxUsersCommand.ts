@@ -27,7 +27,6 @@ export interface ListKxUsersCommandInput extends ListKxUsersRequest {}
 export interface ListKxUsersCommandOutput extends ListKxUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the users in a kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListKxUsersCommandOutput extends ListKxUsersResponse, __Metadat
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxUsersCommand extends $Command
   .classBuilder<

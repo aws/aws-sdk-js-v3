@@ -27,7 +27,6 @@ export interface DeleteBackupCommandInput extends DeleteBackupInput {}
 export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing backup of a table.</p>
  *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per
  *             second.</p>
@@ -168,6 +167,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DeleteBackupCommand extends $Command
   .classBuilder<

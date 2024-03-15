@@ -27,7 +27,6 @@ export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the DataBrew datasets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -154,6 +153,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class ListDatasetsCommand extends $Command
   .classBuilder<

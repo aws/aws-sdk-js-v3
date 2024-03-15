@@ -27,7 +27,6 @@ export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClu
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a Neptune DB cluster from a Neptune global database. A secondary
  *       cluster becomes a normal standalone cluster with read-write capability
  *       instead of being read-only, and no longer receives data from a the
@@ -87,6 +86,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class RemoveFromGlobalClusterCommand extends $Command
   .classBuilder<

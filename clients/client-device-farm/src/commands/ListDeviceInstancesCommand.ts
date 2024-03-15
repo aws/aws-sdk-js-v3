@@ -27,7 +27,6 @@ export interface ListDeviceInstancesCommandInput extends ListDeviceInstancesRequ
 export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the private device instances associated with one or more AWS
  *             accounts.</p>
  * @example
@@ -90,6 +89,7 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class ListDeviceInstancesCommand extends $Command
   .classBuilder<

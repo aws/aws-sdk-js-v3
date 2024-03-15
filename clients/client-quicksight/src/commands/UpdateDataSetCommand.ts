@@ -31,7 +31,6 @@ export interface UpdateDataSetCommandInput extends UpdateDataSetRequest {}
 export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a dataset. This operation doesn't support datasets that include uploaded files as a source. Partial updates are not supported by this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -331,6 +330,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDataSetCommand extends $Command
   .classBuilder<

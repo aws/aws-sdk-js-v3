@@ -32,7 +32,6 @@ export interface DescribeDeliveryDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the delivery destinations that have been created in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeDeliveryDestinationsCommandOutput
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeDeliveryDestinationsCommand extends $Command
   .classBuilder<

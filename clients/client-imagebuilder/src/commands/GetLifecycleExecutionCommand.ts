@@ -27,7 +27,6 @@ export interface GetLifecycleExecutionCommandInput extends GetLifecycleExecution
 export interface GetLifecycleExecutionCommandOutput extends GetLifecycleExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the runtime information that was logged for a specific runtime instance of the lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetLifecycleExecutionCommandOutput extends GetLifecycleExecutio
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetLifecycleExecutionCommand extends $Command
   .classBuilder<

@@ -37,7 +37,6 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
  *          information for users and devices. When an application request is made, the identity
  *          information sent by the trust provider is evaluated by Verified Access before allowing or
@@ -134,6 +133,7 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVerifiedAccessTrustProviderCommand extends $Command
   .classBuilder<

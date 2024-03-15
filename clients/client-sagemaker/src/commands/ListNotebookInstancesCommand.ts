@@ -27,7 +27,6 @@ export interface ListNotebookInstancesCommandInput extends ListNotebookInstances
 export interface ListNotebookInstancesCommandOutput extends ListNotebookInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the SageMaker notebook instances in the requester's account in an
  *                 Amazon Web Services Region. </p>
  * @example
@@ -84,6 +83,7 @@ export interface ListNotebookInstancesCommandOutput extends ListNotebookInstance
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListNotebookInstancesCommand extends $Command
   .classBuilder<

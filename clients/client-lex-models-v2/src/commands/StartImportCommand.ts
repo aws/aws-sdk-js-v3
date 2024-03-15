@@ -27,7 +27,6 @@ export interface StartImportCommandInput extends StartImportRequest {}
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts importing a bot, bot locale, or custom vocabulary from a zip
  *          archive that you uploaded to an S3 bucket.</p>
  * @example
@@ -183,6 +182,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class StartImportCommand extends $Command
   .classBuilder<

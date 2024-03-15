@@ -36,7 +36,6 @@ export interface DescribeStateMachineForExecutionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a state machine's definition, its execution role ARN, and
  *       configuration. If a Map Run dispatched the execution, this action returns the Map Run
  *       Amazon Resource Name (ARN) in the response.
@@ -100,6 +99,7 @@ export interface DescribeStateMachineForExecutionCommandOutput
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DescribeStateMachineForExecutionCommand extends $Command
   .classBuilder<

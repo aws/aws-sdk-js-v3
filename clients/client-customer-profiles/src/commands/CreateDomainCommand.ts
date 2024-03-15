@@ -27,7 +27,6 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a domain, which is a container for all customer data, such as customer profile
  *          attributes, object types, profile keys, and encryption keys. You can create multiple
  *          domains, and each domain can have multiple third-party integrations.</p>
@@ -218,6 +217,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class CreateDomainCommand extends $Command
   .classBuilder<

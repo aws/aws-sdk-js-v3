@@ -32,7 +32,6 @@ export interface DeleteDataRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a data repository association on an Amazon FSx for Lustre
  *             file system. Deleting the data repository association unlinks the
  *             file system from the Amazon S3 bucket. When deleting a data repository
@@ -88,6 +87,7 @@ export interface DeleteDataRepositoryAssociationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DeleteDataRepositoryAssociationCommand extends $Command
   .classBuilder<

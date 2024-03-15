@@ -27,7 +27,6 @@ export interface PutLifecycleConfigurationCommandInput extends PutLifecycleConfi
 export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this action to manage storage for your file system. A
  *         <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
  *       objects that define the following:</p>
@@ -145,6 +144,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example Creates a new lifecycleconfiguration object for a file system
  * ```javascript
  * // This operation enables lifecycle management on a file system by creating a new LifecycleConfiguration object. A LifecycleConfiguration object defines when files in an Amazon EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class. A LifecycleConfiguration applies to all files in a file system.

@@ -27,7 +27,6 @@ export interface CreateOptionGroupCommandInput extends CreateOptionGroupMessage 
 export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new option group. You can create up to 20 option groups.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -117,6 +116,7 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To Create an Amazon RDS option group
  * ```javascript
  * // The following example creates a new Amazon RDS option group for Oracle MySQL version 8,0 named MyOptionGroup.

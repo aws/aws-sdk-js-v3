@@ -27,7 +27,6 @@ export interface StartInstanceOnboardingJobCommandInput extends StartInstanceOnb
 export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOnboardingJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * Onboard the specific Amazon Connect instance to Connect Campaigns.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class StartInstanceOnboardingJobCommand extends $Command
   .classBuilder<

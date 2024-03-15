@@ -32,7 +32,6 @@ export interface DescribeSharedVpcConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual
  *             private cloud (VPC) owner. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/creating-file-systems.html#fsxn-vpc-shared-subnets">Creating FSx for ONTAP file systems in shared subnets</a>. </p>
  * @example
@@ -65,6 +64,7 @@ export interface DescribeSharedVpcConfigurationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeSharedVpcConfigurationCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateAssociationCommandInput extends UpdateAssociationRequest 
 export interface UpdateAssociationCommandOutput extends UpdateAssociationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an association. You can update the association name and version, the document
  *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
  *    call <code>UpdateAssociation</code>, the system removes all optional parameters from the request
@@ -293,6 +292,7 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateAssociationCommand extends $Command
   .classBuilder<

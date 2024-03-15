@@ -27,7 +27,6 @@ export interface GetCalendarStateCommandInput extends GetCalendarStateRequest {}
 export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the state of a Amazon Web Services Systems Manager change calendar at the current time or a specified time. If
  *    you specify a time, <code>GetCalendarState</code> returns the state of the calendar at that
  *    specific time, and returns the next time that the change calendar state will transition. If you
@@ -81,6 +80,7 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetCalendarStateCommand extends $Command
   .classBuilder<

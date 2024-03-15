@@ -27,7 +27,6 @@ export interface ListDatasetGroupsCommandInput extends ListDatasetGroupsRequest 
 export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of dataset groups. The response provides the properties
  *       for each dataset group, including the Amazon Resource Name (ARN). For more
  *       information on dataset groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
@@ -72,6 +71,7 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListDatasetGroupsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an event destination. <i>Events</i> include message sends,
  *             deliveries, opens, clicks, bounces, and complaints. <i>Event
  *                 destinations</i> are places that you can send information about these events
@@ -109,6 +108,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

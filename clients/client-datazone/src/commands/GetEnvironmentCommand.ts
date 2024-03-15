@@ -27,7 +27,6 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentInput {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon DataZone environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetEnvironmentCommand extends $Command
   .classBuilder<

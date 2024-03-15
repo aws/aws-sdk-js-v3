@@ -27,7 +27,6 @@ export interface DeleteSchedulingPolicyCommandInput extends DeleteSchedulingPoli
 export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified scheduling policy.</p>
  *          <p>You can't delete a scheduling policy that's used in any job queues.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  */
 export class DeleteSchedulingPolicyCommand extends $Command
   .classBuilder<

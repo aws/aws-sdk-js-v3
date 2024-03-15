@@ -31,7 +31,6 @@ export interface DescribeDeliveryStreamCommandInput extends DescribeDeliveryStre
 export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified delivery stream and its status. For example, after your
  *          delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether the
  *          delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
@@ -535,6 +534,7 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class DescribeDeliveryStreamCommand extends $Command
   .classBuilder<

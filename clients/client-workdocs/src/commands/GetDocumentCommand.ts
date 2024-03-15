@@ -32,7 +32,6 @@ export interface GetDocumentCommandInput extends GetDocumentRequest {}
 export interface GetDocumentCommandOutput extends GetDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details of a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class GetDocumentCommand extends $Command
   .classBuilder<

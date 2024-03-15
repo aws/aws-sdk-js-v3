@@ -27,7 +27,6 @@ export interface DescribeClusterParametersCommandInput extends DescribeClusterPa
 export interface DescribeClusterParametersCommandOutput extends ClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a detailed list of parameters contained within the specified Amazon Redshift
  *             parameter group. For each parameter the response includes information such as parameter
  *             name, description, data type, value, whether the parameter value is modifiable, and so
@@ -85,6 +84,7 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterParametersCommand extends $Command
   .classBuilder<

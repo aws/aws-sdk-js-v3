@@ -32,7 +32,6 @@ export interface CreateNetworkInterfacePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
  *             an instance in their account.</p>
  *          <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
@@ -76,6 +75,7 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateNetworkInterfacePermissionCommand extends $Command
   .classBuilder<

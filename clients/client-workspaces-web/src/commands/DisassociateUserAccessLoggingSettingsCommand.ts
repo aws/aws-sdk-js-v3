@@ -36,7 +36,6 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates user access logging settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DisassociateUserAccessLoggingSettingsCommandOutput
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DisassociateUserAccessLoggingSettingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateInferenceExperimentCommandInput extends UpdateInferenceEx
 export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *            Updates an inference experiment that you created. The status of the inference experiment has to be either
  *            <code>Created</code>, <code>Running</code>. For more information on the status of an inference experiment,
@@ -105,6 +104,7 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateInferenceExperimentCommand extends $Command
   .classBuilder<

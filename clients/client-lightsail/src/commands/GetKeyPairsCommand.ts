@@ -27,7 +27,6 @@ export interface GetKeyPairsCommandInput extends GetKeyPairsRequest {}
 export interface GetKeyPairsCommandOutput extends GetKeyPairsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all key pairs in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetKeyPairsCommandOutput extends GetKeyPairsResult, __MetadataB
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetKeyPairsCommand extends $Command
   .classBuilder<

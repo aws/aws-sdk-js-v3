@@ -27,7 +27,6 @@ export interface UpdateRoutingProfileQueuesCommandInput extends UpdateRoutingPro
 export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties associated with a set of queues for a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateRoutingProfileQueuesCommand extends $Command
   .classBuilder<

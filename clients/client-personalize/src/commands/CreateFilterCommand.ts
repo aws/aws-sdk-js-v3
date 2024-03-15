@@ -27,7 +27,6 @@ export interface CreateFilterCommandInput extends CreateFilterRequest {}
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateFilterCommand extends $Command
   .classBuilder<

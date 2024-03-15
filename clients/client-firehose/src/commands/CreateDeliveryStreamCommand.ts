@@ -31,7 +31,6 @@ export interface CreateDeliveryStreamCommandInput extends CreateDeliveryStreamIn
 export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Firehose delivery stream.</p>
  *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
  *          Region.</p>
@@ -587,6 +586,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class CreateDeliveryStreamCommand extends $Command
   .classBuilder<

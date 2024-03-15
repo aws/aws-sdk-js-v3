@@ -33,7 +33,6 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Releases the file system lock from an Amazon FSx for OpenZFS file
  *             system.</p>
  * @example
@@ -637,6 +636,7 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class ReleaseFileSystemNfsV3LocksCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface NotifyApplicationStateCommandInput extends NotifyApplicationSta
 export interface NotifyApplicationStateCommandOutput extends NotifyApplicationStateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the migration state of an application. For a given application identified by the
  *          value passed to <code>ApplicationId</code>, its status is set or updated by passing one of
  *          three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS |
@@ -98,6 +97,7 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class NotifyApplicationStateCommand extends $Command
   .classBuilder<

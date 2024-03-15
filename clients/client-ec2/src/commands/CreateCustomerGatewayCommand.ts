@@ -27,7 +27,6 @@ export interface CreateCustomerGatewayCommandInput extends CreateCustomerGateway
 export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information to Amazon Web Services about your customer gateway device. The
  *             customer gateway device is the appliance at your end of the VPN connection. You
  *             must provide the IP address of the customer gateway device’s external
@@ -99,6 +98,7 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a customer gateway
  * ```javascript
  * // This example creates a customer gateway with the specified IP address for its outside interface.

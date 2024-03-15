@@ -27,7 +27,6 @@ export interface DeleteTrailCommandInput extends DeleteTrailRequest {}
 export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a trail. This operation must be called from the Region in which the trail was
  *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
  *          in other Regions) of a trail that is enabled in all Regions.</p>
@@ -127,6 +126,7 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class DeleteTrailCommand extends $Command
   .classBuilder<

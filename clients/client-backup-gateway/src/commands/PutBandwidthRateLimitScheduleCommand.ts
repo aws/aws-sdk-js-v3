@@ -32,7 +32,6 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This action sets the bandwidth rate limit schedule for a specified gateway.
  *       By default, gateways do not have a bandwidth rate limit schedule, which means
  *       no bandwidth rate limiting is in effect. Use this to initiate a
@@ -88,6 +87,7 @@ export interface PutBandwidthRateLimitScheduleCommandOutput
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class PutBandwidthRateLimitScheduleCommand extends $Command
   .classBuilder<

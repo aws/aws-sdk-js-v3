@@ -27,7 +27,6 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Retrieves the JSON text of the resource-based policy document attached to the CloudTrail channel.
  *       </p>
@@ -81,6 +80,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<

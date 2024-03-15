@@ -27,7 +27,6 @@ export interface GetEnabledControlCommandInput extends GetEnabledControlInput {}
 export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about an enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
  *                <i>the Amazon Web Services Control Tower User Guide</i>
  *             </a>.</p>
@@ -94,6 +93,7 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class GetEnabledControlCommand extends $Command
   .classBuilder<

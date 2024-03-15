@@ -31,7 +31,6 @@ export interface AssociateNodeCommandInput extends AssociateNodeRequest {}
 export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>
  *          <p>
  *       On a Chef server: This command is an alternative to  <code>knife bootstrap</code>.</p>
@@ -94,6 +93,7 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class AssociateNodeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes the specified domain. This action is permanent. For more
  * 			information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html">Deleting a domain name
  * 				registration</a>.</p>
@@ -91,6 +90,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class DeleteDomainCommand extends $Command
   .classBuilder<

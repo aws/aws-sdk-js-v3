@@ -27,7 +27,6 @@ export interface DescribeSchemaCommandInput extends DescribeSchemaRequest {}
 export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the schema definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class DescribeSchemaCommand extends $Command
   .classBuilder<

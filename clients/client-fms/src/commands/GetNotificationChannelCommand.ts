@@ -27,7 +27,6 @@ export interface GetNotificationChannelCommandInput extends GetNotificationChann
 export interface GetNotificationChannelCommandOutput extends GetNotificationChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Information
  *       about the Amazon Simple Notification Service (SNS) topic that is used to
  *       record Firewall Manager SNS logs.</p>
@@ -70,6 +69,7 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetNotificationChannelCommand extends $Command
   .classBuilder<

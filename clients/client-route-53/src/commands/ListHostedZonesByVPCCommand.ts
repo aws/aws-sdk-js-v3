@@ -27,7 +27,6 @@ export interface ListHostedZonesByVPCCommandInput extends ListHostedZonesByVPCRe
 export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless
  * 			of which Amazon Web Services account or Amazon Web Services service owns the hosted zones.
  * 			The <code>HostedZoneOwner</code> structure in the response contains one of the following
@@ -115,6 +114,7 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListHostedZonesByVPCCommand extends $Command
   .classBuilder<

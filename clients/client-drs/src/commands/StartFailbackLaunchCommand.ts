@@ -32,7 +32,6 @@ export interface StartFailbackLaunchCommandInput extends StartFailbackLaunchRequ
 export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a Job for launching the machine that is being failed back to from the specified Recovery Instance. This will run conversion on the failback client and will reboot your machine, thus completing the failback process.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -137,6 +136,7 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StartFailbackLaunchCommand extends $Command
   .classBuilder<

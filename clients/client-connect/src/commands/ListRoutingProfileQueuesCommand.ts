@@ -27,7 +27,6 @@ export interface ListRoutingProfileQueuesCommandInput extends ListRoutingProfile
 export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfileQueuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the queues associated with a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListRoutingProfileQueuesCommand extends $Command
   .classBuilder<

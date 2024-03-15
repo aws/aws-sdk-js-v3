@@ -41,12 +41,11 @@ export const DataSetType = {
 export type DataSetType = (typeof DataSetType)[keyof typeof DataSetType];
 
 /**
- * @public
  * Container for the parameters to the GenerateDataSet operation.
+ * @public
  */
 export interface GenerateDataSetRequest {
   /**
-   * @public
    * <p>The desired data set type.</p>
    *         <p>
    *             <ul>
@@ -152,74 +151,75 @@ export interface GenerateDataSetRequest {
    *                 </li>
    *             </ul>
    *         </p>
+   * @public
    */
   dataSetType: DataSetType | undefined;
 
   /**
-   * @public
    * The date a data set was published.
    *         For daily data sets, provide a date with day-level granularity for the desired day.
    *         For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).
    *         For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).
+   * @public
    */
   dataSetPublicationDate: Date | undefined;
 
   /**
-   * @public
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
+   * @public
    */
   roleNameArn: string | undefined;
 
   /**
-   * @public
    * The name (friendly name, not ARN) of the destination S3 bucket.
+   * @public
    */
   destinationS3BucketName: string | undefined;
 
   /**
-   * @public
    * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
    *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
    *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
    *         If the prefix directory structure does not exist, it will be created.
    *         If no prefix is provided, the data set will be published to the S3 bucket root.
+   * @public
    */
   destinationS3Prefix?: string;
 
   /**
-   * @public
    * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
+   * @public
    */
   snsTopicArn: string | undefined;
 
   /**
-   * @public
    * (Optional) Key-value pairs which will be returned, unmodified, in the
    *         Amazon SNS notification message and the data set metadata file. These
    *         key-value pairs can be used to correlated responses with tracking
    *         information from other systems.
+   * @public
    */
   customerDefinedValues?: Record<string, string>;
 }
 
 /**
- * @public
  * Container for the result of the GenerateDataSet operation.
+ * @public
  */
 export interface GenerateDataSetResult {
   /**
-   * @public
    * A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be
    *         used to correlate a request with notifications from the SNS topic.
+   * @public
    */
   dataSetRequestId?: string;
 }
 
 /**
- * @public
  * This exception is thrown when an internal service error occurs.
+ * @public
  */
 export class MarketplaceCommerceAnalyticsException extends __BaseException {
   readonly name: "MarketplaceCommerceAnalyticsException" = "MarketplaceCommerceAnalyticsException";
@@ -252,14 +252,12 @@ export const SupportDataSetType = {
 export type SupportDataSetType = (typeof SupportDataSetType)[keyof typeof SupportDataSetType];
 
 /**
+ * <i>This target has been deprecated.</i> Container for the parameters to the StartSupportDataExport operation.
  * @public
  * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
- *
- * <i>This target has been deprecated.</i> Container for the parameters to the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportRequest {
   /**
-   * @public
    * <p>
    *             <i>This target has been deprecated.</i> Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and
    *            test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,
@@ -272,64 +270,64 @@ export interface StartSupportDataExportRequest {
    *                 <li><i>test_customer_support_contacts_data</i> An example data set containing static test data in the same format as customer_support_contacts_data</li>
    *             </ul>
    *         </p>
+   * @public
    */
   dataSetType: SupportDataSetType | undefined;
 
   /**
-   * @public
    * <i>This target has been deprecated.</i> The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
+   * @public
    */
   fromDate: Date | undefined;
 
   /**
-   * @public
    * <i>This target has been deprecated.</i> The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
+   * @public
    */
   roleNameArn: string | undefined;
 
   /**
-   * @public
    * <i>This target has been deprecated.</i> The name (friendly name, not ARN) of the destination S3 bucket.
+   * @public
    */
   destinationS3BucketName: string | undefined;
 
   /**
-   * @public
    * <i>This target has been deprecated.</i> (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
    *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
    *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
    *         If the prefix directory structure does not exist, it will be created.
    *         If no prefix is provided, the data set will be published to the S3 bucket root.
+   * @public
    */
   destinationS3Prefix?: string;
 
   /**
-   * @public
    * <i>This target has been deprecated.</i> Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
+   * @public
    */
   snsTopicArn: string | undefined;
 
   /**
-   * @public
    * <i>This target has been deprecated.</i> (Optional) Key-value pairs which will be returned, unmodified, in the
    *         Amazon SNS notification message and the data set metadata file.
+   * @public
    */
   customerDefinedValues?: Record<string, string>;
 }
 
 /**
+ * <i>This target has been deprecated.</i> Container for the result of the StartSupportDataExport operation.
  * @public
  * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
- *
- * <i>This target has been deprecated.</i> Container for the result of the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportResult {
   /**
-   * @public
    * <i>This target has been deprecated.</i> A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be
    *         used to correlate a request with notifications from the SNS topic.
+   * @public
    */
   dataSetRequestId?: string;
 }

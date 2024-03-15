@@ -32,9 +32,6 @@ export interface DisassociateFromMasterAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is deprecated, use DisassociateFromAdministratorAccount instead
- *
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
  *          <p>When you
  *       disassociate an invited member from a GuardDuty delegated administrator, the member account details
@@ -72,6 +69,8 @@ export interface DisassociateFromMasterAccountCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
+ * @deprecated This operation is deprecated, use DisassociateFromAdministratorAccount instead
  */
 export class DisassociateFromMasterAccountCommand extends $Command
   .classBuilder<

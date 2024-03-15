@@ -27,7 +27,6 @@ export interface CreateInsightCommandInput extends CreateInsightRequest {}
 export interface CreateInsightCommandOutput extends CreateInsightResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
  *          to a security issue that requires attention or remediation.</p>
  *          <p>To group the related findings in the insight, use the
@@ -344,6 +343,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To create a custom insight
  * ```javascript
  * // The following example creates a custom insight in Security Hub. An insight is a collection of findings that relate to a security issue.

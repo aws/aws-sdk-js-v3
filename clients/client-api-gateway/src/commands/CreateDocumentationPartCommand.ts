@@ -27,7 +27,6 @@ export interface CreateDocumentationPartCommandInput extends CreateDocumentation
 export interface CreateDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a documentation part.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateDocumentationPartCommandOutput extends DocumentationPart,
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateDocumentationPartCommand extends $Command
   .classBuilder<

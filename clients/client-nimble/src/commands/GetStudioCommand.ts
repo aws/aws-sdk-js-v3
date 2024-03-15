@@ -27,7 +27,6 @@ export interface GetStudioCommandInput extends GetStudioRequest {}
 export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a studio resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBea
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class GetStudioCommand extends $Command
   .classBuilder<

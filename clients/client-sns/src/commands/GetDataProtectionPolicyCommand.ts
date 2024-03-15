@@ -27,7 +27,6 @@ export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPo
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
  *             stored in the specified Amazon SNS topic. </p>
  * @example
@@ -73,6 +72,7 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class GetDataProtectionPolicyCommand extends $Command
   .classBuilder<

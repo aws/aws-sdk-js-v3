@@ -30,7 +30,6 @@ export interface AddTagsToOnPremisesInstancesCommandInput extends AddTagsToOnPre
 export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds tags to on-premises instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class AddTagsToOnPremisesInstancesCommand extends $Command
   .classBuilder<

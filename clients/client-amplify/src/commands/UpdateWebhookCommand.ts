@@ -27,7 +27,6 @@ export interface UpdateWebhookCommandInput extends UpdateWebhookRequest {}
 export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a webhook. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class UpdateWebhookCommand extends $Command
   .classBuilder<

@@ -291,7 +291,6 @@ export type InternetMonitorClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface InternetMonitorClientResolvedConfig extends InternetMonitorClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon CloudWatch Internet Monitor provides visibility into how internet issues impact the performance and availability
  * 			between your applications hosted on Amazon Web Services and your end users. It can reduce the time it takes for you to diagnose
  * 			internet issues from days to minutes. Internet Monitor uses the connectivity data that Amazon Web Services captures from its global
@@ -308,6 +307,7 @@ export interface InternetMonitorClientResolvedConfig extends InternetMonitorClie
  * 			where your application's internet traffic is. Internet Monitor then provides internet measurements from Amazon Web Services that are specific to
  * 			the locations and ASNs (typically, internet service providers or ISPs) that communicate with your application.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ * @public
  */
 export class InternetMonitorClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface UpdateNotebookCommandInput extends UpdateNotebookInput {}
 export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the contents of a Spark notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class UpdateNotebookCommand extends $Command
   .classBuilder<

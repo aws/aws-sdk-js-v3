@@ -27,7 +27,6 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceInput {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a> operation to verify that the status of the <code>DataSource</code> changed to DELETED.</p>
  *         <p>
@@ -67,6 +66,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DeleteDataSourceCommand extends $Command
   .classBuilder<

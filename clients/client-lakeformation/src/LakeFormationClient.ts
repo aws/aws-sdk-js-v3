@@ -496,9 +496,9 @@ export type LakeFormationClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface LakeFormationClientResolvedConfig extends LakeFormationClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Lake Formation</fullname>
  *          <p>Defines the public endpoint for the Lake Formation service.</p>
+ * @public
  */
 export class LakeFormationClient extends __Client<
   __HttpHandlerOptions,

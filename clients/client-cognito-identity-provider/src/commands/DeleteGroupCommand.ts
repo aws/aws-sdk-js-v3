@@ -31,7 +31,6 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a group.</p>
  *          <p>Calling this action requires developer credentials.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DeleteGroupCommand extends $Command
   .classBuilder<

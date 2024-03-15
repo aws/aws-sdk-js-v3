@@ -27,7 +27,6 @@ export interface ListProfileTimesCommandInput extends ListProfileTimesRequest {}
 export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the start times of the available aggregated profiles of a profiling group
  *         for an aggregation period within the specified time range.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class ListProfileTimesCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of measures that are potential causes or effects of an
  *             anomaly group.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class ListAnomalyGroupRelatedMetricsCommand extends $Command
   .classBuilder<

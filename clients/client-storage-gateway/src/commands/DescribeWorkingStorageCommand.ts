@@ -27,7 +27,6 @@ export interface DescribeWorkingStorageCommandInput extends DescribeWorkingStora
 export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStorageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the working storage of a gateway. This operation is only
  *          supported in the stored volumes gateway type. This operation is deprecated in cached
  *          volumes API version (20120630). Use DescribeUploadBuffer instead.</p>
@@ -76,6 +75,7 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe the working storage of a gateway [Depreciated]
  * ```javascript
  * // This operation is supported only for the gateway-stored volume architecture. This operation is deprecated in cached-volumes API version (20120630). Use DescribeUploadBuffer instead.

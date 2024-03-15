@@ -30,7 +30,6 @@ export interface DeleteServiceSpecificCredentialCommandInput extends DeleteServi
 export interface DeleteServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified service-specific credential.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteServiceSpecificCredentialCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateSMBSecurityStrategyCommandInput extends UpdateSMBSecurity
 export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurityStrategyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the SMB security strategy on a file gateway. This action is only supported in
  *          file gateways.</p>
  *          <note>
@@ -69,6 +68,7 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateSMBSecurityStrategyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
 export interface CreateConnectorCommandOutput extends CreateConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a connector between Amazon Web Services Private CA and an Active Directory. You must specify the private CA,
  *          directory ID, and security groups.</p>
  * @example
@@ -95,6 +94,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class CreateConnectorCommand extends $Command
   .classBuilder<

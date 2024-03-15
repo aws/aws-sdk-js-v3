@@ -31,7 +31,6 @@ export interface CreateStateMachineAliasCommandInput extends CreateStateMachineA
 export interface CreateStateMachineAliasCommandOutput extends CreateStateMachineAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> for a state machine that points to one or two <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">versions</a> of the same state machine. You can set your application to call <a>StartExecution</a> with an alias and update the version the alias uses without changing the client's code.</p>
  *          <p>You can also map an alias to split <a>StartExecution</a> requests between two
  *       versions of a state machine. To do this, add a second <code>RoutingConfig</code> object in the
@@ -130,6 +129,7 @@ export interface CreateStateMachineAliasCommandOutput extends CreateStateMachine
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class CreateStateMachineAliasCommand extends $Command
   .classBuilder<

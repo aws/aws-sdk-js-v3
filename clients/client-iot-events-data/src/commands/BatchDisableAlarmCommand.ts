@@ -27,7 +27,6 @@ export interface BatchDisableAlarmCommandInput extends BatchDisableAlarmRequest 
 export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables one or more alarms. The alarms change to the <code>DISABLED</code> state after
  *       you disable them.</p>
  * @example
@@ -81,6 +80,7 @@ export interface BatchDisableAlarmCommandOutput extends BatchDisableAlarmRespons
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class BatchDisableAlarmCommand extends $Command
   .classBuilder<

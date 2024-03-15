@@ -27,7 +27,6 @@ export interface CountPendingDecisionTasksCommandInput extends CountPendingDecis
 export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the estimated number of decision tasks in the specified task list. The count
  *       returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
  *       no decision task was ever scheduled in then <code>0</code> is returned.</p>
@@ -92,6 +91,7 @@ export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class CountPendingDecisionTasksCommand extends $Command
   .classBuilder<

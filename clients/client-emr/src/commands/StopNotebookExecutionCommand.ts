@@ -27,7 +27,6 @@ export interface StopNotebookExecutionCommandInput extends StopNotebookExecution
 export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class StopNotebookExecutionCommand extends $Command
   .classBuilder<

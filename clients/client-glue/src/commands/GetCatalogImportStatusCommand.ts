@@ -27,7 +27,6 @@ export interface GetCatalogImportStatusCommandInput extends GetCatalogImportStat
 export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status of a migration operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetCatalogImportStatusCommand extends $Command
   .classBuilder<

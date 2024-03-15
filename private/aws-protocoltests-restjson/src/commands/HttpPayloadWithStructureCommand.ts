@@ -25,7 +25,6 @@ export interface HttpPayloadWithStructureCommandInput extends HttpPayloadWithStr
 export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithStructureInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes a structure in the payload.
  *
  * Note that serializing a structure changes the wrapper element name
@@ -62,6 +61,7 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class HttpPayloadWithStructureCommand extends $Command
   .classBuilder<

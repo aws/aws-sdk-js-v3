@@ -27,7 +27,6 @@ export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
 export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a key group, including the date and time when the key group was last
  * 			modified.</p>
  *          <p>To get a key group, you must provide the key group's identifier. If the key group is
@@ -75,6 +74,7 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetKeyGroupCommand extends $Command
   .classBuilder<

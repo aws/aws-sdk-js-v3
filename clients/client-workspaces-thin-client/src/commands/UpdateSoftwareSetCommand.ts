@@ -31,7 +31,6 @@ export interface UpdateSoftwareSetCommandInput extends UpdateSoftwareSetRequest 
 export interface UpdateSoftwareSetCommandOutput extends UpdateSoftwareSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a software set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UpdateSoftwareSetCommandOutput extends UpdateSoftwareSetRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class UpdateSoftwareSetCommand extends $Command
   .classBuilder<

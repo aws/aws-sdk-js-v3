@@ -27,7 +27,6 @@ export interface ListProtectionsCommandInput extends ListProtectionsRequest {}
 export interface ListProtectionsCommandOutput extends ListProtectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves <a>Protection</a> objects for the account. You can retrieve all protections or you can provide
  *        filtering criteria and retrieve just the subset of protections that match the criteria. </p>
  * @example
@@ -95,6 +94,7 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class ListProtectionsCommand extends $Command
   .classBuilder<

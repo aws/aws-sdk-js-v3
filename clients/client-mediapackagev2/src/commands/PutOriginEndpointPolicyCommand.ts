@@ -27,7 +27,6 @@ export interface PutOriginEndpointPolicyCommandInput extends PutOriginEndpointPo
 export interface PutOriginEndpointPolicyCommandOutput extends PutOriginEndpointPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an IAM policy to the specified origin endpoint. You can attach only one policy with each request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface PutOriginEndpointPolicyCommandOutput extends PutOriginEndpointP
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class PutOriginEndpointPolicyCommand extends $Command
   .classBuilder<

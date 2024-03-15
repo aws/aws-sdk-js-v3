@@ -27,7 +27,6 @@ export interface UpdateDataCellsFilterCommandInput extends UpdateDataCellsFilter
 export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a data cell filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class UpdateDataCellsFilterCommand extends $Command
   .classBuilder<

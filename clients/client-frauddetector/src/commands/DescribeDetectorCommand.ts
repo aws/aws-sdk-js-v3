@@ -27,7 +27,6 @@ export interface DescribeDetectorCommandInput extends DescribeDetectorRequest {}
 export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all versions for a specified detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DescribeDetectorCommand extends $Command
   .classBuilder<

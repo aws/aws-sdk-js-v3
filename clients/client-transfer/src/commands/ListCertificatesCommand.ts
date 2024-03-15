@@ -27,7 +27,6 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the current certificates that have been imported into Transfer Family. If you want to
  *       limit the results to a certain number, supply a value for the <code>MaxResults</code>
  *       parameter. If you ran the command previously and received a value for the
@@ -88,6 +87,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListCertificatesCommand extends $Command
   .classBuilder<

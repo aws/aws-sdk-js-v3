@@ -27,7 +27,6 @@ export interface PutPlaybackConfigurationCommandInput extends PutPlaybackConfigu
 export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class PutPlaybackConfigurationCommand extends $Command
   .classBuilder<

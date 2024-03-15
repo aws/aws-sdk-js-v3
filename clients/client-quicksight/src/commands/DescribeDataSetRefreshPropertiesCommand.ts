@@ -32,7 +32,6 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the refresh properties of a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDataSetRefreshPropertiesCommand extends $Command
   .classBuilder<

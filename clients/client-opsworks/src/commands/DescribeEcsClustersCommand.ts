@@ -27,7 +27,6 @@ export interface DescribeEcsClustersCommandInput extends DescribeEcsClustersRequ
 export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID,
  *     you can use the <code>MaxResults</code> and <code>NextToken</code> parameters to paginate the
  *     response. However, AWS OpsWorks Stacks currently supports only one cluster per layer, so the result
@@ -83,6 +82,7 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeEcsClustersCommand extends $Command
   .classBuilder<

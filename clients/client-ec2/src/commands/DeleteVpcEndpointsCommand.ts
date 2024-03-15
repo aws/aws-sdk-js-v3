@@ -27,7 +27,6 @@ export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsReques
 export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified VPC endpoints.</p>
  *          <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables for the endpoint.</p>
  *          <p>When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
@@ -70,6 +69,7 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteVpcEndpointsCommand extends $Command
   .classBuilder<

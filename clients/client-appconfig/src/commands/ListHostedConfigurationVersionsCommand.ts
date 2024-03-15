@@ -30,7 +30,6 @@ export interface ListHostedConfigurationVersionsCommandInput extends ListHostedC
 export interface ListHostedConfigurationVersionsCommandOutput extends HostedConfigurationVersions, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists configurations stored in the AppConfig hosted configuration store by
  *          version.</p>
  * @example
@@ -83,6 +82,7 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list the available hosted configuration versions
  * ```javascript
  * // The following list-hosted-configuration-versions example lists the configurations versions hosted in the AWS AppConfig hosted configuration store for the specified application and configuration profile.

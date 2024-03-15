@@ -27,7 +27,6 @@ export interface DeleteLaunchConfigurationCommandInput extends LaunchConfigurati
 export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified launch configuration.</p>
  *          <p>The launch configuration must not be attached to an Auto Scaling group. When this call
  *             completes, the launch configuration is no longer available for use.</p>
@@ -62,6 +61,7 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To delete a launch configuration
  * ```javascript
  * // This example deletes the specified launch configuration.

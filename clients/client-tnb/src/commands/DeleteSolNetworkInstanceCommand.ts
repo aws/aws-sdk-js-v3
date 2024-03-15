@@ -27,7 +27,6 @@ export interface DeleteSolNetworkInstanceCommandInput extends DeleteSolNetworkIn
 export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  *          <p>To delete a network instance, the instance must be in a stopped or terminated state. To terminate a network instance, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html">TerminateSolNetworkInstance</a>.</p>
@@ -70,6 +69,7 @@ export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer 
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class DeleteSolNetworkInstanceCommand extends $Command
   .classBuilder<

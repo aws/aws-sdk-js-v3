@@ -31,7 +31,6 @@ export interface StartReportCreationCommandInput extends StartReportCreationInpu
 export interface StartReportCreationCommandOutput extends StartReportCreationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a report that lists all tagged resources in the accounts across your
  *             organization and tells whether each resource is compliant with the effective tag policy.
  *             Compliance data is refreshed daily. The report is generated asynchronously.</p>
@@ -121,6 +120,7 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * @public
  */
 export class StartReportCreationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeSpotPriceHistoryCommandInput extends DescribeSpotPriceH
 export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPriceHistoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Spot price history. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a> in the
  *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  *          <p>When you specify a start and end time, the operation returns the prices of the
@@ -87,6 +86,7 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe Spot price history for Linux/UNIX (Amazon VPC)
  * ```javascript
  * // This example returns the Spot Price history for m1.xlarge, Linux/UNIX (Amazon VPC) instances for a particular day in January.

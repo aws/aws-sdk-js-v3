@@ -27,7 +27,6 @@ export interface TagContactCommandInput extends TagContactRequest {}
 export interface TagContactCommandOutput extends TagContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified tags to the contact resource. For more information about this API is
  *    used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set
  *     up granular billing for a detailed view of your Amazon Connect usage</a>. </p>
@@ -74,6 +73,7 @@ export interface TagContactCommandOutput extends TagContactResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class TagContactCommand extends $Command
   .classBuilder<

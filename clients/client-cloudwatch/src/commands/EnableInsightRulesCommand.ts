@@ -27,7 +27,6 @@ export interface EnableInsightRulesCommandInput extends EnableInsightRulesInput 
 export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutpu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class EnableInsightRulesCommand extends $Command
   .classBuilder<

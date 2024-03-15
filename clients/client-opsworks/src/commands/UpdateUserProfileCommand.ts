@@ -27,7 +27,6 @@ export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest 
 export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified user profile.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -66,6 +65,7 @@ export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class UpdateUserProfileCommand extends $Command
   .classBuilder<

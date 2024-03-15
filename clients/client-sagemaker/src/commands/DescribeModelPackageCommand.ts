@@ -27,7 +27,6 @@ export interface DescribeModelPackageCommandInput extends DescribeModelPackageIn
 export interface DescribeModelPackageCommandOutput extends DescribeModelPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of the specified model package, which is used to create SageMaker
  *             models or list them on Amazon Web Services Marketplace.</p>
  *          <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
@@ -337,6 +336,7 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeModelPackageCommand extends $Command
   .classBuilder<

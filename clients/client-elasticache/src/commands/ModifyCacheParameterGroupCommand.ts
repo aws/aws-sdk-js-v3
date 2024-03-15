@@ -27,7 +27,6 @@ export interface ModifyCacheParameterGroupCommandInput extends ModifyCacheParame
 export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a cache parameter group. You can modify up to 20 parameters
  *             in a single request by submitting a list parameter name and value pairs.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example ModifyCacheParameterGroup
  * ```javascript
  * // Modifies one or more parameter values in the specified parameter group. You cannot modify any default parameter group.

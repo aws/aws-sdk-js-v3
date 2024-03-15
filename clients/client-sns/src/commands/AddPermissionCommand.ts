@@ -27,7 +27,6 @@ export interface AddPermissionCommandInput extends AddPermissionInput {}
 export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a statement to a topic's access control policy, granting access for the specified
  *             Amazon Web Services accounts to the specified actions.</p>
  *          <note>
@@ -79,6 +78,7 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class AddPermissionCommand extends $Command
   .classBuilder<

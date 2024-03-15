@@ -27,7 +27,6 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the resource policy attached to the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

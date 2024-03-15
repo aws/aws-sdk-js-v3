@@ -27,7 +27,6 @@ export interface GetConnectorCommandInput extends GetConnectorRequest {}
 export interface GetConnectorCommandOutput extends GetConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about your connector. You specify the connector on input by its ARN
  *          (Amazon Resource Name). </p>
  * @example
@@ -92,6 +91,7 @@ export interface GetConnectorCommandOutput extends GetConnectorResponse, __Metad
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class GetConnectorCommand extends $Command
   .classBuilder<

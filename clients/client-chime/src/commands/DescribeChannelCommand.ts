@@ -31,9 +31,6 @@ export interface DescribeChannelCommandInput extends DescribeChannelRequest {}
 export interface DescribeChannelCommandOutput extends DescribeChannelResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DescribeChannel in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Returns the full details of a channel in an Amazon Chime
  *          <code>AppInstance</code>.</p>
  *          <note>
@@ -106,6 +103,8 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DescribeChannel in the Amazon Chime SDK Messaging Namespace
  */
 export class DescribeChannelCommand extends $Command
   .classBuilder<

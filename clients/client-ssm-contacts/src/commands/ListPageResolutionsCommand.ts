@@ -27,7 +27,6 @@ export interface ListPageResolutionsCommandInput extends ListPageResolutionsRequ
 export interface ListPageResolutionsCommandOutput extends ListPageResolutionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the resolution path of an engagement. For example, the escalation plan engaged
  *          in an incident might target an on-call schedule that includes several contacts in a
  *          rotation, but just one contact on-call when the incident starts. The resolution path
@@ -83,6 +82,7 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListPageResolutionsCommand extends $Command
   .classBuilder<

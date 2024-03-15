@@ -35,7 +35,6 @@ export interface DescribeChimeWebhookConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Lists Chime Webhook Configurations optionally filtered by ChatConfigurationArn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeChimeWebhookConfigurationsCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class DescribeChimeWebhookConfigurationsCommand extends $Command
   .classBuilder<

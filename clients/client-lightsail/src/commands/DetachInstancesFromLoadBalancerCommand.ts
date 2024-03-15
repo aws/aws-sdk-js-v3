@@ -32,7 +32,6 @@ export interface DetachInstancesFromLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches the specified instances from a Lightsail load balancer.</p>
  *          <p>This operation waits until the instances are no longer needed before they are detached
  *       from the load balancer.</p>
@@ -116,6 +115,7 @@ export interface DetachInstancesFromLoadBalancerCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DetachInstancesFromLoadBalancerCommand extends $Command
   .classBuilder<

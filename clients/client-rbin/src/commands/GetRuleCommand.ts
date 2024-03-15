@@ -27,7 +27,6 @@ export interface GetRuleCommandInput extends GetRuleRequest {}
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a Recycle Bin retention rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * @public
  */
 export class GetRuleCommand extends $Command
   .classBuilder<

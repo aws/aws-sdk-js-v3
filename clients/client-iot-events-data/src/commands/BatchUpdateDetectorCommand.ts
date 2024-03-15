@@ -27,7 +27,6 @@ export interface BatchUpdateDetectorCommandInput extends BatchUpdateDetectorRequ
 export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the state, variable values, and timer settings of one or more detectors
  *       (instances) of a specified detector model.</p>
  * @example
@@ -95,6 +94,7 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class BatchUpdateDetectorCommand extends $Command
   .classBuilder<

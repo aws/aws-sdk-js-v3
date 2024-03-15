@@ -27,7 +27,6 @@ export interface StartConnectionCommandInput extends StartConnectionRequest {}
 export interface StartConnectionCommandOutput extends StartConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>
  *       Amazon Web Services uses this action to install Outpost servers.</p>
@@ -81,6 +80,7 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class StartConnectionCommand extends $Command
   .classBuilder<

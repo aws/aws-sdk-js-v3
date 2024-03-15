@@ -27,7 +27,6 @@ export interface UpdateFleetCapacityCommandInput extends UpdateFleetCapacityInpu
 export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates capacity settings for a fleet. For fleets with multiple locations, use this
  *             operation to manage capacity settings in each location individually. Fleet capacity
  *             determines the number of game sessions and players that can be hosted based on the fleet
@@ -137,6 +136,7 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateFleetCapacityCommand extends $Command
   .classBuilder<

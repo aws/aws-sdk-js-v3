@@ -31,7 +31,6 @@ export interface DescribePHIDetectionJobCommandInput extends DescribePHIDetectio
 export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a protected health information (PHI) detection job.
  *       Use this operation to get the status of a detection job.</p>
  * @example
@@ -97,6 +96,7 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class DescribePHIDetectionJobCommand extends $Command
   .classBuilder<

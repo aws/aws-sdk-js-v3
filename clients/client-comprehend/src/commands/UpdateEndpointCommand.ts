@@ -27,7 +27,6 @@ export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
 export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information about the specified endpoint.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
@@ -84,6 +83,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class UpdateEndpointCommand extends $Command
   .classBuilder<

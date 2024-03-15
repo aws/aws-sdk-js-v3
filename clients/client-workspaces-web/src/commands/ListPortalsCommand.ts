@@ -27,7 +27,6 @@ export interface ListPortalsCommandInput extends ListPortalsRequest {}
 export interface ListPortalsCommandOutput extends ListPortalsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list or web portals.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class ListPortalsCommand extends $Command
   .classBuilder<

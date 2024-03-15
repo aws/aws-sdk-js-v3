@@ -27,7 +27,6 @@ export interface UpdateRulesOfIpGroupCommandInput extends UpdateRulesOfIpGroupRe
 export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the current rules of the specified IP access control group with the specified
  *          rules.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class UpdateRulesOfIpGroupCommand extends $Command
   .classBuilder<

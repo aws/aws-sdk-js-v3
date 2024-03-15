@@ -27,7 +27,6 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a domain. CodeArtifact <i>domains</i> make it easier to manage multiple repositories across an
  *         organization. You can use a domain to apply permissions across many
@@ -114,6 +113,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class CreateDomainCommand extends $Command
   .classBuilder<

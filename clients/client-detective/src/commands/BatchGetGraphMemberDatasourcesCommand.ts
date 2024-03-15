@@ -32,7 +32,6 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets data source package information for the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class BatchGetGraphMemberDatasourcesCommand extends $Command
   .classBuilder<

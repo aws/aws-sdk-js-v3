@@ -31,7 +31,6 @@ export interface ListEndpointGroupsCommandInput extends ListEndpointGroupsReques
 export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the endpoint groups that are associated with a listener. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsRespo
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListEndpointGroupsCommand extends $Command
   .classBuilder<

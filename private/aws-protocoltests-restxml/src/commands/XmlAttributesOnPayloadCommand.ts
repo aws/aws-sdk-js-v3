@@ -25,7 +25,6 @@ export interface XmlAttributesOnPayloadCommandInput extends XmlAttributesOnPaylo
 export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayloadResponse, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes an XML attributes on a document targeted by httpPayload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayl
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlAttributesOnPayloadCommand extends $Command
   .classBuilder<

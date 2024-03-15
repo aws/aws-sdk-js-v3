@@ -27,7 +27,6 @@ export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster
  *        CLI command, or the <code>StopDBCluster</code> operation.</p>
  *          <p>For more information, see
@@ -257,6 +256,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To start a DB cluster
  * ```javascript
  * // The following example starts a DB cluster and its DB instances.

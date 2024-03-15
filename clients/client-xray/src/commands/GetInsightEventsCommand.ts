@@ -27,7 +27,6 @@ export interface GetInsightEventsCommandInput extends GetInsightEventsRequest {}
 export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
  *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
  *          console.</p>
@@ -93,6 +92,7 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetInsightEventsCommand extends $Command
   .classBuilder<

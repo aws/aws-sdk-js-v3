@@ -27,7 +27,6 @@ export interface ModifySnapshotTierCommandInput extends ModifySnapshotTierReques
 export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full
  *       snapshot that includes all of the blocks of data that were written to the volume at the
  *       time the snapshot was created, and moved from the standard tier to the archive
@@ -62,6 +61,7 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifySnapshotTierCommand extends $Command
   .classBuilder<

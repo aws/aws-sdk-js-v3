@@ -27,7 +27,6 @@ export interface GetCompositionCommandInput extends GetCompositionRequest {}
 export interface GetCompositionCommandOutput extends GetCompositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about the specified Composition resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class GetCompositionCommand extends $Command
   .classBuilder<

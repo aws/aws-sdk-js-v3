@@ -27,7 +27,6 @@ export interface InitiateJobCommandInput extends InitiateJobInput {}
 export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,
  *          or a vault retrieval. For more information about using this operation,
  *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate
@@ -153,6 +152,7 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To initiate an inventory-retrieval job
  * ```javascript
  * // The example initiates an inventory-retrieval job for the vault named examplevault.

@@ -27,7 +27,6 @@ export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
 export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified attributes of a document. The user must have access to both
  *             the document and its parent folder, if applicable.</p>
  * @example
@@ -90,6 +89,7 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class UpdateDocumentCommand extends $Command
   .classBuilder<

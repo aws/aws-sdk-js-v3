@@ -36,7 +36,6 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the configuration of an event destination for a configuration set.</p>
  *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
@@ -103,6 +102,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

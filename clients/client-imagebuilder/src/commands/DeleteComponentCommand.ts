@@ -27,7 +27,6 @@ export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
 export interface DeleteComponentCommandOutput extends DeleteComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a component build version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class DeleteComponentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateJourneyCommandInput extends CreateJourneyRequest {}
 export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a journey for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -842,6 +841,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class CreateJourneyCommand extends $Command
   .classBuilder<

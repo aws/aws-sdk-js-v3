@@ -27,7 +27,6 @@ export interface DeleteProvisioningArtifactCommandInput extends DeleteProvisioni
 export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
  *          You cannot delete the last provisioning artifact for a product, because a product must have at
@@ -67,6 +66,7 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeleteProvisioningArtifactCommand extends $Command
   .classBuilder<

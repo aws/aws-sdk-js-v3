@@ -27,7 +27,6 @@ export interface DeleteConfigurationProfileCommandInput extends DeleteConfigurat
 export interface DeleteConfigurationProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a configuration profile. Deleting a configuration profile does not delete a
  *          configuration from a host.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To delete a configuration profile
  * ```javascript
  * // The following delete-configuration-profile example deletes the specified configuration profile.

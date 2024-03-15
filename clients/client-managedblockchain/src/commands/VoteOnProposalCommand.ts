@@ -31,7 +31,6 @@ export interface VoteOnProposalCommandInput extends VoteOnProposalInput {}
 export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same Amazon Web Services account as the principal that calls the action.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -82,6 +81,7 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class VoteOnProposalCommand extends $Command
   .classBuilder<

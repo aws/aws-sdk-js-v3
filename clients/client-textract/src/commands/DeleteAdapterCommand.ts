@@ -27,7 +27,6 @@ export interface DeleteAdapterCommandInput extends DeleteAdapterRequest {}
 export interface DeleteAdapterCommandOutput extends DeleteAdapterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Textract adapter. Takes an AdapterId and deletes the adapter specified by the ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteAdapterCommandOutput extends DeleteAdapterResponse, __Met
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class DeleteAdapterCommand extends $Command
   .classBuilder<

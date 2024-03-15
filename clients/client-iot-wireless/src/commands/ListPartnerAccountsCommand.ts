@@ -31,7 +31,6 @@ export interface ListPartnerAccountsCommandInput extends ListPartnerAccountsRequ
 export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the partner accounts associated with your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListPartnerAccountsCommand extends $Command
   .classBuilder<

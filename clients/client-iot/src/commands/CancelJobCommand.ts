@@ -27,7 +27,6 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a job.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelJob</a> action.</p>
  * @example
@@ -76,6 +75,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CancelJobCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface ImportApiKeysCommandInput extends ImportApiKeysCommandInputType
 export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer {}
 
 /**
- * @public
  * <p>Import API keys from an external source, such as a CSV-formatted file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class ImportApiKeysCommand extends $Command
   .classBuilder<

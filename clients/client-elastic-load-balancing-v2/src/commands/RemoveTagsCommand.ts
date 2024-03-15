@@ -31,7 +31,6 @@ export interface RemoveTagsCommandInput extends RemoveTagsInput {}
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can
  *       remove the tags for one or more Application Load Balancers, Network Load Balancers, Gateway
  *       Load Balancers, target groups, listeners, or rules.</p>
@@ -82,6 +81,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To remove tags from a load balancer
  * ```javascript
  * // This example removes the specified tags from the specified load balancer.

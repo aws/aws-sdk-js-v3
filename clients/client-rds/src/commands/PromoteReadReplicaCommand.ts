@@ -27,7 +27,6 @@ export interface PromoteReadReplicaCommandInput extends PromoteReadReplicaMessag
 export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
  *          <note>
  *             <ul>
@@ -303,6 +302,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To promote a read replica
  * ```javascript
  * // The following example promotes the specified read replica to become a standalone DB instance.

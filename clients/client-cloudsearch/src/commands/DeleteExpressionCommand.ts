@@ -27,7 +27,6 @@ export interface DeleteExpressionCommandInput extends DeleteExpressionRequest {}
 export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DeleteExpressionCommand extends $Command
   .classBuilder<

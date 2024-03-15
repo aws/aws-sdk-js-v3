@@ -27,7 +27,6 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceInput {}
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
  *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -66,6 +65,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class UpdateDataSourceCommand extends $Command
   .classBuilder<

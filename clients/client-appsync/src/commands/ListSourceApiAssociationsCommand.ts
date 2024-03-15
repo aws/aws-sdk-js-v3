@@ -27,7 +27,6 @@ export interface ListSourceApiAssociationsCommandInput extends ListSourceApiAsso
 export interface ListSourceApiAssociationsCommandOutput extends ListSourceApiAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the <code>SourceApiAssociationSummary</code> data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListSourceApiAssociationsCommandOutput extends ListSourceApiAss
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListSourceApiAssociationsCommand extends $Command
   .classBuilder<

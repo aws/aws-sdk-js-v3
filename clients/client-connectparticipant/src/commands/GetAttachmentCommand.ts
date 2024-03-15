@@ -31,7 +31,6 @@ export interface GetAttachmentCommandInput extends GetAttachmentRequest {}
 export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
  *          <note>
@@ -81,6 +80,7 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * @public
  */
 export class GetAttachmentCommand extends $Command
   .classBuilder<

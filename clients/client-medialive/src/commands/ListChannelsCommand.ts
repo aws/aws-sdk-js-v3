@@ -27,7 +27,6 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Produces list of channels that have been created
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -276,6 +275,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ListChannelsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteRulesetCommandInput extends DeleteRulesetRequest {}
 export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class DeleteRulesetCommand extends $Command
   .classBuilder<

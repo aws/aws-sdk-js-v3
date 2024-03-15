@@ -27,7 +27,6 @@ export interface UntagSAMLProviderCommandInput extends UntagSAMLProviderRequest 
 export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from the specified Security Assertion Markup Language (SAML)
  *       identity provider in IAM. For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity
  *         federation</a>. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
@@ -75,6 +74,7 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UntagSAMLProviderCommand extends $Command
   .classBuilder<

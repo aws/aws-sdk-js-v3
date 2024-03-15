@@ -27,7 +27,6 @@ export interface UpdateInstanceProfileCommandInput extends UpdateInstanceProfile
 export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information about an existing private device instance profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class UpdateInstanceProfileCommand extends $Command
   .classBuilder<

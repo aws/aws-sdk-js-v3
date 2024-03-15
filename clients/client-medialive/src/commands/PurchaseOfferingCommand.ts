@@ -27,7 +27,6 @@ export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
 export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse, __MetadataBearer {}
 
 /**
- * @public
  * Purchase an offering and create a reservation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class PurchaseOfferingCommand extends $Command
   .classBuilder<

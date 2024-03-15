@@ -27,7 +27,6 @@ export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupReques
 export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteBillingGroup</a> action.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteBillingGroupCommand extends $Command
   .classBuilder<

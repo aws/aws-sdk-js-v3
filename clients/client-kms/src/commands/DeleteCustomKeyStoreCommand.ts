@@ -27,7 +27,6 @@ export interface DeleteCustomKeyStoreCommandInput extends DeleteCustomKeyStoreRe
 export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not affect any backing elements of the
  *       custom key store. It does not delete the CloudHSM cluster that is associated with an CloudHSM key
  *       store, or affect any users or keys in the cluster. For an external key store, it does not
@@ -164,6 +163,7 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To delete a custom key store from AWS KMS
  * ```javascript
  * // This example deletes a custom key store from AWS KMS. This operation does not affect the backing key store, such as a CloudHSM cluster, external key store proxy, or your external key manager. This operation doesn't return any data. To verify that the operation was successful, use the DescribeCustomKeyStores operation.

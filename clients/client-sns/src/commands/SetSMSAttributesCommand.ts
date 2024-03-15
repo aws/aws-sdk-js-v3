@@ -27,7 +27,6 @@ export interface SetSMSAttributesCommandInput extends SetSMSAttributesInput {}
 export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this request to set the default settings for sending SMS messages and receiving
  *             daily SMS usage reports.</p>
  *          <p>You can override some of these settings for a single message when you use the
@@ -78,6 +77,7 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class SetSMSAttributesCommand extends $Command
   .classBuilder<

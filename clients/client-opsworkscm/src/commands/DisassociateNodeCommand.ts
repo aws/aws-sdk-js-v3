@@ -31,7 +31,6 @@ export interface DisassociateNodeCommandInput extends DisassociateNodeRequest {}
 export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Disassociates a node from an AWS OpsWorks CM server, and removes the node from the server's managed nodes. After a node is disassociated,
  *       the node key pair is no longer valid for accessing the configuration manager's API. For more information about how to associate a node, see <a>AssociateNode</a>.
@@ -85,6 +84,7 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DisassociateNodeCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a multicast group from a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command
   .classBuilder<

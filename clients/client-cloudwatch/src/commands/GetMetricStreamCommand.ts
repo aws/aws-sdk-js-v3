@@ -27,7 +27,6 @@ export interface GetMetricStreamCommandInput extends GetMetricStreamInput {}
 export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the metric stream that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class GetMetricStreamCommand extends $Command
   .classBuilder<

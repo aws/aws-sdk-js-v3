@@ -27,7 +27,6 @@ export interface DeleteFargateProfileCommandInput extends DeleteFargateProfileRe
 export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Fargate profile.</p>
  *          <p>When you delete a Fargate profile, any <code>Pod</code> running on
  *                 Fargate that was created with the profile is deleted. If the
@@ -104,6 +103,7 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DeleteFargateProfileCommand extends $Command
   .classBuilder<

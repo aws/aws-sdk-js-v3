@@ -31,7 +31,6 @@ export interface GetScheduledActionCommandInput extends GetScheduledActionReques
 export interface GetScheduledActionCommandOutput extends GetScheduledActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a scheduled action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetScheduledActionCommandOutput extends GetScheduledActionRespo
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class GetScheduledActionCommand extends $Command
   .classBuilder<

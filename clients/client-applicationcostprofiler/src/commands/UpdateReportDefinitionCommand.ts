@@ -31,7 +31,6 @@ export interface UpdateReportDefinitionCommandInput extends UpdateReportDefiniti
 export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinitionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates existing report in AWS Application Cost Profiler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * @public
  */
 export class UpdateReportDefinitionCommand extends $Command
   .classBuilder<

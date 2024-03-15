@@ -31,7 +31,6 @@ export interface UpdateAttributeGroupCommandInput extends UpdateAttributeGroupRe
 export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing attribute group with new details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class UpdateAttributeGroupCommand extends $Command
   .classBuilder<

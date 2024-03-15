@@ -35,7 +35,6 @@ export interface DescribeAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an access control configuration that you created for your
  *             documents in an index. This includes user and group access information for your
  *             documents. This is useful for user context filtering, where search results are filtered
@@ -109,6 +108,7 @@ export interface DescribeAccessControlConfigurationCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeAccessControlConfigurationCommand extends $Command
   .classBuilder<

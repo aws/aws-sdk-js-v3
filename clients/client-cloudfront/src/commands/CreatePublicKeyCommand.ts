@@ -27,7 +27,6 @@ export interface CreatePublicKeyCommandInput extends CreatePublicKeyRequest {}
 export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreatePublicKeyCommand extends $Command
   .classBuilder<

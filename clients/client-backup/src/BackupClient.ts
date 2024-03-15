@@ -675,12 +675,12 @@ export type BackupClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface BackupClientResolvedConfig extends BackupClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Backup</fullname>
  *          <p>Backup is a unified backup service designed to protect Amazon Web Services
  *          services and their associated data. Backup simplifies the creation, migration,
  *          restoration, and deletion of backups, while also providing reporting and
  *          auditing.</p>
+ * @public
  */
 export class BackupClient extends __Client<
   __HttpHandlerOptions,

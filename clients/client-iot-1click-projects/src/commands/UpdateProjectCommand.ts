@@ -31,7 +31,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a project associated with your AWS account and region. With the exception of
  *       device template names, you can pass just the values that need to be updated because the update
  *       request will change only the values that are provided. To clear a value, pass the empty string
@@ -86,6 +85,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<

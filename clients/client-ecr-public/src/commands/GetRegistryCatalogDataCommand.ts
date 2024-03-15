@@ -27,7 +27,6 @@ export interface GetRegistryCatalogDataCommandInput extends GetRegistryCatalogDa
 export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves catalog metadata for a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class GetRegistryCatalogDataCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates one or more records and, optionally, creates a health check based on the
  *    settings in a specified service. When you submit a <code>RegisterInstance</code> request, the
  *    following occurs:</p>
@@ -122,6 +121,7 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Register Instance
  * ```javascript
  * // Example: Register Instance

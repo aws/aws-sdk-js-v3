@@ -37,7 +37,6 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the traffic policy instances that you created in a specified
  * 			hosted zone.</p>
  *          <note>
@@ -104,6 +103,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
   .classBuilder<

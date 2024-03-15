@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN). Resources are capability, partnership, profile, transformers and other entities.</p>
  *          <p>There is no response returned from this call.</p>
  * @example
@@ -72,6 +71,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample TagResource call
  * ```javascript
  * //

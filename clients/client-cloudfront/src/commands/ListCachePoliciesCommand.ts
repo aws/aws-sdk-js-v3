@@ -27,7 +27,6 @@ export interface ListCachePoliciesCommandInput extends ListCachePoliciesRequest 
 export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of cache policies.</p>
  *          <p>You can optionally apply a filter to return only the managed policies created by
  * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
@@ -124,6 +123,7 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListCachePoliciesCommand extends $Command
   .classBuilder<

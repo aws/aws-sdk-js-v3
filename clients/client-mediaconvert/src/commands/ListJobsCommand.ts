@@ -27,7 +27,6 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1582,6 +1581,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class ListJobsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetClassifiersCommandInput extends GetClassifiersRequest {}
 export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all classifier objects in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetClassifiersCommand extends $Command
   .classBuilder<

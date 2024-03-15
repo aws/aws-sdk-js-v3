@@ -379,8 +379,8 @@ export type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface QueryProtocolClientResolvedConfig extends QueryProtocolClientResolvedConfigType {}
 
 /**
- * @public
  * A query service that sends query requests and XML responses.
+ * @public
  */
 export class QueryProtocolClient extends __Client<
   __HttpHandlerOptions,

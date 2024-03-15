@@ -32,7 +32,6 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of groups that are mapped to users before a given ordering or
  *             timestamp identifier.</p>
  *          <p>
@@ -97,6 +96,7 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListGroupsOlderThanOrderingIdCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeSpotFleetInstancesCommandInput extends DescribeSpotFlee
 export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFleetInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the running instances for the specified Spot Fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the Spot Instances associated with a Spot fleet
  * ```javascript
  * // This example lists the Spot Instances associated with the specified Spot fleet.

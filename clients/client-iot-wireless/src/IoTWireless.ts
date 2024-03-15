@@ -2485,7 +2485,6 @@ export interface IoTWireless {
 }
 
 /**
- * @public
  * <p>AWS IoT Wireless provides bi-directional communication between internet-connected
  *             wireless devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS
  *             IoT, use the IoT Wireless API. These wireless devices use the Low Power Wide Area
@@ -2499,6 +2498,7 @@ export interface IoTWireless {
  *             Firmware Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA task and
  *             schedule a session to update the firmware of individual devices or an entire group of
  *             devices in a multicast group.</p>
+ * @public
  */
 export class IoTWireless extends IoTWirelessClient implements IoTWireless {}
 createAggregatedClient(commands, IoTWireless);

@@ -32,7 +32,6 @@ export interface CreateDistributionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new distribution configuration. Distribution configurations define and
  * 			configure the outputs of your pipeline.</p>
  * @example
@@ -180,6 +179,7 @@ export interface CreateDistributionConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CreateDistributionConfigurationCommand extends $Command
   .classBuilder<

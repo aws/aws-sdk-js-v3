@@ -27,7 +27,6 @@ export interface DeleteVpcPeeringConnectionCommandInput extends DeleteVpcPeering
 export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner
  *             of the accepter VPC can delete the VPC peering connection if it's in the
  *                 <code>active</code> state. The owner of the requester VPC can delete a VPC peering
@@ -60,6 +59,7 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command
   .classBuilder<

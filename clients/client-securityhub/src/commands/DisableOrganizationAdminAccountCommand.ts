@@ -32,7 +32,6 @@ export interface DisableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables a Security Hub administrator account. Can only be called by the organization
  *          management account.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To remove a Security Hub administrator account
  * ```javascript
  * // The following example removes the Security Hub administrator account in the Region from which the operation was executed. This operation doesn't remove the delegated administrator account in AWS Organizations.

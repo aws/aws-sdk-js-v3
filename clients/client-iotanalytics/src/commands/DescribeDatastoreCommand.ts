@@ -27,7 +27,6 @@ export interface DescribeDatastoreCommandInput extends DescribeDatastoreRequest 
 export interface DescribeDatastoreCommandOutput extends DescribeDatastoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class DescribeDatastoreCommand extends $Command
   .classBuilder<

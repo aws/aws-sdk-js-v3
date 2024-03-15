@@ -27,7 +27,6 @@ export interface PutGroupPolicyCommandInput extends PutGroupPolicyRequest {}
 export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             group.</p>
  *          <p>A user can also have managed policies attached to it. To attach a managed policy to a
@@ -89,6 +88,7 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To add a policy to a group
  * ```javascript
  * // The following command adds a policy named AllPerms to the IAM group named Admins.

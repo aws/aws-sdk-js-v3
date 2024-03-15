@@ -27,7 +27,6 @@ export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRe
 export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the security policies that are attached to your file transfer protocol-enabled
  *       servers.</p>
  * @example
@@ -72,6 +71,7 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListSecurityPoliciesCommand extends $Command
   .classBuilder<

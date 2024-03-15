@@ -27,7 +27,6 @@ export interface CreateDevEnvironmentCommandInput extends CreateDevEnvironmentRe
 export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development environment that you can use to quickly work on the code stored
  *       in the source repositories of your project.       </p>
  *          <note>
@@ -104,6 +103,7 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class CreateDevEnvironmentCommand extends $Command
   .classBuilder<

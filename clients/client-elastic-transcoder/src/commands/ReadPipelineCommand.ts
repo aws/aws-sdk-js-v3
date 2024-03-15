@@ -31,7 +31,6 @@ export interface ReadPipelineCommandInput extends ReadPipelineRequest {}
 export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class ReadPipelineCommand extends $Command
   .classBuilder<

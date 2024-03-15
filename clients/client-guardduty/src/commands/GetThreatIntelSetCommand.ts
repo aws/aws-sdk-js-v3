@@ -27,7 +27,6 @@ export interface GetThreatIntelSetCommandInput extends GetThreatIntelSetRequest 
 export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetThreatIntelSetCommand extends $Command
   .classBuilder<

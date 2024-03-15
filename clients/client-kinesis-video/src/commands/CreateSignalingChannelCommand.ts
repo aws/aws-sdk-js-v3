@@ -27,7 +27,6 @@ export interface CreateSignalingChannelCommandInput extends CreateSignalingChann
 export interface CreateSignalingChannelCommandOutput extends CreateSignalingChannelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a signaling channel. </p>
  *          <p>
  *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
@@ -105,6 +104,7 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class CreateSignalingChannelCommand extends $Command
   .classBuilder<

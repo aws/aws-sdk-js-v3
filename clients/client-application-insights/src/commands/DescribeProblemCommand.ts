@@ -31,7 +31,6 @@ export interface DescribeProblemCommandInput extends DescribeProblemRequest {}
 export interface DescribeProblemCommandOutput extends DescribeProblemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an application problem.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeProblemCommand extends $Command
   .classBuilder<

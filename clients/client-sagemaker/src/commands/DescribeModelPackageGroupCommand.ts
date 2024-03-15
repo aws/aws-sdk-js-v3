@@ -27,7 +27,6 @@ export interface DescribeModelPackageGroupCommandInput extends DescribeModelPack
 export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPackageGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a description for the specified model group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPac
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeModelPackageGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetSchemaCreationStatusCommandInput extends GetSchemaCreationSt
 export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current status of a schema creation operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetSchemaCreationStatusCommand extends $Command
   .classBuilder<

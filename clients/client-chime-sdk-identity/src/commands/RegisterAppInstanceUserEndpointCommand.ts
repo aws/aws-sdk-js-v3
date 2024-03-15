@@ -36,7 +36,6 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class RegisterAppInstanceUserEndpointCommand extends $Command
   .classBuilder<

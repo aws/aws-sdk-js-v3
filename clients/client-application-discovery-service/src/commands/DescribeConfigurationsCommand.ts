@@ -31,7 +31,6 @@ export interface DescribeConfigurationsCommandInput extends DescribeConfiguratio
 export interface DescribeConfigurationsCommandOutput extends DescribeConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves attributes for a list of configuration item IDs.</p>
  *          <note>
  *             <p>All of the supplied IDs must be for the same asset type from one of the
@@ -105,6 +104,7 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationsCommand extends $Command
   .classBuilder<

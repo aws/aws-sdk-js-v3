@@ -27,7 +27,6 @@ export interface AddProfileKeyCommandInput extends AddProfileKeyRequest {}
 export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a new key value with a specific profile, such as a Contact Record
  *          ContactId.</p>
  *          <p>A profile object can have a single unique key and any number of additional keys that can
@@ -81,6 +80,7 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class AddProfileKeyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAutomationRulesCommandInput extends ListAutomationRulesRequ
 export interface ListAutomationRulesCommandOutput extends ListAutomationRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          A list of automation rules and their metadata for the calling account.
  *       </p>
@@ -88,6 +87,7 @@ export interface ListAutomationRulesCommandOutput extends ListAutomationRulesRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To list automation rules
  * ```javascript
  * // The following example lists automation rules and rule metadata in the calling account.

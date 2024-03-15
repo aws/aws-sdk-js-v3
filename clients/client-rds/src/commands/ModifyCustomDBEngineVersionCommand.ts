@@ -28,7 +28,6 @@ export interface ModifyCustomDBEngineVersionCommandInput extends ModifyCustomDBE
 export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
  *             <code>DescribeDBEngineVersions</code>.</p>
  *          <note>
@@ -156,6 +155,7 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class ModifyCustomDBEngineVersionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all journal export jobs for a specified ledger.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
@@ -87,6 +86,7 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class ListJournalS3ExportsForLedgerCommand extends $Command
   .classBuilder<

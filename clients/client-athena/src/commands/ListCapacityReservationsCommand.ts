@@ -27,7 +27,6 @@ export interface ListCapacityReservationsCommandInput extends ListCapacityReserv
 export interface ListCapacityReservationsCommandOutput extends ListCapacityReservationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the capacity reservations for the current account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListCapacityReservationsCommandOutput extends ListCapacityReser
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListCapacityReservationsCommand extends $Command
   .classBuilder<

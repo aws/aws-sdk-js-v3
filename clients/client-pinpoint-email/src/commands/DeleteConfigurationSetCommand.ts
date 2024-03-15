@@ -27,7 +27,6 @@ export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationS
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an existing configuration set.</p>
  *         <p>In Amazon Pinpoint, <i>configuration sets</i> are groups of rules that you can
  *             apply to the emails you send. You apply a configuration set to an email by including a
@@ -70,6 +69,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetCommand extends $Command
   .classBuilder<

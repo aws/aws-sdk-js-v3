@@ -27,7 +27,6 @@ export interface UploadSigningCertificateCommandInput extends UploadSigningCerti
 export interface UploadSigningCertificateCommandOutput extends UploadSigningCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads an X.509 signing certificate and associates it with the specified IAM user.
  *             Some Amazon Web Services services require you to use certificates to validate requests that are signed
  *             with a corresponding private key. When you upload the certificate, its default status is
@@ -112,6 +111,7 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To upload a signing certificate for an IAM user
  * ```javascript
  * // The following command uploads a signing certificate for the IAM user named Bob.

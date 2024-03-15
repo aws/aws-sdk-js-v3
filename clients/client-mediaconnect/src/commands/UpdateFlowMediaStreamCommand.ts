@@ -27,7 +27,6 @@ export interface UpdateFlowMediaStreamCommandInput extends UpdateFlowMediaStream
 export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates an existing media stream.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class UpdateFlowMediaStreamCommand extends $Command
   .classBuilder<

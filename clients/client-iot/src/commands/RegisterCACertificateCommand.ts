@@ -27,7 +27,6 @@ export interface RegisterCACertificateCommandInput extends RegisterCACertificate
 export interface RegisterCACertificateCommandOutput extends RegisterCACertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a CA certificate with Amazon Web Services IoT Core. There is no limit to the number of CA
  *          certificates you can register in your Amazon Web Services account. You can register up to 10 CA
  *          certificates with the same <code>CA subject field</code> per Amazon Web Services account.</p>
@@ -104,6 +103,7 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class RegisterCACertificateCommand extends $Command
   .classBuilder<

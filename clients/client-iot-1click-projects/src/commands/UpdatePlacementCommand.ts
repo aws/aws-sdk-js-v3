@@ -31,7 +31,6 @@ export interface UpdatePlacementCommandInput extends UpdatePlacementRequest {}
 export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value
  *       (i.e., "").</p>
  * @example
@@ -74,6 +73,7 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class UpdatePlacementCommand extends $Command
   .classBuilder<

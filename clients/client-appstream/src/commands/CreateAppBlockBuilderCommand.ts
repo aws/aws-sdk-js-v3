@@ -27,7 +27,6 @@ export interface CreateAppBlockBuilderCommandInput extends CreateAppBlockBuilder
 export interface CreateAppBlockBuilderCommandOutput extends CreateAppBlockBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an app block builder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface CreateAppBlockBuilderCommandOutput extends CreateAppBlockBuilde
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateAppBlockBuilderCommand extends $Command
   .classBuilder<

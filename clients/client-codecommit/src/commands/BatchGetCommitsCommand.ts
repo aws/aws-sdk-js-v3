@@ -27,7 +27,6 @@ export interface BatchGetCommitsCommandInput extends BatchGetCommitsInput {}
 export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the contents of one or more commits in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class BatchGetCommitsCommand extends $Command
   .classBuilder<

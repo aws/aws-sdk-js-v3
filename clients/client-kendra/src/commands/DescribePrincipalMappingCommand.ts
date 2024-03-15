@@ -27,7 +27,6 @@ export interface DescribePrincipalMappingCommandInput extends DescribePrincipalM
 export interface DescribePrincipalMappingCommandOutput extends DescribePrincipalMappingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the processing of <code>PUT</code> and <code>DELETE</code> actions for
  *             mapping users to their groups. This includes information on the status of actions
  *             currently processing or yet to be processed, when actions were last updated, when
@@ -95,6 +94,7 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribePrincipalMappingCommand extends $Command
   .classBuilder<

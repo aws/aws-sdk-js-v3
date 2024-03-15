@@ -27,7 +27,6 @@ export interface DeleteIdentityPoolCommandInput extends DeleteIdentityPoolInput 
 export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an identity pool. Once a pool is deleted, users will not be able to
  *          authenticate with the pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -71,6 +70,7 @@ export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class DeleteIdentityPoolCommand extends $Command
   .classBuilder<

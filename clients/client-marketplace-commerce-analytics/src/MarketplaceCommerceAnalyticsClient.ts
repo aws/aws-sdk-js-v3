@@ -252,8 +252,8 @@ export interface MarketplaceCommerceAnalyticsClientResolvedConfig
   extends MarketplaceCommerceAnalyticsClientResolvedConfigType {}
 
 /**
- * @public
  * Provides AWS Marketplace business intelligence data on-demand.
+ * @public
  */
 export class MarketplaceCommerceAnalyticsClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover a domain
  *    after you delete it.</p>
  * @example
@@ -213,6 +212,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DeleteDomainCommand extends $Command
   .classBuilder<

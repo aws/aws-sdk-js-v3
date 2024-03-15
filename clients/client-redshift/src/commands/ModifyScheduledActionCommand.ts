@@ -28,7 +28,6 @@ export interface ModifyScheduledActionCommandInput extends ModifyScheduledAction
 export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a scheduled action.
  *             </p>
  * @example
@@ -128,6 +127,7 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyScheduledActionCommand extends $Command
   .classBuilder<

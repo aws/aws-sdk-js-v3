@@ -27,7 +27,6 @@ export interface ExtendLicenseConsumptionCommandInput extends ExtendLicenseConsu
 export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseConsumptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Extends the expiration date for license consumption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ExtendLicenseConsumptionCommand extends $Command
   .classBuilder<

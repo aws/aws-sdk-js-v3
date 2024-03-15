@@ -27,7 +27,6 @@ export interface UpdateEphemerisCommandInput extends UpdateEphemerisRequest {}
 export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing ephemeris</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class UpdateEphemerisCommand extends $Command
   .classBuilder<

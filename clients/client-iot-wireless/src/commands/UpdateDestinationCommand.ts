@@ -27,7 +27,6 @@ export interface UpdateDestinationCommandInput extends UpdateDestinationRequest 
 export interface UpdateDestinationCommandOutput extends UpdateDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates properties of a destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class UpdateDestinationCommand extends $Command
   .classBuilder<

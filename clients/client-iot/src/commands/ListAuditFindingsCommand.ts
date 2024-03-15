@@ -27,7 +27,6 @@ export interface ListAuditFindingsCommandInput extends ListAuditFindingsRequest 
 export interface ListAuditFindingsCommandOutput extends ListAuditFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the findings (results) of a Device Defender audit or of the audits
  *         performed during a specified time period. (Findings are retained for 90 days.)</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditFindings</a> action.</p>
@@ -156,6 +155,7 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListAuditFindingsCommand extends $Command
   .classBuilder<

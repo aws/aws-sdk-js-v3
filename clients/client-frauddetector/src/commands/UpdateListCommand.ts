@@ -27,7 +27,6 @@ export interface UpdateListCommandInput extends UpdateListRequest {}
 export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Updates a list.
  *         </p>
@@ -79,6 +78,7 @@ export interface UpdateListCommandOutput extends UpdateListResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateListCommand extends $Command
   .classBuilder<

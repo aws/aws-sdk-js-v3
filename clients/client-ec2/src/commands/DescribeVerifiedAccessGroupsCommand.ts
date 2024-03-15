@@ -29,7 +29,6 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified Verified Access groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVerifiedAccessGroupsCommand extends $Command
   .classBuilder<

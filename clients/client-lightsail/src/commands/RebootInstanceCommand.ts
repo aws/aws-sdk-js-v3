@@ -27,7 +27,6 @@ export interface RebootInstanceCommandInput extends RebootInstanceRequest {}
 export interface RebootInstanceCommandOutput extends RebootInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restarts a specific instance.</p>
  *          <p>The <code>reboot instance</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -106,6 +105,7 @@ export interface RebootInstanceCommandOutput extends RebootInstanceResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class RebootInstanceCommand extends $Command
   .classBuilder<

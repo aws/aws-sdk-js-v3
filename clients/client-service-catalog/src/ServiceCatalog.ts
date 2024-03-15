@@ -2035,7 +2035,6 @@ export interface ServiceCatalog {
 }
 
 /**
- * @public
  * <fullname>Service Catalog</fullname>
  *          <p>
  *             <a href="http://aws.amazon.com/servicecatalog">Service Catalog</a> enables
@@ -2043,6 +2042,7 @@ export interface ServiceCatalog {
  *          get the most out of this documentation, you should be familiar with the terminology
  *          discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">Service Catalog
  *          Concepts</a>.</p>
+ * @public
  */
 export class ServiceCatalog extends ServiceCatalogClient implements ServiceCatalog {}
 createAggregatedClient(commands, ServiceCatalog);

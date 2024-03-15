@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Untag a resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

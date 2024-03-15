@@ -27,7 +27,6 @@ export interface UpdateSSHPublicKeyCommandInput extends UpdateSSHPublicKeyReques
 export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public
  *             keys that are inactive cannot be used for authentication. This operation can be used to
  *             disable a user's SSH public key as part of a key rotation work flow.</p>
@@ -65,6 +64,7 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UpdateSSHPublicKeyCommand extends $Command
   .classBuilder<

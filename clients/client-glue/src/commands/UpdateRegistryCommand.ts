@@ -27,7 +27,6 @@ export interface UpdateRegistryCommandInput extends UpdateRegistryInput {}
 export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing registry which is used to hold a collection of schemas. The updated properties relate to the registry, and do not modify any of the schemas within the registry. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateRegistryCommand extends $Command
   .classBuilder<

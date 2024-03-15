@@ -36,7 +36,6 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command
   .classBuilder<

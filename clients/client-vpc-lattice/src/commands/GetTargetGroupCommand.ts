@@ -27,7 +27,6 @@ export interface GetTargetGroupCommandInput extends GetTargetGroupRequest {}
 export interface GetTargetGroupCommandOutput extends GetTargetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified target group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface GetTargetGroupCommandOutput extends GetTargetGroupResponse, __M
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class GetTargetGroupCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateAcceleratorCommandInput extends CreateAcceleratorRequest 
 export interface CreateAcceleratorCommandOutput extends CreateAcceleratorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
  * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. </p>
  *          <important>
@@ -111,6 +110,7 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class CreateAcceleratorCommand extends $Command
   .classBuilder<

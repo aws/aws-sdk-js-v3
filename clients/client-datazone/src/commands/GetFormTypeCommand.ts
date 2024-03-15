@@ -27,7 +27,6 @@ export interface GetFormTypeCommandInput extends GetFormTypeInput {}
 export interface GetFormTypeCommandOutput extends GetFormTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a metadata form type in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetFormTypeCommandOutput extends GetFormTypeOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetFormTypeCommand extends $Command
   .classBuilder<

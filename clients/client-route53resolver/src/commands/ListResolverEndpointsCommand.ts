@@ -27,7 +27,6 @@ export interface ListResolverEndpointsCommandInput extends ListResolverEndpoints
 export interface ListResolverEndpointsCommandOutput extends ListResolverEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the Resolver endpoints that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListResolverEndpointsCommand extends $Command
   .classBuilder<

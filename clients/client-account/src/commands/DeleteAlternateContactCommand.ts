@@ -27,7 +27,6 @@ export interface DeleteAlternateContactCommandInput extends DeleteAlternateConta
 export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified alternate contact from an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
  *                 updating the alternate contacts</a>.</p>
@@ -80,6 +79,7 @@ export interface DeleteAlternateContactCommandOutput extends __MetadataBearer {}
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * @public
  */
 export class DeleteAlternateContactCommand extends $Command
   .classBuilder<

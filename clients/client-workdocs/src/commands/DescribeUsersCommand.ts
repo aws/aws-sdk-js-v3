@@ -32,7 +32,6 @@ export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
 export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified users. You can describe all users or filter the results
  *             (for example, by status or organization).</p>
  *          <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
@@ -122,6 +121,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeUsersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListBuildsForProjectCommandInput extends ListBuildsForProjectIn
 export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of build identifiers for the specified build project, with each build
  *             identifier representing a single build.</p>
  * @example
@@ -67,6 +66,7 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ListBuildsForProjectCommand extends $Command
   .classBuilder<

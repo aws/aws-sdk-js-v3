@@ -31,7 +31,6 @@ export interface DeletePackageCommandInput extends DeletePackageRequest {}
 export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the package.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DeletePackageCommand extends $Command
   .classBuilder<

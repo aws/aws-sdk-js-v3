@@ -31,7 +31,6 @@ export interface GetConnectionCommandInput extends GetConnectionInput {}
 export interface GetConnectionCommandOutput extends GetConnectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class GetConnectionCommand extends $Command
   .classBuilder<

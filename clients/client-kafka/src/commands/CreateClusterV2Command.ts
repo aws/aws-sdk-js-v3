@@ -27,7 +27,6 @@ export interface CreateClusterV2CommandInput extends CreateClusterV2Request {}
 export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -206,6 +205,7 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class CreateClusterV2Command extends $Command
   .classBuilder<

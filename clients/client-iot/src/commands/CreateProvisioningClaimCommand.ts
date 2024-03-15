@@ -31,7 +31,6 @@ export interface CreateProvisioningClaimCommandInput extends CreateProvisioningC
 export interface CreateProvisioningClaimCommandOutput extends CreateProvisioningClaimResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a provisioning claim.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningClaim</a> action.</p>
  * @example
@@ -84,6 +83,7 @@ export interface CreateProvisioningClaimCommandOutput extends CreateProvisioning
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateProvisioningClaimCommand extends $Command
   .classBuilder<

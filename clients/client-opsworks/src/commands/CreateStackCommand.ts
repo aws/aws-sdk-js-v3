@@ -27,7 +27,6 @@ export interface CreateStackCommandInput extends CreateStackRequest {}
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New
  *         Stack</a>.</p>
  *          <p>
@@ -96,6 +95,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class CreateStackCommand extends $Command
   .classBuilder<

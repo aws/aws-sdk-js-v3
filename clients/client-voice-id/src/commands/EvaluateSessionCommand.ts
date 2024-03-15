@@ -31,7 +31,6 @@ export interface EvaluateSessionCommandInput extends EvaluateSessionRequest {}
 export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Evaluates a specified session based on audio data accumulated during a streaming
  *             Amazon Connect Voice ID call.</p>
  * @example
@@ -123,6 +122,7 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class EvaluateSessionCommand extends $Command
   .classBuilder<

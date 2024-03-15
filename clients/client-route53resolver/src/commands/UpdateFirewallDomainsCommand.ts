@@ -27,7 +27,6 @@ export interface UpdateFirewallDomainsCommandInput extends UpdateFirewallDomains
 export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the firewall domain list from an array of domain specifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class UpdateFirewallDomainsCommand extends $Command
   .classBuilder<

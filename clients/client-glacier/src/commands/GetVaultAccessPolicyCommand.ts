@@ -27,7 +27,6 @@ export interface GetVaultAccessPolicyCommandInput extends GetVaultAccessPolicyIn
 export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation retrieves the <code>access-policy</code> subresource set on the vault;
  *          for more information on setting this subresource, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html">Set Vault Access Policy
  *             (PUT access-policy)</a>. If there is no access policy set on the vault, the
@@ -76,6 +75,7 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To  get the access-policy set on the vault
  * ```javascript
  * // The example retrieves the access-policy set on the vault named example-vault.

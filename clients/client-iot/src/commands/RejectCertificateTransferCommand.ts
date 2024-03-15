@@ -27,7 +27,6 @@ export interface RejectCertificateTransferCommandInput extends RejectCertificate
 export interface RejectCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects a pending certificate transfer. After IoT rejects a certificate transfer,
  *          the certificate status changes from <b>PENDING_TRANSFER</b> to
  *             <b>INACTIVE</b>.</p>
@@ -83,6 +82,7 @@ export interface RejectCertificateTransferCommandOutput extends __MetadataBearer
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class RejectCertificateTransferCommand extends $Command
   .classBuilder<

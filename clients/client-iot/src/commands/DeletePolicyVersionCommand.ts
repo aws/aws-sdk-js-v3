@@ -27,7 +27,6 @@ export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequ
 export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified version of the specified policy. You cannot delete the default
  *          version of a policy using this action. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default
  *          version, use ListPolicyVersions.</p>
@@ -79,6 +78,7 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeletePolicyVersionCommand extends $Command
   .classBuilder<

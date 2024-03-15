@@ -27,7 +27,6 @@ export interface DescribeProjectVersionsCommandInput extends DescribeProjectVers
 export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists and describes the versions of an Amazon Rekognition project. You can specify up to 10 model or
  *          adapter versions in <code>ProjectVersionArns</code>. If you don't specify a value,
  *          descriptions for all model/adapter versions in the project are returned.</p>
@@ -194,6 +193,7 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To describe an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Describes a version of an Amazon Rekognition Custom Labels model.

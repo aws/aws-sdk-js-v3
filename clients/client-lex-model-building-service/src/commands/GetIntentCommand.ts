@@ -31,7 +31,6 @@ export interface GetIntentCommandInput extends GetIntentRequest {}
 export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns information about an intent. In addition to the intent
  *       name, you must specify the intent version. </p>
  *          <p> This operation requires permissions to perform the
@@ -180,6 +179,7 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To get a information about an intent
  * ```javascript
  * // This example shows how to get information about an intent.

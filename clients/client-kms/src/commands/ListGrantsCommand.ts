@@ -27,7 +27,6 @@ export interface ListGrantsCommandInput extends ListGrantsRequest {}
 export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of all grants for the specified KMS key. </p>
  *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID or
  *       grantee principal.</p>
@@ -172,6 +171,7 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To list grants for a KMS key
  * ```javascript
  * // The following example lists grants for the specified KMS key.

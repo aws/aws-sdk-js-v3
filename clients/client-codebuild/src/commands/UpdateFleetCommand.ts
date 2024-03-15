@@ -27,7 +27,6 @@ export interface UpdateFleetCommandInput extends UpdateFleetInput {}
 export interface UpdateFleetCommandOutput extends UpdateFleetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a compute fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetOutput, __MetadataB
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class UpdateFleetCommand extends $Command
   .classBuilder<

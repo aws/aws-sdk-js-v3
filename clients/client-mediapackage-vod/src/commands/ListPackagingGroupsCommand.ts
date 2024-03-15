@@ -27,7 +27,6 @@ export interface ListPackagingGroupsCommandInput extends ListPackagingGroupsRequ
 export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns a collection of MediaPackage VOD PackagingGroup resources.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class ListPackagingGroupsCommand extends $Command
   .classBuilder<

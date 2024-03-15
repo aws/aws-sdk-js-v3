@@ -32,7 +32,6 @@ export interface DescribeTestSetDiscrepancyReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets metadata information about the test set discrepancy report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface DescribeTestSetDiscrepancyReportCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeTestSetDiscrepancyReportCommand extends $Command
   .classBuilder<

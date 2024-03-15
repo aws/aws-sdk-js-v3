@@ -31,7 +31,6 @@ export interface DetectToxicContentCommandInput extends DetectToxicContentReques
 export interface DetectToxicContentCommandOutput extends DetectToxicContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs toxicity analysis on the list of text strings that you provide as input.
  *       The API response contains a results list that matches the size of the input list.
  *       For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>.
@@ -91,6 +90,7 @@ export interface DetectToxicContentCommandOutput extends DetectToxicContentRespo
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectToxicContentCommand extends $Command
   .classBuilder<

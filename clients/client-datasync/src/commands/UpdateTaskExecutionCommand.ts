@@ -27,7 +27,6 @@ export interface UpdateTaskExecutionCommandInput extends UpdateTaskExecutionRequ
 export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of a running DataSync task execution.</p>
  *          <note>
  *             <p>Currently, the only <code>Option</code> that you can modify with
@@ -84,6 +83,7 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateTaskExecutionCommand extends $Command
   .classBuilder<

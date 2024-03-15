@@ -31,7 +31,6 @@ export interface RollbackApplicationCommandInput extends RollbackApplicationRequ
 export interface RollbackApplicationCommandOutput extends RollbackApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reverts the application to the previous running version. You can
  *             roll back an application if you suspect it is stuck in a transient status. </p>
  *         <p>You can roll back an application only if it is in the <code>UPDATING</code>
@@ -321,6 +320,7 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class RollbackApplicationCommand extends $Command
   .classBuilder<

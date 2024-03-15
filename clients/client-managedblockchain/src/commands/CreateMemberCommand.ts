@@ -31,7 +31,6 @@ export interface CreateMemberCommandInput extends CreateMemberInput {}
 export interface CreateMemberCommandOutput extends CreateMemberOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a member within a Managed Blockchain network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -116,6 +115,7 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class CreateMemberCommand extends $Command
   .classBuilder<

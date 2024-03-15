@@ -31,7 +31,6 @@ export interface GetDelegationsCommandInput extends GetDelegationsRequest {}
 export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets a list of delegations from an audit owner to a delegate. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetDelegationsCommand extends $Command
   .classBuilder<

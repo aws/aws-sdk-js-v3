@@ -29,7 +29,6 @@ export interface StartOnDemandAppReplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an on-demand replication run for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface StartOnDemandAppReplicationCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class StartOnDemandAppReplicationCommand extends $Command
   .classBuilder<

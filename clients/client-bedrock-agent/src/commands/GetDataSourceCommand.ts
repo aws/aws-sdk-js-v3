@@ -27,7 +27,6 @@ export interface GetDataSourceCommandInput extends GetDataSourceRequest {}
 export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Get an existing data source
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class GetDataSourceCommand extends $Command
   .classBuilder<

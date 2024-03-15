@@ -27,7 +27,6 @@ export interface CreateTrafficMirrorFilterCommandInput extends CreateTrafficMirr
 export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMirrorFilterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Traffic Mirror filter.</p>
  *          <p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p>
  *          <p>By default, no traffic is mirrored. To mirror traffic, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm">CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you
@@ -126,6 +125,7 @@ export interface CreateTrafficMirrorFilterCommandOutput extends CreateTrafficMir
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTrafficMirrorFilterCommand extends $Command
   .classBuilder<

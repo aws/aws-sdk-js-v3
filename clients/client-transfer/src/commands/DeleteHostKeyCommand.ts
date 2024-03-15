@@ -27,7 +27,6 @@ export interface DeleteHostKeyCommandInput extends DeleteHostKeyRequest {}
 export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the host key that's specified in the <code>HostKeyId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteHostKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteHostKeyCommand extends $Command
   .classBuilder<

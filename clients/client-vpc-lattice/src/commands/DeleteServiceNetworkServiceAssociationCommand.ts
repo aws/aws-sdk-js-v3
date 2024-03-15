@@ -36,7 +36,6 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association between a specified service and the specific service network. This
  *    request will fail if an association is still in progress.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteServiceNetworkServiceAssociationCommand extends $Command
   .classBuilder<

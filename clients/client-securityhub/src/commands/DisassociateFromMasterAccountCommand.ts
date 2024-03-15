@@ -32,9 +32,6 @@ export interface DisassociateFromMasterAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This API has been deprecated, use DisassociateFromAdministratorAccount API instead.
- *
  * <p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p>
  *          <p>The Security Hub console continues to use <code>DisassociateFromMasterAccount</code>. It will eventually change to use <code>DisassociateFromAdministratorAccount</code>. Any IAM policies that specifically control access to this function must continue to use <code>DisassociateFromMasterAccount</code>. You should also add <code>DisassociateFromAdministratorAccount</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>DisassociateFromAdministratorAccount</code>.</p>
  *          <p>Disassociates the current Security Hub member account from the associated administrator
@@ -81,6 +78,8 @@ export interface DisassociateFromMasterAccountCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
+ * @deprecated This API has been deprecated, use DisassociateFromAdministratorAccount API instead.
  */
 export class DisassociateFromMasterAccountCommand extends $Command
   .classBuilder<

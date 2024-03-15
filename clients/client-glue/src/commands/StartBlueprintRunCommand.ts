@@ -27,7 +27,6 @@ export interface StartBlueprintRunCommandInput extends StartBlueprintRunRequest 
 export interface StartBlueprintRunCommandOutput extends StartBlueprintRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a new run of the specified blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartBlueprintRunCommand extends $Command
   .classBuilder<

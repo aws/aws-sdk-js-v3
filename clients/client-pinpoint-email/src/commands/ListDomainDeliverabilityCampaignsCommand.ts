@@ -35,7 +35,6 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send
  *             email during a specified time range. This data is available for a domain only if you
  *             enabled the Deliverability dashboard (<code>PutDeliverabilityDashboardOption</code> operation)
@@ -101,6 +100,7 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command
   .classBuilder<

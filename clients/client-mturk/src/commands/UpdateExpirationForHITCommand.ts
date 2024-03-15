@@ -27,7 +27,6 @@ export interface UpdateExpirationForHITCommandInput extends UpdateExpirationForH
 export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationForHITResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>UpdateExpirationForHIT</code> operation allows you update the expiration time of a HIT.
  *             If you update it to a time in the past, the HIT will be immediately expired.
@@ -63,6 +62,7 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class UpdateExpirationForHITCommand extends $Command
   .classBuilder<

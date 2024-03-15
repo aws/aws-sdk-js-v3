@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Removes the specified tags from an Elastic Inference Accelerator.
  *         </p>
@@ -78,6 +77,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * @throws {@link ElasticInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

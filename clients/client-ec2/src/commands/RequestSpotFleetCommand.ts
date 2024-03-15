@@ -31,7 +31,6 @@ export interface RequestSpotFleetCommandInput extends RequestSpotFleetRequest {}
 export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Spot Fleet request.</p>
  *          <p>The Spot Fleet request specifies the total target capacity and the On-Demand target
  *             capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand
@@ -415,6 +414,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To request a Spot fleet in the subnet with the lowest price
  * ```javascript
  * // This example creates a Spot fleet request with two launch specifications that differ only by subnet. The Spot fleet launches the instances in the specified subnet with the lowest price. If the instances are launched in a default VPC, they receive a public IP address by default. If the instances are launched in a nondefault VPC, they do not receive a public IP address by default. Note that you can't specify different subnets from the same Availability Zone in a Spot fleet request.

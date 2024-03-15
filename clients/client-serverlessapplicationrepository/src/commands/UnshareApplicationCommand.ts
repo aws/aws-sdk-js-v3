@@ -31,7 +31,6 @@ export interface UnshareApplicationCommandInput extends UnshareApplicationReques
 export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class UnshareApplicationCommand extends $Command
   .classBuilder<

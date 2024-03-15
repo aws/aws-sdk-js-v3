@@ -174,14 +174,14 @@ import {
  */
 export interface GetIpamPoolCidrsResult {
   /**
-   * @public
    * <p>Information about the CIDRs provisioned to an IPAM pool.</p>
+   * @public
    */
   IpamPoolCidrs?: IpamPoolCidr[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -191,64 +191,64 @@ export interface GetIpamPoolCidrsResult {
  */
 export interface GetIpamResourceCidrsRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return in the request.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the scope that the resource is in.</p>
+   * @public
    */
   IpamScopeId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the IPAM pool that the resource is in.</p>
+   * @public
    */
   IpamPoolId?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   ResourceType?: IpamResourceType;
 
   /**
-   * @public
    * <p>The resource tag.</p>
+   * @public
    */
   ResourceTag?: RequestIpamResourceTag;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the resource.</p>
+   * @public
    */
   ResourceOwner?: string;
 }
@@ -269,72 +269,71 @@ export const IpamManagementState = {
 export type IpamManagementState = (typeof IpamManagementState)[keyof typeof IpamManagementState];
 
 /**
- * @public
  * <p>The CIDR for an IPAM resource.</p>
+ * @public
  */
 export interface IpamResourceCidr {
   /**
-   * @public
    * <p>The IPAM ID for an IPAM resource.</p>
+   * @public
    */
   IpamId?: string;
 
   /**
-   * @public
    * <p>The scope ID for an IPAM resource.</p>
+   * @public
    */
   IpamScopeId?: string;
 
   /**
-   * @public
    * <p>The pool ID for an IPAM resource.</p>
+   * @public
    */
   IpamPoolId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region for an IPAM resource.</p>
+   * @public
    */
   ResourceRegion?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account number of the owner of an IPAM resource.</p>
+   * @public
    */
   ResourceOwnerId?: string;
 
   /**
-   * @public
    * <p>The ID of an IPAM resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The name of an IPAM resource.</p>
+   * @public
    */
   ResourceName?: string;
 
   /**
-   * @public
    * <p>The CIDR for an IPAM resource.</p>
+   * @public
    */
   ResourceCidr?: string;
 
   /**
-   * @public
    * <p>The type of IPAM resource.</p>
+   * @public
    */
   ResourceType?: IpamResourceType;
 
   /**
-   * @public
    * <p>The tags for an IPAM resource.</p>
+   * @public
    */
   ResourceTags?: IpamResourceTag[];
 
   /**
-   * @public
    * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
    *          <ul>
    *             <li>
@@ -350,30 +349,31 @@ export interface IpamResourceCidr {
    *          </p>
    *             </li>
    *          </ul>
+   * @public
    */
   IpUsage?: number;
 
   /**
-   * @public
    * <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
    */
   ComplianceStatus?: IpamComplianceStatus;
 
   /**
-   * @public
    * <p>The management state of the resource. For more information about management states, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
    */
   ManagementState?: IpamManagementState;
 
   /**
-   * @public
    * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
    */
   OverlapStatus?: IpamOverlapStatus;
 
   /**
-   * @public
    * <p>The ID of a VPC.</p>
+   * @public
    */
   VpcId?: string;
 }
@@ -383,14 +383,14 @@ export interface IpamResourceCidr {
  */
 export interface GetIpamResourceCidrsResult {
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The resource CIDRs.</p>
+   * @public
    */
   IpamResourceCidrs?: IpamResourceCidr[];
 }
@@ -400,17 +400,17 @@ export interface GetIpamResourceCidrsResult {
  */
 export interface GetLaunchTemplateDataRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 }
@@ -420,8 +420,8 @@ export interface GetLaunchTemplateDataRequest {
  */
 export interface GetLaunchTemplateDataResult {
   /**
-   * @public
    * <p>The instance data.</p>
+   * @public
    */
   LaunchTemplateData?: ResponseLaunchTemplateData;
 }
@@ -431,47 +431,47 @@ export interface GetLaunchTemplateDataResult {
  */
 export interface GetManagedPrefixListAssociationsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the prefix list.</p>
+   * @public
    */
   PrefixListId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Describes the resource with which a prefix list is associated.</p>
+ * @public
  */
 export interface PrefixListAssociation {
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The owner of the resource.</p>
+   * @public
    */
   ResourceOwner?: string;
 }
@@ -481,14 +481,14 @@ export interface PrefixListAssociation {
  */
 export interface GetManagedPrefixListAssociationsResult {
   /**
-   * @public
    * <p>Information about the associations.</p>
+   * @public
    */
   PrefixListAssociations?: PrefixListAssociation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -498,53 +498,53 @@ export interface GetManagedPrefixListAssociationsResult {
  */
 export interface GetManagedPrefixListEntriesRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the prefix list.</p>
+   * @public
    */
   PrefixListId: string | undefined;
 
   /**
-   * @public
    * <p>The version of the prefix list for which to return the entries. The default is the current version.</p>
+   * @public
    */
   TargetVersion?: number;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Describes a prefix list entry.</p>
+ * @public
  */
 export interface PrefixListEntry {
   /**
-   * @public
    * <p>The CIDR block.</p>
+   * @public
    */
   Cidr?: string;
 
   /**
-   * @public
    * <p>The description.</p>
+   * @public
    */
   Description?: string;
 }
@@ -554,14 +554,14 @@ export interface PrefixListEntry {
  */
 export interface GetManagedPrefixListEntriesResult {
   /**
-   * @public
    * <p>Information about the prefix list entries.</p>
+   * @public
    */
   Entries?: PrefixListEntry[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -571,29 +571,29 @@ export interface GetManagedPrefixListEntriesResult {
  */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
   /**
-   * @public
    * <p>The ID of the Network Access Scope analysis.</p>
+   * @public
    */
   NetworkInsightsAccessScopeAnalysisId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -603,26 +603,26 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsRequest {
  */
 export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
   /**
-   * @public
    * <p>The ID of the Network Access Scope analysis.</p>
+   * @public
    */
   NetworkInsightsAccessScopeAnalysisId?: string;
 
   /**
-   * @public
    * <p>The status of Network Access Scope Analysis.</p>
+   * @public
    */
   AnalysisStatus?: AnalysisStatus;
 
   /**
-   * @public
    * <p>The findings associated with Network Access Scope Analysis.</p>
+   * @public
    */
   AnalysisFindings?: AccessScopeAnalysisFinding[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -632,16 +632,16 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
  */
 export interface GetNetworkInsightsAccessScopeContentRequest {
   /**
-   * @public
    * <p>The ID of the Network Access Scope.</p>
+   * @public
    */
   NetworkInsightsAccessScopeId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -651,8 +651,8 @@ export interface GetNetworkInsightsAccessScopeContentRequest {
  */
 export interface GetNetworkInsightsAccessScopeContentResult {
   /**
-   * @public
    * <p>The Network Access Scope content.</p>
+   * @public
    */
   NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent;
 }
@@ -662,16 +662,16 @@ export interface GetNetworkInsightsAccessScopeContentResult {
  */
 export interface GetPasswordDataRequest {
   /**
-   * @public
    * <p>The ID of the Windows instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -681,188 +681,188 @@ export interface GetPasswordDataRequest {
  */
 export interface GetPasswordDataResult {
   /**
-   * @public
    * <p>The ID of the Windows instance.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>The password of the instance. Returns an empty string if the password is not
    *             available.</p>
+   * @public
    */
   PasswordData?: string;
 
   /**
-   * @public
    * <p>The time the data was last updated.</p>
+   * @public
    */
   Timestamp?: Date;
 }
 
 /**
- * @public
  * <p>Contains the parameters for GetReservedInstanceExchangeQuote.</p>
+ * @public
  */
 export interface GetReservedInstancesExchangeQuoteRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The IDs of the Convertible Reserved Instances to exchange.</p>
+   * @public
    */
   ReservedInstanceIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The configuration of the target Convertible Reserved Instance to exchange for your
    *             current Convertible Reserved Instances.</p>
+   * @public
    */
   TargetConfigurations?: TargetConfigurationRequest[];
 }
 
 /**
- * @public
  * <p>The cost associated with the Reserved Instance.</p>
+ * @public
  */
 export interface ReservationValue {
   /**
-   * @public
    * <p>The hourly rate of the reservation.</p>
+   * @public
    */
   HourlyPrice?: string;
 
   /**
-   * @public
    * <p>The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).</p>
+   * @public
    */
   RemainingTotalValue?: string;
 
   /**
-   * @public
    * <p>The remaining upfront cost of the reservation.</p>
+   * @public
    */
   RemainingUpfrontValue?: string;
 }
 
 /**
- * @public
  * <p>The total value of the Convertible Reserved Instance.</p>
+ * @public
  */
 export interface ReservedInstanceReservationValue {
   /**
-   * @public
    * <p>The total value of the Convertible Reserved Instance that you are exchanging.</p>
+   * @public
    */
   ReservationValue?: ReservationValue;
 
   /**
-   * @public
    * <p>The ID of the Convertible Reserved Instance that you are exchanging.</p>
+   * @public
    */
   ReservedInstanceId?: string;
 }
 
 /**
- * @public
  * <p>Information about the Convertible Reserved Instance offering.</p>
+ * @public
  */
 export interface TargetConfiguration {
   /**
-   * @public
    * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is
    *       reserved and cannot be specified in a request</p>
+   * @public
    */
   InstanceCount?: number;
 
   /**
-   * @public
    * <p>The ID of the Convertible Reserved Instance offering.</p>
+   * @public
    */
   OfferingId?: string;
 }
 
 /**
- * @public
  * <p>The total value of the new Convertible Reserved Instances.</p>
+ * @public
  */
 export interface TargetReservationValue {
   /**
-   * @public
    * <p>The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of
    *       the list value, remaining upfront price, and additional upfront cost of the exchange.</p>
+   * @public
    */
   ReservationValue?: ReservationValue;
 
   /**
-   * @public
    * <p>The configuration of the Convertible Reserved Instances that make up the exchange.</p>
+   * @public
    */
   TargetConfiguration?: TargetConfiguration;
 }
 
 /**
- * @public
  * <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
+ * @public
  */
 export interface GetReservedInstancesExchangeQuoteResult {
   /**
-   * @public
    * <p>The currency of the transaction.</p>
+   * @public
    */
   CurrencyCode?: string;
 
   /**
-   * @public
    * <p>If <code>true</code>, the exchange is valid. If <code>false</code>, the exchange cannot be completed.</p>
+   * @public
    */
   IsValidExchange?: boolean;
 
   /**
-   * @public
    * <p>The new end date of the reservation term.</p>
+   * @public
    */
   OutputReservedInstancesWillExpireAt?: Date;
 
   /**
-   * @public
    * <p>The total true upfront charge for the exchange.</p>
+   * @public
    */
   PaymentDue?: string;
 
   /**
-   * @public
    * <p>The cost associated with the Reserved Instance.</p>
+   * @public
    */
   ReservedInstanceValueRollup?: ReservationValue;
 
   /**
-   * @public
    * <p>The configuration of your Convertible Reserved Instances.</p>
+   * @public
    */
   ReservedInstanceValueSet?: ReservedInstanceReservationValue[];
 
   /**
-   * @public
    * <p>The cost associated with the Reserved Instance.</p>
+   * @public
    */
   TargetConfigurationValueRollup?: ReservationValue;
 
   /**
-   * @public
    * <p>The values of the target Convertible Reserved Instances.</p>
+   * @public
    */
   TargetConfigurationValueSet?: TargetReservationValue[];
 
   /**
-   * @public
    * <p>Describes the reason why the exchange cannot be completed.</p>
+   * @public
    */
   ValidationFailureReason?: string;
 }
@@ -872,27 +872,26 @@ export interface GetReservedInstancesExchangeQuoteResult {
  */
 export interface GetSecurityGroupsForVpcRequest {
   /**
-   * @public
    * <p>The VPC ID where the security group can be used.</p>
+   * @public
    */
   VpcId: string | undefined;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    * 	To get the next page of items, make another request with the token returned in the output.
    * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The filters. If using multiple filters, the results include security groups which match all filters.</p>
    *          <ul>
    *             <li>
@@ -916,56 +915,57 @@ export interface GetSecurityGroupsForVpcRequest {
    *                   <code>primary-vpc-id</code>: The VPC ID in which the security group was created.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>A security group that can be used by interfaces in the VPC.</p>
+ * @public
  */
 export interface SecurityGroupForVpc {
   /**
-   * @public
    * <p>The security group's description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The security group name.</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The security group owner ID.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>The security group ID.</p>
+   * @public
    */
   GroupId?: string;
 
   /**
-   * @public
    * <p>The security group tags.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The VPC ID in which the security group was created.</p>
+   * @public
    */
   PrimaryVpcId?: string;
 }
@@ -975,14 +975,14 @@ export interface SecurityGroupForVpc {
  */
 export interface GetSecurityGroupsForVpcResult {
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The security group that can be used by interfaces in the VPC.</p>
+   * @public
    */
   SecurityGroupForVpcs?: SecurityGroupForVpc[];
 }
@@ -992,8 +992,8 @@ export interface GetSecurityGroupsForVpcResult {
  */
 export interface GetSerialConsoleAccessStatusRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1003,10 +1003,10 @@ export interface GetSerialConsoleAccessStatusRequest {
  */
 export interface GetSerialConsoleAccessStatusResult {
   /**
-   * @public
    * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
    * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
    * 			is disabled for your account.</p>
+   * @public
    */
   SerialConsoleAccessEnabled?: boolean;
 }
@@ -1016,10 +1016,10 @@ export interface GetSerialConsoleAccessStatusResult {
  */
 export interface GetSnapshotBlockPublicAccessStateRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1029,7 +1029,6 @@ export interface GetSnapshotBlockPublicAccessStateRequest {
  */
 export interface GetSnapshotBlockPublicAccessStateResult {
   /**
-   * @public
    * <p>The current state of block public access for snapshots. Possible values include:</p>
    *          <ul>
    *             <li>
@@ -1050,35 +1049,36 @@ export interface GetSnapshotBlockPublicAccessStateResult {
    *           snapshots.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   State?: SnapshotBlockPublicAccessState;
 }
 
 /**
- * @public
  * <p>The architecture type, virtualization type, and other attributes for the instance types.
  *          When you specify instance attributes, Amazon EC2 will identify instance types with those
  *          attributes.</p>
  *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
  *          <code>InstanceTypes</code>.</p>
+ * @public
  */
 export interface InstanceRequirementsWithMetadataRequest {
   /**
-   * @public
    * <p>The architecture type.</p>
+   * @public
    */
   ArchitectureTypes?: ArchitectureType[];
 
   /**
-   * @public
    * <p>The virtualization type.</p>
+   * @public
    */
   VirtualizationTypes?: VirtualizationType[];
 
   /**
-   * @public
    * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
    *          identify instance types with those attributes.</p>
+   * @public
    */
   InstanceRequirements?: InstanceRequirementsRequest;
 }
@@ -1088,101 +1088,101 @@ export interface InstanceRequirementsWithMetadataRequest {
  */
 export interface GetSpotPlacementScoresRequest {
   /**
-   * @public
    * <p>The instance types. We recommend that you specify at least three instance types. If you
    *          specify one or two instance types, or specify variations of a single instance type (for
    *          example, an <code>m3.xlarge</code> with and without instance storage), the returned
    *          placement score will always be low. </p>
    *          <p>If you specify <code>InstanceTypes</code>, you can't specify
    *             <code>InstanceRequirementsWithMetadata</code>.</p>
+   * @public
    */
   InstanceTypes?: string[];
 
   /**
-   * @public
    * <p>The target capacity.</p>
+   * @public
    */
   TargetCapacity: number | undefined;
 
   /**
-   * @public
    * <p>The unit for the target capacity.</p>
+   * @public
    */
   TargetCapacityUnitType?: TargetCapacityUnitType;
 
   /**
-   * @public
    * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
    *          Otherwise, the response returns a list of scored Regions.</p>
    *          <p>A list of scored Availability Zones is useful if you want to launch all of your Spot
    *          capacity into a single Availability Zone.</p>
+   * @public
    */
   SingleAvailabilityZone?: boolean;
 
   /**
-   * @public
    * <p>The Regions used to narrow down the list of Regions to be scored. Enter the Region code,
    *          for example, <code>us-east-1</code>.</p>
+   * @public
    */
   RegionNames?: string[];
 
   /**
-   * @public
    * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
    *          identify instance types with those attributes.</p>
    *          <p>If you specify <code>InstanceRequirementsWithMetadata</code>, you can't specify
    *             <code>InstanceTypes</code>.</p>
+   * @public
    */
   InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    *          To get the next page of items, make another request with the token returned in the output.
    * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
  *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
  *          used and that all of the Availability Zones in the Region can be used.</p>
+ * @public
  */
 export interface SpotPlacementScore {
   /**
-   * @public
    * <p>The Region.</p>
+   * @public
    */
   Region?: string;
 
   /**
-   * @public
    * <p>The Availability Zone.</p>
+   * @public
    */
   AvailabilityZoneId?: string;
 
   /**
-   * @public
    * <p>The placement score, on a scale from <code>1</code> to <code>10</code>. A score of
    *             <code>10</code> indicates that your Spot request is highly likely to succeed in this
    *          Region or Availability Zone. A score of <code>1</code> indicates that your Spot request is
    *          not likely to succeed. </p>
+   * @public
    */
   Score?: number;
 }
@@ -1192,7 +1192,6 @@ export interface SpotPlacementScore {
  */
 export interface GetSpotPlacementScoresResult {
   /**
-   * @public
    * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
    *          from 1 to 10. Each score  reflects how likely it is that each Region or Availability Zone
    *          will succeed at fulfilling the specified target capacity  <i>at the time of the Spot
@@ -1209,13 +1208,14 @@ export interface GetSpotPlacementScoresResult {
    *             <p>The Spot placement score serves as a recommendation only. No score guarantees that your
    *             Spot request will be fully or partially fulfilled.</p>
    *          </note>
+   * @public
    */
   SpotPlacementScores?: SpotPlacementScore[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
    *          are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1225,7 +1225,6 @@ export interface GetSpotPlacementScoresResult {
  */
 export interface GetSubnetCidrReservationsRequest {
   /**
-   * @public
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -1247,33 +1246,34 @@ export interface GetSubnetCidrReservationsRequest {
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The ID of the subnet.</p>
+   * @public
    */
   SubnetId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1283,20 +1283,20 @@ export interface GetSubnetCidrReservationsRequest {
  */
 export interface GetSubnetCidrReservationsResult {
   /**
-   * @public
    * <p>Information about the IPv4 subnet CIDR reservations.</p>
+   * @public
    */
   SubnetIpv4CidrReservations?: SubnetCidrReservation[];
 
   /**
-   * @public
    * <p>Information about the IPv6 subnet CIDR reservations.</p>
+   * @public
    */
   SubnetIpv6CidrReservations?: SubnetCidrReservation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1306,13 +1306,12 @@ export interface GetSubnetCidrReservationsResult {
  */
 export interface GetTransitGatewayAttachmentPropagationsRequest {
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1320,45 +1319,46 @@ export interface GetTransitGatewayAttachmentPropagationsRequest {
    *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a propagation route table.</p>
+ * @public
  */
 export interface TransitGatewayAttachmentPropagation {
   /**
-   * @public
    * <p>The ID of the propagation route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId?: string;
 
   /**
-   * @public
    * <p>The state of the propagation route table.</p>
+   * @public
    */
   State?: TransitGatewayPropagationState;
 }
@@ -1368,14 +1368,14 @@ export interface TransitGatewayAttachmentPropagation {
  */
 export interface GetTransitGatewayAttachmentPropagationsResult {
   /**
-   * @public
    * <p>Information about the propagation route tables.</p>
+   * @public
    */
   TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1385,13 +1385,12 @@ export interface GetTransitGatewayAttachmentPropagationsResult {
  */
 export interface GetTransitGatewayMulticastDomainAssociationsRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
    */
   TransitGatewayMulticastDomainId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1417,63 +1416,64 @@ export interface GetTransitGatewayMulticastDomainAssociationsRequest {
    *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the resources associated with the transit gateway multicast domain.</p>
+ * @public
  */
 export interface TransitGatewayMulticastDomainAssociation {
   /**
-   * @public
    * <p>The ID of the transit gateway attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The type of resource, for example a VPC attachment.</p>
+   * @public
    */
   ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
-   * @public
    * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
+   * @public
    */
   ResourceOwnerId?: string;
 
   /**
-   * @public
    * <p>The subnet associated with the transit gateway multicast domain.</p>
+   * @public
    */
   Subnet?: SubnetAssociation;
 }
@@ -1483,14 +1483,14 @@ export interface TransitGatewayMulticastDomainAssociation {
  */
 export interface GetTransitGatewayMulticastDomainAssociationsResult {
   /**
-   * @public
    * <p>Information about the multicast domain associations.</p>
+   * @public
    */
   MulticastDomainAssociations?: TransitGatewayMulticastDomainAssociation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1500,35 +1500,35 @@ export interface GetTransitGatewayMulticastDomainAssociationsResult {
  */
 export interface GetTransitGatewayPolicyTableAssociationsRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway policy table.</p>
+   * @public
    */
   TransitGatewayPolicyTableId: string | undefined;
 
   /**
-   * @public
    * <p>The filters associated with the transit gateway policy table.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1538,14 +1538,14 @@ export interface GetTransitGatewayPolicyTableAssociationsRequest {
  */
 export interface GetTransitGatewayPolicyTableAssociationsResult {
   /**
-   * @public
    * <p>Returns details about the transit gateway policy table association.</p>
+   * @public
    */
   Associations?: TransitGatewayPolicyTableAssociation[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1555,119 +1555,119 @@ export interface GetTransitGatewayPolicyTableAssociationsResult {
  */
 export interface GetTransitGatewayPolicyTableEntriesRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway policy table.</p>
+   * @public
    */
   TransitGatewayPolicyTableId: string | undefined;
 
   /**
-   * @public
    * <p>The filters associated with the transit gateway policy table.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
+ * @public
  */
 export interface TransitGatewayPolicyRuleMetaData {
   /**
-   * @public
    * <p>The key name for the transit gateway policy rule meta data tag.</p>
+   * @public
    */
   MetaDataKey?: string;
 
   /**
-   * @public
    * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
+   * @public
    */
   MetaDataValue?: string;
 }
 
 /**
- * @public
  * <p>Describes a rule associated with a transit gateway policy.</p>
+ * @public
  */
 export interface TransitGatewayPolicyRule {
   /**
-   * @public
    * <p>The source CIDR block for the transit gateway policy rule.</p>
+   * @public
    */
   SourceCidrBlock?: string;
 
   /**
-   * @public
    * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   * @public
    */
   SourcePortRange?: string;
 
   /**
-   * @public
    * <p>The destination CIDR block for the transit gateway policy rule.</p>
+   * @public
    */
   DestinationCidrBlock?: string;
 
   /**
-   * @public
    * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
+   * @public
    */
   DestinationPortRange?: string;
 
   /**
-   * @public
    * <p>The protocol used by the transit gateway policy rule.</p>
+   * @public
    */
   Protocol?: string;
 
   /**
-   * @public
    * <p>The meta data tags used for the transit gateway policy rule.</p>
+   * @public
    */
   MetaData?: TransitGatewayPolicyRuleMetaData;
 }
 
 /**
- * @public
  * <p>Describes a transit gateway policy table entry</p>
+ * @public
  */
 export interface TransitGatewayPolicyTableEntry {
   /**
-   * @public
    * <p>The rule number for the transit gateway policy table entry.</p>
+   * @public
    */
   PolicyRuleNumber?: string;
 
   /**
-   * @public
    * <p>The policy rule associated with the transit gateway policy table.</p>
+   * @public
    */
   PolicyRule?: TransitGatewayPolicyRule;
 
   /**
-   * @public
    * <p>The ID of the target route table.</p>
+   * @public
    */
   TargetRouteTableId?: string;
 }
@@ -1677,8 +1677,8 @@ export interface TransitGatewayPolicyTableEntry {
  */
 export interface GetTransitGatewayPolicyTableEntriesResult {
   /**
-   * @public
    * <p>The entries for the transit gateway policy table.</p>
+   * @public
    */
   TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[];
 }
@@ -1688,13 +1688,12 @@ export interface GetTransitGatewayPolicyTableEntriesResult {
  */
 export interface GetTransitGatewayPrefixListReferencesRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1728,27 +1727,28 @@ export interface GetTransitGatewayPrefixListReferencesRequest {
    *                   <code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1758,14 +1758,14 @@ export interface GetTransitGatewayPrefixListReferencesRequest {
  */
 export interface GetTransitGatewayPrefixListReferencesResult {
   /**
-   * @public
    * <p>Information about the prefix list references.</p>
+   * @public
    */
   TransitGatewayPrefixListReferences?: TransitGatewayPrefixListReference[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1775,13 +1775,12 @@ export interface GetTransitGatewayPrefixListReferencesResult {
  */
 export interface GetTransitGatewayRouteTableAssociationsRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1799,57 +1798,58 @@ export interface GetTransitGatewayRouteTableAssociationsRequest {
    *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes an association between a route table and a resource attachment.</p>
+ * @public
  */
 export interface TransitGatewayRouteTableAssociation {
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
    */
   ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
-   * @public
    * <p>The state of the association.</p>
+   * @public
    */
   State?: TransitGatewayAssociationState;
 }
@@ -1859,14 +1859,14 @@ export interface TransitGatewayRouteTableAssociation {
  */
 export interface GetTransitGatewayRouteTableAssociationsResult {
   /**
-   * @public
    * <p>Information about the associations.</p>
+   * @public
    */
   Associations?: TransitGatewayRouteTableAssociation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1876,13 +1876,12 @@ export interface GetTransitGatewayRouteTableAssociationsResult {
  */
 export interface GetTransitGatewayRouteTablePropagationsRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1900,63 +1899,64 @@ export interface GetTransitGatewayRouteTablePropagationsRequest {
    *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a route table propagation.</p>
+ * @public
  */
 export interface TransitGatewayRouteTablePropagation {
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
    */
   ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
-   * @public
    * <p>The state of the resource.</p>
+   * @public
    */
   State?: TransitGatewayPropagationState;
 
   /**
-   * @public
    * <p>The ID of the transit gateway route table announcement.</p>
+   * @public
    */
   TransitGatewayRouteTableAnnouncementId?: string;
 }
@@ -1966,14 +1966,14 @@ export interface TransitGatewayRouteTablePropagation {
  */
 export interface GetTransitGatewayRouteTablePropagationsResult {
   /**
-   * @public
    * <p>Information about the route table propagations.</p>
+   * @public
    */
   TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1983,16 +1983,16 @@ export interface GetTransitGatewayRouteTablePropagationsResult {
  */
 export interface GetVerifiedAccessEndpointPolicyRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access endpoint.</p>
+   * @public
    */
   VerifiedAccessEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -2002,14 +2002,14 @@ export interface GetVerifiedAccessEndpointPolicyRequest {
  */
 export interface GetVerifiedAccessEndpointPolicyResult {
   /**
-   * @public
    * <p>The status of the Verified Access policy.</p>
+   * @public
    */
   PolicyEnabled?: boolean;
 
   /**
-   * @public
    * <p>The Verified Access policy document.</p>
+   * @public
    */
   PolicyDocument?: string;
 }
@@ -2019,16 +2019,16 @@ export interface GetVerifiedAccessEndpointPolicyResult {
  */
 export interface GetVerifiedAccessGroupPolicyRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access group.</p>
+   * @public
    */
   VerifiedAccessGroupId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -2038,14 +2038,14 @@ export interface GetVerifiedAccessGroupPolicyRequest {
  */
 export interface GetVerifiedAccessGroupPolicyResult {
   /**
-   * @public
    * <p>The status of the Verified Access policy.</p>
+   * @public
    */
   PolicyEnabled?: boolean;
 
   /**
-   * @public
    * <p>The Verified Access policy document.</p>
+   * @public
    */
   PolicyDocument?: string;
 }
@@ -2055,32 +2055,32 @@ export interface GetVerifiedAccessGroupPolicyResult {
  */
 export interface GetVpnConnectionDeviceSampleConfigurationRequest {
   /**
-   * @public
    * <p>The <code>VpnConnectionId</code> specifies the Site-to-Site VPN connection used for the sample
    *             configuration.</p>
+   * @public
    */
   VpnConnectionId: string | undefined;
 
   /**
-   * @public
    * <p>Device identifier provided by the <code>GetVpnConnectionDeviceTypes</code> API.</p>
+   * @public
    */
   VpnConnectionDeviceTypeId: string | undefined;
 
   /**
-   * @public
    * <p>The IKE version to be used in the sample configuration file for your customer gateway
    *             device. You can specify one of the following versions: <code>ikev1</code> or
    *                 <code>ikev2</code>.</p>
+   * @public
    */
   InternetKeyExchangeVersion?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -2090,8 +2090,8 @@ export interface GetVpnConnectionDeviceSampleConfigurationRequest {
  */
 export interface GetVpnConnectionDeviceSampleConfigurationResult {
   /**
-   * @public
    * <p>Sample configuration file for the specified customer gateway device.</p>
+   * @public
    */
   VpnConnectionDeviceSampleConfiguration?: string;
 }
@@ -2101,7 +2101,6 @@ export interface GetVpnConnectionDeviceSampleConfigurationResult {
  */
 export interface GetVpnConnectionDeviceTypesRequest {
   /**
-   * @public
    * <p>The maximum number of results returned by <code>GetVpnConnectionDeviceTypes</code> in
    *             paginated output. When this parameter is used, <code>GetVpnConnectionDeviceTypes</code>
    *             only returns <code>MaxResults</code> results in a single page along with a
@@ -2110,58 +2109,59 @@ export interface GetVpnConnectionDeviceTypesRequest {
    *             with the returned <code>NextToken</code> value. This value can be between 200 and 1000.
    *             If this parameter is not used, then <code>GetVpnConnectionDeviceTypes</code> returns all
    *             results.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The <code>NextToken</code> value returned from a previous paginated
    *                 <code>GetVpnConnectionDeviceTypes</code> request where <code>MaxResults</code> was
    *             used and the results exceeded the value of that parameter. Pagination continues from the
    *             end of the previous results that returned the <code>NextToken</code> value. This value
    *             is null when there are no more results to return. </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>List of customer gateway devices that have a sample configuration file available for
  *             use. You can also see the list of device types with sample configuration files available
  *             under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer
  *                 gateway device</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+ * @public
  */
 export interface VpnConnectionDeviceType {
   /**
-   * @public
    * <p>Customer gateway device identifier.</p>
+   * @public
    */
   VpnConnectionDeviceTypeId?: string;
 
   /**
-   * @public
    * <p>Customer gateway device vendor.</p>
+   * @public
    */
   Vendor?: string;
 
   /**
-   * @public
    * <p>Customer gateway device platform.</p>
+   * @public
    */
   Platform?: string;
 
   /**
-   * @public
    * <p>Customer gateway device software version.</p>
+   * @public
    */
   Software?: string;
 }
@@ -2171,19 +2171,19 @@ export interface VpnConnectionDeviceType {
  */
 export interface GetVpnConnectionDeviceTypesResult {
   /**
-   * @public
    * <p>List of customer gateway devices that have a sample configuration file available for
    *             use.</p>
+   * @public
    */
   VpnConnectionDeviceTypes?: VpnConnectionDeviceType[];
 
   /**
-   * @public
    * <p>The <code>NextToken</code> value to include in a future
    *                 <code>GetVpnConnectionDeviceTypes</code> request. When the results of a
    *                 <code>GetVpnConnectionDeviceTypes</code> request exceed <code>MaxResults</code>,
    *             this value can be used to retrieve the next page of results. This value is null when
    *             there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2193,44 +2193,44 @@ export interface GetVpnConnectionDeviceTypesResult {
  */
 export interface GetVpnTunnelReplacementStatusRequest {
   /**
-   * @public
    * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
    */
   VpnConnectionId: string | undefined;
 
   /**
-   * @public
    * <p>The external IP address of the VPN tunnel.</p>
+   * @public
    */
   VpnTunnelOutsideIpAddress: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
+ * @public
  */
 export interface MaintenanceDetails {
   /**
-   * @public
    * <p>Verify existence of a pending maintenance.</p>
+   * @public
    */
   PendingMaintenance?: string;
 
   /**
-   * @public
    * <p>The timestamp after which Amazon Web Services will automatically apply maintenance.</p>
+   * @public
    */
   MaintenanceAutoAppliedAfter?: Date;
 
   /**
-   * @public
    * <p>Timestamp of last applied maintenance.</p>
+   * @public
    */
   LastMaintenanceApplied?: Date;
 }
@@ -2240,38 +2240,38 @@ export interface MaintenanceDetails {
  */
 export interface GetVpnTunnelReplacementStatusResult {
   /**
-   * @public
    * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
    */
   VpnConnectionId?: string;
 
   /**
-   * @public
    * <p>The ID of the transit gateway associated with the VPN connection.</p>
+   * @public
    */
   TransitGatewayId?: string;
 
   /**
-   * @public
    * <p>The ID of the customer gateway.</p>
+   * @public
    */
   CustomerGatewayId?: string;
 
   /**
-   * @public
    * <p>The ID of the virtual private gateway.</p>
+   * @public
    */
   VpnGatewayId?: string;
 
   /**
-   * @public
    * <p>The external IP address of the VPN tunnel.</p>
+   * @public
    */
   VpnTunnelOutsideIpAddress?: string;
 
   /**
-   * @public
    * <p>Get details of pending tunnel endpoint maintenance.</p>
+   * @public
    */
   MaintenanceDetails?: MaintenanceDetails;
 }
@@ -2281,21 +2281,21 @@ export interface GetVpnTunnelReplacementStatusResult {
  */
 export interface ImportClientVpnClientCertificateRevocationListRequest {
   /**
-   * @public
    * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
+   * @public
    */
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
    * 				<i>Client VPN Administrator Guide</i>.</p>
+   * @public
    */
   CertificateRevocationList: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -2305,113 +2305,113 @@ export interface ImportClientVpnClientCertificateRevocationListRequest {
  */
 export interface ImportClientVpnClientCertificateRevocationListResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the client-specific data.</p>
+ * @public
  */
 export interface ClientData {
   /**
-   * @public
    * <p>A user-defined comment about the disk upload.</p>
+   * @public
    */
   Comment?: string;
 
   /**
-   * @public
    * <p>The time that the disk upload ends.</p>
+   * @public
    */
   UploadEnd?: Date;
 
   /**
-   * @public
    * <p>The size of the uploaded disk image, in GiB.</p>
+   * @public
    */
   UploadSize?: number;
 
   /**
-   * @public
    * <p>The time that the disk upload starts.</p>
+   * @public
    */
   UploadStart?: Date;
 }
 
 /**
- * @public
  * <p>Describes the Amazon S3 bucket for the disk image.</p>
+ * @public
  */
 export interface UserBucket {
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
+   * @public
    */
   S3Bucket?: string;
 
   /**
-   * @public
    * <p>The file name of the disk image.</p>
+   * @public
    */
   S3Key?: string;
 }
 
 /**
- * @public
  * <p>Describes the disk container object for an import image task.</p>
+ * @public
  */
 export interface ImageDiskContainer {
   /**
-   * @public
    * <p>The description of the disk image.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The block device mapping for the disk.</p>
+   * @public
    */
   DeviceName?: string;
 
   /**
-   * @public
    * <p>The format of the disk image being imported.</p>
    *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> | <code>VMDK</code> | <code>RAW</code>
    *          </p>
+   * @public
    */
   Format?: string;
 
   /**
-   * @public
    * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
    *    Amazon S3 URL (s3://..)</p>
+   * @public
    */
   Url?: string;
 
   /**
-   * @public
    * <p>The S3 bucket for the disk image.</p>
+   * @public
    */
   UserBucket?: UserBucket;
 }
 
 /**
- * @public
  * <p>The request information of license configurations.</p>
+ * @public
  */
 export interface ImportImageLicenseConfigurationRequest {
   /**
-   * @public
    * <p>The ARN of a license configuration.</p>
+   * @public
    */
   LicenseConfigurationArn?: string;
 }
@@ -2421,63 +2421,62 @@ export interface ImportImageLicenseConfigurationRequest {
  */
 export interface ImportImageRequest {
   /**
-   * @public
    * <p>The architecture of the virtual machine.</p>
    *          <p>Valid values: <code>i386</code> | <code>x86_64</code>
    *          </p>
+   * @public
    */
   Architecture?: string;
 
   /**
-   * @public
    * <p>The client-specific data.</p>
+   * @public
    */
   ClientData?: ClientData;
 
   /**
-   * @public
    * <p>The token to enable idempotency for VM import requests.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>A description string for the import image task.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Information about the disk containers.</p>
+   * @public
    */
   DiskContainers?: ImageDiskContainer[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default KMS key for EBS is used
    *    unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
    *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
    */
   Encrypted?: boolean;
 
   /**
-   * @public
    * <p>The target hypervisor platform.</p>
    *          <p>Valid values: <code>xen</code>
    *          </p>
+   * @public
    */
   Hypervisor?: string;
 
   /**
-   * @public
    * <p>An identifier for the symmetric KMS key to use when creating the
    *    encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this
    *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
@@ -2501,11 +2500,11 @@ export interface ImportImageRequest {
    *    though you provided an invalid identifier. This action will eventually report failure. </p>
    *          <p>The specified KMS key must exist in the Region that the AMI is being copied to.</p>
    *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
    *          <p>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services
    *    license or <code>BYOL</code> to retain the source-system license. Leaving this parameter
@@ -2515,51 +2514,52 @@ export interface ImportImageRequest {
    *          <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party
    *    cloud, such as Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
    *    VM Import/Export User Guide.</p>
+   * @public
    */
   LicenseType?: string;
 
   /**
-   * @public
    * <p>The operating system of the virtual machine. If you import a VM that is compatible with
    *    Unified Extensible Firmware Interface (UEFI) using an EBS snapshot, you must specify a value for
    *    the platform.</p>
    *          <p>Valid values: <code>Windows</code> | <code>Linux</code>
    *          </p>
+   * @public
    */
   Platform?: string;
 
   /**
-   * @public
    * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>The ARNs of the license configurations.</p>
+   * @public
    */
   LicenseSpecifications?: ImportImageLicenseConfigurationRequest[];
 
   /**
-   * @public
    * <p>The tags to apply to the import image task during creation.</p>
+   * @public
    */
   TagSpecifications?: TagSpecification[];
 
   /**
-   * @public
    * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#prerequisites">Licensing options</a> in the <i>VM Import/Export User Guide</i>.</p>
+   * @public
    */
   UsageOperation?: string;
 
   /**
-   * @public
    * <p>The boot mode of the virtual machine.</p>
    *          <note>
    *             <p>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For more
    *     information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot modes</a> in
    *     the <i>VM Import/Export User Guide</i>.</p>
    *          </note>
+   * @public
    */
   BootMode?: BootModeValues;
 }
@@ -2569,249 +2569,249 @@ export interface ImportImageRequest {
  */
 export interface ImportImageResult {
   /**
-   * @public
    * <p>The architecture of the virtual machine.</p>
+   * @public
    */
   Architecture?: string;
 
   /**
-   * @public
    * <p>A description of the import task.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Indicates whether the AMI is encrypted.</p>
+   * @public
    */
   Encrypted?: boolean;
 
   /**
-   * @public
    * <p>The target hypervisor of the import task.</p>
+   * @public
    */
   Hypervisor?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Machine Image (AMI) created by the import task.</p>
+   * @public
    */
   ImageId?: string;
 
   /**
-   * @public
    * <p>The task ID of the import image task.</p>
+   * @public
    */
   ImportTaskId?: string;
 
   /**
-   * @public
    * <p>The identifier for the symmetric KMS key that was used to create the encrypted AMI.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>The license type of the virtual machine.</p>
+   * @public
    */
   LicenseType?: string;
 
   /**
-   * @public
    * <p>The operating system of the virtual machine.</p>
+   * @public
    */
   Platform?: string;
 
   /**
-   * @public
    * <p>The progress of the task.</p>
+   * @public
    */
   Progress?: string;
 
   /**
-   * @public
    * <p>Information about the snapshots.</p>
+   * @public
    */
   SnapshotDetails?: SnapshotDetail[];
 
   /**
-   * @public
    * <p>A brief status of the task.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>A detailed status message of the import task.</p>
+   * @public
    */
   StatusMessage?: string;
 
   /**
-   * @public
    * <p>The ARNs of the license configurations.</p>
+   * @public
    */
   LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
 
   /**
-   * @public
    * <p>Any tags assigned to the import image task.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The usage operation value.</p>
+   * @public
    */
   UsageOperation?: string;
 }
 
 /**
- * @public
  * <p>Describes a disk image.</p>
+ * @public
  */
 export interface DiskImageDetail {
   /**
-   * @public
    * <p>The size of the disk image, in GiB.</p>
+   * @public
    */
   Bytes: number | undefined;
 
   /**
-   * @public
    * <p>The disk image format.</p>
+   * @public
    */
   Format: DiskImageFormat | undefined;
 
   /**
-   * @public
    * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
    *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
    *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
    *     Guide</i>.</p>
    *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   * @public
    */
   ImportManifestUrl: string | undefined;
 }
 
 /**
- * @public
  * <p>Describes an EBS volume.</p>
+ * @public
  */
 export interface VolumeDetail {
   /**
-   * @public
    * <p>The size of the volume, in GiB.</p>
+   * @public
    */
   Size: number | undefined;
 }
 
 /**
- * @public
  * <p>Describes a disk image.</p>
+ * @public
  */
 export interface DiskImage {
   /**
-   * @public
    * <p>A description of the disk image.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Information about the disk image.</p>
+   * @public
    */
   Image?: DiskImageDetail;
 
   /**
-   * @public
    * <p>Information about the volume.</p>
+   * @public
    */
   Volume?: VolumeDetail;
 }
 
 /**
- * @public
  * <p>Describes the user data for an instance.</p>
+ * @public
  */
 export interface UserData {
   /**
-   * @public
    * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
    *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
+   * @public
    */
   Data?: string;
 }
 
 /**
- * @public
  * <p>Describes the launch specification for VM import.</p>
+ * @public
  */
 export interface ImportInstanceLaunchSpecification {
   /**
-   * @public
    * <p>Reserved.</p>
+   * @public
    */
   AdditionalInfo?: string;
 
   /**
-   * @public
    * <p>The architecture of the instance.</p>
+   * @public
    */
   Architecture?: ArchitectureValues;
 
   /**
-   * @public
    * <p>The security group IDs.</p>
+   * @public
    */
   GroupIds?: string[];
 
   /**
-   * @public
    * <p>The security group names.</p>
+   * @public
    */
   GroupNames?: string[];
 
   /**
-   * @public
    * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
    *    operating system command for system shutdown).</p>
+   * @public
    */
   InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
 
   /**
-   * @public
    * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
    *    VM Import/Export User Guide.</p>
+   * @public
    */
   InstanceType?: _InstanceType;
 
   /**
-   * @public
    * <p>Indicates whether monitoring is enabled.</p>
+   * @public
    */
   Monitoring?: boolean;
 
   /**
-   * @public
    * <p>The placement information for the instance.</p>
+   * @public
    */
   Placement?: Placement;
 
   /**
-   * @public
    * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
+   * @public
    */
   PrivateIpAddress?: string;
 
   /**
-   * @public
    * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
+   * @public
    */
   SubnetId?: string;
 
   /**
-   * @public
    * <p>The Base64-encoded user data to make available to the instance.</p>
+   * @public
    */
   UserData?: UserData;
 }
@@ -2821,34 +2821,34 @@ export interface ImportInstanceLaunchSpecification {
  */
 export interface ImportInstanceRequest {
   /**
-   * @public
    * <p>A description for the instance being imported.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The disk image.</p>
+   * @public
    */
   DiskImages?: DiskImage[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The launch specification.</p>
+   * @public
    */
   LaunchSpecification?: ImportInstanceLaunchSpecification;
 
   /**
-   * @public
    * <p>The instance operating system.</p>
+   * @public
    */
   Platform: PlatformValues | undefined;
 }
@@ -2858,8 +2858,8 @@ export interface ImportInstanceRequest {
  */
 export interface ImportInstanceResult {
   /**
-   * @public
    * <p>Information about the conversion task.</p>
+   * @public
    */
   ConversionTask?: ConversionTask;
 }
@@ -2869,28 +2869,28 @@ export interface ImportInstanceResult {
  */
 export interface ImportKeyPairRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A unique name for the key pair.</p>
+   * @public
    */
   KeyName: string | undefined;
 
   /**
-   * @public
    * <p>The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.</p>
+   * @public
    */
   PublicKeyMaterial: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The tags to apply to the imported key pair.</p>
+   * @public
    */
   TagSpecifications?: TagSpecification[];
 }
@@ -2900,7 +2900,6 @@ export interface ImportKeyPairRequest {
  */
 export interface ImportKeyPairResult {
   /**
-   * @public
    * <ul>
    *             <li>
    *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
@@ -2909,57 +2908,58 @@ export interface ImportKeyPairResult {
    *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   KeyFingerprint?: string;
 
   /**
-   * @public
    * <p>The key pair name that you provided.</p>
+   * @public
    */
   KeyName?: string;
 
   /**
-   * @public
    * <p>The ID of the resulting key pair.</p>
+   * @public
    */
   KeyPairId?: string;
 
   /**
-   * @public
    * <p>The tags applied to the imported key pair.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>The disk container object for the import snapshot request.</p>
+ * @public
  */
 export interface SnapshotDiskContainer {
   /**
-   * @public
    * <p>The description of the disk image being imported.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The format of the disk image being imported.</p>
    *          <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code>
    *          </p>
+   * @public
    */
   Format?: string;
 
   /**
-   * @public
    * <p>The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon
    *    S3 URL (s3://..).</p>
+   * @public
    */
   Url?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 bucket for the disk image.</p>
+   * @public
    */
   UserBucket?: UserBucket;
 }
@@ -2969,47 +2969,46 @@ export interface SnapshotDiskContainer {
  */
 export interface ImportSnapshotRequest {
   /**
-   * @public
    * <p>The client-specific data.</p>
+   * @public
    */
   ClientData?: ClientData;
 
   /**
-   * @public
    * <p>Token to enable idempotency for VM import requests.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The description string for the import snapshot task.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Information about the disk container.</p>
+   * @public
    */
   DiskContainer?: SnapshotDiskContainer;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is
    *    used unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
    *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
    */
   Encrypted?: boolean;
 
   /**
-   * @public
    * <p>An identifier for the symmetric KMS key to use when creating the
    *    encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this
    *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
@@ -3033,18 +3032,19 @@ export interface ImportSnapshotRequest {
    *    though you provided an invalid identifier. This action will eventually report failure. </p>
    *          <p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p>
    *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>The tags to apply to the import snapshot task during creation.</p>
+   * @public
    */
   TagSpecifications?: TagSpecification[];
 }
@@ -3054,26 +3054,26 @@ export interface ImportSnapshotRequest {
  */
 export interface ImportSnapshotResult {
   /**
-   * @public
    * <p>A description of the import snapshot task.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ID of the import snapshot task.</p>
+   * @public
    */
   ImportTaskId?: string;
 
   /**
-   * @public
    * <p>Information about the import snapshot task.</p>
+   * @public
    */
   SnapshotTaskDetail?: SnapshotTaskDetail;
 
   /**
-   * @public
    * <p>Any tags assigned to the import snapshot task.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -3083,34 +3083,34 @@ export interface ImportSnapshotResult {
  */
 export interface ImportVolumeRequest {
   /**
-   * @public
    * <p>The Availability Zone for the resulting EBS volume.</p>
+   * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * @public
    * <p>A description of the volume.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The disk image.</p>
+   * @public
    */
   Image: DiskImageDetail | undefined;
 
   /**
-   * @public
    * <p>The volume size.</p>
+   * @public
    */
   Volume: VolumeDetail | undefined;
 }
@@ -3120,8 +3120,8 @@ export interface ImportVolumeRequest {
  */
 export interface ImportVolumeResult {
   /**
-   * @public
    * <p>Information about the conversion task.</p>
+   * @public
    */
   ConversionTask?: ConversionTask;
 }
@@ -3131,67 +3131,67 @@ export interface ImportVolumeResult {
  */
 export interface ListImagesInRecycleBinRequest {
   /**
-   * @public
    * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that
    *       are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>
+   * @public
    */
   ImageIds?: string[];
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    *          To get the next page of items, make another request with the token returned in the output.
    * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Information about an AMI that is currently in the Recycle Bin.</p>
+ * @public
  */
 export interface ImageRecycleBinInfo {
   /**
-   * @public
    * <p>The ID of the AMI.</p>
+   * @public
    */
   ImageId?: string;
 
   /**
-   * @public
    * <p>The name of the AMI.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The description of the AMI.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The date and time when the AMI entered the Recycle Bin.</p>
+   * @public
    */
   RecycleBinEnterTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the AMI is to be permanently deleted from the Recycle Bin.</p>
+   * @public
    */
   RecycleBinExitTime?: Date;
 }
@@ -3201,15 +3201,15 @@ export interface ImageRecycleBinInfo {
  */
 export interface ListImagesInRecycleBinResult {
   /**
-   * @public
    * <p>Information about the AMIs.</p>
+   * @public
    */
   Images?: ImageRecycleBinInfo[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
    *          are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3219,68 +3219,68 @@ export interface ListImagesInRecycleBinResult {
  */
 export interface ListSnapshotsInRecycleBinRequest {
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    * 	To get the next page of items, make another request with the token returned in the output.
    * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request.
    *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The IDs of the snapshots to list. Omit this parameter to list all of the
    *       snapshots that are in the Recycle Bin.</p>
+   * @public
    */
   SnapshotIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Information about a snapshot that is currently in the Recycle Bin.</p>
+ * @public
  */
 export interface SnapshotRecycleBinInfo {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The date and time when the snaphsot entered the Recycle Bin.</p>
+   * @public
    */
   RecycleBinEnterTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the snapshot is to be permanently deleted from the Recycle Bin.</p>
+   * @public
    */
   RecycleBinExitTime?: Date;
 
   /**
-   * @public
    * <p>The description for the snapshot.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ID of the volume from which the snapshot was created.</p>
+   * @public
    */
   VolumeId?: string;
 }
@@ -3290,15 +3290,15 @@ export interface SnapshotRecycleBinInfo {
  */
 export interface ListSnapshotsInRecycleBinResult {
   /**
-   * @public
    * <p>Information about the snapshots.</p>
+   * @public
    */
   Snapshots?: SnapshotRecycleBinInfo[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items.
    *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3322,21 +3322,20 @@ export type LockMode = (typeof LockMode)[keyof typeof LockMode];
  */
 export interface LockSnapshotRequest {
   /**
-   * @public
    * <p>The ID of the snapshot to lock.</p>
+   * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The mode in which to lock the snapshot. Specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -3366,11 +3365,11 @@ export interface LockSnapshotRequest {
    *           <b>CoolOffPeriod</b>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockMode: LockMode | undefined;
 
   /**
-   * @public
    * <p>The cooling-off period during which you can unlock the snapshot or modify the lock settings after
    *       locking the snapshot in compliance mode, in hours. After the cooling-off period expires, you can't
    *       unlock or delete the snapshot, decrease the lock duration, or change the lock mode. You can increase
@@ -3383,25 +3382,26 @@ export interface LockSnapshotRequest {
    *       the cooling-off period has expired, omit this parameter. If you specify a cooling-period in a such
    *       a request, the request fails.</p>
    *          <p>Allowed values: Min 1, max 72.</p>
+   * @public
    */
   CoolOffPeriod?: number;
 
   /**
-   * @public
    * <p>The period of time for which to lock the snapshot, in days. The snapshot lock will automatically
    *       expire after this period lapses.</p>
    *          <p>You must specify either this parameter or <b>ExpirationDate</b>, but
    *       not both.</p>
    *          <p>Allowed values: Min: 1, max 36500</p>
+   * @public
    */
   LockDuration?: number;
 
   /**
-   * @public
    * <p>The date and time at which the snapshot lock is to automatically expire, in the UTC time zone
    *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
    *          <p>You must specify either this parameter or <b>LockDuration</b>, but
    *       not both.</p>
+   * @public
    */
   ExpirationDate?: Date;
 }
@@ -3411,13 +3411,12 @@ export interface LockSnapshotRequest {
  */
 export interface LockSnapshotResult {
   /**
-   * @public
    * <p>The ID of the snapshot</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The state of the snapshot lock. Valid states include:</p>
    *          <ul>
    *             <li>
@@ -3445,46 +3444,47 @@ export interface LockSnapshotResult {
    *           mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockState?: LockState;
 
   /**
-   * @public
    * <p>The period of time for which the snapshot is locked, in days.</p>
+   * @public
    */
   LockDuration?: number;
 
   /**
-   * @public
    * <p>The compliance mode cooling-off period, in hours.</p>
+   * @public
    */
   CoolOffPeriod?: number;
 
   /**
-   * @public
    * <p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone
    *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
    */
   CoolOffPeriodExpiresOn?: Date;
 
   /**
-   * @public
    * <p>The date and time at which the snapshot was locked, in the UTC time zone
    *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
    */
   LockCreatedOn?: Date;
 
   /**
-   * @public
    * <p>The date and time at which the lock will expire, in the UTC time zone
    *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
    */
   LockExpiresOn?: Date;
 
   /**
-   * @public
    * <p>The date and time at which the lock duration started, in the UTC time zone
    *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
    */
   LockDurationStartTime?: Date;
 }
@@ -3494,22 +3494,22 @@ export interface LockSnapshotResult {
  */
 export interface ModifyAddressAttributeRequest {
   /**
-   * @public
    * <p>[EC2-VPC] The allocation ID.</p>
+   * @public
    */
   AllocationId: string | undefined;
 
   /**
-   * @public
    * <p>The domain name to modify for the IP address.</p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -3519,8 +3519,8 @@ export interface ModifyAddressAttributeRequest {
  */
 export interface ModifyAddressAttributeResult {
   /**
-   * @public
    * <p>Information about the Elastic IP address.</p>
+   * @public
    */
   Address?: AddressAttribute;
 }
@@ -3545,24 +3545,24 @@ export type ModifyAvailabilityZoneOptInStatus =
  */
 export interface ModifyAvailabilityZoneGroupRequest {
   /**
-   * @public
    * <p>The name of the Availability Zone group, Local Zone group, or Wavelength Zone
    *       group.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The
    *       only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">Amazon Web Services Support</a> to opt out of a Local Zone or Wavelength Zone group.</p>
+   * @public
    */
   OptInStatus: ModifyAvailabilityZoneOptInStatus | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -3572,8 +3572,8 @@ export interface ModifyAvailabilityZoneGroupRequest {
  */
 export interface ModifyAvailabilityZoneGroupResult {
   /**
-   * @public
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -3583,20 +3583,19 @@ export interface ModifyAvailabilityZoneGroupResult {
  */
 export interface ModifyCapacityReservationRequest {
   /**
-   * @public
    * <p>The ID of the Capacity Reservation.</p>
+   * @public
    */
   CapacityReservationId: string | undefined;
 
   /**
-   * @public
    * <p>The number of instances for which to reserve capacity. The number of instances can't be increased or
    * 		    	decreased by more than <code>1000</code> in a single request.</p>
+   * @public
    */
   InstanceCount?: number;
 
   /**
-   * @public
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
    * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
    * 				<code>expired</code> when it reaches its end date and time.</p>
@@ -3605,11 +3604,11 @@ export interface ModifyCapacityReservationRequest {
    *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
    * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
    * 				<code>unlimited</code>.</p>
+   * @public
    */
   EndDate?: Date;
 
   /**
-   * @public
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
    *          <ul>
@@ -3626,24 +3625,25 @@ export interface ModifyCapacityReservationRequest {
    * 						<code>limited</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   EndDateType?: EndDateType;
 
   /**
-   * @public
    * <p>Reserved. Capacity Reservations you have created are accepted by default.</p>
+   * @public
    */
   Accept?: boolean;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   AdditionalInfo?: string;
 }
@@ -3653,8 +3653,8 @@ export interface ModifyCapacityReservationRequest {
  */
 export interface ModifyCapacityReservationResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -3664,23 +3664,22 @@ export interface ModifyCapacityReservationResult {
  */
 export interface ModifyCapacityReservationFleetRequest {
   /**
-   * @public
    * <p>The ID of the Capacity Reservation Fleet to modify.</p>
+   * @public
    */
   CapacityReservationFleetId: string | undefined;
 
   /**
-   * @public
    * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value,
    * 			together with the instance type weights that you assign to each instance type used by the Fleet
    * 			determine the number of instances for which the Fleet reserves capacity. Both values are based on
    * 			units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
    * 			in the Amazon EC2 User Guide.</p>
+   * @public
    */
   TotalTargetCapacity?: number;
 
   /**
-   * @public
    * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation
    * 			Fleet expires, its state changes to <code>expired</code> and all of the Capacity Reservations in the
    * 			Fleet expire.</p>
@@ -3689,22 +3688,23 @@ export interface ModifyCapacityReservationFleetRequest {
    * 			to expire between <code>13:30:55</code> and <code>14:30:55</code> on <code>5/31/2019</code>.</p>
    *          <p>You can't specify <b>EndDate</b> and <b>
    * 			RemoveEndDate</b> in the same request.</p>
+   * @public
    */
   EndDate?: Date;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you remove the
    * 			end date, the Capacity Reservation Fleet does not expire and it remains active until you explicitly
    * 			cancel it using the <b>CancelCapacityReservationFleet</b> action.</p>
    *          <p>You can't specify <b>RemoveEndDate</b> and <b>
    * 			EndDate</b> in the same request.</p>
+   * @public
    */
   RemoveEndDate?: boolean;
 }
@@ -3714,29 +3714,29 @@ export interface ModifyCapacityReservationFleetRequest {
  */
 export interface ModifyCapacityReservationFleetResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
 
 /**
- * @public
  * <p>Information about the DNS server to be used.</p>
+ * @public
  */
 export interface DnsServersOptionsModifyStructure {
   /**
-   * @public
    * <p>The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to
    * 			two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values
    * 			overwrite the existing values.</p>
+   * @public
    */
   CustomDnsServers?: string[];
 
   /**
-   * @public
    * <p>Indicates whether DNS servers should be used. Specify <code>False</code> to delete the existing DNS
    * 			servers.</p>
+   * @public
    */
   Enabled?: boolean;
 }
@@ -3746,20 +3746,19 @@ export interface DnsServersOptionsModifyStructure {
  */
 export interface ModifyClientVpnEndpointRequest {
   /**
-   * @public
    * <p>The ID of the Client VPN endpoint to modify.</p>
+   * @public
    */
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the server certificate to be used. The server certificate must be provisioned in
    * 			Certificate Manager (ACM).</p>
+   * @public
    */
   ServerCertificateArn?: string;
 
   /**
-   * @public
    * <p>Information about the client connection logging options.</p>
    *          <p>If you enable client connection logging, data about client connections is sent to a
    * 			Cloudwatch Logs log stream. The following information is logged:</p>
@@ -3777,84 +3776,85 @@ export interface ModifyClientVpnEndpointRequest {
    *                <p>Client connection termination time</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ConnectionLogOptions?: ConnectionLogOptions;
 
   /**
-   * @public
    * <p>Information about the DNS servers to be used by Client VPN connections. A Client VPN endpoint can have
    * 			up to two DNS servers.</p>
+   * @public
    */
   DnsServers?: DnsServersOptionsModifyStructure;
 
   /**
-   * @public
    * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
    *          <p>Valid Values: <code>443</code> | <code>1194</code>
    *          </p>
    *          <p>Default Value: <code>443</code>
    *          </p>
+   * @public
    */
   VpnPort?: number;
 
   /**
-   * @public
    * <p>A brief description of the Client VPN endpoint.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Indicates whether the VPN is split-tunnel.</p>
    *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
    *         	<i>Client VPN Administrator Guide</i>.</p>
+   * @public
    */
   SplitTunnel?: boolean;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The IDs of one or more security groups to apply to the target network.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The ID of the VPC to associate with the Client VPN endpoint.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
+   * @public
    */
   SelfServicePortal?: SelfServicePortal;
 
   /**
-   * @public
    * <p>The options for managing connection authorization for new client connections.</p>
+   * @public
    */
   ClientConnectOptions?: ClientConnectOptions;
 
   /**
-   * @public
    * <p>The maximum VPN session duration time in hours.</p>
    *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
    *          </p>
    *          <p>Default value: <code>24</code>
    *          </p>
+   * @public
    */
   SessionTimeoutHours?: number;
 
   /**
-   * @public
    * <p>Options for enabling a customizable text banner that will be displayed on
    * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   * @public
    */
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
 }
@@ -3864,8 +3864,8 @@ export interface ModifyClientVpnEndpointRequest {
  */
 export interface ModifyClientVpnEndpointResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -3875,24 +3875,24 @@ export interface ModifyClientVpnEndpointResult {
  */
 export interface ModifyDefaultCreditSpecificationRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The instance family.</p>
+   * @public
    */
   InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
 
   /**
-   * @public
    * <p>The credit option for CPU usage of the instance family.</p>
    *          <p>Valid Values: <code>standard</code> | <code>unlimited</code>
    *          </p>
+   * @public
    */
   CpuCredits: string | undefined;
 }
@@ -3902,8 +3902,8 @@ export interface ModifyDefaultCreditSpecificationRequest {
  */
 export interface ModifyDefaultCreditSpecificationResult {
   /**
-   * @public
    * <p>The default credit option for CPU usage of the instance family.</p>
+   * @public
    */
   InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification;
 }
@@ -3913,7 +3913,6 @@ export interface ModifyDefaultCreditSpecificationResult {
  */
 export interface ModifyEbsDefaultKmsKeyIdRequest {
   /**
-   * @public
    * <p>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
    *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
    *       specified, the encrypted state must be <code>true</code>.</p>
@@ -3935,14 +3934,15 @@ export interface ModifyEbsDefaultKmsKeyIdRequest {
    *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
    *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   * @public
    */
   KmsKeyId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -3952,8 +3952,8 @@ export interface ModifyEbsDefaultKmsKeyIdRequest {
  */
 export interface ModifyEbsDefaultKmsKeyIdResult {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
+   * @public
    */
   KmsKeyId?: string;
 }
@@ -3963,42 +3963,42 @@ export interface ModifyEbsDefaultKmsKeyIdResult {
  */
 export interface ModifyFleetRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether running instances should be terminated if the total target capacity of
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
+   * @public
    */
   ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy;
 
   /**
-   * @public
    * <p>The launch template and overrides.</p>
+   * @public
    */
   LaunchTemplateConfigs?: FleetLaunchTemplateConfigRequest[];
 
   /**
-   * @public
    * <p>The ID of the EC2 Fleet.</p>
+   * @public
    */
   FleetId: string | undefined;
 
   /**
-   * @public
    * <p>The size of the EC2 Fleet.</p>
+   * @public
    */
   TargetCapacitySpecification?: TargetCapacitySpecificationRequest;
 
   /**
-   * @public
    * <p>Reserved.</p>
+   * @public
    */
   Context?: string;
 }
@@ -4008,45 +4008,45 @@ export interface ModifyFleetRequest {
  */
 export interface ModifyFleetResult {
   /**
-   * @public
    * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
    *          no response is returned, and instead an error message is returned.</p>
+   * @public
    */
   Return?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a load permission.</p>
+ * @public
  */
 export interface LoadPermissionRequest {
   /**
-   * @public
    * <p>The name of the group.</p>
+   * @public
    */
   Group?: PermissionGroup;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID.</p>
+   * @public
    */
   UserId?: string;
 }
 
 /**
- * @public
  * <p>Describes modifications to the load permissions of an Amazon FPGA image (AFI).</p>
+ * @public
  */
 export interface LoadPermissionModifications {
   /**
-   * @public
    * <p>The load permissions to add.</p>
+   * @public
    */
   Add?: LoadPermissionRequest[];
 
   /**
-   * @public
    * <p>The load permissions to remove.</p>
+   * @public
    */
   Remove?: LoadPermissionRequest[];
 }
@@ -4070,65 +4070,65 @@ export type OperationType = (typeof OperationType)[keyof typeof OperationType];
  */
 export interface ModifyFpgaImageAttributeRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the AFI.</p>
+   * @public
    */
   FpgaImageId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the attribute.</p>
+   * @public
    */
   Attribute?: FpgaImageAttributeName;
 
   /**
-   * @public
    * <p>The operation type.</p>
+   * @public
    */
   OperationType?: OperationType;
 
   /**
-   * @public
    * <p>The Amazon Web Services account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
+   * @public
    */
   UserIds?: string[];
 
   /**
-   * @public
    * <p>The user groups. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
+   * @public
    */
   UserGroups?: string[];
 
   /**
-   * @public
    * <p>The product codes. After you add a product code to an AFI, it can't be removed.
    * 		    This parameter is valid only when modifying the <code>productCodes</code> attribute.</p>
+   * @public
    */
   ProductCodes?: string[];
 
   /**
-   * @public
    * <p>The load permission for the AFI.</p>
+   * @public
    */
   LoadPermission?: LoadPermissionModifications;
 
   /**
-   * @public
    * <p>A description for the AFI.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>A name for the AFI.</p>
+   * @public
    */
   Name?: string;
 }
@@ -4138,8 +4138,8 @@ export interface ModifyFpgaImageAttributeRequest {
  */
 export interface ModifyFpgaImageAttributeResult {
   /**
-   * @public
    * <p>Information about the attribute.</p>
+   * @public
    */
   FpgaImageAttribute?: FpgaImageAttribute;
 }
@@ -4149,51 +4149,51 @@ export interface ModifyFpgaImageAttributeResult {
  */
 export interface ModifyHostsRequest {
   /**
-   * @public
    * <p>Specify whether to enable or disable auto-placement.</p>
+   * @public
    */
   AutoPlacement?: AutoPlacement;
 
   /**
-   * @public
    * <p>The IDs of the Dedicated Hosts to modify.</p>
+   * @public
    */
   HostIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
    */
   HostRecovery?: HostRecovery;
 
   /**
-   * @public
    * <p>Specifies the instance type to be supported by the Dedicated Host. Specify this
    *             parameter to modify a Dedicated Host to support only a specific instance type.</p>
    *          <p>If you want to modify a Dedicated Host to support multiple instance types in its
    *             current instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
    *             same request.</p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>Specifies the instance family to be supported by the Dedicated Host. Specify this
    *             parameter to modify a Dedicated Host to support multiple instance types within its
    *             current instance family.</p>
    *          <p>If you want to modify a Dedicated Host to support a specific instance type only, omit
    *             this parameter and specify <b>InstanceType</b> instead. You
    *             cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
+   * @public
    */
   InstanceFamily?: string;
 
   /**
-   * @public
    * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
    */
   HostMaintenance?: HostMaintenance;
 }
@@ -4203,15 +4203,15 @@ export interface ModifyHostsRequest {
  */
 export interface ModifyHostsResult {
   /**
-   * @public
    * <p>The IDs of the Dedicated Hosts that were successfully modified.</p>
+   * @public
    */
   Successful?: string[];
 
   /**
-   * @public
    * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the setting
    *             you requested can be used.</p>
+   * @public
    */
   Unsuccessful?: UnsuccessfulItem[];
 }
@@ -4221,15 +4221,14 @@ export interface ModifyHostsResult {
  */
 export interface ModifyIdentityIdFormatRequest {
   /**
-   * @public
    * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
    *        <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of
    *        the account.</p>
+   * @public
    */
   PrincipalArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
    *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
    *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
@@ -4242,12 +4241,13 @@ export interface ModifyIdentityIdFormatRequest {
    *           <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
    *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
    *           currently within their opt-in period for longer IDs.</p>
+   * @public
    */
   Resource: string | undefined;
 
   /**
-   * @public
    * <p>Indicates whether the resource should use longer IDs (17-character IDs)</p>
+   * @public
    */
   UseLongIds: boolean | undefined;
 }
@@ -4257,7 +4257,6 @@ export interface ModifyIdentityIdFormatRequest {
  */
 export interface ModifyIdFormatRequest {
   /**
-   * @public
    * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
    *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
    *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
@@ -4270,121 +4269,121 @@ export interface ModifyIdFormatRequest {
    *            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
    *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
    *        currently within their opt-in period for longer IDs.</p>
+   * @public
    */
   Resource: string | undefined;
 
   /**
-   * @public
    * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
+   * @public
    */
   UseLongIds: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Describes a launch permission modification.</p>
+ * @public
  */
 export interface LaunchPermissionModifications {
   /**
-   * @public
    * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of launch permissions for the AMI.</p>
+   * @public
    */
   Add?: LaunchPermission[];
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of launch permissions for the AMI.</p>
+   * @public
    */
   Remove?: LaunchPermission[];
 }
 
 /**
- * @public
  * <p>Contains the parameters for ModifyImageAttribute.</p>
+ * @public
  */
 export interface ModifyImageAttributeRequest {
   /**
-   * @public
    * <p>The name of the attribute to modify.</p>
    *          <p>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code>
    *          </p>
+   * @public
    */
   Attribute?: string;
 
   /**
-   * @public
    * <p>A new description for the AMI.</p>
+   * @public
    */
   Description?: AttributeValue;
 
   /**
-   * @public
    * <p>The ID of the AMI.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>A new launch permission for the AMI.</p>
+   * @public
    */
   LaunchPermission?: LaunchPermissionModifications;
 
   /**
-   * @public
    * <p>The operation type.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * @public
    */
   OperationType?: OperationType;
 
   /**
-   * @public
    * <p>Not supported.</p>
+   * @public
    */
   ProductCodes?: string[];
 
   /**
-   * @public
    * <p>The user groups.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * @public
    */
   UserGroups?: string[];
 
   /**
-   * @public
    * <p>The Amazon Web Services account IDs.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * @public
    */
   UserIds?: string[];
 
   /**
-   * @public
    * <p>The value of the attribute being modified.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code>imdsSupport</code>.</p>
+   * @public
    */
   Value?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * @public
    */
   OrganizationArns?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * @public
    */
   OrganizationalUnitArns?: string[];
 
   /**
-   * @public
    * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
    *       launched from this AMI will have <code>HttpTokens</code> automatically set to
    *       <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
@@ -4395,56 +4394,57 @@ export interface ModifyImageAttributeRequest {
    *             <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the value to <code>v2.0</code>,
    *         you can't undo it. The only way to “reset” your AMI is to create a new AMI from the underlying snapshot.</p>
    *          </important>
+   * @public
    */
   ImdsSupport?: AttributeValue;
 }
 
 /**
- * @public
  * <p>Describes information used to set up an EBS volume specified in a block device
  *             mapping.</p>
+ * @public
  */
 export interface EbsInstanceBlockDeviceSpecification {
   /**
-   * @public
    * <p>Indicates whether the volume is deleted on instance termination.</p>
+   * @public
    */
   DeleteOnTermination?: boolean;
 
   /**
-   * @public
    * <p>The ID of the EBS volume.</p>
+   * @public
    */
   VolumeId?: string;
 }
 
 /**
- * @public
  * <p>Describes a block device mapping entry.</p>
+ * @public
  */
 export interface InstanceBlockDeviceMappingSpecification {
   /**
-   * @public
    * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   * @public
    */
   DeviceName?: string;
 
   /**
-   * @public
    * <p>Parameters used to automatically set up EBS volumes when the instance is
    *             launched.</p>
+   * @public
    */
   Ebs?: EbsInstanceBlockDeviceSpecification;
 
   /**
-   * @public
    * <p>suppress the specified device included in the block device mapping.</p>
+   * @public
    */
   NoDevice?: string;
 
   /**
-   * @public
    * <p>The virtual device name.</p>
+   * @public
    */
   VirtualName?: string;
 }
@@ -4461,18 +4461,17 @@ export interface BlobAttributeValue {
  */
 export interface ModifyInstanceAttributeRequest {
   /**
-   * @public
    * <p>Enable or disable source/destination checks, which ensure that the instance is either
    *             the source or the destination of any traffic that it receives. If the value is
    *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
    *             disabled. The default value is <code>true</code>. You must disable source/destination
    *             checks if the instance runs services such as network address translation, routing, or
    *             firewalls.</p>
+   * @public
    */
   SourceDestCheck?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>The name of the attribute to modify.</p>
    *          <important>
    *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
@@ -4484,11 +4483,11 @@ export interface ModifyInstanceAttributeRequest {
    *                 | <code>enclaveOptions</code>
    *             </p>
    *          </important>
+   * @public
    */
   Attribute?: InstanceAttributeName;
 
   /**
-   * @public
    * <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
    *             attached. The volume must be owned by the caller. If no value is specified for
    *                 <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is
@@ -4497,124 +4496,124 @@ export interface ModifyInstanceAttributeRequest {
    *          <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
    *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
    */
   BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[];
 
   /**
-   * @public
    * <p>If the value is <code>true</code>, you can't terminate the instance using the Amazon
    *             EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot
    *             Instances.</p>
+   * @public
    */
   DisableApiTermination?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
    *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
    *             provide optimal EBS I/O performance. This optimization isn't available with all instance
    *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   * @public
    */
   EbsOptimized?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
    *             instance.</p>
    *          <p>This option is supported only for HVM instances. Specifying this option with a PV
    *             instance can make it unreachable.</p>
+   * @public
    */
   EnaSupport?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Replaces the security groups of the instance with the specified security groups.
    *             You must specify the ID of at least one security group, even if it's just the default
    *             security group for the VPC.</p>
+   * @public
    */
   Groups?: string[];
 
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
    *             instance (using the operating system command for system shutdown).</p>
+   * @public
    */
   InstanceInitiatedShutdownBehavior?: AttributeValue;
 
   /**
-   * @public
    * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
    *                 types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is
    *             not valid, the error returned is <code>InvalidInstanceAttributeValue</code>.</p>
+   * @public
    */
   InstanceType?: AttributeValue;
 
   /**
-   * @public
    * <p>Changes the instance's kernel to the specified value. We recommend that you use
    *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
+   * @public
    */
   Kernel?: AttributeValue;
 
   /**
-   * @public
    * <p>Changes the instance's RAM disk to the specified value. We recommend that you use
    *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
+   * @public
    */
   Ramdisk?: AttributeValue;
 
   /**
-   * @public
    * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
    *             Function interface for the instance.</p>
    *          <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
    *             interface at this time.</p>
    *          <p>This option is supported only for HVM instances. Specifying this option with a PV
    *             instance can make it unreachable.</p>
+   * @public
    */
   SriovNetSupport?: AttributeValue;
 
   /**
-   * @public
    * <p>Changes the instance's user data to the specified value. If you are using an Amazon Web Services SDK or command line tool, base64-encoding is performed for you, and you
    *             can load the text from a file. Otherwise, you must provide base64-encoded text.</p>
+   * @public
    */
   UserData?: BlobAttributeValue;
 
   /**
-   * @public
    * <p>A new value for the attribute. Use only with the <code>kernel</code>,
    *                 <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or
    *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
+   * @public
    */
   Value?: string;
 
   /**
-   * @public
    * <p>Indicates whether an instance is enabled for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
    *                 Protection</a>.</p>
    *          <p></p>
+   * @public
    */
   DisableApiStop?: AttributeBooleanValue;
 }
 
 /**
- * @public
  * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
  * 			at a time. If you specify <code>CapacityReservationPreference</code> and
  * 			<code>CapacityReservationTarget</code>, the request fails.</p>
@@ -4623,10 +4622,10 @@ export interface ModifyInstanceAttributeRequest {
  * 			matching attributes (instance type, platform, Availability Zone). Use the
  * 			<code>CapacityReservationTarget</code> parameter to explicitly target a specific
  * 			   	Capacity Reservation or a Capacity Reservation group.</p>
+ * @public
  */
 export interface CapacityReservationSpecification {
   /**
-   * @public
    * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
    *          <ul>
    *             <li>
@@ -4640,12 +4639,13 @@ export interface CapacityReservationSpecification {
    * 					instance runs as an On-Demand Instance.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   CapacityReservationPreference?: CapacityReservationPreference;
 
   /**
-   * @public
    * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
+   * @public
    */
   CapacityReservationTarget?: CapacityReservationTarget;
 }
@@ -4655,20 +4655,20 @@ export interface CapacityReservationSpecification {
  */
 export interface ModifyInstanceCapacityReservationAttributesRequest {
   /**
-   * @public
    * <p>The ID of the instance to be modified.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>Information about the Capacity Reservation targeting option.</p>
+   * @public
    */
   CapacityReservationSpecification: CapacityReservationSpecification | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4678,30 +4678,30 @@ export interface ModifyInstanceCapacityReservationAttributesRequest {
  */
 export interface ModifyInstanceCapacityReservationAttributesResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
+ * @public
  */
 export interface InstanceCreditSpecificationRequest {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>The credit option for CPU usage of the instance.</p>
    *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
    *          </p>
    *          <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
    *             CPU credit option.</p>
+   * @public
    */
   CpuCredits?: string;
 }
@@ -4711,37 +4711,37 @@ export interface InstanceCreditSpecificationRequest {
  */
 export interface ModifyInstanceCreditSpecificationRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Information about the credit option for CPU usage.</p>
+   * @public
    */
   InstanceCreditSpecifications: InstanceCreditSpecificationRequest[] | undefined;
 }
 
 /**
- * @public
  * <p>Describes the burstable performance instance whose credit option for CPU usage was
  *             successfully modified.</p>
+ * @public
  */
 export interface SuccessfulInstanceCreditSpecificationItem {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId?: string;
 }
@@ -4764,40 +4764,40 @@ export type UnsuccessfulInstanceCreditSpecificationErrorCode =
   (typeof UnsuccessfulInstanceCreditSpecificationErrorCode)[keyof typeof UnsuccessfulInstanceCreditSpecificationErrorCode];
 
 /**
- * @public
  * <p>Information about the error for the burstable performance instance whose credit option
  *             for CPU usage was not modified.</p>
+ * @public
  */
 export interface UnsuccessfulInstanceCreditSpecificationItemError {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   Code?: UnsuccessfulInstanceCreditSpecificationErrorCode;
 
   /**
-   * @public
    * <p>The applicable error message.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>Describes the burstable performance instance whose credit option for CPU usage was not
  *             modified.</p>
+ * @public
  */
 export interface UnsuccessfulInstanceCreditSpecificationItem {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>The applicable error for the burstable performance instance whose credit option for
    *             CPU usage was not modified.</p>
+   * @public
    */
   Error?: UnsuccessfulInstanceCreditSpecificationItemError;
 }
@@ -4807,16 +4807,16 @@ export interface UnsuccessfulInstanceCreditSpecificationItem {
  */
 export interface ModifyInstanceCreditSpecificationResult {
   /**
-   * @public
    * <p>Information about the instances whose credit option for CPU usage was successfully
    *             modified.</p>
+   * @public
    */
   SuccessfulInstanceCreditSpecifications?: SuccessfulInstanceCreditSpecificationItem[];
 
   /**
-   * @public
    * <p>Information about the instances whose credit option for CPU usage was not
    *             modified.</p>
+   * @public
    */
   UnsuccessfulInstanceCreditSpecifications?: UnsuccessfulInstanceCreditSpecificationItem[];
 }
@@ -4826,28 +4826,28 @@ export interface ModifyInstanceCreditSpecificationResult {
  */
 export interface ModifyInstanceEventStartTimeRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the instance with the scheduled event.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the event whose date and time you are modifying.</p>
+   * @public
    */
   InstanceEventId: string | undefined;
 
   /**
-   * @public
    * <p>The new date and time when the event will take place.</p>
+   * @public
    */
   NotBefore: Date | undefined;
 }
@@ -4857,8 +4857,8 @@ export interface ModifyInstanceEventStartTimeRequest {
  */
 export interface ModifyInstanceEventStartTimeResult {
   /**
-   * @public
    * <p>Information about the event.</p>
+   * @public
    */
   Event?: InstanceStatusEvent;
 }
@@ -4868,33 +4868,32 @@ export interface ModifyInstanceEventStartTimeResult {
  */
 export interface ModifyInstanceEventWindowRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The name of the event window.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The ID of the event window.</p>
+   * @public
    */
   InstanceEventWindowId: string | undefined;
 
   /**
-   * @public
    * <p>The time ranges of the event window.</p>
+   * @public
    */
   TimeRanges?: InstanceEventWindowTimeRangeRequest[];
 
   /**
-   * @public
    * <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4924,6 +4923,7 @@ export interface ModifyInstanceEventWindowRequest {
    *          </ul>
    *          <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia
    *             website</i>.</p>
+   * @public
    */
   CronExpression?: string;
 }
@@ -4933,8 +4933,8 @@ export interface ModifyInstanceEventWindowRequest {
  */
 export interface ModifyInstanceEventWindowResult {
   /**
-   * @public
    * <p>Information about the event window.</p>
+   * @public
    */
   InstanceEventWindow?: InstanceEventWindow;
 }
@@ -4944,24 +4944,24 @@ export interface ModifyInstanceEventWindowResult {
  */
 export interface ModifyInstanceMaintenanceOptionsRequest {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>Disables the automatic recovery behavior of your instance or sets it to
    *             default.</p>
+   * @public
    */
   AutoRecovery?: InstanceAutoRecoveryState;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4971,15 +4971,15 @@ export interface ModifyInstanceMaintenanceOptionsRequest {
  */
 export interface ModifyInstanceMaintenanceOptionsResult {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>Provides information on the current automatic recovery behavior of your
    *             instance.</p>
+   * @public
    */
   AutoRecovery?: InstanceAutoRecoveryState;
 }
@@ -4989,13 +4989,12 @@ export interface ModifyInstanceMaintenanceOptionsResult {
  */
 export interface ModifyInstanceMetadataOptionsRequest {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>Indicates whether IMDSv2 is required.</p>
    *          <ul>
    *             <li>
@@ -5016,49 +5015,50 @@ export interface ModifyInstanceMetadataOptionsRequest {
    *          </ul>
    *          <p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
    *             for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
+   * @public
    */
   HttpTokens?: HttpTokensState;
 
   /**
-   * @public
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
    *             number, the further instance metadata requests can travel. If no parameter is specified,
    *             the existing state is maintained.</p>
    *          <p>Possible values: Integers from 1 to 64</p>
+   * @public
    */
   HttpPutResponseHopLimit?: number;
 
   /**
-   * @public
    * <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is
    *             not specified, the existing state is maintained.</p>
    *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
    *             metadata.</p>
+   * @public
    */
   HttpEndpoint?: InstanceMetadataEndpointState;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.
    *             Applies only if you enabled the HTTP metadata endpoint.</p>
+   * @public
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState;
 
   /**
-   * @public
    * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
    *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
    *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
    *                 instance tags using the instance metadata</a>.</p>
+   * @public
    */
   InstanceMetadataTags?: InstanceMetadataTagsState;
 }
@@ -5068,14 +5068,14 @@ export interface ModifyInstanceMetadataOptionsRequest {
  */
 export interface ModifyInstanceMetadataOptionsResult {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>The metadata options for the instance.</p>
+   * @public
    */
   InstanceMetadataOptions?: InstanceMetadataOptionsResponse;
 }
@@ -5099,35 +5099,34 @@ export type HostTenancy = (typeof HostTenancy)[keyof typeof HostTenancy];
  */
 export interface ModifyInstancePlacementRequest {
   /**
-   * @public
    * <p>The affinity setting for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity">Host affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
    */
   Affinity?: Affinity;
 
   /**
-   * @public
    * <p>The name of the placement group in which to place the instance. For spread placement
    *             groups, the instance must have a tenancy of <code>default</code>. For cluster and
    *             partition placement groups, the instance must have a tenancy of <code>default</code> or
    *                 <code>dedicated</code>.</p>
    *          <p>To remove an instance from a placement group, specify an empty string ("").</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The ID of the Dedicated Host with which to associate the instance.</p>
+   * @public
    */
   HostId?: string;
 
   /**
-   * @public
    * <p>The ID of the instance that you are modifying.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>The tenancy for the instance.</p>
    *          <note>
    *             <p>For T3 instances, you must launch the instance on a Dedicated Host to use a
@@ -5136,27 +5135,28 @@ export interface ModifyInstancePlacementRequest {
    *                 Attempting to make one of these unsupported tenancy changes results in an
    *                 <code>InvalidRequest</code> error code.</p>
    *          </note>
+   * @public
    */
   Tenancy?: HostTenancy;
 
   /**
-   * @public
    * <p>The number of the partition in which to place the instance. Valid only if the
    *             placement group strategy is set to <code>partition</code>.</p>
+   * @public
    */
   PartitionNumber?: number;
 
   /**
-   * @public
    * <p>The ARN of the host resource group in which to place the instance. The instance must
    *             have a tenancy of <code>host</code> to specify this parameter.</p>
+   * @public
    */
   HostResourceGroupArn?: string;
 
   /**
-   * @public
    * <p>The Group Id of a placement group. You must specify the Placement Group <b>Group Id</b> to launch an instance in a shared placement
    *             group.</p>
+   * @public
    */
   GroupId?: string;
 }
@@ -5166,22 +5166,22 @@ export interface ModifyInstancePlacementRequest {
  */
 export interface ModifyInstancePlacementResult {
   /**
-   * @public
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * @public
    */
   Return?: boolean;
 }
 
 /**
- * @public
  * <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
  *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>
  *          </p>
+ * @public
  */
 export interface RemoveIpamOperatingRegion {
   /**
-   * @public
    * <p>The name of the operating Region you want to remove.</p>
+   * @public
    */
   RegionName?: string;
 }
@@ -5191,41 +5191,41 @@ export interface RemoveIpamOperatingRegion {
  */
 export interface ModifyIpamRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the IPAM you want to modify.</p>
+   * @public
    */
   IpamId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the IPAM you want to modify.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Choose the operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
    *          <p>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
    */
   AddOperatingRegions?: AddIpamOperatingRegion[];
 
   /**
-   * @public
    * <p>The operating Regions to remove.</p>
+   * @public
    */
   RemoveOperatingRegions?: RemoveIpamOperatingRegion[];
 
   /**
-   * @public
    * <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing > IPAM tab</a>.</p>
+   * @public
    */
   Tier?: IpamTier;
 }
@@ -5235,8 +5235,8 @@ export interface ModifyIpamRequest {
  */
 export interface ModifyIpamResult {
   /**
-   * @public
    * <p>The results of the modification.</p>
+   * @public
    */
   Ipam?: Ipam;
 }
@@ -5246,27 +5246,26 @@ export interface ModifyIpamResult {
  */
 export interface ModifyIpamPoolRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the IPAM pool you want to modify.</p>
+   * @public
    */
   IpamPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the IPAM pool you want to modify.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>If true, IPAM will continuously look for resources within the CIDR range of this pool
    *          and automatically import them as allocations into your IPAM. The CIDRs that will be allocated for
    *          these resources must not already be allocated to other resources in order for the import to succeed. IPAM will import
@@ -5275,46 +5274,47 @@ export interface ModifyIpamPoolRequest {
    *          discovers multiple CIDRs with matching CIDRs, IPAM will randomly import one of them only.
    *       </p>
    *          <p>A locale must be set on the pool for this feature to work.</p>
+   * @public
    */
   AutoImport?: boolean;
 
   /**
-   * @public
    * <p>The minimum netmask length required for CIDR allocations in this IPAM pool to be compliant. Possible
    *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128. The minimum netmask
    *          length must be less than the maximum netmask length.</p>
+   * @public
    */
   AllocationMinNetmaskLength?: number;
 
   /**
-   * @public
    * <p>The maximum netmask length possible for CIDR allocations in this IPAM pool to be compliant. Possible
    *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128.The maximum netmask
    *          length must be greater than the minimum netmask length.</p>
+   * @public
    */
   AllocationMaxNetmaskLength?: number;
 
   /**
-   * @public
    * <p>The default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.</p>
+   * @public
    */
   AllocationDefaultNetmaskLength?: number;
 
   /**
-   * @public
    * <p>Clear the default netmask length allocation rule for this pool.</p>
+   * @public
    */
   ClearAllocationDefaultNetmaskLength?: boolean;
 
   /**
-   * @public
    * <p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
    */
   AddAllocationResourceTags?: RequestIpamResourceTag[];
 
   /**
-   * @public
    * <p>Remove tag allocation rules from a pool.</p>
+   * @public
    */
   RemoveAllocationResourceTags?: RequestIpamResourceTag[];
 }
@@ -5324,8 +5324,8 @@ export interface ModifyIpamPoolRequest {
  */
 export interface ModifyIpamPoolResult {
   /**
-   * @public
    * <p>The results of the modification.</p>
+   * @public
    */
   IpamPool?: IpamPool;
 }
@@ -5335,46 +5335,46 @@ export interface ModifyIpamPoolResult {
  */
 export interface ModifyIpamResourceCidrRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the resource you want to modify.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The CIDR of the resource you want to modify.</p>
+   * @public
    */
   ResourceCidr: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region of the resource you want to modify.</p>
+   * @public
    */
   ResourceRegion: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the current scope that the resource CIDR is in.</p>
+   * @public
    */
   CurrentIpamScopeId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the scope you want to transfer the resource CIDR to.</p>
+   * @public
    */
   DestinationIpamScopeId?: string;
 
   /**
-   * @public
    * <p>Determines if the resource is monitored by IPAM. If a resource is monitored, the resource is discovered by IPAM and you can view details about the resource’s CIDR.</p>
+   * @public
    */
   Monitored: boolean | undefined;
 }
@@ -5384,8 +5384,8 @@ export interface ModifyIpamResourceCidrRequest {
  */
 export interface ModifyIpamResourceCidrResult {
   /**
-   * @public
    * <p>The CIDR of the resource.</p>
+   * @public
    */
   IpamResourceCidr?: IpamResourceCidr;
 }
@@ -5395,34 +5395,34 @@ export interface ModifyIpamResourceCidrResult {
  */
 export interface ModifyIpamResourceDiscoveryRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A resource discovery ID.</p>
+   * @public
    */
   IpamResourceDiscoveryId: string | undefined;
 
   /**
-   * @public
    * <p>A resource discovery description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Add operating Regions to the resource discovery. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
+   * @public
    */
   AddOperatingRegions?: AddIpamOperatingRegion[];
 
   /**
-   * @public
    * <p>Remove operating Regions.</p>
+   * @public
    */
   RemoveOperatingRegions?: RemoveIpamOperatingRegion[];
 }
@@ -5432,8 +5432,8 @@ export interface ModifyIpamResourceDiscoveryRequest {
  */
 export interface ModifyIpamResourceDiscoveryResult {
   /**
-   * @public
    * <p>A resource discovery.</p>
+   * @public
    */
   IpamResourceDiscovery?: IpamResourceDiscovery;
 }
@@ -5443,22 +5443,22 @@ export interface ModifyIpamResourceDiscoveryResult {
  */
 export interface ModifyIpamScopeRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the scope you want to modify.</p>
+   * @public
    */
   IpamScopeId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the scope you want to modify.</p>
+   * @public
    */
   Description?: string;
 }
@@ -5468,8 +5468,8 @@ export interface ModifyIpamScopeRequest {
  */
 export interface ModifyIpamScopeResult {
   /**
-   * @public
    * <p>The results of the modification.</p>
+   * @public
    */
   IpamScope?: IpamScope;
 }
@@ -5479,42 +5479,42 @@ export interface ModifyIpamScopeResult {
  */
 export interface ModifyLaunchTemplateRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The ID of the launch template.</p>
    *          <p>You must specify either the <code>LaunchTemplateId</code> or the
    *                 <code>LaunchTemplateName</code>, but not both.</p>
+   * @public
    */
   LaunchTemplateId?: string;
 
   /**
-   * @public
    * <p>The name of the launch template.</p>
    *          <p>You must specify either the <code>LaunchTemplateName</code> or the
    *                 <code>LaunchTemplateId</code>, but not both.</p>
+   * @public
    */
   LaunchTemplateName?: string;
 
   /**
-   * @public
    * <p>The version number of the launch template to set as the default version.</p>
+   * @public
    */
   DefaultVersion?: string;
 }
@@ -5524,8 +5524,8 @@ export interface ModifyLaunchTemplateRequest {
  */
 export interface ModifyLaunchTemplateResult {
   /**
-   * @public
    * <p>Information about the launch template.</p>
+   * @public
    */
   LaunchTemplate?: LaunchTemplate;
 }
@@ -5535,45 +5535,45 @@ export interface ModifyLaunchTemplateResult {
  */
 export interface ModifyLocalGatewayRouteRequest {
   /**
-   * @public
    * <p>The CIDR block used for destination matches. The value that you provide must match the CIDR of an existing route in the table.</p>
+   * @public
    */
   DestinationCidrBlock?: string;
 
   /**
-   * @public
    * <p>The ID of the local gateway route table.</p>
+   * @public
    */
   LocalGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *          The ID of the virtual interface group.
    *       </p>
+   * @public
    */
   LocalGatewayVirtualInterfaceGroupId?: string;
 
   /**
-   * @public
    * <p>The ID of the network interface.</p>
+   * @public
    */
   NetworkInterfaceId?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>
    *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
    *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
    *       </p>
+   * @public
    */
   DestinationPrefixListId?: string;
 }
@@ -5583,20 +5583,20 @@ export interface ModifyLocalGatewayRouteRequest {
  */
 export interface ModifyLocalGatewayRouteResult {
   /**
-   * @public
    * <p>Information about the local gateway route table.</p>
+   * @public
    */
   Route?: LocalGatewayRoute;
 }
 
 /**
- * @public
  * <p>An entry for a prefix list.</p>
+ * @public
  */
 export interface RemovePrefixListEntry {
   /**
-   * @public
    * <p>The CIDR block.</p>
+   * @public
    */
   Cidr: string | undefined;
 }
@@ -5606,50 +5606,50 @@ export interface RemovePrefixListEntry {
  */
 export interface ModifyManagedPrefixListRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the prefix list.</p>
+   * @public
    */
   PrefixListId: string | undefined;
 
   /**
-   * @public
    * <p>The current version of the prefix list.</p>
+   * @public
    */
   CurrentVersion?: number;
 
   /**
-   * @public
    * <p>A name for the prefix list.</p>
+   * @public
    */
   PrefixListName?: string;
 
   /**
-   * @public
    * <p>One or more entries to add to the prefix list.</p>
+   * @public
    */
   AddEntries?: AddPrefixListEntry[];
 
   /**
-   * @public
    * <p>One or more entries to remove from the prefix list.</p>
+   * @public
    */
   RemoveEntries?: RemovePrefixListEntry[];
 
   /**
-   * @public
    * <p>The maximum number of entries for the prefix list. You cannot modify the entries
    *             of a prefix list and modify the size of a prefix list at the same time.</p>
    *          <p>If any of the resources that reference the prefix list cannot support the new
    *             maximum size, the modify operation fails. Check the state message for the IDs of
    *             the first ten resources that do not support the new maximum size.</p>
+   * @public
    */
   MaxEntries?: number;
 }
@@ -5659,89 +5659,88 @@ export interface ModifyManagedPrefixListRequest {
  */
 export interface ModifyManagedPrefixListResult {
   /**
-   * @public
    * <p>Information about the prefix list.</p>
+   * @public
    */
   PrefixList?: ManagedPrefixList;
 }
 
 /**
- * @public
  * <p>Describes an attachment change.</p>
+ * @public
  */
 export interface NetworkInterfaceAttachmentChanges {
   /**
-   * @public
    * <p>The ID of the network interface attachment.</p>
+   * @public
    */
   AttachmentId?: string;
 
   /**
-   * @public
    * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   * @public
    */
   DeleteOnTermination?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>
+ * @public
  */
 export interface ModifyNetworkInterfaceAttributeRequest {
   /**
-   * @public
    * <p>Information about the interface attachment. If modifying the <code>delete on
    * 				termination</code> attribute, you must specify the ID of the interface
    * 			attachment.</p>
+   * @public
    */
   Attachment?: NetworkInterfaceAttachmentChanges;
 
   /**
-   * @public
    * <p>A description for the network interface.</p>
+   * @public
    */
   Description?: AttributeValue;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
+   * @public
    */
   Groups?: string[];
 
   /**
-   * @public
    * <p>The ID of the network interface.</p>
+   * @public
    */
   NetworkInterfaceId: string | undefined;
 
   /**
-   * @public
    * <p>Enable or disable source/destination checks, which ensure that the instance
    *             is either the source or the destination of any traffic that it receives.
    *             If the value is <code>true</code>, source/destination checks are enabled;
    *             otherwise, they are disabled. The default value is <code>true</code>.
    *             You must disable source/destination checks if the instance runs services
    *             such as network address translation, routing, or firewalls.</p>
+   * @public
    */
   SourceDestCheck?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Updates the ENA Express configuration for the network interface that’s attached to the
    * 			instance.</p>
+   * @public
    */
   EnaSrdSpecification?: EnaSrdSpecification;
 
   /**
-   * @public
    * <p>If you’re modifying a network interface in a dual-stack or IPv6-only subnet, you have
    *             the option to assign a primary IPv6 IP address. A primary IPv6 address is an IPv6 GUA
    *             address associated with an ENI that you have enabled to use a primary IPv6 address. Use
@@ -5754,12 +5753,13 @@ export interface ModifyNetworkInterfaceAttributeRequest {
    *             have multiple IPv6 addresses associated with an ENI attached to your instance and you
    *             enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI
    *             becomes the primary IPv6 address.</p>
+   * @public
    */
   EnablePrimaryIpv6?: boolean;
 
   /**
-   * @public
    * <p>A connection tracking specification.</p>
+   * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
 }
@@ -5769,40 +5769,40 @@ export interface ModifyNetworkInterfaceAttributeRequest {
  */
 export interface ModifyPrivateDnsNameOptionsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
    *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
    *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
    *             names use the instance IPv4 address or the instance ID.</p>
+   * @public
    */
   PrivateDnsHostnameType?: HostnameType;
 
   /**
-   * @public
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
    *             records.</p>
+   * @public
    */
   EnableResourceNameDnsARecord?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
    *             records.</p>
+   * @public
    */
   EnableResourceNameDnsAAAARecord?: boolean;
 }
@@ -5812,52 +5812,51 @@ export interface ModifyPrivateDnsNameOptionsRequest {
  */
 export interface ModifyPrivateDnsNameOptionsResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an
    *             error.</p>
+   * @public
    */
   Return?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the parameters for ModifyReservedInstances.</p>
+ * @public
  */
 export interface ModifyReservedInstancesRequest {
   /**
-   * @public
    * <p>The IDs of the Reserved Instances to modify.</p>
+   * @public
    */
   ReservedInstancesIds: string[] | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see
    *    		<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The configuration settings for the Reserved Instances to modify.</p>
+   * @public
    */
   TargetConfigurations: ReservedInstancesConfiguration[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains the output of ModifyReservedInstances.</p>
+ * @public
  */
 export interface ModifyReservedInstancesResult {
   /**
-   * @public
    * <p>The ID for the modification.</p>
+   * @public
    */
   ReservedInstancesModificationId?: string;
 }
 
 /**
- * @public
  * <p>Describes a security group rule.</p>
  *          <p>You must specify exactly one of the following parameters, based on the rule type:</p>
  *          <ul>
@@ -5877,76 +5876,77 @@ export interface ModifyReservedInstancesResult {
  *          <p>When you modify a rule, you cannot change the rule type. For example, if the rule
  *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
  *             address range.</p>
+ * @public
  */
 export interface SecurityGroupRuleRequest {
   /**
-   * @public
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
    *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
    *          <p>Use <code>-1</code> to specify all protocols.</p>
+   * @public
    */
   IpProtocol?: string;
 
   /**
-   * @public
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
    *             If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
+   * @public
    */
   FromPort?: number;
 
   /**
-   * @public
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
    *             If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
    *             If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
+   * @public
    */
   ToPort?: number;
 
   /**
-   * @public
    * <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
+   * @public
    */
   CidrIpv4?: string;
 
   /**
-   * @public
    * <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
+   * @public
    */
   CidrIpv6?: string;
 
   /**
-   * @public
    * <p>The ID of the prefix list.</p>
+   * @public
    */
   PrefixListId?: string;
 
   /**
-   * @public
    * <p>The ID of the security group that is referenced in the security group rule.</p>
+   * @public
    */
   ReferencedGroupId?: string;
 
   /**
-   * @public
    * <p>The description of the security group rule.</p>
+   * @public
    */
   Description?: string;
 }
 
 /**
- * @public
  * <p>Describes an update to a security group rule.</p>
+ * @public
  */
 export interface SecurityGroupRuleUpdate {
   /**
-   * @public
    * <p>The ID of the security group rule.</p>
+   * @public
    */
   SecurityGroupRuleId: string | undefined;
 
   /**
-   * @public
    * <p>Information about the security group rule.</p>
+   * @public
    */
   SecurityGroupRule?: SecurityGroupRuleRequest;
 }
@@ -5956,22 +5956,22 @@ export interface SecurityGroupRuleUpdate {
  */
 export interface ModifySecurityGroupRulesRequest {
   /**
-   * @public
    * <p>The ID of the security group.</p>
+   * @public
    */
   GroupId: string | undefined;
 
   /**
-   * @public
    * <p>Information about the security group properties to update.</p>
+   * @public
    */
   SecurityGroupRules: SecurityGroupRuleUpdate[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5981,26 +5981,26 @@ export interface ModifySecurityGroupRulesRequest {
  */
 export interface ModifySecurityGroupRulesResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
 
 /**
- * @public
  * <p>Describes modifications to the list of create volume permissions for a volume.</p>
+ * @public
  */
 export interface CreateVolumePermissionModifications {
   /**
-   * @public
    * <p>Adds the specified Amazon Web Services account ID or group to the list.</p>
+   * @public
    */
   Add?: CreateVolumePermission[];
 
   /**
-   * @public
    * <p>Removes the specified Amazon Web Services account ID or group from the list.</p>
+   * @public
    */
   Remove?: CreateVolumePermission[];
 }
@@ -6010,46 +6010,46 @@ export interface CreateVolumePermissionModifications {
  */
 export interface ModifySnapshotAttributeRequest {
   /**
-   * @public
    * <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
+   * @public
    */
   Attribute?: SnapshotAttributeName;
 
   /**
-   * @public
    * <p>A JSON representation of the snapshot attribute modification.</p>
+   * @public
    */
   CreateVolumePermission?: CreateVolumePermissionModifications;
 
   /**
-   * @public
    * <p>The group to modify for the snapshot.</p>
+   * @public
    */
   GroupNames?: string[];
 
   /**
-   * @public
    * <p>The type of operation to perform to the attribute.</p>
+   * @public
    */
   OperationType?: OperationType;
 
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>The account ID to modify for the snapshot.</p>
+   * @public
    */
   UserIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6072,22 +6072,22 @@ export type TargetStorageTier = (typeof TargetStorageTier)[keyof typeof TargetSt
  */
 export interface ModifySnapshotTierRequest {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the storage tier. You must specify <code>archive</code>.</p>
+   * @public
    */
   StorageTier?: TargetStorageTier;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6097,74 +6097,74 @@ export interface ModifySnapshotTierRequest {
  */
 export interface ModifySnapshotTierResult {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The date and time when the archive process was started.</p>
+   * @public
    */
   TieringStartTime?: Date;
 }
 
 /**
- * @public
  * <p>Contains the parameters for ModifySpotFleetRequest.</p>
+ * @public
  */
 export interface ModifySpotFleetRequestRequest {
   /**
-   * @public
    * <p>Indicates whether running instances should be terminated if the target capacity
    *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
+   * @public
    */
   ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy;
 
   /**
-   * @public
    * <p>The launch template and overrides. You can only use this parameter if you specified a
    *             launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you
    *             specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this
    *             parameter.</p>
+   * @public
    */
   LaunchTemplateConfigs?: LaunchTemplateConfig[];
 
   /**
-   * @public
    * <p>The ID of the Spot Fleet request.</p>
+   * @public
    */
   SpotFleetRequestId: string | undefined;
 
   /**
-   * @public
    * <p>The size of the fleet.</p>
+   * @public
    */
   TargetCapacity?: number;
 
   /**
-   * @public
    * <p>The number of On-Demand Instances in the fleet.</p>
+   * @public
    */
   OnDemandTargetCapacity?: number;
 
   /**
-   * @public
    * <p>Reserved.</p>
+   * @public
    */
   Context?: string;
 }
 
 /**
- * @public
  * <p>Contains the output of ModifySpotFleetRequest.</p>
+ * @public
  */
 export interface ModifySpotFleetRequestResponse {
   /**
-   * @public
    * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
    *             no response is returned, and instead an error message is returned.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -6174,7 +6174,6 @@ export interface ModifySpotFleetRequestResponse {
  */
 export interface ModifySubnetAttributeRequest {
   /**
-   * @public
    * <p>Specify <code>true</code> to indicate that network interfaces created in the
    *             specified subnet should be assigned an IPv6 address. This includes a network interface
    *             that's created when launching an instance into the subnet (the instance therefore
@@ -6182,83 +6181,84 @@ export interface ModifySubnetAttributeRequest {
    *          <p>If you enable the IPv6 addressing feature for your subnet, your network interface
    *             or instance only receives an IPv6 address if it's created using version
    *                 <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
+   * @public
    */
   AssignIpv6AddressOnCreation?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the
    *             specified subnet should be assigned a public IPv4 address.</p>
    *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
    * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+   * @public
    */
   MapPublicIpOnLaunch?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>The ID of the subnet.</p>
+   * @public
    */
   SubnetId: string | undefined;
 
   /**
-   * @public
    * <p>Specify <code>true</code> to indicate that network interfaces  attached to instances created in the
    *             specified subnet should be assigned a customer-owned IPv4 address.</p>
    *          <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
+   * @public
    */
   MapCustomerOwnedIpOnLaunch?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
    *          <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
+   * @public
    */
   CustomerOwnedIpv4Pool?: string;
 
   /**
-   * @public
    * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
    *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
+   * @public
    */
   EnableDns64?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an
    *             instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance
    *             DNS name must be based on the instance ID (resource-name).</p>
+   * @public
    */
   PrivateDnsHostnameTypeOnLaunch?: HostnameType;
 
   /**
-   * @public
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   * @public
    */
   EnableResourceNameDnsARecordOnLaunch?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   * @public
    */
   EnableResourceNameDnsAAAARecordOnLaunch?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>
    *             Indicates the device position for local network interfaces in this subnet. For example,
    *             <code>1</code> indicates local network interfaces in this subnet are the secondary
    *             network interface (eth1). A local network interface cannot be the primary network
    *             interface (eth0).
    *         </p>
+   * @public
    */
   EnableLniAtDeviceIndex?: number;
 
   /**
-   * @public
    * <p>
    *             Specify <code>true</code> to indicate that local network interfaces at the current
    *             position should be disabled.
    *         </p>
+   * @public
    */
   DisableLniAtDeviceIndex?: AttributeBooleanValue;
 }
@@ -6268,28 +6268,28 @@ export interface ModifySubnetAttributeRequest {
  */
 export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
   /**
-   * @public
    * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
    */
   TrafficMirrorFilterId: string | undefined;
 
   /**
-   * @public
    * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
+   * @public
    */
   AddNetworkServices?: TrafficMirrorNetworkService[];
 
   /**
-   * @public
    * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
+   * @public
    */
   RemoveNetworkServices?: TrafficMirrorNetworkService[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6299,8 +6299,8 @@ export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
  */
 export interface ModifyTrafficMirrorFilterNetworkServicesResult {
   /**
-   * @public
    * <p>The Traffic Mirror filter that the network service is associated with.</p>
+   * @public
    */
   TrafficMirrorFilter?: TrafficMirrorFilter;
 }
@@ -6327,78 +6327,78 @@ export type TrafficMirrorFilterRuleField =
  */
 export interface ModifyTrafficMirrorFilterRuleRequest {
   /**
-   * @public
    * <p>The ID of the Traffic Mirror rule.</p>
+   * @public
    */
   TrafficMirrorFilterRuleId: string | undefined;
 
   /**
-   * @public
    * <p>The type of traffic to assign to the rule.</p>
+   * @public
    */
   TrafficDirection?: TrafficDirection;
 
   /**
-   * @public
    * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
    *          direction. The rules are processed in ascending order by rule number.</p>
+   * @public
    */
   RuleNumber?: number;
 
   /**
-   * @public
    * <p>The action to assign to the rule.</p>
+   * @public
    */
   RuleAction?: TrafficMirrorRuleAction;
 
   /**
-   * @public
    * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
+   * @public
    */
   DestinationPortRange?: TrafficMirrorPortRangeRequest;
 
   /**
-   * @public
    * <p>The port range to assign to the Traffic Mirror rule.</p>
+   * @public
    */
   SourcePortRange?: TrafficMirrorPortRangeRequest;
 
   /**
-   * @public
    * <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
+   * @public
    */
   Protocol?: number;
 
   /**
-   * @public
    * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
+   * @public
    */
   DestinationCidrBlock?: string;
 
   /**
-   * @public
    * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
+   * @public
    */
   SourceCidrBlock?: string;
 
   /**
-   * @public
    * <p>The description to assign to the Traffic Mirror rule.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
    *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
+   * @public
    */
   RemoveFields?: TrafficMirrorFilterRuleField[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6408,8 +6408,8 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
  */
 export interface ModifyTrafficMirrorFilterRuleResult {
   /**
-   * @public
    * <p>Modifies a Traffic Mirror rule.</p>
+   * @public
    */
   TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
 }
@@ -6434,61 +6434,61 @@ export type TrafficMirrorSessionField = (typeof TrafficMirrorSessionField)[keyof
  */
 export interface ModifyTrafficMirrorSessionRequest {
   /**
-   * @public
    * <p>The ID of the Traffic Mirror session.</p>
+   * @public
    */
   TrafficMirrorSessionId: string | undefined;
 
   /**
-   * @public
    * <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
+   * @public
    */
   TrafficMirrorTargetId?: string;
 
   /**
-   * @public
    * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
    */
   TrafficMirrorFilterId?: string;
 
   /**
-   * @public
    * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
    *          <p>For sessions with Network Load Balancer (NLB) traffic mirror targets, the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
+   * @public
    */
   PacketLength?: number;
 
   /**
-   * @public
    * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
    *          <p>Valid values are 1-32766.</p>
+   * @public
    */
   SessionNumber?: number;
 
   /**
-   * @public
    * <p>The virtual network ID of the Traffic Mirror session.</p>
+   * @public
    */
   VirtualNetworkId?: number;
 
   /**
-   * @public
    * <p>The description to assign to the Traffic Mirror session.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The properties that you want to remove from the Traffic Mirror session.</p>
    *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
+   * @public
    */
   RemoveFields?: TrafficMirrorSessionField[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6498,85 +6498,85 @@ export interface ModifyTrafficMirrorSessionRequest {
  */
 export interface ModifyTrafficMirrorSessionResult {
   /**
-   * @public
    * <p>Information about the Traffic Mirror session.</p>
+   * @public
    */
   TrafficMirrorSession?: TrafficMirrorSession;
 }
 
 /**
- * @public
  * <p>The transit gateway options.</p>
+ * @public
  */
 export interface ModifyTransitGatewayOptions {
   /**
-   * @public
    * <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+   * @public
    */
   AddTransitGatewayCidrBlocks?: string[];
 
   /**
-   * @public
    * <p>Removes CIDR blocks for the transit gateway.</p>
+   * @public
    */
   RemoveTransitGatewayCidrBlocks?: string[];
 
   /**
-   * @public
    * <p>Enable or disable Equal Cost Multipath Protocol support.</p>
+   * @public
    */
   VpnEcmpSupport?: VpnEcmpSupportValue;
 
   /**
-   * @public
    * <p>Enable or disable DNS support.</p>
+   * @public
    */
   DnsSupport?: DnsSupportValue;
 
   /**
-   * @public
    * <note>
    *             <p>This parameter is in preview and may not be available for your account.</p>
    *          </note>
    *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
-   * @public
    * <p>Enable or disable automatic acceptance of attachment requests.</p>
+   * @public
    */
   AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue;
 
   /**
-   * @public
    * <p>Enable or disable automatic association with the default association route table.</p>
+   * @public
    */
   DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue;
 
   /**
-   * @public
    * <p>The ID of the default association route table.</p>
+   * @public
    */
   AssociationDefaultRouteTableId?: string;
 
   /**
-   * @public
    * <p>Enable or disable automatic propagation of routes to the default propagation route table.</p>
+   * @public
    */
   DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue;
 
   /**
-   * @public
    * <p>The ID of the default propagation route table.</p>
+   * @public
    */
   PropagationDefaultRouteTableId?: string;
 
   /**
-   * @public
    * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
    *             The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
    *          <p>The modify ASN operation is not allowed on a transit gateway with active BGP sessions. You must first delete all transit gateway attachments that have BGP configured prior to modifying the ASN on the transit gateway.</p>
+   * @public
    */
   AmazonSideAsn?: number;
 }
@@ -6586,28 +6586,28 @@ export interface ModifyTransitGatewayOptions {
  */
 export interface ModifyTransitGatewayRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway.</p>
+   * @public
    */
   TransitGatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The description for the transit gateway.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The options to modify.</p>
+   * @public
    */
   Options?: ModifyTransitGatewayOptions;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6617,8 +6617,8 @@ export interface ModifyTransitGatewayRequest {
  */
 export interface ModifyTransitGatewayResult {
   /**
-   * @public
    * <p>Information about the transit gateway.</p>
+   * @public
    */
   TransitGateway?: TransitGateway;
 }
@@ -6628,34 +6628,34 @@ export interface ModifyTransitGatewayResult {
  */
 export interface ModifyTransitGatewayPrefixListReferenceRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the prefix list.</p>
+   * @public
    */
   PrefixListId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the attachment to which traffic is routed.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>Indicates whether to drop traffic that matches this route.</p>
+   * @public
    */
   Blackhole?: boolean;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6665,41 +6665,41 @@ export interface ModifyTransitGatewayPrefixListReferenceRequest {
  */
 export interface ModifyTransitGatewayPrefixListReferenceResult {
   /**
-   * @public
    * <p>Information about the prefix list reference.</p>
+   * @public
    */
   TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference;
 }
 
 /**
- * @public
  * <p>Describes the options for a VPC attachment.</p>
+ * @public
  */
 export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
   /**
-   * @public
    * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
+   * @public
    */
   DnsSupport?: DnsSupportValue;
 
   /**
-   * @public
    * <note>
    *             <p>This parameter is in preview and may not be available for your account.</p>
    *          </note>
    *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * @public
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
-   * @public
    * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
+   * @public
    */
   Ipv6Support?: Ipv6SupportValue;
 
   /**
-   * @public
    * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+   * @public
    */
   ApplianceModeSupport?: ApplianceModeSupportValue;
 }
@@ -6709,34 +6709,34 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
  */
 export interface ModifyTransitGatewayVpcAttachmentRequest {
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId: string | undefined;
 
   /**
-   * @public
    * <p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>
+   * @public
    */
   AddSubnetIds?: string[];
 
   /**
-   * @public
    * <p>The IDs of one or more subnets to remove.</p>
+   * @public
    */
   RemoveSubnetIds?: string[];
 
   /**
-   * @public
    * <p>The new VPC attachment options.</p>
+   * @public
    */
   Options?: ModifyTransitGatewayVpcAttachmentRequestOptions;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6746,52 +6746,52 @@ export interface ModifyTransitGatewayVpcAttachmentRequest {
  */
 export interface ModifyTransitGatewayVpcAttachmentResult {
   /**
-   * @public
    * <p>Information about the modified attachment.</p>
+   * @public
    */
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
 }
 
 /**
- * @public
  * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
  *             <code>load-balancer</code> type.</p>
+ * @public
  */
 export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
   /**
-   * @public
    * <p>The IDs of the subnets.</p>
+   * @public
    */
   SubnetIds?: string[];
 
   /**
-   * @public
    * <p>The IP protocol.</p>
+   * @public
    */
   Protocol?: VerifiedAccessEndpointProtocol;
 
   /**
-   * @public
    * <p>The IP port number.</p>
+   * @public
    */
   Port?: number;
 }
 
 /**
- * @public
  * <p>Describes the options when modifying a Verified Access endpoint with the
  *             <code>network-interface</code> type.</p>
+ * @public
  */
 export interface ModifyVerifiedAccessEndpointEniOptions {
   /**
-   * @public
    * <p>The IP protocol.</p>
+   * @public
    */
   Protocol?: VerifiedAccessEndpointProtocol;
 
   /**
-   * @public
    * <p>The IP port number.</p>
+   * @public
    */
   Port?: number;
 }
@@ -6801,48 +6801,48 @@ export interface ModifyVerifiedAccessEndpointEniOptions {
  */
 export interface ModifyVerifiedAccessEndpointRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access endpoint.</p>
+   * @public
    */
   VerifiedAccessEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Verified Access group.</p>
+   * @public
    */
   VerifiedAccessGroupId?: string;
 
   /**
-   * @public
    * <p>The load balancer details if creating the Verified Access endpoint as
    *          <code>load-balancer</code>type.</p>
+   * @public
    */
   LoadBalancerOptions?: ModifyVerifiedAccessEndpointLoadBalancerOptions;
 
   /**
-   * @public
    * <p>The network interface options.</p>
+   * @public
    */
   NetworkInterfaceOptions?: ModifyVerifiedAccessEndpointEniOptions;
 
   /**
-   * @public
    * <p>A description for the Verified Access endpoint.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6852,8 +6852,8 @@ export interface ModifyVerifiedAccessEndpointRequest {
  */
 export interface ModifyVerifiedAccessEndpointResult {
   /**
-   * @public
    * <p>Details about the Verified Access endpoint.</p>
+   * @public
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -6863,41 +6863,41 @@ export interface ModifyVerifiedAccessEndpointResult {
  */
 export interface ModifyVerifiedAccessEndpointPolicyRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access endpoint.</p>
+   * @public
    */
   VerifiedAccessEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the Verified Access policy.</p>
+   * @public
    */
   PolicyEnabled?: boolean;
 
   /**
-   * @public
    * <p>The Verified Access policy document.</p>
+   * @public
    */
   PolicyDocument?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The options for server side encryption.</p>
+   * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -6907,20 +6907,20 @@ export interface ModifyVerifiedAccessEndpointPolicyRequest {
  */
 export interface ModifyVerifiedAccessEndpointPolicyResult {
   /**
-   * @public
    * <p>The status of the Verified Access policy.</p>
+   * @public
    */
   PolicyEnabled?: boolean;
 
   /**
-   * @public
    * <p>The Verified Access policy document.</p>
+   * @public
    */
   PolicyDocument?: string;
 
   /**
-   * @public
    * <p>The options in use for server side encryption.</p>
+   * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
@@ -6930,35 +6930,35 @@ export interface ModifyVerifiedAccessEndpointPolicyResult {
  */
 export interface ModifyVerifiedAccessGroupRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access group.</p>
+   * @public
    */
   VerifiedAccessGroupId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * @public
    * <p>A description for the Verified Access group.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6968,8 +6968,8 @@ export interface ModifyVerifiedAccessGroupRequest {
  */
 export interface ModifyVerifiedAccessGroupResult {
   /**
-   * @public
    * <p>Details about the Verified Access group.</p>
+   * @public
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -6979,41 +6979,41 @@ export interface ModifyVerifiedAccessGroupResult {
  */
 export interface ModifyVerifiedAccessGroupPolicyRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access group.</p>
+   * @public
    */
   VerifiedAccessGroupId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the Verified Access policy.</p>
+   * @public
    */
   PolicyEnabled?: boolean;
 
   /**
-   * @public
    * <p>The Verified Access policy document.</p>
+   * @public
    */
   PolicyDocument?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The options for server side encryption.</p>
+   * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -7023,20 +7023,20 @@ export interface ModifyVerifiedAccessGroupPolicyRequest {
  */
 export interface ModifyVerifiedAccessGroupPolicyResult {
   /**
-   * @public
    * <p>The status of the Verified Access policy.</p>
+   * @public
    */
   PolicyEnabled?: boolean;
 
   /**
-   * @public
    * <p>The Verified Access policy document.</p>
+   * @public
    */
   PolicyDocument?: string;
 
   /**
-   * @public
    * <p>The options in use for server side encryption.</p>
+   * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
@@ -7046,29 +7046,29 @@ export interface ModifyVerifiedAccessGroupPolicyResult {
  */
 export interface ModifyVerifiedAccessInstanceRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * @public
    * <p>A description for the Verified Access instance.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -7078,112 +7078,112 @@ export interface ModifyVerifiedAccessInstanceRequest {
  */
 export interface ModifyVerifiedAccessInstanceResult {
   /**
-   * @public
    * <p>Details about the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
 /**
- * @public
  * <p>Options for CloudWatch Logs as a logging destination.</p>
+ * @public
  */
 export interface VerifiedAccessLogCloudWatchLogsDestinationOptions {
   /**
-   * @public
    * <p>Indicates whether logging is enabled.</p>
+   * @public
    */
   Enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>The ID of the CloudWatch Logs log group.</p>
+   * @public
    */
   LogGroup?: string;
 }
 
 /**
- * @public
  * <p>Describes Amazon Kinesis Data Firehose logging options.</p>
+ * @public
  */
 export interface VerifiedAccessLogKinesisDataFirehoseDestinationOptions {
   /**
-   * @public
    * <p>Indicates whether logging is enabled.</p>
+   * @public
    */
   Enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>The ID of the delivery stream.</p>
+   * @public
    */
   DeliveryStream?: string;
 }
 
 /**
- * @public
  * <p>Options for Amazon S3 as a logging destination.</p>
+ * @public
  */
 export interface VerifiedAccessLogS3DestinationOptions {
   /**
-   * @public
    * <p>Indicates whether logging is enabled.</p>
+   * @public
    */
   Enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>The bucket name.</p>
+   * @public
    */
   BucketName?: string;
 
   /**
-   * @public
    * <p>The bucket prefix.</p>
+   * @public
    */
   Prefix?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the Amazon S3 bucket.</p>
+   * @public
    */
   BucketOwner?: string;
 }
 
 /**
- * @public
  * <p>Options for Verified Access logs.</p>
+ * @public
  */
 export interface VerifiedAccessLogOptions {
   /**
-   * @public
    * <p>Sends Verified Access logs to Amazon S3.</p>
+   * @public
    */
   S3?: VerifiedAccessLogS3DestinationOptions;
 
   /**
-   * @public
    * <p>Sends Verified Access logs to CloudWatch Logs.</p>
+   * @public
    */
   CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestinationOptions;
 
   /**
-   * @public
    * <p>Sends Verified Access logs to Kinesis.</p>
+   * @public
    */
   KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestinationOptions;
 
   /**
-   * @public
    * <p>The logging version.</p>
    *          <p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code>
    *          </p>
+   * @public
    */
   LogVersion?: string;
 
   /**
-   * @public
    * <p>Indicates whether to include trust data sent by trust providers in the logs.</p>
+   * @public
    */
   IncludeTrustContext?: boolean;
 }
@@ -7193,29 +7193,29 @@ export interface VerifiedAccessLogOptions {
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * @public
    * <p>The configuration options for Verified Access instances.</p>
+   * @public
    */
   AccessLogs: VerifiedAccessLogOptions | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -7225,68 +7225,68 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
   /**
-   * @public
    * <p>The logging configuration for the Verified Access instance.</p>
+   * @public
    */
   LoggingConfiguration?: VerifiedAccessInstanceLoggingConfiguration;
 }
 
 /**
- * @public
  * <p>Modifies the configuration of the specified device-based Amazon Web Services Verified Access trust provider.</p>
+ * @public
  */
 export interface ModifyVerifiedAccessTrustProviderDeviceOptions {
   /**
-   * @public
    * <p> The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens. </p>
+   * @public
    */
   PublicSigningKeyUrl?: string;
 }
 
 /**
- * @public
  * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
+ * @public
  */
 export interface ModifyVerifiedAccessTrustProviderOidcOptions {
   /**
-   * @public
    * <p>The OIDC issuer.</p>
+   * @public
    */
   Issuer?: string;
 
   /**
-   * @public
    * <p>The OIDC authorization endpoint.</p>
+   * @public
    */
   AuthorizationEndpoint?: string;
 
   /**
-   * @public
    * <p>The OIDC token endpoint.</p>
+   * @public
    */
   TokenEndpoint?: string;
 
   /**
-   * @public
    * <p>The OIDC user info endpoint.</p>
+   * @public
    */
   UserInfoEndpoint?: string;
 
   /**
-   * @public
    * <p>The client identifier.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>The client secret.</p>
+   * @public
    */
   ClientSecret?: string;
 
   /**
-   * @public
    * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+   * @public
    */
   Scope?: string;
 }
@@ -7296,48 +7296,48 @@ export interface ModifyVerifiedAccessTrustProviderOidcOptions {
  */
 export interface ModifyVerifiedAccessTrustProviderRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access trust provider.</p>
+   * @public
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
   /**
-   * @public
    * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
+   * @public
    */
   OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions;
 
   /**
-   * @public
    * <p>The options for a device-based trust provider. This parameter is required when the
    *          provider type is <code>device</code>.</p>
+   * @public
    */
   DeviceOptions?: ModifyVerifiedAccessTrustProviderDeviceOptions;
 
   /**
-   * @public
    * <p>A description for the Verified Access trust provider.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The options for server side encryption.</p>
+   * @public
    */
   SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
@@ -7347,8 +7347,8 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
  */
 export interface ModifyVerifiedAccessTrustProviderResult {
   /**
-   * @public
    * <p>Details about the Verified Access trust provider.</p>
+   * @public
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -7358,21 +7358,20 @@ export interface ModifyVerifiedAccessTrustProviderResult {
  */
 export interface ModifyVolumeRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the volume.</p>
+   * @public
    */
   VolumeId: string | undefined;
 
   /**
-   * @public
    * <p>The target size of the volume, in GiB. The target volume size must be greater than or
    *       equal to the existing size of the volume.</p>
    *          <p>The following are the supported volumes sizes for each volume type:</p>
@@ -7399,18 +7398,18 @@ export interface ModifyVolumeRequest {
    *             </li>
    *          </ul>
    *          <p>Default: The existing size is retained.</p>
+   * @public
    */
   Size?: number;
 
   /**
-   * @public
    * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>
    *          <p>Default: The existing type is retained.</p>
+   * @public
    */
   VolumeType?: VolumeType;
 
   /**
-   * @public
    * <p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
    *          <p>The following are the supported values for each volume type:</p>
    *          <ul>
@@ -7432,27 +7431,28 @@ export interface ModifyVolumeRequest {
    * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
    *          <p>Default: The existing value is retained if you keep the same volume type. If you change
    *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
+   * @public
    */
   Iops?: number;
 
   /**
-   * @public
    * <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes.
    *       The maximum value is 1,000.</p>
    *          <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
    *       Otherwise, the default value is 125.</p>
    *          <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   * @public
    */
   Throughput?: number;
 
   /**
-   * @public
    * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
    * 		volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
    * 			Nitro-based instances</a> in the same Availability Zone. This parameter is
    * 		supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see
    * 	  <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
    * 			Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
+   * @public
    */
   MultiAttachEnabled?: boolean;
 }
@@ -7462,8 +7462,8 @@ export interface ModifyVolumeRequest {
  */
 export interface ModifyVolumeResult {
   /**
-   * @public
    * <p>Information about the volume modification.</p>
+   * @public
    */
   VolumeModification?: VolumeModification;
 }
@@ -7473,22 +7473,22 @@ export interface ModifyVolumeResult {
  */
 export interface ModifyVolumeAttributeRequest {
   /**
-   * @public
    * <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
+   * @public
    */
   AutoEnableIO?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>The ID of the volume.</p>
+   * @public
    */
   VolumeId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -7498,32 +7498,32 @@ export interface ModifyVolumeAttributeRequest {
  */
 export interface ModifyVpcAttributeRequest {
   /**
-   * @public
    * <p>Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.</p>
    *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.</p>
+   * @public
    */
   EnableDnsHostnames?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to
    * 			the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP
    * 			address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon
    * 			provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is
    * 			not enabled.</p>
    *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.</p>
+   * @public
    */
   EnableDnsSupport?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId: string | undefined;
 
   /**
-   * @public
    * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
+   * @public
    */
   EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
 }
@@ -7533,91 +7533,91 @@ export interface ModifyVpcAttributeRequest {
  */
 export interface ModifyVpcEndpointRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the endpoint.</p>
+   * @public
    */
   VpcEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the
    *             default policy. The default policy allows full access to the service.</p>
+   * @public
    */
   ResetPolicy?: boolean;
 
   /**
-   * @public
    * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must
    *             be in valid JSON format.</p>
+   * @public
    */
   PolicyDocument?: string;
 
   /**
-   * @public
    * <p>(Gateway endpoint) The IDs of the route tables to associate with the endpoint.</p>
+   * @public
    */
   AddRouteTableIds?: string[];
 
   /**
-   * @public
    * <p>(Gateway endpoint) The IDs of the route tables to disassociate from the endpoint.</p>
+   * @public
    */
   RemoveRouteTableIds?: string[];
 
   /**
-   * @public
    * <p>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to serve the endpoint.
    *             For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+   * @public
    */
   AddSubnetIds?: string[];
 
   /**
-   * @public
    * <p>(Interface endpoint) The IDs of the subnets from which to remove the endpoint.</p>
+   * @public
    */
   RemoveSubnetIds?: string[];
 
   /**
-   * @public
    * <p>(Interface endpoint) The IDs of the security groups to associate with the endpoint network interfaces.</p>
+   * @public
    */
   AddSecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>(Interface endpoint) The IDs of the security groups to disassociate from the endpoint network interfaces.</p>
+   * @public
    */
   RemoveSecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The IP address type for the endpoint.</p>
+   * @public
    */
   IpAddressType?: IpAddressType;
 
   /**
-   * @public
    * <p>The DNS options for the endpoint.</p>
+   * @public
    */
   DnsOptions?: DnsOptionsSpecification;
 
   /**
-   * @public
    * <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>
+   * @public
    */
   PrivateDnsEnabled?: boolean;
 
   /**
-   * @public
    * <p>The subnet configurations for the endpoint.</p>
+   * @public
    */
   SubnetConfigurations?: SubnetConfiguration[];
 }
@@ -7627,8 +7627,8 @@ export interface ModifyVpcEndpointRequest {
  */
 export interface ModifyVpcEndpointResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -7638,29 +7638,29 @@ export interface ModifyVpcEndpointResult {
  */
 export interface ModifyVpcEndpointConnectionNotificationRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the notification.</p>
+   * @public
    */
   ConnectionNotificationId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN for the SNS topic for the notification.</p>
+   * @public
    */
   ConnectionNotificationArn?: string;
 
   /**
-   * @public
    * <p>The events for the endpoint. Valid values are <code>Accept</code>,
    *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
+   * @public
    */
   ConnectionEvents?: string[];
 }
@@ -7670,8 +7670,8 @@ export interface ModifyVpcEndpointConnectionNotificationRequest {
  */
 export interface ModifyVpcEndpointConnectionNotificationResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   ReturnValue?: boolean;
 }
@@ -7681,74 +7681,74 @@ export interface ModifyVpcEndpointConnectionNotificationResult {
  */
 export interface ModifyVpcEndpointServiceConfigurationRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the service.</p>
+   * @public
    */
   ServiceId: string | undefined;
 
   /**
-   * @public
    * <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
+   * @public
    */
   PrivateDnsName?: string;
 
   /**
-   * @public
    * <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
+   * @public
    */
   RemovePrivateDnsName?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether requests to create an endpoint to your service must be accepted.</p>
+   * @public
    */
   AcceptanceRequired?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
    *             configuration.</p>
+   * @public
    */
   AddNetworkLoadBalancerArns?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service
    *             configuration.</p>
+   * @public
    */
   RemoveNetworkLoadBalancerArns?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
    *             configuration.</p>
+   * @public
    */
   AddGatewayLoadBalancerArns?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
    *             configuration.</p>
+   * @public
    */
   RemoveGatewayLoadBalancerArns?: string[];
 
   /**
-   * @public
    * <p>The IP address types to add to your service configuration.</p>
+   * @public
    */
   AddSupportedIpAddressTypes?: string[];
 
   /**
-   * @public
    * <p>The IP address types to remove from your service configuration.</p>
+   * @public
    */
   RemoveSupportedIpAddressTypes?: string[];
 }
@@ -7758,8 +7758,8 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
  */
 export interface ModifyVpcEndpointServiceConfigurationResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -7769,24 +7769,24 @@ export interface ModifyVpcEndpointServiceConfigurationResult {
  */
 export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the service.</p>
+   * @public
    */
   ServiceId: string | undefined;
 
   /**
-   * @public
    * <p>The entity that is responsible for the endpoint costs. The default is the endpoint owner.
    *             If you set the payer responsibility to the service owner, you cannot set it back to the
    *             endpoint owner.</p>
+   * @public
    */
   PayerResponsibility: PayerResponsibility | undefined;
 }
@@ -7796,8 +7796,8 @@ export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
  */
 export interface ModifyVpcEndpointServicePayerResponsibilityResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   ReturnValue?: boolean;
 }
@@ -7807,31 +7807,31 @@ export interface ModifyVpcEndpointServicePayerResponsibilityResult {
  */
 export interface ModifyVpcEndpointServicePermissionsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the service.</p>
+   * @public
    */
   ServiceId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARN) of the principals.
    * 	        Permissions are granted to the principals in this list.
    * 	        To grant permissions to all principals, specify an asterisk (*).</p>
+   * @public
    */
   AddAllowedPrincipals?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARN) of the principals.
    * 	        Permissions are revoked for principals in this list.</p>
+   * @public
    */
   RemoveAllowedPrincipals?: string[];
 }
@@ -7841,39 +7841,39 @@ export interface ModifyVpcEndpointServicePermissionsRequest {
  */
 export interface ModifyVpcEndpointServicePermissionsResult {
   /**
-   * @public
    * <p>Information about the added principals.</p>
+   * @public
    */
   AddedPrincipals?: AddedPrincipal[];
 
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   ReturnValue?: boolean;
 }
 
 /**
- * @public
  * <p>The VPC peering connection options.</p>
+ * @public
  */
 export interface PeeringConnectionOptionsRequest {
   /**
-   * @public
    * <p>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
    *         when queried from instances in the peer VPC.</p>
+   * @public
    */
   AllowDnsResolutionFromRemoteVpc?: boolean;
 
   /**
-   * @public
    * <p>Deprecated.</p>
+   * @public
    */
   AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
 
   /**
-   * @public
    * <p>Deprecated.</p>
+   * @public
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
 }
@@ -7883,53 +7883,53 @@ export interface PeeringConnectionOptionsRequest {
  */
 export interface ModifyVpcPeeringConnectionOptionsRequest {
   /**
-   * @public
    * <p>The VPC peering connection options for the accepter VPC.</p>
+   * @public
    */
   AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The VPC peering connection options for the requester VPC.</p>
+   * @public
    */
   RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
 
   /**
-   * @public
    * <p>The ID of the VPC peering connection.</p>
+   * @public
    */
   VpcPeeringConnectionId: string | undefined;
 }
 
 /**
- * @public
  * <p>Describes the VPC peering connection options.</p>
+ * @public
  */
 export interface PeeringConnectionOptions {
   /**
-   * @public
    * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
    *             IP addresses when queried from instances in the peer VPC.</p>
+   * @public
    */
   AllowDnsResolutionFromRemoteVpc?: boolean;
 
   /**
-   * @public
    * <p>Deprecated.</p>
+   * @public
    */
   AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
 
   /**
-   * @public
    * <p>Deprecated.</p>
+   * @public
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
 }
@@ -7939,14 +7939,14 @@ export interface PeeringConnectionOptions {
  */
 export interface ModifyVpcPeeringConnectionOptionsResult {
   /**
-   * @public
    * <p>Information about the VPC peering connection options for the accepter VPC.</p>
+   * @public
    */
   AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
 
   /**
-   * @public
    * <p>Information about the VPC peering connection options for the requester VPC.</p>
+   * @public
    */
   RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
 }
@@ -7969,22 +7969,22 @@ export type VpcTenancy = (typeof VpcTenancy)[keyof typeof VpcTenancy];
  */
 export interface ModifyVpcTenancyRequest {
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId: string | undefined;
 
   /**
-   * @public
    * <p>The instance tenancy attribute for the VPC. </p>
+   * @public
    */
   InstanceTenancy: VpcTenancy | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -7994,9 +7994,9 @@ export interface ModifyVpcTenancyRequest {
  */
 export interface ModifyVpcTenancyResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an
    *             error.</p>
+   * @public
    */
   ReturnValue?: boolean;
 }
@@ -8006,36 +8006,36 @@ export interface ModifyVpcTenancyResult {
  */
 export interface ModifyVpnConnectionRequest {
   /**
-   * @public
    * <p>The ID of the VPN connection.</p>
+   * @public
    */
   VpnConnectionId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the transit gateway.</p>
+   * @public
    */
   TransitGatewayId?: string;
 
   /**
-   * @public
    * <p>The ID of the customer gateway at your end of the VPN connection.</p>
+   * @public
    */
   CustomerGatewayId?: string;
 
   /**
-   * @public
    * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
    *             connection.</p>
+   * @public
    */
   VpnGatewayId?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -8045,8 +8045,8 @@ export interface ModifyVpnConnectionRequest {
  */
 export interface ModifyVpnConnectionResult {
   /**
-   * @public
    * <p>Information about the VPN connection.</p>
+   * @public
    */
   VpnConnection?: VpnConnection;
 }
@@ -8056,46 +8056,46 @@ export interface ModifyVpnConnectionResult {
  */
 export interface ModifyVpnConnectionOptionsRequest {
   /**
-   * @public
    * <p>The ID of the Site-to-Site VPN connection. </p>
+   * @public
    */
   VpnConnectionId: string | undefined;
 
   /**
-   * @public
    * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
    *          <p>Default: <code>0.0.0.0/0</code>
    *          </p>
+   * @public
    */
   LocalIpv4NetworkCidr?: string;
 
   /**
-   * @public
    * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
    *          <p>Default: <code>0.0.0.0/0</code>
    *          </p>
+   * @public
    */
   RemoteIpv4NetworkCidr?: string;
 
   /**
-   * @public
    * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
    *          <p>Default: <code>::/0</code>
    *          </p>
+   * @public
    */
   LocalIpv6NetworkCidr?: string;
 
   /**
-   * @public
    * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
    *          <p>Default: <code>::/0</code>
    *          </p>
+   * @public
    */
   RemoteIpv6NetworkCidr?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -8105,8 +8105,8 @@ export interface ModifyVpnConnectionOptionsRequest {
  */
 export interface ModifyVpnConnectionOptionsResult {
   /**
-   * @public
    * <p>Information about the VPN connection.</p>
+   * @public
    */
   VpnConnection?: VpnConnection;
 }
@@ -8116,23 +8116,23 @@ export interface ModifyVpnConnectionOptionsResult {
  */
 export interface ModifyVpnTunnelCertificateRequest {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
+   * @public
    */
   VpnConnectionId: string | undefined;
 
   /**
-   * @public
    * <p>The external IP address of the VPN tunnel.</p>
+   * @public
    */
   VpnTunnelOutsideIpAddress: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -8142,19 +8142,18 @@ export interface ModifyVpnTunnelCertificateRequest {
  */
 export interface ModifyVpnTunnelCertificateResult {
   /**
-   * @public
    * <p>Information about the VPN connection.</p>
+   * @public
    */
   VpnConnection?: VpnConnection;
 }
 
 /**
- * @public
  * <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
+ * @public
  */
 export interface ModifyVpnTunnelOptionsSpecification {
   /**
-   * @public
    * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
    *             unique across all VPN connections that use the same virtual private gateway. </p>
    *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
@@ -8196,48 +8195,48 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   TunnelInsideCidr?: string;
 
   /**
-   * @public
    * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
    *             unique across all VPN connections that use the same transit gateway.</p>
    *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+   * @public
    */
   TunnelInsideIpv6Cidr?: string;
 
   /**
-   * @public
    * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
    *             private gateway and the customer gateway.</p>
    *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
    *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
    *             zero (0).</p>
+   * @public
    */
   PreSharedKey?: string;
 
   /**
-   * @public
    * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
    *          <p>Constraints: A value between 900 and 28,800.</p>
    *          <p>Default: <code>28800</code>
    *          </p>
+   * @public
    */
   Phase1LifetimeSeconds?: number;
 
   /**
-   * @public
    * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
    *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
    *                 <code>Phase1LifetimeSeconds</code>.</p>
    *          <p>Default: <code>3600</code>
    *          </p>
+   * @public
    */
   Phase2LifetimeSeconds?: number;
 
   /**
-   * @public
    * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
    *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
    *             of the rekey is randomly selected based on the value for
@@ -8245,101 +8244,101 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
    *          <p>Default: <code>270</code>
    *          </p>
+   * @public
    */
   RekeyMarginTimeSeconds?: number;
 
   /**
-   * @public
    * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
    *             during which the rekey time is randomly selected.</p>
    *          <p>Constraints: A value between 0 and 100.</p>
    *          <p>Default: <code>100</code>
    *          </p>
+   * @public
    */
   RekeyFuzzPercentage?: number;
 
   /**
-   * @public
    * <p>The number of packets in an IKE replay window.</p>
    *          <p>Constraints: A value between 64 and 2048.</p>
    *          <p>Default: <code>1024</code>
    *          </p>
+   * @public
    */
   ReplayWindowSize?: number;
 
   /**
-   * @public
    * <p>The number of seconds after which a DPD timeout occurs. A DPD timeout of 40 seconds means that the VPN endpoint will consider the peer dead 30 seconds after the first failed keep-alive.</p>
    *          <p>Constraints: A value greater than or equal to 30.</p>
    *          <p>Default: <code>40</code>
    *          </p>
+   * @public
    */
   DPDTimeoutSeconds?: number;
 
   /**
-   * @public
    * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
    *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
    *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
    *          </p>
    *          <p>Default: <code>clear</code>
    *          </p>
+   * @public
    */
   DPDTimeoutAction?: string;
 
   /**
-   * @public
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
    *             IKE negotiations.</p>
    *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
    *                 <code>AES256-GCM-16</code>
    *          </p>
+   * @public
    */
   Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
 
   /**
-   * @public
    * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
    *             IKE negotiations.</p>
    *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
    *                 <code>AES256-GCM-16</code>
    *          </p>
+   * @public
    */
   Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
 
   /**
-   * @public
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
    *             negotiations.</p>
    *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
    *                 <code>SHA2-512</code>
    *          </p>
+   * @public
    */
   Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
 
   /**
-   * @public
    * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
    *             negotiations.</p>
    *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
    *                 <code>SHA2-512</code>
    *          </p>
+   * @public
    */
   Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
 
   /**
-   * @public
    * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
    *             phase 1 IKE negotiations.</p>
    *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
    *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
    *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
    *          </p>
+   * @public
    */
   Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
 
   /**
-   * @public
    * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
    *             phase 2 IKE negotiations.</p>
    *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
@@ -8347,19 +8346,19 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
    *                 <code>24</code>
    *          </p>
+   * @public
    */
   Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
 
   /**
-   * @public
    * <p>The IKE versions that are permitted for the VPN tunnel.</p>
    *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
    *          </p>
+   * @public
    */
   IKEVersions?: IKEVersionsRequestListValue[];
 
   /**
-   * @public
    * <p>The action to take when the establishing the tunnel for the VPN connection. By
    *             default, your customer gateway device must initiate the IKE negotiation and bring up the
    *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
@@ -8368,18 +8367,19 @@ export interface ModifyVpnTunnelOptionsSpecification {
    *          </p>
    *          <p>Default: <code>add</code>
    *          </p>
+   * @public
    */
   StartupAction?: string;
 
   /**
-   * @public
    * <p>Options for logging VPN tunnel activity.</p>
+   * @public
    */
   LogOptions?: VpnTunnelLogOptionsSpecification;
 
   /**
-   * @public
    * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+   * @public
    */
   EnableTunnelLifecycleControl?: boolean;
 }
@@ -8389,37 +8389,37 @@ export interface ModifyVpnTunnelOptionsSpecification {
  */
 export interface ModifyVpnTunnelOptionsRequest {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services Site-to-Site VPN connection.</p>
+   * @public
    */
   VpnConnectionId: string | undefined;
 
   /**
-   * @public
    * <p>The external IP address of the VPN tunnel.</p>
+   * @public
    */
   VpnTunnelOutsideIpAddress: string | undefined;
 
   /**
-   * @public
    * <p>The tunnel options to modify.</p>
+   * @public
    */
   TunnelOptions: ModifyVpnTunnelOptionsSpecification | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Choose whether or not to trigger immediate tunnel replacement. This is only applicable when turning on or off <code>EnableTunnelLifecycleControl</code>.</p>
    *          <p>Valid values: <code>True</code> | <code>False</code>
    *          </p>
+   * @public
    */
   SkipTunnelReplacement?: boolean;
 }
@@ -8429,8 +8429,8 @@ export interface ModifyVpnTunnelOptionsRequest {
  */
 export interface ModifyVpnTunnelOptionsResult {
   /**
-   * @public
    * <p>Information about the VPN connection.</p>
+   * @public
    */
   VpnConnection?: VpnConnection;
 }
@@ -8440,34 +8440,34 @@ export interface ModifyVpnTunnelOptionsResult {
  */
 export interface MonitorInstancesRequest {
   /**
-   * @public
    * <p>The IDs of the instances.</p>
+   * @public
    */
   InstanceIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the monitoring of an instance.</p>
+ * @public
  */
 export interface InstanceMonitoring {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>The monitoring for the instance.</p>
+   * @public
    */
   Monitoring?: Monitoring;
 }
@@ -8477,8 +8477,8 @@ export interface InstanceMonitoring {
  */
 export interface MonitorInstancesResult {
   /**
-   * @public
    * <p>The monitoring information.</p>
+   * @public
    */
   InstanceMonitorings?: InstanceMonitoring[];
 }
@@ -8488,16 +8488,16 @@ export interface MonitorInstancesResult {
  */
 export interface MoveAddressToVpcRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The Elastic IP address.</p>
+   * @public
    */
   PublicIp: string | undefined;
 }
@@ -8522,14 +8522,14 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface MoveAddressToVpcResult {
   /**
-   * @public
    * <p>The allocation ID for the Elastic IP address.</p>
+   * @public
    */
   AllocationId?: string;
 
   /**
-   * @public
    * <p>The status of the move of the IP address.</p>
+   * @public
    */
   Status?: Status;
 }
@@ -8539,28 +8539,28 @@ export interface MoveAddressToVpcResult {
  */
 export interface MoveByoipCidrToIpamRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The BYOIP CIDR.</p>
+   * @public
    */
   Cidr: string | undefined;
 
   /**
-   * @public
    * <p>The IPAM pool ID.</p>
+   * @public
    */
   IpamPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the owner of the IPAM pool.</p>
+   * @public
    */
   IpamPoolOwner: string | undefined;
 }
@@ -8570,27 +8570,27 @@ export interface MoveByoipCidrToIpamRequest {
  */
 export interface MoveByoipCidrToIpamResult {
   /**
-   * @public
    * <p>The BYOIP CIDR.</p>
+   * @public
    */
   ByoipCidr?: ByoipCidr;
 }
 
 /**
- * @public
  * <p>Provides authorization for Amazon to bring a specific IP address range to a specific
  *           Amazon Web Services account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @public
  */
 export interface CidrAuthorizationContext {
   /**
-   * @public
    * <p>The plain-text authorization message for the prefix and account.</p>
+   * @public
    */
   Message: string | undefined;
 
   /**
-   * @public
    * <p>The signed authorization message for the prefix and account.</p>
+   * @public
    */
   Signature: string | undefined;
 }
@@ -8600,56 +8600,55 @@ export interface CidrAuthorizationContext {
  */
 export interface ProvisionByoipCidrRequest {
   /**
-   * @public
    * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
    *           specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've
    *          brought to this or another Region.</p>
+   * @public
    */
   Cidr: string | undefined;
 
   /**
-   * @public
    * <p>A signed document that proves that you are authorized to bring the specified IP address
    *          range to Amazon using BYOIP.</p>
+   * @public
    */
   CidrAuthorizationContext?: CidrAuthorizationContext;
 
   /**
-   * @public
    * <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the
    *             internet.</p>
    *          <p>Default: true</p>
+   * @public
    */
   PubliclyAdvertisable?: boolean;
 
   /**
-   * @public
    * <p>A description for the address range and the address pool.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The tags to apply to the address pool.</p>
+   * @public
    */
   PoolTagSpecifications?: TagSpecification[];
 
   /**
-   * @public
    * <p>Reserved.</p>
+   * @public
    */
   MultiRegion?: boolean;
 
   /**
-   * @public
    * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
    *          <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p>
    *          <ul>
@@ -8666,6 +8665,7 @@ export interface ProvisionByoipCidrRequest {
    *          <note>
    *             <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p>
    *          </note>
+   * @public
    */
   NetworkBorderGroup?: string;
 }
@@ -8675,27 +8675,27 @@ export interface ProvisionByoipCidrRequest {
  */
 export interface ProvisionByoipCidrResult {
   /**
-   * @public
    * <p>Information about the address range.</p>
+   * @public
    */
   ByoipCidr?: ByoipCidr;
 }
 
 /**
- * @public
  * <p>Provides authorization for Amazon to bring an Autonomous System Number (ASN) to a specific Amazon Web Services account using bring your own ASN (BYOASN).
  *             For details on the format of the message and signature, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
+ * @public
  */
 export interface AsnAuthorizationContext {
   /**
-   * @public
    * <p>The authorization context's message.</p>
+   * @public
    */
   Message: string | undefined;
 
   /**
-   * @public
    * <p>The authorization context's signature.</p>
+   * @public
    */
   Signature: string | undefined;
 }
@@ -8705,28 +8705,28 @@ export interface AsnAuthorizationContext {
  */
 export interface ProvisionIpamByoasnRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>An IPAM ID.</p>
+   * @public
    */
   IpamId: string | undefined;
 
   /**
-   * @public
    * <p>A public 2-byte or 4-byte ASN.</p>
+   * @public
    */
   Asn: string | undefined;
 
   /**
-   * @public
    * <p>An ASN authorization context.</p>
+   * @public
    */
   AsnAuthorizationContext: AsnAuthorizationContext | undefined;
 }
@@ -8736,26 +8736,26 @@ export interface ProvisionIpamByoasnRequest {
  */
 export interface ProvisionIpamByoasnResult {
   /**
-   * @public
    * <p>An ASN and BYOIP CIDR association.</p>
+   * @public
    */
   Byoasn?: Byoasn;
 }
 
 /**
- * @public
  * <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
+ * @public
  */
 export interface IpamCidrAuthorizationContext {
   /**
-   * @public
    * <p>The plain-text authorization message for the prefix and account.</p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p>The signed authorization message for the prefix and account.</p>
+   * @public
    */
   Signature?: string;
 }
@@ -8765,40 +8765,40 @@ export interface IpamCidrAuthorizationContext {
  */
 export interface ProvisionIpamPoolCidrRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the IPAM pool to which you want to assign a CIDR.</p>
+   * @public
    */
   IpamPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The CIDR you want to assign to the IPAM pool. Either "NetmaskLength" or "Cidr" is required. This value will be null if you specify "NetmaskLength" and will be filled in during the provisioning process.</p>
+   * @public
    */
   Cidr?: string;
 
   /**
-   * @public
    * <p>A signed document that proves that you are authorized to bring a specified IP address range to Amazon using BYOIP. This option applies to public pools only.</p>
+   * @public
    */
   CidrAuthorizationContext?: IpamCidrAuthorizationContext;
 
   /**
-   * @public
    * <p>The netmask length of the CIDR you'd like to provision to a pool. Can be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools. Either "NetmaskLength" or "Cidr" is required.</p>
+   * @public
    */
   NetmaskLength?: number;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -8808,8 +8808,8 @@ export interface ProvisionIpamPoolCidrRequest {
  */
 export interface ProvisionIpamPoolCidrResult {
   /**
-   * @public
    * <p>Information about the provisioned CIDR.</p>
+   * @public
    */
   IpamPoolCidr?: IpamPoolCidr;
 }
@@ -8819,28 +8819,28 @@ export interface ProvisionIpamPoolCidrResult {
  */
 export interface ProvisionPublicIpv4PoolCidrRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the IPAM pool you would like to use to allocate this CIDR.</p>
+   * @public
    */
   IpamPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the public IPv4 pool you would like to use for this CIDR.</p>
+   * @public
    */
   PoolId: string | undefined;
 
   /**
-   * @public
    * <p>The netmask length of the CIDR you would like to allocate to the public IPv4 pool.</p>
+   * @public
    */
   NetmaskLength: number | undefined;
 }
@@ -8850,14 +8850,14 @@ export interface ProvisionPublicIpv4PoolCidrRequest {
  */
 export interface ProvisionPublicIpv4PoolCidrResult {
   /**
-   * @public
    * <p>The ID of the pool that you want to provision the CIDR to.</p>
+   * @public
    */
   PoolId?: string;
 
   /**
-   * @public
    * <p>Information about the address range of the public IPv4 pool.</p>
+   * @public
    */
   PoolAddressRange?: PublicIpv4PoolRange;
 }
@@ -8867,26 +8867,26 @@ export interface ProvisionPublicIpv4PoolCidrResult {
  */
 export interface PurchaseCapacityBlockRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The tags to apply to the Capacity Block during launch.</p>
+   * @public
    */
   TagSpecifications?: TagSpecification[];
 
   /**
-   * @public
    * <p>The ID of the Capacity Block offering.</p>
+   * @public
    */
   CapacityBlockOfferingId: string | undefined;
 
   /**
-   * @public
    * <p>The type of operating system for which to reserve capacity.</p>
+   * @public
    */
   InstancePlatform: CapacityReservationInstancePlatform | undefined;
 }
@@ -8896,8 +8896,8 @@ export interface PurchaseCapacityBlockRequest {
  */
 export interface PurchaseCapacityBlockResult {
   /**
-   * @public
    * <p>The Capacity Reservation.</p>
+   * @public
    */
   CapacityReservation?: CapacityReservation;
 }
@@ -8907,45 +8907,45 @@ export interface PurchaseCapacityBlockResult {
  */
 export interface PurchaseHostReservationRequest {
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>, and
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
+   * @public
    */
   CurrencyCode?: CurrencyCodeValues;
 
   /**
-   * @public
    * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
+   * @public
    */
   HostIdSet: string[] | undefined;
 
   /**
-   * @public
    * <p>The specified limit is checked against the total upfront cost of the reservation
    *             (calculated as the offering's upfront cost multiplied by the host count). If the total
    *             upfront cost is greater than the specified price limit, the request fails. This is used
    *             to ensure that the purchase does not exceed the expected upfront cost of the purchase.
    *             At this time, the only supported currency is <code>USD</code>. For example, to indicate
    *             a limit price of USD 100, specify 100.00.</p>
+   * @public
    */
   LimitPrice?: string;
 
   /**
-   * @public
    * <p>The ID of the offering.</p>
+   * @public
    */
   OfferingId: string | undefined;
 
   /**
-   * @public
    * <p>The tags to apply to the Dedicated Host Reservation during purchase.</p>
+   * @public
    */
   TagSpecifications?: TagSpecification[];
 }
@@ -8955,162 +8955,162 @@ export interface PurchaseHostReservationRequest {
  */
 export interface PurchaseHostReservationResult {
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The currency in which the <code>totalUpfrontPrice</code> and
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
+   * @public
    */
   CurrencyCode?: CurrencyCodeValues;
 
   /**
-   * @public
    * <p>Describes the details of the purchase.</p>
+   * @public
    */
   Purchase?: Purchase[];
 
   /**
-   * @public
    * <p>The total hourly price of the reservation calculated per hour.</p>
+   * @public
    */
   TotalHourlyPrice?: string;
 
   /**
-   * @public
    * <p>The total amount charged to your account when you purchase the reservation.</p>
+   * @public
    */
   TotalUpfrontPrice?: string;
 }
 
 /**
- * @public
  * <p>Describes the limit price of a Reserved Instance offering.</p>
+ * @public
  */
 export interface ReservedInstanceLimitPrice {
   /**
-   * @public
    * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>
+   * @public
    */
   Amount?: number;
 
   /**
-   * @public
    * <p>The currency in which the <code>limitPrice</code> amount is specified.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * @public
    */
   CurrencyCode?: CurrencyCodeValues;
 }
 
 /**
- * @public
  * <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
+ * @public
  */
 export interface PurchaseReservedInstancesOfferingRequest {
   /**
-   * @public
    * <p>The number of Reserved Instances to purchase.</p>
+   * @public
    */
   InstanceCount: number | undefined;
 
   /**
-   * @public
    * <p>The ID of the Reserved Instance offering to purchase.</p>
+   * @public
    */
   ReservedInstancesOfferingId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>
+   * @public
    */
   LimitPrice?: ReservedInstanceLimitPrice;
 
   /**
-   * @public
    * <p>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
    */
   PurchaseTime?: Date;
 }
 
 /**
- * @public
  * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
+ * @public
  */
 export interface PurchaseReservedInstancesOfferingResult {
   /**
-   * @public
    * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
    *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
    *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
    */
   ReservedInstancesId?: string;
 }
 
 /**
- * @public
  * <p>Describes a request to purchase Scheduled Instances.</p>
+ * @public
  */
 export interface PurchaseRequest {
   /**
-   * @public
    * <p>The number of instances.</p>
+   * @public
    */
   InstanceCount: number | undefined;
 
   /**
-   * @public
    * <p>The purchase token.</p>
+   * @public
    */
   PurchaseToken: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the parameters for PurchaseScheduledInstances.</p>
+ * @public
  */
 export interface PurchaseScheduledInstancesRequest {
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
    *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The purchase requests.</p>
+   * @public
    */
   PurchaseRequests: PurchaseRequest[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains the output of PurchaseScheduledInstances.</p>
+ * @public
  */
 export interface PurchaseScheduledInstancesResult {
   /**
-   * @public
    * <p>Information about the Scheduled Instances.</p>
+   * @public
    */
   ScheduledInstanceSet?: ScheduledInstance[];
 }
@@ -9120,156 +9120,155 @@ export interface PurchaseScheduledInstancesResult {
  */
 export interface RebootInstancesRequest {
   /**
-   * @public
    * <p>The instance IDs.</p>
+   * @public
    */
   InstanceIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the parameters for RegisterImage.</p>
+ * @public
  */
 export interface RegisterImageRequest {
   /**
-   * @public
    * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
    *    		<code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed
    *    		by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
    *    		<i>Amazon S3 Service Developer Guide</i>.</p>
+   * @public
    */
   ImageLocation?: string;
 
   /**
-   * @public
    * <p>The architecture of the AMI.</p>
    *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
    *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
+   * @public
    */
   Architecture?: ArchitectureValues;
 
   /**
-   * @public
    * <p>The block device mapping entries.</p>
    *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p>
    *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same
    *       Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can
    *       be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS local
    *         snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
+   * @public
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
-   * @public
    * <p>A description for your AMI.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p>
    *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
+   * @public
    */
   EnaSupport?: boolean;
 
   /**
-   * @public
    * <p>The ID of the kernel.</p>
+   * @public
    */
   KernelId?: string;
 
   /**
-   * @public
    * <p>A name for your AMI.</p>
    *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The billing product codes. Your account must be authorized to specify billing product codes.</p>
    *          <p>If your account is not authorized to specify billing product codes, you can publish AMIs
    *       that include billable software and list them on the Amazon Web Services Marketplace. You must first register as a seller
    *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as a
    *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
    *         products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
+   * @public
    */
   BillingProducts?: string[];
 
   /**
-   * @public
    * <p>The ID of the RAM disk.</p>
+   * @public
    */
   RamdiskId?: string;
 
   /**
-   * @public
    * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
+   * @public
    */
   RootDeviceName?: string;
 
   /**
-   * @public
    * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p>
    *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
    *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
+   * @public
    */
   SriovNetSupport?: string;
 
   /**
-   * @public
    * <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>
    *          <p>Default: <code>paravirtual</code>
    *          </p>
+   * @public
    */
   VirtualizationType?: string;
 
   /**
-   * @public
    * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p>
    *          <note>
    *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
    *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
+   * @public
    */
   BootMode?: BootModeValues;
 
   /**
-   * @public
    * <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
    *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
    */
   TpmSupport?: TpmSupportValues;
 
   /**
-   * @public
    * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
    *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
    *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
    *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
+   * @public
    */
   UefiData?: string;
 
   /**
-   * @public
    * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
    *       launched from this AMI will have <code>HttpTokens</code> automatically set to
    *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
@@ -9279,48 +9278,49 @@ export interface RegisterImageRequest {
    *          <note>
    *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>
    *          </note>
+   * @public
    */
   ImdsSupport?: ImdsSupportValues;
 
   /**
-   * @public
    * <p>The tags to apply to the AMI.</p>
    *          <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>. If you
    *       specify another value for <code>ResourceType</code>, the request fails.</p>
    *          <p>To tag an AMI after it has been registered, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   * @public
    */
   TagSpecifications?: TagSpecification[];
 }
 
 /**
- * @public
  * <p>Contains the output of RegisterImage.</p>
+ * @public
  */
 export interface RegisterImageResult {
   /**
-   * @public
    * <p>The ID of the newly registered AMI.</p>
+   * @public
    */
   ImageId?: string;
 }
 
 /**
- * @public
  * <p>Information about the tag keys to register for the current Region. You can either specify
  *       	individual tag keys or register all tag keys in the current Region. You must specify either
  *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ * @public
  */
 export interface RegisterInstanceTagAttributeRequest {
   /**
-   * @public
    * <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
    *       	to register all tag keys.</p>
+   * @public
    */
   IncludeAllTagsOfInstance?: boolean;
 
   /**
-   * @public
    * <p>The tag keys to register.</p>
+   * @public
    */
   InstanceTagKeys?: string[];
 }
@@ -9330,16 +9330,16 @@ export interface RegisterInstanceTagAttributeRequest {
  */
 export interface RegisterInstanceEventNotificationAttributesRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Information about the tag keys to register.</p>
+   * @public
    */
   InstanceTagAttribute: RegisterInstanceTagAttributeRequest | undefined;
 }
@@ -9349,8 +9349,8 @@ export interface RegisterInstanceEventNotificationAttributesRequest {
  */
 export interface RegisterInstanceEventNotificationAttributesResult {
   /**
-   * @public
    * <p>The resulting set of tag keys.</p>
+   * @public
    */
   InstanceTagAttribute?: InstanceTagNotificationAttribute;
 }
@@ -9360,52 +9360,52 @@ export interface RegisterInstanceEventNotificationAttributesResult {
  */
 export interface RegisterTransitGatewayMulticastGroupMembersRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
    */
   TransitGatewayMulticastDomainId: string | undefined;
 
   /**
-   * @public
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
    */
   GroupIpAddress?: string;
 
   /**
-   * @public
    * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
+   * @public
    */
   NetworkInterfaceIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the registered  transit gateway multicast group members.</p>
+ * @public
  */
 export interface TransitGatewayMulticastRegisteredGroupMembers {
   /**
-   * @public
    * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
    */
   TransitGatewayMulticastDomainId?: string;
 
   /**
-   * @public
    * <p>The ID of the registered network interfaces.</p>
+   * @public
    */
   RegisteredNetworkInterfaceIds?: string[];
 
   /**
-   * @public
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
    */
   GroupIpAddress?: string;
 }
@@ -9415,8 +9415,8 @@ export interface TransitGatewayMulticastRegisteredGroupMembers {
  */
 export interface RegisterTransitGatewayMulticastGroupMembersResult {
   /**
-   * @public
    * <p>Information about the registered  transit gateway multicast group members.</p>
+   * @public
    */
   RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers;
 }
@@ -9426,52 +9426,52 @@ export interface RegisterTransitGatewayMulticastGroupMembersResult {
  */
 export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
    */
   TransitGatewayMulticastDomainId: string | undefined;
 
   /**
-   * @public
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
    */
   GroupIpAddress?: string;
 
   /**
-   * @public
    * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
+   * @public
    */
   NetworkInterfaceIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the members registered with the  transit gateway multicast group.</p>
+ * @public
  */
 export interface TransitGatewayMulticastRegisteredGroupSources {
   /**
-   * @public
    * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
    */
   TransitGatewayMulticastDomainId?: string;
 
   /**
-   * @public
    * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
+   * @public
    */
   RegisteredNetworkInterfaceIds?: string[];
 
   /**
-   * @public
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
    */
   GroupIpAddress?: string;
 }

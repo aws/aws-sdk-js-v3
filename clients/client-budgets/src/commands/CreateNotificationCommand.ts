@@ -31,7 +31,6 @@ export interface CreateNotificationCommandInput extends CreateNotificationReques
 export interface CreateNotificationCommandOutput extends CreateNotificationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a notification. You must create the budget before you create the associated notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class CreateNotificationCommand extends $Command
   .classBuilder<

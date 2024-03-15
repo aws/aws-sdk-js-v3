@@ -27,7 +27,6 @@ export interface CreateOrderCommandInput extends CreateOrderInput {}
 export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an order for an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class CreateOrderCommand extends $Command
   .classBuilder<

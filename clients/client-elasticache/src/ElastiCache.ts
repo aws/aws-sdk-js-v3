@@ -1678,7 +1678,6 @@ export interface ElastiCache {
 }
 
 /**
- * @public
  * <fullname>Amazon ElastiCache</fullname>
  *          <p>Amazon ElastiCache is a web service that makes it easier to set up, operate, and scale
  *             a distributed cache in the cloud.</p>
@@ -1689,6 +1688,7 @@ export interface ElastiCache {
  *          <p>In addition, through integration with Amazon CloudWatch, customers get enhanced
  *             visibility into the key performance statistics associated with their cache and can
  *             receive alarms if a part of their cache runs hot.</p>
+ * @public
  */
 export class ElastiCache extends ElastiCacheClient implements ElastiCache {}
 createAggregatedClient(commands, ElastiCache);

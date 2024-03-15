@@ -27,7 +27,6 @@ export interface PutCodeBindingCommandInput extends PutCodeBindingRequest {}
 export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Put code binding URI</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class PutCodeBindingCommand extends $Command
   .classBuilder<

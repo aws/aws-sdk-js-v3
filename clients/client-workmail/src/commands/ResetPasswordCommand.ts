@@ -31,7 +31,6 @@ export interface ResetPasswordCommandInput extends ResetPasswordRequest {}
 export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the administrator to reset the password for a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ResetPasswordCommand extends $Command
   .classBuilder<

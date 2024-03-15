@@ -27,7 +27,6 @@ export interface CancelMailboxExportJobCommandInput extends CancelMailboxExportJ
 export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a mailbox export job.</p>
  *          <note>
  *             <p>If the mailbox export job is near completion, it might not be possible to cancel
@@ -74,6 +73,7 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class CancelMailboxExportJobCommand extends $Command
   .classBuilder<

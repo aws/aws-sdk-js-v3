@@ -27,7 +27,6 @@ export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyReques
 export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an access policy that grants the specified identity access to the specified
  *       IoT SiteWise Monitor resource. You can use this operation to revoke access to an IoT SiteWise Monitor
  *       resource.</p>
@@ -72,6 +71,7 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DeleteAccessPolicyCommand extends $Command
   .classBuilder<

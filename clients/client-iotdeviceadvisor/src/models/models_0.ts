@@ -18,8 +18,8 @@ export const AuthenticationMethod = {
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
 
 /**
- * @public
  * <p>Sends a Conflict Exception.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -38,26 +38,26 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Information of a test device. A thing ARN, certificate ARN
  *             or device role ARN is required.</p>
+ * @public
  */
 export interface DeviceUnderTest {
   /**
-   * @public
    * <p>Lists device's thing ARN.</p>
+   * @public
    */
   thingArn?: string;
 
   /**
-   * @public
    * <p>Lists device's certificate ARN.</p>
+   * @public
    */
   certificateArn?: string;
 
   /**
-   * @public
    * <p>Lists device's role ARN.</p>
+   * @public
    */
   deviceRoleArn?: string;
 }
@@ -79,36 +79,35 @@ export const Protocol = {
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
- * @public
  * <p>Gets the suite definition configuration.</p>
+ * @public
  */
 export interface SuiteDefinitionConfiguration {
   /**
-   * @public
    * <p>Gets the suite definition name. This is a required parameter.</p>
+   * @public
    */
   suiteDefinitionName: string | undefined;
 
   /**
-   * @public
    * <p>Gets the devices configured.</p>
+   * @public
    */
   devices?: DeviceUnderTest[];
 
   /**
-   * @public
    * <p>Gets the tests intended for qualification in a suite.</p>
+   * @public
    */
   intendedForQualification?: boolean;
 
   /**
-   * @public
    * <p>Verifies if the test suite is a long duration test.</p>
+   * @public
    */
   isLongDurationTest?: boolean;
 
   /**
-   * @public
    * <p>Gets the test suite root group. This is a required parameter.
    *             For updating or creating the latest qualification suite,
    *             if <code>intendedForQualification</code> is set to true,
@@ -121,18 +120,19 @@ export interface SuiteDefinitionConfiguration {
    *             For a qualification suite, the minimum length is 0, and the maximum is 2048.  For a
    *             non-qualification suite, the minimum length is 1, and the maximum is 2048.
    *         </p>
+   * @public
    */
   rootGroup: string | undefined;
 
   /**
-   * @public
    * <p>Gets the device permission ARN. This is a required parameter.</p>
+   * @public
    */
   devicePermissionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Sets the MQTT protocol that is configured in the suite definition.</p>
+   * @public
    */
   protocol?: Protocol;
 }
@@ -142,14 +142,14 @@ export interface SuiteDefinitionConfiguration {
  */
 export interface CreateSuiteDefinitionRequest {
   /**
-   * @public
    * <p>Creates a Device Advisor test suite with suite definition configuration.</p>
+   * @public
    */
   suiteDefinitionConfiguration: SuiteDefinitionConfiguration | undefined;
 
   /**
-   * @public
    * <p>The tags to be attached to the suite definition.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -159,33 +159,33 @@ export interface CreateSuiteDefinitionRequest {
  */
 export interface CreateSuiteDefinitionResponse {
   /**
-   * @public
    * <p>The UUID of the test suite created.</p>
+   * @public
    */
   suiteDefinitionId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the test suite.</p>
+   * @public
    */
   suiteDefinitionArn?: string;
 
   /**
-   * @public
    * <p>The suite definition name of the test suite. This is a required parameter.</p>
+   * @public
    */
   suiteDefinitionName?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the test suite was created.</p>
+   * @public
    */
   createdAt?: Date;
 }
 
 /**
- * @public
  * <p>Sends an Internal Failure exception.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -204,8 +204,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Sends a validation exception.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -228,8 +228,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteSuiteDefinitionRequest {
   /**
-   * @public
    * <p>Suite definition ID of the test suite to be deleted.</p>
+   * @public
    */
   suiteDefinitionId: string | undefined;
 }
@@ -244,26 +244,26 @@ export interface DeleteSuiteDefinitionResponse {}
  */
 export interface GetEndpointRequest {
   /**
-   * @public
    * <p>The thing ARN of the device. This is an optional parameter.</p>
+   * @public
    */
   thingArn?: string;
 
   /**
-   * @public
    * <p>The certificate ARN of the device. This is an optional parameter.</p>
+   * @public
    */
   certificateArn?: string;
 
   /**
-   * @public
    * <p>The device role ARN of the device. This is an optional parameter.</p>
+   * @public
    */
   deviceRoleArn?: string;
 
   /**
-   * @public
    * <p>The authentication method used during the device connection.</p>
+   * @public
    */
   authenticationMethod?: AuthenticationMethod;
 }
@@ -273,15 +273,15 @@ export interface GetEndpointRequest {
  */
 export interface GetEndpointResponse {
   /**
-   * @public
    * <p>The response of an Device Advisor endpoint.</p>
+   * @public
    */
   endpoint?: string;
 }
 
 /**
- * @public
  * <p>Sends a Resource Not Found exception.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -304,14 +304,14 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface GetSuiteDefinitionRequest {
   /**
-   * @public
    * <p>Suite definition ID of the test suite to get.</p>
+   * @public
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>Suite definition version of the test suite to get.</p>
+   * @public
    */
   suiteDefinitionVersion?: string;
 }
@@ -321,50 +321,50 @@ export interface GetSuiteDefinitionRequest {
  */
 export interface GetSuiteDefinitionResponse {
   /**
-   * @public
    * <p>Suite definition ID of the suite definition.</p>
+   * @public
    */
   suiteDefinitionId?: string;
 
   /**
-   * @public
    * <p>The ARN of the suite definition.</p>
+   * @public
    */
   suiteDefinitionArn?: string;
 
   /**
-   * @public
    * <p>Suite definition version of the suite definition.</p>
+   * @public
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * @public
    * <p>Latest suite definition version of the suite definition.</p>
+   * @public
    */
   latestVersion?: string;
 
   /**
-   * @public
    * <p>Suite configuration of the suite definition.</p>
+   * @public
    */
   suiteDefinitionConfiguration?: SuiteDefinitionConfiguration;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the suite definition was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the suite definition was last modified.</p>
+   * @public
    */
   lastModifiedAt?: Date;
 
   /**
-   * @public
    * <p>Tags attached to the suite definition.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -374,14 +374,14 @@ export interface GetSuiteDefinitionResponse {
  */
 export interface GetSuiteRunRequest {
   /**
-   * @public
    * <p>Suite definition ID for the test suite run.</p>
+   * @public
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>Suite run ID for the test suite run.</p>
+   * @public
    */
   suiteRunId: string | undefined;
 }
@@ -408,26 +408,26 @@ export const SuiteRunStatus = {
 export type SuiteRunStatus = (typeof SuiteRunStatus)[keyof typeof SuiteRunStatus];
 
 /**
- * @public
  * <p>Gets suite run configuration.</p>
+ * @public
  */
 export interface SuiteRunConfiguration {
   /**
-   * @public
    * <p>Sets the primary device for the test suite run. This requires a thing ARN or a
    *             certificate ARN.</p>
+   * @public
    */
   primaryDevice: DeviceUnderTest | undefined;
 
   /**
-   * @public
    * <p>Sets test case list.</p>
+   * @public
    */
   selectedTestList?: string[];
 
   /**
-   * @public
    * <p>TRUE if multiple test suites run in parallel.</p>
+   * @public
    */
   parallelRun?: boolean;
 }
@@ -489,18 +489,17 @@ export const TestCaseScenarioType = {
 export type TestCaseScenarioType = (typeof TestCaseScenarioType)[keyof typeof TestCaseScenarioType];
 
 /**
- * @public
  * <p>Provides test case scenario.</p>
+ * @public
  */
 export interface TestCaseScenario {
   /**
-   * @public
    * <p>Provides test case scenario ID.</p>
+   * @public
    */
   testCaseScenarioId?: string;
 
   /**
-   * @public
    * <p>Provides test case scenario type. Type is one of the following:</p>
    *          <ul>
    *             <li>
@@ -510,11 +509,11 @@ export interface TestCaseScenario {
    *                <p>Basic</p>
    *             </li>
    *          </ul>
+   * @public
    */
   testCaseScenarioType?: TestCaseScenarioType;
 
   /**
-   * @public
    * <p>Provides the test case scenario status. Status is one of the following:</p>
    *          <ul>
    *             <li>
@@ -553,47 +552,47 @@ export interface TestCaseScenario {
    *                     issue.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: TestCaseScenarioStatus;
 
   /**
-   * @public
    * <p>Provides test case scenario failure result.</p>
+   * @public
    */
   failure?: string;
 
   /**
-   * @public
    * <p>Provides test case scenario system messages if any.</p>
+   * @public
    */
   systemMessage?: string;
 }
 
 /**
- * @public
  * <p>Provides the test case run.</p>
+ * @public
  */
 export interface TestCaseRun {
   /**
-   * @public
    * <p>Provides the test case run ID.</p>
+   * @public
    */
   testCaseRunId?: string;
 
   /**
-   * @public
    * <p>Provides the test case run definition ID.</p>
+   * @public
    */
   testCaseDefinitionId?: string;
 
   /**
-   * @public
    * <p>Provides the test case run definition name.</p>
+   * @public
    */
   testCaseDefinitionName?: string;
 
   /**
-   * @public
    * <p>Provides the test case run status. Status is one of the following:</p>
    *          <ul>
    *             <li>
@@ -632,78 +631,79 @@ export interface TestCaseRun {
    *                     issue.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>Provides test case run start time.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>Provides test case run end time.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Provides test case run log URL.</p>
+   * @public
    */
   logUrl?: string;
 
   /**
-   * @public
    * <p>Provides test case run warnings.</p>
+   * @public
    */
   warnings?: string;
 
   /**
-   * @public
    * <p>Provides test case run failure result.</p>
+   * @public
    */
   failure?: string;
 
   /**
-   * @public
    * <p> Provides the test scenarios for the test case run. </p>
+   * @public
    */
   testScenarios?: TestCaseScenario[];
 }
 
 /**
- * @public
  * <p>Show Group Result.</p>
+ * @public
  */
 export interface GroupResult {
   /**
-   * @public
    * <p>Group result ID.</p>
+   * @public
    */
   groupId?: string;
 
   /**
-   * @public
    * <p>Group Result Name.</p>
+   * @public
    */
   groupName?: string;
 
   /**
-   * @public
    * <p>Tests under Group Result.</p>
+   * @public
    */
   tests?: TestCaseRun[];
 }
 
 /**
- * @public
  * <p>Show each group result.</p>
+ * @public
  */
 export interface TestResult {
   /**
-   * @public
    * <p>Show each group of test results.</p>
+   * @public
    */
   groups?: GroupResult[];
 }
@@ -713,68 +713,68 @@ export interface TestResult {
  */
 export interface GetSuiteRunResponse {
   /**
-   * @public
    * <p>Suite definition ID for the test suite run.</p>
+   * @public
    */
   suiteDefinitionId?: string;
 
   /**
-   * @public
    * <p>Suite definition version for the test suite run.</p>
+   * @public
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * @public
    * <p>Suite run ID for the test suite run.</p>
+   * @public
    */
   suiteRunId?: string;
 
   /**
-   * @public
    * <p>The ARN of the suite run.</p>
+   * @public
    */
   suiteRunArn?: string;
 
   /**
-   * @public
    * <p>Suite run configuration for the test suite run.</p>
+   * @public
    */
   suiteRunConfiguration?: SuiteRunConfiguration;
 
   /**
-   * @public
    * <p>Test results for the test suite run.</p>
+   * @public
    */
   testResult?: TestResult;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the test suite run started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the test suite run ended.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Status for the test suite run.</p>
+   * @public
    */
   status?: SuiteRunStatus;
 
   /**
-   * @public
    * <p>Error reason for any test suite run failure.</p>
+   * @public
    */
   errorReason?: string;
 
   /**
-   * @public
    * <p>The tags attached to the suite run.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -784,14 +784,14 @@ export interface GetSuiteRunResponse {
  */
 export interface GetSuiteRunReportRequest {
   /**
-   * @public
    * <p>Suite definition ID of the test suite.</p>
+   * @public
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>Suite run ID of the test suite run.</p>
+   * @public
    */
   suiteRunId: string | undefined;
 }
@@ -801,8 +801,8 @@ export interface GetSuiteRunReportRequest {
  */
 export interface GetSuiteRunReportResponse {
   /**
-   * @public
    * <p>Download URL of the qualification report.</p>
+   * @public
    */
   qualificationReportDownloadUrl?: string;
 }
@@ -812,62 +812,62 @@ export interface GetSuiteRunReportResponse {
  */
 export interface ListSuiteDefinitionsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return at once.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A token used to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Information about the suite definition.</p>
+ * @public
  */
 export interface SuiteDefinitionInformation {
   /**
-   * @public
    * <p>Suite definition ID of the test suite.</p>
+   * @public
    */
   suiteDefinitionId?: string;
 
   /**
-   * @public
    * <p>Suite name of the test suite.</p>
+   * @public
    */
   suiteDefinitionName?: string;
 
   /**
-   * @public
    * <p>Specifies the devices that are under test for the test suite.</p>
+   * @public
    */
   defaultDevices?: DeviceUnderTest[];
 
   /**
-   * @public
    * <p>Specifies if the test suite is intended for qualification.</p>
+   * @public
    */
   intendedForQualification?: boolean;
 
   /**
-   * @public
    * <p>Verifies if the test suite is a long duration test.</p>
+   * @public
    */
   isLongDurationTest?: boolean;
 
   /**
-   * @public
    * <p>Gets the MQTT protocol that is configured in the suite definition.</p>
+   * @public
    */
   protocol?: Protocol;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the test suite was created.</p>
+   * @public
    */
   createdAt?: Date;
 }
@@ -877,15 +877,15 @@ export interface SuiteDefinitionInformation {
  */
 export interface ListSuiteDefinitionsResponse {
   /**
-   * @public
    * <p>An array of objects that provide summaries of information about the suite definitions
    *             in the list.</p>
+   * @public
    */
   suiteDefinitionInformationList?: SuiteDefinitionInformation[];
 
   /**
-   * @public
    * <p>A token used to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -895,95 +895,95 @@ export interface ListSuiteDefinitionsResponse {
  */
 export interface ListSuiteRunsRequest {
   /**
-   * @public
    * <p>Lists the test suite runs of the specified test suite based on suite definition
    *             ID.</p>
+   * @public
    */
   suiteDefinitionId?: string;
 
   /**
-   * @public
    * <p>Must be passed along with <code>suiteDefinitionId</code>. Lists the test suite runs of
    *             the specified test suite based on suite definition version.</p>
+   * @public
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return at once.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A token to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Information about the suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SuiteRunInformation</a> action.</p>
+ * @public
  */
 export interface SuiteRunInformation {
   /**
-   * @public
    * <p>Suite definition ID of the suite run.</p>
+   * @public
    */
   suiteDefinitionId?: string;
 
   /**
-   * @public
    * <p>Suite definition version of the suite run.</p>
+   * @public
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * @public
    * <p>Suite definition name of the suite run.</p>
+   * @public
    */
   suiteDefinitionName?: string;
 
   /**
-   * @public
    * <p>Suite run ID of the suite run.</p>
+   * @public
    */
   suiteRunId?: string;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the suite run was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the suite run was started.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>Date (in Unix epoch time) when the suite run ended.</p>
+   * @public
    */
   endAt?: Date;
 
   /**
-   * @public
    * <p>Status of the suite run.</p>
+   * @public
    */
   status?: SuiteRunStatus;
 
   /**
-   * @public
    * <p>Number of test cases that passed in the suite run.</p>
+   * @public
    */
   passed?: number;
 
   /**
-   * @public
    * <p>Number of test cases that failed in the suite run.</p>
+   * @public
    */
   failed?: number;
 }
@@ -993,15 +993,15 @@ export interface SuiteRunInformation {
  */
 export interface ListSuiteRunsResponse {
   /**
-   * @public
    * <p>An array of objects that provide summaries of information about the suite runs in the
    *             list.</p>
+   * @public
    */
   suiteRunsList?: SuiteRunInformation[];
 
   /**
-   * @public
    * <p>A token to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1011,9 +1011,9 @@ export interface ListSuiteRunsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The resource ARN of the IoT Device Advisor resource. This can be SuiteDefinition ARN or
    *             SuiteRun ARN.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1023,8 +1023,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags attached to the IoT Device Advisor resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1034,26 +1034,26 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartSuiteRunRequest {
   /**
-   * @public
    * <p>Suite definition ID of the test suite.</p>
+   * @public
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>Suite definition version of the test suite.</p>
+   * @public
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * @public
    * <p>Suite run configuration.</p>
+   * @public
    */
   suiteRunConfiguration: SuiteRunConfiguration | undefined;
 
   /**
-   * @public
    * <p>The tags to be attached to the suite run.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1063,26 +1063,26 @@ export interface StartSuiteRunRequest {
  */
 export interface StartSuiteRunResponse {
   /**
-   * @public
    * <p>Suite Run ID of the started suite run.</p>
+   * @public
    */
   suiteRunId?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the started suite run.</p>
+   * @public
    */
   suiteRunArn?: string;
 
   /**
-   * @public
    * <p>Starts a Device Advisor test suite run based on suite create time.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The response of an Device Advisor test endpoint.</p>
+   * @public
    */
   endpoint?: string;
 }
@@ -1092,14 +1092,14 @@ export interface StartSuiteRunResponse {
  */
 export interface StopSuiteRunRequest {
   /**
-   * @public
    * <p>Suite definition ID of the test suite run to be stopped.</p>
+   * @public
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>Suite run ID of the test suite run to be stopped.</p>
+   * @public
    */
   suiteRunId: string | undefined;
 }
@@ -1114,15 +1114,15 @@ export interface StopSuiteRunResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
    *             SuiteRun ARN.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to be attached to the IoT Device Advisor resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1137,15 +1137,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The resource ARN of an IoT Device Advisor resource. This can be SuiteDefinition ARN or
    *             SuiteRun ARN.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>List of tag keys to remove from the IoT Device Advisor resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -1160,14 +1160,14 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateSuiteDefinitionRequest {
   /**
-   * @public
    * <p>Suite definition ID of the test suite to be updated.</p>
+   * @public
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>Updates a Device Advisor test suite with suite definition configuration.</p>
+   * @public
    */
   suiteDefinitionConfiguration: SuiteDefinitionConfiguration | undefined;
 }
@@ -1177,38 +1177,38 @@ export interface UpdateSuiteDefinitionRequest {
  */
 export interface UpdateSuiteDefinitionResponse {
   /**
-   * @public
    * <p>Suite definition ID of the updated test suite.</p>
+   * @public
    */
   suiteDefinitionId?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the updated test suite.</p>
+   * @public
    */
   suiteDefinitionArn?: string;
 
   /**
-   * @public
    * <p>Updates the suite definition name. This is a required parameter.</p>
+   * @public
    */
   suiteDefinitionName?: string;
 
   /**
-   * @public
    * <p>Suite definition version of the updated test suite.</p>
+   * @public
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * @public
    * <p>Timestamp of when the test suite was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>Timestamp of when the test suite was updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 }

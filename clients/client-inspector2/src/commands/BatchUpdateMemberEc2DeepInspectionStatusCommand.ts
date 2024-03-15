@@ -36,7 +36,6 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates or deactivates Amazon Inspector deep inspection for the provided member accounts in your organization. You must be the delegated administrator of an organization in Amazon Inspector to use this API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command
   .classBuilder<

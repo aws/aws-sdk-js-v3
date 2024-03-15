@@ -27,7 +27,6 @@ export interface CreateFindingsReportCommandInput extends CreateFindingsReportRe
 export interface CreateFindingsReportCommandOutput extends CreateFindingsReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a finding report. By default only <code>ACTIVE</code> findings are returned in the report. To see <code>SUPRESSED</code> or <code>CLOSED</code> findings you must specify a value for the <code>findingStatus</code> filter criteria. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -204,6 +203,7 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class CreateFindingsReportCommand extends $Command
   .classBuilder<

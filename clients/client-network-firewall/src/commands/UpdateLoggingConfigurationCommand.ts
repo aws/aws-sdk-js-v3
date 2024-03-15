@@ -27,7 +27,6 @@ export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingCon
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the logging configuration for the specified firewall. </p>
  *          <p>To change the logging configuration, retrieve the <a>LoggingConfiguration</a> by calling <a>DescribeLoggingConfiguration</a>, then change it and provide
  *          the modified object to this update call. You must change the logging configuration one
@@ -136,6 +135,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateLoggingConfigurationCommand extends $Command
   .classBuilder<

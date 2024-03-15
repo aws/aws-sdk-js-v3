@@ -27,7 +27,6 @@ export interface StartBulkDeploymentCommandInput extends StartBulkDeploymentRequ
 export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class StartBulkDeploymentCommand extends $Command
   .classBuilder<

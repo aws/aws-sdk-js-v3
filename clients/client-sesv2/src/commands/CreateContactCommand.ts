@@ -27,7 +27,6 @@ export interface CreateContactCommandInput extends CreateContactRequest {}
 export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a contact, which is an end-user who is receiving the email, and adds them to a
  *             contact list.</p>
  * @example
@@ -75,6 +74,7 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateContactCommand extends $Command
   .classBuilder<

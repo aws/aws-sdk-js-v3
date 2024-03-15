@@ -27,7 +27,6 @@ export interface ModifyDBSnapshotCommandInput extends ModifyDBSnapshotMessage {}
 export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
  *             or unencrypted, but not shared or public.
  *
@@ -113,6 +112,7 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify a DB snapshot
  * ```javascript
  * // The following example upgrades a PostgeSQL 10.6 snapshot named db5-snapshot-upg-test to PostgreSQL 11.7. The new DB engine version is shown after the snapshot has finished upgrading and its status is available.

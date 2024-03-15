@@ -27,7 +27,6 @@ export interface PutCoreNetworkPolicyCommandInput extends PutCoreNetworkPolicyRe
 export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and the submitted policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class PutCoreNetworkPolicyCommand extends $Command
   .classBuilder<

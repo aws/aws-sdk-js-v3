@@ -27,7 +27,6 @@ export interface DescribeCanariesCommandInput extends DescribeCanariesRequest {}
 export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns a list of the canaries in your account, along with full details
  *       about each canary.</p>
  *          <p>This operation supports resource-level authorization using an IAM policy and
@@ -139,6 +138,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class DescribeCanariesCommand extends $Command
   .classBuilder<

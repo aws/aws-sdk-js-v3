@@ -27,7 +27,6 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyMessage 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the resource policy for a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResult,
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<

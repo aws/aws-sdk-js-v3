@@ -27,7 +27,6 @@ export interface GetProjectCommandInput extends GetProjectInput {}
 export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a project in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetProjectCommand extends $Command
   .classBuilder<

@@ -1593,7 +1593,6 @@ export interface SES {
 }
 
 /**
- * @public
  * <fullname>Amazon Simple Email Service</fullname>
  *          <p> This document contains reference information for the <a href="https://aws.amazon.com/ses/">Amazon Simple Email Service</a> (Amazon SES) API, version
  *             2010-12-01. This document is best used in conjunction with the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer
@@ -1628,6 +1627,7 @@ export interface SES {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SES extends SESClient implements SES {}
 createAggregatedClient(commands, SES);

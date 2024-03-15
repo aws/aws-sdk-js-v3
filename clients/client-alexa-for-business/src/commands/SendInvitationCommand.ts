@@ -27,9 +27,6 @@ export interface SendInvitationCommandInput extends SendInvitationRequest {}
 export interface SendInvitationCommandOutput extends SendInvitationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
  *          days or until you call this operation again, whichever comes first. </p>
  * @example
@@ -65,6 +62,8 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class SendInvitationCommand extends $Command
   .classBuilder<

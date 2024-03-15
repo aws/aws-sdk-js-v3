@@ -27,7 +27,6 @@ export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an Amazon Neptune  DB cluster that was stopped using the Amazon
  *       console, the Amazon CLI stop-db-cluster command, or the StopDBCluster API.</p>
  * @example
@@ -160,6 +159,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class StartDBClusterCommand extends $Command
   .classBuilder<

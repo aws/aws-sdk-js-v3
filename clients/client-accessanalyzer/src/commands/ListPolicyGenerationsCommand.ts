@@ -27,7 +27,6 @@ export interface ListPolicyGenerationsCommandInput extends ListPolicyGenerations
 export interface ListPolicyGenerationsCommandOutput extends ListPolicyGenerationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the policy generations requested in the last seven days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListPolicyGenerationsCommandOutput extends ListPolicyGeneration
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class ListPolicyGenerationsCommand extends $Command
   .classBuilder<

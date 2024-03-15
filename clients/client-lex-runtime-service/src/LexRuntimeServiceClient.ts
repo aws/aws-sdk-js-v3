@@ -268,7 +268,6 @@ export type LexRuntimeServiceClientResolvedConfigType = __SmithyResolvedConfigur
 export interface LexRuntimeServiceClientResolvedConfig extends LexRuntimeServiceClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Lex provides both build and runtime endpoints. Each endpoint
  *       provides a set of operations (API). Your conversational bot uses the
  *       runtime API to understand user utterances (user input text or voice). For
@@ -281,6 +280,7 @@ export interface LexRuntimeServiceClientResolvedConfig extends LexRuntimeService
  *       you created the bot). You use the build-time API to create and manage your
  *       Amazon Lex bot. For a list of build-time operations, see the build-time
  *       API, . </p>
+ * @public
  */
 export class LexRuntimeServiceClient extends __Client<
   __HttpHandlerOptions,

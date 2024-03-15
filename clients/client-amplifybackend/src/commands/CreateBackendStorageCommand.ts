@@ -27,7 +27,6 @@ export interface CreateBackendStorageCommandInput extends CreateBackendStorageRe
 export interface CreateBackendStorageCommandOutput extends CreateBackendStorageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class CreateBackendStorageCommand extends $Command
   .classBuilder<

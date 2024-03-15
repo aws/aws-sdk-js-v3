@@ -36,7 +36,6 @@ export interface PostTextCommandInput extends PostTextRequest {}
 export interface PostTextCommandOutput extends PostTextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends user input to Amazon Lex. Client applications can use this API to
  *       send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
  *       using the machine learning model it built for the bot. </p>
@@ -265,6 +264,7 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * @throws {@link LexRuntimeServiceServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ * @public
  */
 export class PostTextCommand extends $Command
   .classBuilder<

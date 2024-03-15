@@ -32,7 +32,6 @@ export interface AssociateServiceRoleToAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a Greengrass service role with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. IoT Greengrass
  *       uses this role to verify the identity of client devices and manage core device connectivity
  *       information. The role must include the <a href="https://console.aws.amazon.com/iam/home#/policies/arn:awsiam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy">AWSGreengrassResourceAccessRolePolicy</a> managed policy or a custom policy that
@@ -71,6 +70,7 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class AssociateServiceRoleToAccountCommand extends $Command
   .classBuilder<

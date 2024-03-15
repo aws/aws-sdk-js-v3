@@ -31,7 +31,6 @@ export interface StopRxNormInferenceJobCommandInput extends StopRxNormInferenceJ
 export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an InferRxNorm inference job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInference
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StopRxNormInferenceJobCommand extends $Command
   .classBuilder<

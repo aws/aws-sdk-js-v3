@@ -27,7 +27,6 @@ export interface CreateLoggingConfigurationCommandInput extends CreateLoggingCon
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateLoggingConfiguration</code> operation creates a logging configuration
  *             for the workspace. Use this operation to set the CloudWatch log group to which
  *             the logs will be published to.</p>
@@ -75,6 +74,7 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class CreateLoggingConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListEventsCommandInput extends ListEventsRequest {}
 export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of the events emitted by the resources that are evaluated by DevOps Guru.
  * 			You can use filters to specify which events are returned. </p>
  * @example
@@ -134,6 +133,7 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class ListEventsCommand extends $Command
   .classBuilder<

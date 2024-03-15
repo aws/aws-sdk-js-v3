@@ -27,7 +27,6 @@ export interface DescribeOptionGroupsCommandInput extends DescribeOptionGroupsMe
 export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the available option groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the available option groups
  * ```javascript
  * // The following example lists the options groups for an Oracle Database 19c instance.

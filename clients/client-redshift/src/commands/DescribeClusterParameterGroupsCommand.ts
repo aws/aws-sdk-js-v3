@@ -30,7 +30,6 @@ export interface DescribeClusterParameterGroupsCommandInput extends DescribeClus
 export interface DescribeClusterParameterGroupsCommandOutput extends ClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you
  *             created and the default parameter group. For each parameter group, the response includes
  *             the parameter group name, description, and parameter group family name. You can
@@ -101,6 +100,7 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterParameterGroupsCommand extends $Command
   .classBuilder<

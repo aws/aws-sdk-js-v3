@@ -27,7 +27,6 @@ export interface DeleteTerminologyCommandInput extends DeleteTerminologyRequest 
 export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>A synchronous action that deletes a custom terminology.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class DeleteTerminologyCommand extends $Command
   .classBuilder<

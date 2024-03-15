@@ -27,7 +27,6 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsRequ
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of all recommendations for a completed code review.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class ListRecommendationsCommand extends $Command
   .classBuilder<

@@ -25,7 +25,6 @@ export interface PostUnionWithJsonNameCommandInput extends PostUnionWithJsonName
 export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNameOutput, __MetadataBearer {}
 
 /**
- * @public
  * This operation defines a union that uses jsonName on some members.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNam
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class PostUnionWithJsonNameCommand extends $Command
   .classBuilder<

@@ -33,7 +33,6 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of medical entity detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class ListEntitiesDetectionV2JobsCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface GetMobileDeviceAccessEffectCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
  *          rules for the WorkMail organization for a particular user's attributes.</p>
  * @example
@@ -79,6 +78,7 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class GetMobileDeviceAccessEffectCommand extends $Command
   .classBuilder<

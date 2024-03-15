@@ -31,7 +31,6 @@ export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
 export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an integration between the service and a third-party service, which includes
  *          Amazon AppFlow and Amazon Connect.</p>
  *          <p>An integration can belong to only one domain.</p>
@@ -164,6 +163,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class PutIntegrationCommand extends $Command
   .classBuilder<

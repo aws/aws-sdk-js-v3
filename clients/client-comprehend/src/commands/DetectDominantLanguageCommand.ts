@@ -32,7 +32,6 @@ export interface DetectDominantLanguageCommandInput extends DetectDominantLangua
 export interface DetectDominantLanguageCommandOutput extends DetectDominantLanguageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Determines the dominant language of the input text. For a list of languages that Amazon
  *       Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
  * @example
@@ -75,6 +74,7 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectDominantLanguageCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateManagedPrefixListCommandInput extends CreateManagedPrefix
 export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefixListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list.
  *             Each entry consists of a CIDR block and an optional description.</p>
  * @example
@@ -93,6 +92,7 @@ export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateManagedPrefixListCommand extends $Command
   .classBuilder<

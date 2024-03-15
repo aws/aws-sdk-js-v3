@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified set of tag keys and their values from the specified Amazon Lightsail
  *       resource.</p>
  *          <p>The <code>untag resource</code> operation supports tag-based access control via request
@@ -111,6 +110,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteQueuedMessagesCommandInput extends DeleteQueuedMessagesRe
 export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove queued messages from the downlink queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteQueuedMessagesCommand extends $Command
   .classBuilder<

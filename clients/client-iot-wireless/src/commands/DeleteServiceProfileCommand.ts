@@ -27,7 +27,6 @@ export interface DeleteServiceProfileCommandInput extends DeleteServiceProfileRe
 export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a service profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteServiceProfileCommand extends $Command
   .classBuilder<

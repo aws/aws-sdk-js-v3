@@ -35,7 +35,6 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Writes the configuration for the specified environment blueprint in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface PutEnvironmentBlueprintConfigurationCommandOutput
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class PutEnvironmentBlueprintConfigurationCommand extends $Command
   .classBuilder<

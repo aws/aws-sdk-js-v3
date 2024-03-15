@@ -27,7 +27,6 @@ export interface AssociateVpcCidrBlockCommandInput extends AssociateVpcCidrBlock
 export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,
  *             an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that
  *             you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>). </p>
@@ -89,6 +88,7 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateVpcCidrBlockCommand extends $Command
   .classBuilder<

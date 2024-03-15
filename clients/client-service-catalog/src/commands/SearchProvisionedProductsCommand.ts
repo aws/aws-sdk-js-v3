@@ -27,7 +27,6 @@ export interface SearchProvisionedProductsCommandInput extends SearchProvisioned
 export interface SearchProvisionedProductsCommandOutput extends SearchProvisionedProductsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the provisioned products that meet the specified criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class SearchProvisionedProductsCommand extends $Command
   .classBuilder<

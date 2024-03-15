@@ -27,7 +27,6 @@ export interface UpdateContactEvaluationCommandInput extends UpdateContactEvalua
 export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates details about a contact evaluation in the specified Amazon Connect instance. A
  *    contact evaluation must be in draft state. Answers included in the request are merged with
  *    existing answers for the given evaluation. An answer or note can be deleted by passing an empty
@@ -89,6 +88,7 @@ export interface UpdateContactEvaluationCommandOutput extends UpdateContactEvalu
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateContactEvaluationCommand extends $Command
   .classBuilder<

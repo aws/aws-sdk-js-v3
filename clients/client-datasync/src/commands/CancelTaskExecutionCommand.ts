@@ -27,7 +27,6 @@ export interface CancelTaskExecutionCommandInput extends CancelTaskExecutionRequ
 export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an DataSync task execution that's in progress. The transfer of some
  *       files are abruptly interrupted. File contents that're transferred to the destination might be
  *       incomplete or inconsistent with the source files.</p>
@@ -66,6 +65,7 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CancelTaskExecutionCommand extends $Command
   .classBuilder<

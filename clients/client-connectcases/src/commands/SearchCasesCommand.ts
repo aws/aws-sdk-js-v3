@@ -27,7 +27,6 @@ export interface SearchCasesCommandInput extends SearchCasesRequest {}
 export interface SearchCasesCommandOutput extends SearchCasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for cases within their associated Cases domain. Search results are returned
  *       as a paginated list of abridged case documents.</p>
  *          <note>
@@ -191,6 +190,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class SearchCasesCommand extends $Command
   .classBuilder<

@@ -39,7 +39,6 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the record of a single premigration assessment run.</p>
  *          <p>This operation removes all metadata that DMS maintains about this assessment run.
  *          However, the operation leaves untouched all information about this assessment run that is
@@ -96,6 +95,7 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DeleteReplicationTaskAssessmentRunCommand extends $Command
   .classBuilder<

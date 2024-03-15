@@ -27,7 +27,6 @@ export interface UpdateLocationHdfsCommandInput extends UpdateLocationHdfsReques
 export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some parameters of a previously created location for a Hadoop Distributed File
  *       System cluster.</p>
  * @example
@@ -83,6 +82,7 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateLocationHdfsCommand extends $Command
   .classBuilder<

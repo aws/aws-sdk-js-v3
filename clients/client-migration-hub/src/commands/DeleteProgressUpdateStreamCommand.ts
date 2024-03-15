@@ -27,7 +27,6 @@ export interface DeleteProgressUpdateStreamCommandInput extends DeleteProgressUp
 export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressUpdateStreamResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a progress update stream, including all of its tasks, which was previously
  *          created as an AWS resource used for access control. This API has the following
  *          traits:</p>
@@ -118,6 +117,7 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class DeleteProgressUpdateStreamCommand extends $Command
   .classBuilder<

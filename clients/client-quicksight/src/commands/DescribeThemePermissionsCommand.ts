@@ -27,7 +27,6 @@ export interface DescribeThemePermissionsCommandInput extends DescribeThemePermi
 export interface DescribeThemePermissionsCommandOutput extends DescribeThemePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the read and write permissions for a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeThemePermissionsCommandOutput extends DescribeThemePerm
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeThemePermissionsCommand extends $Command
   .classBuilder<

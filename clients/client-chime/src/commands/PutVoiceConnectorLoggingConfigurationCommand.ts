@@ -36,9 +36,6 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutVoiceConnectorLoggingConfiguration in the Amazon Chime SDK Voice Namespace
- *
  * <p>Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to
  *     Amazon CloudWatch Logs.</p>
  *          <important>
@@ -102,6 +99,8 @@ export interface PutVoiceConnectorLoggingConfigurationCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutVoiceConnectorLoggingConfiguration in the Amazon Chime SDK Voice Namespace
  */
 export class PutVoiceConnectorLoggingConfigurationCommand extends $Command
   .classBuilder<

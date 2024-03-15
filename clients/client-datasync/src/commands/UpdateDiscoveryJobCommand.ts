@@ -27,7 +27,6 @@ export interface UpdateDiscoveryJobCommandInput extends UpdateDiscoveryJobReques
 export interface UpdateDiscoveryJobCommandOutput extends UpdateDiscoveryJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Edits a DataSync discovery job configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface UpdateDiscoveryJobCommandOutput extends UpdateDiscoveryJobRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateDiscoveryJobCommand extends $Command
   .classBuilder<

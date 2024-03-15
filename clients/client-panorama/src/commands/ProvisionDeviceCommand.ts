@@ -27,7 +27,6 @@ export interface ProvisionDeviceCommandInput extends ProvisionDeviceRequest {}
 export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a
  *       provisioning certificate that is valid for 5 minutes. Name the configuration archive
  *           <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5
@@ -110,6 +109,7 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class ProvisionDeviceCommand extends $Command
   .classBuilder<

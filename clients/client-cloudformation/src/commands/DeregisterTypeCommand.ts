@@ -27,7 +27,6 @@ export interface DeregisterTypeCommandInput extends DeregisterTypeInput {}
 export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation registry, removing it from
  *    active use. Deprecated extensions or extension versions cannot be used in CloudFormation operations.</p>
  *          <p>To deregister an entire extension, you must individually deregister all active versions of that extension. If an
@@ -72,6 +71,7 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DeregisterTypeCommand extends $Command
   .classBuilder<

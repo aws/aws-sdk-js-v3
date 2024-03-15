@@ -32,7 +32,6 @@ export interface AssociateApplicationToEntitlementCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an application to entitle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface AssociateApplicationToEntitlementCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class AssociateApplicationToEntitlementCommand extends $Command
   .classBuilder<

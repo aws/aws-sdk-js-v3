@@ -27,7 +27,6 @@ export interface UpdateDevicesCommandInput extends UpdateDevicesRequest {}
 export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates one or more devices in a fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateDevicesCommand extends $Command
   .classBuilder<

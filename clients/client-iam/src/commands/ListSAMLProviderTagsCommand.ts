@@ -27,7 +27,6 @@ export interface ListSAMLProviderTagsCommandInput extends ListSAMLProviderTagsRe
 export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags that are attached to the specified Security Assertion Markup Language
  *       (SAML) identity provider. The returned list of tags is sorted by tag key. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
  *       federation</a>.</p>
@@ -80,6 +79,7 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListSAMLProviderTagsCommand extends $Command
   .classBuilder<

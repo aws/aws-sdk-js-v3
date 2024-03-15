@@ -32,7 +32,6 @@ export interface ListStreamingSessionBackupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the backups of a streaming session in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListStreamingSessionBackupsCommandOutput
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class ListStreamingSessionBackupsCommand extends $Command
   .classBuilder<

@@ -31,9 +31,6 @@ export interface SendChannelMessageCommandInput extends SendChannelMessageReques
 export interface SendChannelMessageCommandOutput extends SendChannelMessageResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by SendChannelMessage in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Sends a message to a particular channel that the member is a part of.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -104,6 +101,8 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by SendChannelMessage in the Amazon Chime SDK Messaging Namespace
  */
 export class SendChannelMessageCommand extends $Command
   .classBuilder<

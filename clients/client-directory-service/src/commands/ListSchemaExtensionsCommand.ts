@@ -27,7 +27,6 @@ export interface ListSchemaExtensionsCommandInput extends ListSchemaExtensionsRe
 export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class ListSchemaExtensionsCommand extends $Command
   .classBuilder<

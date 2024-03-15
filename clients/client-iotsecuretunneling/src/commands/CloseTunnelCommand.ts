@@ -31,7 +31,6 @@ export interface CloseTunnelCommandInput extends CloseTunnelRequest {}
 export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
  * 			request is received, we close the WebSocket connections between the client and proxy
  * 			server so no data can be transmitted.</p>
@@ -64,6 +63,7 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * @public
  */
 export class CloseTunnelCommand extends $Command
   .classBuilder<

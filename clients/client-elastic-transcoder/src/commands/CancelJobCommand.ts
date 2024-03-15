@@ -31,7 +31,6 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The CancelJob operation cancels an unfinished job.</p>
  *         <note>
  *             <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a
@@ -81,6 +80,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class CancelJobCommand extends $Command
   .classBuilder<

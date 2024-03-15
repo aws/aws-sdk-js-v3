@@ -31,7 +31,6 @@ export interface SearchProfilesCommandInput extends SearchProfilesRequest {}
 export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for profiles within a specific domain using one or more predefined search keys
  *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key
  *          is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>
@@ -175,6 +174,7 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class SearchProfilesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPoliciesForTargetCommandInput extends ListPoliciesForTarget
 export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTargetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the policies that are directly attached to the specified target root,
  *             organizational unit (OU), or account. You must specify the policy type that you want
  *             included in the returned list.</p>
@@ -211,6 +210,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list policies attached to a root, OU, or account
  * ```javascript
  * // The following example shows how to get a list of all service control policies (SCPs) of the type specified by the Filter parameter, that are directly attached to an account. The returned list does not include policies that apply to the account because of inheritance from its location in an OU hierarchy:/n/n

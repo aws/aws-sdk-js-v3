@@ -31,7 +31,6 @@ export interface GetPasswordDataCommandInput extends GetPasswordDataRequest {}
 export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
  *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
  *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
@@ -74,6 +73,7 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetPasswordDataCommand extends $Command
   .classBuilder<

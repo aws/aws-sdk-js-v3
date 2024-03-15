@@ -27,7 +27,6 @@ export interface CreateCodeReviewCommandInput extends CreateCodeReviewRequest {}
 export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use to create a code review with a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReviewType.html">CodeReviewType</a> of
  *             <code>RepositoryAnalysis</code>. This type of code review analyzes all code under a
  *          specified branch in an associated repository. <code>PullRequest</code> code reviews are
@@ -178,6 +177,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class CreateCodeReviewCommand extends $Command
   .classBuilder<

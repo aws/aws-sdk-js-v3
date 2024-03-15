@@ -32,7 +32,6 @@ export interface UpdateOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures the delegated administrator account with the provided values. You must provide
  *       a value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>, but not both. </p>
  *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
@@ -104,6 +103,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class UpdateOrganizationConfigurationCommand extends $Command
   .classBuilder<

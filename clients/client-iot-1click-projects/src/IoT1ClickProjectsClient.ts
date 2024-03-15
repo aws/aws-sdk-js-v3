@@ -306,8 +306,8 @@ export type IoT1ClickProjectsClientResolvedConfigType = __SmithyResolvedConfigur
 export interface IoT1ClickProjectsClientResolvedConfig extends IoT1ClickProjectsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The AWS IoT 1-Click Projects API Reference</p>
+ * @public
  */
 export class IoT1ClickProjectsClient extends __Client<
   __HttpHandlerOptions,

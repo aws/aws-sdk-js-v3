@@ -33,7 +33,6 @@ export interface DescribeCreateAccountStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current status of an asynchronous request to create an account.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -203,6 +202,7 @@ export interface DescribeCreateAccountStatusCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To get information about a request to create an account
  * ```javascript
  * // The following example shows how to request the status about a previous request to create an account in an organization. This operation can be called only by a principal from the organization's master account. In the example, the specified "createAccountRequestId" comes from the response of the original call to "CreateAccount":

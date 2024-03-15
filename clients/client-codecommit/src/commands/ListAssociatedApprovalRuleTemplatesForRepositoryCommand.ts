@@ -36,7 +36,6 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all approval rule templates that are associated with a specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Command
   .classBuilder<

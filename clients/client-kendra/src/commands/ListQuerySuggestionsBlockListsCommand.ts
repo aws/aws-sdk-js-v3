@@ -32,7 +32,6 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the block lists used for query suggestions for an index.</p>
  *          <p>For information on the current quota limits for block lists, see
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
@@ -98,6 +97,7 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListQuerySuggestionsBlockListsCommand extends $Command
   .classBuilder<

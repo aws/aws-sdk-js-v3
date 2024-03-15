@@ -27,7 +27,6 @@ export interface StopActivityStreamCommandInput extends StopActivityStreamReques
 export interface StopActivityStreamCommandOutput extends StopActivityStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a database activity stream that was started using the Amazon Web Services console,
  *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> operation.</p>
  *          <p>For more information, see
@@ -83,6 +82,7 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To stop a database activity stream
  * ```javascript
  * // The following example stops an activity stream in an Aurora cluster named my-pg-cluster.

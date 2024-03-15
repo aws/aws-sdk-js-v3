@@ -27,7 +27,6 @@ export interface ListClustersCommandInput extends ListClustersRequest {}
 export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of existing clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To list your available clusters
  * ```javascript
  * // This example lists all of your available clusters in your default region.

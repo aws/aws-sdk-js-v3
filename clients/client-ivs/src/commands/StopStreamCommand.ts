@@ -27,7 +27,6 @@ export interface StopStreamCommandInput extends StopStreamRequest {}
 export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in
  *       conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a
  *       channel.</p>
@@ -75,6 +74,7 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class StopStreamCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPortfolioAccessCommandInput extends ListPortfolioAccessInpu
 export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the account IDs that have access to the specified portfolio.</p>
  *          <p>A delegated admin can list the accounts that have access to the shared portfolio. Note that if a delegated admin is de-registered, they can no longer perform this operation.</p>
  * @example
@@ -69,6 +68,7 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListPortfolioAccessCommand extends $Command
   .classBuilder<

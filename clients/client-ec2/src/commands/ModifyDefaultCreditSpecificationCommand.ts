@@ -32,7 +32,6 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the default credit option for CPU usage of burstable performance instances.
  *             The default credit option is set at the account level per Amazon Web Services Region, and
  *             is specified per instance family. All new burstable performance instances in the account
@@ -78,6 +77,7 @@ export interface ModifyDefaultCreditSpecificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyDefaultCreditSpecificationCommand extends $Command
   .classBuilder<

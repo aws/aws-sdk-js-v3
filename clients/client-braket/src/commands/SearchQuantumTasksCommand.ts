@@ -27,7 +27,6 @@ export interface SearchQuantumTasksCommandInput extends SearchQuantumTasksReques
 export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for tasks that match the specified filter values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class SearchQuantumTasksCommand extends $Command
   .classBuilder<

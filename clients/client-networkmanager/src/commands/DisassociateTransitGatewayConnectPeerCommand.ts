@@ -36,7 +36,6 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a transit gateway Connect peer from a device and link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DisassociateTransitGatewayConnectPeerCommand extends $Command
   .classBuilder<

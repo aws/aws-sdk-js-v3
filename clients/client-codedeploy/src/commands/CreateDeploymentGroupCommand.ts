@@ -27,7 +27,6 @@ export interface CreateDeploymentGroupCommandInput extends CreateDeploymentGroup
 export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a deployment group to which application revisions are deployed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -313,6 +312,7 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class CreateDeploymentGroupCommand extends $Command
   .classBuilder<

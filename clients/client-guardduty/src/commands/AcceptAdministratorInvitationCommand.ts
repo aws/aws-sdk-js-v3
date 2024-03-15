@@ -32,7 +32,6 @@ export interface AcceptAdministratorInvitationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts the invitation to be a member account and get monitored by a GuardDuty
  *       administrator account that sent the invitation.</p>
  * @example
@@ -67,6 +66,7 @@ export interface AcceptAdministratorInvitationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class AcceptAdministratorInvitationCommand extends $Command
   .classBuilder<

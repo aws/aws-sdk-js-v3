@@ -36,7 +36,6 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast
  *             group.</p>
  * @example
@@ -85,6 +84,7 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeClustersCommandInput extends DescribeClustersMessage {}
 export interface DescribeClustersCommandOutput extends ClustersMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns properties of provisioned clusters including general cluster properties,
  *             cluster database properties, maintenance and backup properties, and security and access
  *             properties. This operation supports pagination.
@@ -273,6 +272,7 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClustersCommand extends $Command
   .classBuilder<

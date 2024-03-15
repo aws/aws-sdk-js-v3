@@ -27,7 +27,6 @@ export interface GetCapabilityCommandInput extends GetCapabilityRequest {}
 export interface GetCapabilityCommandOutput extends GetCapabilityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details for the specified capability. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetCapabilityCommandOutput extends GetCapabilityResponse, __Met
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample GetCapabilty call
  * ```javascript
  * //

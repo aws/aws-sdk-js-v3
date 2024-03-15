@@ -27,7 +27,6 @@ export interface CreateFirewallDomainListCommandInput extends CreateFirewallDoma
 export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDomainListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty firewall domain list for use in DNS Firewall rules. You can populate the domains for the new list with a file, using <a>ImportFirewallDomains</a>, or with domain strings, using <a>UpdateFirewallDomains</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDom
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class CreateFirewallDomainListCommand extends $Command
   .classBuilder<

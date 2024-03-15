@@ -27,7 +27,6 @@ export interface ListResourcesForTagOptionCommandInput extends ListResourcesForT
 export interface ListResourcesForTagOptionCommandOutput extends ListResourcesForTagOptionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resources associated with the specified TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListResourcesForTagOptionCommand extends $Command
   .classBuilder<

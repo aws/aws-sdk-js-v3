@@ -31,7 +31,6 @@ export interface UpdatePoolCommandInput extends UpdatePoolRequest {}
 export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing pool. You can update the opt-out list, enable
  *             or disable two-way messaging, change the <code>TwoWayChannelArn</code>, enable or
  *             disable self-managed opt-outs, enable or disable deletion protection, and enable or
@@ -104,6 +103,7 @@ export interface UpdatePoolCommandOutput extends UpdatePoolResult, __MetadataBea
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class UpdatePoolCommand extends $Command
   .classBuilder<

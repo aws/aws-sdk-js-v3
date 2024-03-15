@@ -31,7 +31,6 @@ export interface ListWorkflowStepGroupsCommandInput extends ListWorkflowStepGrou
 export interface ListWorkflowStepGroupsCommandOutput extends ListWorkflowStepGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the step groups in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListWorkflowStepGroupsCommandOutput extends ListWorkflowStepGro
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class ListWorkflowStepGroupsCommand extends $Command
   .classBuilder<

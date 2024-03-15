@@ -27,7 +27,6 @@ export interface DescribeCustomMetricCommandInput extends DescribeCustomMetricRe
 export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Gets information about a Device Defender detect custom metric.
  *     </p>
@@ -75,6 +74,7 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeCustomMetricCommand extends $Command
   .classBuilder<

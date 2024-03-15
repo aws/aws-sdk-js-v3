@@ -27,7 +27,6 @@ export interface AcceptVpcPeeringConnectionCommandInput extends AcceptVpcPeering
 export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must
  *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
  *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
@@ -116,6 +115,7 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AcceptVpcPeeringConnectionCommand extends $Command
   .classBuilder<

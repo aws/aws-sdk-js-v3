@@ -27,7 +27,6 @@ export interface ListEngineVersionsCommandInput extends ListEngineVersionsReques
 export interface ListEngineVersionsCommandOutput extends ListEngineVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the available engine versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsRespo
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class ListEngineVersionsCommand extends $Command
   .classBuilder<

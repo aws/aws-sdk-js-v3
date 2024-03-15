@@ -31,7 +31,6 @@ export interface PutReportDefinitionCommandInput extends PutReportDefinitionRequ
 export interface PutReportDefinitionCommandOutput extends PutReportDefinitionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the report definition for a report in Application Cost Profiler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * @public
  */
 export class PutReportDefinitionCommand extends $Command
   .classBuilder<

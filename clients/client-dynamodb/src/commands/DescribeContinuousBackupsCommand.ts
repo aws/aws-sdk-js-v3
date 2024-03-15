@@ -27,7 +27,6 @@ export interface DescribeContinuousBackupsCommandInput extends DescribeContinuou
 export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuousBackupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks the status of continuous backups and point in time recovery on the specified
  *             table. Continuous backups are <code>ENABLED</code> on all tables at table creation. If
  *             point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will be set to
@@ -82,6 +81,7 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DescribeContinuousBackupsCommand extends $Command
   .classBuilder<

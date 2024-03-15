@@ -35,7 +35,6 @@ export interface DescribeEndpointsCommandInput extends DescribeEndpointsMessage 
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the endpoints for your account in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -428,6 +427,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe endpoints
  * ```javascript
  * // Returns information about the endpoints for your account in the current region.

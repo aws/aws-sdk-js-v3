@@ -27,7 +27,6 @@ export interface CheckCapacityCommandInput extends CheckCapacityRequest {}
 export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the web ACL capacity unit (WCU) requirements for a specified scope and set of rules.
  *          You can use this to check the capacity requirements for the rules you want to use in a
  *          <a>RuleGroup</a> or <a>WebACL</a>.
@@ -1077,6 +1076,7 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class CheckCapacityCommand extends $Command
   .classBuilder<

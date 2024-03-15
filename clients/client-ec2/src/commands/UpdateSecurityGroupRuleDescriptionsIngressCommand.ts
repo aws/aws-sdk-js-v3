@@ -36,7 +36,6 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description of an ingress (inbound) security group rule. You can replace an
  * 			existing description, or add a description to a rule that did not have one previously.
  * 		    You can remove a description for a security group rule by omitting the description
@@ -111,6 +110,7 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To update an inbound security group rule description
  * ```javascript
  * // This example updates the description for the specified security group rule.

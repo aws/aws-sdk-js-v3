@@ -27,7 +27,6 @@ export interface DeleteOrganizationalUnitCommandInput extends DeleteOrganization
 export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove
  *             all accounts and child OUs from the OU that you want to delete.</p>
  *          <p>This operation can be called only from the organization's management account.</p>
@@ -191,6 +190,7 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To delete an organization unit
  * ```javascript
  * // The following example shows how to delete an OU. The example assumes that you previously removed all accounts and other OUs from the OU:

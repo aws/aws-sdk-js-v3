@@ -27,7 +27,6 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of component summaries. This list includes components that you
  *       have permission to view.</p>
  * @example
@@ -96,6 +95,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class ListComponentsCommand extends $Command
   .classBuilder<

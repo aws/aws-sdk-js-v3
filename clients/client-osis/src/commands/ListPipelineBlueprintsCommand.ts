@@ -27,7 +27,6 @@ export interface ListPipelineBlueprintsCommandInput extends ListPipelineBlueprin
 export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBlueprintsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all available blueprints for Data Prepper. For more information, see
  *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using blueprints to create a pipeline</a>.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ListPipelineBlueprintsCommandOutput extends ListPipelineBluepri
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class ListPipelineBlueprintsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface AdminCreateUserCommandInput extends AdminCreateUserRequest {}
 export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new user in the specified user pool.</p>
  *          <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via
  *             email or phone (SMS).</p>
@@ -209,6 +208,7 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  * @example An AdminCreateUser request for for a test user named John.
  * ```javascript
  * // This request submits a value for all possible parameters for AdminCreateUser.

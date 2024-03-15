@@ -31,7 +31,6 @@ export interface InferICD10CMCommandInput extends InferICD10CMRequest {}
 export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>InferICD10CM detects medical conditions as entities listed in a patient record and links
  *       those entities to normalized concept identifiers in the ICD-10-CM knowledge base from the
  *       Centers for Disease Control. Amazon Comprehend Medical only detects medical entities in
@@ -130,6 +129,7 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class InferICD10CMCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCoipCidrCommandInput extends CreateCoipCidrRequest {}
 export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *      Creates a range of customer-owned IP addresses.
  *       </p>
@@ -63,6 +62,7 @@ export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateCoipCidrCommand extends $Command
   .classBuilder<

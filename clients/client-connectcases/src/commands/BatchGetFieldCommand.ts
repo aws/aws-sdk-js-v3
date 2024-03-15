@@ -27,7 +27,6 @@ export interface BatchGetFieldCommandInput extends BatchGetFieldRequest {}
 export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description for the list of fields in the request parameters. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface BatchGetFieldCommandOutput extends BatchGetFieldResponse, __Met
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class BatchGetFieldCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the results of the Inference Recommender job.
  *           One or more recommendation jobs are returned.</p>
  * @example
@@ -215,6 +214,7 @@ export interface DescribeInferenceRecommendationsJobCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeInferenceRecommendationsJobCommand extends $Command
   .classBuilder<

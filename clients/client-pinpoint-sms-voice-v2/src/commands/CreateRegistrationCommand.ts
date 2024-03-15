@@ -31,7 +31,6 @@ export interface CreateRegistrationCommandInput extends CreateRegistrationReques
 export interface CreateRegistrationCommandOutput extends CreateRegistrationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new registration based on the <b>RegistrationType</b> field. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface CreateRegistrationCommandOutput extends CreateRegistrationResul
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateRegistrationCommand extends $Command
   .classBuilder<

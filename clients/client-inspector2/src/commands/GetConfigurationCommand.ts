@@ -27,7 +27,6 @@ export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
 export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves setting configurations for Inspector scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class GetConfigurationCommand extends $Command
   .classBuilder<

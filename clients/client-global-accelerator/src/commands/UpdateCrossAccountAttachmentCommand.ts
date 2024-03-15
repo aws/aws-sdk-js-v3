@@ -36,7 +36,6 @@ export interface UpdateCrossAccountAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a cross-account attachment to add or remove principals or resources. When you update
  * 			an attachment to remove a principal (account ID or accelerator) or a resource, Global Accelerator
  * 			revokes the permission for specific resources by doing the following:</p>
@@ -132,6 +131,7 @@ export interface UpdateCrossAccountAttachmentCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class UpdateCrossAccountAttachmentCommand extends $Command
   .classBuilder<

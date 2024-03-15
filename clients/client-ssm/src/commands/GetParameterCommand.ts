@@ -27,7 +27,6 @@ export interface GetParameterCommandInput extends GetParameterRequest {}
 export interface GetParameterCommandOutput extends GetParameterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about a single parameter by specifying the parameter name.</p>
  *          <note>
  *             <p>To get information about more than one parameter at a time, use the <a>GetParameters</a> operation.</p>
@@ -82,6 +81,7 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetParameterCommand extends $Command
   .classBuilder<

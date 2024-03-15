@@ -27,7 +27,6 @@ export interface GetAccountStatusCommandInput extends GetAccountStatusRequest {}
 export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets the registration status of an account in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetAccountStatusCommand extends $Command
   .classBuilder<

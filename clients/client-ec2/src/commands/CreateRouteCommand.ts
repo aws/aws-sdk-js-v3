@@ -27,7 +27,6 @@ export interface CreateRouteCommandInput extends CreateRouteRequest {}
 export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a route in a route table within a VPC.</p>
  *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
  *          exactly one of the resources from the parameter list.</p>
@@ -90,6 +89,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a route
  * ```javascript
  * // This example creates a route for the specified route table. The route matches all traffic (0.0.0.0/0) and routes it to the specified Internet gateway.

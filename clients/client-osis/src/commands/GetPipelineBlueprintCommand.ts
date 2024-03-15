@@ -27,7 +27,6 @@ export interface GetPipelineBlueprintCommandInput extends GetPipelineBlueprintRe
 export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specific blueprint for OpenSearch Ingestion. Blueprints are
  *    templates for the configuration needed for a <code>CreatePipeline</code> request. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using
@@ -74,6 +73,7 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class GetPipelineBlueprintCommand extends $Command
   .classBuilder<

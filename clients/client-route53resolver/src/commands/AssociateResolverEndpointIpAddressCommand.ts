@@ -35,7 +35,6 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,
  * 			submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p>
  *          <p>To remove an IP address from an endpoint, see
@@ -115,6 +114,7 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class AssociateResolverEndpointIpAddressCommand extends $Command
   .classBuilder<

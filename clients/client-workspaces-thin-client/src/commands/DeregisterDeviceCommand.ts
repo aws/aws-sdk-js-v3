@@ -31,7 +31,6 @@ export interface DeregisterDeviceCommandInput extends DeregisterDeviceRequest {}
 export interface DeregisterDeviceCommandOutput extends DeregisterDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters a thin client device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeregisterDeviceCommandOutput extends DeregisterDeviceResponse,
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class DeregisterDeviceCommand extends $Command
   .classBuilder<

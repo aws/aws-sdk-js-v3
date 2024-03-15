@@ -27,9 +27,6 @@ export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
 export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is deprecated, use GetAdministratorAccount instead
- *
  * <p>Provides the details for the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
  * @example
@@ -69,6 +66,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
+ * @deprecated This operation is deprecated, use GetAdministratorAccount instead
  */
 export class GetMasterAccountCommand extends $Command
   .classBuilder<

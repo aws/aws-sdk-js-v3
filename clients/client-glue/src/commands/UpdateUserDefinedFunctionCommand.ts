@@ -27,7 +27,6 @@ export interface UpdateUserDefinedFunctionCommandInput extends UpdateUserDefined
 export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing function definition in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateUserDefinedFunctionCommand extends $Command
   .classBuilder<

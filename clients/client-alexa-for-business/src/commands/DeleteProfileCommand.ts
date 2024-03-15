@@ -27,9 +27,6 @@ export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
 export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Deletes a room profile by the profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +58,8 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteProfileCommand extends $Command
   .classBuilder<

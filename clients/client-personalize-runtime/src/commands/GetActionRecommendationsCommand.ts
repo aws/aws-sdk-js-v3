@@ -35,7 +35,6 @@ export interface GetActionRecommendationsCommandInput extends GetActionRecommend
 export interface GetActionRecommendationsCommandOutput extends GetActionRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of recommended actions in sorted in descending order by prediction score.
  *       Use the <code>GetActionRecommendations</code> API if you have a custom
  *        campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
@@ -86,6 +85,7 @@ export interface GetActionRecommendationsCommandOutput extends GetActionRecommen
  * @throws {@link PersonalizeRuntimeServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ * @public
  */
 export class GetActionRecommendationsCommand extends $Command
   .classBuilder<

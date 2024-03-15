@@ -27,7 +27,6 @@ export interface ListProvisioningArtifactsCommandInput extends ListProvisioningA
 export interface ListProvisioningArtifactsCommandOutput extends ListProvisioningArtifactsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListProvisioningArtifactsCommand extends $Command
   .classBuilder<

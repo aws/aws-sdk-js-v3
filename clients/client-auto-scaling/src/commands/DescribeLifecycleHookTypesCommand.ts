@@ -27,7 +27,6 @@ export interface DescribeLifecycleHookTypesCommandInput {}
 export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecycleHookTypesAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the available types of lifecycle hooks.</p>
  *          <p>The following hook types are supported:</p>
  *          <ul>
@@ -72,6 +71,7 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the available types of lifecycle hooks
  * ```javascript
  * // This example describes the available lifecycle hook types.

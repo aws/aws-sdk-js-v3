@@ -27,7 +27,6 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes metadata tags from an Amazon DocumentDB resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<

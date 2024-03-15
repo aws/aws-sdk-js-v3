@@ -27,7 +27,6 @@ export interface DeleteDocumentClassifierCommandInput extends DeleteDocumentClas
 export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentClassifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously created document classifier</p>
  *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
@@ -79,6 +78,7 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DeleteDocumentClassifierCommand extends $Command
   .classBuilder<

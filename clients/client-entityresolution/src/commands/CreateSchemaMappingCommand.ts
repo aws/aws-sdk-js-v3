@@ -27,7 +27,6 @@ export interface CreateSchemaMappingCommandInput extends CreateSchemaMappingInpu
 export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a schema mapping, which defines the schema of the input customer records table.
  *          The <code>SchemaMapping</code> also provides Entity Resolution with some metadata about the
  *          table, such as the attribute types of the columns and which columns to match on.</p>
@@ -113,6 +112,7 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class CreateSchemaMappingCommand extends $Command
   .classBuilder<

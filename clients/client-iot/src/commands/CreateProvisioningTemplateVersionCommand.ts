@@ -35,7 +35,6 @@ export interface CreateProvisioningTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplateVersion</a> action.</p>
  * @example
@@ -91,6 +90,7 @@ export interface CreateProvisioningTemplateVersionCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateProvisioningTemplateVersionCommand extends $Command
   .classBuilder<

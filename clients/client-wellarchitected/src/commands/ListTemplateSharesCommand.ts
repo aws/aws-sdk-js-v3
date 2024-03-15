@@ -27,7 +27,6 @@ export interface ListTemplateSharesCommandInput extends ListTemplateSharesInput 
 export interface ListTemplateSharesCommandOutput extends ListTemplateSharesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List review template shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListTemplateSharesCommandOutput extends ListTemplateSharesOutpu
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListTemplateSharesCommand extends $Command
   .classBuilder<

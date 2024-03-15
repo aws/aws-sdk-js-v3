@@ -36,7 +36,6 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists an environment's completed and failed managed actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class DescribeEnvironmentManagedActionHistoryCommand extends $Command
   .classBuilder<

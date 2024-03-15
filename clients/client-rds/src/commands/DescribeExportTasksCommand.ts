@@ -27,7 +27,6 @@ export interface DescribeExportTasksCommandInput extends DescribeExportTasksMess
 export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a snapshot or cluster export to Amazon S3. This API operation supports
  *             pagination.</p>
  * @example
@@ -93,6 +92,7 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe snapshot export tasks
  * ```javascript
  * // The following example returns information about snapshot exports to Amazon S3.

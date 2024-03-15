@@ -35,7 +35,6 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a report generator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CreateLicenseManagerReportGeneratorCommand extends $Command
   .classBuilder<

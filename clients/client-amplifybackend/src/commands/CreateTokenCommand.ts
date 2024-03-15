@@ -27,7 +27,6 @@ export interface CreateTokenCommandInput extends CreateTokenRequest {}
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class CreateTokenCommand extends $Command
   .classBuilder<

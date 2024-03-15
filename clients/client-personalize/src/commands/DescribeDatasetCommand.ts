@@ -27,7 +27,6 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the given dataset. For more information on datasets, see
  *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeDatasetCommand extends $Command
   .classBuilder<

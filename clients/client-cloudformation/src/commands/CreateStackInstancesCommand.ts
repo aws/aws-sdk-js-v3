@@ -27,7 +27,6 @@ export interface CreateStackInstancesCommandInput extends CreateStackInstancesIn
 export interface CreateStackInstancesCommandOutput extends CreateStackInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack
  *    instance refers to a stack in a specific account and Region. You must specify at least one value for either
  *    <code>Accounts</code> or <code>DeploymentTargets</code>, and you must specify at least one value for
@@ -116,6 +115,7 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class CreateStackInstancesCommand extends $Command
   .classBuilder<

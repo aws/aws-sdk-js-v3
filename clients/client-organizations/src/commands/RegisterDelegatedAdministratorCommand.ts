@@ -30,7 +30,6 @@ export interface RegisterDelegatedAdministratorCommandInput extends RegisterDele
 export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the specified member account to administer the Organizations features of the specified
  *             Amazon Web Services service. It grants read-only access to Organizations service data. The account still
  *             requires IAM permissions to access and administer the Amazon Web Services service.</p>
@@ -403,6 +402,7 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class RegisterDelegatedAdministratorCommand extends $Command
   .classBuilder<

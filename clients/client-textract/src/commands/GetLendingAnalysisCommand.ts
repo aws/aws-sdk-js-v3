@@ -27,7 +27,6 @@ export interface GetLendingAnalysisCommandInput extends GetLendingAnalysisReques
 export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  *             lending document. </p>
  *          <p>You start asynchronous text analysis by calling <code>StartLendingAnalysis</code>,
@@ -356,6 +355,7 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class GetLendingAnalysisCommand extends $Command
   .classBuilder<

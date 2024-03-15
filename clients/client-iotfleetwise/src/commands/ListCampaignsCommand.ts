@@ -27,7 +27,6 @@ export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
 export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists information about created campaigns. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -84,6 +83,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListCampaignsCommand extends $Command
   .classBuilder<

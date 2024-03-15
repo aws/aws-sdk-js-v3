@@ -29,7 +29,6 @@ export interface DescribeEnvironmentResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns AWS resources for this environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view information about the AWS resources in your environment
  * ```javascript
  * // The following operation retrieves information about resources in an environment named my-env:

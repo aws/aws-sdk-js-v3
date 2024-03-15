@@ -36,7 +36,6 @@ export interface SearchRasterDataCollectionCommandInput extends SearchRasterData
 export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDataCollectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you run image query on a specific raster data collection to get a list of the satellite imagery matching the selected filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -176,6 +175,7 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class SearchRasterDataCollectionCommand extends $Command
   .classBuilder<

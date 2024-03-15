@@ -27,7 +27,6 @@ export interface CreateAssetModelCommandInput extends CreateAssetModelRequest {}
 export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an asset model from specified property and hierarchy definitions. You create
  *       assets from asset models. With asset models, you can easily create assets of the same type
  *       that have standardized definitions. Each asset created from a model inherits the asset model's
@@ -286,6 +285,7 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateAssetModelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListReadSetsCommandInput extends ListReadSetsRequest {}
 export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of read sets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListReadSetsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface RemoveThingFromBillingGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the given thing from the billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RemoveThingFromBillingGroup</a> action.</p>
  *          <note>
@@ -77,6 +76,7 @@ export interface RemoveThingFromBillingGroupCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class RemoveThingFromBillingGroupCommand extends $Command
   .classBuilder<

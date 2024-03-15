@@ -32,7 +32,6 @@ export interface ListAvailableManagementCidrRangesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
  *          for the network management interface when you enable Bring Your Own License (BYOL). </p>
  *          <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL.
@@ -78,6 +77,7 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ListAvailableManagementCidrRangesCommand extends $Command
   .classBuilder<

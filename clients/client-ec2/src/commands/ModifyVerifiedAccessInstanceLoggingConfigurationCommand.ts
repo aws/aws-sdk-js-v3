@@ -36,7 +36,6 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Command
   .classBuilder<

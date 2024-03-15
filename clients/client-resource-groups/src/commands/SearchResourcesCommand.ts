@@ -27,7 +27,6 @@ export interface SearchResourcesCommandInput extends SearchResourcesInput {}
 export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Amazon Web Services resource identifiers that matches the specified query. The
  *             query uses the same format as a resource query in a <a>CreateGroup</a> or
  *                 <a>UpdateGroupQuery</a> operation.</p>
@@ -120,6 +119,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class SearchResourcesCommand extends $Command
   .classBuilder<

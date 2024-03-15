@@ -36,7 +36,6 @@ export interface CreateViewCommandInput extends CreateViewInput {}
 export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a view that users can query by using the <a>Search</a> operation.
  *             Results from queries that you make using this view include only resources that match the
  *             view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views.html">Managing views</a>
@@ -129,6 +128,7 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class CreateViewCommand extends $Command
   .classBuilder<

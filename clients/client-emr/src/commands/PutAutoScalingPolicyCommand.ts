@@ -27,7 +27,6 @@ export interface PutAutoScalingPolicyCommandInput extends PutAutoScalingPolicyIn
 export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an automatic scaling policy for a core instance group or task
  *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how
  *          an instance group dynamically adds and terminates Amazon EC2 instances in response
@@ -144,6 +143,7 @@ export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyO
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class PutAutoScalingPolicyCommand extends $Command
   .classBuilder<

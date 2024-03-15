@@ -27,7 +27,6 @@ export interface SearchFacesCommandInput extends SearchFacesRequest {}
 export interface SearchFacesCommandOutput extends SearchFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a given input face ID, searches for matching faces in the collection the face
  *       belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation. The operation compares the features of the input face with
  *       faces in the specified collection. </p>
@@ -113,6 +112,7 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To delete a face
  * ```javascript
  * // This operation searches for matching faces in the collection the supplied face belongs to.

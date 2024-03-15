@@ -36,7 +36,6 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all customer managed policies attached to a specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $Command
   .classBuilder<

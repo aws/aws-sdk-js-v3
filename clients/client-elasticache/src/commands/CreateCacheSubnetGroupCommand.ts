@@ -27,7 +27,6 @@ export interface CreateCacheSubnetGroupCommandInput extends CreateCacheSubnetGro
 export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new cache subnet group.</p>
  *          <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private
  *             Cloud (Amazon VPC).</p>
@@ -115,6 +114,7 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example CreateCacheSubnet
  * ```javascript
  * // Creates a new cache subnet group.

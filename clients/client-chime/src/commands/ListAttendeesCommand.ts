@@ -31,9 +31,6 @@ export interface ListAttendeesCommandInput extends ListAttendeesRequest {}
 export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListAttendees in the Amazon Chime SDK Meetings Namespace
- *
  * <p>
  * Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -102,6 +99,8 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListAttendees in the Amazon Chime SDK Meetings Namespace
  */
 export class ListAttendeesCommand extends $Command
   .classBuilder<

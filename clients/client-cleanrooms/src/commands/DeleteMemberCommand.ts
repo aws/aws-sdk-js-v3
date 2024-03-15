@@ -27,7 +27,6 @@ export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified member from a collaboration. The removed member is placed in the
  *          Removed status and can't interact with the collaboration. The removed member's data is
  *          inaccessible to active members of the collaboration.</p>
@@ -74,6 +73,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class DeleteMemberCommand extends $Command
   .classBuilder<

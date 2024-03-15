@@ -27,7 +27,6 @@ export interface CreateDirectConnectGatewayCommandInput extends CreateDirectConn
 export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set
  *       of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any
  *       Amazon Web Services Region after it is created. The virtual interfaces and virtual private gateways that
@@ -74,6 +73,7 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreateDirectConnectGatewayCommand extends $Command
   .classBuilder<

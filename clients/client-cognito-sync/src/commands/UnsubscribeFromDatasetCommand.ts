@@ -27,7 +27,6 @@ export interface UnsubscribeFromDatasetCommandInput extends UnsubscribeFromDatas
 export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p><p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
  *       <examples>
  *          <example>
@@ -122,6 +121,7 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class UnsubscribeFromDatasetCommand extends $Command
   .classBuilder<

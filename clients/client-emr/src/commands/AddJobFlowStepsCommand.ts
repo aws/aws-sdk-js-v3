@@ -27,7 +27,6 @@ export interface AddJobFlowStepsCommandInput extends AddJobFlowStepsInput {}
 export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed
  *          in each job flow.</p>
  *          <p>If your cluster is long-running (such as a Hive data warehouse) or complex, you may
@@ -99,6 +98,7 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class AddJobFlowStepsCommand extends $Command
   .classBuilder<

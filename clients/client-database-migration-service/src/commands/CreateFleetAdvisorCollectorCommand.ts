@@ -33,7 +33,6 @@ export interface CreateFleetAdvisorCollectorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Fleet Advisor collector using the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class CreateFleetAdvisorCollectorCommand extends $Command
   .classBuilder<

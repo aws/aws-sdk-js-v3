@@ -27,7 +27,6 @@ export interface DeleteEndpointCommandInput extends DeleteEndpointRequest {}
 export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
  *       must be deleted in order for the model to be deleted.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
@@ -71,6 +70,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DeleteEndpointCommand extends $Command
   .classBuilder<

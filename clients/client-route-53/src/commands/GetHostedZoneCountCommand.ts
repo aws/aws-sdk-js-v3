@@ -27,7 +27,6 @@ export interface GetHostedZoneCountCommandInput extends GetHostedZoneCountReques
 export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the number of hosted zones that are associated with the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetHostedZoneCountCommand extends $Command
   .classBuilder<

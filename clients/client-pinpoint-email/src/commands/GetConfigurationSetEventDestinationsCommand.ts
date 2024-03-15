@@ -35,7 +35,6 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve a list of event destinations that are associated with a configuration
  *             set.</p>
  *         <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
@@ -105,6 +104,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command
   .classBuilder<

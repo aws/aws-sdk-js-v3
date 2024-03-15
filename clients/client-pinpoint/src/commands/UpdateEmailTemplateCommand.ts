@@ -27,7 +27,6 @@ export interface UpdateEmailTemplateCommandInput extends UpdateEmailTemplateRequ
 export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing message template for messages that are sent through the email channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateEmailTemplateCommand extends $Command
   .classBuilder<

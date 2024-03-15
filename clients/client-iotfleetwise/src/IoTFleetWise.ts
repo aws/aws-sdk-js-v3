@@ -1088,7 +1088,6 @@ export interface IoTFleetWise {
 }
 
 /**
- * @public
  * <p>Amazon Web Services IoT FleetWise is a fully managed service that you can use to collect, model, and transfer
  *             vehicle data to the Amazon Web Services cloud at scale. With Amazon Web Services IoT FleetWise, you can standardize all of
  *             your vehicle data models, independent of the in-vehicle communication architecture, and
@@ -1096,6 +1095,7 @@ export interface IoTFleetWise {
  *             </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
  *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ * @public
  */
 export class IoTFleetWise extends IoTFleetWiseClient implements IoTFleetWise {}
 createAggregatedClient(commands, IoTFleetWise);

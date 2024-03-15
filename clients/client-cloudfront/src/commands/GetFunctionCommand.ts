@@ -35,7 +35,6 @@ export type GetFunctionCommandOutputType = Omit<GetFunctionResult, "FunctionCode
 export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the code of a CloudFront function. To get configuration information and metadata about
  * 			a function, use <code>DescribeFunction</code>.</p>
  *          <p>To get a function's code, you must provide the function's name and stage. To get these
@@ -75,6 +74,7 @@ export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, 
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetFunctionCommand extends $Command
   .classBuilder<

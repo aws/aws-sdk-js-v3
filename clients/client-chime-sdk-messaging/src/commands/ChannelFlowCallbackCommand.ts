@@ -35,7 +35,6 @@ export interface ChannelFlowCallbackCommandInput extends ChannelFlowCallbackRequ
 export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>
  *          <p>You can return one of the following processing responses:</p>
  *          <ul>
@@ -119,6 +118,7 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ChannelFlowCallbackCommand extends $Command
   .classBuilder<

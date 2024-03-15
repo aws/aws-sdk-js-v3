@@ -27,7 +27,6 @@ export interface GetMergeCommitCommandInput extends GetMergeCommitInput {}
 export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specified merge commit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetMergeCommitCommand extends $Command
   .classBuilder<

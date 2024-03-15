@@ -32,7 +32,6 @@ export interface DetectKeyPhrasesCommandInput extends DetectKeyPhrasesRequest {}
 export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects the key noun phrases found in the text. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectKeyPhrasesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ResetSnapshotAttributeCommandInput extends ResetSnapshotAttribu
 export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets permission settings for the specified snapshot.</p>
  *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
  *         <i>Amazon EBS User Guide</i>.</p>
@@ -57,6 +56,7 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To reset a snapshot attribute
  * ```javascript
  * // This example resets the create volume permissions for snapshot ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.

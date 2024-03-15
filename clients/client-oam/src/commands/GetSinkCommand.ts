@@ -27,7 +27,6 @@ export interface GetSinkCommandInput extends GetSinkInput {}
 export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns complete information about one monitoring account sink.</p>
  *          <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class GetSinkCommand extends $Command
   .classBuilder<

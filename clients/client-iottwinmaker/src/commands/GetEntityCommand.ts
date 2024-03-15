@@ -27,7 +27,6 @@ export interface GetEntityCommandInput extends GetEntityRequest {}
 export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -208,6 +207,7 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetEntityCommand extends $Command
   .classBuilder<

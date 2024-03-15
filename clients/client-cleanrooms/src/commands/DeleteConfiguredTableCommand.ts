@@ -27,7 +27,6 @@ export interface DeleteConfiguredTableCommandInput extends DeleteConfiguredTable
 export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class DeleteConfiguredTableCommand extends $Command
   .classBuilder<

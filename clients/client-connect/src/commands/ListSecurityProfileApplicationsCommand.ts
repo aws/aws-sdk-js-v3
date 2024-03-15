@@ -32,7 +32,6 @@ export interface ListSecurityProfileApplicationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of third-party applications in a specific security profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListSecurityProfileApplicationsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListSecurityProfileApplicationsCommand extends $Command
   .classBuilder<

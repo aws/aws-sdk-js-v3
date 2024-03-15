@@ -27,7 +27,6 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a domain resource for the specified domain (example.com).</p>
  *          <p>The <code>create domain</code> operation supports tag-based access control via request
  *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -109,6 +108,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateDomainCommand extends $Command
   .classBuilder<

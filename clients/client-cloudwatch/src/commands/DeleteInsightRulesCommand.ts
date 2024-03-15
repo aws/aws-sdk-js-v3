@@ -27,7 +27,6 @@ export interface DeleteInsightRulesCommandInput extends DeleteInsightRulesInput 
 export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes the specified Contributor Insights rules.</p>
  *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
  * 			the rule was created might
@@ -73,6 +72,7 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DeleteInsightRulesCommand extends $Command
   .classBuilder<

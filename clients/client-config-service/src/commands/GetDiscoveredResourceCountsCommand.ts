@@ -29,7 +29,6 @@ export interface GetDiscoveredResourceCountsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the resource types, the number of each resource type,
  * 			and the total number of resources that Config is recording in
  * 			this region for your Amazon Web Services account. </p>
@@ -138,6 +137,7 @@ export interface GetDiscoveredResourceCountsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetDiscoveredResourceCountsCommand extends $Command
   .classBuilder<

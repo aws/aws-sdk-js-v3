@@ -27,7 +27,6 @@ export interface CloneReceiptRuleSetCommandInput extends CloneReceiptRuleSetRequ
 export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
  *             configurations are copied to the new receipt rule set and are completely independent of
  *             the source rule set.</p>
@@ -69,6 +68,7 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example CloneReceiptRuleSet
  * ```javascript
  * // The following example creates a receipt rule set by cloning an existing one:

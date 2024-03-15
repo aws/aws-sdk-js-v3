@@ -27,7 +27,6 @@ export interface ListSubscribedRuleGroupsCommandInput extends ListSubscribedRule
 export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRuleGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -77,6 +76,7 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  */
 export class ListSubscribedRuleGroupsCommand extends $Command
   .classBuilder<

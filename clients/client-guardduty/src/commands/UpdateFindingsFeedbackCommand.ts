@@ -27,7 +27,6 @@ export interface UpdateFindingsFeedbackCommandInput extends UpdateFindingsFeedba
 export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class UpdateFindingsFeedbackCommand extends $Command
   .classBuilder<

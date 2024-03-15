@@ -31,7 +31,6 @@ export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does
  *    not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It
@@ -89,6 +88,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateInstanceCommand extends $Command
   .classBuilder<

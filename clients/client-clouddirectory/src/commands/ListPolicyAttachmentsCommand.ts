@@ -27,7 +27,6 @@ export interface ListPolicyAttachmentsCommandInput extends ListPolicyAttachments
 export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachment
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListPolicyAttachmentsCommand extends $Command
   .classBuilder<

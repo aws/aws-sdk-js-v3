@@ -27,7 +27,6 @@ export interface GetIncidentRecordCommandInput extends GetIncidentRecordInput {}
 export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details for the specified incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput,
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class GetIncidentRecordCommand extends $Command
   .classBuilder<

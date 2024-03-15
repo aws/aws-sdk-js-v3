@@ -25,7 +25,6 @@ export interface IgnoresWrappingXmlNameCommandInput {}
 export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlNameOutput, __MetadataBearer {}
 
 /**
- * @public
  * The xmlName trait on the output structure is ignored in AWS Query.
  *
  * The wrapping element is always operation name + "Response", and
@@ -54,6 +53,7 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class IgnoresWrappingXmlNameCommand extends $Command
   .classBuilder<

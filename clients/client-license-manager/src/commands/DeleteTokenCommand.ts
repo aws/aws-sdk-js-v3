@@ -27,7 +27,6 @@ export interface DeleteTokenCommandInput extends DeleteTokenRequest {}
 export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified token. Must be called in the license home Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class DeleteTokenCommand extends $Command
   .classBuilder<

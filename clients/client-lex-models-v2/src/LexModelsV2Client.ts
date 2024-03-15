@@ -666,8 +666,8 @@ export type LexModelsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface LexModelsV2ClientResolvedConfig extends LexModelsV2ClientResolvedConfigType {}
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class LexModelsV2Client extends __Client<
   __HttpHandlerOptions,

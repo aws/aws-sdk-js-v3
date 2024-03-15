@@ -32,7 +32,6 @@ export interface InviteUsersCommandInput extends InviteUsersRequest {}
 export interface InviteUsersCommandOutput extends InviteUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
  *                 <code>Team</code> account. Only <code>Team</code> account types are currently
  *             supported for this action.</p>
@@ -94,6 +93,7 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class InviteUsersCommand extends $Command
   .classBuilder<

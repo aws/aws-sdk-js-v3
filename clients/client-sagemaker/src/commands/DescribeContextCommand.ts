@@ -27,7 +27,6 @@ export interface DescribeContextCommandInput extends DescribeContextRequest {}
 export interface DescribeContextCommandOutput extends DescribeContextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a context.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeContextCommandOutput extends DescribeContextResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeContextCommand extends $Command
   .classBuilder<

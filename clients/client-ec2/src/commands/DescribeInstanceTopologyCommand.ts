@@ -27,7 +27,6 @@ export interface DescribeInstanceTopologyCommandInput extends DescribeInstanceTo
 export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceTopologyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a tree-based hierarchy that represents the physical host placement of your
  *             EC2 instances within an Availability Zone or Local Zone. You can use this information to
  *             determine the relative proximity of your EC2 instances within the Amazon Web Services network to
@@ -130,6 +129,7 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeInstanceTopologyCommand extends $Command
   .classBuilder<

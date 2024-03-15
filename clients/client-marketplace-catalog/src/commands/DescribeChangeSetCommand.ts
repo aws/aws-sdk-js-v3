@@ -31,7 +31,6 @@ export interface DescribeChangeSetCommandInput extends DescribeChangeSetRequest 
 export interface DescribeChangeSetCommandOutput extends DescribeChangeSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a given change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeChangeSetCommand extends $Command
   .classBuilder<

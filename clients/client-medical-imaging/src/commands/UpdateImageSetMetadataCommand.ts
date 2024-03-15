@@ -31,7 +31,6 @@ export interface UpdateImageSetMetadataCommandInput extends UpdateImageSetMetada
 export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update image set metadata attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class UpdateImageSetMetadataCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateConditionalForwarderCommandInput extends CreateConditiona
 export interface CreateConditionalForwarderCommandOutput extends CreateConditionalForwarderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a conditional forwarder associated with your Amazon Web Services directory. Conditional
  *       forwarders are required in order to set up a trust relationship with another domain. The
  *       conditional forwarder points to the trusted domain.</p>
@@ -80,6 +79,7 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateConditionalForwarderCommand extends $Command
   .classBuilder<

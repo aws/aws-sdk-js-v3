@@ -27,7 +27,6 @@ export interface CreateVocabularyFilterCommandInput extends CreateVocabularyFilt
 export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom vocabulary filter.</p>
  *          <p>You can use custom vocabulary filters to mask, delete, or flag specific words from
  *             your transcript. Custom vocabulary filters are commonly used to mask profanity in
@@ -96,6 +95,7 @@ export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFil
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class CreateVocabularyFilterCommand extends $Command
   .classBuilder<

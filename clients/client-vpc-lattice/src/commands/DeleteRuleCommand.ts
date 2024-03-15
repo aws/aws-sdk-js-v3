@@ -27,7 +27,6 @@ export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a listener rule. Each listener has a default rule for checking connection requests,
  *    but you can define additional rules. Each rule consists of a priority, one or more actions, and
  *    one or more conditions. You can delete additional listener rules, but you cannot delete the
@@ -80,6 +79,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteRuleCommand extends $Command
   .classBuilder<

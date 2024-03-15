@@ -36,7 +36,6 @@ export interface ListRegistrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retreive all of the origination identies that are associated with a registration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface ListRegistrationAssociationsCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class ListRegistrationAssociationsCommand extends $Command
   .classBuilder<

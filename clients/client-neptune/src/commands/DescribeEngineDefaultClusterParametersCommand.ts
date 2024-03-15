@@ -36,7 +36,6 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the default engine and system parameter information for the cluster database
  *       engine.</p>
  * @example
@@ -92,6 +91,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command
   .classBuilder<

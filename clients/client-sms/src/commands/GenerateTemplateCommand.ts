@@ -27,7 +27,6 @@ export interface GenerateTemplateCommandInput extends GenerateTemplateRequest {}
 export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates an CloudFormation template based on the current launch configuration and writes it to
  *             an Amazon S3 object in the customer’s Amazon S3 bucket.</p>
  * @example
@@ -76,6 +75,7 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class GenerateTemplateCommand extends $Command
   .classBuilder<

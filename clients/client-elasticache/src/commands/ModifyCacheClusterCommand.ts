@@ -27,7 +27,6 @@ export interface ModifyCacheClusterCommandInput extends ModifyCacheClusterMessag
 export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for a cluster. You can use this operation to change one or more
  *             cluster configuration parameters by specifying the parameters and the new values.</p>
  * @example
@@ -248,6 +247,7 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example ModifyCacheCluster
  * ```javascript
  * // Copies a snapshot to a specified name.

@@ -27,7 +27,6 @@ export interface DisassociateConnectPeerCommandInput extends DisassociateConnect
 export interface DisassociateConnectPeerCommandOutput extends DisassociateConnectPeerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a core network Connect peer from a device and a link. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DisassociateConnectPeerCommandOutput extends DisassociateConnec
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DisassociateConnectPeerCommand extends $Command
   .classBuilder<

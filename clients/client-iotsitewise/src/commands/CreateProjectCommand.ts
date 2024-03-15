@@ -27,7 +27,6 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a project in the specified portal.</p>
  *          <note>
  *             <p>Make sure that the project name and description don't contain confidential
@@ -88,6 +87,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

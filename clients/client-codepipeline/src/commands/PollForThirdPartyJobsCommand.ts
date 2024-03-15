@@ -27,7 +27,6 @@ export interface PollForThirdPartyJobsCommandInput extends PollForThirdPartyJobs
 export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Determines whether there are any third party jobs for a job worker to act on. Used
  *             for partner actions only.</p>
  *          <important>
@@ -78,6 +77,7 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class PollForThirdPartyJobsCommand extends $Command
   .classBuilder<

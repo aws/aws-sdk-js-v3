@@ -27,7 +27,6 @@ export interface GetModelTemplateCommandInput extends GetModelTemplateRequest {}
 export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a model template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class GetModelTemplateCommand extends $Command
   .classBuilder<

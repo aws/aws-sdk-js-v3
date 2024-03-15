@@ -36,7 +36,6 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified quota increase request in your quota request
  *             template.</p>
  * @example
@@ -105,6 +104,7 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
   .classBuilder<

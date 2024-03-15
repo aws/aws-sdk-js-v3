@@ -27,7 +27,6 @@ export interface GetReferenceMetadataCommandInput extends GetReferenceMetadataRe
 export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a genome reference's metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetReferenceMetadataCommand extends $Command
   .classBuilder<

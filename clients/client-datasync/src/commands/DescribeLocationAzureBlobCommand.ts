@@ -27,7 +27,6 @@ export interface DescribeLocationAzureBlobCommandInput extends DescribeLocationA
 export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for Microsoft Azure Blob Storage is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocation
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationAzureBlobCommand extends $Command
   .classBuilder<

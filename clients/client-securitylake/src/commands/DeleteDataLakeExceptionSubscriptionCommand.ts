@@ -35,7 +35,6 @@ export interface DeleteDataLakeExceptionSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DeleteDataLakeExceptionSubscriptionCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class DeleteDataLakeExceptionSubscriptionCommand extends $Command
   .classBuilder<

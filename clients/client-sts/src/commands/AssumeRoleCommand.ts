@@ -27,7 +27,6 @@ export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
 export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
  *          resources. These temporary credentials consist of an access key ID, a secret access key,
  *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
@@ -206,6 +205,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  * @example To assume a role
  * ```javascript
  * //

@@ -27,7 +27,6 @@ export interface DescribeDatasetGroupCommandInput extends DescribeDatasetGroupRe
 export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the given dataset group. For more information on dataset
  *       groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeDatasetGroupCommand extends $Command
   .classBuilder<

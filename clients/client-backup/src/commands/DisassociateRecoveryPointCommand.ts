@@ -27,7 +27,6 @@ export interface DisassociateRecoveryPointCommandInput extends DisassociateRecov
 export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified continuous backup recovery point from Backup and
  *          releases control of that continuous backup to the source service, such as Amazon RDS. The source service will continue to create and retain continuous backups using the
  *          lifecycle that you specified in your original backup plan.</p>
@@ -78,6 +77,7 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DisassociateRecoveryPointCommand extends $Command
   .classBuilder<

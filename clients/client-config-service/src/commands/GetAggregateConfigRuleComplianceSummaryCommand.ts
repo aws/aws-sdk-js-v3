@@ -36,7 +36,6 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of compliant and noncompliant rules for one
  * 			or more accounts and regions in an aggregator.</p>
  *          <note>
@@ -110,6 +109,7 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command
   .classBuilder<

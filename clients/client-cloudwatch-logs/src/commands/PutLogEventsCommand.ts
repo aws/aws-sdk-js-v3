@@ -27,7 +27,6 @@ export interface PutLogEventsCommandInput extends PutLogEventsRequest {}
 export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads a batch of log events to the specified log stream.</p>
  *          <important>
  *             <p>The sequence token is now ignored in <code>PutLogEvents</code>
@@ -150,6 +149,7 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutLogEventsCommand extends $Command
   .classBuilder<

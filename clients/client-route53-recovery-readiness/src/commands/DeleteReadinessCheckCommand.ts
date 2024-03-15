@@ -31,7 +31,6 @@ export interface DeleteReadinessCheckCommandInput extends DeleteReadinessCheckRe
 export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class DeleteReadinessCheckCommand extends $Command
   .classBuilder<

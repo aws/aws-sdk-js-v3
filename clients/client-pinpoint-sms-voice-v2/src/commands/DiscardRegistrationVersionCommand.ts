@@ -31,7 +31,6 @@ export interface DiscardRegistrationVersionCommandInput extends DiscardRegistrat
 export interface DiscardRegistrationVersionCommandOutput extends DiscardRegistrationVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Discard the current version of the registration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DiscardRegistrationVersionCommandOutput extends DiscardRegistra
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DiscardRegistrationVersionCommand extends $Command
   .classBuilder<

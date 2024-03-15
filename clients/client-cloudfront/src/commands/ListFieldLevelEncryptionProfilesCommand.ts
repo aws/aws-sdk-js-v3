@@ -32,7 +32,6 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Request a list of field-level encryption profiles that have been created in CloudFront for
  * 			this account.</p>
  * @example
@@ -92,6 +91,7 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListFieldLevelEncryptionProfilesCommand extends $Command
   .classBuilder<

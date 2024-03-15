@@ -27,7 +27,6 @@ export interface DeleteConfigurationTemplateCommandInput extends DeleteConfigura
 export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified configuration template.</p>
  *          <note>
  *             <p>When you launch an environment using a configuration template, the environment gets a
@@ -63,6 +62,7 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To delete a configuration template
  * ```javascript
  * // The following operation deletes a configuration template named my-template for an application named my-app:

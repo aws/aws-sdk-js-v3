@@ -27,7 +27,6 @@ export interface DeleteEnvironmentMembershipCommandInput extends DeleteEnvironme
 export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an environment member from a development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example DeleteEnvironmentMembership
  * ```javascript
  * //

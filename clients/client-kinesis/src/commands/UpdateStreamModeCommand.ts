@@ -27,7 +27,6 @@ export interface UpdateStreamModeCommandInput extends UpdateStreamModeInput {}
 export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you
  *             can choose between an <b>on-demand</b> capacity mode and a
  *                 <b>provisioned</b> capacity mode for your data stream.
@@ -75,6 +74,7 @@ export interface UpdateStreamModeCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class UpdateStreamModeCommand extends $Command
   .classBuilder<

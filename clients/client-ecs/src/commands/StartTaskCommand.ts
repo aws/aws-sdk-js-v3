@@ -27,7 +27,6 @@ export interface StartTaskCommandInput extends StartTaskRequest {}
 export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a new task from the specified task definition on the specified container
  * 			instance or instances.</p>
  *          <note>
@@ -345,6 +344,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class StartTaskCommand extends $Command
   .classBuilder<

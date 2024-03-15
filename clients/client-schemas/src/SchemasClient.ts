@@ -357,8 +357,8 @@ export type SchemasClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface SchemasClientResolvedConfig extends SchemasClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon EventBridge Schema Registry</p>
+ * @public
  */
 export class SchemasClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface BatchCreateVehicleCommandInput extends BatchCreateVehicleReques
 export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a group, or batch, of vehicles. </p>
  *          <note>
  *             <p> You must specify a decoder manifest and a vehicle model (model manifest) for each
@@ -105,6 +104,7 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class BatchCreateVehicleCommand extends $Command
   .classBuilder<

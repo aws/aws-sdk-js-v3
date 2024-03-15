@@ -27,7 +27,6 @@ export interface GetInvestigationCommandInput extends GetInvestigationRequest {}
 export interface GetInvestigationCommandOutput extends GetInvestigationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detective investigations lets you investigate IAM users and IAM roles using indicators of compromise. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident.  <code>GetInvestigation</code> returns the investigation results of an investigation for a behavior graph. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetInvestigationCommandOutput extends GetInvestigationResponse,
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class GetInvestigationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}
 export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
  *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
  *       type, you might be able to apply these changes without stopping the instance or detaching the
@@ -93,6 +92,7 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVolumeCommand extends $Command
   .classBuilder<

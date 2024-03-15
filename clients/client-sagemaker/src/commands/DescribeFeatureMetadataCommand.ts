@@ -27,7 +27,6 @@ export interface DescribeFeatureMetadataCommandInput extends DescribeFeatureMeta
 export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shows the metadata for a feature within a feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DescribeFeatureMetadataCommandOutput extends DescribeFeatureMet
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeFeatureMetadataCommand extends $Command
   .classBuilder<

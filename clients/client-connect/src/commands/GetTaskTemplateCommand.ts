@@ -27,7 +27,6 @@ export interface GetTaskTemplateCommandInput extends GetTaskTemplateRequest {}
 export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details about a specific task template in the specified Amazon Connect
  *    instance.</p>
  * @example
@@ -129,6 +128,7 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetTaskTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAppVersionResourceCommandInput extends DescribeAppVersi
 export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a resource of the Resilience Hub application.</p>
  *          <note>
  *             <p>This API accepts only one of the following parameters to descibe the resource:</p>
@@ -149,6 +148,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DescribeAppVersionResourceCommand extends $Command
   .classBuilder<

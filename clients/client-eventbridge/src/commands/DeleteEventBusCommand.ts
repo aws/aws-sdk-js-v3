@@ -27,7 +27,6 @@ export interface DeleteEventBusCommandInput extends DeleteEventBusRequest {}
 export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
  *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
  * @example
@@ -60,6 +59,7 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DeleteEventBusCommand extends $Command
   .classBuilder<

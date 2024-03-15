@@ -35,7 +35,6 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a network analyzer configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteNetworkAnalyzerConfigurationCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteNetworkAnalyzerConfigurationCommand extends $Command
   .classBuilder<

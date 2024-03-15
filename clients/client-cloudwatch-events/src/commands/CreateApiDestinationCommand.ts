@@ -27,7 +27,6 @@ export interface CreateApiDestinationCommandInput extends CreateApiDestinationRe
 export interface CreateApiDestinationCommandOutput extends CreateApiDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target
  *       for events.</p>
  * @example
@@ -77,6 +76,7 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class CreateApiDestinationCommand extends $Command
   .classBuilder<

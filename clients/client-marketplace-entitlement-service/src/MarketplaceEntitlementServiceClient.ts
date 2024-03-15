@@ -249,7 +249,6 @@ export interface MarketplaceEntitlementServiceClientResolvedConfig
   extends MarketplaceEntitlementServiceClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>AWS Marketplace Entitlement Service</fullname>
  *          <p>This reference provides descriptions of the AWS Marketplace Entitlement Service
  *    API.</p>
@@ -267,6 +266,7 @@ export interface MarketplaceEntitlementServiceClientResolvedConfig
  *      product.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class MarketplaceEntitlementServiceClient extends __Client<
   __HttpHandlerOptions,

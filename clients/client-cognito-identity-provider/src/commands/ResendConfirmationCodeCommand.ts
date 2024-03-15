@@ -35,7 +35,6 @@ export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCo
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
  *             user pool.</p>
  *          <note>
@@ -161,6 +160,7 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ResendConfirmationCodeCommand extends $Command
   .classBuilder<

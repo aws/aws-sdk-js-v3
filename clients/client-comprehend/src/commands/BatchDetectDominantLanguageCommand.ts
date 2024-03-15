@@ -34,7 +34,6 @@ export interface BatchDetectDominantLanguageCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Determines the dominant language of the input text for a batch of documents. For a list
  *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>.
  *     </p>
@@ -96,6 +95,7 @@ export interface BatchDetectDominantLanguageCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class BatchDetectDominantLanguageCommand extends $Command
   .classBuilder<

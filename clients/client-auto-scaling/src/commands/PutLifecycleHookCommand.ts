@@ -27,7 +27,6 @@ export interface PutLifecycleHookCommandInput extends PutLifecycleHookType {}
 export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
  *          <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance
  *             lifecycle, and then perform a custom action on instances when the corresponding
@@ -112,6 +111,7 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To create a launch lifecycle hook
  * ```javascript
  * // This example creates a lifecycle hook for instance launch.

@@ -35,7 +35,6 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Views information about a specific execution of a specific association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeAssociationExecutionTargetsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetKeyGroupConfigCommandInput extends GetKeyGroupConfigRequest 
 export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a key group configuration.</p>
  *          <p>To get a key group configuration, you must provide the key group's identifier. If the
  * 			key group is referenced in a distribution's cache behavior, you can get the key group's
@@ -70,6 +69,7 @@ export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetKeyGroupConfigCommand extends $Command
   .classBuilder<

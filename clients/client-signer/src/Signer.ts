@@ -415,7 +415,6 @@ export interface Signer {
 }
 
 /**
- * @public
  * <p>AWS Signer is a fully managed code-signing service to help you ensure the trust and
  * 			integrity of your code. </p>
  * 		       <p>Signer supports the following applications:</p>
@@ -434,6 +433,7 @@ export interface Signer {
  * 			integrity.</p>
  * 		       <p>For more information about Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer
  * 			Guide</a>.</p>
+ * @public
  */
 export class Signer extends SignerClient implements Signer {}
 createAggregatedClient(commands, Signer);

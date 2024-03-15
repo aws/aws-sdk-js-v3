@@ -35,7 +35,6 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of resources that are compliant and the
  * 			number that are noncompliant. You can specify one or more resource
  * 			types to get these numbers for each resource type. The maximum
@@ -87,6 +86,7 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetComplianceSummaryByResourceTypeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetPendingJobExecutionsCommandInput extends GetPendingJobExecut
 export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ * @public
  */
 export class GetPendingJobExecutionsCommand extends $Command
   .classBuilder<

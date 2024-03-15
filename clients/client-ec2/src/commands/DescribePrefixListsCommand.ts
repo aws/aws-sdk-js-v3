@@ -27,7 +27,6 @@ export interface DescribePrefixListsCommandInput extends DescribePrefixListsRequ
 export interface DescribePrefixListsCommandOutput extends DescribePrefixListsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
  *             name and prefix list ID of the service and the IP address range for the service.</p>
  *          <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
@@ -79,6 +78,7 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribePrefixListsCommand extends $Command
   .classBuilder<

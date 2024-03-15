@@ -36,7 +36,6 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a connection notification for a specified VPC endpoint or VPC endpoint
  *             service. A connection notification notifies you of specific endpoint events. You must
  *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
@@ -86,6 +85,7 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVpcEndpointConnectionNotificationCommand extends $Command
   .classBuilder<

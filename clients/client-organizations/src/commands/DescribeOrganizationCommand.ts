@@ -27,7 +27,6 @@ export interface DescribeOrganizationCommandInput {}
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the organization that the user's account belongs
  *             to.</p>
  *          <p>This operation can be called from any account in the organization.</p>
@@ -97,6 +96,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To get information about an organization
  * ```javascript
  * // The following example shows how to request information about the current user's organization:/n/n

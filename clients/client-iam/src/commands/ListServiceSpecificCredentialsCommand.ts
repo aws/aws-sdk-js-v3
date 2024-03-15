@@ -32,7 +32,6 @@ export interface ListServiceSpecificCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the service-specific credentials associated with the
  *             specified IAM user. If none exists, the operation returns an empty list. The
  *             service-specific credentials returned by this operation are used only for authenticating
@@ -82,6 +81,7 @@ export interface ListServiceSpecificCredentialsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListServiceSpecificCredentialsCommand extends $Command
   .classBuilder<

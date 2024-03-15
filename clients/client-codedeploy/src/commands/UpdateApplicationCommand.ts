@@ -27,7 +27,6 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationInput {}
 export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the name of an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class UpdateApplicationCommand extends $Command
   .classBuilder<

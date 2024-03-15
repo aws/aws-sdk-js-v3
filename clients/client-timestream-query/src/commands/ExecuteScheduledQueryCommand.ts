@@ -28,7 +28,6 @@ export interface ExecuteScheduledQueryCommandInput extends ExecuteScheduledQuery
 export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> You can use this API to run a scheduled query manually. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class ExecuteScheduledQueryCommand extends $Command
   .classBuilder<

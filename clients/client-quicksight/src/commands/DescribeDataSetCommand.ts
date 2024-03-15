@@ -31,7 +31,6 @@ export interface DescribeDataSetCommandInput extends DescribeDataSetRequest {}
 export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a dataset. This operation doesn't support datasets that include uploaded files as a source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -330,6 +329,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDataSetCommand extends $Command
   .classBuilder<

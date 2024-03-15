@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all tags assigned to a Amazon GameLift resource. Use resource tags to organize Amazon Web Services
  *             resources for a range of purposes. This operation handles the permissions necessary to
  *             manage tags for Amazon GameLift resources that support tagging.</p>
@@ -96,6 +95,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

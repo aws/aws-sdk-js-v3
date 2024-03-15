@@ -36,7 +36,6 @@ export interface RestoreTableFromRecoveryPointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a table from a recovery point to your Amazon Redshift Serverless instance. You can't use this operation to restore tables with interleaved sort keys.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface RestoreTableFromRecoveryPointCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class RestoreTableFromRecoveryPointCommand extends $Command
   .classBuilder<

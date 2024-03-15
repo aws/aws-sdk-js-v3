@@ -31,7 +31,6 @@ export interface StopICD10CMInferenceJobCommandInput extends StopICD10CMInferenc
 export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an InferICD10CM inference job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StopICD10CMInferenceJobCommand extends $Command
   .classBuilder<

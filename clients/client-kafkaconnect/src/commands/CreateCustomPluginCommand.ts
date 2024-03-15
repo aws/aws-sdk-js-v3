@@ -27,7 +27,6 @@ export interface CreateCustomPluginCommandInput extends CreateCustomPluginReques
 export interface CreateCustomPluginCommandOutput extends CreateCustomPluginResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom plugin using the specified properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class CreateCustomPluginCommand extends $Command
   .classBuilder<

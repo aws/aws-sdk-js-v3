@@ -27,7 +27,6 @@ export interface UpdateCertificateProviderCommandInput extends UpdateCertificate
 export interface UpdateCertificateProviderCommandOutput extends UpdateCertificateProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a certificate provider.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificateProvider</a> action.
  *       </p>
@@ -80,6 +79,7 @@ export interface UpdateCertificateProviderCommandOutput extends UpdateCertificat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateCertificateProviderCommand extends $Command
   .classBuilder<

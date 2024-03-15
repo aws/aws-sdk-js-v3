@@ -27,7 +27,6 @@ export interface CreateAccountSubscriptionCommandInput extends CreateAccountSubs
 export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.</p>
  *          <p>The Amazon Web Services Region for the account is derived from what is configured in the
  *           CLI or SDK.</p>
@@ -133,6 +132,7 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateAccountSubscriptionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
  *       Cost Category that's defined in the account.</p>
  *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that's
@@ -179,6 +178,7 @@ export interface DescribeCostCategoryDefinitionCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class DescribeCostCategoryDefinitionCommand extends $Command
   .classBuilder<

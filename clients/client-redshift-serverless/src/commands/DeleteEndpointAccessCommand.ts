@@ -31,7 +31,6 @@ export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessRe
 export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Redshift Serverless managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessR
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class DeleteEndpointAccessCommand extends $Command
   .classBuilder<

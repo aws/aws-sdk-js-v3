@@ -27,7 +27,6 @@ export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
 export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateAuthorizer</a> action.</p>
  * @example
@@ -92,6 +91,7 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateAuthorizerCommand extends $Command
   .classBuilder<

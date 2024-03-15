@@ -27,7 +27,6 @@ export interface ModifyIpamScopeCommandInput extends ModifyIpamScopeRequest {}
 export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify an IPAM scope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ModifyIpamScopeCommandOutput extends ModifyIpamScopeResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyIpamScopeCommand extends $Command
   .classBuilder<

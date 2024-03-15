@@ -36,7 +36,6 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Gets the properties associated with an InferSNOMEDCT job. Use this operation to get the status of an inference job.
  *     </p>
@@ -103,6 +102,7 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class DescribeSNOMEDCTInferenceJobCommand extends $Command
   .classBuilder<

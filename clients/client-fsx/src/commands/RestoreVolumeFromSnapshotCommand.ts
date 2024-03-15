@@ -31,7 +31,6 @@ export interface RestoreVolumeFromSnapshotCommandInput extends RestoreVolumeFrom
 export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFromSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
  *             snapshot.</p>
  * @example
@@ -647,6 +646,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class RestoreVolumeFromSnapshotCommand extends $Command
   .classBuilder<

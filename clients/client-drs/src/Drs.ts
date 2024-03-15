@@ -1119,8 +1119,8 @@ export interface Drs {
 }
 
 /**
- * @public
  * <p>AWS Elastic Disaster Recovery Service.</p>
+ * @public
  */
 export class Drs extends DrsClient implements Drs {}
 createAggregatedClient(commands, Drs);

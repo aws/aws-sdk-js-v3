@@ -29,7 +29,6 @@ export interface PutBucketPolicyCommandInput extends PutBucketPolicyRequest {}
 export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an
  *             S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the
@@ -93,6 +92,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutBucketPolicyCommand extends $Command
   .classBuilder<

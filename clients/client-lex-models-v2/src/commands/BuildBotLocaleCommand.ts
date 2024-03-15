@@ -27,7 +27,6 @@ export interface BuildBotLocaleCommandInput extends BuildBotLocaleRequest {}
 export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Builds a bot, its intents, and its slot types into a specific
  *          locale. A bot can be built into multiple locales. At runtime the locale
  *          is used to choose a specific build of the bot.</p>
@@ -88,6 +87,7 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class BuildBotLocaleCommand extends $Command
   .classBuilder<

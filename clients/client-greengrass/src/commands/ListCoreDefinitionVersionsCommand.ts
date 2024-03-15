@@ -27,7 +27,6 @@ export interface ListCoreDefinitionVersionsCommandInput extends ListCoreDefiniti
 export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Lists the versions of a core definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListCoreDefinitionVersionsCommand extends $Command
   .classBuilder<

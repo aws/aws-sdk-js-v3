@@ -35,7 +35,6 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe Amazon Inspector configuration settings for an Amazon Web Services organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConfigurationCommand extends $Command
   .classBuilder<

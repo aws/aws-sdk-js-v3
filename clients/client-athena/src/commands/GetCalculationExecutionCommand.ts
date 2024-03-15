@@ -27,7 +27,6 @@ export interface GetCalculationExecutionCommandInput extends GetCalculationExecu
 export interface GetCalculationExecutionCommandOutput extends GetCalculationExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a previously submitted calculation execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetCalculationExecutionCommandOutput extends GetCalculationExec
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetCalculationExecutionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAccountPreferencesCommandInput extends GetAccountPreferences
 export interface GetAccountPreferencesCommandOutput extends GetAccountPreferencesResult, __MetadataBearer {}
 
 /**
- * @public
  * Get Chatbot account level preferences
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface GetAccountPreferencesCommandOutput extends GetAccountPreference
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class GetAccountPreferencesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetSigningPlatformCommandInput extends GetSigningPlatformReques
 export interface GetSigningPlatformCommandOutput extends GetSigningPlatformResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information on a specific signing platform.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class GetSigningPlatformCommand extends $Command
   .classBuilder<

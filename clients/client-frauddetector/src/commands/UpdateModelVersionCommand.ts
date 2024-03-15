@@ -27,7 +27,6 @@ export interface UpdateModelVersionCommandInput extends UpdateModelVersionReques
 export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateModelVersionCommand extends $Command
   .classBuilder<

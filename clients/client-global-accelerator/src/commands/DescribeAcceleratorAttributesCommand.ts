@@ -36,7 +36,6 @@ export interface DescribeAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe the attributes of an accelerator.
  * 		</p>
  * @example
@@ -78,6 +77,7 @@ export interface DescribeAcceleratorAttributesCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DescribeAcceleratorAttributesCommand extends $Command
   .classBuilder<

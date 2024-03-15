@@ -18,74 +18,74 @@ export const AccountTargeting = {
 export type AccountTargeting = (typeof AccountTargeting)[keyof typeof AccountTargeting];
 
 /**
- * @public
  * <p>Describes a parameter for an action.</p>
+ * @public
  */
 export interface ActionParameter {
   /**
-   * @public
    * <p>The parameter description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Indicates whether the parameter is required.</p>
+   * @public
    */
   required?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a target for an action.</p>
+ * @public
  */
 export interface ActionTarget {
   /**
-   * @public
    * <p>The resource type of the target.</p>
+   * @public
    */
   resourceType?: string;
 }
 
 /**
- * @public
  * <p>Describes an action. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">FIS actions</a>
  *          in the <i>Fault Injection Service User Guide</i>.</p>
+ * @public
  */
 export interface Action {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the action.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The description for the action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The action parameters, if applicable.</p>
+   * @public
    */
   parameters?: Record<string, ActionParameter>;
 
   /**
-   * @public
    * <p>The supported targets for the action.</p>
+   * @public
    */
   targets?: Record<string, ActionTarget>;
 
   /**
-   * @public
    * <p>The tags for the action.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -105,44 +105,44 @@ export const ActionsMode = {
 export type ActionsMode = (typeof ActionsMode)[keyof typeof ActionsMode];
 
 /**
- * @public
  * <p>Provides a summary of an action.</p>
+ * @public
  */
 export interface ActionSummary {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the action.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The description for the action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The targets for the action.</p>
+   * @public
    */
   targets?: Record<string, ActionTarget>;
 
   /**
-   * @public
    * <p>The tags for the action.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The request could not be processed because of a conflict.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -161,39 +161,39 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Specifies an action for an experiment template.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/actions.html">Actions</a>
  *          in the <i>Fault Injection Service User Guide</i>.</p>
+ * @public
  */
 export interface CreateExperimentTemplateActionInput {
   /**
-   * @public
    * <p>The ID of the action. The format of the action ID is: aws:<i>service-name</i>:<i>action-type</i>.</p>
+   * @public
    */
   actionId: string | undefined;
 
   /**
-   * @public
    * <p>A description for the action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The parameters for the action, if applicable.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The targets for the action.</p>
+   * @public
    */
   targets?: Record<string, string>;
 
   /**
-   * @public
    * <p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>
+   * @public
    */
   startAfter?: string[];
 }
@@ -213,152 +213,151 @@ export const EmptyTargetResolutionMode = {
 export type EmptyTargetResolutionMode = (typeof EmptyTargetResolutionMode)[keyof typeof EmptyTargetResolutionMode];
 
 /**
- * @public
  * <p>Specifies experiment options for an experiment template.</p>
+ * @public
  */
 export interface CreateExperimentTemplateExperimentOptionsInput {
   /**
-   * @public
    * <p>Specifies the account targeting setting for experiment options.</p>
+   * @public
    */
   accountTargeting?: AccountTargeting;
 
   /**
-   * @public
    * <p>Specifies the empty target resolution mode for experiment options.</p>
+   * @public
    */
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 }
 
 /**
- * @public
  * <p>Specifies the configuration for experiment logging to Amazon CloudWatch Logs.</p>
+ * @public
  */
 export interface ExperimentTemplateCloudWatchLogsLogConfigurationInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
+   * @public
    */
   logGroupArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Specifies the configuration for experiment logging to Amazon S3.</p>
+ * @public
  */
 export interface ExperimentTemplateS3LogConfigurationInput {
   /**
-   * @public
    * <p>The name of the destination bucket.</p>
+   * @public
    */
   bucketName: string | undefined;
 
   /**
-   * @public
    * <p>The bucket prefix.</p>
+   * @public
    */
   prefix?: string;
 }
 
 /**
- * @public
  * <p>Specifies the configuration for experiment logging.</p>
+ * @public
  */
 export interface CreateExperimentTemplateLogConfigurationInput {
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   * @public
    */
   cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput;
 
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon S3.</p>
+   * @public
    */
   s3Configuration?: ExperimentTemplateS3LogConfigurationInput;
 
   /**
-   * @public
    * <p>The schema version.</p>
+   * @public
    */
   logSchemaVersion: number | undefined;
 }
 
 /**
- * @public
  * <p>Specifies a stop condition for an experiment template.</p>
+ * @public
  */
 export interface CreateExperimentTemplateStopConditionInput {
   /**
-   * @public
    * <p>The source for the stop condition. Specify <code>aws:cloudwatch:alarm</code> if the stop
    *          condition is defined by a CloudWatch alarm. Specify <code>none</code> if there is no stop
    *          condition.</p>
+   * @public
    */
   source: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the CloudWatch alarm. This is required if the source is
    *          a CloudWatch alarm.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>Specifies a filter used for the target resource input in an experiment template.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters">Resource filters</a>
  *          in the <i>Fault Injection Service User Guide</i>.</p>
+ * @public
  */
 export interface ExperimentTemplateTargetInputFilter {
   /**
-   * @public
    * <p>The attribute path for the filter.</p>
+   * @public
    */
   path: string | undefined;
 
   /**
-   * @public
    * <p>The attribute values for the filter.</p>
+   * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or
  *          at least one resource tag. You cannot specify both ARNs and tags.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html">Targets</a>
  *          in the <i>Fault Injection Service User Guide</i>.</p>
+ * @public
  */
 export interface CreateExperimentTemplateTargetInput {
   /**
-   * @public
    * <p>The resource type. The resource type must be supported for the specified action.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>The tags for the target resources.</p>
+   * @public
    */
   resourceTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The filters to apply to identify target resources using specific attributes.</p>
+   * @public
    */
   filters?: ExperimentTemplateTargetInputFilter[];
 
   /**
-   * @public
    * <p>Scopes the identified resources to a specific count of the resources at random, or a percentage of the resources. All identified resources are included in the target.</p>
    *          <ul>
    *             <li>
@@ -373,12 +372,13 @@ export interface CreateExperimentTemplateTargetInput {
    *                at random. For example, PERCENT(25) selects 25% of the targets.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   selectionMode: string | undefined;
 
   /**
-   * @public
    * <p>The resource type parameters.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 }
@@ -388,326 +388,326 @@ export interface CreateExperimentTemplateTargetInput {
  */
 export interface CreateExperimentTemplateRequest {
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>A description for the experiment template.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The stop conditions.</p>
+   * @public
    */
   stopConditions: CreateExperimentTemplateStopConditionInput[] | undefined;
 
   /**
-   * @public
    * <p>The targets for the experiment.</p>
+   * @public
    */
   targets?: Record<string, CreateExperimentTemplateTargetInput>;
 
   /**
-   * @public
    * <p>The actions for the experiment.</p>
+   * @public
    */
   actions: Record<string, CreateExperimentTemplateActionInput> | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to apply to the experiment template.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration for experiment logging.</p>
+   * @public
    */
   logConfiguration?: CreateExperimentTemplateLogConfigurationInput;
 
   /**
-   * @public
    * <p>The experiment options for the experiment template.</p>
+   * @public
    */
   experimentOptions?: CreateExperimentTemplateExperimentOptionsInput;
 }
 
 /**
- * @public
  * <p>Describes an action for an experiment template.</p>
+ * @public
  */
 export interface ExperimentTemplateAction {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   actionId?: string;
 
   /**
-   * @public
    * <p>A description for the action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The parameters for the action.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The targets for the action.</p>
+   * @public
    */
   targets?: Record<string, string>;
 
   /**
-   * @public
    * <p>The name of the action that must be completed before the current action starts.</p>
+   * @public
    */
   startAfter?: string[];
 }
 
 /**
- * @public
  * <p>Describes the experiment options for an experiment template.</p>
+ * @public
  */
 export interface ExperimentTemplateExperimentOptions {
   /**
-   * @public
    * <p>The account targeting setting for an experiment template. </p>
+   * @public
    */
   accountTargeting?: AccountTargeting;
 
   /**
-   * @public
    * <p>The empty target resolution mode for an experiment template.</p>
+   * @public
    */
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 }
 
 /**
- * @public
  * <p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>
+ * @public
  */
 export interface ExperimentTemplateCloudWatchLogsLogConfiguration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
+   * @public
    */
   logGroupArn?: string;
 }
 
 /**
- * @public
  * <p>Describes the configuration for experiment logging to Amazon S3.</p>
+ * @public
  */
 export interface ExperimentTemplateS3LogConfiguration {
   /**
-   * @public
    * <p>The name of the destination bucket.</p>
+   * @public
    */
   bucketName?: string;
 
   /**
-   * @public
    * <p>The bucket prefix.</p>
+   * @public
    */
   prefix?: string;
 }
 
 /**
- * @public
  * <p>Describes the configuration for experiment logging.</p>
+ * @public
  */
 export interface ExperimentTemplateLogConfiguration {
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   * @public
    */
   cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfiguration;
 
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon S3.</p>
+   * @public
    */
   s3Configuration?: ExperimentTemplateS3LogConfiguration;
 
   /**
-   * @public
    * <p>The schema version.</p>
+   * @public
    */
   logSchemaVersion?: number;
 }
 
 /**
- * @public
  * <p>Describes a stop condition for an experiment template.</p>
+ * @public
  */
 export interface ExperimentTemplateStopCondition {
   /**
-   * @public
    * <p>The source for the stop condition.</p>
+   * @public
    */
   source?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>Describes a filter used for the target resources in an experiment template.</p>
+ * @public
  */
 export interface ExperimentTemplateTargetFilter {
   /**
-   * @public
    * <p>The attribute path for the filter.</p>
+   * @public
    */
   path?: string;
 
   /**
-   * @public
    * <p>The attribute values for the filter.</p>
+   * @public
    */
   values?: string[];
 }
 
 /**
- * @public
  * <p>Describes a target for an experiment template.</p>
+ * @public
  */
 export interface ExperimentTemplateTarget {
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of the targets.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>The tags for the target resources.</p>
+   * @public
    */
   resourceTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The filters to apply to identify target resources using specific attributes.</p>
+   * @public
    */
   filters?: ExperimentTemplateTargetFilter[];
 
   /**
-   * @public
    * <p>Scopes the identified resources to a specific count or percentage.</p>
+   * @public
    */
   selectionMode?: string;
 
   /**
-   * @public
    * <p>The resource type parameters.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Describes an experiment template.</p>
+ * @public
  */
 export interface ExperimentTemplate {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the experiment template.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The description for the experiment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The targets for the experiment.</p>
+   * @public
    */
   targets?: Record<string, ExperimentTemplateTarget>;
 
   /**
-   * @public
    * <p>The actions for the experiment.</p>
+   * @public
    */
   actions?: Record<string, ExperimentTemplateAction>;
 
   /**
-   * @public
    * <p>The stop conditions for the experiment.</p>
+   * @public
    */
   stopConditions?: ExperimentTemplateStopCondition[];
 
   /**
-   * @public
    * <p>The time the experiment template was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The time the experiment template was last updated.</p>
+   * @public
    */
   lastUpdateTime?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The tags for the experiment template.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration for experiment logging.</p>
+   * @public
    */
   logConfiguration?: ExperimentTemplateLogConfiguration;
 
   /**
-   * @public
    * <p>The experiment options for an experiment template.</p>
+   * @public
    */
   experimentOptions?: ExperimentTemplateExperimentOptions;
 
   /**
-   * @public
    * <p>The count of target account configurations for the experiment template.</p>
+   * @public
    */
   targetAccountConfigurationsCount?: number;
 }
@@ -717,15 +717,15 @@ export interface ExperimentTemplate {
  */
 export interface CreateExperimentTemplateResponse {
   /**
-   * @public
    * <p>Information about the experiment template.</p>
+   * @public
    */
   experimentTemplate?: ExperimentTemplate;
 }
 
 /**
- * @public
  * <p>The specified resource cannot be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -744,8 +744,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have exceeded your service quota.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -764,8 +764,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -788,56 +788,56 @@ export class ValidationException extends __BaseException {
  */
 export interface CreateTargetAccountConfigurationRequest {
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The experiment template ID.</p>
+   * @public
    */
   experimentTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The description of the target account.</p>
+   * @public
    */
   description?: string;
 }
 
 /**
- * @public
  * <p>Describes a target account configuration.</p>
+ * @public
  */
 export interface TargetAccountConfiguration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The description of the target account.</p>
+   * @public
    */
   description?: string;
 }
@@ -847,8 +847,8 @@ export interface TargetAccountConfiguration {
  */
 export interface CreateTargetAccountConfigurationResponse {
   /**
-   * @public
    * <p>Information about the target account configuration.</p>
+   * @public
    */
   targetAccountConfiguration?: TargetAccountConfiguration;
 }
@@ -858,8 +858,8 @@ export interface CreateTargetAccountConfigurationResponse {
  */
 export interface DeleteExperimentTemplateRequest {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -869,8 +869,8 @@ export interface DeleteExperimentTemplateRequest {
  */
 export interface DeleteExperimentTemplateResponse {
   /**
-   * @public
    * <p>Information about the experiment template.</p>
+   * @public
    */
   experimentTemplate?: ExperimentTemplate;
 }
@@ -880,14 +880,14 @@ export interface DeleteExperimentTemplateResponse {
  */
 export interface DeleteTargetAccountConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId: string | undefined;
 }
@@ -897,8 +897,8 @@ export interface DeleteTargetAccountConfigurationRequest {
  */
 export interface DeleteTargetAccountConfigurationResponse {
   /**
-   * @public
    * <p>Information about the target account configuration.</p>
+   * @public
    */
   targetAccountConfiguration?: TargetAccountConfiguration;
 }
@@ -925,151 +925,151 @@ export const ExperimentActionStatus = {
 export type ExperimentActionStatus = (typeof ExperimentActionStatus)[keyof typeof ExperimentActionStatus];
 
 /**
- * @public
  * <p>Describes the state of an action.</p>
+ * @public
  */
 export interface ExperimentActionState {
   /**
-   * @public
    * <p>The state of the action.</p>
+   * @public
    */
   status?: ExperimentActionStatus;
 
   /**
-   * @public
    * <p>The reason for the state.</p>
+   * @public
    */
   reason?: string;
 }
 
 /**
- * @public
  * <p>Describes the action for an experiment.</p>
+ * @public
  */
 export interface ExperimentAction {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   actionId?: string;
 
   /**
-   * @public
    * <p>The description for the action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The parameters for the action.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The targets for the action.</p>
+   * @public
    */
   targets?: Record<string, string>;
 
   /**
-   * @public
    * <p>The name of the action that must be completed before this action starts.</p>
+   * @public
    */
   startAfter?: string[];
 
   /**
-   * @public
    * <p>The state of the action.</p>
+   * @public
    */
   state?: ExperimentActionState;
 
   /**
-   * @public
    * <p>The time that the action started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The time that the action ended.</p>
+   * @public
    */
   endTime?: Date;
 }
 
 /**
- * @public
  * <p>Describes the options for an experiment.</p>
+ * @public
  */
 export interface ExperimentOptions {
   /**
-   * @public
    * <p>The account targeting setting for an experiment.</p>
+   * @public
    */
   accountTargeting?: AccountTargeting;
 
   /**
-   * @public
    * <p>The empty target resolution mode for an experiment.</p>
+   * @public
    */
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 
   /**
-   * @public
    * <p>The actions mode of the experiment that is set from the StartExperiment API command.</p>
+   * @public
    */
   actionsMode?: ActionsMode;
 }
 
 /**
- * @public
  * <p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>
+ * @public
  */
 export interface ExperimentCloudWatchLogsLogConfiguration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
+   * @public
    */
   logGroupArn?: string;
 }
 
 /**
- * @public
  * <p>Describes the configuration for experiment logging to Amazon S3.</p>
+ * @public
  */
 export interface ExperimentS3LogConfiguration {
   /**
-   * @public
    * <p>The name of the destination bucket.</p>
+   * @public
    */
   bucketName?: string;
 
   /**
-   * @public
    * <p>The bucket prefix.</p>
+   * @public
    */
   prefix?: string;
 }
 
 /**
- * @public
  * <p>Describes the configuration for experiment logging.</p>
+ * @public
  */
 export interface ExperimentLogConfiguration {
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   * @public
    */
   cloudWatchLogsConfiguration?: ExperimentCloudWatchLogsLogConfiguration;
 
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon S3.</p>
+   * @public
    */
   s3Configuration?: ExperimentS3LogConfiguration;
 
   /**
-   * @public
    * <p>The schema version.</p>
+   * @public
    */
   logSchemaVersion?: number;
 }
@@ -1094,331 +1094,331 @@ export const ExperimentStatus = {
 export type ExperimentStatus = (typeof ExperimentStatus)[keyof typeof ExperimentStatus];
 
 /**
- * @public
  * <p>Describes the state of an experiment.</p>
+ * @public
  */
 export interface ExperimentState {
   /**
-   * @public
    * <p>The state of the experiment.</p>
+   * @public
    */
   status?: ExperimentStatus;
 
   /**
-   * @public
    * <p>The reason for the state.</p>
+   * @public
    */
   reason?: string;
 }
 
 /**
- * @public
  * <p>Describes the stop condition for an experiment.</p>
+ * @public
  */
 export interface ExperimentStopCondition {
   /**
-   * @public
    * <p>The source for the stop condition.</p>
+   * @public
    */
   source?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>Describes a filter used for the target resources in an experiment.</p>
+ * @public
  */
 export interface ExperimentTargetFilter {
   /**
-   * @public
    * <p>The attribute path for the filter.</p>
+   * @public
    */
   path?: string;
 
   /**
-   * @public
    * <p>The attribute values for the filter.</p>
+   * @public
    */
   values?: string[];
 }
 
 /**
- * @public
  * <p>Describes a target for an experiment.</p>
+ * @public
  */
 export interface ExperimentTarget {
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>The tags for the target resources.</p>
+   * @public
    */
   resourceTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The filters to apply to identify target resources using specific attributes.</p>
+   * @public
    */
   filters?: ExperimentTargetFilter[];
 
   /**
-   * @public
    * <p>Scopes the identified resources to a specific count or percentage.</p>
+   * @public
    */
   selectionMode?: string;
 
   /**
-   * @public
    * <p>The resource type parameters.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Describes an experiment.</p>
+ * @public
  */
 export interface Experiment {
   /**
-   * @public
    * <p>The ID of the experiment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The state of the experiment.</p>
+   * @public
    */
   state?: ExperimentState;
 
   /**
-   * @public
    * <p>The targets for the experiment.</p>
+   * @public
    */
   targets?: Record<string, ExperimentTarget>;
 
   /**
-   * @public
    * <p>The actions for the experiment.</p>
+   * @public
    */
   actions?: Record<string, ExperimentAction>;
 
   /**
-   * @public
    * <p>The stop conditions for the experiment.</p>
+   * @public
    */
   stopConditions?: ExperimentStopCondition[];
 
   /**
-   * @public
    * <p>The time that the experiment was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The time that the experiment started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The time that the experiment ended.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>The tags for the experiment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration for experiment logging.</p>
+   * @public
    */
   logConfiguration?: ExperimentLogConfiguration;
 
   /**
-   * @public
    * <p>The experiment options for the experiment.</p>
+   * @public
    */
   experimentOptions?: ExperimentOptions;
 
   /**
-   * @public
    * <p>The count of target account configurations for the experiment.</p>
+   * @public
    */
   targetAccountConfigurationsCount?: number;
 }
 
 /**
- * @public
  * <p>Provides a summary of an experiment.</p>
+ * @public
  */
 export interface ExperimentSummary {
   /**
-   * @public
    * <p>The ID of the experiment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId?: string;
 
   /**
-   * @public
    * <p>The state of the experiment.</p>
+   * @public
    */
   state?: ExperimentState;
 
   /**
-   * @public
    * <p>The time that the experiment was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The tags for the experiment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The experiment options for the experiment.</p>
+   * @public
    */
   experimentOptions?: ExperimentOptions;
 }
 
 /**
- * @public
  * <p>Describes a target account configuration for an experiment.</p>
+ * @public
  */
 export interface ExperimentTargetAccountConfiguration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The description of the target account.</p>
+   * @public
    */
   description?: string;
 }
 
 /**
- * @public
  * <p>Provides a summary of a target account configuration.</p>
+ * @public
  */
 export interface ExperimentTargetAccountConfigurationSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The description of the target account.</p>
+   * @public
    */
   description?: string;
 }
 
 /**
- * @public
  * <p>Provides a summary of an experiment template.</p>
+ * @public
  */
 export interface ExperimentTemplateSummary {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the experiment template.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The description of the experiment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The time that the experiment template was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The time that the experiment template was last updated.</p>
+   * @public
    */
   lastUpdateTime?: Date;
 
   /**
-   * @public
    * <p>The tags for the experiment template.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1428,8 +1428,8 @@ export interface ExperimentTemplateSummary {
  */
 export interface GetActionRequest {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -1439,8 +1439,8 @@ export interface GetActionRequest {
  */
 export interface GetActionResponse {
   /**
-   * @public
    * <p>Information about the action.</p>
+   * @public
    */
   action?: Action;
 }
@@ -1450,8 +1450,8 @@ export interface GetActionResponse {
  */
 export interface GetExperimentRequest {
   /**
-   * @public
    * <p>The ID of the experiment.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -1461,8 +1461,8 @@ export interface GetExperimentRequest {
  */
 export interface GetExperimentResponse {
   /**
-   * @public
    * <p>Information about the experiment.</p>
+   * @public
    */
   experiment?: Experiment;
 }
@@ -1472,14 +1472,14 @@ export interface GetExperimentResponse {
  */
 export interface GetExperimentTargetAccountConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the experiment.</p>
+   * @public
    */
   experimentId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId: string | undefined;
 }
@@ -1489,8 +1489,8 @@ export interface GetExperimentTargetAccountConfigurationRequest {
  */
 export interface GetExperimentTargetAccountConfigurationResponse {
   /**
-   * @public
    * <p>Information about the target account configuration.</p>
+   * @public
    */
   targetAccountConfiguration?: ExperimentTargetAccountConfiguration;
 }
@@ -1500,8 +1500,8 @@ export interface GetExperimentTargetAccountConfigurationResponse {
  */
 export interface GetExperimentTemplateRequest {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -1511,8 +1511,8 @@ export interface GetExperimentTemplateRequest {
  */
 export interface GetExperimentTemplateResponse {
   /**
-   * @public
    * <p>Information about the experiment template.</p>
+   * @public
    */
   experimentTemplate?: ExperimentTemplate;
 }
@@ -1522,14 +1522,14 @@ export interface GetExperimentTemplateResponse {
  */
 export interface GetTargetAccountConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId: string | undefined;
 }
@@ -1539,8 +1539,8 @@ export interface GetTargetAccountConfigurationRequest {
  */
 export interface GetTargetAccountConfigurationResponse {
   /**
-   * @public
    * <p>Information about the target account configuration.</p>
+   * @public
    */
   targetAccountConfiguration?: TargetAccountConfiguration;
 }
@@ -1550,51 +1550,51 @@ export interface GetTargetAccountConfigurationResponse {
  */
 export interface GetTargetResourceTypeRequest {
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   resourceType: string | undefined;
 }
 
 /**
- * @public
  * <p>Describes the parameters for a resource type. Use parameters to determine which tasks are
  *           identified during target resolution.</p>
+ * @public
  */
 export interface TargetResourceTypeParameter {
   /**
-   * @public
    * <p>A description of the parameter.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Indicates whether the parameter is required.</p>
+   * @public
    */
   required?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a resource type.</p>
+ * @public
  */
 export interface TargetResourceType {
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>A description of the resource type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The parameters for the resource type.</p>
+   * @public
    */
   parameters?: Record<string, TargetResourceTypeParameter>;
 }
@@ -1604,8 +1604,8 @@ export interface TargetResourceType {
  */
 export interface GetTargetResourceTypeResponse {
   /**
-   * @public
    * <p>Information about the resource type.</p>
+   * @public
    */
   targetResourceType?: TargetResourceType;
 }
@@ -1615,14 +1615,14 @@ export interface GetTargetResourceTypeResponse {
  */
 export interface ListActionsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1632,14 +1632,14 @@ export interface ListActionsRequest {
  */
 export interface ListActionsResponse {
   /**
-   * @public
    * <p>The actions.</p>
+   * @public
    */
   actions?: ActionSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1649,51 +1649,51 @@ export interface ListActionsResponse {
  */
 export interface ListExperimentResolvedTargetsRequest {
   /**
-   * @public
    * <p>The ID of the experiment.</p>
+   * @public
    */
   experimentId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results,
    *       make another call with the returned nextToken value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The name of the target.</p>
+   * @public
    */
   targetName?: string;
 }
 
 /**
- * @public
  * <p>Describes a resolved target.</p>
+ * @public
  */
 export interface ResolvedTarget {
   /**
-   * @public
    * <p>The resource type of the target.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The name of the target.</p>
+   * @public
    */
   targetName?: string;
 
   /**
-   * @public
    * <p>Information about the target.</p>
+   * @public
    */
   targetInformation?: Record<string, string>;
 }
@@ -1703,15 +1703,15 @@ export interface ResolvedTarget {
  */
 export interface ListExperimentResolvedTargetsResponse {
   /**
-   * @public
    * <p>The resolved targets.</p>
+   * @public
    */
   resolvedTargets?: ResolvedTarget[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results.
    *       This value is null when there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1721,20 +1721,20 @@ export interface ListExperimentResolvedTargetsResponse {
  */
 export interface ListExperimentsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId?: string;
 }
@@ -1744,14 +1744,14 @@ export interface ListExperimentsRequest {
  */
 export interface ListExperimentsResponse {
   /**
-   * @public
    * <p>The experiments.</p>
+   * @public
    */
   experiments?: ExperimentSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1761,14 +1761,14 @@ export interface ListExperimentsResponse {
  */
 export interface ListExperimentTargetAccountConfigurationsRequest {
   /**
-   * @public
    * <p>The ID of the experiment.</p>
+   * @public
    */
   experimentId: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1778,15 +1778,15 @@ export interface ListExperimentTargetAccountConfigurationsRequest {
  */
 export interface ListExperimentTargetAccountConfigurationsResponse {
   /**
-   * @public
    * <p>The target account configurations.</p>
+   * @public
    */
   targetAccountConfigurations?: ExperimentTargetAccountConfigurationSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results.
    *       This value is null when there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1796,14 +1796,14 @@ export interface ListExperimentTargetAccountConfigurationsResponse {
  */
 export interface ListExperimentTemplatesRequest {
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1813,14 +1813,14 @@ export interface ListExperimentTemplatesRequest {
  */
 export interface ListExperimentTemplatesResponse {
   /**
-   * @public
    * <p>The experiment templates.</p>
+   * @public
    */
   experimentTemplates?: ExperimentTemplateSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1830,8 +1830,8 @@ export interface ListExperimentTemplatesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1841,8 +1841,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags for the resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1852,45 +1852,45 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTargetAccountConfigurationsRequest {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results,
    *       make another call with the returned nextToken value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Provides a summary of a target account configuration.</p>
+ * @public
  */
 export interface TargetAccountConfigurationSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The description of the target account.</p>
+   * @public
    */
   description?: string;
 }
@@ -1900,15 +1900,15 @@ export interface TargetAccountConfigurationSummary {
  */
 export interface ListTargetAccountConfigurationsResponse {
   /**
-   * @public
    * <p>The target account configurations.</p>
+   * @public
    */
   targetAccountConfigurations?: TargetAccountConfigurationSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results.
    *       This value is null when there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1918,32 +1918,32 @@ export interface ListTargetAccountConfigurationsResponse {
  */
 export interface ListTargetResourceTypesRequest {
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Describes a resource type.</p>
+ * @public
  */
 export interface TargetResourceTypeSummary {
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>A description of the resource type.</p>
+   * @public
    */
   description?: string;
 }
@@ -1953,26 +1953,26 @@ export interface TargetResourceTypeSummary {
  */
 export interface ListTargetResourceTypesResponse {
   /**
-   * @public
    * <p>The target resource types.</p>
+   * @public
    */
   targetResourceTypes?: TargetResourceTypeSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Specifies experiment options for running an experiment.</p>
+ * @public
  */
 export interface StartExperimentExperimentOptionsInput {
   /**
-   * @public
    * <p>Specifies the actions mode for experiment options.</p>
+   * @public
    */
   actionsMode?: ActionsMode;
 }
@@ -1982,26 +1982,26 @@ export interface StartExperimentExperimentOptionsInput {
  */
 export interface StartExperimentRequest {
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The experiment options for running the experiment.</p>
+   * @public
    */
   experimentOptions?: StartExperimentExperimentOptionsInput;
 
   /**
-   * @public
    * <p>The tags to apply to the experiment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2011,8 +2011,8 @@ export interface StartExperimentRequest {
  */
 export interface StartExperimentResponse {
   /**
-   * @public
    * <p>Information about the experiment.</p>
+   * @public
    */
   experiment?: Experiment;
 }
@@ -2022,8 +2022,8 @@ export interface StartExperimentResponse {
  */
 export interface StopExperimentRequest {
   /**
-   * @public
    * <p>The ID of the experiment.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -2033,8 +2033,8 @@ export interface StopExperimentRequest {
  */
 export interface StopExperimentResponse {
   /**
-   * @public
    * <p>Information about the experiment.</p>
+   * @public
    */
   experiment?: Experiment;
 }
@@ -2044,14 +2044,14 @@ export interface StopExperimentResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags for the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -2066,14 +2066,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys to remove.</p>
+   * @public
    */
   tagKeys?: string[];
 }
@@ -2084,135 +2084,135 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * @public
  * <p>Specifies an action for an experiment template.</p>
+ * @public
  */
 export interface UpdateExperimentTemplateActionInputItem {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   actionId?: string;
 
   /**
-   * @public
    * <p>A description for the action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The parameters for the action, if applicable.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The targets for the action.</p>
+   * @public
    */
   targets?: Record<string, string>;
 
   /**
-   * @public
    * <p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>
+   * @public
    */
   startAfter?: string[];
 }
 
 /**
- * @public
  * <p>Specifies an experiment option for an experiment template.</p>
+ * @public
  */
 export interface UpdateExperimentTemplateExperimentOptionsInput {
   /**
-   * @public
    * <p>The empty target resolution mode of the experiment template.</p>
+   * @public
    */
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 }
 
 /**
- * @public
  * <p>Specifies the configuration for experiment logging.</p>
+ * @public
  */
 export interface UpdateExperimentTemplateLogConfigurationInput {
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   * @public
    */
   cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput;
 
   /**
-   * @public
    * <p>The configuration for experiment logging to Amazon S3.</p>
+   * @public
    */
   s3Configuration?: ExperimentTemplateS3LogConfigurationInput;
 
   /**
-   * @public
    * <p>The schema version.</p>
+   * @public
    */
   logSchemaVersion?: number;
 }
 
 /**
- * @public
  * <p>Specifies a stop condition for an experiment. You can define a stop condition as a CloudWatch alarm.</p>
+ * @public
  */
 export interface UpdateExperimentTemplateStopConditionInput {
   /**
-   * @public
    * <p>The source for the stop condition. Specify <code>aws:cloudwatch:alarm</code> if the stop
    *          condition is defined by a CloudWatch alarm. Specify <code>none</code> if there is no stop
    *          condition.</p>
+   * @public
    */
   source: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the CloudWatch alarm.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or at least one resource tag. You cannot specify both.</p>
+ * @public
  */
 export interface UpdateExperimentTemplateTargetInput {
   /**
-   * @public
    * <p>The resource type. The resource type must be supported for the specified action.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of the targets.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>The tags for the target resources.</p>
+   * @public
    */
   resourceTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The filters to apply to identify target resources using specific attributes.</p>
+   * @public
    */
   filters?: ExperimentTemplateTargetInputFilter[];
 
   /**
-   * @public
    * <p>Scopes the identified resources to a specific count or percentage.</p>
+   * @public
    */
   selectionMode: string | undefined;
 
   /**
-   * @public
    * <p>The resource type parameters.</p>
+   * @public
    */
   parameters?: Record<string, string>;
 }
@@ -2222,50 +2222,50 @@ export interface UpdateExperimentTemplateTargetInput {
  */
 export interface UpdateExperimentTemplateRequest {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>A description for the template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The stop conditions for the experiment.</p>
+   * @public
    */
   stopConditions?: UpdateExperimentTemplateStopConditionInput[];
 
   /**
-   * @public
    * <p>The targets for the experiment.</p>
+   * @public
    */
   targets?: Record<string, UpdateExperimentTemplateTargetInput>;
 
   /**
-   * @public
    * <p>The actions for the experiment.</p>
+   * @public
    */
   actions?: Record<string, UpdateExperimentTemplateActionInputItem>;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The configuration for experiment logging.</p>
+   * @public
    */
   logConfiguration?: UpdateExperimentTemplateLogConfigurationInput;
 
   /**
-   * @public
    * <p>The experiment options for the experiment template.</p>
+   * @public
    */
   experimentOptions?: UpdateExperimentTemplateExperimentOptionsInput;
 }
@@ -2275,8 +2275,8 @@ export interface UpdateExperimentTemplateRequest {
  */
 export interface UpdateExperimentTemplateResponse {
   /**
-   * @public
    * <p>Information about the experiment template.</p>
+   * @public
    */
   experimentTemplate?: ExperimentTemplate;
 }
@@ -2286,26 +2286,26 @@ export interface UpdateExperimentTemplateResponse {
  */
 export interface UpdateTargetAccountConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the experiment template.</p>
+   * @public
    */
   experimentTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the target account.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The description of the target account.</p>
+   * @public
    */
   description?: string;
 }
@@ -2315,8 +2315,8 @@ export interface UpdateTargetAccountConfigurationRequest {
  */
 export interface UpdateTargetAccountConfigurationResponse {
   /**
-   * @public
    * <p>Information about the target account configuration.</p>
+   * @public
    */
   targetAccountConfiguration?: TargetAccountConfiguration;
 }

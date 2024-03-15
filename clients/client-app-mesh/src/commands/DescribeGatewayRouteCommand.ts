@@ -27,7 +27,6 @@ export interface DescribeGatewayRouteCommandInput extends DescribeGatewayRouteIn
 export interface DescribeGatewayRouteCommandOutput extends DescribeGatewayRouteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing gateway route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -255,6 +254,7 @@ export interface DescribeGatewayRouteCommandOutput extends DescribeGatewayRouteO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DescribeGatewayRouteCommand extends $Command
   .classBuilder<

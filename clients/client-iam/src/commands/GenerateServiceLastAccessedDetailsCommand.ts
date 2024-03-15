@@ -35,7 +35,6 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a report that includes details about when an IAM resource (user, group,
  *             role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
  *             usually appears within four hours. IAM reports activity for at least the last 400
@@ -127,6 +126,7 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To generate a service last accessed data report for a policy
  * ```javascript
  * // The following operation generates a report for the policy: ExamplePolicy1

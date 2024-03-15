@@ -32,7 +32,6 @@ export interface CreatePackageCommandInput extends CreatePackageRequest {}
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IoT software package that can be deployed to your fleet.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePackage</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> actions.</p>
  * @example
@@ -84,6 +83,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreatePackageCommand extends $Command
   .classBuilder<

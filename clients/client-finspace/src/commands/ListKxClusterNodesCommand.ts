@@ -27,7 +27,6 @@ export interface ListKxClusterNodesCommandInput extends ListKxClusterNodesReques
 export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the nodes in a kdb cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesRespo
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxClusterNodesCommand extends $Command
   .classBuilder<

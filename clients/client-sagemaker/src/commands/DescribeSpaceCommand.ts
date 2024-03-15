@@ -27,7 +27,6 @@ export interface DescribeSpaceCommandInput extends DescribeSpaceRequest {}
 export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -148,6 +147,7 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeSpaceCommand extends $Command
   .classBuilder<

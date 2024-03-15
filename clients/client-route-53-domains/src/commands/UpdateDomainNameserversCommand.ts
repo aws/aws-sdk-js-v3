@@ -31,7 +31,6 @@ export interface UpdateDomainNameserversCommandInput extends UpdateDomainNameser
 export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNameserversResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation replaces the current set of name servers for the domain with the
  * 			specified set of name servers. If you use Amazon Route 53 as your DNS service, specify
  * 			the four name servers in the delegation set for the hosted zone for the domain.</p>
@@ -92,6 +91,7 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class UpdateDomainNameserversCommand extends $Command
   .classBuilder<

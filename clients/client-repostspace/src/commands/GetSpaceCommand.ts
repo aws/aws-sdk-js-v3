@@ -27,7 +27,6 @@ export interface GetSpaceCommandInput extends GetSpaceInput {}
 export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays information about the AWS re:Post Private private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class GetSpaceCommand extends $Command
   .classBuilder<

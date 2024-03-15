@@ -27,7 +27,6 @@ export interface GetUploadCommandInput extends GetUploadRequest {}
 export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an upload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a specific upload
  * ```javascript
  * // The following example gets information about a specific upload.

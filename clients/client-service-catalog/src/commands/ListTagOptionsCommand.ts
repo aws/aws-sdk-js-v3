@@ -27,7 +27,6 @@ export interface ListTagOptionsCommandInput extends ListTagOptionsInput {}
 export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the specified TagOptions or all TagOptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListTagOptionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddAssociationCommandInput extends AddAssociationRequest {}
 export interface AddAssociationCommandOutput extends AddAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <i>association</i> between the source and the destination. A
  *         source can be associated with multiple destinations, and a destination can be associated
  *         with multiple sources. An association is a lineage tracking entity. For more information, see
@@ -69,6 +68,7 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class AddAssociationCommand extends $Command
   .classBuilder<

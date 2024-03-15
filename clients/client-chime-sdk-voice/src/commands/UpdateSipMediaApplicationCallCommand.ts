@@ -36,7 +36,6 @@ export interface UpdateSipMediaApplicationCallCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Invokes the AWS Lambda function associated with the SIP media application and
  *          transaction ID in an update request. The Lambda function can then return a new set
  *          of actions.</p>
@@ -96,6 +95,7 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class UpdateSipMediaApplicationCallCommand extends $Command
   .classBuilder<

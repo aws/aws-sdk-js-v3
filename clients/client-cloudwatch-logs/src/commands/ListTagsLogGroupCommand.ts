@@ -27,9 +27,6 @@ export interface ListTagsLogGroupCommandInput extends ListTagsLogGroupRequest {}
 export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Please use the generic tagging API ListTagsForResource
- *
  * <important>
  *             <p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
@@ -69,6 +66,8 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
+ * @deprecated Please use the generic tagging API ListTagsForResource
  */
 export class ListTagsLogGroupCommand extends $Command
   .classBuilder<

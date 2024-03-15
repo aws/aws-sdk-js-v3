@@ -38,8 +38,8 @@ export interface ComplexNestedErrorData {
 }
 
 /**
- * @public
  * This error is thrown when a request is invalid.
+ * @public
  */
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
@@ -114,9 +114,9 @@ export class ErrorWithoutMembers extends __BaseException {
 }
 
 /**
- * @public
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
+ * @public
  */
 export class FooError extends __BaseException {
   readonly name: "FooError" = "FooError";
@@ -149,8 +149,8 @@ export interface GreetingWithErrorsOutput {
 }
 
 /**
- * @public
  * This error is thrown when an invalid greeting value is provided.
+ * @public
  */
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
@@ -183,8 +183,8 @@ export interface JsonEnumsInputOutput {
 }
 
 /**
- * @public
  * A union with a representative set of types for members.
+ * @public
  */
 export type MyUnion =
   | MyUnion.BlobValueMember
@@ -363,13 +363,13 @@ export namespace MyUnion {
 }
 
 /**
- * @public
  * A shared structure that contains a single union member.
+ * @public
  */
 export interface UnionInputOutput {
   /**
-   * @public
    * A union with a representative set of types for members.
+   * @public
    */
   contents?: MyUnion;
 }
@@ -465,8 +465,8 @@ export class ErrorWithMembers extends __BaseException {
   MapField?: Record<string, string>;
   Message?: string;
   /**
-   * @public
    * abc
+   * @public
    */
   StringField?: string;
   /**

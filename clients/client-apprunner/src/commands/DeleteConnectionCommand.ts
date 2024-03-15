@@ -27,7 +27,6 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
 export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an App Runner connection. You must first ensure that there are no running App Runner services that use this connection. If there are any, the
  *         <code>DeleteConnection</code> action fails.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DeleteConnectionCommand extends $Command
   .classBuilder<

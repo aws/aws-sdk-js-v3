@@ -29,7 +29,6 @@ export interface PutBucketTaggingCommandInput extends PutBucketTaggingRequest {}
 export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
  *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -146,6 +145,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutBucketTaggingCommand extends $Command
   .classBuilder<

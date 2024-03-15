@@ -2043,8 +2043,8 @@ export interface S3Control {
 }
 
 /**
- * @public
  * <p> Amazon Web Services S3 Control provides access to Amazon S3 control plane actions. </p>
+ * @public
  */
 export class S3Control extends S3ControlClient implements S3Control {}
 createAggregatedClient(commands, S3Control);

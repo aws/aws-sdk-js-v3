@@ -27,7 +27,6 @@ export interface GetSimilarProfilesCommandInput extends GetSimilarProfilesReques
 export interface GetSimilarProfilesCommandOutput extends GetSimilarProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of profiles that belong to the same matching group using the <code>matchId</code> or
  *          <code>profileId</code>. You can also specify the type of matching that you want for finding similar profiles using
  *          either <code>RULE_BASED_MATCHING</code> or <code>ML_BASED_MATCHING</code>.</p>
@@ -84,6 +83,7 @@ export interface GetSimilarProfilesCommandOutput extends GetSimilarProfilesRespo
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetSimilarProfilesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a local gateway route table virtual interface group association.
  *       </p>
@@ -93,6 +92,7 @@ export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand extends $Command
   .classBuilder<

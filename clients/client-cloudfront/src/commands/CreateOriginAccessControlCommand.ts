@@ -27,7 +27,6 @@ export interface CreateOriginAccessControlCommandInput extends CreateOriginAcces
 export interface CreateOriginAccessControlCommandOutput extends CreateOriginAccessControlResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new origin access control in CloudFront. After you create an origin access
  * 			control, you can add it to an origin in a CloudFront distribution so that CloudFront sends
  * 			authenticated (signed) requests to the origin.</p>
@@ -90,6 +89,7 @@ export interface CreateOriginAccessControlCommandOutput extends CreateOriginAcce
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateOriginAccessControlCommand extends $Command
   .classBuilder<

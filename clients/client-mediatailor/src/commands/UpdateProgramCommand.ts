@@ -27,7 +27,6 @@ export interface UpdateProgramCommandInput extends UpdateProgramRequest {}
 export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a program within a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -148,6 +147,7 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class UpdateProgramCommand extends $Command
   .classBuilder<

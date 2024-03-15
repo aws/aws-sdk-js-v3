@@ -27,7 +27,6 @@ export interface CreateSavingsPlanCommandInput extends CreateSavingsPlanRequest 
 export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Savings Plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ * @public
  */
 export class CreateSavingsPlanCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListInstanceStorageConfigsCommandInput extends ListInstanceStor
 export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceStorageConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of storage configs for the identified instance and resource
  *    type.</p>
@@ -103,6 +102,7 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListInstanceStorageConfigsCommand extends $Command
   .classBuilder<

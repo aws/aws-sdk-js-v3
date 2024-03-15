@@ -32,7 +32,6 @@ export interface UpdateStudioComponentCommandInput extends UpdateStudioComponent
 export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a studio component resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -197,6 +196,7 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class UpdateStudioComponentCommand extends $Command
   .classBuilder<

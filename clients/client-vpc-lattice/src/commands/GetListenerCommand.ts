@@ -27,7 +27,6 @@ export interface GetListenerCommandInput extends GetListenerRequest {}
 export interface GetListenerCommandOutput extends GetListenerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified listener for the specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class GetListenerCommand extends $Command
   .classBuilder<

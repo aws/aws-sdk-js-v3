@@ -27,9 +27,6 @@ export interface ListFleetsCommandInput extends ListFleetsRequest {}
 export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Retrieves a list of fleets for the current account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +81,8 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class ListFleetsCommand extends $Command
   .classBuilder<

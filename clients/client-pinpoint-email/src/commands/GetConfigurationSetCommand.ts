@@ -27,7 +27,6 @@ export interface GetConfigurationSetCommandInput extends GetConfigurationSetRequ
 export interface GetConfigurationSetCommandOutput extends GetConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about an existing configuration set, including the dedicated IP pool
  *             that it's associated with, whether or not it's enabled for sending email, and
  *             more.</p>
@@ -91,6 +90,7 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetConfigurationSetCommand extends $Command
   .classBuilder<

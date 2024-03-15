@@ -27,9 +27,6 @@ export interface DeleteChannelBanCommandInput extends DeleteChannelBanRequest {}
 export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteChannelBan in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Removes a user from a channel's ban list.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -87,6 +84,8 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteChannelBan in the Amazon Chime SDK Messaging Namespace
  */
 export class DeleteChannelBanCommand extends $Command
   .classBuilder<

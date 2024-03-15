@@ -27,7 +27,6 @@ export interface CreateFaqCommandInput extends CreateFaqRequest {}
 export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored
  *             in an Amazon S3 bucket.</p>
  *          <p>Adding FAQs to an index is an asynchronous operation.</p>
@@ -104,6 +103,7 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class CreateFaqCommand extends $Command
   .classBuilder<

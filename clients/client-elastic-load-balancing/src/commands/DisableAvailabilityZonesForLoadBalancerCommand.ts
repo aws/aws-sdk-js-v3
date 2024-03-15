@@ -36,7 +36,6 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer
  *             in EC2-Classic or a default VPC.</p>
  *         <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p>
@@ -83,6 +82,7 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To disable an Availability Zone for a load balancer
  * ```javascript
  * // This example removes the specified Availability Zone from the set of Availability Zones for the specified load balancer.

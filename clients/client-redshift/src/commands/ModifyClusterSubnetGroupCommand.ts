@@ -27,7 +27,6 @@ export interface ModifyClusterSubnetGroupCommandInput extends ModifyClusterSubne
 export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
  *             operation replaces the existing list of subnets with the new list of subnets.</p>
  * @example
@@ -113,6 +112,7 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyClusterSubnetGroupCommand extends $Command
   .classBuilder<

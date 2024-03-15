@@ -28,7 +28,6 @@ export interface GetQuerySuggestionsCommandInput extends GetQuerySuggestionsRequ
 export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Fetches the queries that are suggested to your users.</p>
  *          <p>
  *             <code>GetQuerySuggestions</code> is currently not supported in the
@@ -233,6 +232,7 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class GetQuerySuggestionsCommand extends $Command
   .classBuilder<

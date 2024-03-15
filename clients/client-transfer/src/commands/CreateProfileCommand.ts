@@ -27,7 +27,6 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the local or partner profile to use for AS2 transfers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class CreateProfileCommand extends $Command
   .classBuilder<

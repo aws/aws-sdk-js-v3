@@ -27,7 +27,6 @@ export interface CreateEndpointConfigCommandInput extends CreateEndpointConfigIn
 export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an endpoint configuration that SageMaker hosting services uses to deploy models. In
  *             the configuration, you identify one or more models, created using the
  *                 <code>CreateModel</code> API, to deploy and the resources that you want SageMaker to
@@ -242,6 +241,7 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateEndpointConfigCommand extends $Command
   .classBuilder<

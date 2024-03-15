@@ -27,7 +27,6 @@ export interface PutFileCommandInput extends PutFileInput {}
 export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates a file in a branch in an CodeCommit repository, and generates a commit for the addition in the specified branch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -173,6 +172,7 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class PutFileCommand extends $Command
   .classBuilder<

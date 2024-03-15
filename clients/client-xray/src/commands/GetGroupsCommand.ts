@@ -27,7 +27,6 @@ export interface GetGroupsCommandInput extends GetGroupsRequest {}
 export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all active group details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBeare
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetGroupsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateClusterConfigurationCommandInput extends UpdateClusterCon
 export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the cluster with the configuration that is specified in the request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateClusterConfigurationCommand extends $Command
   .classBuilder<

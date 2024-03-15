@@ -27,7 +27,6 @@ export interface GetDeviceDefinitionVersionCommandInput extends GetDeviceDefinit
 export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefinitionVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a device definition version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefini
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetDeviceDefinitionVersionCommand extends $Command
   .classBuilder<

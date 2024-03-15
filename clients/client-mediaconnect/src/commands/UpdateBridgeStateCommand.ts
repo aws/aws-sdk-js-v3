@@ -27,7 +27,6 @@ export interface UpdateBridgeStateCommandInput extends UpdateBridgeStateRequest 
 export interface UpdateBridgeStateCommandOutput extends UpdateBridgeStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates the bridge state
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateBridgeStateCommandOutput extends UpdateBridgeStateRespons
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class UpdateBridgeStateCommand extends $Command
   .classBuilder<

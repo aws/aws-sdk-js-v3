@@ -27,9 +27,6 @@ export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteChannel in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Immediately makes a channel and its memberships inaccessible and marks them for
  *          deletion. This is an irreversible process.</p>
  *          <note>
@@ -87,6 +84,8 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteChannel in the Amazon Chime SDK Messaging Namespace
  */
 export class DeleteChannelCommand extends $Command
   .classBuilder<

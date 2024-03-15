@@ -27,7 +27,6 @@ export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage 
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Forces a failover for a DB cluster.</p>
  *          <p>For an Aurora DB cluster, failover for a DB cluster promotes one of the Aurora Replicas (read-only instances)
  *           in the DB cluster to be the primary DB instance (the cluster writer).</p>
@@ -269,6 +268,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To perform a failover for a DB cluster
  * ```javascript
  * // This example performs a failover for the specified DB cluster to the specified DB instance.

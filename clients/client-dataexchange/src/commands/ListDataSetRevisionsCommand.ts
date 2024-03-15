@@ -27,7 +27,6 @@ export interface ListDataSetRevisionsCommandInput extends ListDataSetRevisionsRe
 export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists a data set's revisions sorted by CreatedAt in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class ListDataSetRevisionsCommand extends $Command
   .classBuilder<

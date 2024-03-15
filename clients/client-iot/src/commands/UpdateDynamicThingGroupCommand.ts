@@ -27,7 +27,6 @@ export interface UpdateDynamicThingGroupCommandInput extends UpdateDynamicThingG
 export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a dynamic thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDynamicThingGroup</a> action.</p>
  * @example
@@ -89,6 +88,7 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateDynamicThingGroupCommand extends $Command
   .classBuilder<

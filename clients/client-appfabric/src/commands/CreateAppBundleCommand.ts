@@ -27,7 +27,6 @@ export interface CreateAppBundleCommandInput extends CreateAppBundleRequest {}
 export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an app bundle to collect data from an application using AppFabric.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, _
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class CreateAppBundleCommand extends $Command
   .classBuilder<

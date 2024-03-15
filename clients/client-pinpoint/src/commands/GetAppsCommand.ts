@@ -27,7 +27,6 @@ export interface GetAppsCommandInput extends GetAppsRequest {}
 export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetAppsCommand extends $Command
   .classBuilder<

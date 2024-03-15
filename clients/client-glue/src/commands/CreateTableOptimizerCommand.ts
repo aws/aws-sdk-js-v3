@@ -27,7 +27,6 @@ export interface CreateTableOptimizerCommandInput extends CreateTableOptimizerRe
 export interface CreateTableOptimizerCommandOutput extends CreateTableOptimizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new table optimizer for a specific function. <code>compaction</code> is the only currently supported optimizer type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface CreateTableOptimizerCommandOutput extends CreateTableOptimizerR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateTableOptimizerCommand extends $Command
   .classBuilder<

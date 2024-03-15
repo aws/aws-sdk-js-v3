@@ -27,7 +27,6 @@ export interface GetImageRecipePolicyCommandInput extends GetImageRecipePolicyRe
 export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an image recipe policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyR
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetImageRecipePolicyCommand extends $Command
   .classBuilder<

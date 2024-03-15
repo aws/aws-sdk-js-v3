@@ -27,7 +27,6 @@ export interface UpdateTestGridProjectCommandInput extends UpdateTestGridProject
 export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Change details of a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class UpdateTestGridProjectCommand extends $Command
   .classBuilder<

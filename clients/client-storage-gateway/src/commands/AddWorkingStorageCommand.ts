@@ -27,7 +27,6 @@ export interface AddWorkingStorageCommandInput extends AddWorkingStorageInput {}
 export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures one or more gateway local disks as working storage for a gateway. This
  *          operation is only supported in the stored volume gateway type. This operation is deprecated
  *          in cached volume API version 20120630. Use <a>AddUploadBuffer</a>
@@ -76,6 +75,7 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To add storage on local disk
  * ```javascript
  * // Configures one or more gateway local disks as working storage for a gateway. (Working storage is also referred to as upload buffer.)

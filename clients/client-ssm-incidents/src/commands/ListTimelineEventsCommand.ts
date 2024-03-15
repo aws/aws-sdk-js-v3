@@ -27,7 +27,6 @@ export interface ListTimelineEventsCommandInput extends ListTimelineEventsInput 
 export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists timeline events for the specified incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class ListTimelineEventsCommand extends $Command
   .classBuilder<

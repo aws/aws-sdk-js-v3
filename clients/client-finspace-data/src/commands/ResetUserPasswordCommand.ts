@@ -31,9 +31,6 @@ export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest 
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +79,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class ResetUserPasswordCommand extends $Command
   .classBuilder<

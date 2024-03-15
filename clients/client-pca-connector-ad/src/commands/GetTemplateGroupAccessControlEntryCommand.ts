@@ -35,7 +35,6 @@ export interface GetTemplateGroupAccessControlEntryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the group access control entries for a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetTemplateGroupAccessControlEntryCommandOutput
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class GetTemplateGroupAccessControlEntryCommand extends $Command
   .classBuilder<

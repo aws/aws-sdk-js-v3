@@ -27,7 +27,6 @@ export interface ListVpcEndpointAccessCommandInput extends ListVpcEndpointAccess
 export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about each Amazon Web Services principal that is allowed to access a
  *    given Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListVpcEndpointAccessCommand extends $Command
   .classBuilder<

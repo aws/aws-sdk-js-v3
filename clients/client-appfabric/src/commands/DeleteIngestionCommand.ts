@@ -27,7 +27,6 @@ export interface DeleteIngestionCommandInput extends DeleteIngestionRequest {}
 export interface DeleteIngestionCommandOutput extends DeleteIngestionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an ingestion. You must stop (disable) the ingestion and you must delete all
  *          associated ingestion destinations before you can delete an app ingestion.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteIngestionCommandOutput extends DeleteIngestionResponse, _
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class DeleteIngestionCommand extends $Command
   .classBuilder<

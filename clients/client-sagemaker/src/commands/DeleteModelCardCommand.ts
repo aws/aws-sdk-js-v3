@@ -27,7 +27,6 @@ export interface DeleteModelCardCommandInput extends DeleteModelCardRequest {}
 export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteModelCardCommand extends $Command
   .classBuilder<

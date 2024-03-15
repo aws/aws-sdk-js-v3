@@ -27,7 +27,6 @@ export interface PutDraftAppVersionTemplateCommandInput extends PutDraftAppVersi
 export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVersionTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates the app template for an Resilience Hub application draft version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class PutDraftAppVersionTemplateCommand extends $Command
   .classBuilder<

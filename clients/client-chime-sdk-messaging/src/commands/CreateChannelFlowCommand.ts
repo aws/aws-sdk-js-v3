@@ -35,7 +35,6 @@ export interface CreateChannelFlowCommandInput extends CreateChannelFlowRequest 
 export interface CreateChannelFlowCommandOutput extends CreateChannelFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions
  *          that perform actions on chat messages, such as stripping out profanity. You can associate
  *          channel flows with channels, and the processors in the channel flow then take action on all
@@ -128,6 +127,7 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class CreateChannelFlowCommand extends $Command
   .classBuilder<

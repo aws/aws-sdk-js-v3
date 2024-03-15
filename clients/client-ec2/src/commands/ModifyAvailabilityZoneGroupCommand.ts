@@ -27,7 +27,6 @@ export interface ModifyAvailabilityZoneGroupCommandInput extends ModifyAvailabil
 export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabilityZoneGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
  *       account.</p>
  *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
@@ -60,6 +59,7 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyAvailabilityZoneGroupCommand extends $Command
   .classBuilder<

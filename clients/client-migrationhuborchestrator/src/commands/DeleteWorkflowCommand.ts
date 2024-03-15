@@ -31,7 +31,6 @@ export interface DeleteWorkflowCommandInput extends DeleteMigrationWorkflowReque
 export interface DeleteWorkflowCommandOutput extends DeleteMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a migration workflow. You must pause a running workflow in Migration Hub Orchestrator console to
  *             delete it.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteWorkflowCommandOutput extends DeleteMigrationWorkflowResp
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class DeleteWorkflowCommand extends $Command
   .classBuilder<

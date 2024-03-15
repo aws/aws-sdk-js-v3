@@ -31,7 +31,6 @@ export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
 export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
  *       functions per call.</p>
  *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
@@ -184,6 +183,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListFunctionsCommand extends $Command
   .classBuilder<

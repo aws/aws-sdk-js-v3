@@ -27,7 +27,6 @@ export interface ListAssociatedGroupsCommandInput extends ListAssociatedGroupsRe
 export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the groups that the specified canary is associated with. The canary
  *       that you specify must be in the current Region.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class ListAssociatedGroupsCommand extends $Command
   .classBuilder<

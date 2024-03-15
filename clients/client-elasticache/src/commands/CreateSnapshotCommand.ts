@@ -27,7 +27,6 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotMessage {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a copy of an entire cluster or replication group at a specific moment in
  *             time.</p>
  *          <note>
@@ -163,6 +162,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example CreateSnapshot - NonClustered Redis, no read-replicas
  * ```javascript
  * // Creates a snapshot of a non-clustered Redis cluster that has only one node.

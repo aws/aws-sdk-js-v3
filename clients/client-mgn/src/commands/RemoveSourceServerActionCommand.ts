@@ -27,7 +27,6 @@ export interface RemoveSourceServerActionCommandInput extends RemoveSourceServer
 export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServerActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove source server post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class RemoveSourceServerActionCommand extends $Command
   .classBuilder<

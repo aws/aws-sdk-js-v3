@@ -27,7 +27,6 @@ export interface GetManagedPrefixListEntriesCommandInput extends GetManagedPrefi
 export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPrefixListEntriesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the entries for a specified managed prefix list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetManagedPrefixListEntriesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteEmailTemplateCommandInput extends DeleteEmailTemplateRequ
 export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a message template for messages that were sent through the email channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteEmailTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 export interface DescribeClusterCommandOutput extends DescribeClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Amazon EKS cluster.</p>
  *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
@@ -169,6 +168,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  * @example To describe a cluster
  * ```javascript
  * // This example command provides a description of the specified cluster in your default region.

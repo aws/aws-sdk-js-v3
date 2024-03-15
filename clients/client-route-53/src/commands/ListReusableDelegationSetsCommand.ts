@@ -27,7 +27,6 @@ export interface ListReusableDelegationSetsCommandInput extends ListReusableDele
 export interface ListReusableDelegationSetsCommandOutput extends ListReusableDelegationSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the reusable delegation sets that are associated with the current
  * 				Amazon Web Services account.</p>
  * @example
@@ -72,6 +71,7 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListReusableDelegationSetsCommand extends $Command
   .classBuilder<

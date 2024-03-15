@@ -32,7 +32,6 @@ export interface PutAppReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the replication configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface PutAppReplicationConfigurationCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class PutAppReplicationConfigurationCommand extends $Command
   .classBuilder<

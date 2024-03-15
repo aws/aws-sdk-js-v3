@@ -27,7 +27,6 @@ export interface CreateRegistryCommandInput extends CreateRegistryInput {}
 export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new registry which may be used to hold a collection of schemas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateRegistryCommand extends $Command
   .classBuilder<

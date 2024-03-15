@@ -27,7 +27,6 @@ export interface CancelBatchJobExecutionCommandInput extends CancelBatchJobExecu
 export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the running of a specific batch job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class CancelBatchJobExecutionCommand extends $Command
   .classBuilder<

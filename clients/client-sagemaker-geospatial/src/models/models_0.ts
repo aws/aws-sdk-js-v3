@@ -6,8 +6,8 @@ import { StreamingBlobTypes } from "@smithy/types";
 import { SageMakerGeospatialServiceException as __BaseException } from "./SageMakerGeospatialServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -180,32 +180,32 @@ export const AlgorithmNameResampling = {
 export type AlgorithmNameResampling = (typeof AlgorithmNameResampling)[keyof typeof AlgorithmNameResampling];
 
 /**
- * @public
  * <p>The structure representing Polygon Geometry based on the <a href="https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6">GeoJson spec</a>.</p>
+ * @public
  */
 export interface MultiPolygonGeometryInput {
   /**
-   * @public
    * <p>The coordinates of the multipolygon geometry.</p>
+   * @public
    */
   Coordinates: number[][][][] | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing Polygon Geometry based on the <a href="https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6">GeoJson spec</a>.</p>
+ * @public
  */
 export interface PolygonGeometryInput {
   /**
-   * @public
    * <p>Coordinates representing a Polygon based on the <a href="https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6">GeoJson spec</a>.</p>
+   * @public
    */
   Coordinates: number[][][] | undefined;
 }
 
 /**
- * @public
  * <p>A GeoJSON object representing the geographic extent in the coordinate space.</p>
+ * @public
  */
 export type AreaOfInterestGeometry =
   | AreaOfInterestGeometry.MultiPolygonGeometryMember
@@ -217,8 +217,8 @@ export type AreaOfInterestGeometry =
  */
 export namespace AreaOfInterestGeometry {
   /**
-   * @public
    * <p>The structure representing Polygon Geometry.</p>
+   * @public
    */
   export interface PolygonGeometryMember {
     PolygonGeometry: PolygonGeometryInput;
@@ -227,8 +227,8 @@ export namespace AreaOfInterestGeometry {
   }
 
   /**
-   * @public
    * <p>The structure representing the MultiPolygon Geometry.</p>
+   * @public
    */
   export interface MultiPolygonGeometryMember {
     PolygonGeometry?: never;
@@ -259,8 +259,8 @@ export namespace AreaOfInterestGeometry {
 }
 
 /**
- * @public
  * <p>The geographic extent of the Earth Observation job.</p>
+ * @public
  */
 export type AreaOfInterest = AreaOfInterest.AreaOfInterestGeometryMember | AreaOfInterest.$UnknownMember;
 
@@ -269,8 +269,8 @@ export type AreaOfInterest = AreaOfInterest.AreaOfInterestGeometryMember | AreaO
  */
 export namespace AreaOfInterest {
   /**
-   * @public
    * <p>A GeoJSON object representing the geographic extent in the coordinate space.</p>
+   * @public
    */
   export interface AreaOfInterestGeometryMember {
     AreaOfInterestGeometry: AreaOfInterestGeometry;
@@ -297,13 +297,13 @@ export namespace AreaOfInterest {
 }
 
 /**
- * @public
  * <p>The structure containing the asset properties.</p>
+ * @public
  */
 export interface AssetValue {
   /**
-   * @public
    * <p>Link to the asset object.</p>
+   * @public
    */
   Href?: string;
 }
@@ -341,88 +341,88 @@ export const OutputType = {
 export type OutputType = (typeof OutputType)[keyof typeof OutputType];
 
 /**
- * @public
  * <p>Represents an arithmetic operation to compute spectral index.</p>
+ * @public
  */
 export interface Operation {
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>Textual representation of the math operation; Equation used to compute the spectral index.</p>
+   * @public
    */
   Equation: string | undefined;
 
   /**
-   * @public
    * <p>The type of the operation.</p>
+   * @public
    */
   OutputType?: OutputType;
 }
 
 /**
- * @public
  * <p>Input object defining the custom BandMath indices to compute.</p>
+ * @public
  */
 export interface CustomIndicesInput {
   /**
-   * @public
    * <p>A list of BandMath indices to compute.</p>
+   * @public
    */
   Operations?: Operation[];
 }
 
 /**
- * @public
  * <p>Input structure for the BandMath operation type.
  *       Defines Predefined and CustomIndices to be computed using BandMath.</p>
+ * @public
  */
 export interface BandMathConfigInput {
   /**
-   * @public
    * <p>One or many of the supported predefined indices to compute.
    *       Allowed values: <code>NDVI</code>, <code>EVI2</code>, <code>MSAVI</code>,
    *       <code>NDWI</code>, <code>NDMI</code>, <code>NDSI</code>, and <code>WDRVI</code>.</p>
+   * @public
    */
   PredefinedIndices?: string[];
 
   /**
-   * @public
    * <p>CustomIndices that are computed.</p>
+   * @public
    */
   CustomIndices?: CustomIndicesInput;
 }
 
 /**
- * @public
  * <p>Input structure for CloudMasking operation type.</p>
+ * @public
  */
 export interface CloudMaskingConfigInput {}
 
 /**
- * @public
  * <p>Input structure for Cloud Removal Operation type</p>
+ * @public
  */
 export interface CloudRemovalConfigInput {
   /**
-   * @public
    * <p>The name of the algorithm used for cloud removal.</p>
+   * @public
    */
   AlgorithmName?: AlgorithmNameCloudRemoval;
 
   /**
-   * @public
    * <p>The interpolation value you provide for cloud removal.</p>
+   * @public
    */
   InterpolationValue?: string;
 
   /**
-   * @public
    * <p>TargetBands to be returned in the output of CloudRemoval operation.</p>
+   * @public
    */
   TargetBands?: string[];
 }
@@ -452,16 +452,16 @@ export const ComparisonOperator = {
 export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
- * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>Identifier of the resource affected.</p>
+   * @public
    */
   ResourceId?: string;
   /**
@@ -480,31 +480,31 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The structure representing the filters supported by a RasterDataCollection.</p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>The name of the filter.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the filter being used.</p>
+   * @public
    */
   Type: string | undefined;
 
   /**
-   * @public
    * <p>The minimum value of the filter.</p>
+   * @public
    */
   Minimum?: number;
 
   /**
-   * @public
    * <p>The maximum value of the filter.</p>
+   * @public
    */
   Maximum?: number;
 }
@@ -534,49 +534,49 @@ export const DataCollectionType = {
 export type DataCollectionType = (typeof DataCollectionType)[keyof typeof DataCollectionType];
 
 /**
- * @public
  * <p>Response object containing details for a specific RasterDataCollection.</p>
+ * @public
  */
 export interface RasterDataCollectionMetadata {
   /**
-   * @public
    * <p>The name of the raster data collection.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The type of raster data collection.</p>
+   * @public
    */
   Type: DataCollectionType | undefined;
 
   /**
-   * @public
    * <p>A description of the raster data collection.</p>
+   * @public
    */
   Description: string | undefined;
 
   /**
-   * @public
    * <p>The description URL of the raster data collection.</p>
+   * @public
    */
   DescriptionPageUrl?: string;
 
   /**
-   * @public
    * <p>The list of filters supported by the raster data collection.</p>
+   * @public
    */
   SupportedFilters: Filter[] | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -586,8 +586,8 @@ export interface RasterDataCollectionMetadata {
  */
 export interface DeleteEarthObservationJobInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job being deleted.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -598,16 +598,16 @@ export interface DeleteEarthObservationJobInput {
 export interface DeleteEarthObservationJobOutput {}
 
 /**
- * @public
  * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   Message: string | undefined;
   /**
-   * @public
    * <p/>
+   * @public
    */
   ResourceId?: string;
   /**
@@ -626,16 +626,16 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request references a resource which does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>Identifier of the resource that was not found.</p>
+   * @public
    */
   ResourceId?: string;
   /**
@@ -654,16 +654,16 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p/>
+   * @public
    */
   ResourceId?: string;
   /**
@@ -682,16 +682,16 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p/>
+   * @public
    */
   ResourceId?: string;
   /**
@@ -714,8 +714,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteVectorEnrichmentJobInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job being deleted.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -726,31 +726,31 @@ export interface DeleteVectorEnrichmentJobInput {
 export interface DeleteVectorEnrichmentJobOutput {}
 
 /**
- * @public
  * <p>The structure containing the Amazon S3 path to export the Earth Observation job output.</p>
+ * @public
  */
 export interface ExportS3DataInput {
   /**
-   * @public
    * <p>The URL to the Amazon S3 data input.</p>
+   * @public
    */
   S3Uri: string | undefined;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>The response structure for an OutputConfig returned by an ExportEarthObservationJob.</p>
+ * @public
  */
 export interface OutputConfigInput {
   /**
-   * @public
    * <p>Path to Amazon S3 storage location for the output configuration file.</p>
+   * @public
    */
   S3Data: ExportS3DataInput | undefined;
 }
@@ -760,32 +760,32 @@ export interface OutputConfigInput {
  */
 export interface ExportEarthObservationJobInput {
   /**
-   * @public
    * <p>The input Amazon Resource Name (ARN) of the Earth Observation job being exported.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>An object containing information about the output file.</p>
+   * @public
    */
   OutputConfig: OutputConfigInput | undefined;
 
   /**
-   * @public
    * <p>The source images provided to the Earth Observation job being exported.</p>
+   * @public
    */
   ExportSourceImages?: boolean;
 }
@@ -820,53 +820,53 @@ export type EarthObservationJobExportStatus =
  */
 export interface ExportEarthObservationJobOutput {
   /**
-   * @public
    * <p>The output Amazon Resource Name (ARN) of the Earth Observation job being exported.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The status of the results of the Earth Observation job being exported.</p>
+   * @public
    */
   ExportStatus: EarthObservationJobExportStatus | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>An object containing information about the output file.</p>
+   * @public
    */
   OutputConfig: OutputConfigInput | undefined;
 
   /**
-   * @public
    * <p>The source images provided to the Earth Observation job being exported.</p>
+   * @public
    */
   ExportSourceImages?: boolean;
 }
 
 /**
- * @public
  * <p>You have exceeded the service quota.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>Identifier of the resource affected.</p>
+   * @public
    */
   ResourceId?: string;
   /**
@@ -889,8 +889,8 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface GetEarthObservationJobInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -917,19 +917,19 @@ export type EarthObservationJobErrorType =
   (typeof EarthObservationJobErrorType)[keyof typeof EarthObservationJobErrorType];
 
 /**
- * @public
  * <p>The structure representing the errors in an EarthObservationJob.</p>
+ * @public
  */
 export interface EarthObservationJobErrorDetails {
   /**
-   * @public
    * <p>The type of error in an Earth Observation job.</p>
+   * @public
    */
   Type?: EarthObservationJobErrorType;
 
   /**
-   * @public
    * <p>A detailed message describing the error in an Earth Observation job.</p>
+   * @public
    */
   Message?: string;
 }
@@ -955,38 +955,38 @@ export const ExportErrorType = {
 export type ExportErrorType = (typeof ExportErrorType)[keyof typeof ExportErrorType];
 
 /**
- * @public
  * <p>The structure representing the errors in an export EarthObservationJob operation.</p>
+ * @public
  */
 export interface ExportErrorDetailsOutput {
   /**
-   * @public
    * <p>The type of error in an export EarthObservationJob operation.</p>
+   * @public
    */
   Type?: ExportErrorType;
 
   /**
-   * @public
    * <p>A detailed message describing the error in an export EarthObservationJob operation.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>The structure for returning the export error details in a GetEarthObservationJob.</p>
+ * @public
  */
 export interface ExportErrorDetails {
   /**
-   * @public
    * <p>The structure for returning the export error details while exporting results of an Earth Observation job.</p>
+   * @public
    */
   ExportResults?: ExportErrorDetailsOutput;
 
   /**
-   * @public
    * <p>The structure for returning the export error details
    *       while exporting the source images of an Earth Observation job.</p>
+   * @public
    */
   ExportSourceImages?: ExportErrorDetailsOutput;
 }
@@ -1008,130 +1008,130 @@ export const LogicalOperator = {
 export type LogicalOperator = (typeof LogicalOperator)[keyof typeof LogicalOperator];
 
 /**
- * @public
  * <p>The structure representing the EoCloudCover filter.</p>
+ * @public
  */
 export interface EoCloudCoverInput {
   /**
-   * @public
    * <p>Lower bound for EoCloudCover.</p>
+   * @public
    */
   LowerBound: number | undefined;
 
   /**
-   * @public
    * <p>Upper bound for EoCloudCover.</p>
+   * @public
    */
   UpperBound: number | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing Land Cloud Cover property for Landsat data collection.</p>
+ * @public
  */
 export interface LandsatCloudCoverLandInput {
   /**
-   * @public
    * <p>The minimum value for Land Cloud Cover property filter. This will filter items
    *       having Land Cloud Cover greater than or equal to this value.</p>
+   * @public
    */
   LowerBound: number | undefined;
 
   /**
-   * @public
    * <p>The maximum value for Land Cloud Cover property filter.
    *       This will filter items having Land Cloud Cover less than or equal to this value.</p>
+   * @public
    */
   UpperBound: number | undefined;
 }
 
 /**
- * @public
  * <p>The input structure for specifying Platform.
  *       Platform refers to the unique name of the specific platform the
  *       instrument is attached to. For satellites it is the name of the satellite, eg. landsat-8 (Landsat-8), sentinel-2a.</p>
+ * @public
  */
 export interface PlatformInput {
   /**
-   * @public
    * <p>The value of the platform.</p>
+   * @public
    */
   Value: string | undefined;
 
   /**
-   * @public
    * <p>The ComparisonOperator to use with PlatformInput.</p>
+   * @public
    */
   ComparisonOperator?: ComparisonOperator;
 }
 
 /**
- * @public
  * <p>The input structure for specifying ViewOffNadir property filter.
  *       ViewOffNadir refers to the angle from the sensor between
  *       nadir (straight down) and the scene center. Measured in degrees (0-90).</p>
+ * @public
  */
 export interface ViewOffNadirInput {
   /**
-   * @public
    * <p>The minimum value for ViewOffNadir property filter.
    *       This filters items having ViewOffNadir greater than or equal to this value. </p>
+   * @public
    */
   LowerBound: number | undefined;
 
   /**
-   * @public
    * <p>The maximum value for ViewOffNadir property filter.
    *       This filters items having ViewOffNadir lesser than or equal to this value.</p>
+   * @public
    */
   UpperBound: number | undefined;
 }
 
 /**
- * @public
  * <p>The input structure for specifying ViewSunAzimuth property filter.
  *       ViewSunAzimuth refers to the Sun azimuth angle.
  *       From the scene center point on the ground,
  *       this is the angle between truth north and the sun.
  *       Measured clockwise in degrees (0-360).</p>
+ * @public
  */
 export interface ViewSunAzimuthInput {
   /**
-   * @public
    * <p>The minimum value for ViewSunAzimuth property filter.
    *       This filters items having ViewSunAzimuth greater than or equal to this value.</p>
+   * @public
    */
   LowerBound: number | undefined;
 
   /**
-   * @public
    * <p>The maximum value for ViewSunAzimuth property filter.
    *       This filters items having ViewSunAzimuth lesser than or equal to this value.</p>
+   * @public
    */
   UpperBound: number | undefined;
 }
 
 /**
- * @public
  * <p>The input structure for specifying ViewSunElevation angle property filter. </p>
+ * @public
  */
 export interface ViewSunElevationInput {
   /**
-   * @public
    * <p>The lower bound to view the sun elevation.</p>
+   * @public
    */
   LowerBound: number | undefined;
 
   /**
-   * @public
    * <p>The upper bound to view the sun elevation.</p>
+   * @public
    */
   UpperBound: number | undefined;
 }
 
 /**
- * @public
  * <p>Represents a single searchable property to search on.</p>
+ * @public
  */
 export type Property =
   | Property.EoCloudCoverMember
@@ -1147,8 +1147,8 @@ export type Property =
  */
 export namespace Property {
   /**
-   * @public
    * <p>The structure representing EoCloudCover property filter containing a lower bound and upper bound.</p>
+   * @public
    */
   export interface EoCloudCoverMember {
     EoCloudCover: EoCloudCoverInput;
@@ -1161,8 +1161,8 @@ export namespace Property {
   }
 
   /**
-   * @public
    * <p>The structure representing ViewOffNadir property filter containing a lower bound and upper bound.</p>
+   * @public
    */
   export interface ViewOffNadirMember {
     EoCloudCover?: never;
@@ -1175,8 +1175,8 @@ export namespace Property {
   }
 
   /**
-   * @public
    * <p>The structure representing ViewSunAzimuth property filter containing a lower bound and upper bound.</p>
+   * @public
    */
   export interface ViewSunAzimuthMember {
     EoCloudCover?: never;
@@ -1189,8 +1189,8 @@ export namespace Property {
   }
 
   /**
-   * @public
    * <p>The structure representing ViewSunElevation property filter containing a lower bound and upper bound.</p>
+   * @public
    */
   export interface ViewSunElevationMember {
     EoCloudCover?: never;
@@ -1203,8 +1203,8 @@ export namespace Property {
   }
 
   /**
-   * @public
    * <p>The structure representing Platform property filter consisting of value and comparison operator.</p>
+   * @public
    */
   export interface PlatformMember {
     EoCloudCover?: never;
@@ -1217,9 +1217,9 @@ export namespace Property {
   }
 
   /**
-   * @public
    * <p>The structure representing Land Cloud Cover property filter
    *       for Landsat collection containing a lower bound and upper bound.</p>
+   * @public
    */
   export interface LandsatCloudCoverLandMember {
     EoCloudCover?: never;
@@ -1266,130 +1266,130 @@ export namespace Property {
 }
 
 /**
- * @public
  * <p>The structure representing a single PropertyFilter.</p>
+ * @public
  */
 export interface PropertyFilter {
   /**
-   * @public
    * <p>Represents a single property to match with when searching a raster data collection.</p>
+   * @public
    */
   Property: Property | undefined;
 }
 
 /**
- * @public
  * <p>A list of PropertyFilter objects.</p>
+ * @public
  */
 export interface PropertyFilters {
   /**
-   * @public
    * <p>A list of Property Filters.</p>
+   * @public
    */
   Properties?: PropertyFilter[];
 
   /**
-   * @public
    * <p>The Logical Operator used to combine the Property Filters.</p>
+   * @public
    */
   LogicalOperator?: LogicalOperator;
 }
 
 /**
- * @public
  * <p>The output structure of the time range filter.</p>
+ * @public
  */
 export interface TimeRangeFilterOutput {
   /**
-   * @public
    * <p>The starting time for the time range filter.</p>
+   * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * @public
    * <p>The ending time for the time range filter.</p>
+   * @public
    */
   EndTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>The output structure contains the Raster Data Collection Query
  *       input along with some additional metadata.</p>
+ * @public
  */
 export interface RasterDataCollectionQueryOutput {
   /**
-   * @public
    * <p>The ARN of the Raster Data Collection against which the search is done.</p>
+   * @public
    */
   RasterDataCollectionArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the raster data collection.</p>
+   * @public
    */
   RasterDataCollectionName: string | undefined;
 
   /**
-   * @public
    * <p>The TimeRange filter used in the search.</p>
+   * @public
    */
   TimeRangeFilter: TimeRangeFilterOutput | undefined;
 
   /**
-   * @public
    * <p>The Area of Interest used in the search.</p>
+   * @public
    */
   AreaOfInterest?: AreaOfInterest;
 
   /**
-   * @public
    * <p>Property filters used in the search.</p>
+   * @public
    */
   PropertyFilters?: PropertyFilters;
 }
 
 /**
- * @public
  * <p>The InputConfig for an EarthObservationJob response.</p>
+ * @public
  */
 export interface InputConfigOutput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the previous Earth Observation job.</p>
+   * @public
    */
   PreviousEarthObservationJobArn?: string;
 
   /**
-   * @public
    * <p>The structure representing the RasterDataCollection Query consisting of the Area of Interest,
    *       RasterDataCollectionArn, RasterDataCollectionName, TimeRange, and Property Filters.</p>
+   * @public
    */
   RasterDataCollectionQuery?: RasterDataCollectionQueryOutput;
 }
 
 /**
- * @public
  * <p>Input configuration information for the geomosaic.</p>
+ * @public
  */
 export interface GeoMosaicConfigInput {
   /**
-   * @public
    * <p>The name of the algorithm being used for geomosaic.</p>
+   * @public
    */
   AlgorithmName?: AlgorithmNameGeoMosaic;
 
   /**
-   * @public
    * <p>The target bands for geomosaic.</p>
+   * @public
    */
   TargetBands?: string[];
 }
 
 /**
- * @public
  * <p>The input structure for Land Cover Operation type.</p>
+ * @public
  */
 export interface LandCoverSegmentationConfigInput {}
 
@@ -1410,59 +1410,59 @@ export const Unit = {
 export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
- * @public
  * <p>The output resolution (in target georeferenced units)
  *       of the result of the operation</p>
+ * @public
  */
 export interface UserDefined {
   /**
-   * @public
    * <p>The value for output resolution of the result.</p>
+   * @public
    */
   Value: number | undefined;
 
   /**
-   * @public
    * <p>The units for output resolution of the result.</p>
+   * @public
    */
   Unit: Unit | undefined;
 }
 
 /**
- * @public
  * <p>OutputResolution Configuration indicating
  *       the target resolution for the output of Resampling operation.</p>
+ * @public
  */
 export interface OutputResolutionResamplingInput {
   /**
-   * @public
    * <p>User Defined Resolution for the output
    *       of Resampling operation defined by value and unit.</p>
+   * @public
    */
   UserDefined: UserDefined | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing input for resampling operation.</p>
+ * @public
  */
 export interface ResamplingConfigInput {
   /**
-   * @public
    * <p>The structure representing output
    *       resolution (in target georeferenced units) of the result of resampling operation.</p>
+   * @public
    */
   OutputResolution: OutputResolutionResamplingInput | undefined;
 
   /**
-   * @public
    * <p>The name of the algorithm used for resampling.</p>
+   * @public
    */
   AlgorithmName?: AlgorithmNameResampling;
 
   /**
-   * @public
    * <p>Bands used in the operation. If no target bands are specified, it uses all bands available in the input.</p>
+   * @public
    */
   TargetBands?: string[];
 }
@@ -1492,39 +1492,39 @@ export const PredefinedResolution = {
 export type PredefinedResolution = (typeof PredefinedResolution)[keyof typeof PredefinedResolution];
 
 /**
- * @public
  * <p>The input structure representing Output Resolution for Stacking Operation.</p>
+ * @public
  */
 export interface OutputResolutionStackInput {
   /**
-   * @public
    * <p>A string value representing Predefined Output Resolution for a stacking operation. Allowed values are <code>HIGHEST</code>, <code>LOWEST</code>, and <code>AVERAGE</code>.</p>
+   * @public
    */
   Predefined?: PredefinedResolution;
 
   /**
-   * @public
    * <p>The structure representing User Output Resolution for a Stacking operation defined as a value and unit.</p>
+   * @public
    */
   UserDefined?: UserDefined;
 }
 
 /**
- * @public
  * <p>The input structure for Stacking Operation.</p>
+ * @public
  */
 export interface StackConfigInput {
   /**
-   * @public
    * <p>The structure representing output
    *       resolution (in target georeferenced units) of the
    *       result of stacking operation.</p>
+   * @public
    */
   OutputResolution?: OutputResolutionStackInput;
 
   /**
-   * @public
    * <p>A list of bands to be stacked in the specified order. When the parameter is not provided, all the available bands in the data collection are stacked in the alphabetical order of their asset names.</p>
+   * @public
    */
   TargetBands?: string[];
 }
@@ -1574,25 +1574,25 @@ export const TemporalStatistics = {
 export type TemporalStatistics = (typeof TemporalStatistics)[keyof typeof TemporalStatistics];
 
 /**
- * @public
  * <p>The structure representing the configuration for Temporal Statistics operation.</p>
+ * @public
  */
 export interface TemporalStatisticsConfigInput {
   /**
-   * @public
    * <p>The input for the temporal statistics grouping by time frequency option.</p>
+   * @public
    */
   GroupBy?: GroupBy;
 
   /**
-   * @public
    * <p>The list of the statistics method options.</p>
+   * @public
    */
   Statistics: TemporalStatistics[] | undefined;
 
   /**
-   * @public
    * <p>The list of target band names for the temporal statistic to calculate.</p>
+   * @public
    */
   TargetBands?: string[];
 }
@@ -1634,31 +1634,30 @@ export const ZonalStatistics = {
 export type ZonalStatistics = (typeof ZonalStatistics)[keyof typeof ZonalStatistics];
 
 /**
- * @public
  * <p>The structure representing input configuration of ZonalStatistics operation.</p>
+ * @public
  */
 export interface ZonalStatisticsConfigInput {
   /**
-   * @public
    * <p>The Amazon S3 path pointing to the GeoJSON containing the polygonal zones.</p>
+   * @public
    */
   ZoneS3Path: string | undefined;
 
   /**
-   * @public
    * <p>List of zonal statistics to compute.</p>
+   * @public
    */
   Statistics: ZonalStatistics[] | undefined;
 
   /**
-   * @public
    * <p>Bands used in the operation.
    *       If no target bands are specified, it uses all bands available input.</p>
+   * @public
    */
   TargetBands?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) or an ID of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to decrypt your output artifacts with Amazon S3 server-side encryption.
    * The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
    *          <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
@@ -1679,13 +1678,14 @@ export interface ZonalStatisticsConfigInput {
    *          <p>For more information about key identifiers, see
    * <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the
    * Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
+   * @public
    */
   ZoneS3PathKmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>The input structure for the JobConfig in an EarthObservationJob.</p>
+ * @public
  */
 export type JobConfigInput =
   | JobConfigInput.BandMathConfigMember
@@ -1704,8 +1704,8 @@ export type JobConfigInput =
  */
 export namespace JobConfigInput {
   /**
-   * @public
    * <p>An object containing information about the job configuration for BandMath.</p>
+   * @public
    */
   export interface BandMathConfigMember {
     BandMathConfig: BandMathConfigInput;
@@ -1721,8 +1721,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for resampling.</p>
+   * @public
    */
   export interface ResamplingConfigMember {
     BandMathConfig?: never;
@@ -1738,8 +1738,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for temporal statistics.</p>
+   * @public
    */
   export interface TemporalStatisticsConfigMember {
     BandMathConfig?: never;
@@ -1755,8 +1755,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for cloud removal.</p>
+   * @public
    */
   export interface CloudRemovalConfigMember {
     BandMathConfig?: never;
@@ -1772,8 +1772,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for zonal statistics.</p>
+   * @public
    */
   export interface ZonalStatisticsConfigMember {
     BandMathConfig?: never;
@@ -1789,8 +1789,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for geomosaic.</p>
+   * @public
    */
   export interface GeoMosaicConfigMember {
     BandMathConfig?: never;
@@ -1806,8 +1806,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for a Stacking Earth Observation job.</p>
+   * @public
    */
   export interface StackConfigMember {
     BandMathConfig?: never;
@@ -1823,8 +1823,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for cloud masking.</p>
+   * @public
    */
   export interface CloudMaskingConfigMember {
     BandMathConfig?: never;
@@ -1840,8 +1840,8 @@ export namespace JobConfigInput {
   }
 
   /**
-   * @public
    * <p>An object containing information about the job configuration for land cover segmentation.</p>
+   * @public
    */
   export interface LandCoverSegmentationConfigMember {
     BandMathConfig?: never;
@@ -1902,19 +1902,19 @@ export namespace JobConfigInput {
 }
 
 /**
- * @public
  * <p>A single EarthObservationJob output band.</p>
+ * @public
  */
 export interface OutputBand {
   /**
-   * @public
    * <p>The name of the band.</p>
+   * @public
    */
   BandName: string | undefined;
 
   /**
-   * @public
    * <p>The datatype of the output band.</p>
+   * @public
    */
   OutputDataType: OutputType | undefined;
 }
@@ -1968,86 +1968,86 @@ export type EarthObservationJobStatus = (typeof EarthObservationJobStatus)[keyof
  */
 export interface GetEarthObservationJobOutput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Earth Observation job.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The creation time of the initiated Earth Observation job.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The duration of Earth Observation job, in seconds.</p>
+   * @public
    */
   DurationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The status of a previously initiated Earth Observation job.</p>
+   * @public
    */
   Status: EarthObservationJobStatus | undefined;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Input data for the Earth Observation job.</p>
+   * @public
    */
   InputConfig: InputConfigOutput | undefined;
 
   /**
-   * @public
    * <p>An object containing information about the job configuration.</p>
+   * @public
    */
   JobConfig: JobConfigInput | undefined;
 
   /**
-   * @public
    * <p>Bands available in the output of an operation.</p>
+   * @public
    */
   OutputBands?: OutputBand[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn?: string;
 
   /**
-   * @public
    * <p>Details about the errors generated during the Earth Observation job.</p>
+   * @public
    */
   ErrorDetails?: EarthObservationJobErrorDetails;
 
   /**
-   * @public
    * <p>The status of the Earth Observation job.</p>
+   * @public
    */
   ExportStatus?: EarthObservationJobExportStatus;
 
   /**
-   * @public
    * <p>Details about the errors generated during ExportEarthObservationJob.</p>
+   * @public
    */
   ExportErrorDetails?: ExportErrorDetails;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2077,74 +2077,74 @@ export type TargetOptions = (typeof TargetOptions)[keyof typeof TargetOptions];
  */
 export interface GetTileInput {
   /**
-   * @public
    * <p>The x coordinate of the tile input.</p>
+   * @public
    */
   x: number | undefined;
 
   /**
-   * @public
    * <p>The y coordinate of the tile input.</p>
+   * @public
    */
   y: number | undefined;
 
   /**
-   * @public
    * <p>The z coordinate of the tile input.</p>
+   * @public
    */
   z: number | undefined;
 
   /**
-   * @public
    * <p>The particular assets or bands to tile.</p>
+   * @public
    */
   ImageAssets: string[] | undefined;
 
   /**
-   * @public
    * <p>Determines what part of the Earth Observation job to tile. 'INPUT' or 'OUTPUT' are the valid options.</p>
+   * @public
    */
   Target: TargetOptions | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the tile operation.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>Determines whether or not to return a valid data mask.</p>
+   * @public
    */
   ImageMask?: boolean;
 
   /**
-   * @public
    * <p>The data format of the output tile. The formats include .npy, .png and .jpg.</p>
+   * @public
    */
   OutputFormat?: string;
 
   /**
-   * @public
    * <p>Time range filter applied to imagery to find the images to tile.</p>
+   * @public
    */
   TimeRangeFilter?: string;
 
   /**
-   * @public
    * <p>Property filters for the imagery to tile.</p>
+   * @public
    */
   PropertyFilters?: string;
 
   /**
-   * @public
    * <p>The output data type of the tile operation.</p>
+   * @public
    */
   OutputDataType?: OutputType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specify.</p>
+   * @public
    */
   ExecutionRoleArn?: string;
 }
@@ -2154,8 +2154,8 @@ export interface GetTileInput {
  */
 export interface GetTileOutput {
   /**
-   * @public
    * <p>The output binary file.</p>
+   * @public
    */
   BinaryFile?: StreamingBlobTypes;
 }
@@ -2185,81 +2185,81 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListEarthObservationJobInput {
   /**
-   * @public
    * <p>A filter that retrieves only jobs with a specific status.</p>
+   * @public
    */
   StatusEquals?: EarthObservationJobStatus;
 
   /**
-   * @public
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The parameter by which to sort the results.</p>
+   * @public
    */
   SortBy?: string;
 
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of items to return.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>An object containing information about the output file.</p>
+ * @public
  */
 export interface ListEarthObservationJobOutputConfig {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the list of the Earth Observation jobs.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The names of the Earth Observation jobs in the list.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The duration of the session, in seconds.</p>
+   * @public
    */
   DurationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The status of the list of the Earth Observation jobs.</p>
+   * @public
    */
   Status: EarthObservationJobStatus | undefined;
 
   /**
-   * @public
    * <p>The operation type for an Earth Observation job.</p>
+   * @public
    */
   OperationType: string | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2269,82 +2269,82 @@ export interface ListEarthObservationJobOutputConfig {
  */
 export interface ListEarthObservationJobOutput {
   /**
-   * @public
    * <p>Contains summary information about the Earth Observation jobs.</p>
+   * @public
    */
   EarthObservationJobSummaries: ListEarthObservationJobOutputConfig[] | undefined;
 
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The input for the time-range filter.</p>
+ * @public
  */
 export interface TimeRangeFilterInput {
   /**
-   * @public
    * <p>The start time for the time-range filter.</p>
+   * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * @public
    * <p>The end time for the time-range filter.</p>
+   * @public
    */
   EndTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>The input structure for Raster Data Collection Query containing the Area of Interest, TimeRange Filters, and Property Filters.</p>
+ * @public
  */
 export interface RasterDataCollectionQueryInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+   * @public
    */
   RasterDataCollectionArn: string | undefined;
 
   /**
-   * @public
    * <p>The TimeRange Filter used in the RasterDataCollection Query.</p>
+   * @public
    */
   TimeRangeFilter: TimeRangeFilterInput | undefined;
 
   /**
-   * @public
    * <p>The area of interest being queried for the raster data collection.</p>
+   * @public
    */
   AreaOfInterest?: AreaOfInterest;
 
   /**
-   * @public
    * <p>The list of Property filters used in the Raster Data Collection Query.</p>
+   * @public
    */
   PropertyFilters?: PropertyFilters;
 }
 
 /**
- * @public
  * <p>Input configuration information.</p>
+ * @public
  */
 export interface InputConfigInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the previous Earth Observation job.</p>
+   * @public
    */
   PreviousEarthObservationJobArn?: string;
 
   /**
-   * @public
    * <p>The structure representing the RasterDataCollection Query consisting of
    *       the Area of Interest, RasterDataCollectionArn,TimeRange and Property Filters.</p>
+   * @public
    */
   RasterDataCollectionQuery?: RasterDataCollectionQueryInput;
 }
@@ -2354,44 +2354,44 @@ export interface InputConfigInput {
  */
 export interface StartEarthObservationJobInput {
   /**
-   * @public
    * <p>The name of the Earth Observation job.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Input configuration information for the Earth Observation job.</p>
+   * @public
    */
   InputConfig: InputConfigInput | undefined;
 
   /**
-   * @public
    * <p>An object containing information about the job configuration.</p>
+   * @public
    */
   JobConfig: JobConfigInput | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2401,62 +2401,62 @@ export interface StartEarthObservationJobInput {
  */
 export interface StartEarthObservationJobOutput {
   /**
-   * @public
    * <p>The name of the Earth Observation job.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The duration of the session, in seconds.</p>
+   * @public
    */
   DurationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The status of the Earth Observation job.</p>
+   * @public
    */
   Status: EarthObservationJobStatus | undefined;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Input configuration information for the Earth Observation job.</p>
+   * @public
    */
   InputConfig?: InputConfigOutput;
 
   /**
-   * @public
    * <p>An object containing information about the job configuration.</p>
+   * @public
    */
   JobConfig: JobConfigInput | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2466,8 +2466,8 @@ export interface StartEarthObservationJobOutput {
  */
 export interface StopEarthObservationJobInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Earth Observation job being stopped.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -2478,31 +2478,31 @@ export interface StopEarthObservationJobInput {
 export interface StopEarthObservationJobOutput {}
 
 /**
- * @public
  * <p>The Amazon S3 data for the Vector Enrichment job.</p>
+ * @public
  */
 export interface VectorEnrichmentJobS3Data {
   /**
-   * @public
    * <p>The URL to the Amazon S3 data for the Vector Enrichment job.</p>
+   * @public
    */
   S3Uri: string | undefined;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>An object containing information about the output file.</p>
+ * @public
  */
 export interface ExportVectorEnrichmentJobOutputConfig {
   /**
-   * @public
    * <p>The input structure for Amazon S3 data; representing the Amazon S3 location of the input data objects.</p>
+   * @public
    */
   S3Data: VectorEnrichmentJobS3Data | undefined;
 }
@@ -2512,27 +2512,27 @@ export interface ExportVectorEnrichmentJobOutputConfig {
  */
 export interface ExportVectorEnrichmentJobInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM rolewith permission to upload to the location in OutputConfig.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Output location information for exporting Vector Enrichment Job results.
    * </p>
+   * @public
    */
   OutputConfig: ExportVectorEnrichmentJobOutputConfig | undefined;
 }
@@ -2558,52 +2558,52 @@ export type VectorEnrichmentJobExportStatus =
  */
 export interface ExportVectorEnrichmentJobOutput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job being exported.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role with permission to upload to the location in OutputConfig.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the results the Vector Enrichment job being exported.</p>
+   * @public
    */
   ExportStatus: VectorEnrichmentJobExportStatus | undefined;
 
   /**
-   * @public
    * <p>Output location information for exporting Vector Enrichment Job results.
    * </p>
+   * @public
    */
   OutputConfig: ExportVectorEnrichmentJobOutputConfig | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing a Geometry in
  *       terms of Type and Coordinates as per GeoJson spec.</p>
+ * @public
  */
 export interface Geometry {
   /**
-   * @public
    * <p>GeoJson Geometry types like Polygon and MultiPolygon.</p>
+   * @public
    */
   Type: string | undefined;
 
   /**
-   * @public
    * <p>The coordinates of the GeoJson Geometry.</p>
+   * @public
    */
   Coordinates: number[][][] | undefined;
 }
@@ -2613,8 +2613,8 @@ export interface Geometry {
  */
 export interface GetRasterDataCollectionInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -2624,50 +2624,50 @@ export interface GetRasterDataCollectionInput {
  */
 export interface GetRasterDataCollectionOutput {
   /**
-   * @public
    * <p>The name of the raster data collection.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The raster data collection type.</p>
+   * @public
    */
   Type: DataCollectionType | undefined;
 
   /**
-   * @public
    * <p>A description of the raster data collection.</p>
+   * @public
    */
   Description: string | undefined;
 
   /**
-   * @public
    * <p>The URL of the description page.</p>
+   * @public
    */
   DescriptionPageUrl: string | undefined;
 
   /**
-   * @public
    * <p>The filters supported by the raster data collection.</p>
+   * @public
    */
   SupportedFilters: Filter[] | undefined;
 
   /**
-   * @public
    * <p>The list of image source bands in the raster data collection.</p>
+   * @public
    */
   ImageSourceBands: string[] | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2677,8 +2677,8 @@ export interface GetRasterDataCollectionOutput {
  */
 export interface GetVectorEnrichmentJobInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -2705,20 +2705,20 @@ export type VectorEnrichmentJobErrorType =
   (typeof VectorEnrichmentJobErrorType)[keyof typeof VectorEnrichmentJobErrorType];
 
 /**
- * @public
  * <p>VectorEnrichmentJob error details in response from GetVectorEnrichmentJob.</p>
+ * @public
  */
 export interface VectorEnrichmentJobErrorDetails {
   /**
-   * @public
    * <p>The type of error generated during the Vector Enrichment job.</p>
+   * @public
    */
   ErrorType?: VectorEnrichmentJobErrorType;
 
   /**
-   * @public
    * <p>A message that you define and then is processed and rendered by
    *          the Vector Enrichment job when the error occurs.</p>
+   * @public
    */
   ErrorMessage?: string;
 }
@@ -2739,26 +2739,26 @@ export type VectorEnrichmentJobExportErrorType =
   (typeof VectorEnrichmentJobExportErrorType)[keyof typeof VectorEnrichmentJobExportErrorType];
 
 /**
- * @public
  * <p>VectorEnrichmentJob export error details in response from GetVectorEnrichmentJob.</p>
+ * @public
  */
 export interface VectorEnrichmentJobExportErrorDetails {
   /**
-   * @public
    * <p>The output error details for an Export operation on a Vector Enrichment job.</p>
+   * @public
    */
   Type?: VectorEnrichmentJobExportErrorType;
 
   /**
-   * @public
    * <p>The message providing details about the errors generated during the Vector Enrichment job.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>The input structure for the data source that represents the storage type of the input data objects.</p>
+ * @public
  */
 export type VectorEnrichmentJobDataSourceConfigInput =
   | VectorEnrichmentJobDataSourceConfigInput.S3DataMember
@@ -2769,8 +2769,8 @@ export type VectorEnrichmentJobDataSourceConfigInput =
  */
 export namespace VectorEnrichmentJobDataSourceConfigInput {
   /**
-   * @public
    * <p>The input structure for the Amazon S3 data that represents the Amazon S3 location of the input data objects.</p>
+   * @public
    */
   export interface S3DataMember {
     S3Data: VectorEnrichmentJobS3Data;
@@ -2811,74 +2811,74 @@ export type VectorEnrichmentJobDocumentType =
   (typeof VectorEnrichmentJobDocumentType)[keyof typeof VectorEnrichmentJobDocumentType];
 
 /**
- * @public
  * <p>The input structure for the InputConfig in a VectorEnrichmentJob.</p>
+ * @public
  */
 export interface VectorEnrichmentJobInputConfig {
   /**
-   * @public
    * <p>The input structure that defines the data source file type.</p>
+   * @public
    */
   DocumentType: VectorEnrichmentJobDocumentType | undefined;
 
   /**
-   * @public
    * <p>The input structure for the data source that represents the storage type of the input data objects.</p>
+   * @public
    */
   DataSourceConfig: VectorEnrichmentJobDataSourceConfigInput | undefined;
 }
 
 /**
- * @public
  * <p>The input structure for Map Matching operation type.</p>
+ * @public
  */
 export interface MapMatchingConfig {
   /**
-   * @public
    * <p>The field name for the data that describes the identifier representing a collection of GPS points belonging to an individual trace.</p>
+   * @public
    */
   IdAttributeName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Y-attribute</p>
+   * @public
    */
   YAttributeName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the X-attribute</p>
+   * @public
    */
   XAttributeName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the timestamp attribute.</p>
+   * @public
    */
   TimestampAttributeName: string | undefined;
 }
 
 /**
- * @public
  * <p>The input structure for Reverse Geocoding operation type.</p>
+ * @public
  */
 export interface ReverseGeocodingConfig {
   /**
-   * @public
    * <p>The field name for the data that describes y-axis coordinate, eg. latitude of a point.</p>
+   * @public
    */
   YAttributeName: string | undefined;
 
   /**
-   * @public
    * <p>The field name for the data that describes x-axis coordinate, eg. longitude of a point.</p>
+   * @public
    */
   XAttributeName: string | undefined;
 }
 
 /**
- * @public
  * <p>It contains configs such as ReverseGeocodingConfig and MapMatchingConfig.</p>
+ * @public
  */
 export type VectorEnrichmentJobConfig =
   | VectorEnrichmentJobConfig.MapMatchingConfigMember
@@ -2890,8 +2890,8 @@ export type VectorEnrichmentJobConfig =
  */
 export namespace VectorEnrichmentJobConfig {
   /**
-   * @public
    * <p>The input structure for Reverse Geocoding operation type.</p>
+   * @public
    */
   export interface ReverseGeocodingConfigMember {
     ReverseGeocodingConfig: ReverseGeocodingConfig;
@@ -2900,8 +2900,8 @@ export namespace VectorEnrichmentJobConfig {
   }
 
   /**
-   * @public
    * <p>The input structure for Map Matching operation type.</p>
+   * @public
    */
   export interface MapMatchingConfigMember {
     ReverseGeocodingConfig?: never;
@@ -2970,170 +2970,170 @@ export type VectorEnrichmentJobType = (typeof VectorEnrichmentJobType)[keyof typ
  */
 export interface GetVectorEnrichmentJobOutput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The type of the Vector Enrichment job being initiated.</p>
+   * @public
    */
   Type: VectorEnrichmentJobType | undefined;
 
   /**
-   * @public
    * <p>The name of the Vector Enrichment job.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The duration of the Vector Enrichment job, in seconds.</p>
+   * @public
    */
   DurationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The status of the initiated Vector Enrichment job.</p>
+   * @public
    */
   Status: VectorEnrichmentJobStatus | undefined;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Input configuration information for the Vector Enrichment job.</p>
+   * @public
    */
   InputConfig: VectorEnrichmentJobInputConfig | undefined;
 
   /**
-   * @public
    * <p>An object containing information about the job configuration.</p>
+   * @public
    */
   JobConfig: VectorEnrichmentJobConfig | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Details about the errors generated during the Vector Enrichment job.</p>
+   * @public
    */
   ErrorDetails?: VectorEnrichmentJobErrorDetails;
 
   /**
-   * @public
    * <p>The export status of the Vector Enrichment job being initiated.</p>
+   * @public
    */
   ExportStatus?: VectorEnrichmentJobExportStatus;
 
   /**
-   * @public
    * <p>Details about the errors generated during the ExportVectorEnrichmentJob.</p>
+   * @public
    */
   ExportErrorDetails?: VectorEnrichmentJobExportErrorDetails;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Properties associated with the Item.</p>
+ * @public
  */
 export interface Properties {
   /**
-   * @public
    * <p>Estimate of cloud cover.</p>
+   * @public
    */
   EoCloudCover?: number;
 
   /**
-   * @public
    * <p>The angle from the sensor between nadir (straight down) and the scene center. Measured in degrees (0-90).</p>
+   * @public
    */
   ViewOffNadir?: number;
 
   /**
-   * @public
    * <p>The sun azimuth angle. From the scene center point on the ground, this is the angle between truth north and the sun.
    *       Measured clockwise in degrees (0-360).</p>
+   * @public
    */
   ViewSunAzimuth?: number;
 
   /**
-   * @public
    * <p>The sun elevation angle. The angle from the tangent of the scene center point to the sun. Measured from the horizon in degrees (-90-90).
    *       Negative values indicate the sun is below the horizon, e.g. sun elevation of -10° means the data was captured during <a href="https://www.timeanddate.com/astronomy/different-types-twilight.html">nautical twilight</a>.</p>
+   * @public
    */
   ViewSunElevation?: number;
 
   /**
-   * @public
    * <p>Platform property. Platform refers to the unique name
    *       of the specific platform the instrument is attached to.
    *       For satellites it is the name of
    *       the satellite, eg. landsat-8 (Landsat-8), sentinel-2a.</p>
+   * @public
    */
   Platform?: string;
 
   /**
-   * @public
    * <p>Land cloud cover for Landsat Data Collection.</p>
+   * @public
    */
   LandsatCloudCoverLand?: number;
 }
 
 /**
- * @public
  * <p>The structure representing the items in the response for SearchRasterDataCollection.</p>
+ * @public
  */
 export interface ItemSource {
   /**
-   * @public
    * <p>A unique Id for the source item.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The item Geometry in GeoJson format.</p>
+   * @public
    */
   Geometry: Geometry | undefined;
 
   /**
-   * @public
    * <p>This is a dictionary of Asset Objects data associated with the Item that
    *       can be downloaded or streamed, each with a unique key.</p>
+   * @public
    */
   Assets?: Record<string, AssetValue>;
 
   /**
-   * @public
    * <p>The searchable date and time of the item, in UTC.</p>
+   * @public
    */
   DateTime: Date | undefined;
 
   /**
-   * @public
    * <p>This field contains additional properties of the item.</p>
+   * @public
    */
   Properties?: Properties;
 }
@@ -3143,15 +3143,15 @@ export interface ItemSource {
  */
 export interface ListRasterDataCollectionsInput {
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of items to return.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3161,15 +3161,15 @@ export interface ListRasterDataCollectionsInput {
  */
 export interface ListRasterDataCollectionsOutput {
   /**
-   * @public
    * <p>Contains summary information about the raster data collection.</p>
+   * @public
    */
   RasterDataCollectionSummaries: RasterDataCollectionMetadata[] | undefined;
 
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3179,8 +3179,8 @@ export interface ListRasterDataCollectionsOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource you want to tag.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -3190,8 +3190,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3201,81 +3201,81 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListVectorEnrichmentJobInput {
   /**
-   * @public
    * <p>A filter that retrieves only jobs with a specific status.</p>
+   * @public
    */
   StatusEquals?: string;
 
   /**
-   * @public
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The parameter by which to sort the results.</p>
+   * @public
    */
   SortBy?: string;
 
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>An object containing information about the output file.</p>
+ * @public
  */
 export interface ListVectorEnrichmentJobOutputConfig {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the list of the Vector Enrichment jobs.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The names of the Vector Enrichment jobs in the list.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the list of Vector Enrichment jobs.</p>
+   * @public
    */
   Type: VectorEnrichmentJobType | undefined;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The duration of the session, in seconds.</p>
+   * @public
    */
   DurationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The status of the Vector Enrichment jobs list. </p>
+   * @public
    */
   Status: VectorEnrichmentJobStatus | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3285,45 +3285,45 @@ export interface ListVectorEnrichmentJobOutputConfig {
  */
 export interface ListVectorEnrichmentJobOutput {
   /**
-   * @public
    * <p>Contains summary information about the Vector Enrichment jobs.</p>
+   * @public
    */
   VectorEnrichmentJobSummaries: ListVectorEnrichmentJobOutputConfig[] | undefined;
 
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>This is a RasterDataCollectionQueryInput containing AreaOfInterest, Time Range filter and Property filters.</p>
+ * @public
  */
 export interface RasterDataCollectionQueryWithBandFilterInput {
   /**
-   * @public
    * <p>The TimeRange Filter used in the search query.</p>
+   * @public
    */
   TimeRangeFilter: TimeRangeFilterInput | undefined;
 
   /**
-   * @public
    * <p>The Area of interest to be used in the search query.</p>
+   * @public
    */
   AreaOfInterest?: AreaOfInterest;
 
   /**
-   * @public
    * <p>The Property Filters used in the search query.</p>
+   * @public
    */
   PropertyFilters?: PropertyFilters;
 
   /**
-   * @public
    * <p>The list of Bands to be displayed in the result for each item.</p>
+   * @public
    */
   BandFilter?: string[];
 }
@@ -3333,22 +3333,22 @@ export interface RasterDataCollectionQueryWithBandFilterInput {
  */
 export interface SearchRasterDataCollectionInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the raster data collection.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>RasterDataCollectionQuery consisting of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html">AreaOfInterest(AOI)</a>, <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html">PropertyFilters</a> and
    *       <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html">TimeRangeFilterInput</a> used in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html">SearchRasterDataCollection</a>.</p>
+   * @public
    */
   RasterDataCollectionQuery: RasterDataCollectionQueryWithBandFilterInput | undefined;
 
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3358,21 +3358,21 @@ export interface SearchRasterDataCollectionInput {
  */
 export interface SearchRasterDataCollectionOutput {
   /**
-   * @public
    * <p>Approximate number of results in the response.</p>
+   * @public
    */
   ApproximateResultCount: number | undefined;
 
   /**
-   * @public
    * <p>If the previous response was truncated, you receive this token.
    *          Use it in your next request to receive the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>List of items matching the Raster DataCollectionQuery.</p>
+   * @public
    */
   Items?: ItemSource[];
 }
@@ -3382,14 +3382,14 @@ export interface SearchRasterDataCollectionOutput {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource you want to tag.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -3404,14 +3404,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource you want to untag.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Keys of the tags you want to remove.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -3426,44 +3426,44 @@ export interface UntagResourceResponse {}
  */
 export interface StartVectorEnrichmentJobInput {
   /**
-   * @public
    * <p>The name of the Vector Enrichment job.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Input configuration information for the Vector Enrichment job.</p>
+   * @public
    */
   InputConfig: VectorEnrichmentJobInputConfig | undefined;
 
   /**
-   * @public
    * <p>An object containing information about the job configuration.</p>
+   * @public
    */
   JobConfig: VectorEnrichmentJobConfig | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3473,68 +3473,68 @@ export interface StartVectorEnrichmentJobInput {
  */
 export interface StartVectorEnrichmentJobOutput {
   /**
-   * @public
    * <p>The name of the Vector Enrichment job.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The type of the Vector Enrichment job.</p>
+   * @public
    */
   Type: VectorEnrichmentJobType | undefined;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The duration of the Vector Enrichment job, in seconds.</p>
+   * @public
    */
   DurationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The status of the Vector Enrichment job being started.</p>
+   * @public
    */
   Status: VectorEnrichmentJobStatus | undefined;
 
   /**
-   * @public
    * <p>The Key Management Service key ID for server-side encryption.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Input configuration information for starting the Vector Enrichment job.</p>
+   * @public
    */
   InputConfig: VectorEnrichmentJobInputConfig | undefined;
 
   /**
-   * @public
    * <p>An object containing information about the job configuration.</p>
+   * @public
    */
   JobConfig: VectorEnrichmentJobConfig | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
+   * @public
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Each tag consists of a key and a value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3544,8 +3544,8 @@ export interface StartVectorEnrichmentJobOutput {
  */
 export interface StopVectorEnrichmentJobInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>
+   * @public
    */
   Arn: string | undefined;
 }

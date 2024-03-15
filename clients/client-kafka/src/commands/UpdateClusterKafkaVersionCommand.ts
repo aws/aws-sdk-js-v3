@@ -27,7 +27,6 @@ export interface UpdateClusterKafkaVersionCommandInput extends UpdateClusterKafk
 export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKafkaVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Apache Kafka version for the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKaf
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateClusterKafkaVersionCommand extends $Command
   .classBuilder<

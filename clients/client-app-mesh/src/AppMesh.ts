@@ -777,7 +777,6 @@ export interface AppMesh {
 }
 
 /**
- * @public
  * <p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to
  *          monitor and control microservices. App Mesh standardizes how your microservices
  *          communicate, giving you end-to-end visibility and helping to ensure high availability for
@@ -793,6 +792,7 @@ export interface AppMesh {
  *             see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">DNS
  *                for Services and Pods</a> in the Kubernetes documentation.</p>
  *          </note>
+ * @public
  */
 export class AppMesh extends AppMeshClient implements AppMesh {}
 createAggregatedClient(commands, AppMesh);

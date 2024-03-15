@@ -30,7 +30,6 @@ export interface PutFunctionEventInvokeConfigCommandInput extends PutFunctionEve
 export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures options for <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous
  *         invocation</a> on a function, version, or alias. If a configuration already exists for a function, version,
  *       or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without
@@ -105,6 +104,7 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class PutFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

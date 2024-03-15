@@ -27,7 +27,6 @@ export interface ListDatastoresCommandInput extends ListDatastoresRequest {}
 export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List data stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class ListDatastoresCommand extends $Command
   .classBuilder<

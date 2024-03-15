@@ -27,7 +27,6 @@ export interface PollForDecisionTaskCommandInput extends PollForDecisionTaskInpu
 export interface PollForDecisionTaskCommandOutput extends DecisionTask, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by deciders to get a <a>DecisionTask</a> from the specified decision
  *         <code>taskList</code>. A decision task may be returned for any open workflow execution that
  *       is using the specified task list. The task includes a paginated view of the history of the
@@ -510,6 +509,7 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class PollForDecisionTaskCommand extends $Command
   .classBuilder<

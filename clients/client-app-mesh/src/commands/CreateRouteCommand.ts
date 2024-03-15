@@ -27,7 +27,6 @@ export interface CreateRouteCommandInput extends CreateRouteInput {}
 export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a route that is associated with a virtual router.</p>
  *          <p> You can route several different protocols and define a retry policy for a route.
  *          Traffic can be routed to one or more virtual nodes.</p>
@@ -517,6 +516,7 @@ export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataB
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class CreateRouteCommand extends $Command
   .classBuilder<

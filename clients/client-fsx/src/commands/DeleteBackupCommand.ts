@@ -27,7 +27,6 @@ export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
  *             its data is gone.</p>
  *          <p>The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
@@ -89,6 +88,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To delete a backup
  * ```javascript
  * // This operation deletes an Amazon FSx file system backup.

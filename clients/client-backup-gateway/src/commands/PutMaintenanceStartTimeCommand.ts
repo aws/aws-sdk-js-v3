@@ -27,7 +27,6 @@ export interface PutMaintenanceStartTimeCommandInput extends PutMaintenanceStart
 export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Set the maintenance start time for a gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class PutMaintenanceStartTimeCommand extends $Command
   .classBuilder<

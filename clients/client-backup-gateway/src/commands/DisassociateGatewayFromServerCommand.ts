@@ -32,7 +32,6 @@ export interface DisassociateGatewayFromServerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a backup gateway from the specified server. After the disassociation process
  *       finishes, the gateway can no longer access the virtual machines on the server.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DisassociateGatewayFromServerCommandOutput
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class DisassociateGatewayFromServerCommand extends $Command
   .classBuilder<

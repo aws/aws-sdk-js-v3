@@ -27,7 +27,6 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
 export interface DeleteConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified connection.</p>
  *          <p>Deleting a connection only stops the Direct Connect port hour and data transfer charges.
  *       If you are partnering with any third parties to connect with the Direct Connect location,
@@ -97,6 +96,7 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteConnectionCommand extends $Command
   .classBuilder<

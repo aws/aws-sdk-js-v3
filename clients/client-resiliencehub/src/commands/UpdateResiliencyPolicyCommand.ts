@@ -31,7 +31,6 @@ export interface UpdateResiliencyPolicyCommandInput extends UpdateResiliencyPoli
 export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a resiliency policy.</p>
  *          <note>
  *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and
@@ -119,6 +118,7 @@ export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPol
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class UpdateResiliencyPolicyCommand extends $Command
   .classBuilder<

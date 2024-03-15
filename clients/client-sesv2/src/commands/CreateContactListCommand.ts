@@ -27,7 +27,6 @@ export interface CreateContactListCommandInput extends CreateContactListRequest 
 export interface CreateContactListCommandOutput extends CreateContactListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a contact list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateContactListCommandOutput extends CreateContactListRespons
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateContactListCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchGetNamedQueryCommandInput extends BatchGetNamedQueryInput 
 export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of a single named query or a list of up to 50 queries, which you
  *             provide as an array of query ID strings. Requires you to have access to the workgroup in
  *             which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the
@@ -89,6 +88,7 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class BatchGetNamedQueryCommand extends $Command
   .classBuilder<

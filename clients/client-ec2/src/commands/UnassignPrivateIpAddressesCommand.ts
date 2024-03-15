@@ -27,7 +27,6 @@ export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateI
 export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
  *         	network interface.</p>
  * @example
@@ -60,6 +59,7 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To unassign a secondary private IP address from a network interface
  * ```javascript
  * // This example unassigns the specified private IP address from the specified network interface.

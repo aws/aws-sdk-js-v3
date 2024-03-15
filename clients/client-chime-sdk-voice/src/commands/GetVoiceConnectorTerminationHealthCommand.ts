@@ -35,7 +35,6 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the last time a <code>SIP OPTIONS</code> ping
  *          was received from your SIP infrastructure for the specified Amazon Chime SDK Voice
  *          Connector.</p>
@@ -89,6 +88,7 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorTerminationHealthCommand extends $Command
   .classBuilder<

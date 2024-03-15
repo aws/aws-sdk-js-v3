@@ -31,7 +31,6 @@ export interface UpdateRouteCommandInput extends UpdateRouteRequest {}
 export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates an Amazon Web Services Migration Hub Refactor Spaces route. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class UpdateRouteCommand extends $Command
   .classBuilder<

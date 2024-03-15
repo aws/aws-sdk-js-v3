@@ -27,7 +27,6 @@ export interface CreateStandbyWorkspacesCommandInput extends CreateStandbyWorksp
 export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorkspacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a standby WorkSpace in a secondary Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface CreateStandbyWorkspacesCommandOutput extends CreateStandbyWorks
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateStandbyWorkspacesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ActivateOrganizationsAccessCommandInput extends ActivateOrganiz
 export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activate trusted access with Organizations. With trusted access between StackSets and Organizations
  *    activated, the management account has permissions to create and manage StackSets for your
  *    organization.</p>
@@ -59,6 +58,7 @@ export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrgani
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ActivateOrganizationsAccessCommand extends $Command
   .classBuilder<

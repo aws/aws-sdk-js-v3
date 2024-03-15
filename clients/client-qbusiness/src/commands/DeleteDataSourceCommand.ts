@@ -27,7 +27,6 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Q data source connector. While the data source is being
  *             deleted, the <code>Status</code> field returned by a call to the
  *                 <code>DescribeDataSource</code> API is set to <code>DELETING</code>. </p>
@@ -81,6 +80,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class DeleteDataSourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetSqlInjectionMatchSetCommandInput extends GetSqlInjectionMatc
 export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -84,6 +83,7 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To get a SQL injection match set
  * ```javascript
  * // The following example returns the details of a SQL injection match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

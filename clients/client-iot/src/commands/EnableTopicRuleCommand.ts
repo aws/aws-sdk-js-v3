@@ -27,7 +27,6 @@ export interface EnableTopicRuleCommandInput extends EnableTopicRuleRequest {}
 export interface EnableTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the rule.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">EnableTopicRule</a> action.</p>
  * @example
@@ -70,6 +69,7 @@ export interface EnableTopicRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class EnableTopicRuleCommand extends $Command
   .classBuilder<

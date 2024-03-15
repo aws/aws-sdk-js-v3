@@ -31,7 +31,6 @@ export interface DescribeEdgeConfigurationCommandInput extends DescribeEdgeConfi
 export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a stream’s edge configuration that was set using the
  *                 <code>StartEdgeConfigurationUpdate</code> API and the latest status of the edge
  *             agent's recorder and uploader jobs. Use this API to get the status of the configuration
@@ -127,6 +126,7 @@ export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConf
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DescribeEdgeConfigurationCommand extends $Command
   .classBuilder<

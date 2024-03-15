@@ -36,7 +36,6 @@ export interface DeleteServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>If no other minor versions of a service template exist, delete a major version of the
  *       service template if it's not the <code>Recommended</code> version. Delete the
  *         <code>Recommended</code> version of the service template if no other major versions or minor
@@ -113,6 +112,7 @@ export interface DeleteServiceTemplateVersionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteServiceTemplateVersionCommand extends $Command
   .classBuilder<

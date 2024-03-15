@@ -27,7 +27,6 @@ export interface DeleteBudgetCommandInput extends DeleteBudgetRequest {}
 export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a budget. You can delete your budget at any time.</p>
  *          <important>
  *             <p>Deleting a budget also deletes the notifications and subscribers that are associated with that budget.</p>
@@ -73,6 +72,7 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DeleteBudgetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListDirectoryRegistrationsCommandInput extends ListDirectoryReg
 export interface ListDirectoryRegistrationsCommandOutput extends ListDirectoryRegistrationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the directory registrations that you created by using the <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration</a>
  *          action.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListDirectoryRegistrationsCommandOutput extends ListDirectoryRe
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class ListDirectoryRegistrationsCommand extends $Command
   .classBuilder<

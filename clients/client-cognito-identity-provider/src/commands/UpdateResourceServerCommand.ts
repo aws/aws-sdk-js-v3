@@ -31,7 +31,6 @@ export interface UpdateResourceServerCommandInput extends UpdateResourceServerRe
 export interface UpdateResourceServerCommandOutput extends UpdateResourceServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
  *          <important>
  *             <p>If you don't provide a value for an attribute, it is set to the default
@@ -119,6 +118,7 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class UpdateResourceServerCommand extends $Command
   .classBuilder<

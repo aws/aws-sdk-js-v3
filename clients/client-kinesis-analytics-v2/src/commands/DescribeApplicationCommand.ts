@@ -31,7 +31,6 @@ export interface DescribeApplicationCommandInput extends DescribeApplicationRequ
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific Managed Service for Apache Flink application.</p>
  *          <p>If you want to retrieve a list of all applications in your account,
  *       use the <a>ListApplications</a> operation.</p>
@@ -305,6 +304,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class DescribeApplicationCommand extends $Command
   .classBuilder<

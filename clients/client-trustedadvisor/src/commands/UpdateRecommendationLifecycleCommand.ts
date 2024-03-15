@@ -33,7 +33,6 @@ export interface UpdateRecommendationLifecycleCommandInput extends UpdateRecomme
 export interface UpdateRecommendationLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the lifecyle of a Recommendation. This API only supports prioritized recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateRecommendationLifecycleCommandOutput extends __MetadataBe
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class UpdateRecommendationLifecycleCommand extends $Command
   .classBuilder<

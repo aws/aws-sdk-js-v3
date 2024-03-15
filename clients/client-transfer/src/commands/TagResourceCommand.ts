@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a key-value pair to a resource, as identified by its Amazon Resource Name (ARN).
  *       Resources are users, servers, roles, and other entities.</p>
  *          <p>There is no response returned from this call.</p>
@@ -74,6 +73,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

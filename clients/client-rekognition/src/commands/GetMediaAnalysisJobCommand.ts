@@ -27,7 +27,6 @@ export interface GetMediaAnalysisJobCommandInput extends GetMediaAnalysisJobRequ
 export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the results for a given media analysis job.
  *         Takes a <code>JobId</code> returned by StartMediaAnalysisJob.</p>
  * @example
@@ -119,6 +118,7 @@ export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example GetMediaAnalysisJob
  * ```javascript
  * // Retrieves the results for a given media analysis job.

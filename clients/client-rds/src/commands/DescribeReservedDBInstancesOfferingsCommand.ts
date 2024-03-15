@@ -32,7 +32,6 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists available reserved DB instance offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe reserved DB instance offerings
  * ```javascript
  * // The following example retrieves details about reserved DB instance options for RDS for Oracle.

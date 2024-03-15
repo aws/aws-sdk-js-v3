@@ -27,7 +27,6 @@ export interface EnableSecurityHubCommandInput extends EnableSecurityHubRequest 
 export interface EnableSecurityHubCommandOutput extends EnableSecurityHubResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables Security Hub for your account in the current Region or the Region you specify in the
  *          request.</p>
  *          <p>When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings
@@ -92,6 +91,7 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To activate Security Hub
  * ```javascript
  * // The following example activates the Security Hub service in the requesting AWS account. The service is activated in the current AWS Region or the Region that you specify in the request. Some standards are automatically turned on in your account unless you opt out. To determine which standards are automatically turned on, see the Security Hub documentation.

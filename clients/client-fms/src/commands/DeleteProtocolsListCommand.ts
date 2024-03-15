@@ -27,7 +27,6 @@ export interface DeleteProtocolsListCommandInput extends DeleteProtocolsListRequ
 export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes an Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class DeleteProtocolsListCommand extends $Command
   .classBuilder<

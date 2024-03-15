@@ -27,7 +27,6 @@ export interface DisableEnhancedMonitoringCommandInput extends DisableEnhancedMo
 export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables enhanced monitoring.</p>
  *          <note>
  *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
@@ -91,6 +90,7 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DisableEnhancedMonitoringCommand extends $Command
   .classBuilder<

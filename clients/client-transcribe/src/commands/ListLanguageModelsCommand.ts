@@ -27,7 +27,6 @@ export interface ListLanguageModelsCommandInput extends ListLanguageModelsReques
 export interface ListLanguageModelsCommandOutput extends ListLanguageModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of custom language models that match the specified criteria. If no
  *             criteria are specified, all custom language models are returned.</p>
  *          <p>To get detailed information about a specific custom language model, use the  operation.</p>
@@ -91,6 +90,7 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListLanguageModelsCommand extends $Command
   .classBuilder<

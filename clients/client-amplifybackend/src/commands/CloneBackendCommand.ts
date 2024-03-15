@@ -27,7 +27,6 @@ export interface CloneBackendCommandInput extends CloneBackendRequest {}
 export interface CloneBackendCommandOutput extends CloneBackendResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation clones an existing backend.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class CloneBackendCommand extends $Command
   .classBuilder<

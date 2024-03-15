@@ -27,7 +27,6 @@ export interface SubmitJobCommandInput extends SubmitJobRequest {}
 export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a> override parameters defined in the job definition. vCPU and memory
  *       requirements that are specified in the <code>resourceRequirements</code> objects in the job
  *       definition are the exception. They can't be overridden this way using the <code>memory</code>
@@ -243,6 +242,7 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To submit a job to a queue
  * ```javascript
  * // This example submits a simple container job called example to the HighPriority job queue.

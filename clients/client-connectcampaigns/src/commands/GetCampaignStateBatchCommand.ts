@@ -27,7 +27,6 @@ export interface GetCampaignStateBatchCommandInput extends GetCampaignStateBatch
 export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatchResponse, __MetadataBearer {}
 
 /**
- * @public
  * Get state of campaigns for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class GetCampaignStateBatchCommand extends $Command
   .classBuilder<

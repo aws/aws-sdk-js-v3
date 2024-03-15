@@ -27,7 +27,6 @@ export interface ListMembersCommandInput extends ListMembersRequest {}
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of member accounts for a behavior graph.</p>
  *          <p>For invited accounts, the results do not include member accounts that were removed from
  *          the behavior graph.</p>
@@ -102,6 +101,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class ListMembersCommand extends $Command
   .classBuilder<

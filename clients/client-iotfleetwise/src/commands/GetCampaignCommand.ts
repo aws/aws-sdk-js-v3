@@ -27,7 +27,6 @@ export interface GetCampaignCommandInput extends GetCampaignRequest {}
 export interface GetCampaignCommandOutput extends GetCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about a campaign. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetCampaignCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListTargetsCommandInput extends ListTargetsRequest {}
 export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the notification rule targets for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class ListTargetsCommand extends $Command
   .classBuilder<

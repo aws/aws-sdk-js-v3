@@ -31,7 +31,6 @@ export interface CreateModelCardCommandInput extends CreateModelCardRequest {}
 export interface CreateModelCardCommandOutput extends CreateModelCardResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon SageMaker Model Card.</p>
  *          <p>For information about how to use model cards, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html">Amazon SageMaker Model Card</a>.</p>
  * @example
@@ -79,6 +78,7 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateModelCardCommand extends $Command
   .classBuilder<

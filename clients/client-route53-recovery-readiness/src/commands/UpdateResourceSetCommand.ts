@@ -31,7 +31,6 @@ export interface UpdateResourceSetCommandInput extends UpdateResourceSetRequest 
 export interface UpdateResourceSetCommandOutput extends UpdateResourceSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface UpdateResourceSetCommandOutput extends UpdateResourceSetRespons
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class UpdateResourceSetCommand extends $Command
   .classBuilder<

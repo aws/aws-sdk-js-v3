@@ -27,7 +27,6 @@ export interface DeleteTranscriptionJobCommandInput extends DeleteTranscriptionJ
 export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a transcription job. To use this operation, specify the name of the job you
  *             want to delete using <code>TranscriptionJobName</code>. Job names are case
  *             sensitive.</p>
@@ -69,6 +68,7 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DeleteTranscriptionJobCommand extends $Command
   .classBuilder<

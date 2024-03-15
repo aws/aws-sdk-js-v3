@@ -27,9 +27,6 @@ export interface GetDataViewCommandInput extends GetDataViewRequest {}
 export interface GetDataViewCommandOutput extends GetDataViewResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Gets information about a Dataview.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +95,8 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class GetDataViewCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateVPCEConfigurationCommandInput extends UpdateVPCEConfigura
 export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class UpdateVPCEConfigurationCommand extends $Command
   .classBuilder<

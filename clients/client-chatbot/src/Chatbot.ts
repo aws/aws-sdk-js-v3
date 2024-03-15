@@ -548,8 +548,8 @@ export interface Chatbot {
 }
 
 /**
- * @public
  * AWS Chatbot API
+ * @public
  */
 export class Chatbot extends ChatbotClient implements Chatbot {}
 createAggregatedClient(commands, Chatbot);

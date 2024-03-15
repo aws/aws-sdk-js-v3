@@ -32,7 +32,6 @@ export interface DescribeTransitGatewayRouteTablesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -90,6 +89,7 @@ export interface DescribeTransitGatewayRouteTablesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTransitGatewayRouteTablesCommand extends $Command
   .classBuilder<

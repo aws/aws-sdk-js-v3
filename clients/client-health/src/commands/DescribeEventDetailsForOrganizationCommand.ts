@@ -35,7 +35,6 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about one or more specified events for one or more
  *          Amazon Web Services accounts in your organization. This information includes standard event data (such as
  *          the Amazon Web Services Region and service), an event description, and (depending on the event) possible
@@ -134,6 +133,7 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeEventDetailsForOrganizationCommand extends $Command
   .classBuilder<

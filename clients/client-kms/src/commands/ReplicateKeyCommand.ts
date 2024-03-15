@@ -27,7 +27,6 @@ export interface ReplicateKeyCommandInput extends ReplicateKeyRequest {}
 export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replicates a multi-Region key into the specified Region. This operation creates a
  *       multi-Region replica key based on a multi-Region primary key in a different Region of the same
  *       Amazon Web Services partition. You can create multiple replicas of a primary key, but each must be in a
@@ -257,6 +256,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To replicate a multi-Region key in a different AWS Region
  * ```javascript
  * // This example creates a multi-Region replica key in us-west-2 of a multi-Region primary key in us-east-1.

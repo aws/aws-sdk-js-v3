@@ -27,7 +27,6 @@ export interface DescribeCacheSubnetGroupsCommandInput extends DescribeCacheSubn
 export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroupMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of cache subnet group descriptions. If a subnet group name is
  *             specified, the list contains only the description of that group. This is applicable only
  *             when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by
@@ -89,6 +88,7 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeCacheSubnetGroups
  * ```javascript
  * // Describes up to 25 cache subnet groups.

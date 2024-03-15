@@ -32,7 +32,6 @@ export interface EnableAWSOrganizationsAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
  *          current structure. This API can only be called by the management account in the organization.</p>
  *          <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p>
@@ -78,6 +77,7 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class EnableAWSOrganizationsAccessCommand extends $Command
   .classBuilder<

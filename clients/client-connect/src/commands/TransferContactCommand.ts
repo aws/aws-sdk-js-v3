@@ -27,7 +27,6 @@ export interface TransferContactCommandInput extends TransferContactRequest {}
 export interface TransferContactCommandOutput extends TransferContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transfers contacts from one agent or queue to another agent or queue at any point after a
  *    contact is created. You can transfer a contact to another queue by providing the flow which
  *    orchestrates the contact to the destination queue. This gives you more control over contact
@@ -105,6 +104,7 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class TransferContactCommand extends $Command
   .classBuilder<

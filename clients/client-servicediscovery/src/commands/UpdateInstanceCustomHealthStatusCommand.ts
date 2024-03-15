@@ -30,7 +30,6 @@ export interface UpdateInstanceCustomHealthStatusCommandInput extends UpdateInst
 export interface UpdateInstanceCustomHealthStatusCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits a request to change the health status of a custom health check to healthy or
  *    unhealthy.</p>
  *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for
@@ -80,6 +79,7 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example UpdateInstanceCustomHealthStatus Example
  * ```javascript
  * // This example submits a request to change the health status of an instance associated with a service with a custom health check to HEALTHY.

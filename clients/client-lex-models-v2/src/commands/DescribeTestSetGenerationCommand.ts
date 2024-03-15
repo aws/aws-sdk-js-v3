@@ -27,7 +27,6 @@ export interface DescribeTestSetGenerationCommandInput extends DescribeTestSetGe
 export interface DescribeTestSetGenerationCommandOutput extends DescribeTestSetGenerationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets metadata information about the test set generation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeTestSetGenerationCommandOutput extends DescribeTestSetG
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeTestSetGenerationCommand extends $Command
   .classBuilder<

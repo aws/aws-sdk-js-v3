@@ -32,7 +32,6 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a
  *       code signing configuration, to verify that no functions are using it.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListFunctionsByCodeSigningConfigCommand extends $Command
   .classBuilder<

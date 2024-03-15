@@ -27,7 +27,6 @@ export interface CreateSecurityProfileCommandInput extends CreateSecurityProfile
 export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSecurityProfile</a> action.</p>
  * @example
@@ -139,6 +138,7 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateSecurityProfileCommand extends $Command
   .classBuilder<

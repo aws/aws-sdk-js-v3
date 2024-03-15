@@ -27,7 +27,6 @@ export interface CreateGraphCommandInput extends CreateGraphRequest {}
 export interface CreateGraphCommandOutput extends CreateGraphResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new behavior graph for the calling account, and sets that account as the
  *          administrator account. This operation is called by the account that is enabling Detective.</p>
  *          <p>The operation also enables Detective for the calling account in the currently
@@ -89,6 +88,7 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class CreateGraphCommand extends $Command
   .classBuilder<

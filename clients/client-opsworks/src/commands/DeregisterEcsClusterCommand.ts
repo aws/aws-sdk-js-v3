@@ -27,7 +27,6 @@ export interface DeregisterEcsClusterCommandInput extends DeregisterEcsClusterRe
 export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters a specified Amazon ECS cluster from a stack.
  *       For more information, see
  *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete">
@@ -67,6 +66,7 @@ export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeregisterEcsClusterCommand extends $Command
   .classBuilder<

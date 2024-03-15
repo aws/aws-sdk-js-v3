@@ -27,7 +27,6 @@ export interface GetCampaignDateRangeKpiCommandInput extends GetCampaignDateRang
 export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRangeKpiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRan
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetCampaignDateRangeKpiCommand extends $Command
   .classBuilder<

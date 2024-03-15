@@ -33,7 +33,6 @@ export interface GetBucketLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an S3
  *             bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
@@ -159,6 +158,7 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetBucketLifecycleConfigurationCommand extends $Command
   .classBuilder<

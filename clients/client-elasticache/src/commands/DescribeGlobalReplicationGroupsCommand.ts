@@ -32,7 +32,6 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a particular global replication group. If no identifier is
  *             specified, returns information about all Global datastores. </p>
  * @example
@@ -103,6 +102,7 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DescribeGlobalReplicationGroupsCommand extends $Command
   .classBuilder<

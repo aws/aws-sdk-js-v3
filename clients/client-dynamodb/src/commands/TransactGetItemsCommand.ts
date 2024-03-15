@@ -27,7 +27,6 @@ export interface TransactGetItemsCommandInput extends TransactGetItemsInput {}
 export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
  *             multiple items from one or more tables (but not from indexes) in a single account and
@@ -472,6 +471,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class TransactGetItemsCommand extends $Command
   .classBuilder<

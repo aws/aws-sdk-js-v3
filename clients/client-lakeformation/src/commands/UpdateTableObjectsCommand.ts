@@ -27,7 +27,6 @@ export interface UpdateTableObjectsCommandInput extends UpdateTableObjectsReques
 export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the manifest of Amazon S3 objects that make up the specified governed table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class UpdateTableObjectsCommand extends $Command
   .classBuilder<

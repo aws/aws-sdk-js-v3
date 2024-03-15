@@ -27,7 +27,6 @@ export interface DeleteStateMachineAliasCommandInput extends DeleteStateMachineA
 export interface DeleteStateMachineAliasCommandOutput extends DeleteStateMachineAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.</p>
  *          <p>After you delete a state machine alias, you can't use it to start executions. When you
  *       delete a state machine alias, Step Functions doesn't delete the state machine versions
@@ -94,6 +93,7 @@ export interface DeleteStateMachineAliasCommandOutput extends DeleteStateMachine
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DeleteStateMachineAliasCommand extends $Command
   .classBuilder<

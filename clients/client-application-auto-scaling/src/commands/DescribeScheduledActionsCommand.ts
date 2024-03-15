@@ -31,7 +31,6 @@ export interface DescribeScheduledActionsCommandInput extends DescribeScheduledA
 export interface DescribeScheduledActionsCommandOutput extends DescribeScheduledActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>
  *          <p>You can filter the results using the <code>ResourceId</code>,
  *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
@@ -102,6 +101,7 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To describe scheduled actions
  * ```javascript
  * // This example describes the scheduled actions for the dynamodb service namespace.

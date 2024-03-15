@@ -27,7 +27,6 @@ export interface ListAssociatedFleetsCommandInput extends ListAssociatedFleetsRe
 export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the name of the fleet that is associated with the specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class ListAssociatedFleetsCommand extends $Command
   .classBuilder<

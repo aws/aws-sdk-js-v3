@@ -38,7 +38,6 @@ export interface DescribeInputDeviceThumbnailCommandOutput
 }
 
 /**
- * @public
  * Get the latest thumbnail data for the input device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DescribeInputDeviceThumbnailCommand extends $Command
   .classBuilder<

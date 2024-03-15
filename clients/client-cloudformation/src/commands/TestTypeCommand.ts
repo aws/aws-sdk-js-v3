@@ -27,7 +27,6 @@ export interface TestTypeCommandInput extends TestTypeInput {}
 export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests a registered extension to make sure it meets all necessary requirements for being published in the CloudFormation registry.</p>
  *          <ul>
  *             <li>
@@ -90,6 +89,7 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class TestTypeCommand extends $Command
   .classBuilder<

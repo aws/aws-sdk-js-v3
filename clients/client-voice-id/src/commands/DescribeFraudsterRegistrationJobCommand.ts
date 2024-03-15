@@ -36,7 +36,6 @@ export interface DescribeFraudsterRegistrationJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified fraudster registration job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface DescribeFraudsterRegistrationJobCommandOutput
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DescribeFraudsterRegistrationJobCommand extends $Command
   .classBuilder<

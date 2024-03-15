@@ -27,7 +27,6 @@ export interface StartFaceSearchCommandInput extends StartFaceSearchRequest {}
 export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>
  *          <p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *       and the filename of the video. <code>StartFaceSearch</code>
@@ -117,6 +116,7 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartFaceSearchCommand extends $Command
   .classBuilder<

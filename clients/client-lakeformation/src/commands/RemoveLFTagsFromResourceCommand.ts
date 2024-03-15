@@ -27,7 +27,6 @@ export interface RemoveLFTagsFromResourceCommandInput extends RemoveLFTagsFromRe
 export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an LF-tag from the resource. Only database, table, or tableWithColumns resource are allowed. To tag columns, use the column inclusion list in <code>tableWithColumns</code> to specify column input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -154,6 +153,7 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class RemoveLFTagsFromResourceCommand extends $Command
   .classBuilder<

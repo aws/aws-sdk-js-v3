@@ -31,7 +31,6 @@ export interface GetSigningCertificateCommandInput extends GetSigningCertificate
 export interface GetSigningCertificateCommandOutput extends GetSigningCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This method takes a user pool ID, and returns the signing certificate. The issued
  *             certificate is valid for 10 years from the date of issue.</p>
  *          <p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a
@@ -74,6 +73,7 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetSigningCertificateCommand extends $Command
   .classBuilder<

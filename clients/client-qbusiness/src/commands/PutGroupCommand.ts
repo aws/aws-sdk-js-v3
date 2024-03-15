@@ -27,7 +27,6 @@ export interface PutGroupCommandInput extends PutGroupRequest {}
 export interface PutGroupCommandOutput extends PutGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create, or updates, a mapping of users—who have access to a document—to
  *             groups.</p>
  *          <p>You can also map sub groups to groups. For example, the group "Company Intellectual
@@ -104,6 +103,7 @@ export interface PutGroupCommandOutput extends PutGroupResponse, __MetadataBeare
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class PutGroupCommand extends $Command
   .classBuilder<

@@ -30,9 +30,6 @@ export interface DeleteVoiceConnectorTerminationCommandInput extends DeleteVoice
 export interface DeleteVoiceConnectorTerminationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
- *
  * <p>Deletes the termination settings for the specified Amazon Chime Voice Connector.</p>
  *          <note>
  *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to deleting the termination settings.</p>
@@ -89,6 +86,8 @@ export interface DeleteVoiceConnectorTerminationCommandOutput extends __Metadata
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
  */
 export class DeleteVoiceConnectorTerminationCommand extends $Command
   .classBuilder<

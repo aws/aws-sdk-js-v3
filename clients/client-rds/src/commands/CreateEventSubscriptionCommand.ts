@@ -27,7 +27,6 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an RDS event notification subscription. This operation requires a topic Amazon
  *             Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API.
  *             To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the
@@ -129,6 +128,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create an event subscription
  * ```javascript
  * // The following example creates a subscription for backup and recovery events for DB instances in the current AWS account. Notifications are sent to an Amazon Simple Notification Service topic.

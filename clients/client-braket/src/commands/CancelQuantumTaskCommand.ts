@@ -27,7 +27,6 @@ export interface CancelQuantumTaskCommandInput extends CancelQuantumTaskRequest 
 export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class CancelQuantumTaskCommand extends $Command
   .classBuilder<

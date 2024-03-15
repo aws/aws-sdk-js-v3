@@ -270,7 +270,6 @@ export type Route53RecoveryClusterClientResolvedConfigType = __SmithyResolvedCon
 export interface Route53RecoveryClusterClientResolvedConfig extends Route53RecoveryClusterClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller.</p>
  *          <p>With Route 53 ARC, you can use routing control with extreme reliability to
  * 			recover applications by rerouting traffic across
@@ -311,6 +310,7 @@ export interface Route53RecoveryClusterClientResolvedConfig extends Route53Recov
  * 					recovery readiness with Route 53 ARC, see the <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/">Amazon Route 53 Application Recovery Controller Developer Guide</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Route53RecoveryClusterClient extends __Client<
   __HttpHandlerOptions,

@@ -2996,7 +2996,6 @@ export interface Redshift {
 }
 
 /**
- * @public
  * <fullname>Amazon Redshift</fullname>
  *          <p>
  *             <b>Overview</b>
@@ -3018,6 +3017,7 @@ export interface Redshift {
  *             the <a href="https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html">Amazon Redshift Getting Started Guide</a>.</p>
  *          <p>If you are a database developer, the <a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">Amazon Redshift Database Developer Guide</a> explains how to design,
  *             build, query, and maintain the databases that make up your data warehouse. </p>
+ * @public
  */
 export class Redshift extends RedshiftClient implements Redshift {}
 createAggregatedClient(commands, Redshift);

@@ -28,7 +28,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate a set of tags with a Timestream resource. You can then activate these
  *             user-defined tags so that they appear on the Billing and Cost Management console for
  *             cost allocation tracking. </p>
@@ -77,6 +76,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeEntitlementsCommandInput extends DescribeEntitlementsRe
 export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one of more entitlements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeEntitlementsCommandOutput extends DescribeEntitlementsR
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeEntitlementsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListDetectorModelVersionsCommandInput extends ListDetectorModel
 export interface ListDetectorModelVersionsCommandOutput extends ListDetectorModelVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the versions of a detector model. Only the metadata associated with each
  *       detector model version is returned.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class ListDetectorModelVersionsCommand extends $Command
   .classBuilder<

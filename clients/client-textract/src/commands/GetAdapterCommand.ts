@@ -27,7 +27,6 @@ export interface GetAdapterCommandInput extends GetAdapterRequest {}
 export interface GetAdapterCommandOutput extends GetAdapterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets configuration information for an adapter specified by an AdapterId, returning information on AdapterName, Description,
  *          CreationTime, AutoUpdate status, and FeatureTypes.</p>
  * @example
@@ -93,6 +92,7 @@ export interface GetAdapterCommandOutput extends GetAdapterResponse, __MetadataB
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class GetAdapterCommand extends $Command
   .classBuilder<

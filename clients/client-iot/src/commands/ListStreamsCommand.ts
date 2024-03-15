@@ -27,7 +27,6 @@ export interface ListStreamsCommandInput extends ListStreamsRequest {}
 export interface ListStreamsCommandOutput extends ListStreamsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the streams in your Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListStreams</a> action.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListStreamsCommand extends $Command
   .classBuilder<

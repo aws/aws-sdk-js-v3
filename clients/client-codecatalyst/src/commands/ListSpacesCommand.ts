@@ -27,7 +27,6 @@ export interface ListSpacesCommandInput extends ListSpacesRequest {}
 export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of spaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class ListSpacesCommand extends $Command
   .classBuilder<

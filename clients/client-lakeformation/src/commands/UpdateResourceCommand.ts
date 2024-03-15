@@ -27,7 +27,6 @@ export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the data access role used for vending access to the given (registered) resource in Lake Formation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class UpdateResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListWebhooksCommandInput extends ListWebhooksRequest {}
 export interface ListWebhooksCommandOutput extends ListWebhooksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of webhooks for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class ListWebhooksCommand extends $Command
   .classBuilder<

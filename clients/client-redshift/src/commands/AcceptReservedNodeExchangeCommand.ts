@@ -29,7 +29,6 @@ export interface AcceptReservedNodeExchangeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
  *             configuration (term, payment type, or number of nodes) and no additional costs.
  *         </p>
@@ -101,6 +100,7 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class AcceptReservedNodeExchangeCommand extends $Command
   .classBuilder<

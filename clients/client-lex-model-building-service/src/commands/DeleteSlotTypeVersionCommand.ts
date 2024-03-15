@@ -31,7 +31,6 @@ export interface DeleteSlotTypeVersionCommandInput extends DeleteSlotTypeVersion
 export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific version of a slot type. To delete all versions
  *       of a slot type, use the <a>DeleteSlotType</a> operation. </p>
  *          <p>This operation requires permissions for the
@@ -98,6 +97,7 @@ export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class DeleteSlotTypeVersionCommand extends $Command
   .classBuilder<

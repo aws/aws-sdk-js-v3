@@ -27,7 +27,6 @@ export interface TagInstanceProfileCommandInput extends TagInstanceProfileReques
 export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an IAM instance profile. If a tag with the same key name
  *       already exists, then that tag is overwritten with the new value.</p>
  *          <p>Each tag consists of a key name and an associated value. By assigning tags to your resources, you can do the
@@ -114,6 +113,7 @@ export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class TagInstanceProfileCommand extends $Command
   .classBuilder<

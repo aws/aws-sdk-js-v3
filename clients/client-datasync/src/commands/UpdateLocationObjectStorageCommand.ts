@@ -33,7 +33,6 @@ export interface UpdateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some parameters of an existing object storage location that DataSync
  *       accesses for a transfer. For information about creating a self-managed object storage
  *       location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object
@@ -78,6 +77,7 @@ export interface UpdateLocationObjectStorageCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateLocationObjectStorageCommand extends $Command
   .classBuilder<

@@ -33,7 +33,6 @@ export interface DeleteAccessGrantsInstanceResourcePolicyCommandInput
 export interface DeleteAccessGrantsInstanceResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the resource policy of the S3 Access Grants instance. The resource policy is used to manage cross-account access to your S3 Access Grants instance. By deleting the resource policy, you delete any cross-account permissions to your S3 Access Grants instance. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -65,6 +64,7 @@ export interface DeleteAccessGrantsInstanceResourcePolicyCommandOutput extends _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteAccessGrantsInstanceResourcePolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateConfigurationTemplateCommandInput extends UpdateConfigura
 export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified configuration template to have the specified properties or
  *       configuration option values.</p>
  *          <note>
@@ -108,6 +107,7 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To update a configuration template
  * ```javascript
  * // The following operation removes the configured CloudWatch custom health metrics configuration ConfigDocument from a saved configuration template named my-template:

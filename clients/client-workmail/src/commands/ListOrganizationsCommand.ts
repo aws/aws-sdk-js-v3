@@ -27,7 +27,6 @@ export interface ListOrganizationsCommandInput extends ListOrganizationsRequest 
 export interface ListOrganizationsCommandOutput extends ListOrganizationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summaries of the customer's organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListOrganizationsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListOrganizationalUnitsForParentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -206,6 +205,7 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of all of the child OUs in a parent root or OU
  * ```javascript
  * // The following example shows how to get a list of OUs in a specified root:/n/n

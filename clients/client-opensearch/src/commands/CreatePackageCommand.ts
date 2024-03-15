@@ -27,7 +27,6 @@ export interface CreatePackageCommandInput extends CreatePackageRequest {}
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a package for use with Amazon OpenSearch Service domains. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -104,6 +103,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class CreatePackageCommand extends $Command
   .classBuilder<

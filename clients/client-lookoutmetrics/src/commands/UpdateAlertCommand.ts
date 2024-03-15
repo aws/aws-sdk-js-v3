@@ -27,7 +27,6 @@ export interface UpdateAlertCommandInput extends UpdateAlertRequest {}
 export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Make changes to an existing alert.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface UpdateAlertCommandOutput extends UpdateAlertResponse, __Metadat
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class UpdateAlertCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage 
 export interface AddTagsToResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags
  *             to categorize and track all your ElastiCache resources, with the exception of global
  *             replication group. When you add or remove tags on replication groups, those actions will
@@ -131,6 +130,7 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example AddTagsToResource
  * ```javascript
  * // Adds up to 10 tags, key/value pairs, to a cluster or snapshot resource.

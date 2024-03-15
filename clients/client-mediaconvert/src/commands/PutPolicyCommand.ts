@@ -27,7 +27,6 @@ export interface PutPolicyCommandInput extends PutPolicyRequest {}
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create or change your policy. For more information about policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class PutPolicyCommand extends $Command
   .classBuilder<

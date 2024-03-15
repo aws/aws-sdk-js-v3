@@ -27,7 +27,6 @@ export interface SearchDataSourcesCommandInput extends SearchDataSourcesRequest 
 export interface SearchDataSourcesCommandOutput extends SearchDataSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use the <code>SearchDataSources</code> operation to search for data sources that belong to an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface SearchDataSourcesCommandOutput extends SearchDataSourcesRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class SearchDataSourcesCommand extends $Command
   .classBuilder<

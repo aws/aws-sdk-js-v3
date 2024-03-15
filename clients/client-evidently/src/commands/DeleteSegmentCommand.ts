@@ -27,7 +27,6 @@ export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
 export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a segment. You can't delete a segment that is being used in a launch or experiment, even if that
  *     launch or experiment is not currently running.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class DeleteSegmentCommand extends $Command
   .classBuilder<

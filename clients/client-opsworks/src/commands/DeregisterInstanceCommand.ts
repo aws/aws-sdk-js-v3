@@ -27,7 +27,6 @@ export interface DeregisterInstanceCommandInput extends DeregisterInstanceReques
 export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregister a registered Amazon EC2 or on-premises instance. This action removes the
  *           instance from the stack and returns it to your control. This action cannot be used with
  *           instances that were created with AWS OpsWorks Stacks.</p>
@@ -66,6 +65,7 @@ export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeregisterInstanceCommand extends $Command
   .classBuilder<

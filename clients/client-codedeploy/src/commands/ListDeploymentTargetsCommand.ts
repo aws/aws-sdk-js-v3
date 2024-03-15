@@ -27,7 +27,6 @@ export interface ListDeploymentTargetsCommandInput extends ListDeploymentTargets
 export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns an array of target IDs that are associated a deployment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class ListDeploymentTargetsCommand extends $Command
   .classBuilder<

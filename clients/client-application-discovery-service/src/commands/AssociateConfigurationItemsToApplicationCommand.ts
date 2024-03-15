@@ -40,7 +40,6 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates one or more configuration items with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class AssociateConfigurationItemsToApplicationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RemoveBridgeOutputCommandInput extends RemoveBridgeOutputReques
 export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputResponse, __MetadataBearer {}
 
 /**
- * @public
  * Removes an output from a bridge.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class RemoveBridgeOutputCommand extends $Command
   .classBuilder<

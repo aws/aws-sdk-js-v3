@@ -27,7 +27,6 @@ export interface DescribeStatementCommandInput extends DescribeStatementRequest 
 export interface DescribeStatementCommandOutput extends DescribeStatementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information
  *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
  *       statement. </p>
@@ -106,6 +105,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class DescribeStatementCommand extends $Command
   .classBuilder<

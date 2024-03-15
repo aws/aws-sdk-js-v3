@@ -27,7 +27,6 @@ export interface GetSendStatisticsCommandInput {}
 export interface GetSendStatisticsCommandOutput extends GetSendStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides sending statistics for the current Amazon Web Services Region. The result is a list of data
  *             points, representing the last two weeks of sending activity. Each data point in the list
  *             contains statistics for a 15-minute period of time.</p>
@@ -64,6 +63,7 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetSendStatistics
  * ```javascript
  * // The following example returns Amazon SES sending statistics:

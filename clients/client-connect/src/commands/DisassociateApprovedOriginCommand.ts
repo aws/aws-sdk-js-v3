@@ -27,7 +27,6 @@ export interface DisassociateApprovedOriginCommandInput extends DisassociateAppr
 export interface DisassociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Revokes access to integrated applications from Amazon Connect.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateApprovedOriginCommand extends $Command
   .classBuilder<

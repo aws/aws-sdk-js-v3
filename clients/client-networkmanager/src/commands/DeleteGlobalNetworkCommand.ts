@@ -27,7 +27,6 @@ export interface DeleteGlobalNetworkCommandInput extends DeleteGlobalNetworkRequ
 export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing global network. You must first delete all global network objects
  *             (devices, links, and sites), deregister all transit gateways, and delete any core networks.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteGlobalNetworkCommand extends $Command
   .classBuilder<

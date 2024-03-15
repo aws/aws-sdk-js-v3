@@ -27,7 +27,6 @@ export interface BatchPutMetricsCommandInput extends BatchPutMetricsRequest {}
 export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio and
  *          retrieved with the <code>GetMetrics</code> API.
  *       </p>
@@ -70,6 +69,7 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * @throws {@link SageMakerMetricsServiceException}
  * <p>Base exception class for all service exceptions from SageMakerMetrics service.</p>
  *
+ * @public
  */
 export class BatchPutMetricsCommand extends $Command
   .classBuilder<

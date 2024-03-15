@@ -27,7 +27,6 @@ export interface LabelParameterVersionCommandInput extends LabelParameterVersion
 export interface LabelParameterVersionCommandOutput extends LabelParameterVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A parameter label is a user-defined alias to help you manage different versions of a
  *    parameter. When you modify a parameter, Amazon Web Services Systems Manager automatically saves a new version and
  *    increments the version number by one. A label can help you remember the purpose of a parameter
@@ -114,6 +113,7 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class LabelParameterVersionCommand extends $Command
   .classBuilder<

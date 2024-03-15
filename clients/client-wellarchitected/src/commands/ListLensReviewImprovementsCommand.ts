@@ -27,7 +27,6 @@ export interface ListLensReviewImprovementsCommandInput extends ListLensReviewIm
 export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewImprovementsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List lens review improvements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListLensReviewImprovementsCommand extends $Command
   .classBuilder<

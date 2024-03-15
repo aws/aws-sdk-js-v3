@@ -27,7 +27,6 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DataBrew project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

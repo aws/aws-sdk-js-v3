@@ -27,7 +27,6 @@ export interface ListLexiconsCommandInput extends ListLexiconsInput {}
 export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  * @example To list all lexicons in a region
  * ```javascript
  * // Returns a list of pronunciation lexicons stored in an AWS Region.

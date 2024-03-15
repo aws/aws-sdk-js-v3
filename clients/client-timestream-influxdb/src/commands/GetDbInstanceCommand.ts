@@ -31,7 +31,6 @@ export interface GetDbInstanceCommandInput extends GetDbInstanceInput {}
 export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a Timestream for InfluxDB DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * @public
  */
 export class GetDbInstanceCommand extends $Command
   .classBuilder<

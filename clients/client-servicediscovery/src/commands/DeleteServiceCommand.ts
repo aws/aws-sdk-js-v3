@@ -27,7 +27,6 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified service. If the service still contains one or more registered instances,
  *    the request fails.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Delete service
  * ```javascript
  * // Example: Delete service

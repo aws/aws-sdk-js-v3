@@ -27,7 +27,6 @@ export interface RollbackTransactionCommandInput extends RollbackTransactionRequ
 export interface RollbackTransactionCommandOutput extends RollbackTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * @public
  */
 export class RollbackTransactionCommand extends $Command
   .classBuilder<

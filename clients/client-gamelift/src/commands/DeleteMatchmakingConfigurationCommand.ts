@@ -32,7 +32,6 @@ export interface DeleteMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently removes a FlexMatch matchmaking configuration. To delete, specify the
  *             configuration name. A matchmaking configuration cannot be deleted if it is being used in
  *             any active matchmaking tickets.</p>
@@ -79,6 +78,7 @@ export interface DeleteMatchmakingConfigurationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteMatchmakingConfigurationCommand extends $Command
   .classBuilder<

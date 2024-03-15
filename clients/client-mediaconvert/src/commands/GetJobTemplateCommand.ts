@@ -27,7 +27,6 @@ export interface GetJobTemplateCommandInput extends GetJobTemplateRequest {}
 export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve the JSON for a specific job template.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1512,6 +1511,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class GetJobTemplateCommand extends $Command
   .classBuilder<

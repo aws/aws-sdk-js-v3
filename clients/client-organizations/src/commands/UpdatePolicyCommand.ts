@@ -27,7 +27,6 @@ export interface UpdatePolicyCommandInput extends UpdatePolicyRequest {}
 export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing policy with a new name, description, or content. If you don't
  *             supply any parameter, that value remains unchanged. You can't change a policy's
  *             type.</p>
@@ -417,6 +416,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To update the details of a policy
  * ```javascript
  * // The following example shows how to rename a policy and give it a new description and new content. The output confirms the new name and description text:/n/n

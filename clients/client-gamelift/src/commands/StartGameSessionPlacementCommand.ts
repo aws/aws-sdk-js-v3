@@ -32,7 +32,6 @@ export interface StartGameSessionPlacementCommandInput extends StartGameSessionP
 export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Places a request for a new game session in a queue. When processing a placement
  *             request, Amazon GameLift searches for available resources on the queue's destinations, scanning
  *             each until it finds resources or the placement request times out.</p>
@@ -171,6 +170,7 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class StartGameSessionPlacementCommand extends $Command
   .classBuilder<

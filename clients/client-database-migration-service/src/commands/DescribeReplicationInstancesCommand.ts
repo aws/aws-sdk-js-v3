@@ -36,7 +36,6 @@ export interface DescribeReplicationInstancesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about replication instances for your account in the current
  *          region.</p>
  * @example
@@ -140,6 +139,7 @@ export interface DescribeReplicationInstancesCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe replication instances
  * ```javascript
  * // Returns the status of the refresh-schemas operation.

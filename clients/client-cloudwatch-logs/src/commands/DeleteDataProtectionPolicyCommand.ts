@@ -27,7 +27,6 @@ export interface DeleteDataProtectionPolicyCommandInput extends DeleteDataProtec
 export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the data protection policy from the specified log group. </p>
  *          <p>For more information about data protection policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBeare
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteDataProtectionPolicyCommand extends $Command
   .classBuilder<

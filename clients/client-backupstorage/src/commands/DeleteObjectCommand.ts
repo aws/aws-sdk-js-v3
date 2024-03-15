@@ -27,7 +27,6 @@ export interface DeleteObjectCommandInput extends DeleteObjectInput {}
 export interface DeleteObjectCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Delete Object from the incremental base Backup.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class DeleteObjectCommand extends $Command
   .classBuilder<

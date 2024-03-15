@@ -27,7 +27,6 @@ export interface GetControlCommandInput extends GetControlRequest {}
 export interface GetControlCommandOutput extends GetControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets information about a specified control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetControlCommand extends $Command
   .classBuilder<

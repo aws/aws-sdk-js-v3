@@ -27,7 +27,6 @@ export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata about the images in a repository.</p>
  *          <note>
  *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
@@ -113,6 +112,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DescribeImagesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SignalWorkflowExecutionCommandInput extends SignalWorkflowExecu
 export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Records a <code>WorkflowExecutionSignaled</code> event in the workflow execution
  *       history and creates a decision task for the workflow execution identified by the given domain,
  *       workflowId and runId. The event is recorded with the specified user defined signalName and
@@ -98,6 +97,7 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class SignalWorkflowExecutionCommand extends $Command
   .classBuilder<

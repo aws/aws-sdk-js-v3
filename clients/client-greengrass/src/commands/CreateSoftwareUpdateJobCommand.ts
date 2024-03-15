@@ -27,7 +27,6 @@ export interface CreateSoftwareUpdateJobCommandInput extends CreateSoftwareUpdat
 export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpdateJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateSoftwareUpdateJobCommand extends $Command
   .classBuilder<

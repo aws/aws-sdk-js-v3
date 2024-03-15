@@ -27,7 +27,6 @@ export interface GetAuthorizationTokenCommandInput extends GetAuthorizationToken
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Generates a temporary authorization token for accessing repositories in the domain.
  *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
@@ -101,6 +100,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class GetAuthorizationTokenCommand extends $Command
   .classBuilder<

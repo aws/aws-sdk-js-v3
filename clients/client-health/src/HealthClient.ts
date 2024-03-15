@@ -324,7 +324,6 @@ export type HealthClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface HealthClientResolvedConfig extends HealthClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Health</fullname>
  *          <p>The Health API provides access to the Health information that appears in the
  *             <a href="https://health.aws.amazon.com/health/home">Health Dashboard</a>. You can use
@@ -368,6 +367,7 @@ export interface HealthClientResolvedConfig extends HealthClientResolvedConfigTy
  *                </li>
  *             </ul>
  *          </note>
+ * @public
  */
 export class HealthClient extends __Client<
   __HttpHandlerOptions,

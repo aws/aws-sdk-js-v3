@@ -35,7 +35,6 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an organization’s member account as the CloudTrail <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-delegated-administrator.html">delegated administrator</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class RegisterOrganizationDelegatedAdminCommand extends $Command
   .classBuilder<

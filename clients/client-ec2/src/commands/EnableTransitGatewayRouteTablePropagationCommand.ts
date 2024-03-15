@@ -36,7 +36,6 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the specified attachment to propagate routes to the specified
  *          propagation route table.</p>
  * @example
@@ -75,6 +74,7 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableTransitGatewayRouteTablePropagationCommand extends $Command
   .classBuilder<

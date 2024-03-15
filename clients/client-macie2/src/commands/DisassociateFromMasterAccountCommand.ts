@@ -32,7 +32,6 @@ export interface DisassociateFromMasterAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link  linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DisassociateFromMasterAccountCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DisassociateFromMasterAccountCommand extends $Command
   .classBuilder<

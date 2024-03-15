@@ -27,7 +27,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends Applications, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all applications in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list the available applications
  * ```javascript
  * // The following list-applications example lists the available applications in your AWS account.

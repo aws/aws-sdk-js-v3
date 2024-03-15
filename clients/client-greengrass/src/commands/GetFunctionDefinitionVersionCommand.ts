@@ -32,7 +32,6 @@ export interface GetFunctionDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface GetFunctionDefinitionVersionCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetFunctionDefinitionVersionCommand extends $Command
   .classBuilder<

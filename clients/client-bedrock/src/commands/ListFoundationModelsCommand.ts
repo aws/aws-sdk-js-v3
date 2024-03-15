@@ -27,7 +27,6 @@ export interface ListFoundationModelsCommandInput extends ListFoundationModelsRe
 export interface ListFoundationModelsCommandOutput extends ListFoundationModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List of Amazon Bedrock foundation models that you can use. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html">Foundation models</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class ListFoundationModelsCommand extends $Command
   .classBuilder<

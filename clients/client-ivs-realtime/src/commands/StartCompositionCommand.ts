@@ -27,7 +27,6 @@ export interface StartCompositionCommandInput extends StartCompositionRequest {}
 export interface StartCompositionCommandOutput extends StartCompositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a Composition from a stage based on the configuration provided in the
  *          request.</p>
  *          <p>A Composition is an ephemeral resource that exists after this endpoint returns
@@ -201,6 +200,7 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class StartCompositionCommand extends $Command
   .classBuilder<

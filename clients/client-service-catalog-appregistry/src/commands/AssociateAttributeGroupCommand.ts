@@ -31,7 +31,6 @@ export interface AssociateAttributeGroupCommandInput extends AssociateAttributeG
 export interface AssociateAttributeGroupCommandOutput extends AssociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an attribute group with an application to augment the application's metadata
  *       with the group's attributes. This feature enables applications to be described with
  *       user-defined details that are machine-readable, such as third-party integrations.</p>
@@ -82,6 +81,7 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class AssociateAttributeGroupCommand extends $Command
   .classBuilder<

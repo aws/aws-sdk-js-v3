@@ -27,7 +27,6 @@ export interface GetLayoutCommandInput extends GetLayoutRequest {}
 export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details for the requested layout.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface GetLayoutCommandOutput extends GetLayoutResponse, __MetadataBea
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class GetLayoutCommand extends $Command
   .classBuilder<

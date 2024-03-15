@@ -31,7 +31,6 @@ export interface SetUserPoolMfaConfigCommandInput extends SetUserPoolMfaConfigRe
 export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the user pool multi-factor authentication (MFA) configuration.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
@@ -131,6 +130,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class SetUserPoolMfaConfigCommand extends $Command
   .classBuilder<

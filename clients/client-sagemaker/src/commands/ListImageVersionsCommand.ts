@@ -27,7 +27,6 @@ export interface ListImageVersionsCommandInput extends ListImageVersionsRequest 
 export interface ListImageVersionsCommandOutput extends ListImageVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the versions of a specified image and their properties. The list can be filtered
  *         by creation time or modified time.</p>
  * @example
@@ -78,6 +77,7 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListImageVersionsCommand extends $Command
   .classBuilder<

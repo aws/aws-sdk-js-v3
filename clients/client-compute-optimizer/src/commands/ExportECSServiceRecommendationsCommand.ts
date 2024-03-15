@@ -32,7 +32,6 @@ export interface ExportECSServiceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Exports optimization recommendations for Amazon ECS services on Fargate.
  *         </p>
@@ -116,6 +115,7 @@ export interface ExportECSServiceRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class ExportECSServiceRecommendationsCommand extends $Command
   .classBuilder<

@@ -19,32 +19,32 @@ export const RecoveryOptionNameType = {
 export type RecoveryOptionNameType = (typeof RecoveryOptionNameType)[keyof typeof RecoveryOptionNameType];
 
 /**
- * @public
  * <p>A map containing a priority as a key, and recovery method name as a value.</p>
+ * @public
  */
 export interface RecoveryOptionType {
   /**
-   * @public
    * <p>A positive integer specifying priority of a method with 1 being the highest
    *             priority.</p>
+   * @public
    */
   Priority: number | undefined;
 
   /**
-   * @public
    * <p>The recovery method for a user.</p>
+   * @public
    */
   Name: RecoveryOptionNameType | undefined;
 }
 
 /**
- * @public
  * <p>The data type for <code>AccountRecoverySetting</code>.</p>
+ * @public
  */
 export interface AccountRecoverySettingType {
   /**
-   * @public
    * <p>The list of <code>RecoveryOptionTypes</code>.</p>
+   * @public
    */
   RecoveryMechanisms?: RecoveryOptionType[];
 }
@@ -67,18 +67,17 @@ export type AccountTakeoverEventActionType =
   (typeof AccountTakeoverEventActionType)[keyof typeof AccountTakeoverEventActionType];
 
 /**
- * @public
  * <p>Account takeover action type.</p>
+ * @public
  */
 export interface AccountTakeoverActionType {
   /**
-   * @public
    * <p>Flag specifying whether to send a notification.</p>
+   * @public
    */
   Notify: boolean | undefined;
 
   /**
-   * @public
    * <p>The action to take in response to the account takeover action. Valid values are as
    *             follows:</p>
    *          <ul>
@@ -101,119 +100,120 @@ export interface AccountTakeoverActionType {
    *                   <code>NO_ACTION</code> Allow the user to sign in.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   EventAction: AccountTakeoverEventActionType | undefined;
 }
 
 /**
- * @public
  * <p>Account takeover actions type.</p>
+ * @public
  */
 export interface AccountTakeoverActionsType {
   /**
-   * @public
    * <p>Action to take for a low risk.</p>
+   * @public
    */
   LowAction?: AccountTakeoverActionType;
 
   /**
-   * @public
    * <p>Action to take for a medium risk.</p>
+   * @public
    */
   MediumAction?: AccountTakeoverActionType;
 
   /**
-   * @public
    * <p>Action to take for a high risk.</p>
+   * @public
    */
   HighAction?: AccountTakeoverActionType;
 }
 
 /**
- * @public
  * <p>The notify email type.</p>
+ * @public
  */
 export interface NotifyEmailType {
   /**
-   * @public
    * <p>The email subject.</p>
+   * @public
    */
   Subject: string | undefined;
 
   /**
-   * @public
    * <p>The email HTML body.</p>
+   * @public
    */
   HtmlBody?: string;
 
   /**
-   * @public
    * <p>The email text body.</p>
+   * @public
    */
   TextBody?: string;
 }
 
 /**
- * @public
  * <p>The notify configuration type.</p>
+ * @public
  */
 export interface NotifyConfigurationType {
   /**
-   * @public
    * <p>The email address that is sending the email. The address must be either individually
    *             verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.</p>
+   * @public
    */
   From?: string;
 
   /**
-   * @public
    * <p>The destination to which the receiver of an email should reply to.</p>
+   * @public
    */
   ReplyTo?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the identity that is associated with the sending
    *             authorization policy. This identity permits Amazon Cognito to send for the email address
    *             specified in the <code>From</code> parameter.</p>
+   * @public
    */
   SourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Email template used when a detected risk event is blocked.</p>
+   * @public
    */
   BlockEmail?: NotifyEmailType;
 
   /**
-   * @public
    * <p>The email template used when a detected risk event is allowed.</p>
+   * @public
    */
   NoActionEmail?: NotifyEmailType;
 
   /**
-   * @public
    * <p>The multi-factor authentication (MFA) email template used when MFA is challenged as
    *             part of a detected risk.</p>
+   * @public
    */
   MfaEmail?: NotifyEmailType;
 }
 
 /**
- * @public
  * <p>Configuration for mitigation actions and notification for different levels of risk
  *             detected for a potential account takeover.</p>
+ * @public
  */
 export interface AccountTakeoverRiskConfigurationType {
   /**
-   * @public
    * <p>The notify configuration used to construct email notifications.</p>
+   * @public
    */
   NotifyConfiguration?: NotifyConfigurationType;
 
   /**
-   * @public
    * <p>Account takeover risk configuration actions.</p>
+   * @public
    */
   Actions: AccountTakeoverActionsType | undefined;
 }
@@ -235,47 +235,46 @@ export const AttributeDataType = {
 export type AttributeDataType = (typeof AttributeDataType)[keyof typeof AttributeDataType];
 
 /**
- * @public
  * <p>The minimum and maximum values of an attribute that is of the number data type.</p>
+ * @public
  */
 export interface NumberAttributeConstraintsType {
   /**
-   * @public
    * <p>The minimum value of an attribute that is of the number data type.</p>
+   * @public
    */
   MinValue?: string;
 
   /**
-   * @public
    * <p>The maximum length of a number attribute value. Must be a number less than or equal to
    *             <code>2^1023</code>, represented as a string with a length of 131072 characters or
    *             fewer.</p>
+   * @public
    */
   MaxValue?: string;
 }
 
 /**
- * @public
  * <p>The constraints associated with a string attribute.</p>
+ * @public
  */
 export interface StringAttributeConstraintsType {
   /**
-   * @public
    * <p>The minimum length.</p>
+   * @public
    */
   MinLength?: string;
 
   /**
-   * @public
    * <p>The maximum length of a string attribute value. Must be a number less than or equal to
    *             <code>2^1023</code>, represented as a string with a length of 131072 characters or
    *             fewer.</p>
+   * @public
    */
   MaxLength?: string;
 }
 
 /**
- * @public
  * <p>A list of the user attributes and their properties in your user pool. The attribute
  *             schema contains standard attributes, custom attributes with a <code>custom:</code>
  *             prefix, and developer attributes with a <code>dev:</code> prefix. For more information,
@@ -284,10 +283,10 @@ export interface StringAttributeConstraintsType {
  *          <p>Developer-only attributes are a legacy feature of user pools, are read-only to all app
  *             clients. You can create and update developer-only attributes only with IAM-authenticated
  *             API operations. Use app client read/write permissions instead.</p>
+ * @public
  */
 export interface SchemaAttributeType {
   /**
-   * @public
    * <p>The name of your user pool attribute. When you create or update a user pool, adding a
    *             schema attribute creates a custom or developer-only attribute. When you add an attribute
    *             with a <code>Name</code> value of <code>MyAttribute</code>, Amazon Cognito creates the custom
@@ -296,21 +295,21 @@ export interface SchemaAttributeType {
    *             an operation that describes a user pool, Amazon Cognito returns this value as <code>value</code>
    *             for standard attributes, <code>custom:value</code> for custom attributes, and
    *                 <code>dev:value</code> for developer-only attributes..</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The data format of the values for your attribute. When you choose an
    *                 <code>AttributeDataType</code>, Amazon Cognito validates the input against the data type. A
    *             custom attribute value in your user's ID token is always a string, for example
    *                 <code>"custom:isMember" : "true"</code> or <code>"custom:YearsAsMember" :
    *                 "12"</code>. </p>
+   * @public
    */
   AttributeDataType?: AttributeDataType;
 
   /**
-   * @public
    * <note>
    *             <p>You should use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes">WriteAttributes</a> in the user pool client to control how attributes can
    *                 be mutated for new use cases instead of using
@@ -320,68 +319,69 @@ export interface SchemaAttributeType {
    *             modified by an administrator. Users won't be able to modify this attribute using their
    *             access token. For example, <code>DeveloperOnlyAttribute</code> can be modified using
    *             AdminUpdateUserAttributes but can't be updated using UpdateUserAttributes.</p>
+   * @public
    */
   DeveloperOnlyAttribute?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether the value of the attribute can be changed.</p>
    *          <p>Any user pool attribute whose value you map from an IdP attribute must be mutable,
    *             with a parameter value of <code>true</code>. Amazon Cognito updates mapped attributes when users
    *             sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws
    *             an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User
    *                 Pool</a>.</p>
+   * @public
    */
   Mutable?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether a user pool attribute is required. If the attribute is required and
    *             the user doesn't provide a value, registration or sign-in will fail.</p>
+   * @public
    */
   Required?: boolean;
 
   /**
-   * @public
    * <p>Specifies the constraints for an attribute of the number type.</p>
+   * @public
    */
   NumberAttributeConstraints?: NumberAttributeConstraintsType;
 
   /**
-   * @public
    * <p>Specifies the constraints for an attribute of the string type.</p>
+   * @public
    */
   StringAttributeConstraints?: StringAttributeConstraintsType;
 }
 
 /**
- * @public
  * <p>Represents the request to add custom attributes.</p>
+ * @public
  */
 export interface AddCustomAttributesRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to add custom attributes.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>An array of custom attributes, such as Mutable and Name.</p>
+   * @public
    */
   CustomAttributes: SchemaAttributeType[] | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server for the request to add custom
  *             attributes.</p>
+ * @public
  */
 export interface AddCustomAttributesResponse {}
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ * @public
  */
 export class InternalErrorException extends __BaseException {
   readonly name: "InternalErrorException" = "InternalErrorException";
@@ -400,9 +400,9 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             parameter.</p>
+ * @public
  */
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
@@ -421,8 +421,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when a user isn't authorized.</p>
+ * @public
  */
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
@@ -441,9 +441,9 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -462,9 +462,9 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
@@ -483,9 +483,9 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when you're trying to modify a user pool while a user import
  *             job is in progress for that pool.</p>
+ * @public
  */
 export class UserImportInProgressException extends __BaseException {
   readonly name: "UserImportInProgressException" = "UserImportInProgressException";
@@ -508,31 +508,31 @@ export class UserImportInProgressException extends __BaseException {
  */
 export interface AdminAddUserToGroupRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The name of the group that you want to add your user to.</p>
+   * @public
    */
   GroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>This exception is thrown when a user isn't found.</p>
+ * @public
  */
 export class UserNotFoundException extends __BaseException {
   readonly name: "UserNotFoundException" = "UserNotFoundException";
@@ -551,28 +551,27 @@ export class UserNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Confirm a user's registration as a user pool administrator.</p>
+ * @public
  */
 export interface AdminConfirmSignUpRequest {
   /**
-   * @public
    * <p>The user pool ID for which you want to confirm user registration.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>If your user pool configuration includes triggers, the AdminConfirmSignUp API action
@@ -604,20 +603,21 @@ export interface AdminConfirmSignUpRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Represents the response from the server for the request to confirm
  *             registration.</p>
+ * @public
  */
 export interface AdminConfirmSignUpResponse {}
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ * @public
  */
 export class InvalidLambdaResponseException extends __BaseException {
   readonly name: "InvalidLambdaResponseException" = "InvalidLambdaResponseException";
@@ -636,9 +636,9 @@ export class InvalidLambdaResponseException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
  *             resource.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -657,9 +657,9 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the user has made too many failed attempts for a given
  *             action, such as sign-in.</p>
+ * @public
  */
 export class TooManyFailedAttemptsException extends __BaseException {
   readonly name: "TooManyFailedAttemptsException" = "TooManyFailedAttemptsException";
@@ -678,9 +678,9 @@ export class TooManyFailedAttemptsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
  *             Lambda.</p>
+ * @public
  */
 export class UnexpectedLambdaException extends __BaseException {
   readonly name: "UnexpectedLambdaException" = "UnexpectedLambdaException";
@@ -699,9 +699,9 @@ export class UnexpectedLambdaException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
  *             with the Lambda service.</p>
+ * @public
  */
 export class UserLambdaValidationException extends __BaseException {
   readonly name: "UserLambdaValidationException" = "UserLambdaValidationException";
@@ -748,36 +748,35 @@ export const MessageActionType = {
 export type MessageActionType = (typeof MessageActionType)[keyof typeof MessageActionType];
 
 /**
- * @public
  * <p>Specifies whether the attribute is standard or custom.</p>
+ * @public
  */
 export interface AttributeType {
   /**
-   * @public
    * <p>The name of the attribute.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The value of the attribute.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Represents the request to create a user in the specified user pool.</p>
+ * @public
  */
 export interface AdminCreateUserRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where the user will be created.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The value that you want to set as the username sign-in attribute. The following
    *             conditions apply to the username parameter.</p>
    *          <ul>
@@ -795,11 +794,11 @@ export interface AdminCreateUserRequest {
    *                     information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing sign-in attributes</a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>An array of name-value pairs that contain user attributes and attribute values to be
    *             set for the user to be created. You can create a user without specifying any attributes
    *             other than <code>Username</code>. However, any attributes that you specify as required
@@ -834,11 +833,11 @@ export interface AdminCreateUserRequest {
    *                     parameter.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   UserAttributes?: AttributeType[];
 
   /**
-   * @public
    * <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
    *     trigger. This set of key-value pairs are for custom validation of information that you
    *     collect from your users but don't need to retain.</p>
@@ -848,11 +847,11 @@ export interface AdminCreateUserRequest {
    *     to Amazon Cognito, like automatically confirming the user if they sign up from within your
    *     network.</p>
    *          <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
+   * @public
    */
   ValidationData?: AttributeType[];
 
   /**
-   * @public
    * <p>The user's temporary password. This password must conform to the password policy that
    *             you specified when you created the user pool.</p>
    *          <p>The temporary password is valid only once. To complete the Admin Create User flow, the
@@ -864,11 +863,11 @@ export interface AdminCreateUserRequest {
    *             you set for your user pool. To reset the account after that time limit, you must call
    *                 <code>AdminCreateUser</code> again and specify <code>RESEND</code> for the
    *                 <code>MessageAction</code> parameter.</p>
+   * @public
    */
   TemporaryPassword?: string;
 
   /**
-   * @public
    * <p>This parameter is used only if the <code>phone_number_verified</code> or
    *                 <code>email_verified</code> attribute is set to <code>True</code>. Otherwise, it is
    *             ignored.</p>
@@ -879,28 +878,28 @@ export interface AdminCreateUserRequest {
    *          <p>If this parameter is set to <code>False</code>, the API throws an
    *                 <code>AliasExistsException</code> error if the alias already exists. The default
    *             value is <code>False</code>.</p>
+   * @public
    */
   ForceAliasCreation?: boolean;
 
   /**
-   * @public
    * <p>Set to <code>RESEND</code> to resend the invitation message to a user that already
    *             exists and reset the expiration limit on the user's account. Set to
    *                 <code>SUPPRESS</code> to suppress sending the message. You can specify only one
    *             value.</p>
+   * @public
    */
   MessageAction?: MessageActionType;
 
   /**
-   * @public
    * <p>Specify <code>"EMAIL"</code> if email will be used to send the welcome message.
    *             Specify <code>"SMS"</code> if the phone number will be used. The default value is
    *                 <code>"SMS"</code>. You can specify more than one value.</p>
+   * @public
    */
   DesiredDeliveryMediums?: DeliveryMediumType[];
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
@@ -932,29 +931,30 @@ export interface AdminCreateUserRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>
  *             <i>This data type is no longer supported.</i> Applies only to SMS
  *             multi-factor authentication (MFA) configurations. Does not apply to time-based one-time
  *             password (TOTP) software token MFA configurations.</p>
+ * @public
  */
 export interface MFAOptionType {
   /**
-   * @public
    * <p>The delivery medium to send the MFA code. You can use this parameter to set only the
    *                 <code>SMS</code> delivery medium value.</p>
+   * @public
    */
   DeliveryMedium?: DeliveryMediumType;
 
   /**
-   * @public
    * <p>The attribute name of the MFA option type. The only valid value is
    *                 <code>phone_number</code>.</p>
+   * @public
    */
   AttributeName?: string;
 }
@@ -979,42 +979,41 @@ export const UserStatusType = {
 export type UserStatusType = (typeof UserStatusType)[keyof typeof UserStatusType];
 
 /**
- * @public
  * <p>A user profile in a Amazon Cognito user pool.</p>
+ * @public
  */
 export interface UserType {
   /**
-   * @public
    * <p>The user name of the user you want to describe.</p>
+   * @public
    */
   Username?: string;
 
   /**
-   * @public
    * <p>A container with information about the user type attributes.</p>
+   * @public
    */
   Attributes?: AttributeType[];
 
   /**
-   * @public
    * <p>The creation date of the user.</p>
+   * @public
    */
   UserCreateDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   UserLastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>Specifies whether the user is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The user status. This can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -1039,32 +1038,33 @@ export interface UserType {
    *                     a new value before doing anything else. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   UserStatus?: UserStatusType;
 
   /**
-   * @public
    * <p>The MFA options for the user.</p>
+   * @public
    */
   MFAOptions?: MFAOptionType[];
 }
 
 /**
- * @public
  * <p>Represents the response from the server to the request to create the user.</p>
+ * @public
  */
 export interface AdminCreateUserResponse {
   /**
-   * @public
    * <p>The newly created user.</p>
+   * @public
    */
   User?: UserType;
 }
 
 /**
- * @public
  * <p>This exception is thrown when a verification code fails to deliver
  *             successfully.</p>
+ * @public
  */
 export class CodeDeliveryFailureException extends __BaseException {
   readonly name: "CodeDeliveryFailureException" = "CodeDeliveryFailureException";
@@ -1083,8 +1083,8 @@ export class CodeDeliveryFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
+ * @public
  */
 export class InvalidPasswordException extends __BaseException {
   readonly name: "InvalidPasswordException" = "InvalidPasswordException";
@@ -1103,9 +1103,9 @@ export class InvalidPasswordException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is returned when the role provided for SMS configuration doesn't have
  *             permission to publish using Amazon SNS.</p>
+ * @public
  */
 export class InvalidSmsRoleAccessPolicyException extends __BaseException {
   readonly name: "InvalidSmsRoleAccessPolicyException" = "InvalidSmsRoleAccessPolicyException";
@@ -1124,11 +1124,11 @@ export class InvalidSmsRoleAccessPolicyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
  *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
+ * @public
  */
 export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
   readonly name: "InvalidSmsRoleTrustRelationshipException" = "InvalidSmsRoleTrustRelationshipException";
@@ -1147,8 +1147,8 @@ export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when a precondition is not met.</p>
+ * @public
  */
 export class PreconditionNotMetException extends __BaseException {
   readonly name: "PreconditionNotMetException" = "PreconditionNotMetException";
@@ -1167,8 +1167,8 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request failed because the user is in an unsupported state.</p>
+ * @public
  */
 export class UnsupportedUserStateException extends __BaseException {
   readonly name: "UnsupportedUserStateException" = "UnsupportedUserStateException";
@@ -1187,9 +1187,9 @@ export class UnsupportedUserStateException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito encounters a user name that already
  *             exists in the user pool.</p>
+ * @public
  */
 export class UsernameExistsException extends __BaseException {
   readonly name: "UsernameExistsException" = "UsernameExistsException";
@@ -1208,43 +1208,42 @@ export class UsernameExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The message template structure.</p>
+ * @public
  */
 export interface MessageTemplateType {
   /**
-   * @public
    * <p>The message template for SMS messages.</p>
+   * @public
    */
   SMSMessage?: string;
 
   /**
-   * @public
    * <p>The message template for email messages. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+   * @public
    */
   EmailMessage?: string;
 
   /**
-   * @public
    * <p>The subject line for email messages. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+   * @public
    */
   EmailSubject?: string;
 }
 
 /**
- * @public
  * <p>The configuration for creating a new user profile.</p>
+ * @public
  */
 export interface AdminCreateUserConfigType {
   /**
-   * @public
    * <p>Set to <code>True</code> if only the administrator is allowed to create user profiles.
    *             Set to <code>False</code> if users can sign themselves up via an app.</p>
+   * @public
    */
   AllowAdminCreateUserOnly?: boolean;
 
   /**
-   * @public
    * <p>The user account expiration limit, in days, after which a new account that hasn't
    *             signed in is no longer usable. To reset the account after that time limit, you must call
    *                 <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the
@@ -1256,97 +1255,98 @@ export interface AdminCreateUserConfigType {
    *                     <code>UnusedAccountValidityDays</code> will be no longer be an available
    *                 parameter for that user pool.</p>
    *          </note>
+   * @public
    */
   UnusedAccountValidityDays?: number;
 
   /**
-   * @public
    * <p>The message template to be used for the welcome message to new users.</p>
    *          <p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
+   * @public
    */
   InviteMessageTemplate?: MessageTemplateType;
 }
 
 /**
- * @public
  * <p>Represents the request to delete a user as an administrator.</p>
+ * @public
  */
 export interface AdminDeleteUserRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to delete the user.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to delete user attributes as an administrator.</p>
+ * @public
  */
 export interface AdminDeleteUserAttributesRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to delete user attributes.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>An array of strings representing the user attribute names you want to delete.</p>
    *          <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
+   * @public
    */
   UserAttributeNames: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response received from the server for a request to delete user
  *             attributes.</p>
+ * @public
  */
 export interface AdminDeleteUserAttributesResponse {}
 
 /**
- * @public
  * <p>A container for information about an IdP for a user pool.</p>
+ * @public
  */
 export interface ProviderUserIdentifierType {
   /**
-   * @public
    * <p>The name of the provider, such as Facebook, Google, or Login with Amazon.</p>
+   * @public
    */
   ProviderName?: string;
 
   /**
-   * @public
    * <p>The name of the provider attribute to link to, such as <code>NameID</code>.</p>
+   * @public
    */
   ProviderAttributeName?: string;
 
   /**
-   * @public
    * <p>The value of the provider attribute to link to, such as
    *             <code>xxxxx_account</code>.</p>
+   * @public
    */
   ProviderAttributeValue?: string;
 }
@@ -1356,14 +1356,14 @@ export interface ProviderUserIdentifierType {
  */
 export interface AdminDisableProviderForUserRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The user to be disabled.</p>
+   * @public
    */
   User: ProviderUserIdentifierType | undefined;
 }
@@ -1374,12 +1374,12 @@ export interface AdminDisableProviderForUserRequest {
 export interface AdminDisableProviderForUserResponse {}
 
 /**
- * @public
  * <p>This exception is thrown when a user tries to confirm the account with an email
  *             address or phone number that has already been supplied as an alias for a different user
  *             profile. This exception indicates that an account with this email address or phone
  *             already exists in a user pool that you've configured to use email address or phone
  *             number as a sign-in alias.</p>
+ * @public
  */
 export class AliasExistsException extends __BaseException {
   readonly name: "AliasExistsException" = "AliasExistsException";
@@ -1398,94 +1398,94 @@ export class AliasExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the request to disable the user as an administrator.</p>
+ * @public
  */
 export interface AdminDisableUserRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to disable the user.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response received from the server to disable the user as an
  *             administrator.</p>
+ * @public
  */
 export interface AdminDisableUserResponse {}
 
 /**
- * @public
  * <p>Represents the request that enables the user as an administrator.</p>
+ * @public
  */
 export interface AdminEnableUserRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to enable the user.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server for the request to enable a user as an
  *             administrator.</p>
+ * @public
  */
 export interface AdminEnableUserResponse {}
 
 /**
- * @public
  * <p>Sends the forgot device request, as an administrator.</p>
+ * @public
  */
 export interface AdminForgetDeviceRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey: string | undefined;
 }
 
 /**
- * @public
  * <p>This exception is thrown when the user pool configuration is not valid.</p>
+ * @public
  */
 export class InvalidUserPoolConfigurationException extends __BaseException {
   readonly name: "InvalidUserPoolConfigurationException" = "InvalidUserPoolConfigurationException";
@@ -1504,142 +1504,141 @@ export class InvalidUserPoolConfigurationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the request to get the device, as an administrator.</p>
+ * @public
  */
 export interface AdminGetDeviceRequest {
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 }
 
 /**
- * @public
  * <p>The device type.</p>
+ * @public
  */
 export interface DeviceType {
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey?: string;
 
   /**
-   * @public
    * <p>The device attributes.</p>
+   * @public
    */
   DeviceAttributes?: AttributeType[];
 
   /**
-   * @public
    * <p>The creation date of the device.</p>
+   * @public
    */
   DeviceCreateDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   DeviceLastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date when the device was last authenticated.</p>
+   * @public
    */
   DeviceLastAuthenticatedDate?: Date;
 }
 
 /**
- * @public
  * <p>Gets the device response, as an administrator.</p>
+ * @public
  */
 export interface AdminGetDeviceResponse {
   /**
-   * @public
    * <p>The device.</p>
+   * @public
    */
   Device: DeviceType | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to get the specified user as an administrator.</p>
+ * @public
  */
 export interface AdminGetUserRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to get information about the
    *             user.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server from the request to get the specified user as
  *             an administrator.</p>
+ * @public
  */
 export interface AdminGetUserResponse {
   /**
-   * @public
    * <p>The username of the user that you requested.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>An array of name-value pairs representing user attributes.</p>
+   * @public
    */
   UserAttributes?: AttributeType[];
 
   /**
-   * @public
    * <p>The date the user was created.</p>
+   * @public
    */
   UserCreateDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   UserLastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>Indicates that the status is <code>enabled</code>.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The user status. Can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -1661,45 +1660,46 @@ export interface AdminGetUserResponse {
    *                     a new value before doing anything else. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   UserStatus?: UserStatusType;
 
   /**
-   * @public
    * <p>
    *             <i>This response parameter is no longer supported.</i> It provides
    *             information only about SMS MFA configurations. It doesn't provide information about
    *             time-based one-time password (TOTP) software token MFA configurations. To look up
    *             information about either type of MFA configuration, use UserMFASettingList
    *             instead.</p>
+   * @public
    */
   MFAOptions?: MFAOptionType[];
 
   /**
-   * @public
    * <p>The user's preferred MFA setting.</p>
+   * @public
    */
   PreferredMfaSetting?: string;
 
   /**
-   * @public
    * <p>The MFA options that are activated for the user. The possible values in this list are
    *                 <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
+   * @public
    */
   UserMFASettingList?: string[];
 }
 
 /**
- * @public
  * <p>An Amazon Pinpoint analytics endpoint.</p>
  *          <p>An endpoint uniquely identifies a mobile device, email address, or phone number that
  *             can receive messages from Amazon Pinpoint analytics. For more information about Amazon Web Services Regions that
  *             can contain Amazon Pinpoint resources for use with Amazon Cognito user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html">Using Amazon Pinpoint analytics with Amazon Cognito user pools</a>.</p>
+ * @public
  */
 export interface AnalyticsMetadataType {
   /**
-   * @public
    * <p>The endpoint ID.</p>
+   * @public
    */
   AnalyticsEndpointId?: string;
 }
@@ -1724,80 +1724,79 @@ export const AuthFlowType = {
 export type AuthFlowType = (typeof AuthFlowType)[keyof typeof AuthFlowType];
 
 /**
- * @public
  * <p>The HTTP header.</p>
+ * @public
  */
 export interface HttpHeader {
   /**
-   * @public
    * <p>The header name.</p>
+   * @public
    */
   headerName?: string;
 
   /**
-   * @public
    * <p>The header value.</p>
+   * @public
    */
   headerValue?: string;
 }
 
 /**
- * @public
  * <p>Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito
  *             advanced security.</p>
+ * @public
  */
 export interface ContextDataType {
   /**
-   * @public
    * <p>The source IP address of your user's device.</p>
+   * @public
    */
   IpAddress: string | undefined;
 
   /**
-   * @public
    * <p>Your server endpoint where this API is invoked.</p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>Your server path where this API is invoked.</p>
+   * @public
    */
   ServerPath: string | undefined;
 
   /**
-   * @public
    * <p>HttpHeaders received on your server in same order.</p>
+   * @public
    */
   HttpHeaders: HttpHeader[] | undefined;
 
   /**
-   * @public
    * <p>Encoded device-fingerprint details that your app collected with the Amazon Cognito
    *             context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
+   * @public
    */
   EncodedData?: string;
 }
 
 /**
- * @public
  * <p>Initiates the authorization request, as an administrator.</p>
+ * @public
  */
 export interface AdminInitiateAuthRequest {
   /**
-   * @public
    * <p>The ID of the Amazon Cognito user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The app client ID.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>The authentication flow for this call to run. The API action will depend on this
    *             value. For example:</p>
    *          <ul>
@@ -1849,11 +1848,11 @@ export interface AdminInitiateAuthRequest {
    *                     the SRP process to verify passwords.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   AuthFlow: AuthFlowType | undefined;
 
   /**
-   * @public
    * <p>The authentication parameters. These are inputs corresponding to the
    *                 <code>AuthFlow</code> that you're invoking. The required values depend on the value
    *             of <code>AuthFlow</code>:</p>
@@ -1883,11 +1882,11 @@ export interface AdminInitiateAuthRequest {
    *          </ul>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
    *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+   * @public
    */
   AuthParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for certain custom
    *             workflows that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
@@ -1951,82 +1950,83 @@ export interface AdminInitiateAuthRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>The analytics metadata for collecting Amazon Pinpoint metrics for
    *                 <code>AdminInitiateAuth</code> calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   ContextData?: ContextDataType;
 }
 
 /**
- * @public
  * <p>The new device metadata type.</p>
+ * @public
  */
 export interface NewDeviceMetadataType {
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey?: string;
 
   /**
-   * @public
    * <p>The device group key.</p>
+   * @public
    */
   DeviceGroupKey?: string;
 }
 
 /**
- * @public
  * <p>The authentication result.</p>
+ * @public
  */
 export interface AuthenticationResultType {
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user who you want to
    *             authenticate.</p>
+   * @public
    */
   AccessToken?: string;
 
   /**
-   * @public
    * <p>The expiration period of the authentication result in seconds.</p>
+   * @public
    */
   ExpiresIn?: number;
 
   /**
-   * @public
    * <p>The token type.</p>
+   * @public
    */
   TokenType?: string;
 
   /**
-   * @public
    * <p>The refresh token.</p>
+   * @public
    */
   RefreshToken?: string;
 
   /**
-   * @public
    * <p>The ID token.</p>
+   * @public
    */
   IdToken?: string;
 
   /**
-   * @public
    * <p>The new device metadata from an authentication result.</p>
+   * @public
    */
   NewDeviceMetadata?: NewDeviceMetadataType;
 }
@@ -2054,12 +2054,11 @@ export const ChallengeNameType = {
 export type ChallengeNameType = (typeof ChallengeNameType)[keyof typeof ChallengeNameType];
 
 /**
- * @public
  * <p>Initiates the authentication response, as an administrator.</p>
+ * @public
  */
 export interface AdminInitiateAuthResponse {
   /**
-   * @public
    * <p>The name of the challenge that you're responding to with this call. This is returned
    *             in the <code>AdminInitiateAuth</code> response if you must pass another
    *             challenge.</p>
@@ -2141,21 +2140,21 @@ export interface AdminInitiateAuthResponse {
    *                     call <code>InitiateAuth</code> again to restart sign-in.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ChallengeName?: ChallengeNameType;
 
   /**
-   * @public
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service. If <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code>
    *             API call determines that the caller must pass another challenge, they return a session
    *             with other challenge parameters. This session should be passed as it is to the next
    *                 <code>AdminRespondToAuthChallenge</code> API call.</p>
+   * @public
    */
   Session?: string;
 
   /**
-   * @public
    * <p>The challenge parameters. These are returned to you in the
    *                 <code>AdminInitiateAuth</code> response if you must pass another challenge. The
    *             responses in this parameter should be used to compute inputs to the next call
@@ -2167,23 +2166,24 @@ export interface AdminInitiateAuthResponse {
    *             your call to <code>AdminInitiateAuth</code>. This happens because, in the
    *                 <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the
    *                 <code>USERNAME</code> attribute can't be an alias.</p>
+   * @public
    */
   ChallengeParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The result of the authentication response. This is only returned if the caller doesn't
    *             need to pass another challenge. If the caller does need to pass another challenge before
    *             it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and
    *                 <code>Session</code> are returned.</p>
+   * @public
    */
   AuthenticationResult?: AuthenticationResultType;
 }
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication
  *             (MFA) method.</p>
+ * @public
  */
 export class MFAMethodNotFoundException extends __BaseException {
   readonly name: "MFAMethodNotFoundException" = "MFAMethodNotFoundException";
@@ -2202,8 +2202,8 @@ export class MFAMethodNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when a password reset is required.</p>
+ * @public
  */
 export class PasswordResetRequiredException extends __BaseException {
   readonly name: "PasswordResetRequiredException" = "PasswordResetRequiredException";
@@ -2222,8 +2222,8 @@ export class PasswordResetRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ * @public
  */
 export class UserNotConfirmedException extends __BaseException {
   readonly name: "UserNotConfirmedException" = "UserNotConfirmedException";
@@ -2246,13 +2246,12 @@ export class UserNotConfirmedException extends __BaseException {
  */
 export interface AdminLinkProviderForUserRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The existing user in the user pool that you want to assign to the external IdP user
    *             account. This user can be a local (Username + Password) Amazon Cognito user pools user or a
    *             federated user (for example, a SAML or Facebook user). If the user doesn't exist, Amazon Cognito
@@ -2270,11 +2269,11 @@ export interface AdminLinkProviderForUserRequest {
    *                 assigned the user any immutable custom attributes, the operation won't
    *                 succeed.</p>
    *          </important>
+   * @public
    */
   DestinationUser: ProviderUserIdentifierType | undefined;
 
   /**
-   * @public
    * <p>An external IdP account for a user who doesn't exist yet in the user pool. This user
    *             must be a federated user (for example, a SAML or Facebook user), not another native
    *             user.</p>
@@ -2301,6 +2300,7 @@ export interface AdminLinkProviderForUserRequest {
    *          <p>For both OIDC and SAML users, when you set <code>ProviderAttributeName</code> to
    *                 <code>Cognito_Subject</code>, Amazon Cognito will automatically parse the default unique
    *             identifier found in the subject from the IdP token.</p>
+   * @public
    */
   SourceUser: ProviderUserIdentifierType | undefined;
 }
@@ -2311,59 +2311,59 @@ export interface AdminLinkProviderForUserRequest {
 export interface AdminLinkProviderForUserResponse {}
 
 /**
- * @public
  * <p>Represents the request to list devices, as an administrator.</p>
+ * @public
  */
 export interface AdminListDevicesRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The limit of the devices request.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>This API operation returns a limited number of results. The pagination token is
    * an identifier that you can present in an additional API request with the same parameters. When
    * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
    * Subsequent requests return a new pagination token. By use of this token, you can paginate
    * through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 }
 
 /**
- * @public
  * <p>Lists the device's response, as an administrator.</p>
+ * @public
  */
 export interface AdminListDevicesResponse {
   /**
-   * @public
    * <p>The devices in the list of devices response.</p>
+   * @public
    */
   Devices?: DeviceType[];
 
   /**
-   * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
    * you include a pagination token in your request, Amazon Cognito returns the next set of items in
    * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 }
@@ -2373,66 +2373,65 @@ export interface AdminListDevicesResponse {
  */
 export interface AdminListGroupsForUserRequest {
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The limit of the request to list groups.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The group type.</p>
+ * @public
  */
 export interface GroupType {
   /**
-   * @public
    * <p>The name of the group.</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>A string containing the description of the group.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The role Amazon Resource Name (ARN) for the group.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>A non-negative integer value that specifies the precedence of this group relative to
    *             the other groups that a user can belong to in the user pool. Zero is the highest
    *             precedence value. Groups with lower <code>Precedence</code> values take precedence over
@@ -2447,18 +2446,19 @@ export interface GroupType {
    *             two groups have different role ARNs, the <code>cognito:preferred_role</code> claim isn't
    *             set in users' tokens.</p>
    *          <p>The default <code>Precedence</code> value is null.</p>
+   * @public
    */
   Precedence?: number;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 }
@@ -2468,15 +2468,15 @@ export interface GroupType {
  */
 export interface AdminListGroupsForUserResponse {
   /**
-   * @public
    * <p>The groups that the user belongs to.</p>
+   * @public
    */
   Groups?: GroupType[];
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2486,32 +2486,32 @@ export interface AdminListGroupsForUserResponse {
  */
 export interface AdminListUserAuthEventsRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of authentication events to return. Returns 60 events if you set
    *                 <code>MaxResults</code> to 0, or if you don't include a <code>MaxResults</code>
    *             parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2545,55 +2545,55 @@ export const ChallengeResponse = {
 export type ChallengeResponse = (typeof ChallengeResponse)[keyof typeof ChallengeResponse];
 
 /**
- * @public
  * <p>The challenge response type.</p>
+ * @public
  */
 export interface ChallengeResponseType {
   /**
-   * @public
    * <p>The challenge name.</p>
+   * @public
    */
   ChallengeName?: ChallengeName;
 
   /**
-   * @public
    * <p>The challenge response.</p>
+   * @public
    */
   ChallengeResponse?: ChallengeResponse;
 }
 
 /**
- * @public
  * <p>Specifies the user context data captured at the time of an event request.</p>
+ * @public
  */
 export interface EventContextDataType {
   /**
-   * @public
    * <p>The source IP address of your user's device.</p>
+   * @public
    */
   IpAddress?: string;
 
   /**
-   * @public
    * <p>The user's device name.</p>
+   * @public
    */
   DeviceName?: string;
 
   /**
-   * @public
    * <p>The user's time zone.</p>
+   * @public
    */
   Timezone?: string;
 
   /**
-   * @public
    * <p>The user's city.</p>
+   * @public
    */
   City?: string;
 
   /**
-   * @public
    * <p>The user's country.</p>
+   * @public
    */
   Country?: string;
 }
@@ -2613,29 +2613,29 @@ export const FeedbackValueType = {
 export type FeedbackValueType = (typeof FeedbackValueType)[keyof typeof FeedbackValueType];
 
 /**
- * @public
  * <p>Specifies the event feedback type.</p>
+ * @public
  */
 export interface EventFeedbackType {
   /**
-   * @public
    * <p>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
    * value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
    * has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
    * <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
    * don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+   * @public
    */
   FeedbackValue: FeedbackValueType | undefined;
 
   /**
-   * @public
    * <p>The provider.</p>
+   * @public
    */
   Provider: string | undefined;
 
   /**
-   * @public
    * <p>The event feedback date.</p>
+   * @public
    */
   FeedbackDate?: Date;
 }
@@ -2686,26 +2686,26 @@ export const RiskLevelType = {
 export type RiskLevelType = (typeof RiskLevelType)[keyof typeof RiskLevelType];
 
 /**
- * @public
  * <p>The event risk type.</p>
+ * @public
  */
 export interface EventRiskType {
   /**
-   * @public
    * <p>The risk decision.</p>
+   * @public
    */
   RiskDecision?: RiskDecisionType;
 
   /**
-   * @public
    * <p>The risk level.</p>
+   * @public
    */
   RiskLevel?: RiskLevelType;
 
   /**
-   * @public
    * <p>Indicates whether compromised credentials were detected during an authentication
    *             event.</p>
+   * @public
    */
   CompromisedCredentialsDetected?: boolean;
 }
@@ -2728,57 +2728,57 @@ export const EventType = {
 export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
- * @public
  * <p>The authentication event type.</p>
+ * @public
  */
 export interface AuthEventType {
   /**
-   * @public
    * <p>The event ID.</p>
+   * @public
    */
   EventId?: string;
 
   /**
-   * @public
    * <p>The event type.</p>
+   * @public
    */
   EventType?: EventType;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>The event response.</p>
+   * @public
    */
   EventResponse?: EventResponseType;
 
   /**
-   * @public
    * <p>The event risk.</p>
+   * @public
    */
   EventRisk?: EventRiskType;
 
   /**
-   * @public
    * <p>The challenge responses.</p>
+   * @public
    */
   ChallengeResponses?: ChallengeResponseType[];
 
   /**
-   * @public
    * <p>The user context data captured at the time of an event request. This value provides
    *             additional information about the client from which event the request is received.</p>
+   * @public
    */
   EventContextData?: EventContextDataType;
 
   /**
-   * @public
    * <p>A flag specifying the user feedback captured at the time of an event request is good
    *             or bad. </p>
+   * @public
    */
   EventFeedback?: EventFeedbackType;
 }
@@ -2788,23 +2788,23 @@ export interface AuthEventType {
  */
 export interface AdminListUserAuthEventsResponse {
   /**
-   * @public
    * <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>,
    *                 <code>CreationDate</code>, <code>EventRisk</code>, and
    *             <code>EventResponse</code>.</p>
+   * @public
    */
   AuthEvents?: AuthEventType[];
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+ * @public
  */
 export class UserPoolAddOnNotEnabledException extends __BaseException {
   readonly name: "UserPoolAddOnNotEnabledException" = "UserPoolAddOnNotEnabledException";
@@ -2827,51 +2827,50 @@ export class UserPoolAddOnNotEnabledException extends __BaseException {
  */
 export interface AdminRemoveUserFromGroupRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The group name.</p>
+   * @public
    */
   GroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to reset a user's password as an administrator.</p>
+ * @public
  */
 export interface AdminResetUserPasswordRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to reset the user's password.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool
@@ -2903,21 +2902,22 @@ export interface AdminResetUserPasswordRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to reset a user password as an
  *             administrator.</p>
+ * @public
  */
 export interface AdminResetUserPasswordResponse {}
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
  *             status code: 400.</p>
+ * @public
  */
 export class InvalidEmailRoleAccessPolicyException extends __BaseException {
   readonly name: "InvalidEmailRoleAccessPolicyException" = "InvalidEmailRoleAccessPolicyException";
@@ -2936,30 +2936,29 @@ export class InvalidEmailRoleAccessPolicyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request to respond to the authentication challenge, as an administrator.</p>
+ * @public
  */
 export interface AdminRespondToAuthChallengeRequest {
   /**
-   * @public
    * <p>The ID of the Amazon Cognito user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The app client ID.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
+   * @public
    */
   ChallengeName: ChallengeNameType | undefined;
 
   /**
-   * @public
    * <p>The responses to the challenge that you received in the previous request. Each
    *     challenge has its own required response parameters. The following examples are partial
    *     JSON request bodies that highlight challenge-response parameters.</p>
@@ -3056,36 +3055,36 @@ export interface AdminRespondToAuthChallengeRequest {
    *          </dl>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
    *     <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+   * @public
    */
   ChallengeResponses?: Record<string, string>;
 
   /**
-   * @public
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service. If an <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call
    *             determines that the caller must pass another challenge, it returns a session with other
    *             challenge parameters. This session should be passed as it is to the next
    *                 <code>RespondToAuthChallenge</code> API call.</p>
+   * @public
    */
   Session?: string;
 
   /**
-   * @public
    * <p>The analytics metadata for collecting Amazon Pinpoint metrics for
    *                 <code>AdminRespondToAuthChallenge</code> calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   ContextData?: ContextDataType;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
@@ -3144,47 +3143,48 @@ export interface AdminRespondToAuthChallengeRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Responds to the authentication challenge, as an administrator.</p>
+ * @public
  */
 export interface AdminRespondToAuthChallengeResponse {
   /**
-   * @public
    * <p>The name of the challenge. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
+   * @public
    */
   ChallengeName?: ChallengeNameType;
 
   /**
-   * @public
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service. If the caller must pass another challenge, they return a session with other
    *             challenge parameters. This session should be passed as it is to the next
    *                 <code>RespondToAuthChallenge</code> API call.</p>
+   * @public
    */
   Session?: string;
 
   /**
-   * @public
    * <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
+   * @public
    */
   ChallengeParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The result returned by the server in response to the authentication request.</p>
+   * @public
    */
   AuthenticationResult?: AuthenticationResultType;
 }
 
 /**
- * @public
  * <p>This exception is thrown if the provided code doesn't match what the server was
  *             expecting.</p>
+ * @public
  */
 export class CodeMismatchException extends __BaseException {
   readonly name: "CodeMismatchException" = "CodeMismatchException";
@@ -3203,8 +3203,8 @@ export class CodeMismatchException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown if a code has expired.</p>
+ * @public
  */
 export class ExpiredCodeException extends __BaseException {
   readonly name: "ExpiredCodeException" = "ExpiredCodeException";
@@ -3223,9 +3223,9 @@ export class ExpiredCodeException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the software token time-based one-time password (TOTP)
  *             multi-factor authentication (MFA) isn't activated for the user pool.</p>
+ * @public
  */
 export class SoftwareTokenMFANotFoundException extends __BaseException {
   readonly name: "SoftwareTokenMFANotFoundException" = "SoftwareTokenMFANotFoundException";
@@ -3244,50 +3244,50 @@ export class SoftwareTokenMFANotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The type used for enabling SMS multi-factor authentication (MFA) at the user level.
  *             Phone numbers don't need to be verified to be used for SMS MFA. If an MFA type is
  *             activated for a user, the user will be prompted for MFA during all sign-in attempts,
  *             unless device tracking is turned on and the device has been trusted. If you would like
  *             MFA to be applied selectively based on the assessed risk level of sign-in attempts,
  *             deactivate MFA for users and turn on Adaptive Authentication for the user pool.</p>
+ * @public
  */
 export interface SMSMfaSettingsType {
   /**
-   * @public
    * <p>Specifies whether SMS text message MFA is activated. If an MFA type is activated for a
    *             user, the user will be prompted for MFA during all sign-in attempts, unless device
    *             tracking is turned on and the device has been trusted.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether SMS is the preferred MFA method.</p>
+   * @public
    */
   PreferredMfa?: boolean;
 }
 
 /**
- * @public
  * <p>The type used for enabling software token MFA at the user level. If an MFA type is
  *             activated for a user, the user will be prompted for MFA during all sign-in attempts,
  *             unless device tracking is turned on and the device has been trusted. If you want MFA to
  *             be applied selectively based on the assessed risk level of sign-in attempts, deactivate
  *             MFA for users and turn on Adaptive Authentication for the user pool.</p>
+ * @public
  */
 export interface SoftwareTokenMfaSettingsType {
   /**
-   * @public
    * <p>Specifies whether software token MFA is activated. If an MFA type is activated for a
    *             user, the user will be prompted for MFA during all sign-in attempts, unless device
    *             tracking is turned on and the device has been trusted.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether software token MFA is the preferred MFA method.</p>
+   * @public
    */
   PreferredMfa?: boolean;
 }
@@ -3297,30 +3297,30 @@ export interface SoftwareTokenMfaSettingsType {
  */
 export interface AdminSetUserMFAPreferenceRequest {
   /**
-   * @public
    * <p>The SMS text message MFA settings.</p>
+   * @public
    */
   SMSMfaSettings?: SMSMfaSettingsType;
 
   /**
-   * @public
    * <p>The time-based one-time password software token MFA settings.</p>
+   * @public
    */
   SoftwareTokenMfaSettings?: SoftwareTokenMfaSettingsType;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
@@ -3335,32 +3335,32 @@ export interface AdminSetUserMFAPreferenceResponse {}
  */
 export interface AdminSetUserPasswordRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to set the user's password.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The password for the user.</p>
+   * @public
    */
   Password: string | undefined;
 
   /**
-   * @public
    * <p>
    *             <code>True</code> if the password is permanent, <code>False</code> if it is
    *             temporary.</p>
+   * @public
    */
   Permanent?: boolean;
 }
@@ -3371,39 +3371,39 @@ export interface AdminSetUserPasswordRequest {
 export interface AdminSetUserPasswordResponse {}
 
 /**
- * @public
  * <p>You can use this parameter to set an MFA configuration that uses the SMS delivery
  *             medium.</p>
+ * @public
  */
 export interface AdminSetUserSettingsRequest {
   /**
-   * @public
    * <p>The ID of the user pool that contains the user whose options you're setting.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>You can use this parameter only to set an SMS configuration that uses SMS for
    *             delivery.</p>
+   * @public
    */
   MFAOptions: MFAOptionType[] | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to set user settings as an
  *             administrator.</p>
+ * @public
  */
 export interface AdminSetUserSettingsResponse {}
 
@@ -3412,34 +3412,34 @@ export interface AdminSetUserSettingsResponse {}
  */
 export interface AdminUpdateAuthEventFeedbackRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The authentication event ID.</p>
+   * @public
    */
   EventId: string | undefined;
 
   /**
-   * @public
    * <p>The authentication event feedback value. When you provide a <code>FeedbackValue</code>
    * value of <code>valid</code>, you tell Amazon Cognito that you trust a user session where Amazon Cognito
    * has evaluated some level of risk. When you provide a <code>FeedbackValue</code> value of
    * <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
    * don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
+   * @public
    */
   FeedbackValue: FeedbackValueType | undefined;
 }
@@ -3464,68 +3464,67 @@ export const DeviceRememberedStatusType = {
 export type DeviceRememberedStatusType = (typeof DeviceRememberedStatusType)[keyof typeof DeviceRememberedStatusType];
 
 /**
- * @public
  * <p>The request to update the device status, as an administrator.</p>
+ * @public
  */
 export interface AdminUpdateDeviceStatusRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey: string | undefined;
 
   /**
-   * @public
    * <p>The status indicating whether a device has been remembered or not.</p>
+   * @public
    */
   DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
 
 /**
- * @public
  * <p>The status response to the request to update the device, as an administrator.</p>
+ * @public
  */
 export interface AdminUpdateDeviceStatusResponse {}
 
 /**
- * @public
  * <p>Represents the request to update the user's attributes as an administrator.</p>
+ * @public
  */
 export interface AdminUpdateUserAttributesRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to update user attributes.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>An array of name-value pairs representing user attributes.</p>
    *          <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
@@ -3540,11 +3539,11 @@ export interface AdminUpdateUserAttributesRequest {
    *             or <code>phone_number_verified</code> value for an <code>email</code> or
    *                 <code>phone_number</code> attribute that requires verification to <code>true</code>,
    *             Amazon Cognito doesn’t send a verification message to your user.</p>
+   * @public
    */
   UserAttributes: AttributeType[] | undefined;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool
@@ -3577,42 +3576,43 @@ export interface AdminUpdateUserAttributesRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Represents the response from the server for the request to update user attributes as
  *             an administrator.</p>
+ * @public
  */
 export interface AdminUpdateUserAttributesResponse {}
 
 /**
- * @public
  * <p>The request to sign out of all devices, as an administrator.</p>
+ * @public
  */
 export interface AdminUserGlobalSignOutRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 }
 
 /**
- * @public
  * <p>The global sign-out response, as an administrator.</p>
+ * @public
  */
 export interface AdminUserGlobalSignOutResponse {}
 
@@ -3647,7 +3647,6 @@ export const AliasAttributeType = {
 export type AliasAttributeType = (typeof AliasAttributeType)[keyof typeof AliasAttributeType];
 
 /**
- * @public
  * <p>The Amazon Pinpoint analytics configuration necessary to collect metrics for a user
  *             pool.</p>
  *          <note>
@@ -3655,39 +3654,40 @@ export type AliasAttributeType = (typeof AliasAttributeType)[keyof typeof AliasA
  *                 events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user
  *                 pools support sending events to Amazon Pinpoint projects within that same Region.</p>
  *          </note>
+ * @public
  */
 export interface AnalyticsConfigurationType {
   /**
-   * @public
    * <p>The application ID for an Amazon Pinpoint application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project
    *             to integrate with the chosen user pool Client. Amazon Cognito publishes events to the Amazon Pinpoint
    *             project that the app ARN declares.</p>
+   * @public
    */
   ApplicationArn?: string;
 
   /**
-   * @public
    * <p>The ARN of an Identity and Access Management role that authorizes Amazon Cognito to publish events to Amazon Pinpoint
    *             analytics.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>The external ID.</p>
+   * @public
    */
   ExternalId?: string;
 
   /**
-   * @public
    * <p>If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito includes user data in the
    *             events that it publishes to Amazon Pinpoint analytics.</p>
+   * @public
    */
   UserDataShared?: boolean;
 }
@@ -3697,16 +3697,16 @@ export interface AnalyticsConfigurationType {
  */
 export interface AssociateSoftwareTokenRequest {
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose software token you want to
    *             generate.</p>
+   * @public
    */
   AccessToken?: string;
 
   /**
-   * @public
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service. This allows authentication of the user as part of the MFA setup process.</p>
+   * @public
    */
   Session?: string;
 }
@@ -3716,24 +3716,24 @@ export interface AssociateSoftwareTokenRequest {
  */
 export interface AssociateSoftwareTokenResponse {
   /**
-   * @public
    * <p>A unique generated shared secret code that is used in the TOTP algorithm to generate a
    *             one-time code.</p>
+   * @public
    */
   SecretCode?: string;
 
   /**
-   * @public
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service. This allows authentication of the user as part of the MFA setup process.</p>
+   * @public
    */
   Session?: string;
 }
 
 /**
- * @public
  * <p>This exception is thrown if two or more modifications are happening
  *             concurrently.</p>
+ * @public
  */
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
@@ -3752,9 +3752,9 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when WAF doesn't allow your request based on a web
  *             ACL that's associated with your user pool.</p>
+ * @public
  */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
@@ -3787,177 +3787,176 @@ export const VerifiedAttributeType = {
 export type VerifiedAttributeType = (typeof VerifiedAttributeType)[keyof typeof VerifiedAttributeType];
 
 /**
- * @public
  * <p>Represents the request to change a user password.</p>
+ * @public
  */
 export interface ChangePasswordRequest {
   /**
-   * @public
    * <p>The old password.</p>
+   * @public
    */
   PreviousPassword: string | undefined;
 
   /**
-   * @public
    * <p>The new password.</p>
+   * @public
    */
   ProposedPassword: string | undefined;
 
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose password you want to
    *             change.</p>
+   * @public
    */
   AccessToken: string | undefined;
 }
 
 /**
- * @public
  * <p>The response from the server to the change password request.</p>
+ * @public
  */
 export interface ChangePasswordResponse {}
 
 /**
- * @public
  * <p>The device verifier against which it is authenticated.</p>
+ * @public
  */
 export interface DeviceSecretVerifierConfigType {
   /**
-   * @public
    * <p>The password verifier.</p>
+   * @public
    */
   PasswordVerifier?: string;
 
   /**
-   * @public
    * <p>The <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a>
    *          </p>
+   * @public
    */
   Salt?: string;
 }
 
 /**
- * @public
  * <p>Confirms the device request.</p>
+ * @public
  */
 export interface ConfirmDeviceRequest {
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose device you want to
    *             confirm.</p>
+   * @public
    */
   AccessToken: string | undefined;
 
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey: string | undefined;
 
   /**
-   * @public
    * <p>The configuration of the device secret verifier.</p>
+   * @public
    */
   DeviceSecretVerifierConfig?: DeviceSecretVerifierConfigType;
 
   /**
-   * @public
    * <p>The device name.</p>
+   * @public
    */
   DeviceName?: string;
 }
 
 /**
- * @public
  * <p>Confirms the device response.</p>
+ * @public
  */
 export interface ConfirmDeviceResponse {
   /**
-   * @public
    * <p>Indicates whether the user confirmation must confirm the device response.</p>
+   * @public
    */
   UserConfirmationNecessary?: boolean;
 }
 
 /**
- * @public
  * <p>Contextual data, such as the user's device fingerprint, IP address, or location, used
  *             for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ * @public
  */
 export interface UserContextDataType {
   /**
-   * @public
    * <p>The source IP address of your user's device.</p>
+   * @public
    */
   IpAddress?: string;
 
   /**
-   * @public
    * <p>Encoded device-fingerprint details that your app collected with the Amazon Cognito
    *             context data collection library. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
+   * @public
    */
   EncodedData?: string;
 }
 
 /**
- * @public
  * <p>The request representing the confirmation for a password reset.</p>
+ * @public
  */
 export interface ConfirmForgotPasswordRequest {
   /**
-   * @public
    * <p>The app client ID of the app associated with the user pool.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
    *             user pool client and username plus the client ID in the message. For more information
    *             about <code>SecretHash</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>.</p>
+   * @public
    */
   SecretHash?: string;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The confirmation code from your user's request to reset their password. For more
    *             information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
+   * @public
    */
   ConfirmationCode: string | undefined;
 
   /**
-   * @public
    * <p>The new password that your user wants to set.</p>
+   * @public
    */
   Password: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Pinpoint analytics metadata for collecting metrics for
    *                 <code>ConfirmForgotPassword</code> calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   UserContextData?: UserContextDataType;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
@@ -3989,79 +3988,79 @@ export interface ConfirmForgotPasswordRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The response from the server that results from a user's request to retrieve a
  *             forgotten password.</p>
+ * @public
  */
 export interface ConfirmForgotPasswordResponse {}
 
 /**
- * @public
  * <p>Represents the request to confirm registration of a user.</p>
+ * @public
  */
 export interface ConfirmSignUpRequest {
   /**
-   * @public
    * <p>The ID of the app client associated with the user pool.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
    *             user pool client and username plus the client ID in the message.</p>
+   * @public
    */
   SecretHash?: string;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The confirmation code sent by a user's request to confirm registration.</p>
+   * @public
    */
   ConfirmationCode: string | undefined;
 
   /**
-   * @public
    * <p>Boolean to be specified to force user confirmation irrespective of existing alias. By
    *             default set to <code>False</code>. If this parameter is set to <code>True</code> and the
    *             phone number/email used for sign up confirmation already exists as an alias with a
    *             different user, the API call will migrate the alias from the previous user to the newly
    *             created user being confirmed. If set to <code>False</code>, the API will throw an
    *                 <b>AliasExistsException</b> error.</p>
+   * @public
    */
   ForceAliasCreation?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>ConfirmSignUp</code>
    *             calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   UserContextData?: UserContextDataType;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool
@@ -4093,13 +4092,14 @@ export interface ConfirmSignUpRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Represents the response from the server for the registration confirmation.</p>
+ * @public
  */
 export interface ConfirmSignUpResponse {}
 
@@ -4108,31 +4108,30 @@ export interface ConfirmSignUpResponse {}
  */
 export interface CreateGroupRequest {
   /**
-   * @public
    * <p>The name of the group. Must be unique.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>A string containing the description of the group.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The role Amazon Resource Name (ARN) for the group.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>A non-negative integer value that specifies the precedence of this group relative to
    *             the other groups that a user can belong to in the user pool. Zero is the highest
    *             precedence value. Groups with lower <code>Precedence</code> values take precedence over
@@ -4148,6 +4147,7 @@ export interface CreateGroupRequest {
    *             set in users' tokens.</p>
    *          <p>The default <code>Precedence</code> value is null. The maximum <code>Precedence</code>
    *             value is <code>2^31-1</code>.</p>
+   * @public
    */
   Precedence?: number;
 }
@@ -4157,16 +4157,16 @@ export interface CreateGroupRequest {
  */
 export interface CreateGroupResponse {
   /**
-   * @public
    * <p>The group object for the group.</p>
+   * @public
    */
   Group?: GroupType;
 }
 
 /**
- * @public
  * <p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user
  *             pool.</p>
+ * @public
  */
 export class GroupExistsException extends __BaseException {
   readonly name: "GroupExistsException" = "GroupExistsException";
@@ -4207,25 +4207,24 @@ export type IdentityProviderTypeType = (typeof IdentityProviderTypeType)[keyof t
  */
 export interface CreateIdentityProviderRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The IdP name.</p>
+   * @public
    */
   ProviderName: string | undefined;
 
   /**
-   * @public
    * <p>The IdP type.</p>
+   * @public
    */
   ProviderType: IdentityProviderTypeType | undefined;
 
   /**
-   * @public
    * <p>The scopes, URLs, and identifiers for your external identity provider. The following
    * examples describe the provider detail keys for each IdP type. These values and their
    * schema are subject to change. Social IdP <code>authorize_scopes</code> values must match
@@ -4345,47 +4344,47 @@ export interface CreateIdentityProviderRequest {
    *                </p>
    *             </dd>
    *          </dl>
+   * @public
    */
   ProviderDetails: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
+   * @public
    */
   AttributeMapping?: Record<string, string>;
 
   /**
-   * @public
    * <p>A list of IdP identifiers.</p>
+   * @public
    */
   IdpIdentifiers?: string[];
 }
 
 /**
- * @public
  * <p>A container for information about an IdP.</p>
+ * @public
  */
 export interface IdentityProviderType {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The IdP name.</p>
+   * @public
    */
   ProviderName?: string;
 
   /**
-   * @public
    * <p>The IdP type.</p>
+   * @public
    */
   ProviderType?: IdentityProviderTypeType;
 
   /**
-   * @public
    * <p>The scopes, URLs, and identifiers for your external identity provider. The following
    * examples describe the provider detail keys for each IdP type. These values and their
    * schema are subject to change. Social IdP <code>authorize_scopes</code> values must match
@@ -4505,30 +4504,31 @@ export interface IdentityProviderType {
    *                </p>
    *             </dd>
    *          </dl>
+   * @public
    */
   ProviderDetails?: Record<string, string>;
 
   /**
-   * @public
    * <p>A mapping of IdP attributes to standard and custom user pool attributes.</p>
+   * @public
    */
   AttributeMapping?: Record<string, string>;
 
   /**
-   * @public
    * <p>A list of IdP identifiers.</p>
+   * @public
    */
   IdpIdentifiers?: string[];
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 }
@@ -4538,16 +4538,16 @@ export interface IdentityProviderType {
  */
 export interface CreateIdentityProviderResponse {
   /**
-   * @public
    * <p>The newly created IdP object.</p>
+   * @public
    */
   IdentityProvider: IdentityProviderType | undefined;
 }
 
 /**
- * @public
  * <p>This exception is thrown when the provider is already supported by the user
  *             pool.</p>
+ * @public
  */
 export class DuplicateProviderException extends __BaseException {
   readonly name: "DuplicateProviderException" = "DuplicateProviderException";
@@ -4566,19 +4566,19 @@ export class DuplicateProviderException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A resource server scope.</p>
+ * @public
  */
 export interface ResourceServerScopeType {
   /**
-   * @public
    * <p>The name of the scope.</p>
+   * @public
    */
   ScopeName: string | undefined;
 
   /**
-   * @public
    * <p>A description of the scope.</p>
+   * @public
    */
   ScopeDescription: string | undefined;
 }
@@ -4588,59 +4588,59 @@ export interface ResourceServerScopeType {
  */
 export interface CreateResourceServerRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>A unique resource server identifier for the resource server. This could be an HTTPS
    *             endpoint where the resource server is located, such as
    *                 <code>https://my-weather-api.example.com</code>.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>A friendly name for the resource server.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A list of scopes. Each scope is a key-value map with the keys <code>name</code> and
    *                 <code>description</code>.</p>
+   * @public
    */
   Scopes?: ResourceServerScopeType[];
 }
 
 /**
- * @public
  * <p>A container for information about a resource server for a user pool.</p>
+ * @public
  */
 export interface ResourceServerType {
   /**
-   * @public
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The identifier for the resource server.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>The name of the resource server.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>A list of scopes that are defined for the resource server.</p>
+   * @public
    */
   Scopes?: ResourceServerScopeType[];
 }
@@ -4650,32 +4650,32 @@ export interface ResourceServerType {
  */
 export interface CreateResourceServerResponse {
   /**
-   * @public
    * <p>The newly created resource server.</p>
+   * @public
    */
   ResourceServer: ResourceServerType | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to create the user import job.</p>
+ * @public
  */
 export interface CreateUserImportJobRequest {
   /**
-   * @public
    * <p>The job name for the user import job.</p>
+   * @public
    */
   JobName: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The role ARN for the Amazon CloudWatch Logs Logging role for the user import job.</p>
+   * @public
    */
   CloudWatchLogsRoleArn: string | undefined;
 }
@@ -4701,54 +4701,53 @@ export const UserImportJobStatusType = {
 export type UserImportJobStatusType = (typeof UserImportJobStatusType)[keyof typeof UserImportJobStatusType];
 
 /**
- * @public
  * <p>The user import job type.</p>
+ * @public
  */
 export interface UserImportJobType {
   /**
-   * @public
    * <p>The job name for the user import job.</p>
+   * @public
    */
   JobName?: string;
 
   /**
-   * @public
    * <p>The job ID for the user import job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The pre-signed URL to be used to upload the <code>.csv</code> file.</p>
+   * @public
    */
   PreSignedUrl?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>The date when the user import job was started.</p>
+   * @public
    */
   StartDate?: Date;
 
   /**
-   * @public
    * <p>The date when the user import job was completed.</p>
+   * @public
    */
   CompletionDate?: Date;
 
   /**
-   * @public
    * <p>The status of the user import job. One of the following:</p>
    *          <ul>
    *             <li>
@@ -4790,51 +4789,52 @@ export interface UserImportJobType {
    *                     started.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: UserImportJobStatusType;
 
   /**
-   * @public
    * <p>The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging role for the user import
    *             job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer
    *             Guide.</p>
+   * @public
    */
   CloudWatchLogsRoleArn?: string;
 
   /**
-   * @public
    * <p>The number of users that were successfully imported.</p>
+   * @public
    */
   ImportedUsers?: number;
 
   /**
-   * @public
    * <p>The number of users that were skipped.</p>
+   * @public
    */
   SkippedUsers?: number;
 
   /**
-   * @public
    * <p>The number of users that couldn't be imported.</p>
+   * @public
    */
   FailedUsers?: number;
 
   /**
-   * @public
    * <p>The message returned when the user import job is completed.</p>
+   * @public
    */
   CompletionMessage?: string;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to the request to create the user import
  *             job.</p>
+ * @public
  */
 export interface CreateUserImportJobResponse {
   /**
-   * @public
    * <p>The job object that represents the user import job.</p>
+   * @public
    */
   UserImportJob?: UserImportJobType;
 }
@@ -4854,7 +4854,6 @@ export const DeletionProtectionType = {
 export type DeletionProtectionType = (typeof DeletionProtectionType)[keyof typeof DeletionProtectionType];
 
 /**
- * @public
  * <p>The device-remembering configuration for a user pool. A <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">
  *                 DescribeUserPool</a> request returns a null value for this object when the user
  *             pool isn't configured to remember devices. When device remembering is active, you can
@@ -4872,10 +4871,10 @@ export type DeletionProtectionType = (typeof DeletionProtectionType)[keyof typeo
  *             <p>When you provide a value for any property of <code>DeviceConfiguration</code>, you
  *                 activate the device remembering for the user pool.</p>
  *          </note>
+ * @public
  */
 export interface DeviceConfigurationType {
   /**
-   * @public
    * <p>When true, a remembered device can sign in with device authentication instead of SMS
    *             and time-based one-time password (TOTP) factors for multi-factor authentication
    *             (MFA).</p>
@@ -4884,11 +4883,11 @@ export interface DeviceConfigurationType {
    *                 in with devices that have not been confirmed or remembered must still provide a
    *                 second factor in a user pool that requires MFA.</p>
    *          </note>
+   * @public
    */
   ChallengeRequiredOnNewDevice?: boolean;
 
   /**
-   * @public
    * <p>When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a
    *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html">
    *                 ConfirmDevice</a> API request. In your app, create a prompt for your user to
@@ -4897,6 +4896,7 @@ export interface DeviceConfigurationType {
    *          <p>When <code>DeviceOnlyRememberedOnUserPrompt</code> is <code>false</code>, Amazon
    *             Cognito immediately remembers devices that you register in a <code>ConfirmDevice</code>
    *             API request.</p>
+   * @public
    */
   DeviceOnlyRememberedOnUserPrompt?: boolean;
 }
@@ -4916,7 +4916,6 @@ export const EmailSendingAccountType = {
 export type EmailSendingAccountType = (typeof EmailSendingAccountType)[keyof typeof EmailSendingAccountType];
 
 /**
- * @public
  * <p>The email configuration of your user pool. The email configuration type sets your
  *             preferred sending method, Amazon Web Services Region, and sender for messages from your user
  *             pool.</p>
@@ -4925,10 +4924,10 @@ export type EmailSendingAccountType = (typeof EmailSendingAccountType)[keyof typ
  *                 you created your user pool, and in alternate Regions in some cases. For more
  *                 information on the supported Regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email settings for Amazon Cognito user pools</a>.</p>
  *          </note>
+ * @public
  */
 export interface EmailConfigurationType {
   /**
-   * @public
    * <p>The ARN of a verified email address or an address from a verified domain in Amazon SES. You
    *             can set a <code>SourceArn</code> email from a verified domain only with an API request.
    *             You can set a verified email address, but not an address in a verified domain, in the
@@ -4950,17 +4949,17 @@ export interface EmailConfigurationType {
    *             Amazon Web Services Region of your user pool. Typically, the Region in the <code>SourceArn</code> and
    *             the user pool Region are the same. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping">Amazon SES email configuration regions</a> in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito Developer
    *                 Guide</a>.</p>
+   * @public
    */
   SourceArn?: string;
 
   /**
-   * @public
    * <p>The destination to which the receiver of the email should reply.</p>
+   * @public
    */
   ReplyToEmailAddress?: string;
 
   /**
-   * @public
    * <p>Specifies whether Amazon Cognito uses its built-in functionality to send your users email
    *             messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following
    *             values:</p>
@@ -4998,20 +4997,20 @@ export interface EmailConfigurationType {
    *                             <i>Amazon Cognito Developer Guide</i>.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   EmailSendingAccount?: EmailSendingAccountType;
 
   /**
-   * @public
    * <p>Either the sender’s email address or the sender’s name with their email address. For
    *             example, <code>testuser@example.com</code> or <code>Test User
    *                 <testuser@example.com></code>. This address appears before the body of the
    *             email.</p>
+   * @public
    */
   From?: string;
 
   /**
-   * @public
    * <p>The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A
    *             configuration set is applied to an email by including a reference to the configuration
    *             set in the headers of the email. Once applied, all of the rules in that configuration
@@ -5032,6 +5031,7 @@ export interface EmailConfigurationType {
    *                         dedicated IP pools with configuration sets.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   ConfigurationSet?: string;
 }
@@ -5051,21 +5051,21 @@ export type CustomEmailSenderLambdaVersionType =
   (typeof CustomEmailSenderLambdaVersionType)[keyof typeof CustomEmailSenderLambdaVersionType];
 
 /**
- * @public
  * <p>The properties of a custom email sender Lambda trigger.</p>
+ * @public
  */
 export interface CustomEmailLambdaVersionConfigType {
   /**
-   * @public
    * <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
    *          <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender
    *             function.</p>
+   * @public
    */
   LambdaVersion: CustomEmailSenderLambdaVersionType | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+   * @public
    */
   LambdaArn: string | undefined;
 }
@@ -5085,21 +5085,21 @@ export type CustomSMSSenderLambdaVersionType =
   (typeof CustomSMSSenderLambdaVersionType)[keyof typeof CustomSMSSenderLambdaVersionType];
 
 /**
- * @public
  * <p>The properties of a custom SMS sender Lambda trigger.</p>
+ * @public
  */
 export interface CustomSMSLambdaVersionConfigType {
   /**
-   * @public
    * <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
    *          <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender
    *             function.</p>
+   * @public
    */
   LambdaVersion: CustomSMSSenderLambdaVersionType | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+   * @public
    */
   LambdaArn: string | undefined;
 }
@@ -5120,81 +5120,80 @@ export type PreTokenGenerationLambdaVersionType =
   (typeof PreTokenGenerationLambdaVersionType)[keyof typeof PreTokenGenerationLambdaVersionType];
 
 /**
- * @public
  * <p>The properties of a pre token generation Lambda trigger.</p>
+ * @public
  */
 export interface PreTokenGenerationVersionConfigType {
   /**
-   * @public
    * <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+   * @public
    */
   LambdaVersion: PreTokenGenerationLambdaVersionType | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
    *          <p>This parameter and the <code>PreTokenGeneration</code> property of
    *                 <code>LambdaConfig</code> have the same value. For new instances of pre token
    *             generation triggers, set <code>LambdaArn</code>.</p>
+   * @public
    */
   LambdaArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Specifies the configuration for Lambda triggers.</p>
+ * @public
  */
 export interface LambdaConfigType {
   /**
-   * @public
    * <p>A pre-registration Lambda trigger.</p>
+   * @public
    */
   PreSignUp?: string;
 
   /**
-   * @public
    * <p>A custom Message Lambda trigger.</p>
+   * @public
    */
   CustomMessage?: string;
 
   /**
-   * @public
    * <p>A post-confirmation Lambda trigger.</p>
+   * @public
    */
   PostConfirmation?: string;
 
   /**
-   * @public
    * <p>A pre-authentication Lambda trigger.</p>
+   * @public
    */
   PreAuthentication?: string;
 
   /**
-   * @public
    * <p>A post-authentication Lambda trigger.</p>
+   * @public
    */
   PostAuthentication?: string;
 
   /**
-   * @public
    * <p>Defines the authentication challenge.</p>
+   * @public
    */
   DefineAuthChallenge?: string;
 
   /**
-   * @public
    * <p>Creates an authentication challenge.</p>
+   * @public
    */
   CreateAuthChallenge?: string;
 
   /**
-   * @public
    * <p>Verifies the authentication challenge response.</p>
+   * @public
    */
   VerifyAuthChallengeResponse?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
    *          <p>Set this parameter for legacy purposes. If you also set an ARN in
    *                 <code>PreTokenGenerationConfig</code>, its value must be identical to
@@ -5202,40 +5201,41 @@ export interface LambdaConfigType {
    *             set the <code>LambdaArn</code> of <code>PreTokenGenerationConfig</code>.</p>
    *          <p>You can set <code></code>
    *          </p>
+   * @public
    */
   PreTokenGeneration?: string;
 
   /**
-   * @public
    * <p>The user migration Lambda config type.</p>
+   * @public
    */
   UserMigration?: string;
 
   /**
-   * @public
    * <p>The detailed configuration of a pre token generation trigger. If you also set an ARN
    *             in <code>PreTokenGeneration</code>, its value must be identical to
    *                 <code>PreTokenGenerationConfig</code>.</p>
+   * @public
    */
   PreTokenGenerationConfig?: PreTokenGenerationVersionConfigType;
 
   /**
-   * @public
    * <p>A custom SMS sender Lambda trigger.</p>
+   * @public
    */
   CustomSMSSender?: CustomSMSLambdaVersionConfigType;
 
   /**
-   * @public
    * <p>A custom email sender Lambda trigger.</p>
+   * @public
    */
   CustomEmailSender?: CustomEmailLambdaVersionConfigType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an <a href="/kms/latest/developerguide/concepts.html#master_keys">KMS key</a>. Amazon Cognito
    *             uses the key to encrypt codes and temporary passwords sent to
    *                 <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</p>
+   * @public
    */
   KMSKeyID?: string;
 }
@@ -5256,47 +5256,46 @@ export const UserPoolMfaType = {
 export type UserPoolMfaType = (typeof UserPoolMfaType)[keyof typeof UserPoolMfaType];
 
 /**
- * @public
  * <p>The password policy type.</p>
+ * @public
  */
 export interface PasswordPolicyType {
   /**
-   * @public
    * <p>The minimum length of the password in the policy that you have set. This value can't
    *             be less than 6.</p>
+   * @public
    */
   MinimumLength?: number;
 
   /**
-   * @public
    * <p>In the password policy that you have set, refers to whether you have required users to
    *             use at least one uppercase letter in their password.</p>
+   * @public
    */
   RequireUppercase?: boolean;
 
   /**
-   * @public
    * <p>In the password policy that you have set, refers to whether you have required users to
    *             use at least one lowercase letter in their password.</p>
+   * @public
    */
   RequireLowercase?: boolean;
 
   /**
-   * @public
    * <p>In the password policy that you have set, refers to whether you have required users to
    *             use at least one number in their password.</p>
+   * @public
    */
   RequireNumbers?: boolean;
 
   /**
-   * @public
    * <p>In the password policy that you have set, refers to whether you have required users to
    *             use at least one symbol in their password.</p>
+   * @public
    */
   RequireSymbols?: boolean;
 
   /**
-   * @public
    * <p>The number of days a temporary password is valid in the password policy. If the user
    *             doesn't sign in during this time, an administrator must reset their password. Defaults
    *             to <code>7</code>. If you submit a value of <code>0</code>, Amazon Cognito treats it as a null
@@ -5306,40 +5305,40 @@ export interface PasswordPolicyType {
    *                 no longer set a value for the legacy <code>UnusedAccountValidityDays</code>
    *                 parameter in that user pool.</p>
    *          </note>
+   * @public
    */
   TemporaryPasswordValidityDays?: number;
 }
 
 /**
- * @public
  * <p>The policy associated with a user pool.</p>
+ * @public
  */
 export interface UserPoolPolicyType {
   /**
-   * @public
    * <p>The password policy.</p>
+   * @public
    */
   PasswordPolicy?: PasswordPolicyType;
 }
 
 /**
- * @public
  * <p>The SMS configuration type is the settings that your Amazon Cognito user pool must use to send
  *             an SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS
  *             messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an
  *             Identity and Access Management (IAM) role in your Amazon Web Services account.</p>
+ * @public
  */
 export interface SmsConfigurationType {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role
    *             in your Amazon Web Services account that Amazon Cognito will use to send SMS messages. SMS
    *             messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending limit</a>. </p>
+   * @public
    */
   SnsCallerArn: string | undefined;
 
   /**
-   * @public
    * <p>The external ID provides additional security for your IAM role. You can use an
    *                 <code>ExternalId</code> with the IAM role that you use with Amazon SNS to send SMS
    *             messages for your user pool. If you provide an <code>ExternalId</code>, your Amazon Cognito user
@@ -5353,31 +5352,31 @@ export interface SmsConfigurationType {
    *                 external ID when granting access to your Amazon Web Services resources to a third
    *                 party</a>
    *          </p>
+   * @public
    */
   ExternalId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region to use with Amazon SNS integration. You can choose the same Region as your
    *             user pool, or a supported <b>Legacy Amazon SNS alternate
    *             Region</b>. </p>
    *          <p>
    *             Amazon Cognito resources in the Asia Pacific (Seoul) Amazon Web Services Region must use your Amazon SNS
    *             configuration in the Asia Pacific (Tokyo) Region. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings for Amazon Cognito user pools</a>.</p>
+   * @public
    */
   SnsRegion?: string;
 }
 
 /**
- * @public
  * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
  * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
  * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
  * Verifying updates to email addresses and phone numbers</a>.</p>
+ * @public
  */
 export interface UserAttributeUpdateSettingsType {
   /**
-   * @public
    * <p>Requires that your user verifies their email address, phone number, or both before
    *             Amazon Cognito updates the value of that attribute. When you update a user attribute that has
    *             this option activated, Amazon Cognito sends a verification message to the new phone number or
@@ -5390,6 +5389,7 @@ export interface UserAttributeUpdateSettingsType {
    *             user pool where <code>AttributesRequireVerificationBeforeUpdate</code> is false, API
    *             operations that change attribute values can immediately update a user’s
    *                 <code>email</code> or <code>phone_number</code> attribute.</p>
+   * @public
    */
   AttributesRequireVerificationBeforeUpdate?: VerifiedAttributeType[];
 }
@@ -5409,12 +5409,11 @@ export const UsernameAttributeType = {
 export type UsernameAttributeType = (typeof UsernameAttributeType)[keyof typeof UsernameAttributeType];
 
 /**
- * @public
  * <p>The username configuration type. </p>
+ * @public
  */
 export interface UsernameConfigurationType {
   /**
-   * @public
    * <p>Specifies whether user name case sensitivity will be applied for all users in the user
    *             pool through Amazon Cognito APIs. For most use cases, set case sensitivity to <code>False</code>
    *             (case insensitive) as a best practice. When usernames and email addresses are case
@@ -5438,22 +5437,23 @@ export interface UsernameConfigurationType {
    *                             <code>username</code> attribute.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   CaseSensitive: boolean | undefined;
 }
 
 /**
- * @public
  * <p>User pool add-ons. Contains settings for activation of advanced security features. To
  *     log user security information but take no action, set to <code>AUDIT</code>. To
  *     configure automatic security responses to risky traffic to your user pool, set to
  *         <code>ENFORCED</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
+ * @public
  */
 export interface UserPoolAddOnsType {
   /**
-   * @public
    * <p>The operating mode of advanced security features in your user pool.</p>
+   * @public
    */
   AdvancedSecurityMode: AdvancedSecurityModeType | undefined;
 }
@@ -5473,75 +5473,74 @@ export const DefaultEmailOptionType = {
 export type DefaultEmailOptionType = (typeof DefaultEmailOptionType)[keyof typeof DefaultEmailOptionType];
 
 /**
- * @public
  * <p>The template for verification messages.</p>
+ * @public
  */
 export interface VerificationMessageTemplateType {
   /**
-   * @public
    * <p>The template for SMS messages that Amazon Cognito sends to your users.</p>
+   * @public
    */
   SmsMessage?: string;
 
   /**
-   * @public
    * <p>The template for email messages that Amazon Cognito sends to your users. You can set an
    *                 <code>EmailMessage</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email
    *             messages with your own Amazon SES configuration.</p>
+   * @public
    */
   EmailMessage?: string;
 
   /**
-   * @public
    * <p>The subject line for the email message template. You can set an
    *                 <code>EmailSubject</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email
    *             messages with your own Amazon SES configuration.</p>
+   * @public
    */
   EmailSubject?: string;
 
   /**
-   * @public
    * <p>The email message template for sending a confirmation link to the user. You can set an
    *                 <code>EmailMessageByLink</code> template only if the value of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email
    *             messages with your own Amazon SES configuration.</p>
+   * @public
    */
   EmailMessageByLink?: string;
 
   /**
-   * @public
    * <p>The subject line for the email message template for sending a confirmation link to the
    *             user. You can set an <code>EmailSubjectByLink</code> template only if the value of
    *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is <code>DEVELOPER</code>. When your <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is <code>DEVELOPER</code>, your user pool sends email
    *             messages with your own Amazon SES configuration.</p>
+   * @public
    */
   EmailSubjectByLink?: string;
 
   /**
-   * @public
    * <p>The default email option.</p>
+   * @public
    */
   DefaultEmailOption?: DefaultEmailOptionType;
 }
 
 /**
- * @public
  * <p>Represents the request to create a user pool.</p>
+ * @public
  */
 export interface CreateUserPoolRequest {
   /**
-   * @public
    * <p>A string used to name the user pool.</p>
+   * @public
    */
   PoolName: string | undefined;
 
   /**
-   * @public
    * <p>The policies associated with the new user pool.</p>
+   * @public
    */
   Policies?: UserPoolPolicyType;
 
   /**
-   * @public
    * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
    * pool. Before you can delete a user pool that you have protected against deletion, you
    * must deactivate this feature.</p>
@@ -5549,11 +5548,11 @@ export interface CreateUserPoolRequest {
    * Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
    * send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    * <code>UpdateUserPool</code> API request.</p>
+   * @public
    */
   DeletionProtection?: DeletionProtectionType;
 
   /**
-   * @public
    * <p>The Lambda trigger configuration information for the new user pool.</p>
    *          <note>
    *             <p>In a push model, event sources (such as Amazon S3 and custom applications) need
@@ -5565,136 +5564,136 @@ export interface CreateUserPoolRequest {
    *             <p>For adding permission using the CLI, see<a href="https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html"> add-permission
    *                 </a>.</p>
    *          </note>
+   * @public
    */
   LambdaConfig?: LambdaConfigType;
 
   /**
-   * @public
    * <p>The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>.</p>
+   * @public
    */
   AutoVerifiedAttributes?: VerifiedAttributeType[];
 
   /**
-   * @public
    * <p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or
    *                 <b>preferred_username</b>.</p>
+   * @public
    */
   AliasAttributes?: AliasAttributeType[];
 
   /**
-   * @public
    * <p>Specifies whether a user can use an email address or phone number as a username when
    *             they sign up.</p>
+   * @public
    */
   UsernameAttributes?: UsernameAttributeType[];
 
   /**
-   * @public
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
+   * @public
    */
   SmsVerificationMessage?: string;
 
   /**
-   * @public
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
+   * @public
    */
   EmailVerificationMessage?: string;
 
   /**
-   * @public
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
+   * @public
    */
   EmailVerificationSubject?: string;
 
   /**
-   * @public
    * <p>The template for the verification message that the user sees when the app requests
    *             permission to access the user's information.</p>
+   * @public
    */
   VerificationMessageTemplate?: VerificationMessageTemplateType;
 
   /**
-   * @public
    * <p>A string representing the SMS authentication message.</p>
+   * @public
    */
   SmsAuthenticationMessage?: string;
 
   /**
-   * @public
    * <p>Specifies MFA configuration details.</p>
+   * @public
    */
   MfaConfiguration?: UserPoolMfaType;
 
   /**
-   * @public
    * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
    * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
    * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
    * Verifying updates to email addresses and phone numbers</a>.</p>
+   * @public
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
   /**
-   * @public
    * <p>The device-remembering configuration for a user pool. A null value indicates that you
    *             have deactivated device remembering in your user pool.</p>
    *          <note>
    *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you
    *                 activate the Amazon Cognito device-remembering feature.</p>
    *          </note>
+   * @public
    */
   DeviceConfiguration?: DeviceConfigurationType;
 
   /**
-   * @public
    * <p>The email configuration of your user pool. The email configuration type sets your
    *             preferred sending method, Amazon Web Services Region, and sender for messages from your user
    *             pool.</p>
+   * @public
    */
   EmailConfiguration?: EmailConfigurationType;
 
   /**
-   * @public
    * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
    *             SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS messages
    *             with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management
    *             (IAM) role in your Amazon Web Services account.</p>
+   * @public
    */
   SmsConfiguration?: SmsConfigurationType;
 
   /**
-   * @public
    * <p>The tag keys and values to assign to the user pool. A tag is a label that you can use
    *             to categorize and manage user pools in different ways, such as by purpose, owner,
    *             environment, or other criteria.</p>
+   * @public
    */
   UserPoolTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration for <code>AdminCreateUser</code> requests.</p>
+   * @public
    */
   AdminCreateUserConfig?: AdminCreateUserConfigType;
 
   /**
-   * @public
    * <p>An array of schema attributes for the new user pool. These attributes can be standard
    *             or custom attributes.</p>
+   * @public
    */
   Schema?: SchemaAttributeType[];
 
   /**
-   * @public
    * <p>User pool add-ons. Contains settings for activation of advanced security features. To
    *     log user security information but take no action, set to <code>AUDIT</code>. To
    *     configure automatic security responses to risky traffic to your user pool, set to
    *         <code>ENFORCED</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
+   * @public
    */
   UserPoolAddOns?: UserPoolAddOnsType;
 
   /**
-   * @public
    * <p>Case sensitivity on the username input for the selected sign-in option. When case
    *             sensitivity is set to <code>False</code> (case insensitive), users can sign in with any
    *             combination of capital and lowercase letters. For example, <code>username</code>,
@@ -5705,17 +5704,18 @@ export interface CreateUserPoolRequest {
    *             case as the same user, and prevents a case variation from being assigned to the same
    *             attribute for a different user.</p>
    *          <p>This configuration is immutable after you set it. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
+   * @public
    */
   UsernameConfiguration?: UsernameConfigurationType;
 
   /**
-   * @public
    * <p>The available verified method a user can use to recover their password when they call
    *                 <code>ForgotPassword</code>. You can use this setting to define a preferred method
    *             when a user has more than one method available. With this setting, SMS doesn't qualify
    *             for a valid password recovery mechanism if the user also has SMS multi-factor
    *             authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy
    *             behavior to determine the recovery method where SMS is preferred through email.</p>
+   * @public
    */
   AccountRecoverySetting?: AccountRecoverySettingType;
 }
@@ -5735,30 +5735,29 @@ export const StatusType = {
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
- * @public
  * <p>A container for information about the user pool.</p>
+ * @public
  */
 export interface UserPoolType {
   /**
-   * @public
    * <p>The ID of the user pool.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the user pool.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The policies associated with the user pool.</p>
+   * @public
    */
   Policies?: UserPoolPolicyType;
 
   /**
-   * @public
    * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
    * pool. Before you can delete a user pool that you have protected against deletion, you
    * must deactivate this feature.</p>
@@ -5766,37 +5765,37 @@ export interface UserPoolType {
    * Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
    * send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    * <code>UpdateUserPool</code> API request.</p>
+   * @public
    */
   DeletionProtection?: DeletionProtectionType;
 
   /**
-   * @public
    * <p>The Lambda triggers associated with the user pool.</p>
+   * @public
    */
   LambdaConfig?: LambdaConfigType;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>This parameter is no longer used.</p>
+   * @public
    */
   Status?: StatusType;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>A list of the user attributes and their properties in your user pool. The attribute
    *             schema contains standard attributes, custom attributes with a <code>custom:</code>
    *             prefix, and developer attributes with a <code>dev:</code> prefix. For more information,
@@ -5805,69 +5804,69 @@ export interface UserPoolType {
    *          <p>Developer-only attributes are a legacy feature of user pools, are read-only to all app
    *             clients. You can create and update developer-only attributes only with IAM-authenticated
    *             API operations. Use app client read/write permissions instead.</p>
+   * @public
    */
   SchemaAttributes?: SchemaAttributeType[];
 
   /**
-   * @public
    * <p>The attributes that are auto-verified in a user pool.</p>
+   * @public
    */
   AutoVerifiedAttributes?: VerifiedAttributeType[];
 
   /**
-   * @public
    * <p>The attributes that are aliased in a user pool.</p>
+   * @public
    */
   AliasAttributes?: AliasAttributeType[];
 
   /**
-   * @public
    * <p>Specifies whether a user can use an email address or phone number as a username when
    *             they sign up.</p>
+   * @public
    */
   UsernameAttributes?: UsernameAttributeType[];
 
   /**
-   * @public
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
+   * @public
    */
   SmsVerificationMessage?: string;
 
   /**
-   * @public
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
+   * @public
    */
   EmailVerificationMessage?: string;
 
   /**
-   * @public
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
+   * @public
    */
   EmailVerificationSubject?: string;
 
   /**
-   * @public
    * <p>The template for verification messages.</p>
+   * @public
    */
   VerificationMessageTemplate?: VerificationMessageTemplateType;
 
   /**
-   * @public
    * <p>The contents of the SMS authentication message.</p>
+   * @public
    */
   SmsAuthenticationMessage?: string;
 
   /**
-   * @public
    * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
    * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
    * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
    * Verifying updates to email addresses and phone numbers</a>.</p>
+   * @public
    */
   UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType;
 
   /**
-   * @public
    * <p>Can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -5886,53 +5885,53 @@ export interface UserPoolType {
    *                     token.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   MfaConfiguration?: UserPoolMfaType;
 
   /**
-   * @public
    * <p>The device-remembering configuration for a user pool. A null value indicates that you
    *             have deactivated device remembering in your user pool.</p>
    *          <note>
    *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you
    *                 activate the Amazon Cognito device-remembering feature.</p>
    *          </note>
+   * @public
    */
   DeviceConfiguration?: DeviceConfigurationType;
 
   /**
-   * @public
    * <p>A number estimating the size of the user pool.</p>
+   * @public
    */
   EstimatedNumberOfUsers?: number;
 
   /**
-   * @public
    * <p>The email configuration of your user pool. The email configuration type sets your
    *             preferred sending method, Amazon Web Services Region, and sender for messages from your user
    *             pool.</p>
+   * @public
    */
   EmailConfiguration?: EmailConfigurationType;
 
   /**
-   * @public
    * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
    *             SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS messages
    *             with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management
    *             (IAM) role in your Amazon Web Services account.</p>
+   * @public
    */
   SmsConfiguration?: SmsConfigurationType;
 
   /**
-   * @public
    * <p>The tags that are assigned to the user pool. A tag is a label that you can apply to
    *             user pools to categorize and manage them in different ways, such as by purpose, owner,
    *             environment, or other criteria.</p>
+   * @public
    */
   UserPoolTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The reason why the SMS configuration can't send the messages to your users.</p>
    *          <p>This message might include comma-separated values to describe why your SMS
    *             configuration can't send messages to user pool end users.</p>
@@ -5952,90 +5951,91 @@ export interface UserPoolType {
    *                             of the SMS sandbox</a>.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   SmsConfigurationFailure?: string;
 
   /**
-   * @public
    * <p>Deprecated. Review error codes from API requests with
    *                 <code>EventSource:cognito-idp.amazonaws.com</code> in CloudTrail for
    *             information about problems with user pool email configuration.</p>
+   * @public
    */
   EmailConfigurationFailure?: string;
 
   /**
-   * @public
    * <p>The domain prefix, if the user pool has a domain associated with it.</p>
+   * @public
    */
   Domain?: string;
 
   /**
-   * @public
    * <p>A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use
    *             a custom domain to host the sign-up and sign-in pages for your application. An example
    *             of a custom domain name might be <code>auth.example.com</code>.</p>
    *          <p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
+   * @public
    */
   CustomDomain?: string;
 
   /**
-   * @public
    * <p>The configuration for <code>AdminCreateUser</code> requests.</p>
+   * @public
    */
   AdminCreateUserConfig?: AdminCreateUserConfigType;
 
   /**
-   * @public
    * <p>User pool add-ons. Contains settings for activation of advanced security features. To
    *     log user security information but take no action, set to <code>AUDIT</code>. To
    *     configure automatic security responses to risky traffic to your user pool, set to
    *         <code>ENFORCED</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>.</p>
+   * @public
    */
   UserPoolAddOns?: UserPoolAddOnsType;
 
   /**
-   * @public
    * <p>Case sensitivity of the username input for the selected sign-in option. For example,
    *             when case sensitivity is set to <code>False</code>, users can sign in using either
    *             "username" or "Username". This configuration is immutable once it has been set. For more
    *             information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
+   * @public
    */
   UsernameConfiguration?: UsernameConfigurationType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the user pool.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The available verified method a user can use to recover their password when they call
    *                 <code>ForgotPassword</code>. You can use this setting to define a preferred method
    *             when a user has more than one method available. With this setting, SMS doesn't qualify
    *             for a valid password recovery mechanism if the user also has SMS multi-factor
    *             authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy
    *             behavior to determine the recovery method where SMS is preferred through email.</p>
+   * @public
    */
   AccountRecoverySetting?: AccountRecoverySettingType;
 }
 
 /**
- * @public
  * <p>Represents the response from the server for the request to create a user pool.</p>
+ * @public
  */
 export interface CreateUserPoolResponse {
   /**
-   * @public
    * <p>A container for the user pool details.</p>
+   * @public
    */
   UserPool?: UserPoolType;
 }
 
 /**
- * @public
  * <p>This exception is thrown when a user pool tag can't be set or updated.</p>
+ * @public
  */
 export class UserPoolTaggingException extends __BaseException {
   readonly name: "UserPoolTaggingException" = "UserPoolTaggingException";
@@ -6120,68 +6120,67 @@ export const TimeUnitsType = {
 export type TimeUnitsType = (typeof TimeUnitsType)[keyof typeof TimeUnitsType];
 
 /**
- * @public
  * <p>The data type TokenValidityUnits specifies the time units you use when you set the
  *             duration of ID, access, and refresh tokens.</p>
+ * @public
  */
 export interface TokenValidityUnitsType {
   /**
-   * @public
    * <p> A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
    *                 <code>days</code> for the value that you set in the <code>AccessTokenValidity</code>
    *             parameter. The default <code>AccessTokenValidity</code> time unit is hours.
    *                 <code>AccessTokenValidity</code> duration can range from five minutes to one
    *             day.</p>
+   * @public
    */
   AccessToken?: TimeUnitsType;
 
   /**
-   * @public
    * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
    *                 <code>days</code> for the value that you set in the <code>IdTokenValidity</code>
    *             parameter. The default <code>IdTokenValidity</code> time unit is hours.
    *                 <code>IdTokenValidity</code> duration can range from five minutes to one day.</p>
+   * @public
    */
   IdToken?: TimeUnitsType;
 
   /**
-   * @public
    * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
    *                 <code>days</code> for the value that you set in the
    *                 <code>RefreshTokenValidity</code> parameter. The default
    *                 <code>RefreshTokenValidity</code> time unit is days.
    *                 <code>RefreshTokenValidity</code> duration can range from 60 minutes to 10
    *             years.</p>
+   * @public
    */
   RefreshToken?: TimeUnitsType;
 }
 
 /**
- * @public
  * <p>Represents the request to create a user pool client.</p>
+ * @public
  */
 export interface CreateUserPoolClientRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to create a user pool client.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The client name for the user pool client you would like to create.</p>
+   * @public
    */
   ClientName: string | undefined;
 
   /**
-   * @public
    * <p>Boolean to specify whether you want to generate a secret for the user pool client
    *             being created.</p>
+   * @public
    */
   GenerateSecret?: boolean;
 
   /**
-   * @public
    * <p>The refresh token time limit. After this limit expires, your user can't use
    * their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as
    * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
@@ -6195,11 +6194,11 @@ export interface CreateUserPoolClientRequest {
    * in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your refresh
    * tokens are valid for 30 days.</p>
+   * @public
    */
   RefreshTokenValidity?: number;
 
   /**
-   * @public
    * <p>The access token time limit. After this limit expires, your user can't use
    * their access token. To specify the time unit for <code>AccessTokenValidity</code> as
    * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
@@ -6211,11 +6210,11 @@ export interface CreateUserPoolClientRequest {
    * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your access
    * tokens are valid for one hour.</p>
+   * @public
    */
   AccessTokenValidity?: number;
 
   /**
-   * @public
    * <p>The ID token time limit. After this limit expires, your user can't use
    * their ID token. To specify the time unit for <code>IdTokenValidity</code> as
    * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
@@ -6227,18 +6226,18 @@ export interface CreateUserPoolClientRequest {
    * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your ID
    * tokens are valid for one hour.</p>
+   * @public
    */
   IdTokenValidity?: number;
 
   /**
-   * @public
    * <p>The units in which the validity times are represented. The default unit for
    *             RefreshToken is days, and default for ID and access tokens are hours.</p>
+   * @public
    */
   TokenValidityUnits?: TokenValidityUnitsType;
 
   /**
-   * @public
    * <p>The list of user attributes that you want your app client to have read-only access to.
    *     After your user authenticates in your app, their access token authorizes them to read
    *     their own attribute value for any attribute in this list. An example of this kind of
@@ -6252,11 +6251,11 @@ export interface CreateUserPoolClientRequest {
    *         <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
    *     populates <code>ReadAttributes</code> in the API response if you have specified your own
    *     custom set of read attributes.</p>
+   * @public
    */
   ReadAttributes?: string[];
 
   /**
-   * @public
    * <p>The list of user attributes that you want your app client to have write access to.
    *     After your user authenticates in your app, their access token authorizes them to set or
    *     modify their own attribute value for any attribute in this list. An example of this kind
@@ -6275,11 +6274,11 @@ export interface CreateUserPoolClientRequest {
    *     access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
    *     attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
    *     pool</a>.</p>
+   * @public
    */
   WriteAttributes?: string[];
 
   /**
-   * @public
    * <p>The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in
    * your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and
    * password, or a custom authentication process that you define with Lambda functions.</p>
@@ -6320,21 +6319,21 @@ export interface CreateUserPoolClientRequest {
    *          <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>.
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
+   * @public
    */
   ExplicitAuthFlows?: ExplicitAuthFlowsType[];
 
   /**
-   * @public
    * <p>A list of provider names for the identity providers (IdPs) that are supported on this
    *             client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>,
    *                 <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>.
    *             You can also specify the names that you configured for the SAML and OIDC IdPs in your
    *             user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
+   * @public
    */
   SupportedIdentityProviders?: string[];
 
   /**
-   * @public
    * <p>A list of allowed redirect (callback) URLs for the IdPs.</p>
    *          <p>A redirect URI must:</p>
    *          <ul>
@@ -6353,17 +6352,17 @@ export interface CreateUserPoolClientRequest {
    *          <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
    *             only.</p>
    *          <p>App callback URLs such as myapp://example are also supported.</p>
+   * @public
    */
   CallbackURLs?: string[];
 
   /**
-   * @public
    * <p>A list of allowed logout URLs for the IdPs.</p>
+   * @public
    */
   LogoutURLs?: string[];
 
   /**
-   * @public
    * <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
    *          <p>A redirect URI must:</p>
    *          <ul>
@@ -6382,11 +6381,11 @@ export interface CreateUserPoolClientRequest {
    *          <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
    *             only.</p>
    *          <p>App callback URLs such as myapp://example are also supported.</p>
+   * @public
    */
   DefaultRedirectURI?: string;
 
   /**
-   * @public
    * <p>The OAuth grant types that you want your app client to generate. To create an app
    *             client that generates client credentials grants, you must add
    *                 <code>client_credentials</code> as the only allowed OAuth flow.</p>
@@ -6409,20 +6408,20 @@ export interface CreateUserPoolClientRequest {
    *                         client secret.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   AllowedOAuthFlows?: OAuthFlowType[];
 
   /**
-   * @public
    * <p>The allowed OAuth scopes. Possible values provided by OAuth are <code>phone</code>,
    *                 <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values
    *             provided by Amazon Web Services are <code>aws.cognito.signin.user.admin</code>. Custom
    *             scopes created in Resource Servers are also supported.</p>
+   * @public
    */
   AllowedOAuthScopes?: string[];
 
   /**
-   * @public
    * <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p>
    *          <p>
    *             <code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you can configure
@@ -6450,11 +6449,11 @@ export interface CreateUserPoolClientRequest {
    * <code>UpdateUserPoolClient</code> API request. If you don't set a value for
    * <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
    * to <code>false</code>.</p>
+   * @public
    */
   AllowedOAuthFlowsUserPoolClient?: boolean;
 
   /**
-   * @public
    * <p>The user pool analytics configuration for collecting metrics and sending them to your
    *             Amazon Pinpoint campaign.</p>
    *          <note>
@@ -6463,11 +6462,11 @@ export interface CreateUserPoolClientRequest {
    *                 available, user pools support sending events to Amazon Pinpoint projects within that same
    *                 Region.</p>
    *          </note>
+   * @public
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;
 
   /**
-   * @public
    * <p>Errors and responses that you want Amazon Cognito APIs to return during authentication, account
    *             confirmation, and password recovery when the user doesn't exist in the user pool. When
    *             set to <code>ENABLED</code> and the user doesn't exist, authentication returns an error
@@ -6488,80 +6487,80 @@ export interface CreateUserPoolClientRequest {
    *                     existence related errors aren't prevented.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
 
   /**
-   * @public
    * <p>Activates or deactivates token revocation. For more information about revoking tokens,
    *             see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
    *          <p>If you don't include this parameter, token revocation is automatically activated for
    *             the new user pool client.</p>
+   * @public
    */
   EnableTokenRevocation?: boolean;
 
   /**
-   * @public
    * <p>Activates the propagation of additional user context data. For more information about
    *             propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html"> Adding advanced security to a user pool</a>. If you don’t include this
    *             parameter, you can't send device fingerprint information, including source IP address,
    *             to Amazon Cognito advanced security. You can only activate
    *                 <code>EnablePropagateAdditionalUserContextData</code> in an app client that has a
    *             client secret.</p>
+   * @public
    */
   EnablePropagateAdditionalUserContextData?: boolean;
 
   /**
-   * @public
    * <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration,
    * in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+   * @public
    */
   AuthSessionValidity?: number;
 }
 
 /**
- * @public
  * <p>Contains information about a user pool client.</p>
+ * @public
  */
 export interface UserPoolClientType {
   /**
-   * @public
    * <p>The user pool ID for the user pool client.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The client name from the user pool request of the client type.</p>
+   * @public
    */
   ClientName?: string;
 
   /**
-   * @public
    * <p>The ID of the client associated with the user pool.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>The client secret from the user pool request of the client type.</p>
+   * @public
    */
   ClientSecret?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>The refresh token time limit. After this limit expires, your user can't use
    * their refresh token. To specify the time unit for <code>RefreshTokenValidity</code> as
    * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
@@ -6575,11 +6574,11 @@ export interface UserPoolClientType {
    * in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your refresh
    * tokens are valid for 30 days.</p>
+   * @public
    */
   RefreshTokenValidity?: number;
 
   /**
-   * @public
    * <p>The access token time limit. After this limit expires, your user can't use
    * their access token. To specify the time unit for <code>AccessTokenValidity</code> as
    * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
@@ -6591,11 +6590,11 @@ export interface UserPoolClientType {
    * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your access
    * tokens are valid for one hour.</p>
+   * @public
    */
   AccessTokenValidity?: number;
 
   /**
-   * @public
    * <p>The ID token time limit. After this limit expires, your user can't use
    * their ID token. To specify the time unit for <code>IdTokenValidity</code> as
    * <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or <code>days</code>,
@@ -6607,18 +6606,18 @@ export interface UserPoolClientType {
    * <i>Valid range</i> is displayed below in seconds.</p>
    *          <p>If you don't specify otherwise in the configuration of your app client, your ID
    * tokens are valid for one hour.</p>
+   * @public
    */
   IdTokenValidity?: number;
 
   /**
-   * @public
    * <p>The time units used to specify the token validity times of each token type: ID,
    *             access, and refresh.</p>
+   * @public
    */
   TokenValidityUnits?: TokenValidityUnitsType;
 
   /**
-   * @public
    * <p>The list of user attributes that you want your app client to have read-only access to.
    *     After your user authenticates in your app, their access token authorizes them to read
    *     their own attribute value for any attribute in this list. An example of this kind of
@@ -6632,11 +6631,11 @@ export interface UserPoolClientType {
    *         <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
    *     populates <code>ReadAttributes</code> in the API response if you have specified your own
    *     custom set of read attributes.</p>
+   * @public
    */
   ReadAttributes?: string[];
 
   /**
-   * @public
    * <p>The list of user attributes that you want your app client to have write access to.
    *     After your user authenticates in your app, their access token authorizes them to set or
    *     modify their own attribute value for any attribute in this list. An example of this kind
@@ -6655,11 +6654,11 @@ export interface UserPoolClientType {
    *     access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
    *     attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
    *     pool</a>.</p>
+   * @public
    */
   WriteAttributes?: string[];
 
   /**
-   * @public
    * <p>The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in
    * your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and
    * password, or a custom authentication process that you define with Lambda functions.</p>
@@ -6700,20 +6699,20 @@ export interface UserPoolClientType {
    *          <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>.
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
+   * @public
    */
   ExplicitAuthFlows?: ExplicitAuthFlowsType[];
 
   /**
-   * @public
    * <p>A list of provider names for the IdPs that this client supports. The following are
    *             supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>,
    *                 <code>SignInWithApple</code>, <code>LoginWithAmazon</code>, and the names of your
    *             own SAML and OIDC providers.</p>
+   * @public
    */
   SupportedIdentityProviders?: string[];
 
   /**
-   * @public
    * <p>A list of allowed redirect (callback) URLs for the IdPs.</p>
    *          <p>A redirect URI must:</p>
    *          <ul>
@@ -6732,17 +6731,17 @@ export interface UserPoolClientType {
    *          <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
    *             only.</p>
    *          <p>App callback URLs such as myapp://example are also supported.</p>
+   * @public
    */
   CallbackURLs?: string[];
 
   /**
-   * @public
    * <p>A list of allowed logout URLs for the IdPs.</p>
+   * @public
    */
   LogoutURLs?: string[];
 
   /**
-   * @public
    * <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
    *          <p>A redirect URI must:</p>
    *          <ul>
@@ -6761,11 +6760,11 @@ export interface UserPoolClientType {
    *          <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
    *             only.</p>
    *          <p>App callback URLs such as myapp://example are also supported.</p>
+   * @public
    */
   DefaultRedirectURI?: string;
 
   /**
-   * @public
    * <p>The allowed OAuth flows.</p>
    *          <dl>
    *             <dt>code</dt>
@@ -6786,21 +6785,21 @@ export interface UserPoolClientType {
    *                         client secret.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   AllowedOAuthFlows?: OAuthFlowType[];
 
   /**
-   * @public
    * <p>The OAuth scopes that your app client supports. Possible values that OAuth provides
    *             are <code>phone</code>, <code>email</code>, <code>openid</code>, and
    *                 <code>profile</code>. Possible values that Amazon Web Services provides are
    *                 <code>aws.cognito.signin.user.admin</code>. Amazon Cognito also supports custom scopes that
    *             you create in Resource Servers.</p>
+   * @public
    */
   AllowedOAuthScopes?: string[];
 
   /**
-   * @public
    * <p>Set to <code>true</code> to use OAuth 2.0 features in your user pool app client.</p>
    *          <p>
    *             <code>AllowedOAuthFlowsUserPoolClient</code> must be <code>true</code> before you can configure
@@ -6828,22 +6827,22 @@ export interface UserPoolClientType {
    * <code>UpdateUserPoolClient</code> API request. If you don't set a value for
    * <code>AllowedOAuthFlowsUserPoolClient</code> in a request with the CLI or SDKs, it defaults
    * to <code>false</code>.</p>
+   * @public
    */
   AllowedOAuthFlowsUserPoolClient?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Pinpoint analytics configuration for the user pool client.</p>
    *          <note>
    *             <p>Amazon Cognito user pools only support sending events to Amazon Pinpoint projects in the US East
    *                 (N. Virginia) us-east-1 Region, regardless of the Region where the user pool
    *                 resides.</p>
    *          </note>
+   * @public
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;
 
   /**
-   * @public
    * <p>Errors and responses that you want Amazon Cognito APIs to return during authentication, account
    *             confirmation, and password recovery when the user doesn't exist in the user pool. When
    *             set to <code>ENABLED</code> and the user doesn't exist, authentication returns an error
@@ -6864,19 +6863,19 @@ export interface UserPoolClientType {
    *                     existence related errors aren't prevented.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
 
   /**
-   * @public
    * <p>Indicates whether token revocation is activated for the user pool client. When you
    *             create a new user pool client, token revocation is activated by default. For more
    *             information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+   * @public
    */
   EnableTokenRevocation?: boolean;
 
   /**
-   * @public
    * <p>When <code>EnablePropagateAdditionalUserContextData</code> is true, Amazon Cognito accepts an
    *                 <code>IpAddress</code> value that you send in the <code>UserContextData</code>
    *             parameter. The <code>UserContextData</code> parameter sends information to Amazon Cognito
@@ -6892,32 +6891,33 @@ export interface UserPoolClientType {
    *          <p>You can only activate <code>EnablePropagateAdditionalUserContextData</code> in an app
    *             client that has a client secret. For more information about propagation of user context
    *             data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding user device and session data to API requests</a>.</p>
+   * @public
    */
   EnablePropagateAdditionalUserContextData?: boolean;
 
   /**
-   * @public
    * <p>Amazon Cognito creates a session token for each API request in an authentication flow. <code>AuthSessionValidity</code> is the duration,
    * in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.</p>
+   * @public
    */
   AuthSessionValidity?: number;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to create a user pool client.</p>
+ * @public
  */
 export interface CreateUserPoolClientResponse {
   /**
-   * @public
    * <p>The user pool client that was just created.</p>
+   * @public
    */
   UserPoolClient?: UserPoolClientType;
 }
 
 /**
- * @public
  * <p>This exception is thrown when the specified OAuth flow is not valid.</p>
+ * @public
  */
 export class InvalidOAuthFlowException extends __BaseException {
   readonly name: "InvalidOAuthFlowException" = "InvalidOAuthFlowException";
@@ -6936,8 +6936,8 @@ export class InvalidOAuthFlowException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception is thrown when the specified scope doesn't exist.</p>
+ * @public
  */
 export class ScopeDoesNotExistException extends __BaseException {
   readonly name: "ScopeDoesNotExistException" = "ScopeDoesNotExistException";
@@ -6956,15 +6956,15 @@ export class ScopeDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for
  *             your application.</p>
+ * @public
  */
 export interface CustomDomainConfigType {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use
    *             this certificate for the subdomain of your custom domain.</p>
+   * @public
    */
   CertificateArn: string | undefined;
 }
@@ -6974,27 +6974,27 @@ export interface CustomDomainConfigType {
  */
 export interface CreateUserPoolDomainRequest {
   /**
-   * @public
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
    *             as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone,
    *             such as <code>auth</code>.</p>
+   * @public
    */
   Domain: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for
    *             your application.</p>
    *          <p>Provide this parameter only if you want to use a custom domain for your user pool.
    *             Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain
    *             instead.</p>
    *          <p>For more information about the hosted domain and custom domains, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html">Configuring a User Pool Domain</a>.</p>
+   * @public
    */
   CustomDomainConfig?: CustomDomainConfigType;
 }
@@ -7004,11 +7004,11 @@ export interface CreateUserPoolDomainRequest {
  */
 export interface CreateUserPoolDomainResponse {
   /**
-   * @public
    * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up with
    *             your Domain Name Service (DNS) provider. Amazon Cognito returns this value if you set a custom
    *             domain with <code>CustomDomainConfig</code>. If you set an Amazon Cognito prefix domain, this
    *             operation returns a blank response.</p>
+   * @public
    */
   CloudFrontDomain?: string;
 }
@@ -7018,14 +7018,14 @@ export interface CreateUserPoolDomainResponse {
  */
 export interface DeleteGroupRequest {
   /**
-   * @public
    * <p>The name of the group.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
@@ -7035,21 +7035,21 @@ export interface DeleteGroupRequest {
  */
 export interface DeleteIdentityProviderRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The IdP name.</p>
+   * @public
    */
   ProviderName: string | undefined;
 }
 
 /**
- * @public
  * <p>This exception is thrown when the specified identifier isn't supported.</p>
+ * @public
  */
 export class UnsupportedIdentityProviderException extends __BaseException {
   readonly name: "UnsupportedIdentityProviderException" = "UnsupportedIdentityProviderException";
@@ -7072,84 +7072,84 @@ export class UnsupportedIdentityProviderException extends __BaseException {
  */
 export interface DeleteResourceServerRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for the resource server.</p>
+   * @public
    */
   Identifier: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to delete a user.</p>
+ * @public
  */
 export interface DeleteUserRequest {
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose user profile you want to
    *             delete.</p>
+   * @public
    */
   AccessToken: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to delete user attributes.</p>
+ * @public
  */
 export interface DeleteUserAttributesRequest {
   /**
-   * @public
    * <p>An array of strings representing the user attribute names you want to delete.</p>
    *          <p>For custom attributes, you must prependattach the <code>custom:</code> prefix to the
    *             front of the attribute name.</p>
+   * @public
    */
   UserAttributeNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose attributes you want to
    *             delete.</p>
+   * @public
    */
   AccessToken: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to delete user attributes.</p>
+ * @public
  */
 export interface DeleteUserAttributesResponse {}
 
 /**
- * @public
  * <p>Represents the request to delete a user pool.</p>
+ * @public
  */
 export interface DeleteUserPoolRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool you want to delete.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to delete a user pool client.</p>
+ * @public
  */
 export interface DeleteUserPoolClientRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to delete the client.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The app client ID of the app associated with the user pool.</p>
+   * @public
    */
   ClientId: string | undefined;
 }
@@ -7159,16 +7159,16 @@ export interface DeleteUserPoolClientRequest {
  */
 export interface DeleteUserPoolDomainRequest {
   /**
-   * @public
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
    *             as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone,
    *             such as <code>auth</code>.</p>
+   * @public
    */
   Domain: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
@@ -7183,14 +7183,14 @@ export interface DeleteUserPoolDomainResponse {}
  */
 export interface DescribeIdentityProviderRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The IdP name.</p>
+   * @public
    */
   ProviderName: string | undefined;
 }
@@ -7200,8 +7200,8 @@ export interface DescribeIdentityProviderRequest {
  */
 export interface DescribeIdentityProviderResponse {
   /**
-   * @public
    * <p>The identity provider details.</p>
+   * @public
    */
   IdentityProvider: IdentityProviderType | undefined;
 }
@@ -7211,14 +7211,14 @@ export interface DescribeIdentityProviderResponse {
  */
 export interface DescribeResourceServerRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool that hosts the resource server.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for the resource server</p>
+   * @public
    */
   Identifier: string | undefined;
 }
@@ -7228,8 +7228,8 @@ export interface DescribeResourceServerRequest {
  */
 export interface DescribeResourceServerResponse {
   /**
-   * @public
    * <p>The resource server.</p>
+   * @public
    */
   ResourceServer: ResourceServerType | undefined;
 }
@@ -7239,14 +7239,14 @@ export interface DescribeResourceServerResponse {
  */
 export interface DescribeRiskConfigurationRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The app client ID.</p>
+   * @public
    */
   ClientId?: string;
 }
@@ -7267,13 +7267,13 @@ export type CompromisedCredentialsEventActionType =
   (typeof CompromisedCredentialsEventActionType)[keyof typeof CompromisedCredentialsEventActionType];
 
 /**
- * @public
  * <p>The compromised credentials actions type.</p>
+ * @public
  */
 export interface CompromisedCredentialsActionsType {
   /**
-   * @public
    * <p>The event action.</p>
+   * @public
    */
   EventAction: CompromisedCredentialsEventActionType | undefined;
 }
@@ -7294,86 +7294,86 @@ export const EventFilterType = {
 export type EventFilterType = (typeof EventFilterType)[keyof typeof EventFilterType];
 
 /**
- * @public
  * <p>The compromised credentials risk configuration type.</p>
+ * @public
  */
 export interface CompromisedCredentialsRiskConfigurationType {
   /**
-   * @public
    * <p>Perform the action for these events. The default is to perform all events if no event
    *             filter is specified.</p>
+   * @public
    */
   EventFilter?: EventFilterType[];
 
   /**
-   * @public
    * <p>The compromised credentials risk configuration actions.</p>
+   * @public
    */
   Actions: CompromisedCredentialsActionsType | undefined;
 }
 
 /**
- * @public
  * <p>The type of the configuration to override the risk decision.</p>
+ * @public
  */
 export interface RiskExceptionConfigurationType {
   /**
-   * @public
    * <p>Overrides the risk decision to always block the pre-authentication requests. The IP
    *             range is in CIDR notation, a compact representation of an IP address and its routing
    *             prefix.</p>
+   * @public
    */
   BlockedIPRangeList?: string[];
 
   /**
-   * @public
    * <p>Risk detection isn't performed on the IP addresses in this range list. The IP range is
    *             in CIDR notation.</p>
+   * @public
    */
   SkippedIPRangeList?: string[];
 }
 
 /**
- * @public
  * <p>The risk configuration type.</p>
+ * @public
  */
 export interface RiskConfigurationType {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The app client ID.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>The compromised credentials risk configuration object, including the
    *                 <code>EventFilter</code> and the <code>EventAction</code>.</p>
+   * @public
    */
   CompromisedCredentialsRiskConfiguration?: CompromisedCredentialsRiskConfigurationType;
 
   /**
-   * @public
    * <p>The account takeover risk configuration object, including the
    *                 <code>NotifyConfiguration</code> object and <code>Actions</code> to take if there is
    *             an account takeover.</p>
+   * @public
    */
   AccountTakeoverRiskConfiguration?: AccountTakeoverRiskConfigurationType;
 
   /**
-   * @public
    * <p>The configuration to override the risk decision.</p>
+   * @public
    */
   RiskExceptionConfiguration?: RiskExceptionConfigurationType;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 }
@@ -7383,94 +7383,94 @@ export interface RiskConfigurationType {
  */
 export interface DescribeRiskConfigurationResponse {
   /**
-   * @public
    * <p>The risk configuration.</p>
+   * @public
    */
   RiskConfiguration: RiskConfigurationType | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to describe the user import job.</p>
+ * @public
  */
 export interface DescribeUserImportJobRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The job ID for the user import job.</p>
+   * @public
    */
   JobId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to the request to describe the user import
  *             job.</p>
+ * @public
  */
 export interface DescribeUserImportJobResponse {
   /**
-   * @public
    * <p>The job object that represents the user import job.</p>
+   * @public
    */
   UserImportJob?: UserImportJobType;
 }
 
 /**
- * @public
  * <p>Represents the request to describe the user pool.</p>
+ * @public
  */
 export interface DescribeUserPoolRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool you want to describe.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response to describe the user pool.</p>
+ * @public
  */
 export interface DescribeUserPoolResponse {
   /**
-   * @public
    * <p>The container of metadata returned by the server to describe the pool.</p>
+   * @public
    */
   UserPool?: UserPoolType;
 }
 
 /**
- * @public
  * <p>Represents the request to describe a user pool client.</p>
+ * @public
  */
 export interface DescribeUserPoolClientRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool you want to describe.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The app client ID of the app associated with the user pool.</p>
+   * @public
    */
   ClientId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server from a request to describe the user pool
  *             client.</p>
+ * @public
  */
 export interface DescribeUserPoolClientResponse {
   /**
-   * @public
    * <p>The user pool client from a server response to describe the user pool client.</p>
+   * @public
    */
   UserPoolClient?: UserPoolClientType;
 }
@@ -7480,10 +7480,10 @@ export interface DescribeUserPoolClientResponse {
  */
 export interface DescribeUserPoolDomainRequest {
   /**
-   * @public
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
    *             as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone,
    *             such as <code>auth</code>.</p>
+   * @public
    */
   Domain: string | undefined;
 }
@@ -7506,59 +7506,59 @@ export const DomainStatusType = {
 export type DomainStatusType = (typeof DomainStatusType)[keyof typeof DomainStatusType];
 
 /**
- * @public
  * <p>A container for information about a domain.</p>
+ * @public
  */
 export interface DomainDescriptionType {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services ID for the user pool owner.</p>
+   * @public
    */
   AWSAccountId?: string;
 
   /**
-   * @public
    * <p>The domain string. For custom domains, this is the fully-qualified domain name, such
    *             as <code>auth.example.com</code>. For Amazon Cognito prefix domains, this is the prefix alone,
    *             such as <code>auth</code>.</p>
+   * @public
    */
   Domain?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 bucket where the static files for this domain are stored.</p>
+   * @public
    */
   S3Bucket?: string;
 
   /**
-   * @public
    * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up with
    *             your Domain Name Service (DNS) provider.</p>
+   * @public
    */
   CloudFrontDistribution?: string;
 
   /**
-   * @public
    * <p>The app version.</p>
+   * @public
    */
   Version?: string;
 
   /**
-   * @public
    * <p>The domain status.</p>
+   * @public
    */
   Status?: DomainStatusType;
 
   /**
-   * @public
    * <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for
    *             your application.</p>
+   * @public
    */
   CustomDomainConfig?: CustomDomainConfigType;
 }
@@ -7568,76 +7568,75 @@ export interface DomainDescriptionType {
  */
 export interface DescribeUserPoolDomainResponse {
   /**
-   * @public
    * <p>A domain description object containing information about the domain.</p>
+   * @public
    */
   DomainDescription?: DomainDescriptionType;
 }
 
 /**
- * @public
  * <p>Represents the request to forget the device.</p>
+ * @public
  */
 export interface ForgetDeviceRequest {
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose registered device you want to
    *             forget.</p>
+   * @public
    */
   AccessToken?: string;
 
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to reset a user's password.</p>
+ * @public
  */
 export interface ForgotPasswordRequest {
   /**
-   * @public
    * <p>The ID of the client associated with the user pool.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
    *             user pool client and username plus the client ID in the message.</p>
+   * @public
    */
   SecretHash?: string;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   UserContextData?: UserContextDataType;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for
    *                 <code>ForgotPassword</code> calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool
@@ -7671,107 +7670,108 @@ export interface ForgotPasswordRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The delivery details for an email or SMS message that Amazon Cognito sent for authentication or
  *             verification.</p>
+ * @public
  */
 export interface CodeDeliveryDetailsType {
   /**
-   * @public
    * <p>The email address or phone number destination where Amazon Cognito sent the code.</p>
+   * @public
    */
   Destination?: string;
 
   /**
-   * @public
    * <p>The method that Amazon Cognito used to send the code.</p>
+   * @public
    */
   DeliveryMedium?: DeliveryMediumType;
 
   /**
-   * @public
    * <p>The name of the attribute that Amazon Cognito verifies with the code.</p>
+   * @public
    */
   AttributeName?: string;
 }
 
 /**
- * @public
  * <p>The response from Amazon Cognito to a request to reset a password.</p>
+ * @public
  */
 export interface ForgotPasswordResponse {
   /**
-   * @public
    * <p>The code delivery details returned by the server in response to the request to reset a
    *             password.</p>
+   * @public
    */
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
 }
 
 /**
- * @public
  * <p>Represents the request to get the header information of the CSV file for the user
  *             import job.</p>
+ * @public
  */
 export interface GetCSVHeaderRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool that the users are to be imported into.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to the request to get the header information
  *             of the CSV file for the user import job.</p>
+ * @public
  */
 export interface GetCSVHeaderResponse {
   /**
-   * @public
    * <p>The user pool ID for the user pool that the users are to be imported into.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The header information of the CSV file for the user import job.</p>
+   * @public
    */
   CSVHeader?: string[];
 }
 
 /**
- * @public
  * <p>Represents the request to get the device.</p>
+ * @public
  */
 export interface GetDeviceRequest {
   /**
-   * @public
    * <p>The device key.</p>
+   * @public
    */
   DeviceKey: string | undefined;
 
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose device information you want
    *             to request.</p>
+   * @public
    */
   AccessToken?: string;
 }
 
 /**
- * @public
  * <p>Gets the device response.</p>
+ * @public
  */
 export interface GetDeviceResponse {
   /**
-   * @public
    * <p>The device.</p>
+   * @public
    */
   Device: DeviceType | undefined;
 }
@@ -7781,14 +7781,14 @@ export interface GetDeviceResponse {
  */
 export interface GetGroupRequest {
   /**
-   * @public
    * <p>The name of the group.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
@@ -7798,8 +7798,8 @@ export interface GetGroupRequest {
  */
 export interface GetGroupResponse {
   /**
-   * @public
    * <p>The group object for the group.</p>
+   * @public
    */
   Group?: GroupType;
 }
@@ -7809,14 +7809,14 @@ export interface GetGroupResponse {
  */
 export interface GetIdentityProviderByIdentifierRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The IdP identifier.</p>
+   * @public
    */
   IdpIdentifier: string | undefined;
 }
@@ -7826,8 +7826,8 @@ export interface GetIdentityProviderByIdentifierRequest {
  */
 export interface GetIdentityProviderByIdentifierResponse {
   /**
-   * @public
    * <p>The identity provider details.</p>
+   * @public
    */
   IdentityProvider: IdentityProviderType | undefined;
 }
@@ -7837,21 +7837,20 @@ export interface GetIdentityProviderByIdentifierResponse {
  */
 export interface GetLogDeliveryConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the user pool where you want to view detailed activity logging
    *             configuration.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
 
 /**
- * @public
  * <p>The CloudWatch logging destination of a user pool detailed activity logging
  *             configuration.</p>
+ * @public
  */
 export interface CloudWatchLogsConfigurationType {
   /**
-   * @public
    * <p>The Amazon Resource Name (arn) of a CloudWatch Logs log group where your user pool sends logs.
    *             The log group must not be encrypted with Key Management Service and must be in the same Amazon Web Services account
    *             as your user pool.</p>
@@ -7859,6 +7858,7 @@ export interface CloudWatchLogsConfigurationType {
    *             characters, configure a log group with a path that starts with
    *                 <code>/aws/vendedlogs</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
    *                 logging from certain Amazon Web Services services</a>.</p>
+   * @public
    */
   LogGroupArn?: string;
 }
@@ -7890,44 +7890,44 @@ export const LogLevel = {
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 /**
- * @public
  * <p>The logging parameters of a user pool.</p>
+ * @public
  */
 export interface LogConfigurationType {
   /**
-   * @public
    * <p>The <code>errorlevel</code> selection of logs that a user pool sends for detailed
    *             activity logging.</p>
+   * @public
    */
   LogLevel: LogLevel | undefined;
 
   /**
-   * @public
    * <p>The source of events that your user pool sends for detailed activity logging.</p>
+   * @public
    */
   EventSource: EventSourceName | undefined;
 
   /**
-   * @public
    * <p>The CloudWatch logging destination of a user pool.</p>
+   * @public
    */
   CloudWatchLogsConfiguration?: CloudWatchLogsConfigurationType;
 }
 
 /**
- * @public
  * <p>The logging parameters of a user pool.</p>
+ * @public
  */
 export interface LogDeliveryConfigurationType {
   /**
-   * @public
    * <p>The ID of the user pool where you configured detailed activity logging.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The detailed activity logging destination of a user pool.</p>
+   * @public
    */
   LogConfigurations: LogConfigurationType[] | undefined;
 }
@@ -7937,32 +7937,32 @@ export interface LogDeliveryConfigurationType {
  */
 export interface GetLogDeliveryConfigurationResponse {
   /**
-   * @public
    * <p>The detailed activity logging configuration of the requested user pool.</p>
+   * @public
    */
   LogDeliveryConfiguration?: LogDeliveryConfigurationType;
 }
 
 /**
- * @public
  * <p>Request to get a signing certificate from Amazon Cognito.</p>
+ * @public
  */
 export interface GetSigningCertificateRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
 
 /**
- * @public
  * <p>Response from Amazon Cognito for a signing certificate request.</p>
+ * @public
  */
 export interface GetSigningCertificateResponse {
   /**
-   * @public
    * <p>The signing certificate.</p>
+   * @public
    */
   Certificate?: string;
 }
@@ -7972,63 +7972,63 @@ export interface GetSigningCertificateResponse {
  */
 export interface GetUICustomizationRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The client ID for the client app.</p>
+   * @public
    */
   ClientId?: string;
 }
 
 /**
- * @public
  * <p>A container for the UI customization information for a user pool's built-in app
  *             UI.</p>
+ * @public
  */
 export interface UICustomizationType {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The client ID for the client app.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>The logo image for the UI customization.</p>
+   * @public
    */
   ImageUrl?: string;
 
   /**
-   * @public
    * <p>The CSS values in the UI customization.</p>
+   * @public
    */
   CSS?: string;
 
   /**
-   * @public
    * <p>The CSS version number.</p>
+   * @public
    */
   CSSVersion?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 }
@@ -8038,90 +8038,89 @@ export interface UICustomizationType {
  */
 export interface GetUICustomizationResponse {
   /**
-   * @public
    * <p>The UI customization information.</p>
+   * @public
    */
   UICustomization: UICustomizationType | undefined;
 }
 
 /**
- * @public
  * <p>Represents the request to get information about the user.</p>
+ * @public
  */
 export interface GetUserRequest {
   /**
-   * @public
    * <p>A non-expired access token for the user whose information you want to query.</p>
+   * @public
    */
   AccessToken: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the response from the server from the request to get information about the
  *             user.</p>
+ * @public
  */
 export interface GetUserResponse {
   /**
-   * @public
    * <p>The username of the user that you requested.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>An array of name-value pairs representing user attributes.</p>
    *          <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
+   * @public
    */
   UserAttributes: AttributeType[] | undefined;
 
   /**
-   * @public
    * <p>
    *             <i>This response parameter is no longer supported.</i> It provides
    *             information only about SMS MFA configurations. It doesn't provide information about
    *             time-based one-time password (TOTP) software token MFA configurations. To look up
    *             information about either type of MFA configuration, use UserMFASettingList
    *             instead.</p>
+   * @public
    */
   MFAOptions?: MFAOptionType[];
 
   /**
-   * @public
    * <p>The user's preferred MFA setting.</p>
+   * @public
    */
   PreferredMfaSetting?: string;
 
   /**
-   * @public
    * <p>The MFA options that are activated for the user. The possible values in this list are
    *                 <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
+   * @public
    */
   UserMFASettingList?: string[];
 }
 
 /**
- * @public
  * <p>Represents the request to get user attribute verification.</p>
+ * @public
  */
 export interface GetUserAttributeVerificationCodeRequest {
   /**
-   * @public
    * <p>A non-expired access token for the user whose attribute verification code you want to
    *             generate.</p>
+   * @public
    */
   AccessToken: string | undefined;
 
   /**
-   * @public
    * <p>The attribute name returned by the server response to get the user attribute
    *             verification code.</p>
+   * @public
    */
   AttributeName: string | undefined;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool
@@ -8153,20 +8152,21 @@ export interface GetUserAttributeVerificationCodeRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The verification code response returned by the server response to get the user
  *             attribute verification code.</p>
+ * @public
  */
 export interface GetUserAttributeVerificationCodeResponse {
   /**
-   * @public
    * <p>The code delivery details returned by the server in response to the request to get the
    *             user attribute verification code.</p>
+   * @public
    */
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
 }
@@ -8176,43 +8176,43 @@ export interface GetUserAttributeVerificationCodeResponse {
  */
 export interface GetUserPoolMfaConfigRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 }
 
 /**
- * @public
  * <p>The SMS text message multi-factor authentication (MFA) configuration type.</p>
+ * @public
  */
 export interface SmsMfaConfigType {
   /**
-   * @public
    * <p>The SMS authentication message that will be sent to users with the code they must sign
    *             in. The message must contain the ‘\{####\}’ placeholder, which is replaced with the code.
    *             If the message isn't included, and default message will be used.</p>
+   * @public
    */
   SmsAuthenticationMessage?: string;
 
   /**
-   * @public
    * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
    *             SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To request Amazon SNS in
    *             the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role that
    *             you provide for your Amazon Web Services account.</p>
+   * @public
    */
   SmsConfiguration?: SmsConfigurationType;
 }
 
 /**
- * @public
  * <p>The type used for enabling software token MFA at the user pool level.</p>
+ * @public
  */
 export interface SoftwareTokenMfaConfigType {
   /**
-   * @public
    * <p>Specifies whether software token MFA is activated.</p>
+   * @public
    */
   Enabled?: boolean;
 }
@@ -8222,19 +8222,18 @@ export interface SoftwareTokenMfaConfigType {
  */
 export interface GetUserPoolMfaConfigResponse {
   /**
-   * @public
    * <p>The SMS text message multi-factor authentication (MFA) configuration.</p>
+   * @public
    */
   SmsMfaConfiguration?: SmsMfaConfigType;
 
   /**
-   * @public
    * <p>The software token multi-factor authentication (MFA) configuration.</p>
+   * @public
    */
   SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
 
   /**
-   * @public
    * <p>The multi-factor authentication (MFA) configuration. Valid values include:</p>
    *          <ul>
    *             <li>
@@ -8251,35 +8250,35 @@ export interface GetUserPoolMfaConfigResponse {
    *                     an MFA factor activated.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   MfaConfiguration?: UserPoolMfaType;
 }
 
 /**
- * @public
  * <p>Represents the request to sign out all devices.</p>
+ * @public
  */
 export interface GlobalSignOutRequest {
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user who you want to sign out.</p>
+   * @public
    */
   AccessToken: string | undefined;
 }
 
 /**
- * @public
  * <p>The response to the request to sign out all devices.</p>
+ * @public
  */
 export interface GlobalSignOutResponse {}
 
 /**
- * @public
  * <p>Initiates the authentication request.</p>
+ * @public
  */
 export interface InitiateAuthRequest {
   /**
-   * @public
    * <p>The authentication flow for this call to run. The API action will depend on this
    *             value. For example:</p>
    *          <ul>
@@ -8327,11 +8326,11 @@ export interface InitiateAuthRequest {
    *          </ul>
    *          <p>
    *             <code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</p>
+   * @public
    */
   AuthFlow: AuthFlowType | undefined;
 
   /**
-   * @public
    * <p>The authentication parameters. These are inputs corresponding to the
    *                 <code>AuthFlow</code> that you're invoking. The required values depend on the value
    *             of <code>AuthFlow</code>:</p>
@@ -8361,11 +8360,11 @@ export interface InitiateAuthRequest {
    *          </ul>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
    *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+   * @public
    */
   AuthParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for certain custom
    *             workflows that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
@@ -8429,38 +8428,38 @@ export interface InitiateAuthRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>The app client ID.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for
    *                 <code>InitiateAuth</code> calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   UserContextData?: UserContextDataType;
 }
 
 /**
- * @public
  * <p>Initiates the authentication response.</p>
+ * @public
  */
 export interface InitiateAuthResponse {
   /**
-   * @public
    * <p>The name of the challenge that you're responding to with this call. This name is
    *             returned in the <code>InitiateAuth</code> response if you must pass another
    *             challenge.</p>
@@ -8529,83 +8528,84 @@ export interface InitiateAuthResponse {
    *                     sign-in.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ChallengeName?: ChallengeNameType;
 
   /**
-   * @public
    * <p>The session that should pass both ways in challenge-response calls to the service. If
    *             the caller must pass another challenge, they return a session with other challenge
    *             parameters. This session should be passed as it is to the next
    *                 <code>RespondToAuthChallenge</code> API call.</p>
+   * @public
    */
   Session?: string;
 
   /**
-   * @public
    * <p>The challenge parameters. These are returned in the <code>InitiateAuth</code> response
    *             if you must pass another challenge. The responses in this parameter should be used to
    *             compute inputs to the next call (<code>RespondToAuthChallenge</code>). </p>
    *          <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if
    *             applicable).</p>
+   * @public
    */
   ChallengeParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The result of the authentication response. This result is only returned if the caller
    *             doesn't need to pass another challenge. If the caller does need to pass another
    *             challenge before it gets tokens, <code>ChallengeName</code>,
    *                 <code>ChallengeParameters</code>, and <code>Session</code> are returned.</p>
+   * @public
    */
   AuthenticationResult?: AuthenticationResultType;
 }
 
 /**
- * @public
  * <p>Represents the request to list the devices.</p>
+ * @public
  */
 export interface ListDevicesRequest {
   /**
-   * @public
    * <p>A valid access token that Amazon Cognito issued to the user whose list of devices you want to
    *             view.</p>
+   * @public
    */
   AccessToken: string | undefined;
 
   /**
-   * @public
    * <p>The limit of the device request.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>This API operation returns a limited number of results. The pagination token is
    * an identifier that you can present in an additional API request with the same parameters. When
    * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
    * Subsequent requests return a new pagination token. By use of this token, you can paginate
    * through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the response to list devices.</p>
+ * @public
  */
 export interface ListDevicesResponse {
   /**
-   * @public
    * <p>The devices returned in the list devices response.</p>
+   * @public
    */
   Devices?: DeviceType[];
 
   /**
-   * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
    * you include a pagination token in your request, Amazon Cognito returns the next set of items in
    * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 }
@@ -8615,21 +8615,21 @@ export interface ListDevicesResponse {
  */
 export interface ListGroupsRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The limit of the request to list groups.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8639,15 +8639,15 @@ export interface ListGroupsRequest {
  */
 export interface ListGroupsResponse {
   /**
-   * @public
    * <p>The group objects for the groups.</p>
+   * @public
    */
   Groups?: GroupType[];
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8657,50 +8657,50 @@ export interface ListGroupsResponse {
  */
 export interface ListIdentityProvidersRequest {
   /**
-   * @public
    * <p>The user pool ID.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of IdPs to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>A container for IdP details.</p>
+ * @public
  */
 export interface ProviderDescription {
   /**
-   * @public
    * <p>The IdP name.</p>
+   * @public
    */
   ProviderName?: string;
 
   /**
-   * @public
    * <p>The IdP type.</p>
+   * @public
    */
   ProviderType?: IdentityProviderTypeType;
 
   /**
-   * @public
    * <p>The date the provider was last modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 }
@@ -8710,14 +8710,14 @@ export interface ProviderDescription {
  */
 export interface ListIdentityProvidersResponse {
   /**
-   * @public
    * <p>A list of IdP objects.</p>
+   * @public
    */
   Providers: ProviderDescription[] | undefined;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8727,20 +8727,20 @@ export interface ListIdentityProvidersResponse {
  */
 export interface ListResourceServersRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of resource servers to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8750,14 +8750,14 @@ export interface ListResourceServersRequest {
  */
 export interface ListResourceServersResponse {
   /**
-   * @public
    * <p>The resource servers.</p>
+   * @public
    */
   ResourceServers: ResourceServerType[] | undefined;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8767,8 +8767,8 @@ export interface ListResourceServersResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -8778,227 +8778,226 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags that are assigned to the user pool.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Represents the request to list the user import jobs.</p>
+ * @public
  */
 export interface ListUserImportJobsRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of import jobs you want the request to return.</p>
+   * @public
    */
   MaxResults: number | undefined;
 
   /**
-   * @public
    * <p>This API operation returns a limited number of results. The pagination token is
    * an identifier that you can present in an additional API request with the same parameters. When
    * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
    * Subsequent requests return a new pagination token. By use of this token, you can paginate
    * through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the response from the server to the request to list the user import
  *             jobs.</p>
+ * @public
  */
 export interface ListUserImportJobsResponse {
   /**
-   * @public
    * <p>The user import jobs.</p>
+   * @public
    */
   UserImportJobs?: UserImportJobType[];
 
   /**
-   * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
    * you include a pagination token in your request, Amazon Cognito returns the next set of items in
    * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the request to list the user pool clients.</p>
+ * @public
  */
 export interface ListUserPoolClientsRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to list user pool clients.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results you want the request to return when listing the user
    *             pool clients.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The description of the user pool client.</p>
+ * @public
  */
 export interface UserPoolClientDescription {
   /**
-   * @public
    * <p>The ID of the client associated with the user pool.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>The user pool ID for the user pool where you want to describe the user pool
    *             client.</p>
+   * @public
    */
   UserPoolId?: string;
 
   /**
-   * @public
    * <p>The client name from the user pool client description.</p>
+   * @public
    */
   ClientName?: string;
 }
 
 /**
- * @public
  * <p>Represents the response from the server that lists user pool clients.</p>
+ * @public
  */
 export interface ListUserPoolClientsResponse {
   /**
-   * @public
    * <p>The user pool clients in the response that lists user pool clients.</p>
+   * @public
    */
   UserPoolClients?: UserPoolClientDescription[];
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the request to list user pools.</p>
+ * @public
  */
 export interface ListUserPoolsRequest {
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results you want the request to return when listing the user
    *             pools.</p>
+   * @public
    */
   MaxResults: number | undefined;
 }
 
 /**
- * @public
  * <p>A user pool description.</p>
+ * @public
  */
 export interface UserPoolDescriptionType {
   /**
-   * @public
    * <p>The ID in a user pool description.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name in a user pool description.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The Lambda configuration information in a user pool description.</p>
+   * @public
    */
   LambdaConfig?: LambdaConfigType;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The user pool status in a user pool description.</p>
+   * @public
    */
   Status?: StatusType;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was modified.</p>
+   * @public
    */
   LastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format, when the item was created.</p>
+   * @public
    */
   CreationDate?: Date;
 }
 
 /**
- * @public
  * <p>Represents the response to list user pools.</p>
+ * @public
  */
 export interface ListUserPoolsResponse {
   /**
-   * @public
    * <p>The user pools from the response to list users.</p>
+   * @public
    */
   UserPools?: UserPoolDescriptionType[];
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the request to list users.</p>
+ * @public
  */
 export interface ListUsersRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool on which the search should be performed.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>A JSON array of user attribute names, for example <code>given_name</code>, that you
    *             want Amazon Cognito to include in the response for each user. When you don't provide an
    *                 <code>AttributesToGet</code> parameter, Amazon Cognito returns all attributes for each
@@ -9008,27 +9007,27 @@ export interface ListUsersRequest {
    *             results have set a value for the attribute you request. Attributes that you can't
    *             filter on, including custom attributes, must have a value set in every user profile
    *             before an <code>AttributesToGet</code> parameter returns results.</p>
+   * @public
    */
   AttributesToGet?: string[];
 
   /**
-   * @public
    * <p>Maximum number of users to be returned.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>This API operation returns a limited number of results. The pagination token is
    * an identifier that you can present in an additional API request with the same parameters. When
    * you include the pagination token, Amazon Cognito returns the next set of items after the current list.
    * Subsequent requests return a new pagination token. By use of this token, you can paginate
    * through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 
   /**
-   * @public
    * <p>A filter string of the form "<i>AttributeName</i>
    *             <i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks
    *             within the filter string must be escaped using the backslash (<code>\</code>) character. For example,
@@ -9119,17 +9118,17 @@ export interface ListUsersRequest {
    *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer
    *                 Guide</i>.</p>
+   * @public
    */
   Filter?: string;
 }
 
 /**
- * @public
  * <p>The response from the request to list users.</p>
+ * @public
  */
 export interface ListUsersResponse {
   /**
-   * @public
    * <p>A list of the user pool users, and their attributes, that match your query.</p>
    *          <note>
    *             <p>Amazon Cognito creates a profile in your user pool for each native user in your user pool,
@@ -9139,14 +9138,15 @@ export interface ListUsersResponse {
    *                 linked. You can identify IdP users in the <code>Users</code> object of this API
    *                 response by the IdP prefix that Amazon Cognito appends to <code>Username</code>.</p>
    *          </note>
+   * @public
    */
   Users?: UserType[];
 
   /**
-   * @public
    * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
    * you include a pagination token in your request, Amazon Cognito returns the next set of items in
    * the list. By use of this token, you can paginate through the full list of items.</p>
+   * @public
    */
   PaginationToken?: string;
 }
@@ -9156,27 +9156,27 @@ export interface ListUsersResponse {
  */
 export interface ListUsersInGroupRequest {
   /**
-   * @public
    * <p>The user pool ID for the user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the group.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of users that you want to retrieve before pagination.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *             used to return the next set of items in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -9186,64 +9186,63 @@ export interface ListUsersInGroupRequest {
  */
 export interface ListUsersInGroupResponse {
   /**
-   * @public
    * <p>A list of users in the group, and their attributes.</p>
+   * @public
    */
   Users?: UserType[];
 
   /**
-   * @public
    * <p>An identifier that you can use in a later request to return the next set of items in
    *             the list.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the request to resend the confirmation code.</p>
+ * @public
  */
 export interface ResendConfirmationCodeRequest {
   /**
-   * @public
    * <p>The ID of the client associated with the user pool.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
    *             user pool client and username plus the client ID in the message.</p>
+   * @public
    */
   SecretHash?: string;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   UserContextData?: UserContextDataType;
 
   /**
-   * @public
    * <p>The username of the user that you want to query or modify. The value of this parameter
    *             is typically your user's username, but it can be any of their alias attributes. If
    *                 <code>username</code> isn't an alias attribute in your user pool, this value
    *             must be the <code>sub</code> of a local user or the username of a user from a
    *             third-party IdP.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for
    *                 <code>ResendConfirmationCode</code> calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool triggers.
@@ -9275,55 +9274,55 @@ export interface ResendConfirmationCodeRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The response from the server when Amazon Cognito makes the request to resend a confirmation
  *             code.</p>
+ * @public
  */
 export interface ResendConfirmationCodeResponse {
   /**
-   * @public
    * <p>The code delivery details returned by the server in response to the request to resend
    *             the confirmation code.</p>
+   * @public
    */
   CodeDeliveryDetails?: CodeDeliveryDetailsType;
 }
 
 /**
- * @public
  * <p>The request to respond to an authentication challenge.</p>
+ * @public
  */
 export interface RespondToAuthChallengeRequest {
   /**
-   * @public
    * <p>The app client ID.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
    *          <p>
    *             <code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</p>
+   * @public
    */
   ChallengeName: ChallengeNameType | undefined;
 
   /**
-   * @public
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call
    *             determines that the caller must pass another challenge, they return a session with other
    *             challenge parameters. This session should be passed as it is to the next
    *                 <code>RespondToAuthChallenge</code> API call.</p>
+   * @public
    */
   Session?: string;
 
   /**
-   * @public
    * <p>The responses to the challenge that you received in the previous request. Each
    *     challenge has its own required response parameters. The following examples are partial
    *     JSON request bodies that highlight challenge-response parameters.</p>
@@ -9420,26 +9419,26 @@ export interface RespondToAuthChallengeRequest {
    *          </dl>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
    *     <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+   * @public
    */
   ChallengeResponses?: Record<string, string>;
 
   /**
-   * @public
    * <p>The Amazon Pinpoint analytics metadata that contributes to your metrics for
    *                 <code>RespondToAuthChallenge</code> calls.</p>
+   * @public
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
-   * @public
    * <p>Contextual data about your user session, such as the device fingerprint, IP address, or location. Amazon Cognito advanced
    * security evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
    * when it makes API requests.</p>
+   * @public
    */
   UserContextData?: UserContextDataType;
 
   /**
-   * @public
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
    *             that this action triggers.</p>
    *          <p>You create custom workflows by assigning Lambda functions to user pool
@@ -9475,40 +9474,41 @@ export interface RespondToAuthChallengeRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   ClientMetadata?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The response to respond to the authentication challenge.</p>
+ * @public
  */
 export interface RespondToAuthChallengeResponse {
   /**
-   * @public
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
+   * @public
    */
   ChallengeName?: ChallengeNameType;
 
   /**
-   * @public
    * <p>The session that should be passed both ways in challenge-response calls to the
    *             service. If the caller must pass another challenge, they return a session with other
    *             challenge parameters. This session should be passed as it is to the next
    *                 <code>RespondToAuthChallenge</code> API call.</p>
+   * @public
    */
   Session?: string;
 
   /**
-   * @public
    * <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
+   * @public
    */
   ChallengeParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The result returned by the server in response to the request to respond to the
    *             authentication challenge.</p>
+   * @public
    */
   AuthenticationResult?: AuthenticationResultType;
 }
@@ -9518,21 +9518,21 @@ export interface RespondToAuthChallengeResponse {
  */
 export interface RevokeTokenRequest {
   /**
-   * @public
    * <p>The refresh token that you want to revoke.</p>
+   * @public
    */
   Token: string | undefined;
 
   /**
-   * @public
    * <p>The client ID for the token that you want to revoke.</p>
+   * @public
    */
   ClientId: string | undefined;
 
   /**
-   * @public
    * <p>The secret for the client ID. This is required only if the client ID has a
    *             secret.</p>
+   * @public
    */
   ClientSecret?: string;
 }
@@ -9543,9 +9543,9 @@ export interface RevokeTokenRequest {
 export interface RevokeTokenResponse {}
 
 /**
- * @public
  * <p>Exception that is thrown when the request isn't authorized. This can happen due to an
  *             invalid access token in the request.</p>
+ * @public
  */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
@@ -9564,9 +9564,9 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
  *             for the user pool client.</p>
+ * @public
  */
 export class UnsupportedOperationException extends __BaseException {
   readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
@@ -9585,8 +9585,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
+ * @public
  */
 export class UnsupportedTokenTypeException extends __BaseException {
   readonly name: "UnsupportedTokenTypeException" = "UnsupportedTokenTypeException";
@@ -9609,15 +9609,15 @@ export class UnsupportedTokenTypeException extends __BaseException {
  */
 export interface SetLogDeliveryConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the user pool where you want to configure detailed activity logging .</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>A collection of all of the detailed activity logging configurations for a user
    *             pool.</p>
+   * @public
    */
   LogConfigurations: LogConfigurationType[] | undefined;
 }

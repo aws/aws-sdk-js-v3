@@ -31,7 +31,6 @@ export interface CreateUserImportJobCommandInput extends CreateUserImportJobRequ
 export interface CreateUserImportJobCommandOutput extends CreateUserImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user import job.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -120,6 +119,7 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class CreateUserImportJobCommand extends $Command
   .classBuilder<

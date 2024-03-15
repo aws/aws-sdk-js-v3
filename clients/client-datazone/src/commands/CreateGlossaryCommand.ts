@@ -32,7 +32,6 @@ export interface CreateGlossaryCommandInput extends CreateGlossaryInput {}
 export interface CreateGlossaryCommandOutput extends CreateGlossaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon DataZone business glossary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface CreateGlossaryCommandOutput extends CreateGlossaryOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateGlossaryCommand extends $Command
   .classBuilder<

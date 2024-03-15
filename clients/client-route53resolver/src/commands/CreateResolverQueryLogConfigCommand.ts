@@ -32,7 +32,6 @@ export interface CreateResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
  * 			Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p>
  *          <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see
@@ -109,6 +108,7 @@ export interface CreateResolverQueryLogConfigCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class CreateResolverQueryLogConfigCommand extends $Command
   .classBuilder<

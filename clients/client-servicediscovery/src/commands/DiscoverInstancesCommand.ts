@@ -27,7 +27,6 @@ export interface DiscoverInstancesCommandInput extends DiscoverInstancesRequest 
 export interface DiscoverInstancesCommandOutput extends DiscoverInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Discovers registered instances for a specified namespace and service. You can use
  *     <code>DiscoverInstances</code> to discover instances for any type of namespace.
  *     <code>DiscoverInstances</code> returns a randomized list of instances allowing customers to
@@ -95,6 +94,7 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Discover registered instances
  * ```javascript
  * // Example: Discover registered instances

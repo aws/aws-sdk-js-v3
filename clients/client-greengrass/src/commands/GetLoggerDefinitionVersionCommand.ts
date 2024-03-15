@@ -27,7 +27,6 @@ export interface GetLoggerDefinitionVersionCommandInput extends GetLoggerDefinit
 export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefinitionVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a logger definition version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefini
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetLoggerDefinitionVersionCommand extends $Command
   .classBuilder<

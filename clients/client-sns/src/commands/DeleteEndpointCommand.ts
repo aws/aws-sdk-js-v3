@@ -27,7 +27,6 @@ export interface DeleteEndpointCommandInput extends DeleteEndpointInput {}
 export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is
  *             idempotent. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
  *             Notifications</a>. </p>
@@ -67,6 +66,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class DeleteEndpointCommand extends $Command
   .classBuilder<

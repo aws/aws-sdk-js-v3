@@ -27,7 +27,6 @@ export interface GetCachePolicyCommandInput extends GetCachePolicyRequest {}
 export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a cache policy, including the following metadata:</p>
  *          <ul>
  *             <li>
@@ -116,6 +115,7 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetCachePolicyCommand extends $Command
   .classBuilder<

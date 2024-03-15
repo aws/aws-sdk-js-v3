@@ -32,7 +32,6 @@ export interface CreateCoreDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface CreateCoreDefinitionVersionCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateCoreDefinitionVersionCommand extends $Command
   .classBuilder<

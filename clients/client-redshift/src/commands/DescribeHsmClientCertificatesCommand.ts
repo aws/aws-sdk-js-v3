@@ -30,7 +30,6 @@ export interface DescribeHsmClientCertificatesCommandInput extends DescribeHsmCl
 export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCertificateMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified HSM client certificate. If no certificate
  *             ID is specified, returns information about all the HSM certificates owned by your Amazon Web Services account.</p>
  *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
@@ -94,6 +93,7 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeHsmClientCertificatesCommand extends $Command
   .classBuilder<

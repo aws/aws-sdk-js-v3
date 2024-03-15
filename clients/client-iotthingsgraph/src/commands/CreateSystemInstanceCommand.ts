@@ -27,9 +27,6 @@ export interface CreateSystemInstanceCommandInput extends CreateSystemInstanceRe
 export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Creates a system instance. </p>
  *          <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is
  *             specified by the <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified by the <code>s3BucketName</code> parameter. You need to
@@ -107,6 +104,8 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class CreateSystemInstanceCommand extends $Command
   .classBuilder<

@@ -310,9 +310,9 @@ export interface ElasticTranscoder {
 }
 
 /**
- * @public
  * <fullname>AWS Elastic Transcoder Service</fullname>
  *         <p>The AWS Elastic Transcoder Service.</p>
+ * @public
  */
 export class ElasticTranscoder extends ElasticTranscoderClient implements ElasticTranscoder {}
 createAggregatedClient(commands, ElasticTranscoder);

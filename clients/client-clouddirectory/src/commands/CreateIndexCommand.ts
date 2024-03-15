@@ -27,7 +27,6 @@ export interface CreateIndexCommandInput extends CreateIndexRequest {}
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html">Indexing and search</a> for more information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class CreateIndexCommand extends $Command
   .classBuilder<

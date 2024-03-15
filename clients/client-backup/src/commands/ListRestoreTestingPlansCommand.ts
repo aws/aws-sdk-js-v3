@@ -27,7 +27,6 @@ export interface ListRestoreTestingPlansCommandInput extends ListRestoreTestingP
 export interface ListRestoreTestingPlansCommandOutput extends ListRestoreTestingPlansOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of restore testing plans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListRestoreTestingPlansCommandOutput extends ListRestoreTesting
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListRestoreTestingPlansCommand extends $Command
   .classBuilder<

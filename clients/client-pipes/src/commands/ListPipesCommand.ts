@@ -32,7 +32,6 @@ export interface ListPipesCommandInput extends ListPipesRequest {}
 export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the pipes associated with this account. For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html">Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * @public
  */
 export class ListPipesCommand extends $Command
   .classBuilder<

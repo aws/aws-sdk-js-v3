@@ -27,7 +27,6 @@ export interface EnableCrlCommandInput extends ScalarCrlRequest {}
 export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables a certificate revocation list (CRL). When enabled, certificates stored in the CRL are unauthorized to receive session credentials.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -74,6 +73,7 @@ export interface EnableCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class EnableCrlCommand extends $Command
   .classBuilder<

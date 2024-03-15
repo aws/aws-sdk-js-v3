@@ -27,7 +27,6 @@ export interface StartTestExecutionCommandInput extends StartTestExecutionReques
 export interface StartTestExecutionCommandOutput extends StartTestExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The action to start test set execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface StartTestExecutionCommandOutput extends StartTestExecutionRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class StartTestExecutionCommand extends $Command
   .classBuilder<

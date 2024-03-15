@@ -27,7 +27,6 @@ export interface AddPermissionCommandInput extends AddPermissionRequest {}
 export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web Services organization
  *       permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict
  *       access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name
@@ -99,6 +98,7 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class AddPermissionCommand extends $Command
   .classBuilder<

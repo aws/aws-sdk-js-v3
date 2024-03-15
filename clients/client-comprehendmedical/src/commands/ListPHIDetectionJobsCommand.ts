@@ -31,7 +31,6 @@ export interface ListPHIDetectionJobsCommandInput extends ListPHIDetectionJobsRe
 export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of protected health information (PHI) detection jobs you have
  *       submitted.</p>
  * @example
@@ -107,6 +106,7 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class ListPHIDetectionJobsCommand extends $Command
   .classBuilder<

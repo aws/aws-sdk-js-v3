@@ -27,7 +27,6 @@ export interface StartInstanceRefreshCommandInput extends StartInstanceRefreshTy
 export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an instance refresh.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group.
@@ -209,6 +208,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To start an instance refresh
  * ```javascript
  * // This example starts an instance refresh for the specified Auto Scaling group.

@@ -27,7 +27,6 @@ export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRe
 export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of celebrities recognized in the input image. For more
  *       information, see Recognizing celebrities in the Amazon Rekognition Developer Guide. </p>
  *          <p>
@@ -202,6 +201,7 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class RecognizeCelebritiesCommand extends $Command
   .classBuilder<

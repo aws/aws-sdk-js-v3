@@ -27,7 +27,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationMessage 
 export interface CreateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application that has one configuration template named <code>default</code>
  *       and no application versions.</p>
  * @example
@@ -108,6 +107,7 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new application named my-app:

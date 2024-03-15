@@ -27,7 +27,6 @@ export interface CreateServiceLinkedRoleCommandInput extends CreateServiceLinked
 export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IAM role that is linked to a specific Amazon Web Services service. The service controls
  *             the attached policies and when the role can be deleted. This helps ensure that the
  *             service is not broken by an unexpectedly changed or deleted role, which could put your
@@ -104,6 +103,7 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class CreateServiceLinkedRoleCommand extends $Command
   .classBuilder<

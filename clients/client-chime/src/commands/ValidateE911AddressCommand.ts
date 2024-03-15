@@ -32,9 +32,6 @@ export interface ValidateE911AddressCommandInput extends ValidateE911AddressRequ
 export interface ValidateE911AddressCommandOutput extends ValidateE911AddressResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ValidateE911Address in the Amazon Chime SDK Voice Namespace
- *
  * <p>Validates an address to be used for 911 calls made with Amazon
  *             Chime Voice Connectors. You can use validated addresses
  *             in a Presence Information Data Format Location Object file that you include in SIP requests.
@@ -123,6 +120,8 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ValidateE911Address in the Amazon Chime SDK Voice Namespace
  */
 export class ValidateE911AddressCommand extends $Command
   .classBuilder<

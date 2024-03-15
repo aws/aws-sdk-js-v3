@@ -27,7 +27,6 @@ export interface DescribeMailboxExportJobCommandInput extends DescribeMailboxExp
 export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current status of a mailbox export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DescribeMailboxExportJobCommand extends $Command
   .classBuilder<

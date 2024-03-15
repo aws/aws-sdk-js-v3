@@ -27,7 +27,6 @@ export interface CancelClusterCommandInput extends CancelClusterRequest {}
 export interface CancelClusterCommandOutput extends CancelClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a cluster job. You can only cancel a cluster job while it's in the
  *         <code>AwaitingQuorum</code> status. You'll have at least an hour after creating a cluster
  *       job to cancel it.</p>
@@ -67,6 +66,7 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To cancel a cluster job
  * ```javascript
  * // This operation cancels a cluster job. You can only cancel a cluster job while it's in the AwaitingQuorum status.

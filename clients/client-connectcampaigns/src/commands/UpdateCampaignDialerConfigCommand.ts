@@ -27,7 +27,6 @@ export interface UpdateCampaignDialerConfigCommandInput extends UpdateCampaignDi
 export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Updates the dialer config of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class UpdateCampaignDialerConfigCommand extends $Command
   .classBuilder<

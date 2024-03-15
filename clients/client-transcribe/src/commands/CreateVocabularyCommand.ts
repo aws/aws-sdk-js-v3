@@ -27,7 +27,6 @@ export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom vocabulary.</p>
  *          <p>When creating a new custom vocabulary, you can either upload a text file that contains
  *             your new entries, phrases, and terms into an Amazon S3 bucket and include the
@@ -99,6 +98,7 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class CreateVocabularyCommand extends $Command
   .classBuilder<

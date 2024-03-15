@@ -27,7 +27,6 @@ export interface UpdateAccessCommandInput extends UpdateAccessRequest {}
 export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to update parameters for the access specified in the <code>ServerID</code> and
  *       <code>ExternalID</code> parameters.</p>
  * @example
@@ -95,6 +94,7 @@ export interface UpdateAccessCommandOutput extends UpdateAccessResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UpdateAccessCommand extends $Command
   .classBuilder<

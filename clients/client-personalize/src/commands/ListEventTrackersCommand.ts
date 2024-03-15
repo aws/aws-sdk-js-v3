@@ -27,7 +27,6 @@ export interface ListEventTrackersCommandInput extends ListEventTrackersRequest 
 export interface ListEventTrackersCommandOutput extends ListEventTrackersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of event trackers associated with the account.
  *       The response provides the properties for each event tracker, including the Amazon Resource
  *       Name (ARN) and tracking ID. For more
@@ -75,6 +74,7 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListEventTrackersCommand extends $Command
   .classBuilder<

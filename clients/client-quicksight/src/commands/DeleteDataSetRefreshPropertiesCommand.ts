@@ -32,7 +32,6 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the dataset refresh properties of the dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DeleteDataSetRefreshPropertiesCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteDataSetRefreshPropertiesCommand extends $Command
   .classBuilder<

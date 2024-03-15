@@ -27,7 +27,6 @@ export interface CreatePlatformVersionCommandInput extends CreatePlatformVersion
 export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new version of your custom platform.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class CreatePlatformVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisassociateWebACLCommandInput extends DisassociateWebACLReques
 export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified regional application resource from any existing web ACL
  *          association. A resource can have at most one web ACL association. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
@@ -96,6 +95,7 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DisassociateWebACLCommand extends $Command
   .classBuilder<

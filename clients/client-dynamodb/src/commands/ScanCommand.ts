@@ -27,7 +27,6 @@ export interface ScanCommandInput extends ScanInput {}
 export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>Scan</code> operation returns one or more items and item attributes by
  *             accessing every item in a table or a secondary index. To have DynamoDB return fewer
  *             items, you can provide a <code>FilterExpression</code> operation.</p>
@@ -264,6 +263,7 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To scan a table
  * ```javascript
  * // This example scans the entire Music table, and then narrows the results to songs by the artist "No One You Know". For each item, only the album title and song title are returned.

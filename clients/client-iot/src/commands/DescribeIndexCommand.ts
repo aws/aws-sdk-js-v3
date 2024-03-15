@@ -27,7 +27,6 @@ export interface DescribeIndexCommandInput extends DescribeIndexRequest {}
 export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a search index.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeIndex</a> action.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeIndexCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPortfoliosCommandInput extends ListPortfoliosInput {}
 export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all portfolios in the catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListPortfoliosCommand extends $Command
   .classBuilder<

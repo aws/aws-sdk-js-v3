@@ -27,7 +27,6 @@ export interface DescribePackageImportJobCommandInput extends DescribePackageImp
 export interface DescribePackageImportJobCommandOutput extends DescribePackageImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a package import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class DescribePackageImportJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs deployment or stack commands. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html">Deploying
  *         Apps</a> and <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-commands.html">Run Stack Commands</a>.</p>
  *          <p>
@@ -84,6 +83,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class CreateDeploymentCommand extends $Command
   .classBuilder<

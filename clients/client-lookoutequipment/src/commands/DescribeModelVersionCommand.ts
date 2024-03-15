@@ -27,7 +27,6 @@ export interface DescribeModelVersionCommandInput extends DescribeModelVersionRe
 export interface DescribeModelVersionCommandOutput extends DescribeModelVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specific machine learning model version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface DescribeModelVersionCommandOutput extends DescribeModelVersionR
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeModelVersionCommand extends $Command
   .classBuilder<

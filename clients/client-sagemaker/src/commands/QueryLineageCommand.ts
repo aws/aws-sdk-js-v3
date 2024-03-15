@@ -27,7 +27,6 @@ export interface QueryLineageCommandInput extends QueryLineageRequest {}
 export interface QueryLineageCommandOutput extends QueryLineageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this action to inspect your lineage and discover relationships between entities.
  *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html">
  *             Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
@@ -96,6 +95,7 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class QueryLineageCommand extends $Command
   .classBuilder<

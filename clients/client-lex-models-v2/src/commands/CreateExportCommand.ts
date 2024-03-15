@@ -27,7 +27,6 @@ export interface CreateExportCommandInput extends CreateExportRequest {}
 export interface CreateExportCommandOutput extends CreateExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a zip archive containing the contents of a bot or a bot
  *          locale. The archive contains a directory structure that contains JSON
  *          files that define the bot.</p>
@@ -130,6 +129,7 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateExportCommand extends $Command
   .classBuilder<

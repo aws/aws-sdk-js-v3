@@ -27,7 +27,6 @@ export interface DeleteRoleCustomPermissionCommandInput extends DeleteRoleCustom
 export interface DeleteRoleCustomPermissionCommandOutput extends DeleteRoleCustomPermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes custom permissions from the role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteRoleCustomPermissionCommandOutput extends DeleteRoleCusto
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteRoleCustomPermissionCommand extends $Command
   .classBuilder<

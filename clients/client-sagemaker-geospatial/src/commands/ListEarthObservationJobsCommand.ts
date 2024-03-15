@@ -36,7 +36,6 @@ export interface ListEarthObservationJobsCommandInput extends ListEarthObservati
 export interface ListEarthObservationJobsCommandOutput extends ListEarthObservationJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to get a list of the Earth Observation jobs associated with the calling Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class ListEarthObservationJobsCommand extends $Command
   .classBuilder<

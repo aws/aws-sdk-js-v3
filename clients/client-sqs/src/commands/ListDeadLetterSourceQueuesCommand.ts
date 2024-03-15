@@ -27,7 +27,6 @@ export interface ListDeadLetterSourceQueuesCommandInput extends ListDeadLetterSo
 export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterSourceQueuesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute
  *             configured with a dead-letter queue.</p>
  *          <p> The <code>ListDeadLetterSourceQueues</code> methods supports pagination. Set
@@ -101,6 +100,7 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class ListDeadLetterSourceQueuesCommand extends $Command
   .classBuilder<

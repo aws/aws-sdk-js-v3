@@ -29,7 +29,6 @@ export interface BatchCheckLayerAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks the availability of one or more image layers that are within a repository in a
  *          public registry. When an image is pushed to a repository, each image layer is checked to
  *          verify if it has been uploaded before. If it has been uploaded, then the image layer is
@@ -98,6 +97,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command
   .classBuilder<

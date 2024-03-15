@@ -39,7 +39,6 @@ export interface DescribeExtensionPackAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of extension pack associations for the specified migration project.
  *          An extension pack is an add-on module
  *          that emulates functions present in a source database that are required when converting objects
@@ -96,6 +95,7 @@ export interface DescribeExtensionPackAssociationsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe Extension Pack Associations
  * ```javascript
  * // Returns a paginated list of extension pack associations for the specified migration project.

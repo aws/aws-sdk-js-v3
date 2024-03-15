@@ -27,7 +27,6 @@ export interface CreateRuleCommandInput extends CreateRuleRequest {}
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a listener rule. Each listener has a default rule for checking connection requests,
  *    but you can define additional rules. Each rule consists of a priority, one or more actions, and
  *    one or more conditions. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules">Listener rules</a> in the
@@ -163,6 +162,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class CreateRuleCommand extends $Command
   .classBuilder<

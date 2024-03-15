@@ -32,7 +32,6 @@ export interface GetTestExecutionArtifactsUrlCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The pre-signed Amazon S3 URL to download the test execution result artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetTestExecutionArtifactsUrlCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class GetTestExecutionArtifactsUrlCommand extends $Command
   .classBuilder<

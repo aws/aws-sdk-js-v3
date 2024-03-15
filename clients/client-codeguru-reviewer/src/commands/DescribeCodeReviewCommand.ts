@@ -27,7 +27,6 @@ export interface DescribeCodeReviewCommandInput extends DescribeCodeReviewReques
 export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the metadata associated with the code review along with its status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class DescribeCodeReviewCommand extends $Command
   .classBuilder<

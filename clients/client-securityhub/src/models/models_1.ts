@@ -23,248 +23,247 @@ import {
 } from "./models_0";
 
 /**
- * @public
  * <p>A data volume to mount from another container.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
   /**
-   * @public
    * <p>Whether the container has read-only access to the volume.</p>
+   * @public
    */
   ReadOnly?: boolean;
 
   /**
-   * @public
    * <p>The name of another container within the same task definition from which to mount volumes.</p>
+   * @public
    */
   SourceContainer?: string;
 }
 
 /**
- * @public
  * <p>A container definition that describes a container in the task.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
   /**
-   * @public
    * <p>The command that is passed to the container.</p>
+   * @public
    */
   Command?: string[];
 
   /**
-   * @public
    * <p>The number of CPU units reserved for the container.</p>
+   * @public
    */
   Cpu?: number;
 
   /**
-   * @public
    * <p>The dependencies that are defined for container startup and shutdown.</p>
+   * @public
    */
   DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[];
 
   /**
-   * @public
    * <p>Whether to disable networking within the container.</p>
+   * @public
    */
   DisableNetworking?: boolean;
 
   /**
-   * @public
    * <p>A list of DNS search domains that are presented to the container.</p>
+   * @public
    */
   DnsSearchDomains?: string[];
 
   /**
-   * @public
    * <p>A list of DNS servers that are presented to the container.</p>
+   * @public
    */
   DnsServers?: string[];
 
   /**
-   * @public
    * <p>A key-value map of labels to add to the container.</p>
+   * @public
    */
   DockerLabels?: Record<string, string>;
 
   /**
-   * @public
    * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
+   * @public
    */
   DockerSecurityOptions?: string[];
 
   /**
-   * @public
    * <p>The entry point that is passed to the container.</p>
+   * @public
    */
   EntryPoint?: string[];
 
   /**
-   * @public
    * <p>The environment variables to pass to a container.</p>
+   * @public
    */
   Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[];
 
   /**
-   * @public
    * <p>A list of files containing the environment variables to pass to a container.</p>
+   * @public
    */
   EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[];
 
   /**
-   * @public
    * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
+   * @public
    */
   Essential?: boolean;
 
   /**
-   * @public
    * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
+   * @public
    */
   ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[];
 
   /**
-   * @public
    * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
+   * @public
    */
   FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails;
 
   /**
-   * @public
    * <p>The container health check command and associated configuration parameters for the container.</p>
+   * @public
    */
   HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails;
 
   /**
-   * @public
    * <p>The hostname to use for the container.</p>
+   * @public
    */
   Hostname?: string;
 
   /**
-   * @public
    * <p>The image used to start the container.</p>
+   * @public
    */
   Image?: string;
 
   /**
-   * @public
    * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
+   * @public
    */
   Interactive?: boolean;
 
   /**
-   * @public
    * <p>A list of links for the container in the form <code>
    *                <i>container_name</i>:<i>alias</i>
    *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
+   * @public
    */
   Links?: string[];
 
   /**
-   * @public
    * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+   * @public
    */
   LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails;
 
   /**
-   * @public
    * <p>The log configuration specification for the container.</p>
+   * @public
    */
   LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails;
 
   /**
-   * @public
    * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
+   * @public
    */
   Memory?: number;
 
   /**
-   * @public
    * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
+   * @public
    */
   MemoryReservation?: number;
 
   /**
-   * @public
    * <p>The mount points for the data volumes in the container.</p>
+   * @public
    */
   MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[];
 
   /**
-   * @public
    * <p>The name of the container.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The list of port mappings for the container.</p>
+   * @public
    */
   PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[];
 
   /**
-   * @public
    * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
+   * @public
    */
   Privileged?: boolean;
 
   /**
-   * @public
    * <p>Whether to allocate a TTY to the container.</p>
+   * @public
    */
   PseudoTerminal?: boolean;
 
   /**
-   * @public
    * <p>Whether the container is given read-only access to its root file system.</p>
+   * @public
    */
   ReadonlyRootFilesystem?: boolean;
 
   /**
-   * @public
    * <p>The private repository authentication credentials to use.</p>
+   * @public
    */
   RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails;
 
   /**
-   * @public
    * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
+   * @public
    */
   ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[];
 
   /**
-   * @public
    * <p>The secrets to pass to the container.</p>
+   * @public
    */
   Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[];
 
   /**
-   * @public
    * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
+   * @public
    */
   StartTimeout?: number;
 
   /**
-   * @public
    * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
+   * @public
    */
   StopTimeout?: number;
 
   /**
-   * @public
    * <p>A list of namespaced kernel parameters to set in the container.</p>
+   * @public
    */
   SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[];
 
   /**
-   * @public
    * <p>A list of ulimits to set in the container. </p>
+   * @public
    */
   Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[];
 
   /**
-   * @public
    * <p>The user to use inside the container.</p>
    *          <p>The value can use one of the following formats.</p>
    *          <ul>
@@ -319,249 +318,249 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   User?: string;
 
   /**
-   * @public
    * <p>Data volumes to mount from another container.</p>
+   * @public
    */
   VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[];
 
   /**
-   * @public
    * <p>The working directory in which to run commands inside the container.</p>
+   * @public
    */
   WorkingDirectory?: string;
 }
 
 /**
- * @public
  * <p>An Elastic Inference accelerator to use
  *          for the containers in the task.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
   /**
-   * @public
    * <p>The Elastic Inference accelerator device name.</p>
+   * @public
    */
   DeviceName?: string;
 
   /**
-   * @public
    * <p>The Elastic Inference accelerator type to use.</p>
+   * @public
    */
   DeviceType?: string;
 }
 
 /**
- * @public
  * <p>A placement constraint object to use for tasks.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
   /**
-   * @public
    * <p>A cluster query language expression to apply to the constraint.</p>
+   * @public
    */
   Expression?: string;
 
   /**
-   * @public
    * <p>The type of constraint.</p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
   /**
-   * @public
    * <p>The name of the property.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The value of the property.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>The configuration details for the App Mesh
  *          proxy.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
   /**
-   * @public
    * <p>The name of the container that will serve as the App Mesh proxy.</p>
+   * @public
    */
   ContainerName?: string;
 
   /**
-   * @public
    * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
+   * @public
    */
   ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[];
 
   /**
-   * @public
    * <p>The proxy type.</p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Information about a Docker volume.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
   /**
-   * @public
    * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
+   * @public
    */
   Autoprovision?: boolean;
 
   /**
-   * @public
    * <p>The Docker volume driver to use.</p>
+   * @public
    */
   Driver?: string;
 
   /**
-   * @public
    * <p>A map of Docker driver-specific options that are passed through.</p>
+   * @public
    */
   DriverOpts?: Record<string, string>;
 
   /**
-   * @public
    * <p>Custom metadata to add to the Docker volume.</p>
+   * @public
    */
   Labels?: Record<string, string>;
 
   /**
-   * @public
    * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
    * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
+   * @public
    */
   Scope?: string;
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
   /**
-   * @public
    * <p>The Amazon EFS access point identifier to use.</p>
+   * @public
    */
   AccessPointId?: string;
 
   /**
-   * @public
    * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
+   * @public
    */
   Iam?: string;
 }
 
 /**
- * @public
  * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
   /**
-   * @public
    * <p>The authorization configuration details for the Amazon EFS file system.</p>
+   * @public
    */
   AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails;
 
   /**
-   * @public
    * <p>The Amazon EFS file system identifier to use.</p>
+   * @public
    */
   FilesystemId?: string;
 
   /**
-   * @public
    * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
+   * @public
    */
   RootDirectory?: string;
 
   /**
-   * @public
    * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
+   * @public
    */
   TransitEncryption?: string;
 
   /**
-   * @public
    * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
+   * @public
    */
   TransitEncryptionPort?: number;
 }
 
 /**
- * @public
  * <p>Information about a bind mount host volume.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionVolumesHostDetails {
   /**
-   * @public
    * <p>The path on the host container instance that is presented to the container.</p>
+   * @public
    */
   SourcePath?: string;
 }
 
 /**
- * @public
  * <p>A data volume to mount from another container.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionVolumesDetails {
   /**
-   * @public
    * <p>Information about a Docker volume.</p>
+   * @public
    */
   DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails;
 
   /**
-   * @public
    * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+   * @public
    */
   EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails;
 
   /**
-   * @public
    * <p>Information about a bind mount host volume.</p>
+   * @public
    */
   Host?: AwsEcsTaskDefinitionVolumesHostDetails;
 
   /**
-   * @public
    * <p>The name of the data volume.</p>
+   * @public
    */
   Name?: string;
 }
 
 /**
- * @public
  * <p>Details about a task definition. A task definition describes the container and volume definitions
  *          of an Amazon Elastic Container Service task.</p>
+ * @public
  */
 export interface AwsEcsTaskDefinitionDetails {
   /**
-   * @public
    * <p>The container definitions that describe the containers that make up the task.</p>
+   * @public
    */
   ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[];
 
   /**
-   * @public
    * <p>The number of CPU units used by the task.Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -590,29 +589,29 @@ export interface AwsEcsTaskDefinitionDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Cpu?: string;
 
   /**
-   * @public
    * <p>The ARN of the task execution role that grants the container agent permission to make API calls on behalf of the container user.</p>
+   * @public
    */
   ExecutionRoleArn?: string;
 
   /**
-   * @public
    * <p>The name of a family that this task definition is registered to.</p>
+   * @public
    */
   Family?: string;
 
   /**
-   * @public
    * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+   * @public
    */
   InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[];
 
   /**
-   * @public
    * <p>The inter-process communication (IPC) resource namespace to use for the containers in the task. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -631,21 +630,21 @@ export interface AwsEcsTaskDefinitionDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   IpcMode?: string;
 
   /**
-   * @public
    * <p>The amount (in MiB) of memory used by the task. </p>
    *          <p>For tasks that are hosted on Amazon EC2, you can provide a task-level memory value or a container-level memory value.
    *       For tasks that are hosted on Fargate, you must use one of the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">specified values</a> in the <i>
    *                <i>Amazon Elastic Container Service Developer Guide</i>
    *             </i>, which determines your range of supported values for the <code>Cpu</code> and <code>Memory</code> parameters.</p>
+   * @public
    */
   Memory?: string;
 
   /**
-   * @public
    * <p>The Docker networking mode to use for the containers in the task. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -669,310 +668,310 @@ export interface AwsEcsTaskDefinitionDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   NetworkMode?: string;
 
   /**
-   * @public
    * <p>The process namespace to use for the containers in the task. Valid values are <code>host</code> or <code>task</code>.</p>
+   * @public
    */
   PidMode?: string;
 
   /**
-   * @public
    * <p>The placement constraint objects to use for tasks.</p>
+   * @public
    */
   PlacementConstraints?: AwsEcsTaskDefinitionPlacementConstraintsDetails[];
 
   /**
-   * @public
    * <p>The configuration details for the App Mesh proxy.</p>
+   * @public
    */
   ProxyConfiguration?: AwsEcsTaskDefinitionProxyConfigurationDetails;
 
   /**
-   * @public
    * <p>The task launch types that the task definition was validated against.</p>
+   * @public
    */
   RequiresCompatibilities?: string[];
 
   /**
-   * @public
    * <p>The short name or ARN of the IAM role that grants containers in the task permission to call Amazon Web Services API operations on your behalf.</p>
+   * @public
    */
   TaskRoleArn?: string;
 
   /**
-   * @public
    * <p>The data volume definitions for the task.</p>
+   * @public
    */
   Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
 
   /**
-   * @public
    * <p>
    *             The status of the task definition.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Provides details on a container instance bind mount host volume.
  *       </p>
+ * @public
  */
 export interface AwsEcsTaskVolumeHostDetails {
   /**
-   * @public
    * <p>When the <code>host</code> parameter is used, specify a <code>sourcePath</code> to declare the path
    * on the host container instance that's presented to the container.
    *       </p>
+   * @public
    */
   SourcePath?: string;
 }
 
 /**
- * @public
  * <p>Provides information about a data volume that's used in a task definition.
  *       </p>
+ * @public
  */
 export interface AwsEcsTaskVolumeDetails {
   /**
-   * @public
    * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and
    * hyphens are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.
    *       </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>This parameter is specified when you use bind mount host volumes. The contents of the <code>host</code> parameter
    * determine whether your bind mount host volume persists on the host container instance and where it's stored.
    *       </p>
+   * @public
    */
   Host?: AwsEcsTaskVolumeHostDetails;
 }
 
 /**
- * @public
  * <p>Provides details about a task in a cluster.
  *       </p>
+ * @public
  */
 export interface AwsEcsTaskDetails {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster that hosts the task.
    *       </p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the task definition that creates the task.
    *       </p>
+   * @public
    */
   TaskDefinitionArn?: string;
 
   /**
-   * @public
    * <p>The version counter for the task.
    *       </p>
+   * @public
    */
   Version?: string;
 
   /**
-   * @public
    * <p>The Unix timestamp for the time when the task was created. More specifically, it's for the time when
    * the task entered the <code>PENDING</code> state.
    *       </p>
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * <p>The Unix timestamp for the time when the task started. More specifically, it's for the time when the
    *          task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state.
    *    </p>
+   * @public
    */
   StartedAt?: string;
 
   /**
-   * @public
    * <p>The tag specified when a task is started. If an Amazon ECS service started the task, the
    *          <code>startedBy</code> parameter contains the deployment ID of that service.
    *       </p>
+   * @public
    */
   StartedBy?: string;
 
   /**
-   * @public
    * <p>The name of the task group that's associated with the task.
    *       </p>
+   * @public
    */
   Group?: string;
 
   /**
-   * @public
    * <p>Details about the data volume that is used in a task definition.
    *       </p>
+   * @public
    */
   Volumes?: AwsEcsTaskVolumeDetails[];
 
   /**
-   * @public
    * <p>The containers that are associated with the task.
    *       </p>
+   * @public
    */
   Containers?: AwsEcsContainerDetails[];
 }
 
 /**
- * @public
  * <p>Provides details for all file system operations using this Amazon EFS access point.
  *       </p>
+ * @public
  */
 export interface AwsEfsAccessPointPosixUserDetails {
   /**
-   * @public
    * <p>The POSIX group ID used for all file system operations using this access point.
    *       </p>
+   * @public
    */
   Gid?: string;
 
   /**
-   * @public
    * <p>Secondary POSIX group IDs used for all file system operations using this access point.
    *       </p>
+   * @public
    */
   SecondaryGids?: string[];
 
   /**
-   * @public
    * <p>The POSIX user ID used for all file system operations using this access point.
    *       </p>
+   * @public
    */
   Uid?: string;
 }
 
 /**
- * @public
  * <p>Provides information about the settings that Amazon EFS uses to create the root directory
  * when a client connects to an access point.
  *       </p>
+ * @public
  */
 export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
   /**
-   * @public
    * <p>Specifies the POSIX group ID to apply to the root directory.
    *       </p>
+   * @public
    */
   OwnerGid?: string;
 
   /**
-   * @public
    * <p>Specifies the POSIX user ID to apply to the root directory.
    *       </p>
+   * @public
    */
   OwnerUid?: string;
 
   /**
-   * @public
    * <p>Specifies the POSIX permissions to apply to the root directory, in the format of an octal number
    * representing the file's mode bits.
    *       </p>
+   * @public
    */
   Permissions?: string;
 }
 
 /**
- * @public
  * <p>Provides information about the directory on the Amazon EFS file system that the access point exposes
  * as the root directory to NFS clients using the access point.
  *       </p>
+ * @public
  */
 export interface AwsEfsAccessPointRootDirectoryDetails {
   /**
-   * @public
    * <p>Specifies the POSIX IDs and permissions to apply to the access point's root directory.
    *       </p>
+   * @public
    */
   CreationInfo?: AwsEfsAccessPointRootDirectoryCreationInfoDetails;
 
   /**
-   * @public
    * <p>Specifies the path on the Amazon EFS file system to expose as the root directory to NFS clients
    * using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified
    * path does not exist, you are required to provide <code>CreationInfo</code>.
    *       </p>
+   * @public
    */
   Path?: string;
 }
 
 /**
- * @public
  * <p>Provides information about an Amazon EFS access point.
  *       </p>
+ * @public
  */
 export interface AwsEfsAccessPointDetails {
   /**
-   * @public
    * <p>The ID of the Amazon EFS access point.
    *       </p>
+   * @public
    */
   AccessPointId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The opaque string specified in the request to ensure idempotent creation.
    *       </p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon EFS file system that the access point applies to.
    *       </p>
+   * @public
    */
   FileSystemId?: string;
 
   /**
-   * @public
    * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point,
    * that is used for all file operations by NFS clients using the access point.
    *       </p>
+   * @public
    */
   PosixUser?: AwsEfsAccessPointPosixUserDetails;
 
   /**
-   * @public
    * <p>The directory on the Amazon EFS file system that the access point exposes as the root
    * directory to NFS clients using the access point.
    *       </p>
+   * @public
    */
   RootDirectory?: AwsEfsAccessPointRootDirectoryDetails;
 }
 
 /**
- * @public
  * <p>Details for a cluster logging configuration.</p>
+ * @public
  */
 export interface AwsEksClusterLoggingClusterLoggingDetails {
   /**
-   * @public
    * <p>Whether the logging types that are listed in <code>Types</code> are enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>A list of logging types. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -1001,69 +1000,69 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Types?: string[];
 }
 
 /**
- * @public
  * <p>The logging configuration for an Amazon EKS cluster.</p>
+ * @public
  */
 export interface AwsEksClusterLoggingDetails {
   /**
-   * @public
    * <p>Cluster logging configurations.</p>
+   * @public
    */
   ClusterLogging?: AwsEksClusterLoggingClusterLoggingDetails[];
 }
 
 /**
- * @public
  * <p>Information about the VPC configuration used by the cluster control plane.</p>
+ * @public
  */
 export interface AwsEksClusterResourcesVpcConfigDetails {
   /**
-   * @public
    * <p>The security groups that are associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Amazon EKS control plane.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The subnets that are associated with the cluster.</p>
+   * @public
    */
   SubnetIds?: string[];
 
   /**
-   * @public
    * <p>
    *          Indicates whether the Amazon EKS public API server endpoint is turned on. If the Amazon EKS public API
    *          server endpoint is turned off, your cluster's Kubernetes API server can only receive requests that originate from within
    *          the cluster VPC.
    *       </p>
+   * @public
    */
   EndpointPublicAccess?: boolean;
 }
 
 /**
- * @public
  * <p>Provides details about an Amazon EKS cluster.</p>
+ * @public
  */
 export interface AwsEksClusterDetails {
   /**
-   * @public
    * <p>The ARN of the cluster.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The certificate authority data for the cluster.</p>
+   * @public
    */
   CertificateAuthorityData?: string;
 
   /**
-   * @public
    * <p>The status of the cluster. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -1097,203 +1096,203 @@ export interface AwsEksClusterDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ClusterStatus?: string;
 
   /**
-   * @public
    * <p>The endpoint for the Amazon EKS API server.</p>
+   * @public
    */
   Endpoint?: string;
 
   /**
-   * @public
    * <p>The name of the cluster.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The VPC configuration used by the cluster control plane.</p>
+   * @public
    */
   ResourcesVpcConfig?: AwsEksClusterResourcesVpcConfigDetails;
 
   /**
-   * @public
    * <p>The ARN of the IAM role that provides permissions for the Amazon EKS control plane to make calls to Amazon Web Services API operations on your behalf.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon EKS server version for the cluster.</p>
+   * @public
    */
   Version?: string;
 
   /**
-   * @public
    * <p>The logging configuration for the cluster.</p>
+   * @public
    */
   Logging?: AwsEksClusterLoggingDetails;
 }
 
 /**
- * @public
  * <p>Contains information about a link to another environment that is in the same group.</p>
+ * @public
  */
 export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
   /**
-   * @public
    * <p>The name of the linked environment.</p>
+   * @public
    */
   EnvironmentName?: string;
 
   /**
-   * @public
    * <p>The name of the environment link.</p>
+   * @public
    */
   LinkName?: string;
 }
 
 /**
- * @public
  * <p>A configuration option setting for the environment.</p>
+ * @public
  */
 export interface AwsElasticBeanstalkEnvironmentOptionSetting {
   /**
-   * @public
    * <p>The type of resource that the configuration option is associated with.</p>
+   * @public
    */
   Namespace?: string;
 
   /**
-   * @public
    * <p>The name of the option.</p>
+   * @public
    */
   OptionName?: string;
 
   /**
-   * @public
    * <p>The name of the resource.</p>
+   * @public
    */
   ResourceName?: string;
 
   /**
-   * @public
    * <p>The value of the configuration setting.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Contains information about the tier of the environment.</p>
+ * @public
  */
 export interface AwsElasticBeanstalkEnvironmentTier {
   /**
-   * @public
    * <p>The name of the environment tier. Valid values are <code>WebServer</code> or <code>Worker</code>.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The type of environment tier. Valid values are <code>Standard</code> or <code>SQS/HTTP</code>.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The version of the environment tier.</p>
+   * @public
    */
   Version?: string;
 }
 
 /**
- * @public
  * <p>Contains details about an Elastic Beanstalk environment.</p>
+ * @public
  */
 export interface AwsElasticBeanstalkEnvironmentDetails {
   /**
-   * @public
    * <p>The name of the application that is associated with the environment.</p>
+   * @public
    */
   ApplicationName?: string;
 
   /**
-   * @public
    * <p>The URL to the CNAME for this environment.</p>
+   * @public
    */
   Cname?: string;
 
   /**
-   * @public
    * <p>The creation date for this environment.</p>
+   * @public
    */
   DateCreated?: string;
 
   /**
-   * @public
    * <p>The date when this environment was last modified.</p>
+   * @public
    */
   DateUpdated?: string;
 
   /**
-   * @public
    * <p>A description of the environment.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.</p>
+   * @public
    */
   EndpointUrl?: string;
 
   /**
-   * @public
    * <p>The ARN of the environment.</p>
+   * @public
    */
   EnvironmentArn?: string;
 
   /**
-   * @public
    * <p>The identifier of the environment.</p>
+   * @public
    */
   EnvironmentId?: string;
 
   /**
-   * @public
    * <p>Links to other environments in the same group.</p>
+   * @public
    */
   EnvironmentLinks?: AwsElasticBeanstalkEnvironmentEnvironmentLink[];
 
   /**
-   * @public
    * <p>The name of the environment.</p>
+   * @public
    */
   EnvironmentName?: string;
 
   /**
-   * @public
    * <p>The configuration setting for the environment.</p>
+   * @public
    */
   OptionSettings?: AwsElasticBeanstalkEnvironmentOptionSetting[];
 
   /**
-   * @public
    * <p>The ARN of the platform version for the environment.</p>
+   * @public
    */
   PlatformArn?: string;
 
   /**
-   * @public
    * <p>The name of the solution stack that is deployed with the environment.</p>
+   * @public
    */
   SolutionStackName?: string;
 
   /**
-   * @public
    * <p>The current operational status of the environment. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -1337,36 +1336,36 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The tier of the environment.</p>
+   * @public
    */
   Tier?: AwsElasticBeanstalkEnvironmentTier;
 
   /**
-   * @public
    * <p>The application version of the environment.</p>
+   * @public
    */
   VersionLabel?: string;
 }
 
 /**
- * @public
  * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
  *          traffic.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainDomainEndpointOptions {
   /**
-   * @public
    * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
+   * @public
    */
   EnforceHTTPS?: boolean;
 
   /**
-   * @public
    * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
    *          domain.</p>
    *          <p>Valid values:</p>
@@ -1380,191 +1379,191 @@ export interface AwsElasticsearchDomainDomainEndpointOptions {
    *                   <code>Policy-Min-TLS-1-2-2019-07</code>, which only supports TLSv1.2</p>
    *             </li>
    *          </ul>
+   * @public
    */
   TLSSecurityPolicy?: string;
 }
 
 /**
- * @public
  * <p>Configuration options for zone awareness.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
   /**
-   * @public
    * <p>he number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
+   * @public
    */
   AvailabilityZoneCount?: number;
 }
 
 /**
- * @public
  * <p>details about the configuration of an OpenSearch cluster.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
   /**
-   * @public
    * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   * @public
    */
   DedicatedMasterCount?: number;
 
   /**
-   * @public
    * <p>Whether to use a dedicated master node for the Elasticsearch domain. A dedicated master node performs cluster management tasks, but doesn't hold data or respond to data upload requests.</p>
+   * @public
    */
   DedicatedMasterEnabled?: boolean;
 
   /**
-   * @public
    * <p>The hardware configuration of the computer that hosts the dedicated master node. A sample value is <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
    *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   * @public
    */
   DedicatedMasterType?: string;
 
   /**
-   * @public
    * <p>The number of data nodes to use in the Elasticsearch domain.</p>
+   * @public
    */
   InstanceCount?: number;
 
   /**
-   * @public
    * <p>The instance type for your data nodes. For example, <code>m3.medium.elasticsearch</code>.</p>
    *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
+   * @public
    */
   ZoneAwarenessConfig?: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails;
 
   /**
-   * @public
    * <p>Whether to enable zone awareness for the Elasticsearch domain. When zone awareness is enabled, OpenSearch allocates the cluster's nodes and replica index shards across Availability Zones in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
+   * @public
    */
   ZoneAwarenessEnabled?: boolean;
 }
 
 /**
- * @public
  * <p>Details about the configuration for encryption at rest.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainEncryptionAtRestOptions {
   /**
-   * @public
    * <p>Whether encryption at rest is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</p>
+   * @public
    */
   KmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>The log configuration.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
   /**
-   * @public
    * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
+   * @public
    */
   CloudWatchLogsLogGroupArn?: string;
 
   /**
-   * @public
    * <p>Whether the log publishing is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>configures the CloudWatch Logs to publish for the
  *          Elasticsearch domain.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainLogPublishingOptions {
   /**
-   * @public
    * <p>Configures the OpenSearch index logs
    *          publishing.</p>
+   * @public
    */
   IndexSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
 
   /**
-   * @public
    * <p>Configures the OpenSearch search slow log
    *          publishing.</p>
+   * @public
    */
   SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
 
   /**
-   * @public
    * <p>The log configuration.</p>
+   * @public
    */
   AuditLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
 }
 
 /**
- * @public
  * <p>Details about the configuration for node-to-node encryption.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
   /**
-   * @public
    * <p>Whether node-to-node encryption is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Information about the state of the domain relative to the latest service software.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainServiceSoftwareOptions {
   /**
-   * @public
    * <p>The epoch time when the deployment window closes for required updates. After this time,
    *          Amazon OpenSearch Service schedules the software upgrade automatically.</p>
+   * @public
    */
   AutomatedUpdateDate?: string;
 
   /**
-   * @public
    * <p>Whether a request to update the domain can be canceled.</p>
+   * @public
    */
   Cancellable?: boolean;
 
   /**
-   * @public
    * <p>The version of the service software that is currently installed on the domain.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>A more detailed description of the service software status.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The most recent version of the service software.</p>
+   * @public
    */
   NewVersion?: string;
 
   /**
-   * @public
    * <p>Whether a service software update is available for the domain.</p>
+   * @public
    */
   UpdateAvailable?: boolean;
 
   /**
-   * @public
    * <p>The status of the service software update. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -1593,356 +1592,356 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   UpdateStatus?: string;
 }
 
 /**
- * @public
  * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
  *          domain.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainVPCOptions {
   /**
-   * @public
    * <p>The list of Availability Zones associated with the VPC subnets.</p>
+   * @public
    */
   AvailabilityZones?: string[];
 
   /**
-   * @public
    * <p>The list of security group IDs associated with the VPC endpoints for the domain.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>A list of subnet IDs associated with the VPC endpoints for the domain.</p>
+   * @public
    */
   SubnetIds?: string[];
 
   /**
-   * @public
    * <p>ID for the VPC.</p>
+   * @public
    */
   VPCId?: string;
 }
 
 /**
- * @public
  * <p>Information about an Elasticsearch domain.</p>
+ * @public
  */
 export interface AwsElasticsearchDomainDetails {
   /**
-   * @public
    * <p>IAM policy document specifying the access policies for the new Elasticsearch domain.</p>
+   * @public
    */
   AccessPolicies?: string;
 
   /**
-   * @public
    * <p>Additional options for the domain endpoint.</p>
+   * @public
    */
   DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions;
 
   /**
-   * @public
    * <p>Unique identifier for an Elasticsearch domain.</p>
+   * @public
    */
   DomainId?: string;
 
   /**
-   * @public
    * <p>Name of an Elasticsearch domain.</p>
    *          <p>Domain names are unique across all domains owned by the same account within an Amazon Web Services
    *          Region.</p>
    *          <p>Domain names must start with a lowercase letter and must be between 3 and 28
    *          characters.</p>
    *          <p>Valid characters are a-z (lowercase only), 0-9, and – (hyphen). </p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
    *          Elasticsearch domain.</p>
    *          <p>The endpoint is a service URL. </p>
+   * @public
    */
   Endpoint?: string;
 
   /**
-   * @public
    * <p>The key-value pair that exists if the Elasticsearch domain uses VPC endpoints.</p>
+   * @public
    */
   Endpoints?: Record<string, string>;
 
   /**
-   * @public
    * <p>OpenSearch version.</p>
+   * @public
    */
   ElasticsearchVersion?: string;
 
   /**
-   * @public
    * <p>Information about an OpenSearch cluster configuration.</p>
+   * @public
    */
   ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails;
 
   /**
-   * @public
    * <p>Details about the configuration for encryption at rest.</p>
+   * @public
    */
   EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions;
 
   /**
-   * @public
    * <p>Configures the CloudWatch Logs to publish for the Elasticsearch domain.</p>
+   * @public
    */
   LogPublishingOptions?: AwsElasticsearchDomainLogPublishingOptions;
 
   /**
-   * @public
    * <p>Details about the configuration for node-to-node encryption.</p>
+   * @public
    */
   NodeToNodeEncryptionOptions?: AwsElasticsearchDomainNodeToNodeEncryptionOptions;
 
   /**
-   * @public
    * <p>Information about the status of a domain relative to the latest service software.</p>
+   * @public
    */
   ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions;
 
   /**
-   * @public
    * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
    *          domain.</p>
+   * @public
    */
   VPCOptions?: AwsElasticsearchDomainVPCOptions;
 }
 
 /**
- * @public
  * <p>Contains information about a stickiness policy that was created using
  *             <code>CreateAppCookieStickinessPolicy</code>.</p>
+ * @public
  */
 export interface AwsElbAppCookieStickinessPolicy {
   /**
-   * @public
    * <p>The name of the application cookie used for stickiness.</p>
+   * @public
    */
   CookieName?: string;
 
   /**
-   * @public
    * <p>The mnemonic name for the policy being created. The name must be unique within the set
    *          of policies for the load balancer.</p>
+   * @public
    */
   PolicyName?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a stickiness policy that was created using
  *             <code>CreateLBCookieStickinessPolicy</code>.</p>
+ * @public
  */
 export interface AwsElbLbCookieStickinessPolicy {
   /**
-   * @public
    * <p>The amount of time, in seconds, after which the cookie is considered stale. If an
    *          expiration period is not specified, the stickiness session lasts for the duration of the
    *          browser session.</p>
+   * @public
    */
   CookieExpirationPeriod?: number;
 
   /**
-   * @public
    * <p>The name of the policy. The name must be unique within the set of policies for the load
    *          balancer.</p>
+   * @public
    */
   PolicyName?: string;
 }
 
 /**
- * @public
  * <p>Contains information about the access log configuration for the load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerAccessLog {
   /**
-   * @public
    * <p>The interval in minutes for publishing the access logs.</p>
    *          <p>You can publish access logs either every 5 minutes or every 60 minutes.</p>
+   * @public
    */
   EmitInterval?: number;
 
   /**
-   * @public
    * <p>Indicates whether access logs are enabled for the load balancer.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The name of the S3 bucket where the access logs are stored.</p>
+   * @public
    */
   S3BucketName?: string;
 
   /**
-   * @public
    * <p>The logical hierarchy that was created for the S3 bucket.</p>
    *          <p>If a prefix is not provided, the log is placed at the root level of the bucket.</p>
+   * @public
    */
   S3BucketPrefix?: string;
 }
 
 /**
- * @public
  * <p>Provides information about additional attributes for the load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerAdditionalAttribute {
   /**
-   * @public
    * <p>The name of the attribute.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The value of the attribute.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Contains information about the connection draining configuration for the load
  *          balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerConnectionDraining {
   /**
-   * @public
    * <p>Indicates whether connection draining is enabled for the load balancer.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The maximum time, in seconds, to keep the existing connections open before deregistering
    *          the instances.</p>
+   * @public
    */
   Timeout?: number;
 }
 
 /**
- * @public
  * <p>Contains connection settings for the load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerConnectionSettings {
   /**
-   * @public
    * <p>The time, in seconds, that the connection can be idle (no data is sent over the
    *          connection) before it is closed by the load balancer.</p>
+   * @public
    */
   IdleTimeout?: number;
 }
 
 /**
- * @public
  * <p>Contains cross-zone load balancing settings for the load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
   /**
-   * @public
    * <p>Indicates whether cross-zone load balancing is enabled for the load balancer.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Contains attributes for the load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerAttributes {
   /**
-   * @public
    * <p>Information about the access log configuration for the load balancer.</p>
    *          <p>If the access log is enabled, the load balancer captures detailed information about all
    *          requests. It delivers the information to a specified S3 bucket.</p>
+   * @public
    */
   AccessLog?: AwsElbLoadBalancerAccessLog;
 
   /**
-   * @public
    * <p>Information about the connection draining configuration for the load balancer.</p>
    *          <p>If connection draining is enabled, the load balancer allows existing requests to
    *          complete before it shifts traffic away from a deregistered or unhealthy instance.</p>
+   * @public
    */
   ConnectionDraining?: AwsElbLoadBalancerConnectionDraining;
 
   /**
-   * @public
    * <p>Connection settings for the load balancer.</p>
    *          <p>If an idle timeout is configured, the load balancer allows connections to remain idle
    *          for the specified duration. When a connection is idle, no data is sent over the
    *          connection.</p>
+   * @public
    */
   ConnectionSettings?: AwsElbLoadBalancerConnectionSettings;
 
   /**
-   * @public
    * <p>Cross-zone load balancing settings for the load balancer.</p>
    *          <p>If cross-zone load balancing is enabled, the load balancer routes the request traffic
    *          evenly across all instances regardless of the Availability Zones.</p>
+   * @public
    */
   CrossZoneLoadBalancing?: AwsElbLoadBalancerCrossZoneLoadBalancing;
 
   /**
-   * @public
    * <p>Any additional attributes for a load balancer.</p>
+   * @public
    */
   AdditionalAttributes?: AwsElbLoadBalancerAdditionalAttribute[];
 }
 
 /**
- * @public
  * <p>Provides information about the configuration of an EC2 instance for the load
  *          balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerBackendServerDescription {
   /**
-   * @public
    * <p>The port on which the EC2 instance is listening.</p>
+   * @public
    */
   InstancePort?: number;
 
   /**
-   * @public
    * <p>The names of the policies that are enabled for the EC2 instance.</p>
+   * @public
    */
   PolicyNames?: string[];
 }
 
 /**
- * @public
  * <p>Contains information about the health checks that are conducted on the load
  *          balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerHealthCheck {
   /**
-   * @public
    * <p>The number of consecutive health check successes required before the instance is moved
    *          to the Healthy state.</p>
+   * @public
    */
   HealthyThreshold?: number;
 
   /**
-   * @public
    * <p>The approximate interval, in seconds, between health checks of an individual
    *          instance.</p>
+   * @public
    */
   Interval?: number;
 
   /**
-   * @public
    * <p>The instance that is being checked. The target specifies the protocol and port. The
    *          available protocols are TCP, SSL, HTTP, and HTTPS. The range of valid ports is 1 through
    *          65535.</p>
@@ -1958,983 +1957,984 @@ export interface AwsElbLoadBalancerHealthCheck {
    *                <i><protocol></i>:<i><port></i>/<i><path
    *                to ping></i>
    *             </code>.</p>
+   * @public
    */
   Target?: string;
 
   /**
-   * @public
    * <p>The amount of time, in seconds, during which no response means a failed health
    *          check.</p>
+   * @public
    */
   Timeout?: number;
 
   /**
-   * @public
    * <p>The number of consecutive health check failures that must occur before the instance is
    *          moved to the Unhealthy state.</p>
+   * @public
    */
   UnhealthyThreshold?: number;
 }
 
 /**
- * @public
  * <p>Provides information about an EC2 instance for a load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerInstance {
   /**
-   * @public
    * <p>The instance identifier.</p>
+   * @public
    */
   InstanceId?: string;
 }
 
 /**
- * @public
  * <p>Information about a load balancer listener.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerListener {
   /**
-   * @public
    * <p>The port on which the instance is listening.</p>
+   * @public
    */
   InstancePort?: number;
 
   /**
-   * @public
    * <p>The protocol to use to route traffic to instances.</p>
    *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
    *             <code>SSL</code>
    *          </p>
+   * @public
    */
   InstanceProtocol?: string;
 
   /**
-   * @public
    * <p>The port on which the load balancer is listening.</p>
    *          <p>On EC2-VPC, you can specify any port from the range 1-65535.</p>
    *          <p>On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587,
    *          1024-65535.</p>
+   * @public
    */
   LoadBalancerPort?: number;
 
   /**
-   * @public
    * <p>The load balancer transport protocol to use for routing.</p>
    *          <p>Valid values: <code>HTTP</code> | <code>HTTPS</code> | <code>TCP</code> |
    *             <code>SSL</code>
    *          </p>
+   * @public
    */
   Protocol?: string;
 
   /**
-   * @public
    * <p>The ARN of the server certificate.</p>
+   * @public
    */
   SslCertificateId?: string;
 }
 
 /**
- * @public
  * <p>Lists the policies that are enabled for a load balancer listener.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerListenerDescription {
   /**
-   * @public
    * <p>Information about the listener.</p>
+   * @public
    */
   Listener?: AwsElbLoadBalancerListener;
 
   /**
-   * @public
    * <p>The policies enabled for the listener.</p>
+   * @public
    */
   PolicyNames?: string[];
 }
 
 /**
- * @public
  * <p>Contains information about the policies for a load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerPolicies {
   /**
-   * @public
    * <p>The stickiness policies that are created using
    *             <code>CreateAppCookieStickinessPolicy</code>.</p>
+   * @public
    */
   AppCookieStickinessPolicies?: AwsElbAppCookieStickinessPolicy[];
 
   /**
-   * @public
    * <p>The stickiness policies that are created using
    *             <code>CreateLBCookieStickinessPolicy</code>.</p>
+   * @public
    */
   LbCookieStickinessPolicies?: AwsElbLbCookieStickinessPolicy[];
 
   /**
-   * @public
    * <p>The policies other than the stickiness policies.</p>
+   * @public
    */
   OtherPolicies?: string[];
 }
 
 /**
- * @public
  * <p>Contains information about the security group for the load balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerSourceSecurityGroup {
   /**
-   * @public
    * <p>The name of the security group.</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The owner of the security group.</p>
+   * @public
    */
   OwnerAlias?: string;
 }
 
 /**
- * @public
  * <p>Contains details about a Classic Load Balancer.</p>
+ * @public
  */
 export interface AwsElbLoadBalancerDetails {
   /**
-   * @public
    * <p>The list of Availability Zones for the load balancer.</p>
+   * @public
    */
   AvailabilityZones?: string[];
 
   /**
-   * @public
    * <p>Information about the configuration of the EC2 instances.</p>
+   * @public
    */
   BackendServerDescriptions?: AwsElbLoadBalancerBackendServerDescription[];
 
   /**
-   * @public
    * <p>The name of the Amazon Route 53 hosted zone for the load balancer.</p>
+   * @public
    */
   CanonicalHostedZoneName?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
+   * @public
    */
   CanonicalHostedZoneNameID?: string;
 
   /**
-   * @public
    * <p>Indicates when the load balancer was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreatedTime?: string;
 
   /**
-   * @public
    * <p>The DNS name of the load balancer.</p>
+   * @public
    */
   DnsName?: string;
 
   /**
-   * @public
    * <p>Information about the health checks that are conducted on the load balancer.</p>
+   * @public
    */
   HealthCheck?: AwsElbLoadBalancerHealthCheck;
 
   /**
-   * @public
    * <p>List of EC2 instances for the load balancer.</p>
+   * @public
    */
   Instances?: AwsElbLoadBalancerInstance[];
 
   /**
-   * @public
    * <p>The policies that are enabled for the load balancer listeners.</p>
+   * @public
    */
   ListenerDescriptions?: AwsElbLoadBalancerListenerDescription[];
 
   /**
-   * @public
    * <p>The attributes for a load balancer.</p>
+   * @public
    */
   LoadBalancerAttributes?: AwsElbLoadBalancerAttributes;
 
   /**
-   * @public
    * <p>The name of the load balancer.</p>
+   * @public
    */
   LoadBalancerName?: string;
 
   /**
-   * @public
    * <p>The policies for a load balancer.</p>
+   * @public
    */
   Policies?: AwsElbLoadBalancerPolicies;
 
   /**
-   * @public
    * <p>The type of load balancer. Only provided if the load balancer is in a VPC.</p>
    *          <p>If <code>Scheme</code> is <code>internet-facing</code>, the load balancer has a public
    *          DNS name that resolves to a public IP address.</p>
    *          <p>If <code>Scheme</code> is <code>internal</code>, the load balancer has a public DNS name
    *          that resolves to a private IP address.</p>
+   * @public
    */
   Scheme?: string;
 
   /**
-   * @public
    * <p>The security groups for the load balancer. Only provided if the load balancer is in a
    *          VPC.</p>
+   * @public
    */
   SecurityGroups?: string[];
 
   /**
-   * @public
    * <p>Information about the security group for the load balancer. This is the security group
    *          that is used for inbound rules.</p>
+   * @public
    */
   SourceSecurityGroup?: AwsElbLoadBalancerSourceSecurityGroup;
 
   /**
-   * @public
    * <p>The list of subnet identifiers for the load balancer.</p>
+   * @public
    */
   Subnets?: string[];
 
   /**
-   * @public
    * <p>The identifier of the VPC for the load balancer.</p>
+   * @public
    */
   VpcId?: string;
 }
 
 /**
- * @public
  * <p>A load balancer attribute.</p>
+ * @public
  */
 export interface AwsElbv2LoadBalancerAttribute {
   /**
-   * @public
    * <p>The name of the load balancer attribute.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The value of the load balancer attribute.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Information about the state of the load balancer.</p>
+ * @public
  */
 export interface LoadBalancerState {
   /**
-   * @public
    * <p>The state code. The initial state of the load balancer is provisioning.</p>
    *          <p>After the load balancer is fully set up and ready to route traffic, its state is
    *          active.</p>
    *          <p>If the load balancer could not be set up, its state is failed. </p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>A description of the state.</p>
+   * @public
    */
   Reason?: string;
 }
 
 /**
- * @public
  * <p>Information about a load balancer.</p>
+ * @public
  */
 export interface AwsElbv2LoadBalancerDetails {
   /**
-   * @public
    * <p>The Availability Zones for the load balancer.</p>
+   * @public
    */
   AvailabilityZones?: AvailabilityZone[];
 
   /**
-   * @public
    * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
+   * @public
    */
   CanonicalHostedZoneId?: string;
 
   /**
-   * @public
    * <p>Indicates when the load balancer was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreatedTime?: string;
 
   /**
-   * @public
    * <p>The public DNS name of the load balancer.</p>
+   * @public
    */
   DNSName?: string;
 
   /**
-   * @public
    * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
    *          are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *          addresses).</p>
+   * @public
    */
   IpAddressType?: string;
 
   /**
-   * @public
    * <p>The nodes of an Internet-facing load balancer have public IP addresses.</p>
+   * @public
    */
   Scheme?: string;
 
   /**
-   * @public
    * <p>The IDs of the security groups for the load balancer.</p>
+   * @public
    */
   SecurityGroups?: string[];
 
   /**
-   * @public
    * <p>The state of the load balancer.</p>
+   * @public
    */
   State?: LoadBalancerState;
 
   /**
-   * @public
    * <p>The type of load balancer.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The ID of the VPC for the load balancer.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>Attributes of the load balancer.</p>
+   * @public
    */
   LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
 }
 
 /**
- * @public
  * <p>
  *             A schema defines the structure of events that are sent to Amazon EventBridge. Schema registries are containers for
  *             schemas. They collect and organize schemas so that your schemas are in logical groups.
  *         </p>
+ * @public
  */
 export interface AwsEventSchemasRegistryDetails {
   /**
-   * @public
    * <p>
    *             A description of the registry to be created.
    *         </p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the registry.
    *         </p>
+   * @public
    */
   RegistryArn?: string;
 
   /**
-   * @public
    * <p>
    *             The name of the schema registry.
    *         </p>
+   * @public
    */
   RegistryName?: string;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about the Amazon EventBridge event buses that the endpoint is associated with.</p>
+ * @public
  */
 export interface AwsEventsEndpointEventBusesDetails {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the event bus that the endpoint is associated with.</p>
+   * @public
    */
   EventBusArn?: string;
 }
 
 /**
- * @public
  * <p>
  *             Indicates whether replication is enabled or disabled for the endpoint. If enabled, the endpoint can replicate all
  *             events to a secondary Amazon Web Services Region.</p>
+ * @public
  */
 export interface AwsEventsEndpointReplicationConfigDetails {
   /**
-   * @public
    * <p>
    *             The state of event replication.</p>
+   * @public
    */
   State?: string;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about the primary Amazon Web Services Region of the endpoint.</p>
+ * @public
  */
 export interface AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the health check used by the endpoint to determine whether failover is triggered.</p>
+   * @public
    */
   HealthCheck?: string;
 }
 
 /**
- * @public
  * <p>
  *             The Amazon Web Services Region that events are routed to when failover is triggered or event replication is enabled.</p>
+ * @public
  */
 export interface AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails {
   /**
-   * @public
    * <p>
    *             Defines the secondary Region.</p>
+   * @public
    */
   Route?: string;
 }
 
 /**
- * @public
  * <p>
  *             The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+ * @public
  */
 export interface AwsEventsEndpointRoutingConfigFailoverConfigDetails {
   /**
-   * @public
    * <p>
    *             The main Region of the endpoint.</p>
+   * @public
    */
   Primary?: AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails;
 
   /**
-   * @public
    * <p>
    *             The Region that events are routed to when failover is triggered or event replication is enabled.</p>
+   * @public
    */
   Secondary?: AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about the routing configuration of the endpoint.</p>
+ * @public
  */
 export interface AwsEventsEndpointRoutingConfigDetails {
   /**
-   * @public
    * <p>
    *             The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+   * @public
    */
   FailoverConfig?: AwsEventsEndpointRoutingConfigFailoverConfigDetails;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about an Amazon EventBridge global endpoint. The endpoint can improve your application’s
  *             availability by making it Regional-fault tolerant.
  *         </p>
+ * @public
  */
 export interface AwsEventsEndpointDetails {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the endpoint.
    *         </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>
    *             A description of the endpoint.
    *         </p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>
    *             The URL subdomain of the endpoint. For example, if <code>EndpointUrl</code> is
    *             <code>https://abcde.veo.endpoints.event.amazonaws.com</code>, then the <code>EndpointId</code> is <code>abcde.veo</code>.</p>
+   * @public
    */
   EndpointId?: string;
 
   /**
-   * @public
    * <p>
    *             The URL of the endpoint.</p>
+   * @public
    */
   EndpointUrl?: string;
 
   /**
-   * @public
    * <p>
    *             The event buses being used by the endpoint.</p>
+   * @public
    */
   EventBuses?: AwsEventsEndpointEventBusesDetails[];
 
   /**
-   * @public
    * <p>
    *             The name of the endpoint.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             Whether event replication was enabled or disabled for this endpoint. The default state is <code>ENABLED</code>, which
    *             means you must supply a <code>RoleArn</code>. If you don't have a <code>RoleArn</code> or you don't want event
    *             replication enabled, set the state to <code>DISABLED</code>.</p>
+   * @public
    */
   ReplicationConfig?: AwsEventsEndpointReplicationConfigDetails;
 
   /**
-   * @public
    * <p>
    *             The ARN of the role used by event replication for the endpoint.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>
    *             The routing configuration of the endpoint.</p>
+   * @public
    */
   RoutingConfig?: AwsEventsEndpointRoutingConfigDetails;
 
   /**
-   * @public
    * <p>
    *             The current state of the endpoint.</p>
+   * @public
    */
   State?: string;
 
   /**
-   * @public
    * <p>
    *             The reason the endpoint is in its current state.</p>
+   * @public
    */
   StateReason?: string;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about Amazon EventBridge event bus. An event bus is a router that receives events and delivers
  *             them to zero or more destinations, or targets. This can be a custom event bus which you can use to receive events
  *             from your custom applications and services, or it can be a partner event bus which can be matched to a partner event
  *             source.</p>
+ * @public
  */
 export interface AwsEventsEventbusDetails {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>
    *             The name of the event bus.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             The policy that enables the external account to send events to your account.</p>
+   * @public
    */
   Policy?: string;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information on the status of CloudTrail as a data source for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesCloudTrailDetails {
   /**
-   * @public
    * <p>
    *             Specifies whether CloudTrail is activated as a data source for the detector.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information on the status of DNS logs as a data source for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesDnsLogsDetails {
   /**
-   * @public
    * <p>
    *             Describes whether DNS logs is enabled as a data source for the detector.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information on the status of VPC Flow Logs as a data source for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesFlowLogsDetails {
   /**
-   * @public
    * <p>
    *             Describes whether VPC Flow Logs are activated as a data source for the detector.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information on the status of Kubernetes audit logs as a data source for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails {
   /**
-   * @public
    * <p>
    *             Describes whether Kubernetes audit logs are activated as a data source for the detector.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information on the status of Kubernetes data sources for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesKubernetesDetails {
   /**
-   * @public
    * <p>
    *             Describes whether Kubernetes audit logs are activated as a data source for the detector.
    *         </p>
+   * @public
    */
   AuditLogs?: AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails;
 }
 
 /**
- * @public
  * <p>
  *             Describes the configuration of scanning EBS volumes (Malware Protection) as a data source.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails {
   /**
-   * @public
    * <p>
    *             Specifies the reason why scanning EBS volumes (Malware Protection) isn’t activated as a data source.
    *         </p>
+   * @public
    */
   Reason?: string;
 
   /**
-   * @public
    * <p>
    *             Describes whether scanning EBS volumes is activated as a data source for the detector.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>
  *             Describes the configuration of Malware Protection for EC2 instances with findings.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails {
   /**
-   * @public
    * <p>
    *             Describes the configuration of scanning EBS volumes (Malware Protection) as a data source.
    *         </p>
+   * @public
    */
   EbsVolumes?: AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information on the status of Malware Protection as a data source for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails {
   /**
-   * @public
    * <p>
    *             Describes the configuration of Malware Protection for EC2 instances with findings.
    *         </p>
+   * @public
    */
   ScanEc2InstanceWithFindings?: AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails;
 
   /**
-   * @public
    * <p>
    *             The GuardDuty Malware Protection service role.
    *         </p>
+   * @public
    */
   ServiceRole?: string;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information on the status of S3 data event logs as a data source for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesS3LogsDetails {
   /**
-   * @public
    * <p>
    *             A value that describes whether S3 data event logs are automatically enabled for new members of an organization.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>
  *             Describes which data sources are activated for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDataSourcesDetails {
   /**
-   * @public
    * <p>
    *             An object that contains information on the status of CloudTrail as a data source for the detector.
    *         </p>
+   * @public
    */
   CloudTrail?: AwsGuardDutyDetectorDataSourcesCloudTrailDetails;
 
   /**
-   * @public
    * <p>
    *             An object that contains information on the status of DNS logs as a data source for the detector.
    *         </p>
+   * @public
    */
   DnsLogs?: AwsGuardDutyDetectorDataSourcesDnsLogsDetails;
 
   /**
-   * @public
    * <p>
    *             An object that contains information on the status of VPC Flow Logs as a data source for the detector.
    *         </p>
+   * @public
    */
   FlowLogs?: AwsGuardDutyDetectorDataSourcesFlowLogsDetails;
 
   /**
-   * @public
    * <p>
    *             An object that contains information on the status of Kubernetes data sources for the detector.
    *         </p>
+   * @public
    */
   Kubernetes?: AwsGuardDutyDetectorDataSourcesKubernetesDetails;
 
   /**
-   * @public
    * <p>
    *             An object that contains information on the status of Malware Protection as a data source for the detector.
    *         </p>
+   * @public
    */
   MalwareProtection?: AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails;
 
   /**
-   * @public
    * <p>
    *             An object that contains information on the status of S3 Data event logs as a data source for the detector.
    *         </p>
+   * @public
    */
   S3Logs?: AwsGuardDutyDetectorDataSourcesS3LogsDetails;
 }
 
 /**
- * @public
  * <p>
  *             Describes which features are activated for the detector.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorFeaturesDetails {
   /**
-   * @public
    * <p>
    *             Indicates the name of the feature that is activated for the detector.
    *         </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             Indicates the status of the feature that is activated for the detector.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about an Amazon GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector is required for GuardDuty to become operational.
  *         </p>
+ * @public
  */
 export interface AwsGuardDutyDetectorDetails {
   /**
-   * @public
    * <p>
    *             Describes which data sources are activated for the detector.
    *         </p>
+   * @public
    */
   DataSources?: AwsGuardDutyDetectorDataSourcesDetails;
 
   /**
-   * @public
    * <p>
    *             Describes which features are activated for the detector.
    *         </p>
+   * @public
    */
   Features?: AwsGuardDutyDetectorFeaturesDetails[];
 
   /**
-   * @public
    * <p>
    *             The publishing frequency of the finding.
    *         </p>
+   * @public
    */
   FindingPublishingFrequency?: string;
 
   /**
-   * @public
    * <p>
    *             The GuardDuty service role.
    *         </p>
+   * @public
    */
   ServiceRole?: string;
 
   /**
-   * @public
    * <p>
    *             The activation status of the detector.
    *         </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Attributes of the session that the key was used for.</p>
+ * @public
  */
 export interface AwsIamAccessKeySessionContextAttributes {
   /**
-   * @public
    * <p>Indicates whether the session used multi-factor authentication (MFA).</p>
+   * @public
    */
   MfaAuthenticated?: boolean;
 
   /**
-   * @public
    * <p>Indicates when the session was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreationDate?: string;
 }
 
 /**
- * @public
  * <p>Information about the entity that created the session.</p>
+ * @public
  */
 export interface AwsIamAccessKeySessionContextSessionIssuer {
   /**
-   * @public
    * <p>The type of principal (user, role, or group) that created the session.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The principal ID of the principal (user, role, or group) that created the
    *          session.</p>
+   * @public
    */
   PrincipalId?: string;
 
   /**
-   * @public
    * <p>The ARN of the session.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services account that created the session.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The name of the principal that created the session.</p>
+   * @public
    */
   UserName?: string;
 }
 
 /**
- * @public
  * <p>Provides information about the session that the key was used for.</p>
+ * @public
  */
 export interface AwsIamAccessKeySessionContext {
   /**
-   * @public
    * <p>Attributes of the session that the key was used for.</p>
+   * @public
    */
   Attributes?: AwsIamAccessKeySessionContextAttributes;
 
   /**
-   * @public
    * <p>Information about the entity that created the session.</p>
+   * @public
    */
   SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
 }
@@ -2954,612 +2954,611 @@ export const AwsIamAccessKeyStatus = {
 export type AwsIamAccessKeyStatus = (typeof AwsIamAccessKeyStatus)[keyof typeof AwsIamAccessKeyStatus];
 
 /**
- * @public
  * <p>IAM access key details related to a finding.</p>
+ * @public
  */
 export interface AwsIamAccessKeyDetails {
   /**
-   * @public
    * @deprecated
    *
    * <p>The user associated with the IAM access key related to a finding.</p>
    *          <p>The <code>UserName</code> parameter has been replaced with the
    *             <code>PrincipalName</code> parameter because access keys can also be assigned to
    *          principals that are not IAM users.</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The status of the IAM access key related to a finding.</p>
+   * @public
    */
   Status?: AwsIamAccessKeyStatus;
 
   /**
-   * @public
    * <p>Indicates when the IAM access key was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * <p>The ID of the principal associated with an access key.</p>
+   * @public
    */
   PrincipalId?: string;
 
   /**
-   * @public
    * <p>The type of principal associated with an access key.</p>
+   * @public
    */
   PrincipalType?: string;
 
   /**
-   * @public
    * <p>The name of the principal.</p>
+   * @public
    */
   PrincipalName?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the account for the key.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The identifier of the access key.</p>
+   * @public
    */
   AccessKeyId?: string;
 
   /**
-   * @public
    * <p>Information about the session that the key was used for.</p>
+   * @public
    */
   SessionContext?: AwsIamAccessKeySessionContext;
 }
 
 /**
- * @public
  * <p>A managed policy that is attached to an IAM principal.</p>
+ * @public
  */
 export interface AwsIamAttachedManagedPolicy {
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName?: string;
 
   /**
-   * @public
    * <p>The ARN of the policy.</p>
+   * @public
    */
   PolicyArn?: string;
 }
 
 /**
- * @public
  * <p>A managed policy that is attached to the IAM group.</p>
+ * @public
  */
 export interface AwsIamGroupPolicy {
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName?: string;
 }
 
 /**
- * @public
  * <p>Contains details about an IAM group.</p>
+ * @public
  */
 export interface AwsIamGroupDetails {
   /**
-   * @public
    * <p>A list of the managed policies that are attached to the IAM group.</p>
+   * @public
    */
   AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
 
   /**
-   * @public
    * <p>Indicates when the IAM group was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreateDate?: string;
 
   /**
-   * @public
    * <p>The identifier of the IAM group.</p>
+   * @public
    */
   GroupId?: string;
 
   /**
-   * @public
    * <p>The name of the IAM group.</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The list of inline policies that are embedded in the group.</p>
+   * @public
    */
   GroupPolicyList?: AwsIamGroupPolicy[];
 
   /**
-   * @public
    * <p>The path to the group.</p>
+   * @public
    */
   Path?: string;
 }
 
 /**
- * @public
  * <p>Information about a role associated with an instance profile.</p>
+ * @public
  */
 export interface AwsIamInstanceProfileRole {
   /**
-   * @public
    * <p>The ARN of the role.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The policy that grants an entity permission to assume the role.</p>
+   * @public
    */
   AssumeRolePolicyDocument?: string;
 
   /**
-   * @public
    * <p>Indicates when the role was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreateDate?: string;
 
   /**
-   * @public
    * <p>The path to the role.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The identifier of the role.</p>
+   * @public
    */
   RoleId?: string;
 
   /**
-   * @public
    * <p>The name of the role.</p>
+   * @public
    */
   RoleName?: string;
 }
 
 /**
- * @public
  * <p>Information about an instance profile.</p>
+ * @public
  */
 export interface AwsIamInstanceProfile {
   /**
-   * @public
    * <p>The ARN of the instance profile.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>Indicates when the instance profile was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreateDate?: string;
 
   /**
-   * @public
    * <p>The identifier of the instance profile.</p>
+   * @public
    */
   InstanceProfileId?: string;
 
   /**
-   * @public
    * <p>The name of the instance profile.</p>
+   * @public
    */
   InstanceProfileName?: string;
 
   /**
-   * @public
    * <p>The path to the instance profile.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The roles associated with the instance profile.</p>
+   * @public
    */
   Roles?: AwsIamInstanceProfileRole[];
 }
 
 /**
- * @public
  * <p>Information about the policy used to set the permissions boundary for an IAM
  *          principal.</p>
+ * @public
  */
 export interface AwsIamPermissionsBoundary {
   /**
-   * @public
    * <p>The ARN of the policy used to set the permissions boundary.</p>
+   * @public
    */
   PermissionsBoundaryArn?: string;
 
   /**
-   * @public
    * <p>The usage type for the permissions boundary.</p>
+   * @public
    */
   PermissionsBoundaryType?: string;
 }
 
 /**
- * @public
  * <p>A version of an IAM policy.</p>
+ * @public
  */
 export interface AwsIamPolicyVersion {
   /**
-   * @public
    * <p>The identifier of the policy version.</p>
+   * @public
    */
   VersionId?: string;
 
   /**
-   * @public
    * <p>Whether the version is the default version.</p>
+   * @public
    */
   IsDefaultVersion?: boolean;
 
   /**
-   * @public
    * <p>Indicates when the version was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreateDate?: string;
 }
 
 /**
- * @public
  * <p>Represents an IAM permissions policy.</p>
+ * @public
  */
 export interface AwsIamPolicyDetails {
   /**
-   * @public
    * <p>The number of users, groups, and roles that the policy is attached to.</p>
+   * @public
    */
   AttachmentCount?: number;
 
   /**
-   * @public
    * <p>When the policy was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreateDate?: string;
 
   /**
-   * @public
    * <p>The identifier of the default version of the policy.</p>
+   * @public
    */
   DefaultVersionId?: string;
 
   /**
-   * @public
    * <p>A description of the policy.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Whether the policy can be attached to a user, group, or role.</p>
+   * @public
    */
   IsAttachable?: boolean;
 
   /**
-   * @public
    * <p>The path to the policy.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The number of users and roles that use the policy to set the permissions
    *          boundary.</p>
+   * @public
    */
   PermissionsBoundaryUsageCount?: number;
 
   /**
-   * @public
    * <p>The unique identifier of the policy.</p>
+   * @public
    */
   PolicyId?: string;
 
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName?: string;
 
   /**
-   * @public
    * <p>List of versions of the policy.</p>
+   * @public
    */
   PolicyVersionList?: AwsIamPolicyVersion[];
 
   /**
-   * @public
    * <p>When the policy was most recently updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   UpdateDate?: string;
 }
 
 /**
- * @public
  * <p>An inline policy that is embedded in the role.</p>
+ * @public
  */
 export interface AwsIamRolePolicy {
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an IAM role, including all of the role's policies.</p>
+ * @public
  */
 export interface AwsIamRoleDetails {
   /**
-   * @public
    * <p>The trust policy that grants permission to assume the role.</p>
+   * @public
    */
   AssumeRolePolicyDocument?: string;
 
   /**
-   * @public
    * <p>The list of the managed policies that are attached to the role.</p>
+   * @public
    */
   AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
 
   /**
-   * @public
    * <p>Indicates when the role was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreateDate?: string;
 
   /**
-   * @public
    * <p>The list of instance profiles that contain this role.</p>
+   * @public
    */
   InstanceProfileList?: AwsIamInstanceProfile[];
 
   /**
-   * @public
    * <p>Information about the policy used to set the permissions boundary for an IAM
    *          principal.</p>
+   * @public
    */
   PermissionsBoundary?: AwsIamPermissionsBoundary;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the role.</p>
+   * @public
    */
   RoleId?: string;
 
   /**
-   * @public
    * <p>The friendly name that identifies the role.</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>The list of inline policies that are embedded in the role.</p>
+   * @public
    */
   RolePolicyList?: AwsIamRolePolicy[];
 
   /**
-   * @public
    * <p>The maximum session duration (in seconds) that you want to set for the specified role.</p>
+   * @public
    */
   MaxSessionDuration?: number;
 
   /**
-   * @public
    * <p>The path to the role.</p>
+   * @public
    */
   Path?: string;
 }
 
 /**
- * @public
  * <p>Information about an inline policy that is embedded in the user.</p>
+ * @public
  */
 export interface AwsIamUserPolicy {
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName?: string;
 }
 
 /**
- * @public
  * <p>Information about an IAM user.</p>
+ * @public
  */
 export interface AwsIamUserDetails {
   /**
-   * @public
    * <p>A list of the managed policies that are attached to the user.</p>
+   * @public
    */
   AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
 
   /**
-   * @public
    * <p>Indicates when the user was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreateDate?: string;
 
   /**
-   * @public
    * <p>A list of IAM groups that the user belongs to.</p>
+   * @public
    */
   GroupList?: string[];
 
   /**
-   * @public
    * <p>The path to the user.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The permissions boundary for the user.</p>
+   * @public
    */
   PermissionsBoundary?: AwsIamPermissionsBoundary;
 
   /**
-   * @public
    * <p>The unique identifier for the user.</p>
+   * @public
    */
   UserId?: string;
 
   /**
-   * @public
    * <p>The name of the user.</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The list of inline policies that are embedded in the user.</p>
+   * @public
    */
   UserPolicyList?: AwsIamUserPolicy[];
 }
 
 /**
- * @public
  * <p>Provides information about stream encryption.
  *       </p>
+ * @public
  */
 export interface AwsKinesisStreamStreamEncryptionDetails {
   /**
-   * @public
    * <p>The encryption type to use.
    *       </p>
+   * @public
    */
   EncryptionType?: string;
 
   /**
-   * @public
    * <p>The globally unique identifier for the customer-managed KMS key to use for encryption. </p>
+   * @public
    */
   KeyId?: string;
 }
 
 /**
- * @public
  * <p>Provides information about an Amazon Kinesis data stream.
  *       </p>
+ * @public
  */
 export interface AwsKinesisStreamDetails {
   /**
-   * @public
    * <p>The name of the Kinesis stream. If you don't specify a name, CloudFront generates a unique
    * physical ID and uses that ID for the stream name.
    *       </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.
    *       </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>When specified, enables or updates server-side encryption using an KMS key for a specified stream.
    * Removing this property from your stack template and updating your stack disables encryption.
    *       </p>
+   * @public
    */
   StreamEncryption?: AwsKinesisStreamStreamEncryptionDetails;
 
   /**
-   * @public
    * <p>The number of shards that the stream uses.
    *       </p>
+   * @public
    */
   ShardCount?: number;
 
   /**
-   * @public
    * <p>The number of hours for the data records that are stored in shards to remain accessible.
    *       </p>
+   * @public
    */
   RetentionPeriodHours?: number;
 }
 
 /**
- * @public
  * <p>Contains metadata about an KMS key.</p>
+ * @public
  */
 export interface AwsKmsKeyDetails {
   /**
-   * @public
    * <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
+   * @public
    */
   AWSAccountId?: string;
 
   /**
-   * @public
    * <p>Indicates when the KMS key was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreationDate?: number;
 
   /**
-   * @public
    * <p>The globally unique identifier for the KMS key.</p>
+   * @public
    */
   KeyId?: string;
 
   /**
-   * @public
    * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
+   * @public
    */
   KeyManager?: string;
 
   /**
-   * @public
    * <p>The state of the KMS key. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -3588,1535 +3587,1535 @@ export interface AwsKmsKeyDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   KeyState?: string;
 
   /**
-   * @public
    * <p>The source of the KMS key material.</p>
    *          <p>When this value is <code>AWS_KMS</code>, KMS created the key material.</p>
    *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
    *          existing key management infrastructure or the KMS key lacks key material.</p>
    *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
+   * @public
    */
   Origin?: string;
 
   /**
-   * @public
    * <p>A description of the KMS key.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Whether the key has key rotation enabled.</p>
+   * @public
    */
   KeyRotationStatus?: boolean;
 }
 
 /**
- * @public
  * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
+ * @public
  */
 export interface AwsLambdaFunctionCode {
   /**
-   * @public
    * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
+   * @public
    */
   S3Bucket?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 key of the deployment package.</p>
+   * @public
    */
   S3Key?: string;
 
   /**
-   * @public
    * <p>For versioned objects, the version of the deployment package object to use.</p>
+   * @public
    */
   S3ObjectVersion?: string;
 
   /**
-   * @public
    * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
+   * @public
    */
   ZipFile?: string;
 }
 
 /**
- * @public
  * <p>The dead-letter queue for failed asynchronous invocations.</p>
+ * @public
  */
 export interface AwsLambdaFunctionDeadLetterConfig {
   /**
-   * @public
    * <p>The ARN of an SQS queue or SNS topic.</p>
+   * @public
    */
   TargetArn?: string;
 }
 
 /**
- * @public
  * <p>Error messages for environment variables that could not be applied.</p>
+ * @public
  */
 export interface AwsLambdaFunctionEnvironmentError {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   ErrorCode?: string;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>A function's environment variable settings.</p>
+ * @public
  */
 export interface AwsLambdaFunctionEnvironment {
   /**
-   * @public
    * <p>Environment variable key-value pairs.</p>
+   * @public
    */
   Variables?: Record<string, string>;
 
   /**
-   * @public
    * <p>An <code>AwsLambdaFunctionEnvironmentError</code> object.</p>
+   * @public
    */
   Error?: AwsLambdaFunctionEnvironmentError;
 }
 
 /**
- * @public
  * <p>An Lambda layer.</p>
+ * @public
  */
 export interface AwsLambdaFunctionLayer {
   /**
-   * @public
    * <p>The ARN of the function layer.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The size of the layer archive in bytes.</p>
+   * @public
    */
   CodeSize?: number;
 }
 
 /**
- * @public
  * <p>The function's X-Ray tracing configuration.</p>
+ * @public
  */
 export interface AwsLambdaFunctionTracingConfig {
   /**
-   * @public
    * <p>The tracing mode.</p>
+   * @public
    */
   Mode?: string;
 }
 
 /**
- * @public
  * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
+ * @public
  */
 export interface AwsLambdaFunctionVpcConfig {
   /**
-   * @public
    * <p>A list of VPC security groups IDs.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>A list of VPC subnet IDs.</p>
+   * @public
    */
   SubnetIds?: string[];
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId?: string;
 }
 
 /**
- * @public
  * <p>Details about an Lambda function's configuration.</p>
+ * @public
  */
 export interface AwsLambdaFunctionDetails {
   /**
-   * @public
    * <p>An <code>AwsLambdaFunctionCode</code> object.</p>
+   * @public
    */
   Code?: AwsLambdaFunctionCode;
 
   /**
-   * @public
    * <p>The SHA256 hash of the function's deployment package.</p>
+   * @public
    */
   CodeSha256?: string;
 
   /**
-   * @public
    * <p>The function's dead letter queue.</p>
+   * @public
    */
   DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig;
 
   /**
-   * @public
    * <p>The function's environment variables.</p>
+   * @public
    */
   Environment?: AwsLambdaFunctionEnvironment;
 
   /**
-   * @public
    * <p>The name of the function.</p>
+   * @public
    */
   FunctionName?: string;
 
   /**
-   * @public
    * <p>The function that Lambda calls to begin executing your function.</p>
+   * @public
    */
   Handler?: string;
 
   /**
-   * @public
    * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed customer managed key.</p>
+   * @public
    */
   KmsKeyArn?: string;
 
   /**
-   * @public
    * <p>Indicates when the function was last updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   LastModified?: string;
 
   /**
-   * @public
    * <p>The function's layers.</p>
+   * @public
    */
   Layers?: AwsLambdaFunctionLayer[];
 
   /**
-   * @public
    * <p>For Lambda@Edge functions, the ARN of the master function.</p>
+   * @public
    */
   MasterArn?: string;
 
   /**
-   * @public
    * <p>The memory that is allocated to the function.</p>
+   * @public
    */
   MemorySize?: number;
 
   /**
-   * @public
    * <p>The latest updated revision of the function or alias.</p>
+   * @public
    */
   RevisionId?: string;
 
   /**
-   * @public
    * <p>The function's execution role.</p>
+   * @public
    */
   Role?: string;
 
   /**
-   * @public
    * <p>The runtime environment for the Lambda function.</p>
+   * @public
    */
   Runtime?: string;
 
   /**
-   * @public
    * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
+   * @public
    */
   Timeout?: number;
 
   /**
-   * @public
    * <p>The function's X-Ray tracing configuration.</p>
+   * @public
    */
   TracingConfig?: AwsLambdaFunctionTracingConfig;
 
   /**
-   * @public
    * <p>The function's networking configuration.</p>
+   * @public
    */
   VpcConfig?: AwsLambdaFunctionVpcConfig;
 
   /**
-   * @public
    * <p>The version of the Lambda function.</p>
+   * @public
    */
   Version?: string;
 
   /**
-   * @public
    * <p>The instruction set architecture that the function uses. Valid values are <code>x86_64</code> or
    * <code>arm64</code>.</p>
+   * @public
    */
   Architectures?: string[];
 
   /**
-   * @public
    * <p>The type of deployment package that's used to deploy the function code to Lambda. Set to <code>Image</code> for a container image and <code>Zip</code>  for a .zip file archive.
    *       </p>
+   * @public
    */
   PackageType?: string;
 }
 
 /**
- * @public
  * <p>Details about a Lambda layer version.</p>
+ * @public
  */
 export interface AwsLambdaLayerVersionDetails {
   /**
-   * @public
    * <p>The version number.</p>
+   * @public
    */
   Version?: number;
 
   /**
-   * @public
    * <p>The layer's compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a> in the <i>Lambda Developer Guide</i>.</p>
    *          <p>Array Members: Maximum number of 5 items.</p>
    *          <p>Valid Values: <code>nodejs | nodejs4.3 | nodejs6.10 | nodejs8.10 | nodejs10.x | nodejs12.x | nodejs14.x | nodejs16.x | java8 | java8.al2 | java11 | python2.7 | python3.6 | python3.7 | python3.8 | python3.9 | dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | dotnetcore3.1 | dotnet6 | nodejs4.3-edge | go1.x | ruby2.5 | ruby2.7 | provided | provided.al2 | nodejs18.x | python3.10 | java17 | ruby3.2 | python3.11 | nodejs20.x | provided.al2023 | python3.12 | java21</code>
    *          </p>
+   * @public
    */
   CompatibleRuntimes?: string[];
 
   /**
-   * @public
    * <p>Indicates when the version was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreatedDate?: string;
 }
 
 /**
- * @public
  * <p>
  *             Details for SASL/IAM client authentication.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails {
   /**
-   * @public
    * <p>
    *             Indicates whether SASL/IAM authentication is enabled or not.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Details for SASL/SCRAM client authentication.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails {
   /**
-   * @public
    * <p>
    *             Indicates whether SASL/SCRAM authentication is enabled or not.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Provides details for client authentication using SASL.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoClientAuthenticationSaslDetails {
   /**
-   * @public
    * <p>
    *             Provides details for SASL client authentication using IAM. </p>
+   * @public
    */
   Iam?: AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails;
 
   /**
-   * @public
    * <p>
    *             Details for SASL client authentication using SCRAM.</p>
+   * @public
    */
   Scram?: AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails;
 }
 
 /**
- * @public
  * <p>
  *             Provides details for client authentication using TLS.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoClientAuthenticationTlsDetails {
   /**
-   * @public
    * <p>
    *             List of Amazon Web Services Private CA Amazon Resource Names (ARNs). Amazon Web Services Private CA enables creation of
    * private certificate authority (CA) hierarchies, including root and subordinate CAs, without the investment and maintenance costs
    * of operating an on-premises CA.</p>
+   * @public
    */
   CertificateAuthorityArnList?: string[];
 
   /**
-   * @public
    * <p>
    *             Indicates whether TLS authentication is enabled or not.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Provides details for allowing no client authentication.
  *         </p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails {
   /**
-   * @public
    * <p>
    *             Indicates whether unauthenticated is allowed or not.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about different modes of client authentication.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoClientAuthenticationDetails {
   /**
-   * @public
    * <p>
    *             Provides details for client authentication using SASL.</p>
+   * @public
    */
   Sasl?: AwsMskClusterClusterInfoClientAuthenticationSaslDetails;
 
   /**
-   * @public
    * <p>
    *             Provides details for allowing no client authentication.</p>
+   * @public
    */
   Unauthenticated?: AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails;
 
   /**
-   * @public
    * <p>
    *             Provides details for client authentication using TLS.</p>
+   * @public
    */
   Tls?: AwsMskClusterClusterInfoClientAuthenticationTlsDetails;
 }
 
 /**
- * @public
  * <p>
  *             The data-volume encryption details. You can't update encryption at rest settings for existing clusters.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the KMS key for encrypting data at rest. If you don't specify a
    * KMS key, MSK creates one for you and uses it.</p>
+   * @public
    */
   DataVolumeKMSKeyId?: string;
 }
 
 /**
- * @public
  * <p>
  *             The settings for encrypting data in transit.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails {
   /**
-   * @public
    * <p>
    *             When set to <code>true</code>, it indicates that data communication among the broker nodes of the cluster is
    *             encrypted. When set to <code>false</code>, the communication happens in plain text. The default value is
    *             <code>true</code>.</p>
+   * @public
    */
   InCluster?: boolean;
 
   /**
-   * @public
    * <p>
    *             Indicates the encryption setting for data in transit between clients and brokers.</p>
+   * @public
    */
   ClientBroker?: string;
 }
 
 /**
- * @public
  * <p>
  *             Includes encryption-related information, such as the KMS key used for encrypting data at rest and
  * whether you want MSK to encrypt your data in transit.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoEncryptionInfoDetails {
   /**
-   * @public
    * <p>
    *             The settings for encrypting data in transit.</p>
+   * @public
    */
   EncryptionInTransit?: AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails;
 
   /**
-   * @public
    * <p>
    *             The data-volume encryption details. You can't update encryption at rest settings for existing clusters.</p>
+   * @public
    */
   EncryptionAtRest?: AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails;
 }
 
 /**
- * @public
  * <p>
  *             Provide details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.</p>
+ * @public
  */
 export interface AwsMskClusterClusterInfoDetails {
   /**
-   * @public
    * <p>
    *             Includes encryption-related information, such as the KMS key used for encrypting data at rest and
    * whether you want Amazon MSK to encrypt your data in transit.</p>
+   * @public
    */
   EncryptionInfo?: AwsMskClusterClusterInfoEncryptionInfoDetails;
 
   /**
-   * @public
    * <p>
    *             The current version of the cluster.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>
    *             The number of broker nodes in the cluster.</p>
+   * @public
    */
   NumberOfBrokerNodes?: number;
 
   /**
-   * @public
    * <p>
    *             The name of the cluster.</p>
+   * @public
    */
   ClusterName?: string;
 
   /**
-   * @public
    * <p>
    *             Provides information for different modes of client authentication.</p>
+   * @public
    */
   ClientAuthentication?: AwsMskClusterClusterInfoClientAuthenticationDetails;
 
   /**
-   * @public
    * <p>
    *             Specifies the level of monitoring for the cluster.
    *         </p>
+   * @public
    */
   EnhancedMonitoring?: string;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.
  *         </p>
+ * @public
  */
 export interface AwsMskClusterDetails {
   /**
-   * @public
    * <p>
    *             Provides information about a cluster.</p>
+   * @public
    */
   ClusterInfo?: AwsMskClusterClusterInfoDetails;
 }
 
 /**
- * @public
  * <p>A public subnet that Network Firewall uses for the firewall.</p>
+ * @public
  */
 export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
   /**
-   * @public
    * <p>The identifier of the subnet</p>
+   * @public
    */
   SubnetId?: string;
 }
 
 /**
- * @public
  * <p>Details about an Network Firewall firewall.</p>
+ * @public
  */
 export interface AwsNetworkFirewallFirewallDetails {
   /**
-   * @public
    * <p>Whether the firewall is protected from deletion. If set to <code>true</code>, then the firewall cannot be deleted.</p>
+   * @public
    */
   DeleteProtection?: boolean;
 
   /**
-   * @public
    * <p>A description of the firewall.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ARN of the firewall.</p>
+   * @public
    */
   FirewallArn?: string;
 
   /**
-   * @public
    * <p>The identifier of the firewall.</p>
+   * @public
    */
   FirewallId?: string;
 
   /**
-   * @public
    * <p>A descriptive name of the firewall.</p>
+   * @public
    */
   FirewallName?: string;
 
   /**
-   * @public
    * <p>The ARN of the firewall policy.</p>
+   * @public
    */
   FirewallPolicyArn?: string;
 
   /**
-   * @public
    * <p>Whether the firewall is protected from a change to the firewall policy. If set to <code>true</code>, you cannot associate a different policy with the firewall.</p>
+   * @public
    */
   FirewallPolicyChangeProtection?: boolean;
 
   /**
-   * @public
    * <p>Whether the firewall is protected from a change to the subnet associations. If set to <code>true</code>, you cannot map different subnets to the firewall.</p>
+   * @public
    */
   SubnetChangeProtection?: boolean;
 
   /**
-   * @public
    * <p>The public subnets that Network Firewall uses for the firewall. Each subnet must belong to a different Availability Zone.</p>
+   * @public
    */
   SubnetMappings?: AwsNetworkFirewallFirewallSubnetMappingsDetails[];
 
   /**
-   * @public
    * <p>The identifier of the VPC where the firewall is used.</p>
+   * @public
    */
   VpcId?: string;
 }
 
 /**
- * @public
  * <p>A stateful rule group that is used by the firewall policy.</p>
+ * @public
  */
 export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
   /**
-   * @public
    * <p>The ARN of the stateful rule group.</p>
+   * @public
    */
   ResourceArn?: string;
 }
 
 /**
- * @public
  * <p>Defines a CloudWatch dimension value to publish.</p>
+ * @public
  */
 export interface StatelessCustomPublishMetricActionDimension {
   /**
-   * @public
    * <p>The value to use for the custom metric dimension.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Information about metrics to publish to CloudWatch.</p>
+ * @public
  */
 export interface StatelessCustomPublishMetricAction {
   /**
-   * @public
    * <p>Defines CloudWatch dimension values to publish.</p>
+   * @public
    */
   Dimensions?: StatelessCustomPublishMetricActionDimension[];
 }
 
 /**
- * @public
  * <p>The definition of a custom action that can be used for stateless packet handling.</p>
+ * @public
  */
 export interface StatelessCustomActionDefinition {
   /**
-   * @public
    * <p>Information about metrics to publish to CloudWatch.</p>
+   * @public
    */
   PublishMetricAction?: StatelessCustomPublishMetricAction;
 }
 
 /**
- * @public
  * <p>A custom action that can be used for stateless packet handling.</p>
+ * @public
  */
 export interface FirewallPolicyStatelessCustomActionsDetails {
   /**
-   * @public
    * <p>The definition of the custom action.</p>
+   * @public
    */
   ActionDefinition?: StatelessCustomActionDefinition;
 
   /**
-   * @public
    * <p>The name of the custom action.</p>
+   * @public
    */
   ActionName?: string;
 }
 
 /**
- * @public
  * <p>A stateless rule group that is used by the firewall policy.</p>
+ * @public
  */
 export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
   /**
-   * @public
    * <p>The order in which to run the stateless rule group.</p>
+   * @public
    */
   Priority?: number;
 
   /**
-   * @public
    * <p>The ARN of the stateless rule group.</p>
+   * @public
    */
   ResourceArn?: string;
 }
 
 /**
- * @public
  * <p>Defines the behavior of the firewall.</p>
+ * @public
  */
 export interface FirewallPolicyDetails {
   /**
-   * @public
    * <p>The stateful rule groups that are used in the firewall policy.</p>
+   * @public
    */
   StatefulRuleGroupReferences?: FirewallPolicyStatefulRuleGroupReferencesDetails[];
 
   /**
-   * @public
    * <p>The custom action definitions that are available to use in the firewall policy's <code>StatelessDefaultActions</code> setting.</p>
+   * @public
    */
   StatelessCustomActions?: FirewallPolicyStatelessCustomActionsDetails[];
 
   /**
-   * @public
    * <p>The actions to take on a packet if it doesn't match any of the stateless rules in the policy.</p>
    *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
    *       </p>
+   * @public
    */
   StatelessDefaultActions?: string[];
 
   /**
-   * @public
    * <p>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless rules in the policy.</p>
    *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
    *       </p>
+   * @public
    */
   StatelessFragmentDefaultActions?: string[];
 
   /**
-   * @public
    * <p>The stateless rule groups that are used in the firewall policy.</p>
+   * @public
    */
   StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[];
 }
 
 /**
- * @public
  * <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
+ * @public
  */
 export interface AwsNetworkFirewallFirewallPolicyDetails {
   /**
-   * @public
    * <p>The firewall policy configuration.</p>
+   * @public
    */
   FirewallPolicy?: FirewallPolicyDetails;
 
   /**
-   * @public
    * <p>The ARN of the firewall policy.</p>
+   * @public
    */
   FirewallPolicyArn?: string;
 
   /**
-   * @public
    * <p>The identifier of the firewall policy.</p>
+   * @public
    */
   FirewallPolicyId?: string;
 
   /**
-   * @public
    * <p>The name of the firewall policy.</p>
+   * @public
    */
   FirewallPolicyName?: string;
 
   /**
-   * @public
    * <p>A description of the firewall policy.</p>
+   * @public
    */
   Description?: string;
 }
 
 /**
- * @public
  * <p>Stateful inspection criteria for a domain list rule group.</p>
+ * @public
  */
 export interface RuleGroupSourceListDetails {
   /**
-   * @public
    * <p>Indicates whether to allow or deny access to the domains listed in <code>Targets</code>.</p>
+   * @public
    */
   GeneratedRulesType?: string;
 
   /**
-   * @public
    * <p>The protocols that you want to inspect. Specify <code>LS_SNI</code> for HTTPS. Specify <code>HTTP_HOST</code> for HTTP. You can specify either or both.</p>
+   * @public
    */
   TargetTypes?: string[];
 
   /**
-   * @public
    * <p>The domains that you want to inspect for in your traffic flows. You can provide full domain names, or use the '.' prefix as a wildcard. For example, <code>.example.com</code> matches all domains that end with <code>example.com</code>.</p>
+   * @public
    */
   Targets?: string[];
 }
 
 /**
- * @public
  * <p>The inspection criteria for a stateful rule.</p>
+ * @public
  */
 export interface RuleGroupSourceStatefulRulesHeaderDetails {
   /**
-   * @public
    * <p>The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
+   * @public
    */
   Destination?: string;
 
   /**
-   * @public
    * <p>The destination port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
+   * @public
    */
   DestinationPort?: string;
 
   /**
-   * @public
    * <p>The direction of traffic flow to inspect. If set to <code>ANY</code>, the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to <code>FORWARD</code>, the inspection only matches traffic going from the source to the destination.</p>
+   * @public
    */
   Direction?: string;
 
   /**
-   * @public
    * <p>The protocol to inspect for. To inspector for all protocols, use <code>IP</code>.</p>
+   * @public
    */
   Protocol?: string;
 
   /**
-   * @public
    * <p>The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
+   * @public
    */
   Source?: string;
 
   /**
-   * @public
    * <p>The source port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
+   * @public
    */
   SourcePort?: string;
 }
 
 /**
- * @public
  * <p>A rule option for a stateful rule.</p>
+ * @public
  */
 export interface RuleGroupSourceStatefulRulesOptionsDetails {
   /**
-   * @public
    * <p>A keyword to look for.</p>
+   * @public
    */
   Keyword?: string;
 
   /**
-   * @public
    * <p>A list of settings.</p>
+   * @public
    */
   Settings?: string[];
 }
 
 /**
- * @public
  * <p>A Suricata rule specification.</p>
+ * @public
  */
 export interface RuleGroupSourceStatefulRulesDetails {
   /**
-   * @public
    * <p>Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.</p>
+   * @public
    */
   Action?: string;
 
   /**
-   * @public
    * <p>The stateful inspection criteria for the rule.</p>
+   * @public
    */
   Header?: RuleGroupSourceStatefulRulesHeaderDetails;
 
   /**
-   * @public
    * <p>Additional options for the rule.</p>
+   * @public
    */
   RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[];
 }
 
 /**
- * @public
  * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
+ * @public
  */
 export interface RuleGroupSourceCustomActionsDetails {
   /**
-   * @public
    * <p>The definition of a custom action.</p>
+   * @public
    */
   ActionDefinition?: StatelessCustomActionDefinition;
 
   /**
-   * @public
    * <p>A descriptive name of the custom action.</p>
+   * @public
    */
   ActionName?: string;
 }
 
 /**
- * @public
  * <p>A port range to specify the destination ports to inspect for.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
   /**
-   * @public
    * <p>The starting port value for the port range.</p>
+   * @public
    */
   FromPort?: number;
 
   /**
-   * @public
    * <p>The ending port value for the port range.</p>
+   * @public
    */
   ToPort?: number;
 }
 
 /**
- * @public
  * <p>A destination IP address or range.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
   /**
-   * @public
    * <p>An IP address or a block of IP addresses.</p>
+   * @public
    */
   AddressDefinition?: string;
 }
 
 /**
- * @public
  * <p>A port range to specify the source ports to inspect for.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
   /**
-   * @public
    * <p>The starting port value for the port range.</p>
+   * @public
    */
   FromPort?: number;
 
   /**
-   * @public
    * <p>The ending port value for the port range.</p>
+   * @public
    */
   ToPort?: number;
 }
 
 /**
- * @public
  * <p>A source IP addresses and address range to inspect for.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
   /**
-   * @public
    * <p>An IP address or a block of IP addresses.</p>
+   * @public
    */
   AddressDefinition?: string;
 }
 
 /**
- * @public
  * <p>A set of TCP flags and masks to inspect for.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
   /**
-   * @public
    * <p>Defines the flags from the <code>Masks</code> setting that must be set in order for the packet to match. Flags that are listed must be set. Flags that are not listed must not be set.</p>
+   * @public
    */
   Flags?: string[];
 
   /**
-   * @public
    * <p>The set of flags to consider in the inspection. If not specified, then all flags are inspected.</p>
+   * @public
    */
   Masks?: string[];
 }
 
 /**
- * @public
  * <p>Criteria for the stateless rule.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRuleMatchAttributes {
   /**
-   * @public
    * <p>A list of port ranges to specify the destination ports to inspect for.</p>
+   * @public
    */
   DestinationPorts?: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[];
 
   /**
-   * @public
    * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation.</p>
+   * @public
    */
   Destinations?: RuleGroupSourceStatelessRuleMatchAttributesDestinations[];
 
   /**
-   * @public
    * <p>The protocols to inspect for.</p>
+   * @public
    */
   Protocols?: number[];
 
   /**
-   * @public
    * <p>A list of port ranges to specify the source ports to inspect for.</p>
+   * @public
    */
   SourcePorts?: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[];
 
   /**
-   * @public
    * <p>The source IP addresses and address ranges to inspect for, in CIDR notation.</p>
+   * @public
    */
   Sources?: RuleGroupSourceStatelessRuleMatchAttributesSources[];
 
   /**
-   * @public
    * <p>The TCP flags and masks to inspect for.</p>
+   * @public
    */
   TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[];
 }
 
 /**
- * @public
  * <p>The definition of the stateless rule.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRuleDefinition {
   /**
-   * @public
    * <p>The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, or <code>aws:forward_to_sfe</code>). You can then add custom actions.</p>
+   * @public
    */
   Actions?: string[];
 
   /**
-   * @public
    * <p>The criteria for Network Firewall to use to inspect an individual packet in a stateless rule inspection.</p>
+   * @public
    */
   MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes;
 }
 
 /**
- * @public
  * <p>A stateless rule in the rule group.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRulesDetails {
   /**
-   * @public
    * <p>Indicates the order in which to run this rule relative to all of the rules in the stateless rule group.</p>
+   * @public
    */
   Priority?: number;
 
   /**
-   * @public
    * <p>Provides the definition of the stateless rule.</p>
+   * @public
    */
   RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
 }
 
 /**
- * @public
  * <p>Stateless rules and custom actions for a stateless rule group.</p>
+ * @public
  */
 export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
   /**
-   * @public
    * <p>Custom actions for the rule group.</p>
+   * @public
    */
   CustomActions?: RuleGroupSourceCustomActionsDetails[];
 
   /**
-   * @public
    * <p>Stateless rules for the rule group.</p>
+   * @public
    */
   StatelessRules?: RuleGroupSourceStatelessRulesDetails[];
 }
 
 /**
- * @public
  * <p>The rules and actions for the rule group.</p>
+ * @public
  */
 export interface RuleGroupSource {
   /**
-   * @public
    * <p>Stateful inspection criteria for a domain list rule group. A domain list rule group determines access by specific protocols to specific domains.</p>
+   * @public
    */
   RulesSourceList?: RuleGroupSourceListDetails;
 
   /**
-   * @public
    * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.</p>
+   * @public
    */
   RulesString?: string;
 
   /**
-   * @public
    * <p>Suricata rule specifications.</p>
+   * @public
    */
   StatefulRules?: RuleGroupSourceStatefulRulesDetails[];
 
   /**
-   * @public
    * <p>The stateless rules and custom actions used by a stateless rule group.</p>
+   * @public
    */
   StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails;
 }
 
 /**
- * @public
  * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
+ * @public
  */
 export interface RuleGroupVariablesIpSetsDetails {
   /**
-   * @public
    * <p>The list of IP addresses and ranges.</p>
+   * @public
    */
   Definition?: string[];
 }
 
 /**
- * @public
  * <p>A list of port ranges.</p>
+ * @public
  */
 export interface RuleGroupVariablesPortSetsDetails {
   /**
-   * @public
    * <p>The list of port ranges.</p>
+   * @public
    */
   Definition?: string[];
 }
 
 /**
- * @public
  * <p>Additional settings to use in the specified rules.</p>
+ * @public
  */
 export interface RuleGroupVariables {
   /**
-   * @public
    * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
+   * @public
    */
   IpSets?: RuleGroupVariablesIpSetsDetails;
 
   /**
-   * @public
    * <p>A list of port ranges.</p>
+   * @public
    */
   PortSets?: RuleGroupVariablesPortSetsDetails;
 }
 
 /**
- * @public
  * <p>Details about the rule group.</p>
+ * @public
  */
 export interface RuleGroupDetails {
   /**
-   * @public
    * <p>Additional settings to use in the specified rules.</p>
+   * @public
    */
   RuleVariables?: RuleGroupVariables;
 
   /**
-   * @public
    * <p>The rules and actions for the rule group.</p>
    *          <p>For stateful rule groups, can contain <code>RulesString</code>, <code>RulesSourceList</code>, or <code>StatefulRules</code>.</p>
    *          <p>For stateless rule groups, contains <code>StatelessRulesAndCustomActions</code>.</p>
+   * @public
    */
   RulesSource?: RuleGroupSource;
 }
 
 /**
- * @public
  * <p>Details about an Network Firewall rule group. Rule groups are used to inspect and control network traffic. Stateless rule groups apply to individual packets. Stateful rule groups apply to packets in the context of their traffic flow.</p>
  *          <p>Rule groups are referenced in firewall policies.
  *       </p>
+ * @public
  */
 export interface AwsNetworkFirewallRuleGroupDetails {
   /**
-   * @public
    * <p>The maximum number of operating resources that this rule group can use.</p>
+   * @public
    */
   Capacity?: number;
 
   /**
-   * @public
    * <p>A description of the rule group.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Details about the rule group.</p>
+   * @public
    */
   RuleGroup?: RuleGroupDetails;
 
   /**
-   * @public
    * <p>The ARN of the rule group.</p>
+   * @public
    */
   RuleGroupArn?: string;
 
   /**
-   * @public
    * <p>The identifier of the rule group.</p>
+   * @public
    */
   RuleGroupId?: string;
 
   /**
-   * @public
    * <p>The descriptive name of the rule group.</p>
+   * @public
    */
   RuleGroupName?: string;
 
   /**
-   * @public
    * <p>The type of rule group. A rule group can be stateful or stateless.</p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Specifies information about the master user of the domain.
  *       </p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainMasterUserOptionsDetails {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the master user.
    *       </p>
+   * @public
    */
   MasterUserArn?: string;
 
   /**
-   * @public
    * <p>The username for the master user.
    *       </p>
+   * @public
    */
   MasterUserName?: string;
 
   /**
-   * @public
    * <p>The password for the master user.
    *       </p>
+   * @public
    */
   MasterUserPassword?: string;
 }
 
 /**
- * @public
  * <p>Provides information about domain access control options.
  *       </p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
   /**
-   * @public
    * <p>Enables fine-grained access control.
    *       </p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>Enables the internal user database.
    *       </p>
+   * @public
    */
   InternalUserDatabaseEnabled?: boolean;
 
   /**
-   * @public
    * <p>Specifies information about the master user of the domain.
    *       </p>
+   * @public
    */
   MasterUserOptions?: AwsOpenSearchServiceDomainMasterUserOptionsDetails;
 }
 
 /**
- * @public
  * <p>Configuration options for zone awareness.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
   /**
-   * @public
    * <p>The number of Availability Zones that the domain uses. Valid values are <code>2</code> or <code>3</code>. The default is <code>2</code>.</p>
+   * @public
    */
   AvailabilityZoneCount?: number;
 }
 
 /**
- * @public
  * <p>Details about the configuration of an OpenSearch cluster.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainClusterConfigDetails {
   /**
-   * @public
    * <p>The number of data nodes to use in the OpenSearch domain.</p>
+   * @public
    */
   InstanceCount?: number;
 
   /**
-   * @public
    * <p>Whether UltraWarm is enabled.</p>
+   * @public
    */
   WarmEnabled?: boolean;
 
   /**
-   * @public
    * <p>The number of UltraWarm instances.</p>
+   * @public
    */
   WarmCount?: number;
 
   /**
-   * @public
    * <p>Whether to use a dedicated master node for the OpenSearch domain. A dedicated master node performs cluster management tasks, but does not hold data or respond to data upload requests.</p>
+   * @public
    */
   DedicatedMasterEnabled?: boolean;
 
   /**
-   * @public
    * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
+   * @public
    */
   ZoneAwarenessConfig?: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails;
 
   /**
-   * @public
    * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   * @public
    */
   DedicatedMasterCount?: number;
 
   /**
-   * @public
    * <p>The instance type for your data nodes.</p>
    *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>The type of UltraWarm instance.</p>
+   * @public
    */
   WarmType?: string;
 
   /**
-   * @public
    * <p>Whether to enable zone awareness for the OpenSearch domain. When zone awareness is enabled, OpenSearch Service allocates the cluster's nodes and replica index shards across Availability Zones (AZs) in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
+   * @public
    */
   ZoneAwarenessEnabled?: boolean;
 
   /**
-   * @public
    * <p>The hardware configuration of the computer that hosts the dedicated master node.</p>
    *          <p>If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.
    *       </p>
+   * @public
    */
   DedicatedMasterType?: string;
 }
 
 /**
- * @public
  * <p>Information about additional options for the domain endpoint.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
   /**
-   * @public
    * <p>The ARN for the security certificate. The certificate is managed in ACM.</p>
+   * @public
    */
   CustomEndpointCertificateArn?: string;
 
   /**
-   * @public
    * <p>Whether to enable a custom endpoint for the domain.</p>
+   * @public
    */
   CustomEndpointEnabled?: boolean;
 
   /**
-   * @public
    * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
+   * @public
    */
   EnforceHTTPS?: boolean;
 
   /**
-   * @public
    * <p>The fully qualified URL for the custom endpoint.</p>
+   * @public
    */
   CustomEndpoint?: string;
 
   /**
-   * @public
    * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch domain.</p>
+   * @public
    */
   TLSSecurityPolicy?: string;
 }
 
 /**
- * @public
  * <p>Details about the configuration for encryption at rest for the OpenSearch domain.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
   /**
-   * @public
    * <p>Whether encryption at rest is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The KMS key ID.</p>
+   * @public
    */
   KmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>Configuration details for a log publishing option.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainLogPublishingOption {
   /**
-   * @public
    * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
+   * @public
    */
   CloudWatchLogsLogGroupArn?: string;
 
   /**
-   * @public
    * <p>Whether the log publishing is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
   /**
-   * @public
    * <p>Configures the OpenSearch index logs publishing.</p>
+   * @public
    */
   IndexSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
 
   /**
-   * @public
    * <p>Configures the OpenSearch search slow log publishing.</p>
+   * @public
    */
   SearchSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
 
   /**
-   * @public
    * <p>Configures the OpenSearch audit logs publishing.</p>
+   * @public
    */
   AuditLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
 }
 
 /**
- * @public
  * <p>Provides details about the configuration for node-to-node encryption.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
   /**
-   * @public
    * <p>Whether node-to-node encryption is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Provides information about the state of the domain relative to the latest service software.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
   /**
-   * @public
    * <p>The epoch time when the deployment window closes for required updates. After this time, OpenSearch Service schedules the software upgrade automatically.</p>
+   * @public
    */
   AutomatedUpdateDate?: string;
 
   /**
-   * @public
    * <p>Whether a request to update the domain can be canceled.</p>
+   * @public
    */
   Cancellable?: boolean;
 
   /**
-   * @public
    * <p>The version of the service software that is currently installed on the domain.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>A more detailed description of the service software status.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The most recent version of the service software.</p>
+   * @public
    */
   NewVersion?: string;
 
   /**
-   * @public
    * <p>Whether a service software update is available for the domain.</p>
+   * @public
    */
   UpdateAvailable?: boolean;
 
   /**
-   * @public
    * <p>The status of the service software update. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5145,145 +5144,145 @@ export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   UpdateStatus?: string;
 
   /**
-   * @public
    * <p>Whether the service software update is optional.</p>
+   * @public
    */
   OptionalDeployment?: boolean;
 }
 
 /**
- * @public
  * <p>Contains information that OpenSearch Service derives based on the <code>VPCOptions</code> for the domain.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
   /**
-   * @public
    * <p>The list of security group IDs that are associated with the VPC endpoints for the domain.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>A list of subnet IDs that are associated with the VPC endpoints for the domain.</p>
+   * @public
    */
   SubnetIds?: string[];
 }
 
 /**
- * @public
  * <p>Information about an Amazon OpenSearch Service domain.</p>
+ * @public
  */
 export interface AwsOpenSearchServiceDomainDetails {
   /**
-   * @public
    * <p>The ARN of the OpenSearch Service domain.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>IAM policy document that specifies the access policies for the OpenSearch Service domain.</p>
+   * @public
    */
   AccessPolicies?: string;
 
   /**
-   * @public
    * <p>The name of the endpoint.</p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>The identifier of the domain.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The domain endpoint.</p>
+   * @public
    */
   DomainEndpoint?: string;
 
   /**
-   * @public
    * <p>The version of the domain engine.</p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>Details about the configuration for encryption at rest.</p>
+   * @public
    */
   EncryptionAtRestOptions?: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails;
 
   /**
-   * @public
    * <p>Details about the configuration for node-to-node encryption.</p>
+   * @public
    */
   NodeToNodeEncryptionOptions?: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails;
 
   /**
-   * @public
    * <p>Information about the status of a domain relative to the latest service software.</p>
+   * @public
    */
   ServiceSoftwareOptions?: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails;
 
   /**
-   * @public
    * <p>Details about the configuration of an OpenSearch cluster.</p>
+   * @public
    */
   ClusterConfig?: AwsOpenSearchServiceDomainClusterConfigDetails;
 
   /**
-   * @public
    * <p>Additional options for the domain endpoint.</p>
+   * @public
    */
   DomainEndpointOptions?: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails;
 
   /**
-   * @public
    * <p>Information that OpenSearch Service derives based on <code>VPCOptions</code> for the domain.</p>
+   * @public
    */
   VpcOptions?: AwsOpenSearchServiceDomainVpcOptionsDetails;
 
   /**
-   * @public
    * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
+   * @public
    */
   LogPublishingOptions?: AwsOpenSearchServiceDomainLogPublishingOptionsDetails;
 
   /**
-   * @public
    * <p>The domain endpoints. Used if the OpenSearch domain resides in a VPC.</p>
    *          <p>This is a map of key-value pairs. The key is always <code>vpc</code>. The value is the endpoint.</p>
+   * @public
    */
   DomainEndpoints?: Record<string, string>;
 
   /**
-   * @public
    * <p>Specifies options for fine-grained access control.
    *       </p>
+   * @public
    */
   AdvancedSecurityOptions?: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails;
 }
 
 /**
- * @public
  * <p>An IAM role that is associated with the Amazon RDS DB cluster.</p>
+ * @public
  */
 export interface AwsRdsDbClusterAssociatedRole {
   /**
-   * @public
    * <p>The ARN of the IAM role.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>The status of the association between the IAM role and the DB cluster. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5302,171 +5301,171 @@ export interface AwsRdsDbClusterAssociatedRole {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Information about an instance in the DB cluster.</p>
+ * @public
  */
 export interface AwsRdsDbClusterMember {
   /**
-   * @public
    * <p>Whether the cluster member is the primary instance for the DB cluster.</p>
+   * @public
    */
   IsClusterWriter?: boolean;
 
   /**
-   * @public
    * <p>Specifies the order in which an Aurora replica is promoted to the primary instance when
    *          the existing primary instance fails.</p>
+   * @public
    */
   PromotionTier?: number;
 
   /**
-   * @public
    * <p>The instance identifier for this member of the DB cluster.</p>
+   * @public
    */
   DbInstanceIdentifier?: string;
 
   /**
-   * @public
    * <p>The status of the DB cluster parameter group for this member of the DB cluster.</p>
+   * @public
    */
   DbClusterParameterGroupStatus?: string;
 }
 
 /**
- * @public
  * <p>Information about an option group membership for a DB cluster.</p>
+ * @public
  */
 export interface AwsRdsDbClusterOptionGroupMembership {
   /**
-   * @public
    * <p>The name of the DB cluster option group.</p>
+   * @public
    */
   DbClusterOptionGroupName?: string;
 
   /**
-   * @public
    * <p>The status of the DB cluster option group.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Information about an Active Directory domain membership record associated with the DB
  *          instance.</p>
+ * @public
  */
 export interface AwsRdsDbDomainMembership {
   /**
-   * @public
    * <p>The identifier of the Active Directory domain.</p>
+   * @public
    */
   Domain?: string;
 
   /**
-   * @public
    * <p>The status of the Active Directory Domain membership for the DB instance.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The fully qualified domain name of the Active Directory domain.</p>
+   * @public
    */
   Fqdn?: string;
 
   /**
-   * @public
    * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   * @public
    */
   IamRoleName?: string;
 }
 
 /**
- * @public
  * <p>A VPC security groups that the DB instance belongs to.</p>
+ * @public
  */
 export interface AwsRdsDbInstanceVpcSecurityGroup {
   /**
-   * @public
    * <p>The name of the VPC security group.</p>
+   * @public
    */
   VpcSecurityGroupId?: string;
 
   /**
-   * @public
    * <p>The status of the VPC security group.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Information about an Amazon RDS DB cluster.</p>
+ * @public
  */
 export interface AwsRdsDbClusterDetails {
   /**
-   * @public
    * <p>For all database engines except Aurora, specifies the allocated storage size in
    *          gibibytes (GiB).</p>
+   * @public
    */
   AllocatedStorage?: number;
 
   /**
-   * @public
    * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be
    *          created.</p>
+   * @public
    */
   AvailabilityZones?: string[];
 
   /**
-   * @public
    * <p>The number of days for which automated backups are retained.</p>
+   * @public
    */
   BackupRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>The name of the database.</p>
+   * @public
    */
   DatabaseName?: string;
 
   /**
-   * @public
    * <p>The current status of this DB cluster.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The connection endpoint for the primary instance of the DB cluster.</p>
+   * @public
    */
   Endpoint?: string;
 
   /**
-   * @public
    * <p>The reader endpoint for the DB cluster.</p>
+   * @public
    */
   ReaderEndpoint?: string;
 
   /**
-   * @public
    * <p>A list of custom endpoints for the DB cluster.</p>
+   * @public
    */
   CustomEndpoints?: string[];
 
   /**
-   * @public
    * <p>Whether the DB cluster has instances in multiple Availability Zones.</p>
+   * @public
    */
   MultiAz?: boolean;
 
   /**
-   * @public
    * <p>The name of the database engine to use for this DB cluster. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5485,109 +5484,109 @@ export interface AwsRdsDbClusterDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Engine?: string;
 
   /**
-   * @public
    * <p>The version number of the database engine to use.</p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
+   * @public
    */
   Port?: number;
 
   /**
-   * @public
    * <p>The name of the master user for the DB cluster.</p>
+   * @public
    */
   MasterUsername?: string;
 
   /**
-   * @public
    * <p>The range of time each day when automated backups are created, if automated backups are
    *          enabled.</p>
    *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
+   * @public
    */
   PreferredBackupWindow?: string;
 
   /**
-   * @public
    * <p>The weekly time range during which system maintenance can occur, in Universal
    *          Coordinated Time (UTC).</p>
    *          <p>Uses the format <code><day>:HH:MM-<day>:HH:MM</code>.</p>
    *          <p>For the day values, use
    *             <code>mon</code>|<code>tue</code>|<code>wed</code>|<code>thu</code>|<code>fri</code>|<code>sat</code>|<code>sun</code>.</p>
    *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
+   * @public
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>The identifiers of the read replicas that are associated with this DB cluster.</p>
+   * @public
    */
   ReadReplicaIdentifiers?: string[];
 
   /**
-   * @public
    * <p>A list of VPC security groups that the DB cluster belongs to.</p>
+   * @public
    */
   VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
 
   /**
-   * @public
    * <p>Specifies the identifier that Amazon Route 53 assigns when you create a hosted
    *          zone.</p>
+   * @public
    */
   HostedZoneId?: string;
 
   /**
-   * @public
    * <p>Whether the DB cluster is encrypted.</p>
+   * @public
    */
   StorageEncrypted?: boolean;
 
   /**
-   * @public
    * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
    *          DB cluster.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>The identifier of the DB cluster. The identifier must be unique within each Amazon Web Services Region
    *          and is immutable.</p>
+   * @public
    */
   DbClusterResourceId?: string;
 
   /**
-   * @public
    * <p>A list of the IAM roles that are associated with the DB cluster.</p>
+   * @public
    */
   AssociatedRoles?: AwsRdsDbClusterAssociatedRole[];
 
   /**
-   * @public
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   ClusterCreateTime?: string;
 
   /**
-   * @public
    * <p>A list of log types that this DB cluster is configured to export to CloudWatch
    *          Logs.</p>
+   * @public
    */
   EnabledCloudWatchLogsExports?: string[];
 
   /**
-   * @public
    * <p>The database engine mode of the DB cluster.Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5616,23 +5615,23 @@ export interface AwsRdsDbClusterDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   EngineMode?: string;
 
   /**
-   * @public
    * <p>Whether the DB cluster has deletion protection enabled.</p>
+   * @public
    */
   DeletionProtection?: boolean;
 
   /**
-   * @public
    * <p>Whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.</p>
+   * @public
    */
   HttpEndpointEnabled?: boolean;
 
   /**
-   * @public
    * <p>The status of the database activity stream. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5656,252 +5655,252 @@ export interface AwsRdsDbClusterDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ActivityStreamStatus?: string;
 
   /**
-   * @public
    * <p>Whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
+   * @public
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * @public
    * <p>Whether the DB cluster is a clone of a DB cluster owned by a different Amazon Web Services
    *          account.</p>
+   * @public
    */
   CrossAccountClone?: boolean;
 
   /**
-   * @public
    * <p>The Active Directory domain membership records that are associated with the DB
    *          cluster.</p>
+   * @public
    */
   DomainMemberships?: AwsRdsDbDomainMembership[];
 
   /**
-   * @public
    * <p>The name of the DB cluster parameter group for the DB cluster.</p>
+   * @public
    */
   DbClusterParameterGroup?: string;
 
   /**
-   * @public
    * <p>The subnet group that is associated with the DB cluster, including the name,
    *          description, and subnets in the subnet group.</p>
+   * @public
    */
   DbSubnetGroup?: string;
 
   /**
-   * @public
    * <p>The list of option group memberships for this DB cluster.</p>
+   * @public
    */
   DbClusterOptionGroupMemberships?: AwsRdsDbClusterOptionGroupMembership[];
 
   /**
-   * @public
    * <p>The DB cluster identifier that the user assigned to the cluster. This identifier is the
    *          unique key that identifies a DB cluster.</p>
+   * @public
    */
   DbClusterIdentifier?: string;
 
   /**
-   * @public
    * <p>The list of instances that make up the DB cluster.</p>
+   * @public
    */
   DbClusterMembers?: AwsRdsDbClusterMember[];
 
   /**
-   * @public
    * <p>Whether the mapping of IAM accounts to database accounts is enabled.</p>
+   * @public
    */
   IamDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * @public
    * <p>
    *             Indicates if minor version upgrades are automatically applied to the cluster.</p>
+   * @public
    */
   AutoMinorVersionUpgrade?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Contains the name and values of a manual Amazon Relational Database Service (RDS) DB cluster snapshot attribute.
  *         </p>
+ * @public
  */
 export interface AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute {
   /**
-   * @public
    * <p>
    *             The name of the manual DB cluster snapshot attribute. The attribute named <code>restore</code> refers to the list of
    *             Amazon Web Services accounts that have permission to copy or restore the manual DB cluster snapshot.
    *         </p>
+   * @public
    */
   AttributeName?: string;
 
   /**
-   * @public
    * <p>
    *             The value(s) for the manual DB cluster snapshot attribute. If the <code>AttributeName</code> field is set to
    *             <code>restore</code>, then this element returns a list of IDs of the Amazon Web Services accounts that are authorized
    *             to copy or restore the manual DB cluster snapshot. If a value of <code>all</code> is in the list, then the manual
    *             DB cluster snapshot is public and available for any Amazon Web Services account to copy or restore.
    *         </p>
+   * @public
    */
   AttributeValues?: string[];
 }
 
 /**
- * @public
  * <p>Information about an Amazon RDS DB cluster snapshot.</p>
+ * @public
  */
 export interface AwsRdsDbClusterSnapshotDetails {
   /**
-   * @public
    * <p>A list of Availability Zones where instances in the DB cluster can be created.</p>
+   * @public
    */
   AvailabilityZones?: string[];
 
   /**
-   * @public
    * <p>Indicates when the snapshot was taken.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   SnapshotCreateTime?: string;
 
   /**
-   * @public
    * <p>The name of the database engine that you want to use for this DB instance.</p>
+   * @public
    */
   Engine?: string;
 
   /**
-   * @public
    * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   * @public
    */
   AllocatedStorage?: number;
 
   /**
-   * @public
    * <p>The status of this DB cluster snapshot.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
+   * @public
    */
   Port?: number;
 
   /**
-   * @public
    * <p>The VPC ID that is associated with the DB cluster snapshot.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   ClusterCreateTime?: string;
 
   /**
-   * @public
    * <p>The name of the master user for the DB cluster.</p>
+   * @public
    */
   MasterUsername?: string;
 
   /**
-   * @public
    * <p>The version of the database engine to use.</p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>The license model information for this DB cluster snapshot.</p>
+   * @public
    */
   LicenseModel?: string;
 
   /**
-   * @public
    * <p>The type of DB cluster snapshot.</p>
+   * @public
    */
   SnapshotType?: string;
 
   /**
-   * @public
    * <p>Specifies the percentage of the estimated data that has been transferred.</p>
+   * @public
    */
   PercentProgress?: number;
 
   /**
-   * @public
    * <p>Whether the DB cluster is encrypted.</p>
+   * @public
    */
   StorageEncrypted?: boolean;
 
   /**
-   * @public
    * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
    *          DB cluster.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>The DB cluster identifier.</p>
+   * @public
    */
   DbClusterIdentifier?: string;
 
   /**
-   * @public
    * <p>The identifier of the DB cluster snapshot.</p>
+   * @public
    */
   DbClusterSnapshotIdentifier?: string;
 
   /**
-   * @public
    * <p>Whether mapping of IAM accounts to database accounts is enabled.</p>
+   * @public
    */
   IamDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * @public
    * <p>
    *             Contains the name and values of a manual DB cluster snapshot attribute.
    *         </p>
+   * @public
    */
   DbClusterSnapshotAttributes?: AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute[];
 }
 
 /**
- * @public
  * <p>An IAM role associated with the DB instance.</p>
+ * @public
  */
 export interface AwsRdsDbInstanceAssociatedRole {
   /**
-   * @public
    * <p>The ARN of the IAM role that is associated with the DB
    *          instance.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>The name of the feature associated with the IAM role.</p>
+   * @public
    */
   FeatureName?: string;
 
   /**
-   * @public
    * <p>Describes the state of the association between the IAM role and the DB instance. The
    *             <code>Status</code> property returns one of the following values:</p>
    *          <ul>
@@ -5922,365 +5921,365 @@ export interface AwsRdsDbInstanceAssociatedRole {
    *                services on your behalf. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Provides information about a parameter group for a DB instance.</p>
+ * @public
  */
 export interface AwsRdsDbParameterGroup {
   /**
-   * @public
    * <p>The name of the parameter group.</p>
+   * @public
    */
   DbParameterGroupName?: string;
 
   /**
-   * @public
    * <p>The status of parameter updates.</p>
+   * @public
    */
   ParameterApplyStatus?: string;
 }
 
 /**
- * @public
  * <p>An Availability Zone for a subnet in a subnet group.</p>
+ * @public
  */
 export interface AwsRdsDbSubnetGroupSubnetAvailabilityZone {
   /**
-   * @public
    * <p>The name of the Availability Zone for a subnet in the subnet group.</p>
+   * @public
    */
   Name?: string;
 }
 
 /**
- * @public
  * <p>Information about a subnet in a subnet group.</p>
+ * @public
  */
 export interface AwsRdsDbSubnetGroupSubnet {
   /**
-   * @public
    * <p>The identifier of a subnet in the subnet group.</p>
+   * @public
    */
   SubnetIdentifier?: string;
 
   /**
-   * @public
    * <p>Information about the Availability Zone for a subnet in the subnet group.</p>
+   * @public
    */
   SubnetAvailabilityZone?: AwsRdsDbSubnetGroupSubnetAvailabilityZone;
 
   /**
-   * @public
    * <p>The status of a subnet in the subnet group.</p>
+   * @public
    */
   SubnetStatus?: string;
 }
 
 /**
- * @public
  * <p>Information about the subnet group for the database instance.</p>
+ * @public
  */
 export interface AwsRdsDbSubnetGroup {
   /**
-   * @public
    * <p>The name of the subnet group.</p>
+   * @public
    */
   DbSubnetGroupName?: string;
 
   /**
-   * @public
    * <p>The description of the subnet group.</p>
+   * @public
    */
   DbSubnetGroupDescription?: string;
 
   /**
-   * @public
    * <p>The VPC ID of the subnet group.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The status of the subnet group.</p>
+   * @public
    */
   SubnetGroupStatus?: string;
 
   /**
-   * @public
    * <p>A list of subnets in the subnet group.</p>
+   * @public
    */
   Subnets?: AwsRdsDbSubnetGroupSubnet[];
 
   /**
-   * @public
    * <p>The ARN of the subnet group.</p>
+   * @public
    */
   DbSubnetGroupArn?: string;
 }
 
 /**
- * @public
  * <p>Specifies the connection endpoint.</p>
+ * @public
  */
 export interface AwsRdsDbInstanceEndpoint {
   /**
-   * @public
    * <p>Specifies the DNS address of the DB instance.</p>
+   * @public
    */
   Address?: string;
 
   /**
-   * @public
    * <p>Specifies the port that the database engine is listening on.</p>
+   * @public
    */
   Port?: number;
 
   /**
-   * @public
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
+   * @public
    */
   HostedZoneId?: string;
 }
 
 /**
- * @public
  * <p>An option group membership.</p>
+ * @public
  */
 export interface AwsRdsDbOptionGroupMembership {
   /**
-   * @public
    * <p>The name of the option group.</p>
+   * @public
    */
   OptionGroupName?: string;
 
   /**
-   * @public
    * <p>The status of the option group membership.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Identifies the log types to enable and disable.</p>
+ * @public
  */
 export interface AwsRdsPendingCloudWatchLogsExports {
   /**
-   * @public
    * <p>A list of log types that are being enabled.</p>
+   * @public
    */
   LogTypesToEnable?: string[];
 
   /**
-   * @public
    * <p>A list of log types that are being disabled.</p>
+   * @public
    */
   LogTypesToDisable?: string[];
 }
 
 /**
- * @public
  * <p>A processor feature.</p>
+ * @public
  */
 export interface AwsRdsDbProcessorFeature {
   /**
-   * @public
    * <p>The name of the processor feature. Valid values are <code>coreCount</code> or <code>threadsPerCore</code>.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The value of the processor feature.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Changes to a DB instance that are currently pending.</p>
+ * @public
  */
 export interface AwsRdsDbPendingModifiedValues {
   /**
-   * @public
    * <p>The new DB instance class for the DB instance.</p>
+   * @public
    */
   DbInstanceClass?: string;
 
   /**
-   * @public
    * <p>The new value of the allocated storage for the DB instance.</p>
+   * @public
    */
   AllocatedStorage?: number;
 
   /**
-   * @public
    * <p>The new master user password for the DB instance.</p>
+   * @public
    */
   MasterUserPassword?: string;
 
   /**
-   * @public
    * <p>The new port for the DB instance.</p>
+   * @public
    */
   Port?: number;
 
   /**
-   * @public
    * <p>The new backup retention period for the DB instance.</p>
+   * @public
    */
   BackupRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>Indicates that a single Availability Zone DB instance is changing to a multiple Availability Zone deployment.</p>
+   * @public
    */
   MultiAZ?: boolean;
 
   /**
-   * @public
    * <p>The new engine version for the DB instance.</p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>The new license model value for the DB instance.</p>
+   * @public
    */
   LicenseModel?: string;
 
   /**
-   * @public
    * <p>The new provisioned IOPS value for the DB instance.</p>
+   * @public
    */
   Iops?: number;
 
   /**
-   * @public
    * <p>The new DB instance identifier for the DB instance.</p>
+   * @public
    */
   DbInstanceIdentifier?: string;
 
   /**
-   * @public
    * <p>The new storage type for the DB instance.</p>
+   * @public
    */
   StorageType?: string;
 
   /**
-   * @public
    * <p>The new CA certificate identifier for the DB instance.</p>
+   * @public
    */
   CaCertificateIdentifier?: string;
 
   /**
-   * @public
    * <p>The name of the new subnet group for the DB instance.</p>
+   * @public
    */
   DbSubnetGroupName?: string;
 
   /**
-   * @public
    * <p>A list of log types that are being enabled or disabled.</p>
+   * @public
    */
   PendingCloudWatchLogsExports?: AwsRdsPendingCloudWatchLogsExports;
 
   /**
-   * @public
    * <p>Processor features that are being updated.</p>
+   * @public
    */
   ProcessorFeatures?: AwsRdsDbProcessorFeature[];
 }
 
 /**
- * @public
  * <p>Information about the status of a read replica.</p>
+ * @public
  */
 export interface AwsRdsDbStatusInfo {
   /**
-   * @public
    * <p>The type of status. For a read replica, the status type is read replication.</p>
+   * @public
    */
   StatusType?: string;
 
   /**
-   * @public
    * <p>Whether the read replica instance is operating normally.</p>
+   * @public
    */
   Normal?: boolean;
 
   /**
-   * @public
    * <p>The status of the read replica instance.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>If the read replica is currently in an error state, provides the error details.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>Contains the details of an Amazon RDS DB instance.</p>
+ * @public
  */
 export interface AwsRdsDbInstanceDetails {
   /**
-   * @public
    * <p>The IAM roles associated with the DB
    *          instance.</p>
+   * @public
    */
   AssociatedRoles?: AwsRdsDbInstanceAssociatedRole[];
 
   /**
-   * @public
    * <p>The identifier of the CA certificate for this DB instance.</p>
+   * @public
    */
   CACertificateIdentifier?: string;
 
   /**
-   * @public
    * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that
    *          the DB instance is a member of.</p>
+   * @public
    */
   DBClusterIdentifier?: string;
 
   /**
-   * @public
    * <p>Contains a user-supplied database identifier. This identifier is the unique key that
    *          identifies a DB instance.</p>
+   * @public
    */
   DBInstanceIdentifier?: string;
 
   /**
-   * @public
    * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
+   * @public
    */
   DBInstanceClass?: string;
 
   /**
-   * @public
    * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
    *          cluster, this can be a different port than the DB cluster port.</p>
+   * @public
    */
   DbInstancePort?: number;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region-unique, immutable identifier for the DB instance. This identifier is
    *          found in CloudTrail log entries whenever the KMS key for the DB instance is
    *          accessed. </p>
+   * @public
    */
   DbiResourceId?: string;
 
   /**
-   * @public
    * <p>The meaning of this parameter differs according to the database engine you use.</p>
    *          <p>
    *             <b>MySQL, MariaDB, SQL Server, PostgreSQL</b>
@@ -6293,36 +6292,36 @@ export interface AwsRdsDbInstanceDetails {
    *          </p>
    *          <p>Contains the Oracle System ID (SID) of the created DB instance. Not shown when the
    *          returned parameters do not apply to an Oracle DB instance. </p>
+   * @public
    */
   DBName?: string;
 
   /**
-   * @public
    * <p>Indicates whether the DB instance has deletion protection enabled.</p>
    *          <p>When deletion protection is enabled, the database cannot be deleted.</p>
+   * @public
    */
   DeletionProtection?: boolean;
 
   /**
-   * @public
    * <p>Specifies the connection endpoint.</p>
+   * @public
    */
   Endpoint?: AwsRdsDbInstanceEndpoint;
 
   /**
-   * @public
    * <p>Provides the name of the database engine to use for this DB instance.</p>
+   * @public
    */
   Engine?: string;
 
   /**
-   * @public
    * <p>Indicates the database engine version.</p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>True if mapping of IAM accounts to database
    *          accounts is enabled, and otherwise false.</p>
    *          <p>IAM database authentication can be enabled for the following database engines.</p>
@@ -6337,426 +6336,426 @@ export interface AwsRdsDbInstanceDetails {
    *                <p>Aurora 5.6 or higher</p>
    *             </li>
    *          </ul>
+   * @public
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * @public
    * <p>Indicates when the DB instance was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   InstanceCreateTime?: string;
 
   /**
-   * @public
    * <p>If <code>StorageEncrypted</code> is true, the KMS key identifier for the encrypted
    *          DB instance.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Specifies the accessibility options for the DB instance.</p>
    *          <p>A value of true specifies an Internet-facing instance with a publicly resolvable DNS
    *          name, which resolves to a public IP address.</p>
    *          <p>A value of false specifies an internal instance with a DNS name that resolves to a
    *          private IP address. </p>
+   * @public
    */
   PubliclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether the DB instance is encrypted.</p>
+   * @public
    */
   StorageEncrypted?: boolean;
 
   /**
-   * @public
    * <p>The ARN from the key store with which the instance is associated for TDE
    *          encryption.</p>
+   * @public
    */
   TdeCredentialArn?: string;
 
   /**
-   * @public
    * <p>A list of VPC security groups that the DB instance belongs to.</p>
+   * @public
    */
   VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
 
   /**
-   * @public
    * <p>Whether the DB instance is a multiple Availability Zone deployment.</p>
+   * @public
    */
   MultiAz?: boolean;
 
   /**
-   * @public
    * <p>The ARN of the CloudWatch Logs log stream that receives the enhanced monitoring metrics
    *          data for the DB instance.</p>
+   * @public
    */
   EnhancedMonitoringResourceArn?: string;
 
   /**
-   * @public
    * <p>The current status of the DB instance.</p>
+   * @public
    */
   DbInstanceStatus?: string;
 
   /**
-   * @public
    * <p>The master user name of the DB instance.</p>
+   * @public
    */
   MasterUsername?: string;
 
   /**
-   * @public
    * <p>The amount of storage (in gigabytes) to initially allocate for the DB instance.</p>
+   * @public
    */
   AllocatedStorage?: number;
 
   /**
-   * @public
    * <p>The range of time each day when automated backups are created, if automated backups are
    *          enabled.</p>
    *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
+   * @public
    */
   PreferredBackupWindow?: string;
 
   /**
-   * @public
    * <p>The number of days for which to retain automated backups.</p>
+   * @public
    */
   BackupRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>A list of the DB security groups to assign to the DB instance.</p>
+   * @public
    */
   DbSecurityGroups?: string[];
 
   /**
-   * @public
    * <p>A list of the DB parameter groups to assign to the DB instance.</p>
+   * @public
    */
   DbParameterGroups?: AwsRdsDbParameterGroup[];
 
   /**
-   * @public
    * <p>The Availability Zone where the DB instance will be created.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>Information about the subnet group that is associated with the DB instance.</p>
+   * @public
    */
   DbSubnetGroup?: AwsRdsDbSubnetGroup;
 
   /**
-   * @public
    * <p>The weekly time range during which system maintenance can occur, in Universal
    *          Coordinated Time (UTC).</p>
    *          <p>Uses the format <code><day>:HH:MM-<day>:HH:MM</code>.</p>
    *          <p>For the day values, use
    *             <code>mon</code>|<code>tue</code>|<code>wed</code>|<code>thu</code>|<code>fri</code>|<code>sat</code>|<code>sun</code>.</p>
    *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
+   * @public
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>Changes to the DB instance that are currently pending.</p>
+   * @public
    */
   PendingModifiedValues?: AwsRdsDbPendingModifiedValues;
 
   /**
-   * @public
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *          restore.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   LatestRestorableTime?: string;
 
   /**
-   * @public
    * <p>Indicates whether minor version patches are applied automatically.</p>
+   * @public
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * @public
    * <p>If this DB instance is a read replica, contains the identifier of the source DB
    *          instance.</p>
+   * @public
    */
   ReadReplicaSourceDBInstanceIdentifier?: string;
 
   /**
-   * @public
    * <p>List of identifiers of the read replicas associated with this DB instance.</p>
+   * @public
    */
   ReadReplicaDBInstanceIdentifiers?: string[];
 
   /**
-   * @public
    * <p>List of identifiers of Aurora DB clusters to which the RDS DB instance is replicated as
    *          a read replica.</p>
+   * @public
    */
   ReadReplicaDBClusterIdentifiers?: string[];
 
   /**
-   * @public
    * <p>License model information for this DB instance.</p>
+   * @public
    */
   LicenseModel?: string;
 
   /**
-   * @public
    * <p>Specifies the provisioned IOPS (I/O operations per second) for this DB instance.</p>
+   * @public
    */
   Iops?: number;
 
   /**
-   * @public
    * <p>The list of option group memberships for this DB instance.</p>
+   * @public
    */
   OptionGroupMemberships?: AwsRdsDbOptionGroupMembership[];
 
   /**
-   * @public
    * <p>The name of the character set that this DB instance is associated with.</p>
+   * @public
    */
   CharacterSetName?: string;
 
   /**
-   * @public
    * <p>For a DB instance with multi-Availability Zone support, the name of the secondary
    *          Availability Zone.</p>
+   * @public
    */
   SecondaryAvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The status of a read replica. If the instance isn't a read replica, this is
    *          empty.</p>
+   * @public
    */
   StatusInfos?: AwsRdsDbStatusInfo[];
 
   /**
-   * @public
    * <p>The storage type for the DB instance.</p>
+   * @public
    */
   StorageType?: string;
 
   /**
-   * @public
    * <p>The Active Directory domain membership records associated with the DB instance.</p>
+   * @public
    */
   DomainMemberships?: AwsRdsDbDomainMembership[];
 
   /**
-   * @public
    * <p>Whether to copy resource tags to snapshots of the DB instance.</p>
+   * @public
    */
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * @public
    * <p>The interval, in seconds, between points when enhanced monitoring metrics are collected
    *          for the DB instance.</p>
+   * @public
    */
   MonitoringInterval?: number;
 
   /**
-   * @public
    * <p>The ARN for the IAM role that permits Amazon RDS to send enhanced monitoring metrics to
    *          CloudWatch Logs.</p>
+   * @public
    */
   MonitoringRoleArn?: string;
 
   /**
-   * @public
    * <p>The order in which to promote an Aurora replica to the primary instance after a failure
    *          of the existing primary instance.</p>
+   * @public
    */
   PromotionTier?: number;
 
   /**
-   * @public
    * <p>The time zone of the DB instance.</p>
+   * @public
    */
   Timezone?: string;
 
   /**
-   * @public
    * <p>Indicates whether Performance Insights is enabled for the DB instance.</p>
+   * @public
    */
   PerformanceInsightsEnabled?: boolean;
 
   /**
-   * @public
    * <p>The identifier of the KMS key used to encrypt the Performance Insights data.</p>
+   * @public
    */
   PerformanceInsightsKmsKeyId?: string;
 
   /**
-   * @public
    * <p>The number of days to retain Performance Insights data.</p>
+   * @public
    */
   PerformanceInsightsRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>A list of log types that this DB instance is configured to export to CloudWatch Logs.</p>
+   * @public
    */
   EnabledCloudWatchLogsExports?: string[];
 
   /**
-   * @public
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of
    *          the DB instance.</p>
+   * @public
    */
   ProcessorFeatures?: AwsRdsDbProcessorFeature[];
 
   /**
-   * @public
    * <p>Specifies the connection endpoint.</p>
+   * @public
    */
   ListenerEndpoint?: AwsRdsDbInstanceEndpoint;
 
   /**
-   * @public
    * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB
    *          instance.</p>
+   * @public
    */
   MaxAllocatedStorage?: number;
 }
 
 /**
- * @public
  * <p>EC2 security group information for an RDS DB security group.</p>
+ * @public
  */
 export interface AwsRdsDbSecurityGroupEc2SecurityGroup {
   /**
-   * @public
    * <p>Specifies the ID for the EC2 security group.</p>
+   * @public
    */
   Ec2SecurityGroupId?: string;
 
   /**
-   * @public
    * <p>Specifies the name of the EC2 security group.</p>
+   * @public
    */
   Ec2SecurityGroupName?: string;
 
   /**
-   * @public
    * <p>Provides the Amazon Web Services ID of the owner of the EC2 security group.</p>
+   * @public
    */
   Ec2SecurityGroupOwnerId?: string;
 
   /**
-   * @public
    * <p>Provides the status of the EC2 security group.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>IP range information for an RDS DB security group.</p>
+ * @public
  */
 export interface AwsRdsDbSecurityGroupIpRange {
   /**
-   * @public
    * <p>Specifies the IP range.</p>
+   * @public
    */
   CidrIp?: string;
 
   /**
-   * @public
    * <p>Specifies the status of the IP range.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Provides information about an Amazon RDS DB security group.</p>
+ * @public
  */
 export interface AwsRdsDbSecurityGroupDetails {
   /**
-   * @public
    * <p>The ARN for the DB security group.</p>
+   * @public
    */
   DbSecurityGroupArn?: string;
 
   /**
-   * @public
    * <p>Provides the description of the DB security group.</p>
+   * @public
    */
   DbSecurityGroupDescription?: string;
 
   /**
-   * @public
    * <p>Specifies the name of the DB security group.</p>
+   * @public
    */
   DbSecurityGroupName?: string;
 
   /**
-   * @public
    * <p>Contains a list of EC2 security groups.</p>
+   * @public
    */
   Ec2SecurityGroups?: AwsRdsDbSecurityGroupEc2SecurityGroup[];
 
   /**
-   * @public
    * <p>Contains a list of IP ranges.</p>
+   * @public
    */
   IpRanges?: AwsRdsDbSecurityGroupIpRange[];
 
   /**
-   * @public
    * <p>Provides the Amazon Web Services ID of the owner of a specific DB security group.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>Provides VPC ID associated with the DB security group.
    *       </p>
+   * @public
    */
   VpcId?: string;
 }
 
 /**
- * @public
  * <p>Provides details about an Amazon RDS DB cluster snapshot.</p>
+ * @public
  */
 export interface AwsRdsDbSnapshotDetails {
   /**
-   * @public
    * <p>The name or ARN of the DB snapshot that is used to restore the DB instance.</p>
+   * @public
    */
   DbSnapshotIdentifier?: string;
 
   /**
-   * @public
    * <p>A name for the DB instance.</p>
+   * @public
    */
   DbInstanceIdentifier?: string;
 
   /**
-   * @public
    * <p>When the snapshot was taken in Coordinated Universal Time (UTC).</p>
+   * @public
    */
   SnapshotCreateTime?: string;
 
   /**
-   * @public
    * <p>The name of the database engine to use for this DB instance. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -6830,101 +6829,101 @@ export interface AwsRdsDbSnapshotDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Engine?: string;
 
   /**
-   * @public
    * <p>The amount of storage (in gigabytes) to be initially allocated for the database instance.</p>
+   * @public
    */
   AllocatedStorage?: number;
 
   /**
-   * @public
    * <p>The status of this DB snapshot.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The port that the database engine was listening on at the time of the snapshot.</p>
+   * @public
    */
   Port?: number;
 
   /**
-   * @public
    * <p>Specifies the name of the Availability Zone in which the DB instance was located at the time of the DB snapshot.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The VPC ID associated with the DB snapshot.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from which the snapshot was taken, was created.</p>
+   * @public
    */
   InstanceCreateTime?: string;
 
   /**
-   * @public
    * <p>The master user name for the DB snapshot.</p>
+   * @public
    */
   MasterUsername?: string;
 
   /**
-   * @public
    * <p>The version of the database engine.</p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>License model information for the restored DB instance.</p>
+   * @public
    */
   LicenseModel?: string;
 
   /**
-   * @public
    * <p>The type of the DB snapshot.</p>
+   * @public
    */
   SnapshotType?: string;
 
   /**
-   * @public
    * <p>The provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.</p>
+   * @public
    */
   Iops?: number;
 
   /**
-   * @public
    * <p>The option group name for the DB snapshot.</p>
+   * @public
    */
   OptionGroupName?: string;
 
   /**
-   * @public
    * <p>The percentage of the estimated data that has been transferred.</p>
+   * @public
    */
   PercentProgress?: number;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region that the DB snapshot was created in or copied from.</p>
+   * @public
    */
   SourceRegion?: string;
 
   /**
-   * @public
    * <p>The DB snapshot ARN that the DB snapshot was copied from.</p>
+   * @public
    */
   SourceDbSnapshotIdentifier?: string;
 
   /**
-   * @public
    * <p>The storage type associated with the DB snapshot. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -6943,616 +6942,616 @@ export interface AwsRdsDbSnapshotDetails {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   StorageType?: string;
 
   /**
-   * @public
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   * @public
    */
   TdeCredentialArn?: string;
 
   /**
-   * @public
    * <p>Whether the DB snapshot is encrypted.</p>
+   * @public
    */
   Encrypted?: boolean;
 
   /**
-   * @public
    * <p>If <code>Encrypted</code> is <code>true</code>, the KMS key identifier for the encrypted DB snapshot.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>The time zone of the DB snapshot.</p>
+   * @public
    */
   Timezone?: string;
 
   /**
-   * @public
    * <p>Whether mapping of IAM accounts to database accounts is enabled.</p>
+   * @public
    */
   IamDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * @public
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   * @public
    */
   ProcessorFeatures?: AwsRdsDbProcessorFeature[];
 
   /**
-   * @public
    * <p>The identifier for the source DB instance.</p>
+   * @public
    */
   DbiResourceId?: string;
 }
 
 /**
- * @public
  * <p>Details about an Amazon RDS event notification subscription. The subscription allows Amazon RDS to post events to an SNS topic.</p>
+ * @public
  */
 export interface AwsRdsEventSubscriptionDetails {
   /**
-   * @public
    * <p>The identifier of the account that is associated with the event notification subscription.</p>
+   * @public
    */
   CustSubscriptionId?: string;
 
   /**
-   * @public
    * <p>The identifier of the event notification subscription.</p>
+   * @public
    */
   CustomerAwsId?: string;
 
   /**
-   * @public
    * <p>Whether the event notification subscription is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The list of event categories for the event notification subscription.</p>
+   * @public
    */
   EventCategoriesList?: string[];
 
   /**
-   * @public
    * <p>The ARN of the event notification subscription.</p>
+   * @public
    */
   EventSubscriptionArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the SNS topic to post the event notifications to.</p>
+   * @public
    */
   SnsTopicArn?: string;
 
   /**
-   * @public
    * <p>A list of source identifiers for the event notification subscription.</p>
+   * @public
    */
   SourceIdsList?: string[];
 
   /**
-   * @public
    * <p>The source type for the event notification subscription.</p>
+   * @public
    */
   SourceType?: string;
 
   /**
-   * @public
    * <p>The status of the event notification subscription.</p>
    *          <p>Valid values: <code>creating</code> | <code>modifying</code> | <code>deleting</code> | <code>active</code> | <code>no-permission</code> | <code>topic-not-exist</code>
    *          </p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The datetime when the event notification subscription was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   SubscriptionCreationTime?: string;
 }
 
 /**
- * @public
  * <p>A node in an Amazon Redshift cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterClusterNode {
   /**
-   * @public
    * <p>The role of the node. A node might be a leader node or a compute node.</p>
+   * @public
    */
   NodeRole?: string;
 
   /**
-   * @public
    * <p>The private IP address of the node.</p>
+   * @public
    */
   PrivateIpAddress?: string;
 
   /**
-   * @public
    * <p>The public IP address of the node.</p>
+   * @public
    */
   PublicIpAddress?: string;
 }
 
 /**
- * @public
  * <p>The status of a parameter in a cluster parameter group for an Amazon Redshift
  *          cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterClusterParameterStatus {
   /**
-   * @public
    * <p>The name of the parameter.</p>
+   * @public
    */
   ParameterName?: string;
 
   /**
-   * @public
    * <p>The status of the parameter. Indicates whether the parameter is in sync with the
    *          database, waiting for a cluster reboot, or encountered an error when it was applied.</p>
    *          <p>Valid values: <code>in-sync</code> | <code>pending-reboot</code> | <code>applying</code>
    *          | <code>invalid-parameter</code> | <code>apply-deferred</code> | <code>apply-error</code> |
    *             <code>unknown-error</code>
    *          </p>
+   * @public
    */
   ParameterApplyStatus?: string;
 
   /**
-   * @public
    * <p>The error that prevented the parameter from being applied to the database.</p>
+   * @public
    */
   ParameterApplyErrorDescription?: string;
 }
 
 /**
- * @public
  * <p>A cluster parameter group that is associated with an Amazon Redshift cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterClusterParameterGroup {
   /**
-   * @public
    * <p>The list of parameter statuses.</p>
+   * @public
    */
   ClusterParameterStatusList?: AwsRedshiftClusterClusterParameterStatus[];
 
   /**
-   * @public
    * <p>The status of updates to the parameters.</p>
+   * @public
    */
   ParameterApplyStatus?: string;
 
   /**
-   * @public
    * <p>The name of the parameter group.</p>
+   * @public
    */
   ParameterGroupName?: string;
 }
 
 /**
- * @public
  * <p>A security group that is associated with the cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterClusterSecurityGroup {
   /**
-   * @public
    * <p>The name of the cluster security group.</p>
+   * @public
    */
   ClusterSecurityGroupName?: string;
 
   /**
-   * @public
    * <p>The status of the cluster security group.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>You can configure Amazon Redshift to copy snapshots for a cluster to another Amazon Web Services Region. This parameter
  *          provides information about a cross-Region snapshot copy.</p>
+ * @public
  */
 export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   /**
-   * @public
    * <p>The destination Region that snapshots are automatically copied to when cross-Region
    *          snapshot copy is enabled.</p>
+   * @public
    */
   DestinationRegion?: string;
 
   /**
-   * @public
    * <p>The number of days that manual snapshots are retained in the destination Region after
    *          they are copied from a source Region.</p>
    *          <p>If the value is <code>-1</code>,
    *          then the manual snapshot is retained indefinitely.</p>
    *          <p>Valid values: Either <code>-1</code>
    *          or an integer between 1 and 3,653</p>
+   * @public
    */
   ManualSnapshotRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>The number of days to retain automated snapshots in the destination Region after they
    *          are copied from a source Region.</p>
+   * @public
    */
   RetentionPeriod?: number;
 
   /**
-   * @public
    * <p>The name of the snapshot copy grant.</p>
+   * @public
    */
   SnapshotCopyGrantName?: string;
 }
 
 /**
- * @public
  * <p>A time windows during which maintenance was deferred for an Amazon Redshift
  *          cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterDeferredMaintenanceWindow {
   /**
-   * @public
    * <p>The end of the time window for which maintenance was deferred.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   DeferMaintenanceEndTime?: string;
 
   /**
-   * @public
    * <p>The identifier of the maintenance window.</p>
+   * @public
    */
   DeferMaintenanceIdentifier?: string;
 
   /**
-   * @public
    * <p>The start of the time window for which maintenance was deferred.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   DeferMaintenanceStartTime?: string;
 }
 
 /**
- * @public
  * <p>The status of the elastic IP (EIP) address for an Amazon Redshift cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterElasticIpStatus {
   /**
-   * @public
    * <p>The elastic IP address for the cluster.</p>
+   * @public
    */
   ElasticIp?: string;
 
   /**
-   * @public
    * <p>The status of the elastic IP address.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The connection endpoint for an Amazon Redshift cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterEndpoint {
   /**
-   * @public
    * <p>The DNS address of the cluster.</p>
+   * @public
    */
   Address?: string;
 
   /**
-   * @public
    * <p>The port that the database engine listens on.</p>
+   * @public
    */
   Port?: number;
 }
 
 /**
- * @public
  * <p>Information about whether an Amazon Redshift cluster finished applying any hardware
  *          changes to security module (HSM) settings that were specified in a modify cluster
  *          command.</p>
+ * @public
  */
 export interface AwsRedshiftClusterHsmStatus {
   /**
-   * @public
    * <p>The name of the HSM client certificate that the Amazon Redshift cluster uses to retrieve
    *          the data encryption keys that are stored in an HSM.</p>
+   * @public
    */
   HsmClientCertificateIdentifier?: string;
 
   /**
-   * @public
    * <p>The name of the HSM configuration that contains the information that the Amazon Redshift
    *          cluster can use to retrieve and store keys in an HSM.</p>
+   * @public
    */
   HsmConfigurationIdentifier?: string;
 
   /**
-   * @public
    * <p>Indicates whether the Amazon Redshift cluster has finished applying any HSM settings
    *          changes specified in a modify cluster command.</p>
    *          <p>Type: String</p>
    *          <p>Valid values: <code>active</code> | <code>applying</code>
    *          </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>An IAM role that the cluster can use to access other Amazon Web Services services.</p>
+ * @public
  */
 export interface AwsRedshiftClusterIamRole {
   /**
-   * @public
    * <p>The status of the IAM role's association with the cluster.</p>
    *          <p>Valid values: <code>in-sync</code> | <code>adding</code> | <code>removing</code>
    *          </p>
+   * @public
    */
   ApplyStatus?: string;
 
   /**
-   * @public
    * <p>The ARN of the IAM role.</p>
+   * @public
    */
   IamRoleArn?: string;
 }
 
 /**
- * @public
  * <p>Provides information about the logging status of the cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterLoggingStatus {
   /**
-   * @public
    * <p>The name of the S3 bucket where the log files are stored.</p>
+   * @public
    */
   BucketName?: string;
 
   /**
-   * @public
    * <p>The message indicating that the logs failed to be delivered.</p>
+   * @public
    */
   LastFailureMessage?: string;
 
   /**
-   * @public
    * <p>The last time when logs failed to be delivered.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   LastFailureTime?: string;
 
   /**
-   * @public
    * <p>The last time that logs were delivered successfully.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   LastSuccessfulDeliveryTime?: string;
 
   /**
-   * @public
    * <p>Indicates whether logging is enabled.</p>
+   * @public
    */
   LoggingEnabled?: boolean;
 
   /**
-   * @public
    * <p>Provides the prefix applied to the log file names.</p>
+   * @public
    */
   S3KeyPrefix?: string;
 }
 
 /**
- * @public
  * <p>Changes to the Amazon Redshift cluster that are currently pending.</p>
+ * @public
  */
 export interface AwsRedshiftClusterPendingModifiedValues {
   /**
-   * @public
    * <p>The pending or in-progress change to the automated snapshot retention period.</p>
+   * @public
    */
   AutomatedSnapshotRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>The pending or in-progress change to the identifier for the cluster.</p>
+   * @public
    */
   ClusterIdentifier?: string;
 
   /**
-   * @public
    * <p>The pending or in-progress change to the cluster type.</p>
+   * @public
    */
   ClusterType?: string;
 
   /**
-   * @public
    * <p>The pending or in-progress change to the service version.</p>
+   * @public
    */
   ClusterVersion?: string;
 
   /**
-   * @public
    * <p>The encryption type for a cluster.</p>
+   * @public
    */
   EncryptionType?: string;
 
   /**
-   * @public
    * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
+   * @public
    */
   EnhancedVpcRouting?: boolean;
 
   /**
-   * @public
    * <p>The name of the maintenance track that the cluster changes to during the next
    *          maintenance window.</p>
+   * @public
    */
   MaintenanceTrackName?: string;
 
   /**
-   * @public
    * <p>The pending or in-progress change to the master user password for the cluster.</p>
+   * @public
    */
   MasterUserPassword?: string;
 
   /**
-   * @public
    * <p>The pending or in-progress change to the cluster's node type.</p>
+   * @public
    */
   NodeType?: string;
 
   /**
-   * @public
    * <p>The pending or in-progress change to the number of nodes in the cluster.</p>
+   * @public
    */
   NumberOfNodes?: number;
 
   /**
-   * @public
    * <p>The pending or in-progress change to whether the cluster can be connected to from the
    *          public network.</p>
+   * @public
    */
   PubliclyAccessible?: boolean;
 }
 
 /**
- * @public
  * <p>Information about the resize operation for the cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterResizeInfo {
   /**
-   * @public
    * <p>Indicates whether the resize operation can be canceled.</p>
+   * @public
    */
   AllowCancelResize?: boolean;
 
   /**
-   * @public
    * <p>The type of resize operation.</p>
    *          <p>Valid values: <code>ClassicResize</code>
    *          </p>
+   * @public
    */
   ResizeType?: string;
 }
 
 /**
- * @public
  * <p>Information about the status of a cluster restore action. It only applies if the cluster
  *          was created by restoring a snapshot.</p>
+ * @public
  */
 export interface AwsRedshiftClusterRestoreStatus {
   /**
-   * @public
    * <p>The number of megabytes per second being transferred from the backup storage. Returns
    *          the average rate for a completed backup.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
+   * @public
    */
   CurrentRestoreRateInMegaBytesPerSecond?: number;
 
   /**
-   * @public
    * <p>The amount of time an in-progress restore has been running, or the amount of time it
    *          took a completed restore to finish.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
+   * @public
    */
   ElapsedTimeInSeconds?: number;
 
   /**
-   * @public
    * <p>The estimate of the time remaining before the restore is complete. Returns 0 for a
    *          completed restore.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
+   * @public
    */
   EstimatedTimeToCompletionInSeconds?: number;
 
   /**
-   * @public
    * <p>The number of megabytes that were transferred from snapshot storage.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
+   * @public
    */
   ProgressInMegaBytes?: number;
 
   /**
-   * @public
    * <p>The size of the set of snapshot data that was used to restore the cluster.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
+   * @public
    */
   SnapshotSizeInMegaBytes?: number;
 
   /**
-   * @public
    * <p>The status of the restore action.</p>
    *          <p>Valid values: <code>starting</code> | <code>restoring</code> | <code>completed</code> |
    *             <code>failed</code>
    *          </p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>A VPC security group that the cluster belongs to, if the cluster is in a VPC.</p>
+ * @public
  */
 export interface AwsRedshiftClusterVpcSecurityGroup {
   /**
-   * @public
    * <p>The status of the VPC security group.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The identifier of the VPC security group.</p>
+   * @public
    */
   VpcSecurityGroupId?: string;
 }
 
 /**
- * @public
  * <p>Details about an Amazon Redshift cluster.</p>
+ * @public
  */
 export interface AwsRedshiftClusterDetails {
   /**
-   * @public
    * <p>Indicates whether major version upgrades are applied automatically to the cluster during
    *          the maintenance window.</p>
+   * @public
    */
   AllowVersionUpgrade?: boolean;
 
   /**
-   * @public
    * <p>The number of days that automatic cluster snapshots are retained.</p>
+   * @public
    */
   AutomatedSnapshotRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>The name of the Availability Zone in which the cluster is located.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The availability status of the cluster for queries. Possible values are the
    *          following:</p>
    *          <ul>
@@ -7579,63 +7578,63 @@ export interface AwsRedshiftClusterDetails {
    *                   <code>Failed</code> - The cluster failed and is not available for queries.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ClusterAvailabilityStatus?: string;
 
   /**
-   * @public
    * <p>Indicates when the cluster was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   ClusterCreateTime?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the cluster.</p>
+   * @public
    */
   ClusterIdentifier?: string;
 
   /**
-   * @public
    * <p>The nodes in the cluster.</p>
+   * @public
    */
   ClusterNodes?: AwsRedshiftClusterClusterNode[];
 
   /**
-   * @public
    * <p>The list of cluster parameter groups that are associated with this cluster.</p>
+   * @public
    */
   ClusterParameterGroups?: AwsRedshiftClusterClusterParameterGroup[];
 
   /**
-   * @public
    * <p>The public key for the cluster.</p>
+   * @public
    */
   ClusterPublicKey?: string;
 
   /**
-   * @public
    * <p>The specific revision number of the database in the cluster.</p>
+   * @public
    */
   ClusterRevisionNumber?: string;
 
   /**
-   * @public
    * <p>A list of cluster security groups that are associated with the cluster.</p>
+   * @public
    */
   ClusterSecurityGroups?: AwsRedshiftClusterClusterSecurityGroup[];
 
   /**
-   * @public
    * <p>Information about the destination Region and retention period for the cross-Region
    *          snapshot copy.</p>
+   * @public
    */
   ClusterSnapshotCopyStatus?: AwsRedshiftClusterClusterSnapshotCopyStatus;
 
   /**
-   * @public
    * <p>The current status of the cluster.</p>
    *          <p>Valid values: <code>available</code> | <code>available, prep-for-resize</code> |
    *             <code>available, resize-cleanup</code> |<code> cancelling-resize</code> |
@@ -7647,164 +7646,164 @@ export interface AwsRedshiftClusterDetails {
    *             <code>rotating-keys</code> | <code>storage-full</code> |
    *          <code>updating-hsm</code>
    *          </p>
+   * @public
    */
   ClusterStatus?: string;
 
   /**
-   * @public
    * <p>The name of the subnet group that is associated with the cluster. This parameter is
    *          valid only when the cluster is in a VPC.</p>
+   * @public
    */
   ClusterSubnetGroupName?: string;
 
   /**
-   * @public
    * <p>The version ID of the Amazon Redshift engine that runs on the cluster.</p>
+   * @public
    */
   ClusterVersion?: string;
 
   /**
-   * @public
    * <p>The name of the initial database that was created when the cluster was created.</p>
    *          <p>The same name is returned for the life of the cluster.</p>
    *          <p>If an initial database is not specified, a database named <code>devdev</code> is created
    *          by default.</p>
+   * @public
    */
   DBName?: string;
 
   /**
-   * @public
    * <p>List of time windows during which maintenance was deferred.</p>
+   * @public
    */
   DeferredMaintenanceWindows?: AwsRedshiftClusterDeferredMaintenanceWindow[];
 
   /**
-   * @public
    * <p>Information about the status of the Elastic IP (EIP) address.</p>
+   * @public
    */
   ElasticIpStatus?: AwsRedshiftClusterElasticIpStatus;
 
   /**
-   * @public
    * <p>The number of nodes that you can use the elastic resize method to resize the cluster
    *          to.</p>
+   * @public
    */
   ElasticResizeNumberOfNodeOptions?: string;
 
   /**
-   * @public
    * <p>Indicates whether the data in the cluster is encrypted at rest.</p>
+   * @public
    */
   Encrypted?: boolean;
 
   /**
-   * @public
    * <p>The connection endpoint.</p>
+   * @public
    */
   Endpoint?: AwsRedshiftClusterEndpoint;
 
   /**
-   * @public
    * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
+   * @public
    */
   EnhancedVpcRouting?: boolean;
 
   /**
-   * @public
    * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
    *          snapshot schedule and have backups enabled.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   ExpectedNextSnapshotScheduleTime?: string;
 
   /**
-   * @public
    * <p>The status of the next expected snapshot.</p>
    *          <p>Valid values: <code>OnTrack</code> | <code>Pending</code>
    *          </p>
+   * @public
    */
   ExpectedNextSnapshotScheduleTimeStatus?: string;
 
   /**
-   * @public
    * <p>Information about whether the Amazon Redshift cluster finished applying any changes to
    *          hardware security module (HSM) settings that were specified in a modify cluster
    *          command.</p>
+   * @public
    */
   HsmStatus?: AwsRedshiftClusterHsmStatus;
 
   /**
-   * @public
    * <p>A list of IAM roles that the cluster can use to access other Amazon Web Services services.</p>
+   * @public
    */
   IamRoles?: AwsRedshiftClusterIamRole[];
 
   /**
-   * @public
    * <p>The identifier of the KMS encryption key that is used to encrypt data in the
    *          cluster.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>The name of the maintenance track for the cluster.</p>
+   * @public
    */
   MaintenanceTrackName?: string;
 
   /**
-   * @public
    * <p>The default number of days to retain a manual snapshot.</p>
    *          <p>If the value is <code>-1</code>, the snapshot is retained indefinitely.</p>
    *          <p>This setting doesn't change the retention period of existing snapshots.</p>
    *          <p>Valid values: Either <code>-1</code> or an integer between 1 and 3,653</p>
+   * @public
    */
   ManualSnapshotRetentionPeriod?: number;
 
   /**
-   * @public
    * <p>The master user name for the cluster. This name is used to connect to the database that
    *          is specified in as the value of <code>DBName</code>.</p>
+   * @public
    */
   MasterUsername?: string;
 
   /**
-   * @public
    * <p>Indicates the start of the next maintenance window.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   NextMaintenanceWindowStartTime?: string;
 
   /**
-   * @public
    * <p>The node type for the nodes in the cluster.</p>
+   * @public
    */
   NodeType?: string;
 
   /**
-   * @public
    * <p>The number of compute nodes in the cluster.</p>
+   * @public
    */
   NumberOfNodes?: number;
 
   /**
-   * @public
    * <p>A list of cluster operations that are waiting to start.</p>
+   * @public
    */
   PendingActions?: string[];
 
   /**
-   * @public
    * <p>A list of changes to the cluster that are currently pending.</p>
+   * @public
    */
   PendingModifiedValues?: AwsRedshiftClusterPendingModifiedValues;
 
   /**
-   * @public
    * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
    *          maintenance can occur.</p>
    *          <p>Format:
@@ -7816,483 +7815,483 @@ export interface AwsRedshiftClusterDetails {
    *          </p>
    *          <p>For example, <code>sun:09:32-sun:10:02</code>
    *          </p>
+   * @public
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>Whether the cluster can be accessed from a public network.</p>
+   * @public
    */
   PubliclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>Information about the resize operation for the cluster.</p>
+   * @public
    */
   ResizeInfo?: AwsRedshiftClusterResizeInfo;
 
   /**
-   * @public
    * <p>Information about the status of a cluster restore action. Only applies to a cluster that
    *          was created by restoring a snapshot.</p>
+   * @public
    */
   RestoreStatus?: AwsRedshiftClusterRestoreStatus;
 
   /**
-   * @public
    * <p>A unique identifier for the cluster snapshot schedule.</p>
+   * @public
    */
   SnapshotScheduleIdentifier?: string;
 
   /**
-   * @public
    * <p>The current state of the cluster snapshot schedule.</p>
    *          <p>Valid values: <code>MODIFYING</code> | <code>ACTIVE</code> | <code>FAILED</code>
    *          </p>
+   * @public
    */
   SnapshotScheduleState?: string;
 
   /**
-   * @public
    * <p>The identifier of the VPC that the cluster is in, if the cluster is in a VPC.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The list of VPC security groups that the cluster belongs to, if the cluster is in a
    *          VPC.</p>
+   * @public
    */
   VpcSecurityGroups?: AwsRedshiftClusterVpcSecurityGroup[];
 
   /**
-   * @public
    * <p>Information about the logging status of the cluster.</p>
+   * @public
    */
   LoggingStatus?: AwsRedshiftClusterLoggingStatus;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains an optional comment about your Amazon Route 53 hosted zone.</p>
+ * @public
  */
 export interface AwsRoute53HostedZoneConfigDetails {
   /**
-   * @public
    * <p> Any comments that you include about the hosted zone.
    *         </p>
+   * @public
    */
   Comment?: string;
 }
 
 /**
- * @public
  * <p>
  *             An object that contains information about an Amazon Route 53 hosted zone. </p>
+ * @public
  */
 export interface AwsRoute53HostedZoneObjectDetails {
   /**
-   * @public
    * <p>
    *             The ID that Route 53 assigns to the hosted zone when you create it. </p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>
    *             The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             An object that includes the <code>Comment</code> element.</p>
+   * @public
    */
   Config?: AwsRoute53HostedZoneConfigDetails;
 }
 
 /**
- * @public
  * <p>
  *             The Amazon Resource Name (ARN) and other details of the Amazon CloudWatch Logs log group that Amazon Route 53 is
  * publishing logs to.</p>
+ * @public
  */
 export interface CloudWatchLogsLogGroupArnConfigDetails {
   /**
-   * @public
    * <p>
    *             The ARN of the CloudWatch Logs log group that Route 53 is publishing logs to.</p>
+   * @public
    */
   CloudWatchLogsLogGroupArn?: string;
 
   /**
-   * @public
    * <p>
    *             The ID of the hosted zone that CloudWatch Logs is logging queries for. </p>
+   * @public
    */
   HostedZoneId?: string;
 
   /**
-   * @public
    * <p>
    *             The ID for a DNS query logging configuration.
    *         </p>
+   * @public
    */
   Id?: string;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about a specified Amazon Route 53 configuration for DNS query logging.</p>
+ * @public
  */
 export interface AwsRoute53QueryLoggingConfigDetails {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log group that Route 53 is publishing logs to.</p>
+   * @public
    */
   CloudWatchLogsLogGroupArn?: CloudWatchLogsLogGroupArnConfigDetails;
 }
 
 /**
- * @public
  * <p>
  *             For private hosted zones, this is a complex type that contains information about an Amazon VPC.</p>
+ * @public
  */
 export interface AwsRoute53HostedZoneVpcDetails {
   /**
-   * @public
    * <p>
    *             The identifier of an Amazon VPC.
    *         </p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>
    *             The Amazon Web Services Region that an Amazon VPC was created in.</p>
+   * @public
    */
   Region?: string;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about a specified Amazon Route 53 hosted zone, including the four name servers assigned to
  * the hosted zone. A hosted zone represents a collection of records that can be managed together, belonging to a single parent
  * domain name.</p>
+ * @public
  */
 export interface AwsRoute53HostedZoneDetails {
   /**
-   * @public
    * <p>
    *             An object that contains information about the specified hosted zone.</p>
+   * @public
    */
   HostedZone?: AwsRoute53HostedZoneObjectDetails;
 
   /**
-   * @public
    * <p>
    *             An object that contains information about the Amazon Virtual Private Clouds (Amazon VPCs) that are associated with
    * the specified hosted zone.</p>
+   * @public
    */
   Vpcs?: AwsRoute53HostedZoneVpcDetails[];
 
   /**
-   * @public
    * <p>
    *             An object that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.</p>
+   * @public
    */
   NameServers?: string[];
 
   /**
-   * @public
    * <p>
    *             An array that contains one <code>QueryLoggingConfig</code> element for each DNS query logging configuration that is
    * associated with the current Amazon Web Services account.</p>
+   * @public
    */
   QueryLoggingConfig?: AwsRoute53QueryLoggingConfigDetails;
 }
 
 /**
- * @public
  * <p>provides information about the Amazon S3 Public Access Block configuration for accounts.</p>
+ * @public
  */
 export interface AwsS3AccountPublicAccessBlockDetails {
   /**
-   * @public
    * <p>Indicates whether to reject calls to update an S3 bucket if the calls include a public access control list (ACL).</p>
+   * @public
    */
   BlockPublicAcls?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether to reject calls to update the access policy for an S3 bucket or access point if the policy allows public access.</p>
+   * @public
    */
   BlockPublicPolicy?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether Amazon S3 ignores public ACLs that are associated with an S3 bucket.</p>
+   * @public
    */
   IgnorePublicAcls?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether to restrict access to an access point or S3 bucket that has a public policy to only Amazon Web Services service principals and authorized users within the S3 bucket owner's account.</p>
+   * @public
    */
   RestrictPublicBuckets?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             The virtual private cloud (VPC) configuration for an Amazon S3 access point.
  *         </p>
+ * @public
  */
 export interface AwsS3AccessPointVpcConfigurationDetails {
   /**
-   * @public
    * <p>
    *             If this field is specified, this access point will only allow connections from the specified VPC ID.
    *         </p>
+   * @public
    */
   VpcId?: string;
 }
 
 /**
- * @public
  * <p>
  *             Returns configuration information about the specified Amazon S3 access point. S3 access points are named
  *             network endpoints that are attached to buckets that you can use to perform S3 object operations.
  *         </p>
+ * @public
  */
 export interface AwsS3AccessPointDetails {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the access point.
    *         </p>
+   * @public
    */
   AccessPointArn?: string;
 
   /**
-   * @public
    * <p>
    *             The name or alias of the access point.
    *         </p>
+   * @public
    */
   Alias?: string;
 
   /**
-   * @public
    * <p>
    *             The name of the S3 bucket associated with the specified access point.
    *         </p>
+   * @public
    */
   Bucket?: string;
 
   /**
-   * @public
    * <p>
    *             The Amazon Web Services account ID associated with the S3 bucket associated with this access point.
    *         </p>
+   * @public
    */
   BucketAccountId?: string;
 
   /**
-   * @public
    * <p>
    *             The name of the specified access point.
    *         </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             Indicates whether this access point allows access from the public internet.
    *         </p>
+   * @public
    */
   NetworkOrigin?: string;
 
   /**
-   * @public
    * <p>provides information about the Amazon S3 Public Access Block configuration for accounts.</p>
+   * @public
    */
   PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
 
   /**
-   * @public
    * <p>
    *             Contains the virtual private cloud (VPC) configuration for the specified access point.
    *         </p>
+   * @public
    */
   VpcConfiguration?: AwsS3AccessPointVpcConfigurationDetails;
 }
 
 /**
- * @public
  * <p>Information about what Amazon S3
  *          does when a multipart upload is incomplete.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails {
   /**
-   * @public
    * <p>The number of days after which Amazon S3 cancels an incomplete multipart upload.</p>
+   * @public
    */
   DaysAfterInitiation?: number;
 }
 
 /**
- * @public
  * <p>A tag that is assigned to matching objects.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The tag value.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>A value to use for the filter.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails {
   /**
-   * @public
    * <p>Prefix text for matching objects.</p>
+   * @public
    */
   Prefix?: string;
 
   /**
-   * @public
    * <p>A tag that is assigned to matching objects.</p>
+   * @public
    */
   Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails;
 
   /**
-   * @public
    * <p>The type of filter value.
    * Valid values are <code>LifecyclePrefixPredicate</code> or <code>LifecycleTagPredicate</code>.</p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>A tag filter.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The tag value</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>The configuration for the filter.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails {
   /**
-   * @public
    * <p>The values to use for the filter.</p>
+   * @public
    */
   Operands?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails[];
 
   /**
-   * @public
    * <p>A prefix filter.</p>
+   * @public
    */
   Prefix?: string;
 
   /**
-   * @public
    * <p>A tag filter.</p>
+   * @public
    */
   Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails;
 
   /**
-   * @public
    * <p>Whether to use <code>AND</code> or <code>OR</code> to join the operands.
    * Valid values are <code>LifecycleAndOperator</code> or <code>LifecycleOrOperator</code>.</p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Identifies the objects that a rule applies to.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
   /**
-   * @public
    * <p>The configuration for the filter.</p>
+   * @public
    */
   Predicate?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails;
 }
 
 /**
- * @public
  * <p>A transition rule that describes when noncurrent objects transition to a specified storage class.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
   /**
-   * @public
    * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
+   * @public
    */
   Days?: number;
 
   /**
-   * @public
    * <p>The class of storage to change the object to after the object is noncurrent for the specified number of days.</p>
+   * @public
    */
   StorageClass?: string;
 }
 
 /**
- * @public
  * <p>A rule for when objects transition to specific storage classes.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
   /**
-   * @public
    * <p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   Date?: string;
 
   /**
-   * @public
    * <p>The number of days after which to transition the object to the specified storage class. If you provide <code>Days</code>, you cannot provide <code>Date</code>.</p>
+   * @public
    */
   Days?: number;
 
   /**
-   * @public
    * <p>The storage class to transition the object to. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -8321,135 +8320,136 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails 
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   StorageClass?: string;
 }
 
 /**
- * @public
  * <p>Configuration for a lifecycle rule.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
   /**
-   * @public
    * <p>How Amazon S3 responds when a multipart upload is incomplete. Specifically, provides a number
    *          of days before Amazon S3 cancels the entire upload.</p>
+   * @public
    */
   AbortIncompleteMultipartUpload?: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails;
 
   /**
-   * @public
    * <p>The date when objects are moved or deleted.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   ExpirationDate?: string;
 
   /**
-   * @public
    * <p>The length in days of the lifetime for objects that are subject to the rule.</p>
+   * @public
    */
   ExpirationInDays?: number;
 
   /**
-   * @public
    * <p>Whether Amazon S3 removes a delete marker that has no noncurrent versions. If set to
    *          <code>true</code>, the delete marker is expired. If set to <code>false</code>, the policy
    *          takes no action.</p>
    *          <p>If you provide <code>ExpiredObjectDeleteMarker</code>, you cannot provide
    *          <code>ExpirationInDays</code> or <code>ExpirationDate</code>.</p>
+   * @public
    */
   ExpiredObjectDeleteMarker?: boolean;
 
   /**
-   * @public
    * <p>Identifies the objects that a rule applies to.</p>
+   * @public
    */
   Filter?: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails;
 
   /**
-   * @public
    * <p>The unique identifier of the rule.</p>
+   * @public
    */
   ID?: string;
 
   /**
-   * @public
    * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
+   * @public
    */
   NoncurrentVersionExpirationInDays?: number;
 
   /**
-   * @public
    * <p>Transition rules that describe when noncurrent objects transition to a specified storage class.</p>
+   * @public
    */
   NoncurrentVersionTransitions?: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails[];
 
   /**
-   * @public
    * <p>A prefix that identifies one or more objects that the rule applies to.</p>
+   * @public
    */
   Prefix?: string;
 
   /**
-   * @public
    * <p>The current status of the rule. Indicates whether the rule is currently being applied.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>Transition rules that indicate when objects transition to a specified storage class.</p>
+   * @public
    */
   Transitions?: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails[];
 }
 
 /**
- * @public
  * <p>The lifecycle configuration for the objects in the S3 bucket.</p>
+ * @public
  */
 export interface AwsS3BucketBucketLifecycleConfigurationDetails {
   /**
-   * @public
    * <p>The lifecycle rules.</p>
+   * @public
    */
   Rules?: AwsS3BucketBucketLifecycleConfigurationRulesDetails[];
 }
 
 /**
- * @public
  * <p>Describes the versioning state of an S3 bucket.</p>
+ * @public
  */
 export interface AwsS3BucketBucketVersioningConfiguration {
   /**
-   * @public
    * <p>Specifies whether MFA delete is currently enabled in the S3 bucket versioning configuration. If the S3 bucket was never configured with MFA delete, then this attribute is not included.</p>
+   * @public
    */
   IsMfaDeleteEnabled?: boolean;
 
   /**
-   * @public
    * <p>The versioning status of the S3 bucket. Valid values are <code>Enabled</code> or <code>Suspended</code>.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Information about logging for
  *          the S3 bucket</p>
+ * @public
  */
 export interface AwsS3BucketLoggingConfiguration {
   /**
-   * @public
    * <p>The name of the S3 bucket where log files for the S3 bucket are stored.</p>
+   * @public
    */
   DestinationBucketName?: string;
 
   /**
-   * @public
    * <p>The prefix added to log files for the S3 bucket.</p>
+   * @public
    */
   LogFilePrefix?: string;
 }
@@ -8470,74 +8470,73 @@ export type AwsS3BucketNotificationConfigurationS3KeyFilterRuleName =
   (typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName)[keyof typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName];
 
 /**
- * @public
  * <p>Details for a filter rule.</p>
+ * @public
  */
 export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
   /**
-   * @public
    * <p>Indicates whether the filter is based on the prefix or suffix of the Amazon S3 key.</p>
+   * @public
    */
   Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName;
 
   /**
-   * @public
    * <p>The filter value.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Details for an Amazon S3 filter.</p>
+ * @public
  */
 export interface AwsS3BucketNotificationConfigurationS3KeyFilter {
   /**
-   * @public
    * <p>The filter rules for the filter.</p>
+   * @public
    */
   FilterRules?: AwsS3BucketNotificationConfigurationS3KeyFilterRule[];
 }
 
 /**
- * @public
  * <p>Filtering information for the notifications. The
  *          filtering is based on Amazon S3 key names.</p>
+ * @public
  */
 export interface AwsS3BucketNotificationConfigurationFilter {
   /**
-   * @public
    * <p>Details for an Amazon S3 filter.</p>
+   * @public
    */
   S3KeyFilter?: AwsS3BucketNotificationConfigurationS3KeyFilter;
 }
 
 /**
- * @public
  * <p>Details for an S3 bucket notification configuration.</p>
+ * @public
  */
 export interface AwsS3BucketNotificationConfigurationDetail {
   /**
-   * @public
    * <p>The list of events that trigger a notification.</p>
+   * @public
    */
   Events?: string[];
 
   /**
-   * @public
    * <p>The filters that determine which S3 buckets generate notifications.</p>
+   * @public
    */
   Filter?: AwsS3BucketNotificationConfigurationFilter;
 
   /**
-   * @public
    * <p>The ARN of the Lambda function, Amazon SQS queue, or Amazon SNS topic that generates the
    *          notification.</p>
+   * @public
    */
   Destination?: string;
 
   /**
-   * @public
    * <p>Indicates the type of notification. Notifications can be generated using Lambda functions,
    *          Amazon SQS queues, or Amazon SNS topics, with corresponding valid values as follows:</p>
    *          <ul>
@@ -8557,689 +8556,690 @@ export interface AwsS3BucketNotificationConfigurationDetail {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>The notification
  *          configuration for the S3 bucket.</p>
+ * @public
  */
 export interface AwsS3BucketNotificationConfiguration {
   /**
-   * @public
    * <p>Configurations for S3 bucket notifications.</p>
+   * @public
    */
   Configurations?: AwsS3BucketNotificationConfigurationDetail[];
 }
 
 /**
- * @public
  * <p>The redirect behavior for requests
  *          to the website.</p>
+ * @public
  */
 export interface AwsS3BucketWebsiteConfigurationRedirectTo {
   /**
-   * @public
    * <p>The name of the host to redirect requests to.</p>
+   * @public
    */
   Hostname?: string;
 
   /**
-   * @public
    * <p>The protocol to use when redirecting requests. By default, this field uses the same protocol as the
    *          original request. Valid values are <code>http</code> or <code>https</code>.</p>
+   * @public
    */
   Protocol?: string;
 }
 
 /**
- * @public
  * <p>The condition that must be met in order to apply the routing rule.</p>
+ * @public
  */
 export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
   /**
-   * @public
    * <p>Indicates to redirect the request if the HTTP error code matches this value.</p>
+   * @public
    */
   HttpErrorCodeReturnedEquals?: string;
 
   /**
-   * @public
    * <p>Indicates to redirect the request if the key prefix matches this value.</p>
+   * @public
    */
   KeyPrefixEquals?: string;
 }
 
 /**
- * @public
  * <p>The rules to redirect the request if the condition in <code>Condition</code> is
  *          met.</p>
+ * @public
  */
 export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
   /**
-   * @public
    * <p>The host name to use in the redirect request.</p>
+   * @public
    */
   Hostname?: string;
 
   /**
-   * @public
    * <p>The HTTP redirect code to use in the response.</p>
+   * @public
    */
   HttpRedirectCode?: string;
 
   /**
-   * @public
    * <p>The protocol to use to redirect the request. By default, uses the protocol from the
    *          original request.</p>
+   * @public
    */
   Protocol?: string;
 
   /**
-   * @public
    * <p>The object key prefix to use in the redirect request.</p>
    *          <p>Cannot be provided if <code>ReplaceKeyWith</code> is present.</p>
+   * @public
    */
   ReplaceKeyPrefixWith?: string;
 
   /**
-   * @public
    * <p>The specific object key to use in the redirect request.</p>
    *          <p>Cannot be provided if <code>ReplaceKeyPrefixWith</code> is present.</p>
+   * @public
    */
   ReplaceKeyWith?: string;
 }
 
 /**
- * @public
  * <p>A rule for redirecting requests
  *          to the website.</p>
+ * @public
  */
 export interface AwsS3BucketWebsiteConfigurationRoutingRule {
   /**
-   * @public
    * <p>Provides the condition that must be met in order to apply the routing rule.</p>
+   * @public
    */
   Condition?: AwsS3BucketWebsiteConfigurationRoutingRuleCondition;
 
   /**
-   * @public
    * <p>Provides the rules to redirect the request if the condition in <code>Condition</code> is
    *          met.</p>
+   * @public
    */
   Redirect?: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect;
 }
 
 /**
- * @public
  * <p>Website parameters for the S3
  *          bucket.</p>
+ * @public
  */
 export interface AwsS3BucketWebsiteConfiguration {
   /**
-   * @public
    * <p>The name of the error document for the website.</p>
+   * @public
    */
   ErrorDocument?: string;
 
   /**
-   * @public
    * <p>The name of the index document for the website.</p>
+   * @public
    */
   IndexDocumentSuffix?: string;
 
   /**
-   * @public
    * <p>The redirect behavior for requests to the website.</p>
+   * @public
    */
   RedirectAllRequestsTo?: AwsS3BucketWebsiteConfigurationRedirectTo;
 
   /**
-   * @public
    * <p>The rules for applying redirects for requests to the website.</p>
+   * @public
    */
   RoutingRules?: AwsS3BucketWebsiteConfigurationRoutingRule[];
 }
 
 /**
- * @public
  * <p>
  *          The default S3 Object Lock retention mode and period that you want to apply to new objects placed in the specified Amazon S3 bucket.
  *       </p>
+ * @public
  */
 export interface AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails {
   /**
-   * @public
    * <p>
    *          The number of days that you want to specify for the default retention period.
    *       </p>
+   * @public
    */
   Days?: number;
 
   /**
-   * @public
    * <p>
    *          The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
    *       </p>
+   * @public
    */
   Mode?: string;
 
   /**
-   * @public
    * <p>
    *          The number of years that you want to specify for the default retention period.
    *       </p>
+   * @public
    */
   Years?: number;
 }
 
 /**
- * @public
  * <p>
  *          Specifies the S3 Object Lock rule for the specified object. In Amazon S3, Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
  *       </p>
+ * @public
  */
 export interface AwsS3BucketObjectLockConfigurationRuleDetails {
   /**
-   * @public
    * <p>
    *          The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket.
    *       </p>
+   * @public
    */
   DefaultRetention?: AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails;
 }
 
 /**
- * @public
  * <p>
  *          The container element for S3 Object Lock configuration parameters. In Amazon S3, Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.
  *       </p>
+ * @public
  */
 export interface AwsS3BucketObjectLockConfiguration {
   /**
-   * @public
    * <p>
    *          Indicates whether the bucket has an Object Lock configuration enabled.
    *       </p>
+   * @public
    */
   ObjectLockEnabled?: string;
 
   /**
-   * @public
    * <p>
    *          Specifies the Object Lock rule for the specified object.
    *       </p>
+   * @public
    */
   Rule?: AwsS3BucketObjectLockConfigurationRuleDetails;
 }
 
 /**
- * @public
  * <p>Specifies the default server-side encryption to apply to new objects in the
  *          bucket.</p>
+ * @public
  */
 export interface AwsS3BucketServerSideEncryptionByDefault {
   /**
-   * @public
    * <p>Server-side encryption algorithm to use for the default encryption. Valid values are
    * <code>aws: kms</code> or <code>AES256</code>.</p>
+   * @public
    */
   SSEAlgorithm?: string;
 
   /**
-   * @public
    * <p>KMS key ID to use for the default encryption.</p>
+   * @public
    */
   KMSMasterKeyID?: string;
 }
 
 /**
- * @public
  * <p>An encryption rule to apply to the S3 bucket.</p>
+ * @public
  */
 export interface AwsS3BucketServerSideEncryptionRule {
   /**
-   * @public
    * <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a
    *             <code>PUT</code> object request doesn't specify any server-side encryption, this default
    *          encryption is applied.</p>
+   * @public
    */
   ApplyServerSideEncryptionByDefault?: AwsS3BucketServerSideEncryptionByDefault;
 }
 
 /**
- * @public
  * <p>The encryption configuration for the S3 bucket.</p>
+ * @public
  */
 export interface AwsS3BucketServerSideEncryptionConfiguration {
   /**
-   * @public
    * <p>The encryption rules that are applied to the S3 bucket.</p>
+   * @public
    */
   Rules?: AwsS3BucketServerSideEncryptionRule[];
 }
 
 /**
- * @public
  * <p>The details of an Amazon Simple Storage Service (Amazon S3) bucket.</p>
+ * @public
  */
 export interface AwsS3BucketDetails {
   /**
-   * @public
    * <p>The canonical user ID of the owner of the S3 bucket.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>The display name of the owner of the S3 bucket.</p>
+   * @public
    */
   OwnerName?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account identifier of the account that owns the S3 bucket.</p>
+   * @public
    */
   OwnerAccountId?: string;
 
   /**
-   * @public
    * <p>Indicates when the S3 bucket was created.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * <p>The encryption rules that are applied to the S3 bucket.</p>
+   * @public
    */
   ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * <p>The lifecycle configuration for objects in the specified bucket.</p>
+   * @public
    */
   BucketLifecycleConfiguration?: AwsS3BucketBucketLifecycleConfigurationDetails;
 
   /**
-   * @public
    * <p>Provides information about the Amazon S3 Public Access Block configuration for the S3 bucket.</p>
+   * @public
    */
   PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
 
   /**
-   * @public
    * <p>The access control list for the S3 bucket.</p>
+   * @public
    */
   AccessControlList?: string;
 
   /**
-   * @public
    * <p>The logging configuration for the S3 bucket.</p>
+   * @public
    */
   BucketLoggingConfiguration?: AwsS3BucketLoggingConfiguration;
 
   /**
-   * @public
    * <p>The website configuration parameters for the S3 bucket.</p>
+   * @public
    */
   BucketWebsiteConfiguration?: AwsS3BucketWebsiteConfiguration;
 
   /**
-   * @public
    * <p>The notification configuration for the S3 bucket.</p>
+   * @public
    */
   BucketNotificationConfiguration?: AwsS3BucketNotificationConfiguration;
 
   /**
-   * @public
    * <p>The versioning state of an S3 bucket.</p>
+   * @public
    */
   BucketVersioningConfiguration?: AwsS3BucketBucketVersioningConfiguration;
 
   /**
-   * @public
    * <p>
    *          Specifies which rule Amazon S3 applies by default to every new object placed in the bucket.
    *       </p>
+   * @public
    */
   ObjectLockConfiguration?: AwsS3BucketObjectLockConfiguration;
 
   /**
-   * @public
    * <p>
    *             The name of the bucket.
    *         </p>
+   * @public
    */
   Name?: string;
 }
 
 /**
- * @public
  * <p>Details about an Amazon S3 object.</p>
+ * @public
  */
 export interface AwsS3ObjectDetails {
   /**
-   * @public
    * <p>Indicates when the object was last modified.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   LastModified?: string;
 
   /**
-   * @public
    * <p>The opaque identifier assigned by a web server to a specific version of a resource found
    *          at a URL.</p>
+   * @public
    */
   ETag?: string;
 
   /**
-   * @public
    * <p>The version of the object.</p>
+   * @public
    */
   VersionId?: string;
 
   /**
-   * @public
    * <p>A standard MIME type describing the format of the object data.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p>If the object is stored using server-side encryption, the value of the server-side
    *          encryption algorithm used when storing this object in Amazon S3.</p>
+   * @public
    */
   ServerSideEncryption?: string;
 
   /**
-   * @public
    * <p>The identifier of the KMS symmetric customer managed key that was used for the object.</p>
+   * @public
    */
   SSEKMSKeyId?: string;
 }
 
 /**
- * @public
  * <p>
  *          Information on the instance metadata service (IMDS) configuration of the notebook instance.
  *       </p>
+ * @public
  */
 export interface AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails {
   /**
-   * @public
    * <p>
    *          Indicates the minimum IMDS version that the notebook instance supports.
    *       </p>
+   * @public
    */
   MinimumInstanceMetadataServiceVersion?: string;
 }
 
 /**
- * @public
  * <p>
  *          Provides details about an Amazon SageMaker notebook instance.
  *       </p>
+ * @public
  */
 export interface AwsSageMakerNotebookInstanceDetails {
   /**
-   * @public
    * <p>
    *          A list of Amazon Elastic Inference instance types to associate with the notebook instance. Currently, only one instance type can be associated with a notebook instance.
    *       </p>
+   * @public
    */
   AcceleratorTypes?: string[];
 
   /**
-   * @public
    * <p>
    *          An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit</a> or in any other Git repository.
    *          These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git repositories with SageMaker notebook instances</a> in the <i>Amazon SageMaker Developer Guide</i>.
    *       </p>
+   * @public
    */
   AdditionalCodeRepositories?: string[];
 
   /**
-   * @public
    * <p>
    *          The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">CodeCommit</a> or in any other Git repository.
    *          When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git repositories with SageMaker notebook instances</a> in the <i>Amazon SageMaker Developer Guide</i>.
    *       </p>
+   * @public
    */
   DefaultCodeRepository?: string;
 
   /**
-   * @public
    * <p>
    *          Sets whether SageMaker provides internet access to the notebook instance. If you set this to <code>Disabled</code>, this notebook instance is able to access resources only in your VPC, and is not be able to connect to SageMaker training and endpoint services unless you configure a Network Address Translation (NAT) Gateway in your VPC.
    *       </p>
+   * @public
    */
   DirectInternetAccess?: string;
 
   /**
-   * @public
    * <p>
    *          If status of the instance is <code>Failed</code>, the reason it failed.
    *       </p>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>
    *          Information on the IMDS configuration of the notebook instance.
    *       </p>
+   * @public
    */
   InstanceMetadataServiceConfiguration?: AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails;
 
   /**
-   * @public
    * <p>
    *          The type of machine learning (ML) compute instance to launch for the notebook instance.
    *       </p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>
    *          The Amazon Resource Name (ARN) of an Key Management Service (KMS) key that SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see
    *          <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and disabling keys</a> in the <i>Key Management Service Developer Guide</i>.
    *       </p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>
    *          The network interface ID that SageMaker created when the instance was created.
    *       </p>
+   * @public
    */
   NetworkInterfaceId?: string;
 
   /**
-   * @public
    * <p>
    *          The Amazon Resource Name (ARN) of the notebook instance.
    *       </p>
+   * @public
    */
   NotebookInstanceArn?: string;
 
   /**
-   * @public
    * <p>
    *          The name of a notebook instance lifecycle configuration.
    *       </p>
+   * @public
    */
   NotebookInstanceLifecycleConfigName?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the new notebook instance.
    *       </p>
+   * @public
    */
   NotebookInstanceName?: string;
 
   /**
-   * @public
    * <p>
    *          The status of the notebook instance.
    *       </p>
+   * @public
    */
   NotebookInstanceStatus?: string;
 
   /**
-   * @public
    * <p>
    *          The platform identifier of the notebook instance runtime environment.
    *       </p>
+   * @public
    */
   PlatformIdentifier?: string;
 
   /**
-   * @public
    * <p>
    *          The Amazon Resource Name (ARN) of the IAM role associated with the instance.
    *       </p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>
    *          Whether root access is enabled or disabled for users of the notebook instance.
    *       </p>
+   * @public
    */
   RootAccess?: string;
 
   /**
-   * @public
    * <p>
    *          The VPC security group IDs.
    *       </p>
+   * @public
    */
   SecurityGroups?: string[];
 
   /**
-   * @public
    * <p>
    *          The ID of the VPC subnet to which you have a connectivity from your ML compute instance.
    *       </p>
+   * @public
    */
   SubnetId?: string;
 
   /**
-   * @public
    * <p>
    *          The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
    *       </p>
+   * @public
    */
   Url?: string;
 
   /**
-   * @public
    * <p>
    *          The size, in GB, of the ML storage volume to attach to the notebook instance.
    *       </p>
+   * @public
    */
   VolumeSizeInGB?: number;
 }
 
 /**
- * @public
  * <p>Defines the rotation schedule for the secret.</p>
+ * @public
  */
 export interface AwsSecretsManagerSecretRotationRules {
   /**
-   * @public
    * <p>The number of days after the previous rotation to rotate the secret.</p>
+   * @public
    */
   AutomaticallyAfterDays?: number;
 }
 
 /**
- * @public
  * <p>Details about an Secrets Manager secret.</p>
+ * @public
  */
 export interface AwsSecretsManagerSecretDetails {
   /**
-   * @public
    * <p>Defines the rotation schedule for the secret.</p>
+   * @public
    */
   RotationRules?: AwsSecretsManagerSecretRotationRules;
 
   /**
-   * @public
    * <p>Whether the rotation occurred within the specified rotation frequency.</p>
+   * @public
    */
   RotationOccurredWithinFrequency?: boolean;
 
   /**
-   * @public
    * <p>The ARN, Key ID, or alias of the KMS key used to encrypt the
    *             <code>SecretString</code> or <code>SecretBinary</code> values for versions of this
    *          secret.</p>
+   * @public
    */
   KmsKeyId?: string;
 
   /**
-   * @public
    * <p>Whether rotation is enabled.</p>
+   * @public
    */
   RotationEnabled?: boolean;
 
   /**
-   * @public
    * <p>The ARN of the Lambda function that rotates the secret.</p>
+   * @public
    */
   RotationLambdaArn?: string;
 
   /**
-   * @public
    * <p>Whether the secret is deleted.</p>
+   * @public
    */
   Deleted?: boolean;
 
   /**
-   * @public
    * <p>The name of the secret.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The user-provided description of the secret.</p>
+   * @public
    */
   Description?: string;
 }
 
 /**
- * @public
  * <p>
  *             A parameter that a security control accepts.
  *         </p>
+ * @public
  */
 export interface SecurityControlParameter {
   /**
-   * @public
    * <p>
    *             The name of a
    *         </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             The current value of a control parameter.
    *         </p>
+   * @public
    */
   Value?: string[];
 }
@@ -9261,33 +9261,32 @@ export const ComplianceStatus = {
 export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof ComplianceStatus];
 
 /**
- * @public
  * <p>Provides additional context for the value of <code>Compliance.Status</code>.</p>
+ * @public
  */
 export interface StatusReason {
   /**
-   * @public
    * <p>A code that represents a reason for the control status. For the list of status reason
    *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
    *             <i>Security Hub User Guide</i>. </p>
+   * @public
    */
   ReasonCode: string | undefined;
 
   /**
-   * @public
    * <p>The corresponding description for the status reason code.</p>
+   * @public
    */
   Description?: string;
 }
 
 /**
- * @public
  * <p>Contains finding details that are specific to control-based findings. Only returned for
  *          findings generated from controls.</p>
+ * @public
  */
 export interface Compliance {
   /**
-   * @public
    * <p>The result of a standards check.</p>
    *          <p>The valid values for <code>Status</code> are as follows.</p>
    *          <ul>
@@ -9319,142 +9318,143 @@ export interface Compliance {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: ComplianceStatus;
 
   /**
-   * @public
    * <p>For a control, the industry or regulatory framework requirements that are related to the
    *          control. The check for that control is aligned with these requirements.</p>
+   * @public
    */
   RelatedRequirements?: string[];
 
   /**
-   * @public
    * <p>For findings generated from controls, a list of reasons behind the value of
    *             <code>Status</code>. For the list of status reason codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
    *             <i>Security Hub User Guide</i>. </p>
+   * @public
    */
   StatusReasons?: StatusReason[];
 
   /**
-   * @public
    * <p>
    *          The unique identifier of a control across standards. Values for this field typically consist of an
    *          Amazon Web Service and a number, such as APIGateway.5.
    *       </p>
+   * @public
    */
   SecurityControlId?: string;
 
   /**
-   * @public
    * <p>The enabled security standards in which a security control is currently enabled.
    *       </p>
+   * @public
    */
   AssociatedStandards?: AssociatedStandard[];
 
   /**
-   * @public
    * <p>
    *             An object that includes security control parameter names and values.
    *         </p>
+   * @public
    */
   SecurityControlParameters?: SecurityControlParameter[];
 }
 
 /**
- * @public
  * <p>The severity assigned to the finding by the finding provider.</p>
+ * @public
  */
 export interface FindingProviderSeverity {
   /**
-   * @public
    * <p>The severity label assigned to the finding by the finding provider.</p>
+   * @public
    */
   Label?: SeverityLabel;
 
   /**
-   * @public
    * <p>The finding provider's original value for the severity.</p>
+   * @public
    */
   Original?: string;
 }
 
 /**
- * @public
  * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update values for confidence, criticality, related findings, severity, and types.</p>
+ * @public
  */
 export interface FindingProviderFields {
   /**
-   * @public
    * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
    *          accurately identifies the behavior or issue that it was intended to identify.</p>
    *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
    *          confidence and 100 means 100 percent confidence.</p>
+   * @public
    */
   Confidence?: number;
 
   /**
-   * @public
    * <p>The level of importance assigned to the resources associated with the finding.</p>
    *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
    *          is reserved for the most critical resources.</p>
+   * @public
    */
   Criticality?: number;
 
   /**
-   * @public
    * <p>A list of findings that are related to the current finding.</p>
+   * @public
    */
   RelatedFindings?: RelatedFinding[];
 
   /**
-   * @public
    * <p>The severity of a finding.</p>
+   * @public
    */
   Severity?: FindingProviderSeverity;
 
   /**
-   * @public
    * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
    *          that classify a finding.</p>
    *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
    *          Behaviors | Sensitive Data Identifications</p>
+   * @public
    */
   Types?: string[];
 }
 
 /**
- * @public
  * <p>
  *                 Provides metadata for the Amazon CodeGuru detector associated with a finding. This field pertains to
  *                 findings that relate to Lambda functions. Amazon Inspector identifies policy violations and
  *                 vulnerabilities in Lambda function code based on internal detectors developed
  *                 in collaboration with Amazon CodeGuru. Security Hub receives those findings.
  *         </p>
+ * @public
  */
 export interface GeneratorDetails {
   /**
-   * @public
    * <p>
    *             The name of the detector used to identify the code vulnerability.
    *         </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             The description of the detector used to identify the code vulnerability.
    *         </p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>
    *             An array of tags used to identify the detector associated with the finding.
    *         </p>
+   * @public
    */
   Labels?: string[];
 }
@@ -9502,31 +9502,31 @@ export const MalwareType = {
 export type MalwareType = (typeof MalwareType)[keyof typeof MalwareType];
 
 /**
- * @public
  * <p>A list of malware related to a finding.</p>
+ * @public
  */
 export interface Malware {
   /**
-   * @public
    * <p>The name of the malware that was observed.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the malware that was observed.</p>
+   * @public
    */
   Type?: MalwareType;
 
   /**
-   * @public
    * <p>The file system path of the malware that was observed.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The state of the malware that was observed.</p>
+   * @public
    */
   State?: MalwareState;
 }
@@ -9546,333 +9546,333 @@ export const NetworkDirection = {
 export type NetworkDirection = (typeof NetworkDirection)[keyof typeof NetworkDirection];
 
 /**
- * @public
  * <p>A range of ports.</p>
+ * @public
  */
 export interface PortRange {
   /**
-   * @public
    * <p>The first port in the port range.</p>
+   * @public
    */
   Begin?: number;
 
   /**
-   * @public
    * <p>The last port in the port range.</p>
+   * @public
    */
   End?: number;
 }
 
 /**
- * @public
  * <p>The details of network-related information about a finding.</p>
+ * @public
  */
 export interface Network {
   /**
-   * @public
    * <p>The direction of network traffic associated with a finding.</p>
+   * @public
    */
   Direction?: NetworkDirection;
 
   /**
-   * @public
    * <p>The protocol of network-related information about a finding.</p>
+   * @public
    */
   Protocol?: string;
 
   /**
-   * @public
    * <p>The range of open ports that is present on the network.</p>
+   * @public
    */
   OpenPortRange?: PortRange;
 
   /**
-   * @public
    * <p>The source IPv4 address of network-related information about a finding.</p>
+   * @public
    */
   SourceIpV4?: string;
 
   /**
-   * @public
    * <p>The source IPv6 address of network-related information about a finding.</p>
+   * @public
    */
   SourceIpV6?: string;
 
   /**
-   * @public
    * <p>The source port of network-related information about a finding.</p>
+   * @public
    */
   SourcePort?: number;
 
   /**
-   * @public
    * <p>The source domain of network-related information about a finding.</p>
+   * @public
    */
   SourceDomain?: string;
 
   /**
-   * @public
    * <p>The source media access control (MAC) address of network-related information about a
    *          finding.</p>
+   * @public
    */
   SourceMac?: string;
 
   /**
-   * @public
    * <p>The destination IPv4 address of network-related information about a finding.</p>
+   * @public
    */
   DestinationIpV4?: string;
 
   /**
-   * @public
    * <p>The destination IPv6 address of network-related information about a finding.</p>
+   * @public
    */
   DestinationIpV6?: string;
 
   /**
-   * @public
    * <p>The destination port of network-related information about a finding.</p>
+   * @public
    */
   DestinationPort?: number;
 
   /**
-   * @public
    * <p>The destination domain of network-related information about a finding.</p>
+   * @public
    */
   DestinationDomain?: string;
 }
 
 /**
- * @public
  * <p>Information about the destination of the next component in the network path.</p>
+ * @public
  */
 export interface NetworkPathComponentDetails {
   /**
-   * @public
    * <p>The IP addresses of the destination.</p>
+   * @public
    */
   Address?: string[];
 
   /**
-   * @public
    * <p>A list of port ranges for the destination.</p>
+   * @public
    */
   PortRanges?: PortRange[];
 }
 
 /**
- * @public
  * <p>Details about a network path component that occurs before or after the current
  *          component.</p>
+ * @public
  */
 export interface NetworkHeader {
   /**
-   * @public
    * <p>The protocol used for the component.</p>
+   * @public
    */
   Protocol?: string;
 
   /**
-   * @public
    * <p>Information about the destination of the component.</p>
+   * @public
    */
   Destination?: NetworkPathComponentDetails;
 
   /**
-   * @public
    * <p>Information about the origin of the component.</p>
+   * @public
    */
   Source?: NetworkPathComponentDetails;
 }
 
 /**
- * @public
  * <p>Information about a network path component.</p>
+ * @public
  */
 export interface NetworkPathComponent {
   /**
-   * @public
    * <p>The identifier of a component in the network path.</p>
+   * @public
    */
   ComponentId?: string;
 
   /**
-   * @public
    * <p>The type of component.</p>
+   * @public
    */
   ComponentType?: string;
 
   /**
-   * @public
    * <p>Information about the component that comes after the current component in the network
    *          path.</p>
+   * @public
    */
   Egress?: NetworkHeader;
 
   /**
-   * @public
    * <p>Information about the component that comes before the current node in the network
    *          path.</p>
+   * @public
    */
   Ingress?: NetworkHeader;
 }
 
 /**
- * @public
  * <p>A user-defined note added to a finding.</p>
+ * @public
  */
 export interface Note {
   /**
-   * @public
    * <p>The text of a note.</p>
+   * @public
    */
   Text: string | undefined;
 
   /**
-   * @public
    * <p>The principal that created a note.</p>
+   * @public
    */
   UpdatedBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the note was updated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   UpdatedAt: string | undefined;
 }
 
 /**
- * @public
  * <p>Provides an overview of the patch compliance status for an instance against a selected
  *          compliance standard.</p>
+ * @public
  */
 export interface PatchSummary {
   /**
-   * @public
    * <p>The identifier of the compliance standard that was used to determine the patch
    *          compliance status.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The number of patches from the compliance standard that were installed
    *          successfully.</p>
+   * @public
    */
   InstalledCount?: number;
 
   /**
-   * @public
    * <p>The number of patches that are part of the compliance standard but are not installed.
    *          The count includes patches that failed to install.</p>
+   * @public
    */
   MissingCount?: number;
 
   /**
-   * @public
    * <p>The number of patches from the compliance standard that failed to install.</p>
+   * @public
    */
   FailedCount?: number;
 
   /**
-   * @public
    * <p>The number of installed patches that are not part of the compliance standard.</p>
+   * @public
    */
   InstalledOtherCount?: number;
 
   /**
-   * @public
    * <p>The number of patches that are installed but are also on a list of patches that the
    *          customer rejected.</p>
+   * @public
    */
   InstalledRejectedCount?: number;
 
   /**
-   * @public
    * <p>The number of patches that were applied, but that require the instance to be rebooted in
    *          order to be marked as installed.</p>
+   * @public
    */
   InstalledPendingReboot?: number;
 
   /**
-   * @public
    * <p>Indicates when the operation started.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   OperationStartTime?: string;
 
   /**
-   * @public
    * <p>Indicates when the operation completed.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   OperationEndTime?: string;
 
   /**
-   * @public
    * <p>The reboot option specified for the instance.</p>
+   * @public
    */
   RebootOption?: string;
 
   /**
-   * @public
    * <p>The type of patch operation performed. For Patch Manager, the values are
    *             <code>SCAN</code> and <code>INSTALL</code>. </p>
+   * @public
    */
   Operation?: string;
 }
 
 /**
- * @public
  * <p>The details of process-related information about a finding.</p>
+ * @public
  */
 export interface ProcessDetails {
   /**
-   * @public
    * <p>The name of the process.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The path to the process executable.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The process ID.</p>
+   * @public
    */
   Pid?: number;
 
   /**
-   * @public
    * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
+   * @public
    */
   ParentPid?: number;
 
   /**
-   * @public
    * <p>Indicates when the process was launched.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   LaunchedAt?: string;
 
   /**
-   * @public
    * <p>Indicates when the process was terminated.</p>
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * @public
    */
   TerminatedAt?: string;
 }
@@ -9892,476 +9892,475 @@ export const RecordState = {
 export type RecordState = (typeof RecordState)[keyof typeof RecordState];
 
 /**
- * @public
  * <p>A recommendation on how to remediate the issue identified in a finding.</p>
+ * @public
  */
 export interface Recommendation {
   /**
-   * @public
    * <p>Describes the recommended steps to take to remediate an issue identified in a finding.</p>
+   * @public
    */
   Text?: string;
 
   /**
-   * @public
    * <p>A URL to a page or site that contains information about how to remediate a finding.</p>
+   * @public
    */
   Url?: string;
 }
 
 /**
- * @public
  * <p>Details about the remediation steps for a finding.</p>
+ * @public
  */
 export interface Remediation {
   /**
-   * @public
    * <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>
+   * @public
    */
   Recommendation?: Recommendation;
 }
 
 /**
- * @public
  * <p>An occurrence of sensitive data detected in a Microsoft Excel workbook, comma-separated value (CSV) file, or tab-separated value (TSV) file.</p>
+ * @public
  */
 export interface Cell {
   /**
-   * @public
    * <p>The column number of the column that contains the data. For a Microsoft Excel workbook, the column number corresponds to the alphabetical column identifiers. For example, a value of 1 for Column corresponds to the A column in the workbook.</p>
+   * @public
    */
   Column?: number;
 
   /**
-   * @public
    * <p>The row number of the row that contains the data.</p>
+   * @public
    */
   Row?: number;
 
   /**
-   * @public
    * <p>The name of the column that contains the data.</p>
+   * @public
    */
   ColumnName?: string;
 
   /**
-   * @public
    * <p>For a Microsoft Excel workbook, provides the location of the cell, as an absolute cell reference, that contains the data. For example, Sheet2!C5 for cell C5 on Sheet2.</p>
+   * @public
    */
   CellReference?: string;
 }
 
 /**
- * @public
  * <p>Identifies where the sensitive data begins and ends.</p>
+ * @public
  */
 export interface Range {
   /**
-   * @public
    * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
+   * @public
    */
   Start?: number;
 
   /**
-   * @public
    * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
+   * @public
    */
   End?: number;
 
   /**
-   * @public
    * <p>In the line where the sensitive data starts, the column within the line where the sensitive data starts.</p>
+   * @public
    */
   StartColumn?: number;
 }
 
 /**
- * @public
  * <p>An occurrence of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
+ * @public
  */
 export interface Page {
   /**
-   * @public
    * <p>The page number of the page that contains the sensitive data.</p>
+   * @public
    */
   PageNumber?: number;
 
   /**
-   * @public
    * <p>An occurrence of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
+   * @public
    */
   LineRange?: Range;
 
   /**
-   * @public
    * <p>An occurrence of sensitive data detected in a binary text file.</p>
+   * @public
    */
   OffsetRange?: Range;
 }
 
 /**
- * @public
  * <p>An occurrence of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
+ * @public
  */
 export interface _Record {
   /**
-   * @public
    * <p>The path, as a JSONPath expression, to the field in the record that contains the data. If the field name is longer than 20 characters, it is truncated. If the path is longer than 250 characters, it is truncated.</p>
+   * @public
    */
   JsonPath?: string;
 
   /**
-   * @public
    * <p>The record index, starting from 0, for the record that contains the data.</p>
+   * @public
    */
   RecordIndex?: number;
 }
 
 /**
- * @public
  * <p>The detected occurrences of sensitive data.</p>
+ * @public
  */
 export interface Occurrences {
   /**
-   * @public
    * <p>Occurrences of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
+   * @public
    */
   LineRanges?: Range[];
 
   /**
-   * @public
    * <p>Occurrences of sensitive data detected in a binary text file.</p>
+   * @public
    */
   OffsetRanges?: Range[];
 
   /**
-   * @public
    * <p>Occurrences of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
+   * @public
    */
   Pages?: Page[];
 
   /**
-   * @public
    * <p>Occurrences of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
+   * @public
    */
   Records?: _Record[];
 
   /**
-   * @public
    * <p>Occurrences of sensitive data detected in Microsoft Excel workbooks, comma-separated value (CSV) files, or tab-separated value (TSV) files.</p>
+   * @public
    */
   Cells?: Cell[];
 }
 
 /**
- * @public
  * <p>The list of detected instances of sensitive data.</p>
+ * @public
  */
 export interface CustomDataIdentifiersDetections {
   /**
-   * @public
    * <p>The total number of occurrences of sensitive data that were detected.</p>
+   * @public
    */
   Count?: number;
 
   /**
-   * @public
    * <p>The ARN of the custom identifier that was used to detect the sensitive data.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>he name of the custom identifier that detected the sensitive data.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>Details about the sensitive data that was detected.</p>
+   * @public
    */
   Occurrences?: Occurrences;
 }
 
 /**
- * @public
  * <p>Contains an instance of sensitive data that was detected by a customer-defined identifier.</p>
+ * @public
  */
 export interface CustomDataIdentifiersResult {
   /**
-   * @public
    * <p>The list of detected instances of sensitive data.</p>
+   * @public
    */
   Detections?: CustomDataIdentifiersDetections[];
 
   /**
-   * @public
    * <p>The total number of occurrences of sensitive data.</p>
+   * @public
    */
   TotalCount?: number;
 }
 
 /**
- * @public
  * <p>The list of detected instances of sensitive data.</p>
+ * @public
  */
 export interface SensitiveDataDetections {
   /**
-   * @public
    * <p>The total number of occurrences of sensitive data that were detected.</p>
+   * @public
    */
   Count?: number;
 
   /**
-   * @public
    * <p>The type of sensitive data that was detected. For example, the type might indicate that the data is an email address.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>Details about the sensitive data that was detected.</p>
+   * @public
    */
   Occurrences?: Occurrences;
 }
 
 /**
- * @public
  * <p>Contains a detected instance of sensitive data that are based on built-in identifiers.</p>
+ * @public
  */
 export interface SensitiveDataResult {
   /**
-   * @public
    * <p>The category of sensitive data that was detected. For example, the category can indicate that the sensitive data involved credentials, financial information, or personal information.</p>
+   * @public
    */
   Category?: string;
 
   /**
-   * @public
    * <p>The list of detected instances of sensitive data.</p>
+   * @public
    */
   Detections?: SensitiveDataDetections[];
 
   /**
-   * @public
    * <p>The total number of occurrences of sensitive data.</p>
+   * @public
    */
   TotalCount?: number;
 }
 
 /**
- * @public
  * <p>Provides details about the current status of the sensitive data detection.</p>
+ * @public
  */
 export interface ClassificationStatus {
   /**
-   * @public
    * <p>The code that represents the status of the sensitive data detection.</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>A longer description of the current status of the sensitive data detection.</p>
+   * @public
    */
   Reason?: string;
 }
 
 /**
- * @public
  * <p>Details about the sensitive data that was detected on the resource.</p>
+ * @public
  */
 export interface ClassificationResult {
   /**
-   * @public
    * <p>The type of content that the finding applies to.</p>
+   * @public
    */
   MimeType?: string;
 
   /**
-   * @public
    * <p>The total size in bytes of the affected data.</p>
+   * @public
    */
   SizeClassified?: number;
 
   /**
-   * @public
    * <p>Indicates whether there are additional occurrences of sensitive data that are not included in the finding. This occurs when the number of occurrences exceeds the maximum that can be included.</p>
+   * @public
    */
   AdditionalOccurrences?: boolean;
 
   /**
-   * @public
    * <p>The current status of the sensitive data detection.</p>
+   * @public
    */
   Status?: ClassificationStatus;
 
   /**
-   * @public
    * <p>Provides details about sensitive data that was identified based on built-in configuration.</p>
+   * @public
    */
   SensitiveData?: SensitiveDataResult[];
 
   /**
-   * @public
    * <p>Provides details about sensitive data that was identified based on customer-defined configuration.</p>
+   * @public
    */
   CustomDataIdentifiers?: CustomDataIdentifiersResult;
 }
 
 /**
- * @public
  * <p>Provides details about sensitive data that was detected on a resource.</p>
+ * @public
  */
 export interface DataClassificationDetails {
   /**
-   * @public
    * <p>The path to the folder or file that contains the sensitive data.</p>
+   * @public
    */
   DetailedResultsLocation?: string;
 
   /**
-   * @public
    * <p>The details about the sensitive data that was detected on the resource.</p>
+   * @public
    */
   Result?: ClassificationResult;
 }
 
 /**
- * @public
  * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
+ * @public
  */
 export interface AwsSnsTopicSubscription {
   /**
-   * @public
    * <p>The subscription's endpoint (format depends on the protocol).</p>
+   * @public
    */
   Endpoint?: string;
 
   /**
-   * @public
    * <p>The subscription's protocol.</p>
+   * @public
    */
   Protocol?: string;
 }
 
 /**
- * @public
  * <p>Provides information about an Amazon SNS topic to which notifications can be published.</p>
+ * @public
  */
 export interface AwsSnsTopicDetails {
   /**
-   * @public
    * <p>The ID of an Amazon Web Services managed key for Amazon SNS or a customer managed key.</p>
+   * @public
    */
   KmsMasterKeyId?: string;
 
   /**
-   * @public
    * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
+   * @public
    */
   Subscription?: AwsSnsTopicSubscription[];
 
   /**
-   * @public
    * <p>The name of the Amazon SNS topic.</p>
+   * @public
    */
   TopicName?: string;
 
   /**
-   * @public
    * <p>The subscription's owner.</p>
+   * @public
    */
   Owner?: string;
 
   /**
-   * @public
    * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
    *       </p>
+   * @public
    */
   SqsSuccessFeedbackRoleArn?: string;
 
   /**
-   * @public
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
    *       </p>
+   * @public
    */
   SqsFailureFeedbackRoleArn?: string;
 
   /**
-   * @public
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to a platform application endpoint.
    *       </p>
+   * @public
    */
   ApplicationSuccessFeedbackRoleArn?: string;
 
   /**
-   * @public
    * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
    *       </p>
+   * @public
    */
   FirehoseSuccessFeedbackRoleArn?: string;
 
   /**
-   * @public
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
    *       </p>
+   * @public
    */
   FirehoseFailureFeedbackRoleArn?: string;
 
   /**
-   * @public
    * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.
    *       </p>
+   * @public
    */
   HttpSuccessFeedbackRoleArn?: string;
 
   /**
-   * @public
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p>
+   * @public
    */
   HttpFailureFeedbackRoleArn?: string;
 }
 
 /**
- * @public
  * <p>Data about a queue.</p>
+ * @public
  */
 export interface AwsSqsQueueDetails {
   /**
-   * @public
    * <p>The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling KMS again.</p>
+   * @public
    */
   KmsDataKeyReusePeriodSeconds?: number;
 
   /**
-   * @public
    * <p>The ID of an Amazon Web Services managed key for Amazon SQS or a custom
    *          KMS key.</p>
+   * @public
    */
   KmsMasterKeyId?: string;
 
   /**
-   * @public
    * <p>The name of the new queue.</p>
+   * @public
    */
   QueueName?: string;
 
   /**
-   * @public
    * <p>The ARN of the dead-letter queue to which Amazon SQS moves
    *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
+   * @public
    */
   DeadLetterTargetArn?: string;
 }
 
 /**
- * @public
  * <p>Provides the details about the compliance status for a patch.</p>
+ * @public
  */
 export interface AwsSsmComplianceSummary {
   /**
-   * @public
    * <p>The current patch compliance status. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -10380,101 +10379,101 @@ export interface AwsSsmComplianceSummary {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>CRITICAL</code>.</p>
+   * @public
    */
   CompliantCriticalCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are compliant, the number that have a severity of
    *          <code>HIGH</code>.</p>
+   * @public
    */
   CompliantHighCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>MEDIUM</code>.</p>
+   * @public
    */
   CompliantMediumCount?: number;
 
   /**
-   * @public
    * <p>The type of execution that was used determine compliance.</p>
+   * @public
    */
   ExecutionType?: string;
 
   /**
-   * @public
    * <p>For the patch items that are noncompliant, the number of items that have a severity of
    *             <code>CRITICAL</code>.</p>
+   * @public
    */
   NonCompliantCriticalCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>INFORMATIONAL</code>.</p>
+   * @public
    */
   CompliantInformationalCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>INFORMATIONAL</code>.</p>
+   * @public
    */
   NonCompliantInformationalCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>UNSPECIFIED</code>.</p>
+   * @public
    */
   CompliantUnspecifiedCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>LOW</code>.</p>
+   * @public
    */
   NonCompliantLowCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>HIGH</code>.</p>
+   * @public
    */
   NonCompliantHighCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are compliant, the number that have a severity of
    *          <code>LOW</code>.</p>
+   * @public
    */
   CompliantLowCount?: number;
 
   /**
-   * @public
    * <p>The type of resource for which the compliance was determined. For
    *             <code>AwsSsmPatchCompliance</code>, <code>ComplianceType</code> is <code>Patch</code>. </p>
+   * @public
    */
   ComplianceType?: string;
 
   /**
-   * @public
    * <p>The identifier of the patch baseline. The patch baseline lists the patches that are
    *          approved for installation.</p>
+   * @public
    */
   PatchBaselineId?: string;
 
   /**
-   * @public
    * <p>The highest severity for the patches. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -10508,233 +10507,233 @@ export interface AwsSsmComplianceSummary {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   OverallSeverity?: string;
 
   /**
-   * @public
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>MEDIUM</code>.</p>
+   * @public
    */
   NonCompliantMediumCount?: number;
 
   /**
-   * @public
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>UNSPECIFIED</code>.</p>
+   * @public
    */
   NonCompliantUnspecifiedCount?: number;
 
   /**
-   * @public
    * <p>The identifier of the patch group for which compliance was determined. A patch group
    *          uses tags to group EC2 instances that should have the same patch compliance.</p>
+   * @public
    */
   PatchGroup?: string;
 }
 
 /**
- * @public
  * <p>Provides details about the compliance for a patch.</p>
+ * @public
  */
 export interface AwsSsmPatch {
   /**
-   * @public
    * <p>The compliance status details for the patch.</p>
+   * @public
    */
   ComplianceSummary?: AwsSsmComplianceSummary;
 }
 
 /**
- * @public
  * <p>Provides information about the state of a patch on an instance based on the patch
  *          baseline that was used to patch the instance.</p>
+ * @public
  */
 export interface AwsSsmPatchComplianceDetails {
   /**
-   * @public
    * <p>Information about the status of a patch.</p>
+   * @public
    */
   Patch?: AwsSsmPatch;
 }
 
 /**
- * @public
  * <p>
  *             An object describing a CloudWatch log group. For more information, see
  *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
  *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
  *         </p>
+ * @public
  */
 export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails {
   /**
-   * @public
    * <p>The ARN (ends with <code>:*</code>) of the CloudWatch Logs log group to which you want your logs emitted.</p>
+   * @public
    */
   LogGroupArn?: string;
 }
 
 /**
- * @public
  * <p>
  *             An array of objects that describes where your execution history events will be logged.
  *         </p>
+ * @public
  */
 export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails {
   /**
-   * @public
    * <p>
    *             An object describing a CloudWatch Logs log group. For more information, see
    *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">
    *                 Amazon Web Services::Logs::LogGroup</a> in the <i>CloudFormation User Guide</i>.
    *         </p>
+   * @public
    */
   CloudWatchLogsLogGroup?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails;
 }
 
 /**
- * @public
  * <p>
  *             The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs options.
  *         </p>
+ * @public
  */
 export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
   /**
-   * @public
    * <p>
    *             An array of objects that describes where your execution history events will be logged.
    *         </p>
+   * @public
    */
   Destinations?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails[];
 
   /**
-   * @public
    * <p>
    *             Determines whether execution data is included in your log. When set to false, data is excluded.
    *         </p>
+   * @public
    */
   IncludeExecutionData?: boolean;
 
   /**
-   * @public
    * <p>
    *             Defines which category of execution history events are logged.
    *         </p>
+   * @public
    */
   Level?: string;
 }
 
 /**
- * @public
  * <p>
  *             Specifies whether X-Ray tracing is enabled.
  *         </p>
+ * @public
  */
 export interface AwsStepFunctionStateMachineTracingConfigurationDetails {
   /**
-   * @public
    * <p>
    *             When set to true, X-Ray tracing is enabled.
    *         </p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-
  *             driven steps.
  *         </p>
+ * @public
  */
 export interface AwsStepFunctionStateMachineDetails {
   /**
-   * @public
    * <p>
    *             A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if
    *             the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.
    *         </p>
+   * @public
    */
   Label?: string;
 
   /**
-   * @public
    * <p>
    *             Used to set CloudWatch Logs options.
    *         </p>
+   * @public
    */
   LoggingConfiguration?: AwsStepFunctionStateMachineLoggingConfigurationDetails;
 
   /**
-   * @public
    * <p>
    *             The name of the state machine.
    *         </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name (ARN) of the IAM role used when creating this state machine.
    *         </p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>
    *             The ARN that identifies the state machine.
    *         </p>
+   * @public
    */
   StateMachineArn?: string;
 
   /**
-   * @public
    * <p>
    *             The current status of the state machine.
    *         </p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>
    *             Specifies whether X-Ray tracing is enabled.
    *         </p>
+   * @public
    */
   TracingConfiguration?: AwsStepFunctionStateMachineTracingConfigurationDetails;
 
   /**
-   * @public
    * <p>
    *             The type of the state machine (STANDARD or EXPRESS).
    *         </p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>A match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
+ * @public
  */
 export interface AwsWafRateBasedRuleMatchPredicate {
   /**
-   * @public
    * <p>The unique identifier for the predicate.</p>
+   * @public
    */
   DataId?: string;
 
   /**
-   * @public
    * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
    *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.
    *       </p>
+   * @public
    */
   Negated?: boolean;
 
   /**
-   * @public
    * <p>The type of predicate. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -10773,72 +10772,72 @@ export interface AwsWafRateBasedRuleMatchPredicate {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Details about a rate-based rule for global resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
+ * @public
  */
 export interface AwsWafRateBasedRuleDetails {
   /**
-   * @public
    * <p>The name of the metrics for the rate-based rule.</p>
+   * @public
    */
   MetricName?: string;
 
   /**
-   * @public
    * <p>The name of the rate-based rule.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
+   * @public
    */
   RateKey?: string;
 
   /**
-   * @public
    * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
+   * @public
    */
   RateLimit?: number;
 
   /**
-   * @public
    * <p>The unique identifier for the rate-based rule.</p>
+   * @public
    */
   RuleId?: string;
 
   /**
-   * @public
    * <p>The predicates to include in the rate-based rule.</p>
+   * @public
    */
   MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[];
 }
 
 /**
- * @public
  * <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
+ * @public
  */
 export interface AwsWafRegionalRateBasedRuleMatchPredicate {
   /**
-   * @public
    * <p>The unique identifier for the predicate.</p>
+   * @public
    */
   DataId?: string;
 
   /**
-   * @public
    * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
    *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.</p>
+   * @public
    */
   Negated?: boolean;
 
   /**
-   * @public
    * <p>The type of predicate. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -10877,228 +10876,229 @@ export interface AwsWafRegionalRateBasedRuleMatchPredicate {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
+ * @public
  */
 export interface AwsWafRegionalRateBasedRuleDetails {
   /**
-   * @public
    * <p>The name of the metrics for the rate-based rule.</p>
+   * @public
    */
   MetricName?: string;
 
   /**
-   * @public
    * <p>The name of the rate-based rule.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
+   * @public
    */
   RateKey?: string;
 
   /**
-   * @public
    * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
+   * @public
    */
   RateLimit?: number;
 
   /**
-   * @public
    * <p>The unique identifier for the rate-based rule.</p>
+   * @public
    */
   RuleId?: string;
 
   /**
-   * @public
    * <p>The predicates to include in the rate-based rule.</p>
+   * @public
    */
   MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[];
 }
 
 /**
- * @public
  * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
  *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
  *       </p>
+ * @public
  */
 export interface AwsWafRegionalRulePredicateListDetails {
   /**
-   * @public
    * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
    *       </p>
+   * @public
    */
   DataId?: string;
 
   /**
-   * @public
    * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
    *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
    *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
    *       </p>
+   * @public
    */
   Negated?: boolean;
 
   /**
-   * @public
    * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
    *       </p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Provides information about an WAF Regional rule. This rule identifies the web requests that you want to allow, block, or count. </p>
+ * @public
  */
 export interface AwsWafRegionalRuleDetails {
   /**
-   * @public
    * <p>A name for the metrics for the rule.
    *       </p>
+   * @public
    */
   MetricName?: string;
 
   /**
-   * @public
    * <p>A descriptive name for the rule.
    *       </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>,
    *             <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
    *             <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to
    *          add to a rule and, for each object, indicates whether you want to negate the settings. </p>
+   * @public
    */
   PredicateList?: AwsWafRegionalRulePredicateListDetails[];
 
   /**
-   * @public
    * <p>The ID of the rule.
    *       </p>
+   * @public
    */
   RuleId?: string;
 }
 
 /**
- * @public
  * <p>Describes the action that WAF should take on a web request when it matches the criteria defined in the rule.
  *       </p>
+ * @public
  */
 export interface AwsWafRegionalRuleGroupRulesActionDetails {
   /**
-   * @public
    * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>, <code>RegexMatchSet</code>,
    * <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.</p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Provides information about the rules attached to a rule group
  *       </p>
+ * @public
  */
 export interface AwsWafRegionalRuleGroupRulesDetails {
   /**
-   * @public
    * <p>The action that WAF should take on a web request when it matches the criteria defined in the rule. </p>
+   * @public
    */
   Action?: AwsWafRegionalRuleGroupRulesActionDetails;
 
   /**
-   * @public
    * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in
    *          order based on the value of <code>Priority</code>. </p>
+   * @public
    */
   Priority?: number;
 
   /**
-   * @public
    * <p>The ID for a rule.
    *       </p>
+   * @public
    */
   RuleId?: string;
 
   /**
-   * @public
    * <p>The type of rule in the rule group.
    *       </p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Provides information about an WAF Regional rule group. The rule group is a collection of rules for inspecting and controlling web
  *          requests. </p>
+ * @public
  */
 export interface AwsWafRegionalRuleGroupDetails {
   /**
-   * @public
    * <p>A name for the metrics for this rule group.
    *       </p>
+   * @public
    */
   MetricName?: string;
 
   /**
-   * @public
    * <p>The descriptive name of the rule group.
    *       </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The ID of the rule group.
    *       </p>
+   * @public
    */
   RuleGroupId?: string;
 
   /**
-   * @public
    * <p>Provides information about the rule statements used to identify the web requests that you want to allow, block, or
    * count.
    *       </p>
+   * @public
    */
   Rules?: AwsWafRegionalRuleGroupRulesDetails[];
 }
 
 /**
- * @public
  * <p>The action that WAF takes when a web request matches all conditions in the
  *          rule, such as allow, block, or count the request. </p>
+ * @public
  */
 export interface AwsWafRegionalWebAclRulesListActionDetails {
   /**
-   * @public
    * <p>For actions that are associated with a rule, the action that WAF takes when a web request matches all conditions in a rule.
    *       </p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Provides details about the action to use in the place of the action that results from the rule group
  * evaluation.
  *       </p>
+ * @public
  */
 export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
   /**
-   * @public
    * <p>Overrides the rule evaluation result in the rule group.
    *       </p>
+   * @public
    */
   Type?: string;
 }

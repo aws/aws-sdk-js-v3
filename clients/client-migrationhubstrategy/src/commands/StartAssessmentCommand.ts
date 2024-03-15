@@ -31,7 +31,6 @@ export interface StartAssessmentCommandInput extends StartAssessmentRequest {}
 export interface StartAssessmentCommandOutput extends StartAssessmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Starts the assessment of an on-premises environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class StartAssessmentCommand extends $Command
   .classBuilder<

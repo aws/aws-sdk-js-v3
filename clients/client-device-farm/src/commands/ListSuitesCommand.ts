@@ -27,7 +27,6 @@ export interface ListSuitesCommandInput extends ListSuitesRequest {}
 export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about test suites for a given job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about suites
  * ```javascript
  * // The following example returns information about suites, given a specific Device Farm job.

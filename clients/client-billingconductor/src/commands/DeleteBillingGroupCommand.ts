@@ -27,7 +27,6 @@ export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupInput 
 export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a billing group.
  *     </p>
@@ -72,6 +71,7 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class DeleteBillingGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteBridgeCommandInput extends DeleteBridgeRequest {}
 export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a bridge. Before you can delete a bridge, you must stop the bridge.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteBridgeCommandOutput extends DeleteBridgeResponse, __Metad
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DeleteBridgeCommand extends $Command
   .classBuilder<

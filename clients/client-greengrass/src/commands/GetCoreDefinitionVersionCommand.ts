@@ -27,7 +27,6 @@ export interface GetCoreDefinitionVersionCommandInput extends GetCoreDefinitionV
 export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinitionVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a core definition version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinition
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetCoreDefinitionVersionCommand extends $Command
   .classBuilder<

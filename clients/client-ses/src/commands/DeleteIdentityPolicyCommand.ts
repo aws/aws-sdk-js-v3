@@ -27,7 +27,6 @@ export interface DeleteIdentityPolicyCommandInput extends DeleteIdentityPolicyRe
 export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified sending authorization policy for the given identity (an email
  *             address or a domain). This operation returns successfully even if a policy with the
  *             specified name does not exist.</p>
@@ -65,6 +64,7 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example DeleteIdentityPolicy
  * ```javascript
  * // The following example deletes a sending authorization policy for an identity:

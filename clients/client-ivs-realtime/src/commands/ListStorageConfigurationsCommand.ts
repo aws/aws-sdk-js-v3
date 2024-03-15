@@ -27,7 +27,6 @@ export interface ListStorageConfigurationsCommandInput extends ListStorageConfig
 export interface ListStorageConfigurationsCommandOutput extends ListStorageConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about all storage configurations in your account,
  * 	  in the AWS region where the API request is processed.</p>
  * @example
@@ -84,6 +83,7 @@ export interface ListStorageConfigurationsCommandOutput extends ListStorageConfi
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class ListStorageConfigurationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags for the specified trails, event data stores, or channels in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

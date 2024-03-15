@@ -32,7 +32,6 @@ export interface CreateAssetCommandInput extends CreateAssetInput {}
 export interface CreateAssetCommandOutput extends CreateAssetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an asset in Amazon DataZone catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +146,7 @@ export interface CreateAssetCommandOutput extends CreateAssetOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateAssetCommand extends $Command
   .classBuilder<

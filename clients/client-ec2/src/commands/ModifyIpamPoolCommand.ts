@@ -27,7 +27,6 @@ export interface ModifyIpamPoolCommandInput extends ModifyIpamPoolRequest {}
 export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify the configurations of an IPAM pool.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -116,6 +115,7 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyIpamPoolCommand extends $Command
   .classBuilder<

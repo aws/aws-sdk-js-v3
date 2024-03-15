@@ -27,7 +27,6 @@ export interface DeleteAssessmentCommandInput extends DeleteAssessmentRequest {}
 export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class DeleteAssessmentCommand extends $Command
   .classBuilder<

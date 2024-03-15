@@ -28,7 +28,6 @@ export interface PutBucketPolicyCommandInput extends PutBucketPolicyRequest {}
 export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket.</p>
  *          <note>
  *             <p>
@@ -125,6 +124,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example Set bucket policy
  * ```javascript
  * // The following example sets a permission policy on a bucket.

@@ -31,7 +31,6 @@ export interface DescribeJobTemplateCommandInput extends DescribeJobTemplateRequ
 export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays detailed information about a specified job template. Job template stores values
  *          of StartJobRun API request in a template and can be used to start a job run. Job template
  *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
@@ -137,6 +136,7 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class DescribeJobTemplateCommand extends $Command
   .classBuilder<

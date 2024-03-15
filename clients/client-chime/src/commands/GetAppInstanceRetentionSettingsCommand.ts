@@ -32,9 +32,6 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace
- *
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  *          <important>
  *             <p>
@@ -95,6 +92,8 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace
  */
 export class GetAppInstanceRetentionSettingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateInferenceComponentCommandInput extends CreateInferenceCom
 export interface CreateInferenceComponentCommandOutput extends CreateInferenceComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an inference component, which is a SageMaker hosting object that you can
  *          use to deploy a model to an endpoint. In the inference component settings, you specify the
  *          model, the endpoint, and how the model utilizes the resources that the endpoint hosts. You
@@ -97,6 +96,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateInferenceComponentCommand extends $Command
   .classBuilder<

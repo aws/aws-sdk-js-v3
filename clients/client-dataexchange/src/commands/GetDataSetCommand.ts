@@ -27,7 +27,6 @@ export interface GetDataSetCommandInput extends GetDataSetRequest {}
 export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns information about a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class GetDataSetCommand extends $Command
   .classBuilder<

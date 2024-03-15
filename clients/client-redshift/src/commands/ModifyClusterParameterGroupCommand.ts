@@ -28,7 +28,6 @@ export interface ModifyClusterParameterGroupCommandInput extends ModifyClusterPa
 export interface ModifyClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.</p>
  *          <p>
  * For more information about parameters and parameter groups, go to
@@ -82,6 +81,7 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyClusterParameterGroupCommand extends $Command
   .classBuilder<

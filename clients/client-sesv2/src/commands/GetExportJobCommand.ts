@@ -27,7 +27,6 @@ export interface GetExportJobCommandInput extends GetExportJobRequest {}
 export interface GetExportJobCommandOutput extends GetExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about an export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  * @example Get export job
  * ```javascript
  * // Gets the export job with ID ef28cf62-9d8e-4b60-9283-b09816c99a99

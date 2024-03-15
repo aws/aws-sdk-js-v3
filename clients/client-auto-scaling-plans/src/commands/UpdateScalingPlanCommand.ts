@@ -27,7 +27,6 @@ export interface UpdateScalingPlanCommandInput extends UpdateScalingPlanRequest 
 export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified scaling plan.</p>
  *          <p>You cannot update a scaling plan if it is in the process of being created, updated, or
  *          deleted.</p>
@@ -136,6 +135,7 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * @public
  */
 export class UpdateScalingPlanCommand extends $Command
   .classBuilder<

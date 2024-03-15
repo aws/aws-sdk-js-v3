@@ -27,7 +27,6 @@ export interface PutLoggingOptionsCommandInput extends PutLoggingOptionsRequest 
 export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets or updates the AWS IoT Events logging options.</p>
  *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
  *       minute for the change to take effect. If you change the policy attached to the role you
@@ -85,6 +84,7 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class PutLoggingOptionsCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface AdminListUserAuthEventsCommandInput extends AdminListUserAuthEv
 export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A history of user activity and any risks detected as part of Amazon Cognito advanced
  *             security.</p>
  *          <note>
@@ -142,6 +141,7 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminListUserAuthEventsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDataflowEndpointGroupCommandInput extends GetDataflowEndpoin
 export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpointGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the dataflow endpoint group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class GetDataflowEndpointGroupCommand extends $Command
   .classBuilder<

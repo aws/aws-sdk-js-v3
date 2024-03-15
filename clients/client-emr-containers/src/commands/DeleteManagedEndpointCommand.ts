@@ -27,7 +27,6 @@ export interface DeleteManagedEndpointCommandInput extends DeleteManagedEndpoint
 export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can
  *          communicate with your virtual cluster.</p>
  * @example
@@ -64,6 +63,7 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class DeleteManagedEndpointCommand extends $Command
   .classBuilder<

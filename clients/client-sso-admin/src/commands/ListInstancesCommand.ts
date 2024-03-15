@@ -27,7 +27,6 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the details of the organization and account instances of IAM Identity Center that
  *             were created in or visible to the account calling this API. </p>
  * @example
@@ -81,6 +80,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListInstancesCommand extends $Command
   .classBuilder<

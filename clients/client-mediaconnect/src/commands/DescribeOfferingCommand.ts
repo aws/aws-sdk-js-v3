@@ -27,7 +27,6 @@ export interface DescribeOfferingCommandInput extends DescribeOfferingRequest {}
 export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DescribeOfferingCommand extends $Command
   .classBuilder<

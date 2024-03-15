@@ -27,7 +27,6 @@ export interface DescribeFargateProfileCommandInput extends DescribeFargateProfi
 export interface DescribeFargateProfileCommandOutput extends DescribeFargateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Fargate profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeFargateProfileCommand extends $Command
   .classBuilder<

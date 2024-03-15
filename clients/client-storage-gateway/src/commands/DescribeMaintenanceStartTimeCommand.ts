@@ -32,7 +32,6 @@ export interface DescribeMaintenanceStartTimeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns your gateway's weekly maintenance start time including the day and time of
  *          the week. Note that values are in terms of the gateway's time zone.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe gateway's maintenance start time
  * ```javascript
  * // Returns your gateway's weekly maintenance start time including the day and time of the week.

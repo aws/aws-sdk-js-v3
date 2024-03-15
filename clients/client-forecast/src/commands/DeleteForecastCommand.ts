@@ -27,7 +27,6 @@ export interface DeleteForecastCommandInput extends DeleteForecastRequest {}
 export interface DeleteForecastCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
  *       delete only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
  *       To get the status, use the <a>DescribeForecast</a> operation.</p>
@@ -68,6 +67,7 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteForecastCommand extends $Command
   .classBuilder<

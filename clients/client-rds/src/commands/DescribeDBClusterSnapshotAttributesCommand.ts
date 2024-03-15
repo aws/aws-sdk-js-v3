@@ -35,7 +35,6 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
  *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBClusterSnapshotAttributes</code>
  *             returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
@@ -84,6 +83,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the attribute names and values for a DB cluster snapshot
  * ```javascript
  * // The following example retrieves details of the attribute names and values for the specified DB cluster snapshot.

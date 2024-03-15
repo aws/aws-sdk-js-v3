@@ -27,7 +27,6 @@ export interface DescribeConfigurationCommandInput extends DescribeConfiguration
 export interface DescribeConfigurationCommandOutput extends DescribeConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationCommand extends $Command
   .classBuilder<

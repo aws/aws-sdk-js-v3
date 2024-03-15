@@ -27,7 +27,6 @@ export interface GetJobRunsCommandInput extends GetJobRunsRequest {}
 export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metadata for all runs of a given job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetJobRunsCommand extends $Command
   .classBuilder<

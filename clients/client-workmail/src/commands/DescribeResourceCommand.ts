@@ -27,7 +27,6 @@ export interface DescribeResourceCommandInput extends DescribeResourceRequest {}
 export interface DescribeResourceCommandOutput extends DescribeResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the data available for the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DescribeResourceCommand extends $Command
   .classBuilder<

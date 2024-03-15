@@ -27,7 +27,6 @@ export interface RegisterDeviceCommandInput extends RegisterDeviceRequest {}
 export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a device to receive push sync notifications.</p><p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
  *       <examples>
  *          <example>
@@ -124,6 +123,7 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class RegisterDeviceCommand extends $Command
   .classBuilder<

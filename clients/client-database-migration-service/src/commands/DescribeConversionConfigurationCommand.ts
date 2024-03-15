@@ -36,7 +36,6 @@ export interface DescribeConversionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns configuration parameters for a schema conversion project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DescribeConversionConfigurationCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe Conversion Configuration
  * ```javascript
  * // Returns configuration parameters for a schema conversion project.

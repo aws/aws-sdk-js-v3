@@ -27,7 +27,6 @@ export interface CreateVariantStoreCommandInput extends CreateVariantStoreReques
 export interface CreateVariantStoreCommandOutput extends CreateVariantStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a variant store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateVariantStoreCommandOutput extends CreateVariantStoreRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CreateVariantStoreCommand extends $Command
   .classBuilder<

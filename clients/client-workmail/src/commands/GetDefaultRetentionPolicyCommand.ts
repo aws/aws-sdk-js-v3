@@ -27,7 +27,6 @@ export interface GetDefaultRetentionPolicyCommandInput extends GetDefaultRetenti
 export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetentionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the default retention policy details for the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class GetDefaultRetentionPolicyCommand extends $Command
   .classBuilder<

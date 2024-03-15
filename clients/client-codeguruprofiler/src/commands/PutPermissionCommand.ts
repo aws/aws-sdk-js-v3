@@ -27,7 +27,6 @@ export interface PutPermissionCommandInput extends PutPermissionRequest {}
 export interface PutPermissionCommandOutput extends PutPermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Adds permissions to a profiling group's resource-based policy
  *             that are provided using an action group. If a profiling group doesn't have
@@ -104,6 +103,7 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class PutPermissionCommand extends $Command
   .classBuilder<

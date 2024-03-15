@@ -32,7 +32,6 @@ export interface DescribeConformancePackStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides one or more conformance packs deployment status.</p>
  *          <note>
  *             <p>If there are no conformance packs then you will see an empty result.</p>
@@ -91,6 +90,7 @@ export interface DescribeConformancePackStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConformancePackStatusCommand extends $Command
   .classBuilder<

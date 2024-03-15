@@ -27,7 +27,6 @@ export interface DescribeFleetUtilizationCommandInput extends DescribeFleetUtili
 export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtilizationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
  *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
  *             remote locations, this operation retrieves data for the fleet's home Region only. See
@@ -119,6 +118,7 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetUtilizationCommand extends $Command
   .classBuilder<

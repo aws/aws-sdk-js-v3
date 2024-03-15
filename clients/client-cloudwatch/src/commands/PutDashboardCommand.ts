@@ -27,7 +27,6 @@ export interface PutDashboardCommandInput extends PutDashboardInput {}
 export interface PutDashboardCommandOutput extends PutDashboardOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,
  * 		the entire contents are replaced with what you specify here.</p>
  *          <p>All dashboards in your account are global, not region-specific.</p>
@@ -80,6 +79,7 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class PutDashboardCommand extends $Command
   .classBuilder<

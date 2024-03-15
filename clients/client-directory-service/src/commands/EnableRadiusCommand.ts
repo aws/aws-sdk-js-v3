@@ -27,7 +27,6 @@ export interface EnableRadiusCommandInput extends EnableRadiusRequest {}
 export interface EnableRadiusCommandOutput extends EnableRadiusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User
  *          Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
  * @example
@@ -81,6 +80,7 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class EnableRadiusCommand extends $Command
   .classBuilder<

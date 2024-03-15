@@ -31,7 +31,6 @@ export interface CreateAttributeGroupCommandInput extends CreateAttributeGroupRe
 export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new attribute group as a container for user-defined attributes. This feature
  *       enables users to have full control over their cloud application's metadata in a rich
  *       machine-readable format to facilitate integration with automated workflows and third-party
@@ -94,6 +93,7 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class CreateAttributeGroupCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface CreatePolicyStoreCommandInput extends CreatePolicyStoreInput {}
 export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a policy store. A policy store is a container for policy resources.</p>
  *          <note>
  *             <p>Although <a href="https://docs.cedarpolicy.com/schema/schema.html#namespace">Cedar supports multiple namespaces</a>, Verified Permissions currently supports only one
@@ -180,6 +179,7 @@ export interface CreatePolicyStoreCommandOutput extends CreatePolicyStoreOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class CreatePolicyStoreCommand extends $Command
   .classBuilder<

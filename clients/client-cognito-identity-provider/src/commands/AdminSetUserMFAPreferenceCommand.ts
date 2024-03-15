@@ -35,7 +35,6 @@ export interface AdminSetUserMFAPreferenceCommandInput extends AdminSetUserMFAPr
 export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The user's multi-factor authentication (MFA) preference, including which MFA options
  *             are activated, and if any are preferred. Only one factor can be set as preferred. The
  *             preferred MFA factor will be used to authenticate a user if multiple factors are
@@ -117,6 +116,7 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminSetUserMFAPreferenceCommand extends $Command
   .classBuilder<

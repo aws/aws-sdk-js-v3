@@ -27,7 +27,6 @@ export interface DescribeEventCategoriesCommandInput extends DescribeEventCatego
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays a list of categories for all event source types, or, if specified, for a specified source type.
  *             You can also see this list in the "Amazon RDS event categories and event messages" section of the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html">
  *                <i>Amazon RDS User Guide</i>
@@ -76,6 +75,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe event categories
  * ```javascript
  * // The following example retrieves details about the event categories for all available event sources.

@@ -31,7 +31,6 @@ export interface ListTemplateStepGroupsCommandInput extends ListTemplateStepGrou
 export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the step groups in a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class ListTemplateStepGroupsCommand extends $Command
   .classBuilder<

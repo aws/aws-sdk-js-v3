@@ -35,7 +35,6 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListBulkDeploymentDetailedReportsCommand extends $Command
   .classBuilder<

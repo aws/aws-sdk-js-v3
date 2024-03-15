@@ -27,7 +27,6 @@ export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
 export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an object at the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * @public
  */
 export class DeleteObjectCommand extends $Command
   .classBuilder<

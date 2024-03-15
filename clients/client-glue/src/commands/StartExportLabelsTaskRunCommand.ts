@@ -27,7 +27,6 @@ export interface StartExportLabelsTaskRunCommandInput extends StartExportLabelsT
 export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Begins an asynchronous task to export all labeled data for a particular transform. This
  *       task is the only label-related API call that is not part of the typical active learning
  *       workflow. You typically use <code>StartExportLabelsTaskRun</code> when you want to work with
@@ -76,6 +75,7 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartExportLabelsTaskRunCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpgradeElasticsearchDomainCommandInput extends UpgradeElasticse
 export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class UpgradeElasticsearchDomainCommand extends $Command
   .classBuilder<

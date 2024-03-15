@@ -27,7 +27,6 @@ export interface StartQueryCommandInput extends StartQueryRequest {}
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group
  *       and time range to query and the query string to use.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
@@ -104,6 +103,7 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class StartQueryCommand extends $Command
   .classBuilder<

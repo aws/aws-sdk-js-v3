@@ -31,7 +31,6 @@ export interface GetResourceSyncStatusCommandInput extends GetResourceSyncStatus
 export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the status of the sync with the Git repository for a specific Amazon Web Services
  *       resource.</p>
  * @example
@@ -141,6 +140,7 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class GetResourceSyncStatusCommand extends $Command
   .classBuilder<

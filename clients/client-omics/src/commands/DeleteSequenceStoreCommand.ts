@@ -27,7 +27,6 @@ export interface DeleteSequenceStoreCommandInput extends DeleteSequenceStoreRequ
 export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a sequence store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class DeleteSequenceStoreCommand extends $Command
   .classBuilder<

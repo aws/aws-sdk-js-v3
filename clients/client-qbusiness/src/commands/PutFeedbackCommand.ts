@@ -27,7 +27,6 @@ export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 export interface PutFeedbackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables your end user to to provide feedback on their Amazon Q generated chat
  *             responses.</p>
  * @example
@@ -84,6 +83,7 @@ export interface PutFeedbackCommandOutput extends __MetadataBearer {}
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class PutFeedbackCommand extends $Command
   .classBuilder<

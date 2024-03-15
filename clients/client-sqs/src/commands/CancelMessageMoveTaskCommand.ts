@@ -27,7 +27,6 @@ export interface CancelMessageMoveTaskCommandInput extends CancelMessageMoveTask
 export interface CancelMessageMoveTaskCommandOutput extends CancelMessageMoveTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a specified message movement task. A message movement can only be cancelled
  *             when the current status is RUNNING. Cancelling a message movement task does not revert
  *             the messages that have already been moved. It can only stop the messages that have not
@@ -106,6 +105,7 @@ export interface CancelMessageMoveTaskCommandOutput extends CancelMessageMoveTas
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class CancelMessageMoveTaskCommand extends $Command
   .classBuilder<

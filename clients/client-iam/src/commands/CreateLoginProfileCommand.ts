@@ -31,7 +31,6 @@ export interface CreateLoginProfileCommandInput extends CreateLoginProfileReques
 export interface CreateLoginProfileCommandOutput extends CreateLoginProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a password for the specified IAM user. A password allows an IAM user to
  *             access Amazon Web Services services through the Amazon Web Services Management Console.</p>
  *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
@@ -90,6 +89,7 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To create an instance profile
  * ```javascript
  * // The following command changes IAM user Bob's password and sets the flag that required Bob to change the password the next time he signs in.

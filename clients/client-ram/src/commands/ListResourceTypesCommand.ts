@@ -27,7 +27,6 @@ export interface ListResourceTypesCommandInput extends ListResourceTypesRequest 
 export interface ListResourceTypesCommandOutput extends ListResourceTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resource types that can be shared by RAM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListResourceTypesCommand extends $Command
   .classBuilder<

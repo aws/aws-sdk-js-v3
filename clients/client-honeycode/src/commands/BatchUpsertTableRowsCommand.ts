@@ -31,7 +31,6 @@ export interface BatchUpsertTableRowsCommandInput extends BatchUpsertTableRowsRe
 export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The BatchUpsertTableRows API allows you to upsert one or more rows in a table. The upsert
  *             operation takes a filter expression as input and evaluates it to find matching rows on the destination
@@ -135,6 +134,7 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class BatchUpsertTableRowsCommand extends $Command
   .classBuilder<

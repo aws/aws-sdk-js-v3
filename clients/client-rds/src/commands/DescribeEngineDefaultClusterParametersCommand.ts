@@ -36,7 +36,6 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the default engine and system parameter information for the cluster database engine.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -97,6 +96,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the default engine and system parameter information for the Aurora database engine
  * ```javascript
  * // The following example retrieves the details of the default engine and system parameter information for Aurora DB clusters with MySQL 5.7 compatibility.

@@ -30,7 +30,6 @@ export interface DeregisterOnPremisesInstanceCommandInput extends DeregisterOnPr
 export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters an on-premises instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command
   .classBuilder<

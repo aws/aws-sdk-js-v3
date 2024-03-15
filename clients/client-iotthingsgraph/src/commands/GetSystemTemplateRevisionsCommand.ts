@@ -27,9 +27,6 @@ export interface GetSystemTemplateRevisionsCommandInput extends GetSystemTemplat
 export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTemplateRevisionsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
  *       the revisions that occurred before its deprecation. This action won't work with systems that have been deleted.</p>
  * @example
@@ -80,6 +77,8 @@ export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTempla
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class GetSystemTemplateRevisionsCommand extends $Command
   .classBuilder<

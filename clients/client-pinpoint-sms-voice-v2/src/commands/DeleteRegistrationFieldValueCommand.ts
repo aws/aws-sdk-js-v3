@@ -36,7 +36,6 @@ export interface DeleteRegistrationFieldValueCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the value in a registration form field.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DeleteRegistrationFieldValueCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteRegistrationFieldValueCommand extends $Command
   .classBuilder<

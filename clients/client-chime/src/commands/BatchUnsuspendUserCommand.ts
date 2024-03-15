@@ -27,7 +27,6 @@ export interface BatchUnsuspendUserCommandInput extends BatchUnsuspendUserReques
 export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the suspension from up to 50 previously suspended users for the specified Amazon
  *             Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
  *             accounts can be unsuspended using this action. For more information about different account types, see
@@ -94,6 +93,7 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class BatchUnsuspendUserCommand extends $Command
   .classBuilder<

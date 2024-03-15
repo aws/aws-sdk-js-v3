@@ -32,7 +32,6 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a source identifier to an existing event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command
   .classBuilder<

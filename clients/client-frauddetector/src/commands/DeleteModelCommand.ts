@@ -27,7 +27,6 @@ export interface DeleteModelCommandInput extends DeleteModelRequest {}
 export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a model.</p>
  *          <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
  *          <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -71,6 +70,7 @@ export interface DeleteModelCommandOutput extends DeleteModelResult, __MetadataB
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteModelCommand extends $Command
   .classBuilder<

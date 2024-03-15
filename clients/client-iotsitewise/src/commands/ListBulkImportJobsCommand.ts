@@ -27,7 +27,6 @@ export interface ListBulkImportJobsCommandInput extends ListBulkImportJobsReques
 export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of bulk import job requests. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List bulk
  *         import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListBulkImportJobsCommand extends $Command
   .classBuilder<

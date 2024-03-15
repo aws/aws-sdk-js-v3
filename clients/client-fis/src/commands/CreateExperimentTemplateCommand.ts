@@ -27,7 +27,6 @@ export interface CreateExperimentTemplateCommandInput extends CreateExperimentTe
 export interface CreateExperimentTemplateCommandOutput extends CreateExperimentTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an experiment template. </p>
  *          <p>An experiment template includes the following components:</p>
  *          <ul>
@@ -221,6 +220,7 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class CreateExperimentTemplateCommand extends $Command
   .classBuilder<

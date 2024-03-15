@@ -27,7 +27,6 @@ export interface DescribeConnectorEntityCommandInput extends DescribeConnectorEn
 export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorEntityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Provides details regarding the entity used with the connector, with a description of the
  *       data model for each field in that entity. </p>
  * @example
@@ -125,6 +124,7 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class DescribeConnectorEntityCommand extends $Command
   .classBuilder<

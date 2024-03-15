@@ -27,7 +27,6 @@ export interface EnableProactiveEngagementCommandInput extends EnableProactiveEn
 export interface EnableProactiveEngagementCommandOutput extends EnableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class EnableProactiveEngagementCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetFunctionCommandInput extends GetFunctionRequest {}
 export interface GetFunctionCommandOutput extends GetFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a <code>Function</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetFunctionCommand extends $Command
   .classBuilder<

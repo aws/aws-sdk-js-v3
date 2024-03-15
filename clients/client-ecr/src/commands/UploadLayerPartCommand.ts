@@ -27,7 +27,6 @@ export interface UploadLayerPartCommandInput extends UploadLayerPartRequest {}
 export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads an image layer part to Amazon ECR.</p>
  *          <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size
  *             of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API
@@ -97,6 +96,7 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class UploadLayerPartCommand extends $Command
   .classBuilder<

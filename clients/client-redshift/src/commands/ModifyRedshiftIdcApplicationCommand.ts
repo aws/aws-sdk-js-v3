@@ -29,7 +29,6 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes an existing Amazon Redshift IAM Identity Center application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyRedshiftIdcApplicationCommand extends $Command
   .classBuilder<

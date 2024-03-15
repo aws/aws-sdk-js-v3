@@ -32,7 +32,6 @@ export interface DescribeEventConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes event configurations.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEventConfigurations</a> action.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DescribeEventConfigurationsCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeEventConfigurationsCommand extends $Command
   .classBuilder<

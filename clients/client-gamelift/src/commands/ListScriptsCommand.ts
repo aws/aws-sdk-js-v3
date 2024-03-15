@@ -27,7 +27,6 @@ export interface ListScriptsCommandInput extends ListScriptsInput {}
 export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves script records for all Realtime scripts that are associated with the Amazon Web Services
  *             account in use. </p>
  *          <p>
@@ -96,6 +95,7 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ListScriptsCommand extends $Command
   .classBuilder<

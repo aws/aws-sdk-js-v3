@@ -27,7 +27,6 @@ export interface CreateCollaborationCommandInput extends CreateCollaborationInpu
 export interface CreateCollaborationCommandOutput extends CreateCollaborationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class CreateCollaborationCommand extends $Command
   .classBuilder<

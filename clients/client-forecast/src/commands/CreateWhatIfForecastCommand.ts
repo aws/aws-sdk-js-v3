@@ -31,7 +31,6 @@ export interface CreateWhatIfForecastCommandInput extends CreateWhatIfForecastRe
 export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A what-if forecast is a forecast that is created from a modified version of the baseline forecast. Each
  *       what-if forecast incorporates either a replacement dataset or a set of transformations to the original dataset. </p>
  * @example
@@ -117,6 +116,7 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateWhatIfForecastCommand extends $Command
   .classBuilder<

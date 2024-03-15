@@ -27,7 +27,6 @@ export interface UpdateSAMLProviderCommandInput extends UpdateSAMLProviderReques
 export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the metadata document for an existing SAML provider resource object.</p>
  *          <note>
  *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
@@ -75,6 +74,7 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UpdateSAMLProviderCommand extends $Command
   .classBuilder<

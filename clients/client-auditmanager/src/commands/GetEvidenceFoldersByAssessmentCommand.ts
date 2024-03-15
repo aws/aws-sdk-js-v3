@@ -32,7 +32,6 @@ export interface GetEvidenceFoldersByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets the evidence folders from a specified assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetEvidenceFoldersByAssessmentCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetEvidenceFoldersByAssessmentCommand extends $Command
   .classBuilder<

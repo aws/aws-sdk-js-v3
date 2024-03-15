@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceMess
 export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>
  *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
  *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
@@ -74,6 +73,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

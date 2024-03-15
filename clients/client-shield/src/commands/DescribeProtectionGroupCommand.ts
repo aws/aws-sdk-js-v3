@@ -27,7 +27,6 @@ export interface DescribeProtectionGroupCommandInput extends DescribeProtectionG
 export interface DescribeProtectionGroupCommandOutput extends DescribeProtectionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the specification for the specified protection group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DescribeProtectionGroupCommandOutput extends DescribeProtection
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DescribeProtectionGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetEulaCommandInput extends GetEulaRequest {}
 export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get EULA.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class GetEulaCommand extends $Command
   .classBuilder<

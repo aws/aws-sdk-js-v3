@@ -549,7 +549,6 @@ export interface ComputeOptimizer {
 }
 
 /**
- * @public
  * <p>Compute Optimizer is a service that analyzes the configuration and utilization
  *             metrics of your Amazon Web Services compute resources, such as Amazon EC2
  *             instances, Amazon EC2 Auto Scaling groups, Lambda functions, Amazon EBS volumes, and Amazon ECS services on Fargate.
@@ -562,6 +561,7 @@ export interface ComputeOptimizer {
  *             resources, and still meet your performance and capacity requirements. For more
  *             information about Compute Optimizer, including the required permissions to use the
  *             service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">Compute Optimizer User Guide</a>.</p>
+ * @public
  */
 export class ComputeOptimizer extends ComputeOptimizerClient implements ComputeOptimizer {}
 createAggregatedClient(commands, ComputeOptimizer);

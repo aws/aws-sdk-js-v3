@@ -27,7 +27,6 @@ export interface GetWebACLCommandInput extends GetWebACLRequest {}
 export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -98,6 +97,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  * @example To get a web ACL
  * ```javascript
  * // The following example returns the details of a web ACL with the ID createwebacl-1472061481310.

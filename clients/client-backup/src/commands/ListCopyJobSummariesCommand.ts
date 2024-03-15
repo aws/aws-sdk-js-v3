@@ -27,7 +27,6 @@ export interface ListCopyJobSummariesCommandInput extends ListCopyJobSummariesIn
 export interface ListCopyJobSummariesCommandOutput extends ListCopyJobSummariesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This request obtains a list of copy jobs created
  *          or running within the the most recent 30 days. You can
  *          include parameters AccountID, State, ResourceType, MessageCategory,
@@ -88,6 +87,7 @@ export interface ListCopyJobSummariesCommandOutput extends ListCopyJobSummariesO
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListCopyJobSummariesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutSchemaVersionMetadataCommandInput extends PutSchemaVersionMe
 export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class PutSchemaVersionMetadataCommand extends $Command
   .classBuilder<

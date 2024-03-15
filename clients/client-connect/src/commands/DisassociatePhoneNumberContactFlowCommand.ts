@@ -30,7 +30,6 @@ export interface DisassociatePhoneNumberContactFlowCommandInput extends Disassoc
 export interface DisassociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the flow association from a phone number claimed to your Amazon Connect
  *    instance.</p>
  *          <important>
@@ -82,6 +81,7 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociatePhoneNumberContactFlowCommand extends $Command
   .classBuilder<

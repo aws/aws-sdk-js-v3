@@ -27,7 +27,6 @@ export interface AssociateConnectionAliasCommandInput extends AssociateConnectio
 export interface AssociateConnectionAliasCommandOutput extends AssociateConnectionAliasResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified connection alias with the specified directory to enable
  *          cross-Region redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
  *             Redirection for Amazon WorkSpaces</a>.</p>
@@ -81,6 +80,7 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class AssociateConnectionAliasCommand extends $Command
   .classBuilder<

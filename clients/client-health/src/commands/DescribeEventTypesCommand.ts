@@ -27,7 +27,6 @@ export interface DescribeEventTypesCommandInput extends DescribeEventTypesReques
 export interface DescribeEventTypesCommandOutput extends DescribeEventTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the event types that meet the specified filter criteria. You can use this API
  *          operation to find information about the Health event, such as the category, Amazon Web Service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
  *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
@@ -87,6 +86,7 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeEventTypesCommand extends $Command
   .classBuilder<

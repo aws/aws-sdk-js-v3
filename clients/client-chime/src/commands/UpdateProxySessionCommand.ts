@@ -31,9 +31,6 @@ export interface UpdateProxySessionCommandInput extends UpdateProxySessionReques
 export interface UpdateProxySessionCommandOutput extends UpdateProxySessionResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateProxySession in the Amazon Chime SDK Voice Namespace
- *
  * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
  *          <important>
  *             <p>
@@ -118,6 +115,8 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateProxySession in the Amazon Chime SDK Voice Namespace
  */
 export class UpdateProxySessionCommand extends $Command
   .classBuilder<

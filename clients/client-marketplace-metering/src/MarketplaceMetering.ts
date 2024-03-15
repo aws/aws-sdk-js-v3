@@ -80,7 +80,6 @@ export interface MarketplaceMetering {
 }
 
 /**
- * @public
  * <fullname>AWS Marketplace Metering Service</fullname>
  *          <p>This reference provides descriptions of the low-level AWS Marketplace Metering Service
  *             API.</p>
@@ -144,6 +143,7 @@ export interface MarketplaceMetering {
  *                     <i>
  *                <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">AWS CloudTrail User Guide</a>.</i>
  *          </p>
+ * @public
  */
 export class MarketplaceMetering extends MarketplaceMeteringClient implements MarketplaceMetering {}
 createAggregatedClient(commands, MarketplaceMetering);

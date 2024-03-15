@@ -27,7 +27,6 @@ export interface ListUserPoliciesCommandInput extends ListUserPoliciesRequest {}
 export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the names of the inline policies embedded in the specified IAM user.</p>
  *          <p>An IAM user can also have managed policies attached to it. To list the managed
  *             policies that are attached to a user, use <a>ListAttachedUserPolicies</a>.
@@ -76,6 +75,7 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListUserPoliciesCommand extends $Command
   .classBuilder<

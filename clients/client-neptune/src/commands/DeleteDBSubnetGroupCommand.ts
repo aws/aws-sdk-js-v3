@@ -27,7 +27,6 @@ export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMess
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a DB subnet group.</p>
  *          <note>
  *             <p>The specified database subnet group must not be associated with any DB instances.</p>
@@ -67,6 +66,7 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteDBSubnetGroupCommand extends $Command
   .classBuilder<

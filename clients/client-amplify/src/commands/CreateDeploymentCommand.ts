@@ -27,7 +27,6 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
  *             not connected to a repository. </p>
  *          <p>The maximum duration between the <code>CreateDeployment</code> call and the
@@ -80,6 +79,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class CreateDeploymentCommand extends $Command
   .classBuilder<

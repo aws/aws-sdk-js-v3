@@ -27,7 +27,6 @@ export interface DescribeSchemaCommandInput extends DescribeSchemaRequest {}
 export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a schema. For more information on schemas, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeSchemaCommand extends $Command
   .classBuilder<

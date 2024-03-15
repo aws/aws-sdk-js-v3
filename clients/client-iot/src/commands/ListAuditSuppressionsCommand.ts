@@ -27,7 +27,6 @@ export interface ListAuditSuppressionsCommandInput extends ListAuditSuppressions
 export interface ListAuditSuppressionsCommandOutput extends ListAuditSuppressionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Lists your Device Defender audit listings.
  *     </p>
@@ -116,6 +115,7 @@ export interface ListAuditSuppressionsCommandOutput extends ListAuditSuppression
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListAuditSuppressionsCommand extends $Command
   .classBuilder<

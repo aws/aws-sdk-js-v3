@@ -36,7 +36,6 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Create a new event destination in a configuration set.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

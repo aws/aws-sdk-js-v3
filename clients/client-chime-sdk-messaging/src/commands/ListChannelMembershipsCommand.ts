@@ -36,7 +36,6 @@ export interface ListChannelMembershipsCommandInput extends ListChannelMembershi
 export interface ListChannelMembershipsCommandOutput extends ListChannelMembershipsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all channel memberships in a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -103,6 +102,7 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListChannelMembershipsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAppCommandInput extends GetAppRequest {}
 export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an existing Amplify app specified by an app ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class GetAppCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelOpenCypherQueryCommandInput extends CancelOpenCypherQuery
 export interface CancelOpenCypherQueryCommandOutput extends CancelOpenCypherQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a specified openCypher query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html">Neptune
  *       openCypher status endpoint</a> for more information.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -108,6 +107,7 @@ export interface CancelOpenCypherQueryCommandOutput extends CancelOpenCypherQuer
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class CancelOpenCypherQueryCommand extends $Command
   .classBuilder<

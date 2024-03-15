@@ -27,7 +27,6 @@ export interface GetSubscriptionStateCommandInput extends GetSubscriptionStateRe
 export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class GetSubscriptionStateCommand extends $Command
   .classBuilder<

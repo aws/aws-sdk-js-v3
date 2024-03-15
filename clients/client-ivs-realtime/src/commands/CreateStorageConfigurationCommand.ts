@@ -27,7 +27,6 @@ export interface CreateStorageConfigurationCommandInput extends CreateStorageCon
 export interface CreateStorageConfigurationCommandOutput extends CreateStorageConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new storage configuration, used to enable recording to Amazon S3.
  * 	  When a StorageConfiguration is created, IVS will modify the S3 bucketPolicy of the provided bucket.
  * 	  This will ensure that IVS has sufficient permissions to write content to the provided bucket.</p>
@@ -93,6 +92,7 @@ export interface CreateStorageConfigurationCommandOutput extends CreateStorageCo
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class CreateStorageConfigurationCommand extends $Command
   .classBuilder<

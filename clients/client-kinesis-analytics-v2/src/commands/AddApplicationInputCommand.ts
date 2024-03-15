@@ -31,7 +31,6 @@ export interface AddApplicationInputCommandInput extends AddApplicationInputRequ
 export interface AddApplicationInputCommandOutput extends AddApplicationInputResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Adds a streaming source to your SQL-based Kinesis Data Analytics application.
  *     </p>
@@ -181,6 +180,7 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class AddApplicationInputCommand extends $Command
   .classBuilder<

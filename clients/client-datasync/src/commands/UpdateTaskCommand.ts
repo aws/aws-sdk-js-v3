@@ -27,7 +27,6 @@ export interface UpdateTaskCommandInput extends UpdateTaskRequest {}
 export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an DataSync transfer task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateTaskCommand extends $Command
   .classBuilder<

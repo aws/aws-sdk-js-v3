@@ -697,7 +697,6 @@ export interface IoTAnalytics {
 }
 
 /**
- * @public
  * <p>IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
  *         You can then query the data and run sophisticated analytics on it.  IoT Analytics enables advanced
  *     data exploration through integration with Jupyter Notebooks and data visualization through integration
@@ -715,6 +714,7 @@ export interface IoTAnalytics {
  *     or perform more complex analytics and machine learning inference. IoT Analytics includes pre-built models
  *     for common IoT use cases so you can answer questions like which devices are about to fail or which customers
  *     are at risk of abandoning their wearable devices.</p>
+ * @public
  */
 export class IoTAnalytics extends IoTAnalyticsClient implements IoTAnalytics {}
 createAggregatedClient(commands, IoTAnalytics);

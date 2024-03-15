@@ -36,7 +36,6 @@ export interface InstallToRemoteAccessSessionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Installs an application to the device in a remote access session. For Android
  *             applications, the file must be in .apk format. For iOS applications, the file must be in
  *             .ipa format.</p>
@@ -90,6 +89,7 @@ export interface InstallToRemoteAccessSessionCommandOutput
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To install to a remote access session
  * ```javascript
  * // The following example installs a specific app to a device in a specific remote access session.

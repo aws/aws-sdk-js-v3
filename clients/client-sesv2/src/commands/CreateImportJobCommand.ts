@@ -27,7 +27,6 @@ export interface CreateImportJobCommandInput extends CreateImportJobRequest {}
 export interface CreateImportJobCommandOutput extends CreateImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an import job for a data destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateImportJobCommand extends $Command
   .classBuilder<

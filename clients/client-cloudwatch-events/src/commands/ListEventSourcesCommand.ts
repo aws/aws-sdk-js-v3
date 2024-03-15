@@ -27,7 +27,6 @@ export interface ListEventSourcesCommandInput extends ListEventSourcesRequest {}
 export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use this to see all the partner event sources that have been shared with your Amazon Web Services
  *       account. For more information about partner event sources, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html">CreateEventBus</a>.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ListEventSourcesCommand extends $Command
   .classBuilder<

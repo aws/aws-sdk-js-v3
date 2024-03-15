@@ -30,7 +30,6 @@ export interface CountClosedWorkflowExecutionsCommandInput extends CountClosedWo
 export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of closed workflow executions within the given domain that meet the
  *       specified filtering criteria.</p>
  *          <note>
@@ -132,6 +131,7 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class CountClosedWorkflowExecutionsCommand extends $Command
   .classBuilder<

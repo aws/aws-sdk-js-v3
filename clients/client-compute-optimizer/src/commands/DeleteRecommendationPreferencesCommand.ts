@@ -32,7 +32,6 @@ export interface DeleteRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a recommendation preference, such as enhanced infrastructure metrics.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
  *                 enhanced infrastructure metrics</a> in the <i>Compute Optimizer User
@@ -93,6 +92,7 @@ export interface DeleteRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class DeleteRecommendationPreferencesCommand extends $Command
   .classBuilder<

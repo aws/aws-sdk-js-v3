@@ -27,7 +27,6 @@ export interface ListOutgoingCertificatesCommandInput extends ListOutgoingCertif
 export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists certificates that are being transferred but not yet accepted.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListOutgoingCertificates</a> action.</p>
  * @example
@@ -83,6 +82,7 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListOutgoingCertificatesCommand extends $Command
   .classBuilder<

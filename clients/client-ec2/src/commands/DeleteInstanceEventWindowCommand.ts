@@ -27,7 +27,6 @@ export interface DeleteInstanceEventWindowCommandInput extends DeleteInstanceEve
 export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEventWindowResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -62,6 +61,7 @@ export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEv
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteInstanceEventWindowCommand extends $Command
   .classBuilder<

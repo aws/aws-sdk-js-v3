@@ -27,7 +27,6 @@ export interface DescribeStandardsControlsCommandInput extends DescribeStandards
 export interface DescribeStandardsControlsCommandOutput extends DescribeStandardsControlsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of security standards controls.</p>
  *          <p>For each control, the results include information about whether it is currently enabled,
  *          the severity, and a link to remediation information.</p>
@@ -88,6 +87,7 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get a list of controls for a security standard
  * ```javascript
  * // The following example returns a list of security controls and control details that apply to a specified security standard. The list includes controls that are enabled and disabled in the standard.

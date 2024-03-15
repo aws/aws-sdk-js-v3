@@ -31,7 +31,6 @@ export interface DeleteControlPanelCommandInput extends DeleteControlPanelReques
 export interface DeleteControlPanelCommandOutput extends DeleteControlPanelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class DeleteControlPanelCommand extends $Command
   .classBuilder<

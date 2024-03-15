@@ -27,7 +27,6 @@ export interface ListProtectedQueriesCommandInput extends ListProtectedQueriesIn
 export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists protected queries, sorted by the most recent query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListProtectedQueriesCommandOutput extends ListProtectedQueriesO
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListProtectedQueriesCommand extends $Command
   .classBuilder<

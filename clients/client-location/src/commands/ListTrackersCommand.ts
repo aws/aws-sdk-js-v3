@@ -27,7 +27,6 @@ export interface ListTrackersCommandInput extends ListTrackersRequest {}
 export interface ListTrackersCommandOutput extends ListTrackersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists tracker resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class ListTrackersCommand extends $Command
   .classBuilder<

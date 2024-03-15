@@ -27,7 +27,6 @@ export interface DescribeGameSessionQueuesCommandInput extends DescribeGameSessi
 export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSessionQueuesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the properties for one or more game session queues. When requesting multiple
  *             queues, use the pagination parameters to retrieve results as a set of sequential pages.
  *             When specifying a list of queues, objects are returned only for queues that currently
@@ -116,6 +115,7 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeGameSessionQueuesCommand extends $Command
   .classBuilder<

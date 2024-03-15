@@ -27,7 +27,6 @@ export interface ImportClientBrandingCommandInput extends ImportClientBrandingRe
 export interface ImportClientBrandingCommandOutput extends ImportClientBrandingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports client branding. Client branding allows you to customize your WorkSpace's client
  *          login portal. You can tailor your login portal company logo, the support email address,
  *          support link, link to reset password, and a custom message for users trying to sign
@@ -201,6 +200,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ImportClientBrandingCommand extends $Command
   .classBuilder<

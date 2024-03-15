@@ -27,7 +27,6 @@ export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClu
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an Identity and Access Management (IAM) role from a DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class RemoveRoleFromDBClusterCommand extends $Command
   .classBuilder<

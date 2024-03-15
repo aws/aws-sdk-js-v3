@@ -27,7 +27,6 @@ export interface UpdateInvestigationStateCommandInput extends UpdateInvestigatio
 export interface UpdateInvestigationStateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the state of an investigation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateInvestigationStateCommandOutput extends __MetadataBearer 
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class UpdateInvestigationStateCommand extends $Command
   .classBuilder<

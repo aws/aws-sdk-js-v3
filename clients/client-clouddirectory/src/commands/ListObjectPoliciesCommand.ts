@@ -27,7 +27,6 @@ export interface ListObjectPoliciesCommandInput extends ListObjectPoliciesReques
 export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns policies attached to an object in pagination fashion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListObjectPoliciesCommand extends $Command
   .classBuilder<

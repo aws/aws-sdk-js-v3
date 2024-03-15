@@ -27,7 +27,6 @@ export interface SendWorkflowStepActionCommandInput extends SendWorkflowStepActi
 export interface SendWorkflowStepActionCommandOutput extends SendWorkflowStepActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Pauses or resumes image creation when the associated workflow runs a
  * 			<code>WaitForAction</code> step.</p>
  * @example
@@ -97,6 +96,7 @@ export interface SendWorkflowStepActionCommandOutput extends SendWorkflowStepAct
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class SendWorkflowStepActionCommand extends $Command
   .classBuilder<

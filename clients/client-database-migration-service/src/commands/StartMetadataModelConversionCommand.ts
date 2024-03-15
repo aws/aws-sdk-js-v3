@@ -36,7 +36,6 @@ export interface StartMetadataModelConversionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Converts your source database objects to a format compatible with the target database. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface StartMetadataModelConversionCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Start Metadata Model Conversion
  * ```javascript
  * // Converts your source database objects to a format compatible with the target database.

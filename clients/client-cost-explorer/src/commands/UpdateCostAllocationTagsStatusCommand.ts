@@ -32,7 +32,6 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag
  *       status that's updated is the same as the existing tag status, the request doesn't fail.
  *       Instead, it doesn't have any effect on the tag status (for example, activating the active
@@ -77,6 +76,7 @@ export interface UpdateCostAllocationTagsStatusCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class UpdateCostAllocationTagsStatusCommand extends $Command
   .classBuilder<

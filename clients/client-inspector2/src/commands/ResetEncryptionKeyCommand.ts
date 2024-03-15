@@ -27,7 +27,6 @@ export interface ResetEncryptionKeyCommandInput extends ResetEncryptionKeyReques
 export interface ResetEncryptionKeyCommandOutput extends ResetEncryptionKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets an encryption key. After the key is reset your resources will be encrypted by an Amazon Web Services owned key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ResetEncryptionKeyCommandOutput extends ResetEncryptionKeyRespo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ResetEncryptionKeyCommand extends $Command
   .classBuilder<

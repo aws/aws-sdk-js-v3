@@ -27,7 +27,6 @@ export interface DeleteAssistantCommandInput extends DeleteAssistantRequest {}
 export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class DeleteAssistantCommand extends $Command
   .classBuilder<

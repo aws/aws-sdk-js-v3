@@ -27,7 +27,6 @@ export interface MergeBranchesBySquashCommandInput extends MergeBranchesBySquash
 export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquashOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Merges two branches using the squash merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -216,6 +215,7 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class MergeBranchesBySquashCommand extends $Command
   .classBuilder<

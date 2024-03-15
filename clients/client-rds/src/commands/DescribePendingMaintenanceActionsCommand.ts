@@ -32,7 +32,6 @@ export interface DescribePendingMaintenanceActionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To list resources with at least one pending maintenance action
  * ```javascript
  * // The following example lists the pending maintenace action for a DB instance.

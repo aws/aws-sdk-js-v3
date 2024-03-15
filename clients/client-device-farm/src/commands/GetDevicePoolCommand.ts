@@ -27,7 +27,6 @@ export interface GetDevicePoolCommandInput extends GetDevicePoolRequest {}
 export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a device pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a device pool
  * ```javascript
  * // The following example returns information about a specific device pool, given a project ARN.

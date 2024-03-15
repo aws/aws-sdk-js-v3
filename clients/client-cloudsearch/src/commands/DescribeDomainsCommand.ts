@@ -27,7 +27,6 @@ export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
 export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the search domains owned by this account. Can be limited to specific domains. Shows
  *       all domains by default. To get the number of searchable documents in a domain, use the console or submit a <code>matchall</code> request to your domain's search endpoint: <code>q=matchall&amp;q.parser=structured&amp;size=0</code>. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Information about a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -89,6 +88,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainsCommand extends $Command
   .classBuilder<

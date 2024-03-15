@@ -27,7 +27,6 @@ export interface AddCommunicationToCaseCommandInput extends AddCommunicationToCa
 export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToCaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds additional customer communication to an Amazon Web Services Support case. Use the <code>caseId</code>
  *             parameter to identify the case to which to add communication. You can list a set of
  *             email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
@@ -91,6 +90,7 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class AddCommunicationToCaseCommand extends $Command
   .classBuilder<

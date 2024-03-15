@@ -27,7 +27,6 @@ export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a group resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class UpdateGroupCommand extends $Command
   .classBuilder<

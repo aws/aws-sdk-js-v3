@@ -25,7 +25,6 @@ export interface SimpleInputParamsCommandInput extends SimpleInputParamsInput {}
 export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This test serializes strings, numbers, and boolean values.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class SimpleInputParamsCommand extends $Command
   .classBuilder<

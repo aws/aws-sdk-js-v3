@@ -27,7 +27,6 @@ export interface UpdateGatewayRouteCommandInput extends UpdateGatewayRouteInput 
 export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing gateway route that is associated to a specified virtual gateway in a
  *          service mesh.</p>
  * @example
@@ -425,6 +424,7 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class UpdateGatewayRouteCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeprecateThingTypeCommandInput extends DeprecateThingTypeReques
 export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprecates a thing type. You can not associate new things with deprecated thing
  * 			type.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeprecateThingType</a> action.</p>
@@ -74,6 +73,7 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeprecateThingTypeCommand extends $Command
   .classBuilder<

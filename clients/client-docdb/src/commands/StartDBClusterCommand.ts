@@ -27,7 +27,6 @@ export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>.
  *             For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
  *                 Starting an Amazon DocumentDB Cluster</a>.</p>
@@ -125,6 +124,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class StartDBClusterCommand extends $Command
   .classBuilder<

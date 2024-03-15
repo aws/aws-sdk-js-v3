@@ -27,7 +27,6 @@ export interface ListObjectParentPathsCommandInput extends ListObjectParentPaths
 export interface ListObjectParentPathsCommandOutput extends ListObjectParentPathsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all available parent paths for any object type such as node, leaf node,
  *       policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
  *          <p>Use this API to evaluate all parents for an object. The call returns all objects from
@@ -103,6 +102,7 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListObjectParentPathsCommand extends $Command
   .classBuilder<

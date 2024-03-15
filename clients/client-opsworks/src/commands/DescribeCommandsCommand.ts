@@ -27,7 +27,6 @@ export interface DescribeCommandsCommandInput extends DescribeCommandsRequest {}
 export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the results of specified commands.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -86,6 +85,7 @@ export interface DescribeCommandsCommandOutput extends DescribeCommandsResult, _
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeCommandsCommand extends $Command
   .classBuilder<

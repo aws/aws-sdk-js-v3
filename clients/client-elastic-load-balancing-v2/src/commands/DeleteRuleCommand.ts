@@ -31,7 +31,6 @@ export interface DeleteRuleCommandInput extends DeleteRuleInput {}
 export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified rule.</p>
  *          <p>You can't delete the default rule.</p>
  * @example
@@ -64,6 +63,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To delete a rule
  * ```javascript
  * // This example deletes the specified rule.

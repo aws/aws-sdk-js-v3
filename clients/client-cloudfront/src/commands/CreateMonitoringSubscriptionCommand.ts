@@ -32,7 +32,6 @@ export interface CreateMonitoringSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
  * 			additional metrics incur an additional cost.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in
@@ -84,6 +83,7 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateMonitoringSubscriptionCommand extends $Command
   .classBuilder<

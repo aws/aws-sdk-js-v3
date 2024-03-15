@@ -279,9 +279,9 @@ export type CloudControlClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface CloudControlClientResolvedConfig extends CloudControlClientResolvedConfigType {}
 
 /**
- * @public
  * <p>For more information about Amazon Web Services Cloud Control API, see the <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html">Amazon Web Services Cloud Control API User
  *         Guide</a>.</p>
+ * @public
  */
 export class CloudControlClient extends __Client<
   __HttpHandlerOptions,

@@ -32,7 +32,6 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a replicated automated backup from a Region
  * ```javascript
  * // The following example deletes the automated backup with the specified Amazon Resource Name (ARN).

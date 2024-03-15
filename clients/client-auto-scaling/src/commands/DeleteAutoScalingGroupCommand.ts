@@ -27,7 +27,6 @@ export interface DeleteAutoScalingGroupCommandInput extends DeleteAutoScalingGro
 export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Auto Scaling group.</p>
  *          <p>If the group has instances or scaling activities in progress, you must specify the
  *             option to force the deletion in order for it to succeed. The force delete operation will
@@ -79,6 +78,7 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To delete an Auto Scaling group
  * ```javascript
  * // This example deletes the specified Auto Scaling group.

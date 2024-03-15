@@ -31,7 +31,6 @@ export interface RejectInvitationCommandInput extends RejectInvitationInput {}
 export interface RejectInvitationCommandOutput extends RejectInvitationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects an invitation to join a network. This action can be called by a principal in an Amazon Web Services account that has received an invitation to create a member and join a network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -79,6 +78,7 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class RejectInvitationCommand extends $Command
   .classBuilder<

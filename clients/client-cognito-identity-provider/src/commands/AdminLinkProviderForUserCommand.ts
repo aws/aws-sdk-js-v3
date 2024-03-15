@@ -31,7 +31,6 @@ export interface AdminLinkProviderForUserCommandInput extends AdminLinkProviderF
 export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProviderForUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an
  *             identity from an external IdP (<code>SourceUser</code>) based on a specified attribute
  *             name and value from the external IdP. This allows you to create a link from the existing
@@ -135,6 +134,7 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminLinkProviderForUserCommand extends $Command
   .classBuilder<

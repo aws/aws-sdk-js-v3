@@ -29,7 +29,6 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
  *          <p>The target DB cluster is created from the source snapshot with a default
  *             configuration. If you don't specify a security group, the new DB cluster is
@@ -385,6 +384,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To restore a DB cluster from a snapshot
  * ```javascript
  * // The following example restores an Aurora PostgreSQL DB cluster compatible with PostgreSQL version 10.7 from a DB cluster snapshot named test-instance-snapshot.

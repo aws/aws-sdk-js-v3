@@ -27,7 +27,6 @@ export interface GetOpsItemCommandInput extends GetOpsItemRequest {}
 export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about an OpsItem by using the ID. You must have permission in Identity and Access Management (IAM) to view information about an OpsItem. For more information,
  *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
  *     up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
@@ -109,6 +108,7 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetOpsItemCommand extends $Command
   .classBuilder<

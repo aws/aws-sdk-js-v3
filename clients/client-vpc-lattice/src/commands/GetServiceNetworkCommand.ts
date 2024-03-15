@@ -27,7 +27,6 @@ export interface GetServiceNetworkCommandInput extends GetServiceNetworkRequest 
 export interface GetServiceNetworkCommandOutput extends GetServiceNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified service network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetServiceNetworkCommandOutput extends GetServiceNetworkRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class GetServiceNetworkCommand extends $Command
   .classBuilder<

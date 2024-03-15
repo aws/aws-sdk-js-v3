@@ -27,7 +27,6 @@ export interface GetCaseAuditEventsCommandInput extends GetCaseAuditEventsReques
 export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the audit history about a specific case if it exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class GetCaseAuditEventsCommand extends $Command
   .classBuilder<

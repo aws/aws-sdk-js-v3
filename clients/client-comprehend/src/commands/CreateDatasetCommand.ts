@@ -27,7 +27,6 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a dataset to upload training or test data for a model associated with a flywheel.
  *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -122,6 +121,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class CreateDatasetCommand extends $Command
   .classBuilder<

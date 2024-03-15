@@ -32,7 +32,6 @@ export interface CreateProvisionedModelThroughputCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a provisioned throughput with dedicated capacity for a foundation model or a fine-tuned model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned throughput</a> in the Bedrock User Guide.</p>
  * @example
@@ -93,6 +92,7 @@ export interface CreateProvisionedModelThroughputCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class CreateProvisionedModelThroughputCommand extends $Command
   .classBuilder<

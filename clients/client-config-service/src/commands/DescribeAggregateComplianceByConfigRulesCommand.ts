@@ -36,7 +36,6 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of compliant and noncompliant rules with the
  * 			number of resources for compliant and noncompliant rules. Does not display rules that do not have compliance results.
  * 			</p>
@@ -109,6 +108,7 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeAggregateComplianceByConfigRulesCommand extends $Command
   .classBuilder<

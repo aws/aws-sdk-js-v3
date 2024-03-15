@@ -27,7 +27,6 @@ export interface ListGroupsCommandInput extends ListGroupsRequest {}
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all groups in the account, displaying their names, unique IDs, and ARNs. The groups
  *       from all Regions are returned.</p>
  * @example
@@ -70,6 +69,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class ListGroupsCommand extends $Command
   .classBuilder<

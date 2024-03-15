@@ -27,7 +27,6 @@ export interface GetVpcAttachmentCommandInput extends GetVpcAttachmentRequest {}
 export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a VPC attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetVpcAttachmentCommand extends $Command
   .classBuilder<

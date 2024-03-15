@@ -27,7 +27,6 @@ export interface GetOrderCommandInput extends GetOrderInput {}
 export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class GetOrderCommand extends $Command
   .classBuilder<

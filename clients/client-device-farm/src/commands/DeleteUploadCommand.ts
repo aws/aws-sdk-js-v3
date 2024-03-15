@@ -27,7 +27,6 @@ export interface DeleteUploadCommandInput extends DeleteUploadRequest {}
 export interface DeleteUploadCommandOutput extends DeleteUploadResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an upload given the upload ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To delete a specific upload
  * ```javascript
  * // The following example deletes a specific upload.

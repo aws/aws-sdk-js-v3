@@ -21,16 +21,16 @@ export type AccessDeniedExceptionReason =
   (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason: AccessDeniedExceptionReason | undefined;
   /**
@@ -49,47 +49,47 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A block of data in an Amazon Elastic Block Store snapshot.</p>
+ * @public
  */
 export interface Block {
   /**
-   * @public
    * <p>The block index.</p>
+   * @public
    */
   BlockIndex?: number;
 
   /**
-   * @public
    * <p>The block token for the block index.</p>
+   * @public
    */
   BlockToken?: string;
 }
 
 /**
- * @public
  * <p>A block of data in an Amazon Elastic Block Store snapshot that is different from another snapshot of
  *             the same volume/snapshot lineage.</p>
+ * @public
  */
 export interface ChangedBlock {
   /**
-   * @public
    * <p>The block index.</p>
+   * @public
    */
   BlockIndex?: number;
 
   /**
-   * @public
    * <p>The block token for the block index of the <code>FirstSnapshotId</code> specified in
    *             the <code>ListChangedBlocks</code> operation. This value is absent if the first snapshot
    *             does not have the changed block that is on the second snapshot.</p>
+   * @public
    */
   FirstBlockToken?: string;
 
   /**
-   * @public
    * <p>The block token for the block index of the <code>SecondSnapshotId</code> specified in
    *             the <code>ListChangedBlocks</code> operation.</p>
+   * @public
    */
   SecondBlockToken?: string;
 }
@@ -125,39 +125,39 @@ export type ChecksumAlgorithm = (typeof ChecksumAlgorithm)[keyof typeof Checksum
  */
 export interface CompleteSnapshotRequest {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>The number of blocks that were written to the snapshot.</p>
+   * @public
    */
   ChangedBlocksCount: number | undefined;
 
   /**
-   * @public
    * <p>An aggregated Base-64 SHA256 checksum based on the checksums of each written
    *             block.</p>
    *          <p>To generate the aggregated checksum using the linear aggregation method, arrange the
    *             checksums for each written block in ascending order of their block index, concatenate
    *             them to form a single string, and then generate the checksum on the entire string using
    *             the SHA256 algorithm.</p>
+   * @public
    */
   Checksum?: string;
 
   /**
-   * @public
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
+   * @public
    */
   ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
-   * @public
    * <p>The aggregation method used to generate the checksum. Currently, the only supported
    *             aggregation method is <code>LINEAR</code>.</p>
+   * @public
    */
   ChecksumAggregationMethod?: ChecksumAggregationMethod;
 }
@@ -182,15 +182,15 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface CompleteSnapshotResponse {
   /**
-   * @public
    * <p>The status of the snapshot.</p>
+   * @public
    */
   Status?: Status;
 }
 
 /**
- * @public
  * <p>An internal error has occurred. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -227,17 +227,17 @@ export type RequestThrottledExceptionReason =
   (typeof RequestThrottledExceptionReason)[keyof typeof RequestThrottledExceptionReason];
 
 /**
- * @public
  * <p>The number of API requests has exceeded the maximum allowed API request
  *             throttling limit for the snapshot. For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/error-retries.html">Error retries</a>.</p>
+ * @public
  */
 export class RequestThrottledException extends __BaseException {
   readonly name: "RequestThrottledException" = "RequestThrottledException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason?: RequestThrottledExceptionReason;
   /**
@@ -273,16 +273,16 @@ export type ResourceNotFoundExceptionReason =
   (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
 
 /**
- * @public
  * <p>The specified resource does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason?: ResourceNotFoundExceptionReason;
   /**
@@ -315,16 +315,16 @@ export type ServiceQuotaExceededExceptionReason =
   (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
 
 /**
- * @public
  * <p>Your current service quotas do not allow you to perform this action.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason?: ServiceQuotaExceededExceptionReason;
   /**
@@ -370,16 +370,16 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the validation exception.</p>
+   * @public
    */
   Reason?: ValidationExceptionReason;
   /**
@@ -398,10 +398,10 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have reached the limit for concurrent API requests. For more information, see
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud
  *                 User Guide</i>.</p>
+ * @public
  */
 export class ConcurrentLimitExceededException extends __BaseException {
   readonly name: "ConcurrentLimitExceededException" = "ConcurrentLimitExceededException";
@@ -422,9 +422,9 @@ export class ConcurrentLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request uses the same client token as a previous, but non-identical
  *             request.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -449,7 +449,6 @@ export class ConflictException extends __BaseException {
  */
 export interface GetSnapshotBlockRequest {
   /**
-   * @public
    * <p>The ID of the snapshot containing the block from which to get data.</p>
    *          <important>
    *             <p>If the specified snapshot is encrypted, you must have permission to use the
@@ -458,23 +457,24 @@ export interface GetSnapshotBlockRequest {
    *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
    *          </important>
+   * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>The block index of the block in which to read the data. A block index is a logical
    *             index in units of <code>512</code> KiB blocks. To identify the block index, divide
    *             the logical offset of the data in the logical volume by the block size (logical offset
    *             of data/<code>524288</code>). The logical offset of the data must be <code>512</code>
    *             KiB aligned.</p>
+   * @public
    */
   BlockIndex: number | undefined;
 
   /**
-   * @public
    * <p>The block token of the block from which to get data. You can obtain the <code>BlockToken</code>
    *             by running the <code>ListChangedBlocks</code> or <code>ListSnapshotBlocks</code> operations.</p>
+   * @public
    */
   BlockToken: string | undefined;
 }
@@ -484,26 +484,26 @@ export interface GetSnapshotBlockRequest {
  */
 export interface GetSnapshotBlockResponse {
   /**
-   * @public
    * <p>The size of the data in the block.</p>
+   * @public
    */
   DataLength?: number;
 
   /**
-   * @public
    * <p>The data content of the block.</p>
+   * @public
    */
   BlockData?: StreamingBlobTypes;
 
   /**
-   * @public
    * <p>The checksum generated for the block, which is Base64 encoded.</p>
+   * @public
    */
   Checksum?: string;
 
   /**
-   * @public
    * <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>
+   * @public
    */
   ChecksumAlgorithm?: ChecksumAlgorithm;
 }
@@ -513,35 +513,34 @@ export interface GetSnapshotBlockResponse {
  */
 export interface ListChangedBlocksRequest {
   /**
-   * @public
    * <p>The ID of the first snapshot to use for the comparison.</p>
    *          <important>
    *             <p>The <code>FirstSnapshotID</code> parameter must be specified with a
    *                     <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p>
    *          </important>
+   * @public
    */
   FirstSnapshotId?: string;
 
   /**
-   * @public
    * <p>The ID of the second snapshot to use for the comparison.</p>
    *          <important>
    *             <p>The <code>SecondSnapshotId</code> parameter must be specified with a
    *                     <code>FirstSnapshotID</code> parameter; otherwise, an error occurs.</p>
    *          </important>
+   * @public
    */
   SecondSnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>The token to request the next page of results.</p>
    *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of blocks to be returned by the request.</p>
    *          <p>Even if additional blocks can be retrieved from the snapshot, the request can
    *             return less blocks than <b>MaxResults</b> or an empty
@@ -550,16 +549,17 @@ export interface ListChangedBlocksRequest {
    *             the returned <b>NextToken</b> value. The value of
    *             <b>NextToken</b> is <code>null</code> when there are no
    *             more blocks to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The block index from which the comparison should start.</p>
    *          <p>The list in the response will start from this block index or the next valid block
    *             index in the snapshots.</p>
    *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
+   * @public
    */
   StartingBlockIndex?: number;
 }
@@ -569,33 +569,33 @@ export interface ListChangedBlocksRequest {
  */
 export interface ListChangedBlocksResponse {
   /**
-   * @public
    * <p>An array of objects containing information about the changed blocks.</p>
+   * @public
    */
   ChangedBlocks?: ChangedBlock[];
 
   /**
-   * @public
    * <p>The time when the <code>BlockToken</code> expires.</p>
+   * @public
    */
   ExpiryTime?: Date;
 
   /**
-   * @public
    * <p>The size of the volume in GB.</p>
+   * @public
    */
   VolumeSize?: number;
 
   /**
-   * @public
    * <p>The size of the blocks in the snapshot, in bytes.</p>
+   * @public
    */
   BlockSize?: number;
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there
    *             are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -605,21 +605,20 @@ export interface ListChangedBlocksResponse {
  */
 export interface ListSnapshotBlocksRequest {
   /**
-   * @public
    * <p>The ID of the snapshot from which to get block indexes and block tokens.</p>
+   * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>The token to request the next page of results.</p>
    *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of blocks to be returned by the request.</p>
    *          <p>Even if additional blocks can be retrieved from the snapshot, the request can
    *             return less blocks than <b>MaxResults</b> or an empty
@@ -628,15 +627,16 @@ export interface ListSnapshotBlocksRequest {
    *             the returned <b>NextToken</b> value. The value of
    *             <b>NextToken</b> is <code>null</code> when there are no
    *             more blocks to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The block index from which the list should start. The list in the response will start
    *             from this block index or the next valid block index in the snapshot.</p>
    *          <p>If you specify <b>NextToken</b>, then
    *             <b>StartingBlockIndex</b> is ignored.</p>
+   * @public
    */
   StartingBlockIndex?: number;
 }
@@ -646,33 +646,33 @@ export interface ListSnapshotBlocksRequest {
  */
 export interface ListSnapshotBlocksResponse {
   /**
-   * @public
    * <p>An array of objects containing information about the blocks.</p>
+   * @public
    */
   Blocks?: Block[];
 
   /**
-   * @public
    * <p>The time when the <code>BlockToken</code> expires.</p>
+   * @public
    */
   ExpiryTime?: Date;
 
   /**
-   * @public
    * <p>The size of the volume in GB.</p>
+   * @public
    */
   VolumeSize?: number;
 
   /**
-   * @public
    * <p>The size of the blocks in the snapshot, in bytes.</p>
+   * @public
    */
   BlockSize?: number;
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there
    *             are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -682,7 +682,6 @@ export interface ListSnapshotBlocksResponse {
  */
 export interface PutSnapshotBlockRequest {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
    *          <important>
    *             <p>If the specified snapshot is encrypted, you must have permission to use
@@ -691,21 +690,21 @@ export interface PutSnapshotBlockRequest {
    *                     Using encryption</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>..</p>
    *          </important>
+   * @public
    */
   SnapshotId: string | undefined;
 
   /**
-   * @public
    * <p>The block index of the block in which to write the data. A block index is a logical
    *     	index in units of <code>512</code> KiB blocks. To identify the block index, divide
    *         	the logical offset of the data in the logical volume by the block size (logical offset of
    *         	data/<code>524288</code>). The logical offset of the data must be <code>512</code>
    *         	KiB aligned.</p>
+   * @public
    */
   BlockIndex: number | undefined;
 
   /**
-   * @public
    * <p>The data to write to the block.</p>
    *          <p>The block data is not signed as part of the Signature Version 4 signing process. As a
    *             result, you must generate and provide a Base64-encoded SHA256 checksum for the block
@@ -717,35 +716,36 @@ export interface PutSnapshotBlockRequest {
    *         	see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapis-using-checksums">
    *                 Using checksums with the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud User
    *                 Guide</i>.</p>
+   * @public
    */
   BlockData: StreamingBlobTypes | undefined;
 
   /**
-   * @public
    * <p>The size of the data to write to the block, in bytes. Currently, the only supported
    *             size is <code>524288</code> bytes.</p>
    *          <p>Valid values: <code>524288</code>
    *          </p>
+   * @public
    */
   DataLength: number | undefined;
 
   /**
-   * @public
    * <p>The progress of the write process, as a percentage.</p>
+   * @public
    */
   Progress?: number;
 
   /**
-   * @public
    * <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
    *             supported.</p>
+   * @public
    */
   Checksum: string | undefined;
 
   /**
-   * @public
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
+   * @public
    */
   ChecksumAlgorithm: ChecksumAlgorithm | undefined;
 }
@@ -755,32 +755,32 @@ export interface PutSnapshotBlockRequest {
  */
 export interface PutSnapshotBlockResponse {
   /**
-   * @public
    * <p>The SHA256 checksum generated for the block data by Amazon EBS.</p>
+   * @public
    */
   Checksum?: string;
 
   /**
-   * @public
    * <p>The algorithm used by Amazon EBS to generate the checksum.</p>
+   * @public
    */
   ChecksumAlgorithm?: ChecksumAlgorithm;
 }
 
 /**
- * @public
  * <p>Describes a tag.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key of the tag.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The value of the tag.</p>
+   * @public
    */
   Value?: string;
 }
@@ -790,14 +790,13 @@ export interface Tag {
  */
 export interface StartSnapshotRequest {
   /**
-   * @public
    * <p>The size of the volume, in GiB. The maximum size is <code>65536</code> GiB (64
    *             TiB).</p>
+   * @public
    */
   VolumeSize: number | undefined;
 
   /**
-   * @public
    * <p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating
    *             the first snapshot for an on-premises volume, omit this parameter.</p>
    *          <p>You can't specify <b>ParentSnapshotId</b> and
@@ -816,23 +815,23 @@ export interface StartSnapshotRequest {
    *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
    *          </important>
+   * @public
    */
   ParentSnapshotId?: string;
 
   /**
-   * @public
    * <p>The tags to apply to the snapshot.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>A description for the snapshot.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. Idempotency ensures that an API request completes only once. With an idempotent
    *             request, if the original request completes successfully. The subsequent retries with the same
@@ -841,11 +840,11 @@ export interface StartSnapshotRequest {
    *          <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services SDK.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-direct-api-idempotency.html">
    *     		Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Indicates whether to encrypt the snapshot.</p>
    *          <p>You can't specify <b>Encrypted</b> and <b>
    *             ParentSnapshotId</b> in the same request. If you specify both parameters, the
@@ -862,11 +861,11 @@ export interface StartSnapshotRequest {
    *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
    *          </important>
+   * @public
    */
   Encrypted?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to be used to encrypt the snapshot.</p>
    *          <p>The encryption status of the snapshot depends on the values that you specify for
    *             <b>Encrypted</b>, <b>KmsKeyArn</b>,
@@ -880,11 +879,11 @@ export interface StartSnapshotRequest {
    *                     Permissions to use Key Management Service keys</a> in the <i>Amazon Elastic Compute Cloud User
    *                         Guide</i>.</p>
    *          </important>
+   * @public
    */
   KmsKeyArn?: string;
 
   /**
-   * @public
    * <p>The amount of time (in minutes) after which the snapshot is automatically cancelled
    *             if:</p>
    *          <ul>
@@ -896,6 +895,7 @@ export interface StartSnapshotRequest {
    *             </li>
    *          </ul>
    *          <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
+   * @public
    */
   Timeout?: number;
 }
@@ -920,70 +920,70 @@ export type SSEType = (typeof SSEType)[keyof typeof SSEType];
  */
 export interface StartSnapshotResponse {
   /**
-   * @public
    * <p>The description of the snapshot.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the snapshot owner.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>The status of the snapshot.</p>
+   * @public
    */
   Status?: Status;
 
   /**
-   * @public
    * <p>The timestamp when the snapshot was created.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The size of the volume, in GiB.</p>
+   * @public
    */
   VolumeSize?: number;
 
   /**
-   * @public
    * <p>The size of the blocks in the snapshot, in bytes.</p>
+   * @public
    */
   BlockSize?: number;
 
   /**
-   * @public
    * <p>The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html"> Tagging your Amazon EC2
    *                 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The ID of the parent snapshot.</p>
+   * @public
    */
   ParentSnapshotId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the snapshot.</p>
+   * @public
    */
   KmsKeyArn?: string;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   SseType?: SSEType;
 }

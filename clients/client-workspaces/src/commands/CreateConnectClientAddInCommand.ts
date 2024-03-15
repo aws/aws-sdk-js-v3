@@ -27,7 +27,6 @@ export interface CreateConnectClientAddInCommandInput extends CreateConnectClien
 export interface CreateConnectClientAddInCommandOutput extends CreateConnectClientAddInResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
  *          one Amazon Connect client add-in within a directory.</p>
  *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
@@ -74,6 +73,7 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateConnectClientAddInCommand extends $Command
   .classBuilder<

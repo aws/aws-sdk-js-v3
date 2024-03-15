@@ -27,7 +27,6 @@ export interface EnableFastLaunchCommandInput extends EnableFastLaunchRequest {}
 export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>When you enable Windows fast launch for a Windows AMI, images are pre-provisioned,
  * 			using snapshots to launch instances up to 65% faster. To create the optimized Windows
  * 			image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
@@ -88,6 +87,7 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableFastLaunchCommand extends $Command
   .classBuilder<

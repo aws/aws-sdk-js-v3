@@ -27,7 +27,6 @@ export interface GetImportJobCommandInput extends GetImportJobRequest {}
 export interface GetImportJobCommandOutput extends GetImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the started import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class GetImportJobCommand extends $Command
   .classBuilder<

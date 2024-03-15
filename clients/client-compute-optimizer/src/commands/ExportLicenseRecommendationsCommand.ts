@@ -32,7 +32,6 @@ export interface ExportLicenseRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Export optimization recommendations for your licenses.
  *         </p>
@@ -116,6 +115,7 @@ export interface ExportLicenseRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class ExportLicenseRecommendationsCommand extends $Command
   .classBuilder<

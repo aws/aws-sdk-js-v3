@@ -29,7 +29,6 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Call Analytics category. To use this operation, specify the name of the
  *             category you want to delete using <code>CategoryName</code>. Category names are case
  *             sensitive.</p>
@@ -75,6 +74,7 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DeleteCallAnalyticsCategoryCommand extends $Command
   .classBuilder<

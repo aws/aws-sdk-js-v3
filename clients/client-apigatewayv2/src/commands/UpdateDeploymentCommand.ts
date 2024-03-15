@@ -27,7 +27,6 @@ export interface UpdateDeploymentCommandInput extends UpdateDeploymentRequest {}
 export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a Deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class UpdateDeploymentCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface BatchDisassociateProjectAssetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface BatchDisassociateProjectAssetsCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class BatchDisassociateProjectAssetsCommand extends $Command
   .classBuilder<

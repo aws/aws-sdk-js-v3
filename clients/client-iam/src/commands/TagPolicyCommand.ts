@@ -27,7 +27,6 @@ export interface TagPolicyCommandInput extends TagPolicyRequest {}
 export interface TagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an IAM customer managed policy. If a tag with the same key
  *       name already exists, then that tag is overwritten with the new value.</p>
  *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -114,6 +113,7 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class TagPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPhoneNumbersV2CommandInput extends ListPhoneNumbersV2Reques
 export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists phone numbers claimed to your Amazon Connect instance or traffic distribution group. If the provided
  *     <code>TargetArn</code> is a traffic distribution group, you can call this API in both Amazon Web Services Regions
  *    associated with traffic distribution group.</p>
@@ -110,6 +109,7 @@ export interface ListPhoneNumbersV2CommandOutput extends ListPhoneNumbersV2Respo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListPhoneNumbersV2Command extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
  *     IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
  *    The following resources support Systems Manager resource policies.</p>
@@ -117,6 +116,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class PutResourcePolicyCommand extends $Command
   .classBuilder<

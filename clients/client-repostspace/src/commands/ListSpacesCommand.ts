@@ -27,7 +27,6 @@ export interface ListSpacesCommandInput extends ListSpacesInput {}
 export interface ListSpacesCommandOutput extends ListSpacesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of AWS re:Post Private private re:Posts in the account with some information about each private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListSpacesCommandOutput extends ListSpacesOutput, __MetadataBea
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class ListSpacesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeSavingsPlanRatesCommandInput extends DescribeSavingsPla
 export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPlanRatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified Savings Plans rates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ * @public
  */
 export class DescribeSavingsPlanRatesCommand extends $Command
   .classBuilder<

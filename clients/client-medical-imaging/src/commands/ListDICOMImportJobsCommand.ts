@@ -27,7 +27,6 @@ export interface ListDICOMImportJobsCommandInput extends ListDICOMImportJobsRequ
 export interface ListDICOMImportJobsCommandOutput extends ListDICOMImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List import jobs created for a specific data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListDICOMImportJobsCommandOutput extends ListDICOMImportJobsRes
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class ListDICOMImportJobsCommand extends $Command
   .classBuilder<

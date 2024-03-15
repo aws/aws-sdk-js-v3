@@ -27,7 +27,6 @@ export interface AddInstanceGroupsCommandInput extends AddInstanceGroupsInput {}
 export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more instance groups to a running cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class AddInstanceGroupsCommand extends $Command
   .classBuilder<

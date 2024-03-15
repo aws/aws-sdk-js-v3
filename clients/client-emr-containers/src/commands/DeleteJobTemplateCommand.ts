@@ -27,7 +27,6 @@ export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest 
 export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a job template. Job template stores values of StartJobRun API request in a
  *          template and can be used to start a job run. Job template allows two use cases: avoid
  *          repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
@@ -64,6 +63,7 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class DeleteJobTemplateCommand extends $Command
   .classBuilder<

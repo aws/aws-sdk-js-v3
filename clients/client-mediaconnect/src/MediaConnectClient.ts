@@ -444,8 +444,8 @@ export type MediaConnectClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface MediaConnectClientResolvedConfig extends MediaConnectClientResolvedConfigType {}
 
 /**
- * @public
  * API for AWS Elemental MediaConnect
+ * @public
  */
 export class MediaConnectClient extends __Client<
   __HttpHandlerOptions,

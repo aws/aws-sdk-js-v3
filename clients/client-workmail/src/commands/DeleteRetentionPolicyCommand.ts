@@ -27,7 +27,6 @@ export interface DeleteRetentionPolicyCommandInput extends DeleteRetentionPolicy
 export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified retention policy from the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteRetentionPolicyCommand extends $Command
   .classBuilder<

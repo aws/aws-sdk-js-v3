@@ -27,7 +27,6 @@ export interface DeleteMulticastGroupCommandInput extends DeleteMulticastGroupRe
 export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a multicast group if it is not in use by a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteMulticastGroupCommand extends $Command
   .classBuilder<

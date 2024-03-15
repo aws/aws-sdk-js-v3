@@ -27,7 +27,6 @@ export interface CreateGroupMembershipCommandInput extends CreateGroupMembership
 export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an Amazon QuickSight user to an Amazon QuickSight group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateGroupMembershipCommand extends $Command
   .classBuilder<

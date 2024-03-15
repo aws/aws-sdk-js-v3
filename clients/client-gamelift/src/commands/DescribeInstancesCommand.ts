@@ -31,7 +31,6 @@ export interface DescribeInstancesCommandInput extends DescribeInstancesInput {}
 export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the EC2 instances in an Amazon GameLift managed fleet, including
  *             instance ID, connection data, and status. You can use this operation with a
  *             multi-location fleet to get location-specific instance information. As an alternative,
@@ -134,6 +133,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput,
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeInstancesCommand extends $Command
   .classBuilder<

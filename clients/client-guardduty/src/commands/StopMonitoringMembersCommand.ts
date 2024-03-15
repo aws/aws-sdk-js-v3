@@ -27,7 +27,6 @@ export interface StopMonitoringMembersCommandInput extends StopMonitoringMembers
 export interface StopMonitoringMembersCommandOutput extends StopMonitoringMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
  *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
  *       accounts.</p>
@@ -74,6 +73,7 @@ export interface StopMonitoringMembersCommandOutput extends StopMonitoringMember
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class StopMonitoringMembersCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface StopInferenceRecommendationsJobCommandInput extends StopInferen
 export interface StopInferenceRecommendationsJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an Inference Recommender job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface StopInferenceRecommendationsJobCommandOutput extends __Metadata
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopInferenceRecommendationsJobCommand extends $Command
   .classBuilder<

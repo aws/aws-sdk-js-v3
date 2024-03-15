@@ -27,7 +27,6 @@ export interface CreateEntitlementCommandInput extends CreateEntitlementRequest 
 export interface CreateEntitlementCommandOutput extends CreateEntitlementResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new entitlement. Entitlements control access to specific applications within
  *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
  *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
@@ -94,6 +93,7 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateEntitlementCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a temporary set of log in credentials that you can use to log in to the Docker
  *       process on your local machine. After you're logged in, you can use the native Docker commands
  *       to push your local container images to the container image registry of your Amazon Lightsail
@@ -108,6 +107,7 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateContainerServiceRegistryLoginCommand extends $Command
   .classBuilder<

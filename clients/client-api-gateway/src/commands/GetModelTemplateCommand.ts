@@ -27,7 +27,6 @@ export interface GetModelTemplateCommandInput extends GetModelTemplateRequest {}
 export interface GetModelTemplateCommandOutput extends Template, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a sample mapping template that can be used to transform a payload into the structure of a model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetModelTemplateCommand extends $Command
   .classBuilder<

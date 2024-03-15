@@ -27,7 +27,6 @@ export interface DeleteDeploymentStrategyCommandInput extends DeleteDeploymentSt
 export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
  *          configuration from a host.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To delete a deployment strategy
  * ```javascript
  * // The following delete-deployment-strategy example deletes the specified deployment strategy.

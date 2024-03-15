@@ -29,7 +29,6 @@ export interface DescribeSnapshotSchedulesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of snapshot schedules. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeSnapshotSchedulesCommand extends $Command
   .classBuilder<

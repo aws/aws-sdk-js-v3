@@ -31,7 +31,6 @@ export interface CreateReadinessCheckCommandInput extends CreateReadinessCheckRe
 export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a readiness check in an account. A readiness check monitors a resource set in your application, such as a set of Amazon Aurora instances, that Application Recovery Controller is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface CreateReadinessCheckCommandOutput extends CreateReadinessCheckR
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class CreateReadinessCheckCommand extends $Command
   .classBuilder<

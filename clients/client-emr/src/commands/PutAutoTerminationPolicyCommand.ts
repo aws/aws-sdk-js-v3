@@ -27,7 +27,6 @@ export interface PutAutoTerminationPolicyCommandInput extends PutAutoTermination
 export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and
  *             later. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an
@@ -64,6 +63,7 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class PutAutoTerminationPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListOfferingsCommandInput extends ListOfferingsRequest {}
 export interface ListOfferingsCommandOutput extends ListOfferingsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of products or offerings that the user can manage through the API. Each offering record
  *             indicates the recurring price per unit and the frequency for that offering. The API returns a
  *                 <code>NotEligible</code> error if the user is not permitted to invoke the operation.  If you must be
@@ -91,6 +90,7 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about device offerings
  * ```javascript
  * // The following example returns information about available device offerings.

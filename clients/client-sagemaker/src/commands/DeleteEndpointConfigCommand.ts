@@ -27,7 +27,6 @@ export interface DeleteEndpointConfigCommandInput extends DeleteEndpointConfigIn
 export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API
  *             deletes only the specified configuration. It does not delete endpoints created using the
  *             configuration. </p>
@@ -61,6 +60,7 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteEndpointConfigCommand extends $Command
   .classBuilder<

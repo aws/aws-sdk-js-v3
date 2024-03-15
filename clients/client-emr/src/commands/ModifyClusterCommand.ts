@@ -27,7 +27,6 @@ export interface ModifyClusterCommandInput extends ModifyClusterInput {}
 export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
  *          using ClusterID.</p>
  * @example
@@ -64,6 +63,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ModifyClusterCommand extends $Command
   .classBuilder<

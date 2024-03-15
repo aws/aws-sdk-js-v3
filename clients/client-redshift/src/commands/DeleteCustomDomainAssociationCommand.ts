@@ -30,7 +30,6 @@ export interface DeleteCustomDomainAssociationCommandInput extends DeleteCustomD
 export interface DeleteCustomDomainAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Contains information about deleting a custom domain association for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteCustomDomainAssociationCommandOutput extends __MetadataBe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteCustomDomainAssociationCommand extends $Command
   .classBuilder<

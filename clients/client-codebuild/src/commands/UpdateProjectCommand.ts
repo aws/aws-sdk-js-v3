@@ -27,7 +27,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectInput {}
 export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the settings of a build project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -409,6 +408,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List the custom routing accelerators for an Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListCustomRoutingAcceleratorsCommand extends $Command
   .classBuilder<

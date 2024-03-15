@@ -27,7 +27,6 @@ export interface StartWorkflowExecutionCommandInput extends StartWorkflowExecuti
 export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an execution of the workflow type in the specified domain using the provided
  *         <code>workflowId</code> and input data.</p>
  *          <p>This action returns the newly started workflow execution.</p>
@@ -164,6 +163,7 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class StartWorkflowExecutionCommand extends $Command
   .classBuilder<

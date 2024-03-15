@@ -32,7 +32,6 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized
  *             IP range or Amazon EC2 security group. To add an ingress rule, see <a>AuthorizeClusterSecurityGroupIngress</a>.
  * For information about managing security groups, go to
@@ -112,6 +111,7 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class RevokeClusterSecurityGroupIngressCommand extends $Command
   .classBuilder<

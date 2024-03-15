@@ -28,7 +28,6 @@ export interface CreateCustomEntityTypeCommandInput extends CreateCustomEntityTy
 export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
  *          <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
  * @example
@@ -85,6 +84,7 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateCustomEntityTypeCommand extends $Command
   .classBuilder<

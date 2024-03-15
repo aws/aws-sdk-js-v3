@@ -27,7 +27,6 @@ export interface DescribeReplayCommandInput extends DescribeReplayRequest {}
 export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the
  *       progress of a running replay. A replay processes events to replay based on the time in the
  *       event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and
@@ -85,6 +84,7 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DescribeReplayCommand extends $Command
   .classBuilder<

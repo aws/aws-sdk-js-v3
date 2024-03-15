@@ -30,7 +30,6 @@ export interface TerminateInstanceInAutoScalingGroupCommandInput extends Termina
 export interface TerminateInstanceInAutoScalingGroupCommandOutput extends ActivityType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates the specified instance and optionally adjusts the desired group size. This
  *             operation cannot be called on instances in a warm pool.</p>
  *          <p>This call simply makes a termination request. The instance is not terminated
@@ -91,6 +90,7 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To terminate an instance in an Auto Scaling group
  * ```javascript
  * // This example terminates the specified instance from the specified Auto Scaling group without updating the size of the group. Auto Scaling launches a replacement instance after the specified instance terminates.

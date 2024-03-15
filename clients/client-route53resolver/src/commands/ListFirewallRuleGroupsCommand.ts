@@ -27,7 +27,6 @@ export interface ListFirewallRuleGroupsCommandInput extends ListFirewallRuleGrou
 export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the minimal high-level information for the rule groups that you have defined.  </p>
  *          <p>A single call might return only a partial list of the rule groups. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -80,6 +79,7 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListFirewallRuleGroupsCommand extends $Command
   .classBuilder<

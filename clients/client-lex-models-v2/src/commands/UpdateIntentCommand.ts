@@ -27,7 +27,6 @@ export interface UpdateIntentCommandInput extends UpdateIntentRequest {}
 export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings for an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1006,6 +1005,7 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class UpdateIntentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigs
 export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the deployment configurations with the user or Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class ListDeploymentConfigsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteFileCommandInput extends DeleteFileInput {}
 export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified file from a specified branch. A commit is created on the branch
  *             that contains the revision. The file still exists in the commits earlier to the commit
  *             that contains the deletion.</p>
@@ -144,6 +143,7 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class DeleteFileCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
 export interface CreateConnectorCommandOutput extends CreateConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the connector, which captures the parameters for a connection for the
  *       AS2 or SFTP protocol. For AS2, the connector is required for sending files to an externally hosted AS2 server. For SFTP, the connector is required when sending files to an SFTP server or receiving files from an SFTP server.
  *       For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/configure-as2-connector.html">Configure AS2 connectors</a> and <a href="https://docs.aws.amazon.com/transfer/latest/userguide/configure-sftp-connector.html">Create SFTP connectors</a>.</p>
@@ -104,6 +103,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class CreateConnectorCommand extends $Command
   .classBuilder<

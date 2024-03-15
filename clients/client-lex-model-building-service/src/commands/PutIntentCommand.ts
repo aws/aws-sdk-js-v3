@@ -31,7 +31,6 @@ export interface PutIntentCommandInput extends PutIntentRequest {}
 export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an intent or replaces an existing intent.</p>
  *          <p>To define the interaction between the user and your bot, you use
  *       one or more intents. For a pizza ordering bot, for example, you would
@@ -338,6 +337,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To create an intent
  * ```javascript
  * // This example shows how to create an intent for ordering pizzas.

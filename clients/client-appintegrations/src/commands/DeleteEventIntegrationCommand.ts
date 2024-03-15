@@ -27,7 +27,6 @@ export interface DeleteEventIntegrationCommandInput extends DeleteEventIntegrati
 export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified existing event integration. If the event integration is associated
  *       with clients, the request is rejected.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class DeleteEventIntegrationCommand extends $Command
   .classBuilder<

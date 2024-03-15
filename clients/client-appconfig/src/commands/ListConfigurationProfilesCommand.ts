@@ -27,7 +27,6 @@ export interface ListConfigurationProfilesCommandInput extends ListConfiguration
 export interface ListConfigurationProfilesCommandOutput extends ConfigurationProfiles, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the configuration profiles for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list the available configuration profiles
  * ```javascript
  * // The following list-configuration-profiles example lists the available configuration profiles for the specified application.

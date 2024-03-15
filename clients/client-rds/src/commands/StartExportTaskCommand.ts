@@ -28,7 +28,6 @@ export interface StartExportTaskCommandInput extends StartExportTaskMessage {}
 export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3.
  *             The provided IAM role must have access to the S3 bucket.</p>
  *          <p>You can't export snapshot data from Db2 or RDS Custom DB instances.</p>
@@ -126,6 +125,7 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To export a snapshot to Amazon S3
  * ```javascript
  * // The following example exports a DB snapshot named db5-snapshot-test to the Amazon S3 bucket named mybucket.

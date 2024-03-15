@@ -27,7 +27,6 @@ export interface BatchDeleteTableCommandInput extends BatchDeleteTableRequest {}
 export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes multiple tables at once.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the table versions and
@@ -96,6 +95,7 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchDeleteTableCommand extends $Command
   .classBuilder<

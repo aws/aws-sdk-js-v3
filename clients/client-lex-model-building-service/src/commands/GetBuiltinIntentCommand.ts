@@ -31,7 +31,6 @@ export interface GetBuiltinIntentCommandInput extends GetBuiltinIntentRequest {}
 export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a built-in intent.</p>
  *          <p>This operation requires permission for the
  *         <code>lex:GetBuiltinIntent</code> action.</p>
@@ -84,6 +83,7 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetBuiltinIntentCommand extends $Command
   .classBuilder<

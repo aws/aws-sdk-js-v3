@@ -31,7 +31,6 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an existing Amazon Q application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class GetApplicationCommand extends $Command
   .classBuilder<

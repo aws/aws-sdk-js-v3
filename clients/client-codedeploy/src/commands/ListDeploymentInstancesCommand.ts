@@ -27,9 +27,6 @@ export interface ListDeploymentInstancesCommandInput extends ListDeploymentInsta
 export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is deprecated, use ListDeploymentTargets instead.
- *
  * <note>
  *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
  *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an
@@ -106,6 +103,8 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
+ * @deprecated This operation is deprecated, use ListDeploymentTargets instead.
  */
 export class ListDeploymentInstancesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPipelinesCommandInput extends ListPipelinesInput {}
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>
  *
  *         <examples>
@@ -99,6 +98,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class ListPipelinesCommand extends $Command
   .classBuilder<

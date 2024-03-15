@@ -27,7 +27,6 @@ export interface ListAcceptedPortfolioSharesCommandInput extends ListAcceptedPor
 export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPortfolioSharesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all imported portfolios for which account-to-account shares were accepted by
  *          this account. By specifying the <code>PortfolioShareType</code>, you can list portfolios for which
  *          organizational shares were accepted by this account.</p>
@@ -76,6 +75,7 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListAcceptedPortfolioSharesCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface SendCommandCommandInput extends SendCommandRequest {}
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs commands on one or more managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -222,6 +221,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class SendCommandCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisposePackageVersionsCommandInput extends DisposePackageVersio
 export interface DisposePackageVersionsCommandOutput extends DisposePackageVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes the assets in package versions and sets the package versions' status to <code>Disposed</code>.
  *       A disposed package version cannot be restored in your repository because its assets are deleted.
@@ -117,6 +116,7 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DisposePackageVersionsCommand extends $Command
   .classBuilder<

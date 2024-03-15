@@ -39,7 +39,6 @@ export interface DescribeRegistrationFieldDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified registration type field definitions. You can use DescribeRegistrationFieldDefinitions to view the requirements for creating, filling out, and submitting each registration type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface DescribeRegistrationFieldDefinitionsCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeRegistrationFieldDefinitionsCommand extends $Command
   .classBuilder<

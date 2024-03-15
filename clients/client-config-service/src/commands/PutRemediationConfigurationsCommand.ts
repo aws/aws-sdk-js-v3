@@ -32,7 +32,6 @@ export interface PutRemediationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates the remediation configuration with a specific Config rule with the
  * 			selected target or action.
  * 			The API creates the <code>RemediationConfiguration</code> object for the Config rule.
@@ -186,6 +185,7 @@ export interface PutRemediationConfigurationsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutRemediationConfigurationsCommand extends $Command
   .classBuilder<

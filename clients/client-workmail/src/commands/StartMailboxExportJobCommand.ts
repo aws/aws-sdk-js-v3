@@ -27,7 +27,6 @@ export interface StartMailboxExportJobCommandInput extends StartMailboxExportJob
 export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a mailbox export job to export MIME-format email messages and calendar items
  *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
  *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
@@ -83,6 +82,7 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class StartMailboxExportJobCommand extends $Command
   .classBuilder<

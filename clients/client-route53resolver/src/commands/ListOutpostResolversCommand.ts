@@ -27,7 +27,6 @@ export interface ListOutpostResolversCommandInput extends ListOutpostResolversRe
 export interface ListOutpostResolversCommandOutput extends ListOutpostResolversResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the Resolvers on Outposts that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListOutpostResolversCommandOutput extends ListOutpostResolversR
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListOutpostResolversCommand extends $Command
   .classBuilder<

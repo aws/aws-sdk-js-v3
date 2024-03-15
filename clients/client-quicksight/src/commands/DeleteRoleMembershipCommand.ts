@@ -27,7 +27,6 @@ export interface DeleteRoleMembershipCommandInput extends DeleteRoleMembershipRe
 export interface DeleteRoleMembershipCommandOutput extends DeleteRoleMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a group from a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteRoleMembershipCommandOutput extends DeleteRoleMembershipR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteRoleMembershipCommand extends $Command
   .classBuilder<

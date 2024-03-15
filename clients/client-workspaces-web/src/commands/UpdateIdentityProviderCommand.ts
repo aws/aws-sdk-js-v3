@@ -32,7 +32,6 @@ export interface UpdateIdentityProviderCommandInput extends UpdateIdentityProvid
 export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the identity provider. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProvi
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class UpdateIdentityProviderCommand extends $Command
   .classBuilder<

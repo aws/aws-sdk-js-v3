@@ -27,7 +27,6 @@ export interface UpdateQueueCommandInput extends UpdateQueueRequest {}
 export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __MetadataBearer {}
 
 /**
- * @public
  * Modify one of your existing queues.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class UpdateQueueCommand extends $Command
   .classBuilder<

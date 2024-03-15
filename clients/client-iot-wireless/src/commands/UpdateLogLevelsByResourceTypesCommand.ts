@@ -32,7 +32,6 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Set default log level, or log levels by resource types. This can be for wireless
  *             device log options or wireless gateways log options and is used to control the log
  *             messages that'll be displayed in CloudWatch.</p>
@@ -102,6 +101,7 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class UpdateLogLevelsByResourceTypesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateLayoutCommandInput extends CreateLayoutRequest {}
 export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a layout in the Cases domain. Layouts define the following configuration in
  *       the top section and More Info tab of the Cases user interface:</p>
  *          <ul>
@@ -128,6 +127,7 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class CreateLayoutCommand extends $Command
   .classBuilder<

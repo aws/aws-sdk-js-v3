@@ -31,7 +31,6 @@ export interface DescribeBotRecommendationCommandInput extends DescribeBotRecomm
 export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecommendationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides metadata information about a bot recommendation. This
  *          information will enable you to get a description on the request inputs,
  *          to download associated transcripts after processing is complete, and to
@@ -128,6 +127,7 @@ export interface DescribeBotRecommendationCommandOutput extends DescribeBotRecom
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeBotRecommendationCommand extends $Command
   .classBuilder<

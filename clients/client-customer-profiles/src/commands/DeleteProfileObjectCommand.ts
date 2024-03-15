@@ -27,7 +27,6 @@ export interface DeleteProfileObjectCommandInput extends DeleteProfileObjectRequ
 export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an object associated with a profile of a given ProfileObjectType.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectRes
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class DeleteProfileObjectCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListLaunchActionsCommandInput extends ListLaunchActionsRequest 
 export interface ListLaunchActionsCommandOutput extends ListLaunchActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists resource launch actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListLaunchActionsCommandOutput extends ListLaunchActionsRespons
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class ListLaunchActionsCommand extends $Command
   .classBuilder<

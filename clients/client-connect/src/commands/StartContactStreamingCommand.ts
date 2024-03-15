@@ -27,7 +27,6 @@ export interface StartContactStreamingCommandInput extends StartContactStreaming
 export interface StartContactStreamingCommandOutput extends StartContactStreamingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Initiates real-time message streaming for a new chat contact.</p>
  *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
  *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -77,6 +76,7 @@ export interface StartContactStreamingCommandOutput extends StartContactStreamin
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StartContactStreamingCommand extends $Command
   .classBuilder<

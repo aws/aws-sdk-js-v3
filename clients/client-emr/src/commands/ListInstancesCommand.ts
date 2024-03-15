@@ -27,7 +27,6 @@ export interface ListInstancesCommandInput extends ListInstancesInput {}
 export interface ListInstancesCommandOutput extends ListInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information for all active Amazon EC2 instances and Amazon EC2
  *          instances terminated in the last 30 days, up to a maximum of 2,000. Amazon EC2
  *          instances in any of the following states are considered active: AWAITING_FULFILLMENT,
@@ -107,6 +106,7 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListInstancesCommand extends $Command
   .classBuilder<

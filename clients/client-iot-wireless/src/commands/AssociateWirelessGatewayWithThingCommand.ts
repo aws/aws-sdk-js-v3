@@ -35,7 +35,6 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a wireless gateway with a thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class AssociateWirelessGatewayWithThingCommand extends $Command
   .classBuilder<

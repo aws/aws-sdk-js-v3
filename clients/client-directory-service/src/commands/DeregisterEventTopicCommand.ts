@@ -27,7 +27,6 @@ export interface DeregisterEventTopicCommandInput extends DeregisterEventTopicRe
 export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DeregisterEventTopicCommand extends $Command
   .classBuilder<

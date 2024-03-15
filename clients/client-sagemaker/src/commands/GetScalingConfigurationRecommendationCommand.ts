@@ -36,7 +36,6 @@ export interface GetScalingConfigurationRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies
  *          that you can apply to your SageMaker endpoint.</p>
  * @example
@@ -109,6 +108,7 @@ export interface GetScalingConfigurationRecommendationCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class GetScalingConfigurationRecommendationCommand extends $Command
   .classBuilder<

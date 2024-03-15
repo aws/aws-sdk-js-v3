@@ -27,7 +27,6 @@ export interface CreateMeshCommandInput extends CreateMeshInput {}
 export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a service mesh.</p>
  *          <p> A service mesh is a logical boundary for network traffic between services that are
  *          represented by resources within the mesh. After you create your service mesh, you can
@@ -126,6 +125,7 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class CreateMeshCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchGrantPermissionsCommandInput extends BatchGrantPermissions
 export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Batch operation to grant permissions to the principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -204,6 +203,7 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class BatchGrantPermissionsCommand extends $Command
   .classBuilder<

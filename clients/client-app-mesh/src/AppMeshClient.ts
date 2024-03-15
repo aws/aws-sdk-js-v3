@@ -411,7 +411,6 @@ export type AppMeshClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface AppMeshClientResolvedConfig extends AppMeshClientResolvedConfigType {}
 
 /**
- * @public
  * <p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to
  *          monitor and control microservices. App Mesh standardizes how your microservices
  *          communicate, giving you end-to-end visibility and helping to ensure high availability for
@@ -427,6 +426,7 @@ export interface AppMeshClientResolvedConfig extends AppMeshClientResolvedConfig
  *             see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">DNS
  *                for Services and Pods</a> in the Kubernetes documentation.</p>
  *          </note>
+ * @public
  */
 export class AppMeshClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface CreateActivityCommandInput extends CreateActivityInput {}
 export interface CreateActivityCommandOutput extends CreateActivityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an activity. An activity is a task that you write in any programming language and
  *       host on any machine that has access to Step Functions. Activities must poll Step Functions using the
  *         <code>GetActivityTask</code> API action and respond using <code>SendTask*</code> API
@@ -89,6 +88,7 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class CreateActivityCommand extends $Command
   .classBuilder<

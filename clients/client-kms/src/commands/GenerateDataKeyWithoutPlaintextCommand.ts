@@ -32,7 +32,6 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
  *       data key that is encrypted under a symmetric encryption KMS key that you specify. The bytes in
  *       the key are random; they are not related to the caller or to the KMS key.</p>
@@ -211,6 +210,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To generate an encrypted data key
  * ```javascript
  * // The following example generates an encrypted copy of a 256-bit symmetric data encryption key (data key). The data key is encrypted with the specified KMS key.

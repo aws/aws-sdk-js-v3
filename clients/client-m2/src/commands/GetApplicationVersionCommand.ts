@@ -27,7 +27,6 @@ export interface GetApplicationVersionCommandInput extends GetApplicationVersion
 export interface GetApplicationVersionCommandOutput extends GetApplicationVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a specific version of a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class GetApplicationVersionCommand extends $Command
   .classBuilder<

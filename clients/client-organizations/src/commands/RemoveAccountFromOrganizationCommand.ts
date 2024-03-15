@@ -30,7 +30,6 @@ export interface RemoveAccountFromOrganizationCommandInput extends RemoveAccount
 export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified account from the organization.</p>
  *          <p>The removed account becomes a standalone account that isn't a member of any
  *             organization. It's no longer subject to any policies and is responsible for its own bill
@@ -422,6 +421,7 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To remove an account from an organization as the master account
  * ```javascript
  * // The following example shows you how to remove an account from an organization:

@@ -27,7 +27,6 @@ export interface CreatePublicDnsNamespaceCommandInput extends CreatePublicDnsNam
 export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace
  *    defines your service naming scheme. For example, if you name your namespace
  *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -98,6 +97,7 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example CreatePublicDnsNamespace example
  * ```javascript
  * // This example creates a public namespace based on DNS.

@@ -31,7 +31,6 @@ export interface GetBackupPlanFromJSONCommandInput extends GetBackupPlanFromJSON
 export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSONOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a valid JSON document specifying a backup plan or an error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetBackupPlanFromJSONCommand extends $Command
   .classBuilder<

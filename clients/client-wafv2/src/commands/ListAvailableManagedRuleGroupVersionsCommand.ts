@@ -36,7 +36,6 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the available versions for the specified managed rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListAvailableManagedRuleGroupVersionsCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DeleteInlinePolicyFromPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the inline policy from a specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DeleteInlinePolicyFromPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteInlinePolicyFromPermissionSetCommand extends $Command
   .classBuilder<

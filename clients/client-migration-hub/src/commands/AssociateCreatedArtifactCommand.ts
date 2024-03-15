@@ -27,7 +27,6 @@ export interface AssociateCreatedArtifactCommandInput extends AssociateCreatedAr
 export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedArtifactResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a created artifact of an AWS cloud resource, the target receiving the
  *          migration, with the migration task performed by a migration tool. This API has the
  *          following traits:</p>
@@ -110,6 +109,7 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class AssociateCreatedArtifactCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PeerVpcCommandInput extends PeerVpcRequest {}
 export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Peers the Lightsail VPC with the user's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class PeerVpcCommand extends $Command
   .classBuilder<

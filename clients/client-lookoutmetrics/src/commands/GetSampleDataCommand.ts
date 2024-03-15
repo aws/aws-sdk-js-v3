@@ -27,7 +27,6 @@ export interface GetSampleDataCommandInput extends GetSampleDataRequest {}
 export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class GetSampleDataCommand extends $Command
   .classBuilder<

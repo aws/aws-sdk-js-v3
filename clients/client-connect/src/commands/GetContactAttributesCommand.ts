@@ -27,7 +27,6 @@ export interface GetContactAttributesCommandInput extends GetContactAttributesRe
 export interface GetContactAttributesCommandOutput extends GetContactAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the contact attributes for the specified contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetContactAttributesCommand extends $Command
   .classBuilder<

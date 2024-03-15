@@ -27,7 +27,6 @@ export interface DescribeIndexFieldsCommandInput extends DescribeIndexFieldsRequ
 export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the index fields configured for the search domain.
  *       Can be limited to specific fields by name.  By default, shows all fields and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Domain Information</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
@@ -168,6 +167,7 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DescribeIndexFieldsCommand extends $Command
   .classBuilder<

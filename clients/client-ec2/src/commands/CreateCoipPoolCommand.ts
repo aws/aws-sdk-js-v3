@@ -27,7 +27,6 @@ export interface CreateCoipPoolCommandInput extends CreateCoipPoolRequest {}
 export interface CreateCoipPoolCommandOutput extends CreateCoipPoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a pool of customer-owned IP (CoIP) addresses. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateCoipPoolCommandOutput extends CreateCoipPoolResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateCoipPoolCommand extends $Command
   .classBuilder<

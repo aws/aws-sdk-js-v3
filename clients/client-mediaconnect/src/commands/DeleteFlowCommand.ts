@@ -27,7 +27,6 @@ export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
 export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a flow. Before you can delete a flow, you must stop the flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DeleteFlowCommand extends $Command
   .classBuilder<

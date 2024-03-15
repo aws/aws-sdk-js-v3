@@ -27,7 +27,6 @@ export interface DeleteRealtimeEndpointCommandInput extends DeleteRealtimeEndpoi
 export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DeleteRealtimeEndpointCommand extends $Command
   .classBuilder<

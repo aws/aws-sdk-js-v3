@@ -523,7 +523,6 @@ export interface VerifiedPermissions {
 }
 
 /**
- * @public
  * <p>Amazon Verified Permissions is a permissions management service from Amazon Web Services. You can use Verified Permissions to manage
  *             permissions for your application, and authorize user access based on those permissions.
  *             Using Verified Permissions, application developers can grant access based on information about the
@@ -589,6 +588,7 @@ export interface VerifiedPermissions {
  *                     (create and update) operations.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class VerifiedPermissions extends VerifiedPermissionsClient implements VerifiedPermissions {}
 createAggregatedClient(commands, VerifiedPermissions);

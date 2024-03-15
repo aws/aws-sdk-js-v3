@@ -32,7 +32,6 @@ export interface CreateProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a plan.</p>
  *          <p>A plan includes the list of resources to be
  *          created (when provisioning a new product) or modified (when updating a provisioned product)
@@ -104,6 +103,7 @@ export interface CreateProvisionedProductPlanCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreateProvisionedProductPlanCommand extends $Command
   .classBuilder<

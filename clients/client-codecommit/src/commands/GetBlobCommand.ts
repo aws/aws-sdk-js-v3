@@ -27,7 +27,6 @@ export interface GetBlobCommandInput extends GetBlobInput {}
 export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the base-64 encoded content of an individual blob in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetBlobCommand extends $Command
   .classBuilder<

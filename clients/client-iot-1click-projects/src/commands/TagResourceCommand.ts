@@ -31,7 +31,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or modifies tags for a resource. Tags are key/value pairs (metadata) that can be
  *       used to manage a resource. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
  *         Strategies</a>.</p>
@@ -71,6 +70,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

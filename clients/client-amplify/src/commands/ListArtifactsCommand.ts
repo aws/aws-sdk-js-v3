@@ -27,7 +27,6 @@ export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
 export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of artifacts for a specified app, branch, and job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class ListArtifactsCommand extends $Command
   .classBuilder<

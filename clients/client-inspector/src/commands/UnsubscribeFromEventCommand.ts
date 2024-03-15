@@ -27,7 +27,6 @@ export interface UnsubscribeFromEventCommandInput extends UnsubscribeFromEventRe
 export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
  *          notifications about a specified event to a specified SNS topic.</p>
  * @example
@@ -73,6 +72,7 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Unsubscribe from event
  * ```javascript
  * // Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.

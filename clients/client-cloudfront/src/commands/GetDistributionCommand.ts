@@ -31,7 +31,6 @@ export interface GetDistributionCommandInput extends GetDistributionRequest {}
 export interface GetDistributionCommandOutput extends GetDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the information about a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -396,6 +395,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetDistributionCommand extends $Command
   .classBuilder<

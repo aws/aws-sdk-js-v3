@@ -239,7 +239,6 @@ export interface Keyspaces {
 }
 
 /**
- * @public
  * <p>Amazon Keyspaces (for Apache Cassandra) is a scalable,
  *         highly available, and managed Apache Cassandra-compatible database service. Amazon Keyspaces makes it easy to migrate,
  *         run, and scale Cassandra workloads in the Amazon Web Services Cloud. With just a few clicks on the Amazon Web Services Management Console or a few lines of code,
@@ -254,6 +253,7 @@ export interface Keyspaces {
  *          <p>To learn how Amazon Keyspaces API actions are recorded with CloudTrail, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#service-name-info-in-cloudtrail">Amazon Keyspaces information in CloudTrail</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
  *          <p>For more information about Amazon Web Services APIs, for example how to implement retry logic or how to sign Amazon Web Services API requests, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a> in the <i>General Reference</i>.</p>
+ * @public
  */
 export class Keyspaces extends KeyspacesClient implements Keyspaces {}
 createAggregatedClient(commands, Keyspaces);

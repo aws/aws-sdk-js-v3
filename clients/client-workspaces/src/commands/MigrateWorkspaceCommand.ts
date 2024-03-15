@@ -27,7 +27,6 @@ export interface MigrateWorkspaceCommandInput extends MigrateWorkspaceRequest {}
 export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Migrates a WorkSpace from one operating system or bundle type to another, while
  *          retaining the data on the user volume.</p>
  *          <p>The migration process recreates the WorkSpace by using a new root volume from the target
@@ -85,6 +84,7 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class MigrateWorkspaceCommand extends $Command
   .classBuilder<

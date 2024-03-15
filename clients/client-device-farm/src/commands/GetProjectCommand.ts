@@ -27,7 +27,6 @@ export interface GetProjectCommandInput extends GetProjectRequest {}
 export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a project
  * ```javascript
  * // The following example gets information about a specific project.

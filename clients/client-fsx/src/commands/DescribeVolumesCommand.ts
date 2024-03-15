@@ -31,7 +31,6 @@ export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for
  *             OpenZFS volumes.</p>
  * @example
@@ -638,6 +637,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeVolumesCommand extends $Command
   .classBuilder<

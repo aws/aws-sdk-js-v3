@@ -27,7 +27,6 @@ export interface CreateResourceDefinitionCommandInput extends CreateResourceDefi
 export interface CreateResourceDefinitionCommandOutput extends CreateResourceDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface CreateResourceDefinitionCommandOutput extends CreateResourceDef
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateResourceDefinitionCommand extends $Command
   .classBuilder<

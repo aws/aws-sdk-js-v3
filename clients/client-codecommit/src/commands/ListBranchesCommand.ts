@@ -27,7 +27,6 @@ export interface ListBranchesCommandInput extends ListBranchesInput {}
 export interface ListBranchesCommandOutput extends ListBranchesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more branches in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class ListBranchesCommand extends $Command
   .classBuilder<

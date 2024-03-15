@@ -27,7 +27,6 @@ export interface SendInvitesCommandInput extends SendInvitesInput {}
 export interface SendInvitesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends an invitation email to selected users and groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface SendInvitesCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class SendInvitesCommand extends $Command
   .classBuilder<

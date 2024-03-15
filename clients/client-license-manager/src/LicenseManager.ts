@@ -1036,9 +1036,9 @@ export interface LicenseManager {
 }
 
 /**
- * @public
  * <p>License Manager makes it easier to manage licenses from software vendors across multiple
  *          Amazon Web Services accounts and on-premises servers.</p>
+ * @public
  */
 export class LicenseManager extends LicenseManagerClient implements LicenseManager {}
 createAggregatedClient(commands, LicenseManager);

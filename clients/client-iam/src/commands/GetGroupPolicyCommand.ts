@@ -27,7 +27,6 @@ export interface GetGroupPolicyCommandInput extends GetGroupPolicyRequest {}
 export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
  *             group.</p>
  *          <note>
@@ -80,6 +79,7 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetGroupPolicyCommand extends $Command
   .classBuilder<

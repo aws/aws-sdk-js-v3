@@ -27,7 +27,6 @@ export interface ListFacetNamesCommandInput extends ListFacetNamesRequest {}
 export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the names of facets that exist in a schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListFacetNamesCommand extends $Command
   .classBuilder<

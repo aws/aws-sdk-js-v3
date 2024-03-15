@@ -25,7 +25,6 @@ export interface QueryTimestampsCommandInput extends QueryTimestampsInput {}
 export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This test serializes timestamps.
  *
  * 1. Timestamps are serialized as RFC 3339 date-time values by default.
@@ -57,6 +56,7 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class QueryTimestampsCommand extends $Command
   .classBuilder<

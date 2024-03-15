@@ -37,7 +37,6 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates suggestions for addresses and points of interest based on partial or
  *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
  *             fuzzy matching.</p>
@@ -137,6 +136,7 @@ export interface SearchPlaceIndexForSuggestionsCommandOutput
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class SearchPlaceIndexForSuggestionsCommand extends $Command
   .classBuilder<

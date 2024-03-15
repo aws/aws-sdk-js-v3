@@ -27,7 +27,6 @@ export interface DeleteNotebookInstanceCommandInput extends DeleteNotebookInstan
 export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes an SageMaker notebook instance. Before you can delete a notebook instance, you
  *          must call the <code>StopNotebookInstance</code> API. </p>
  *          <important>
@@ -59,6 +58,7 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteNotebookInstanceCommand extends $Command
   .classBuilder<

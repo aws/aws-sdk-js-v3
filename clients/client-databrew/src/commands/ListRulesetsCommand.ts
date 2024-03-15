@@ -27,7 +27,6 @@ export interface ListRulesetsCommandInput extends ListRulesetsRequest {}
 export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all rulesets available in the current account or rulesets associated
  *             with a specific resource (dataset).</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class ListRulesetsCommand extends $Command
   .classBuilder<

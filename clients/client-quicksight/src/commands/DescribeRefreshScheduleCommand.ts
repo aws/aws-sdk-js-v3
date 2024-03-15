@@ -27,7 +27,6 @@ export interface DescribeRefreshScheduleCommandInput extends DescribeRefreshSche
 export interface DescribeRefreshScheduleCommandOutput extends DescribeRefreshScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a summary of a refresh schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeRefreshScheduleCommandOutput extends DescribeRefreshSch
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeRefreshScheduleCommand extends $Command
   .classBuilder<

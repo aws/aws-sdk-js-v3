@@ -29,7 +29,6 @@ export interface UpdateServiceAccessPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures the access rules that control access to the domain's document and search endpoints.
  *       For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">
  *         Configuring Access for an Amazon CloudSearch Domain</a>.</p>
@@ -88,6 +87,7 @@ export interface UpdateServiceAccessPoliciesCommandOutput
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class UpdateServiceAccessPoliciesCommand extends $Command
   .classBuilder<

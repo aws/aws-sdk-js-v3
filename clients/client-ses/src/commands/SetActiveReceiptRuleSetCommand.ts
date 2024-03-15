@@ -27,7 +27,6 @@ export interface SetActiveReceiptRuleSetCommandInput extends SetActiveReceiptRul
 export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the specified receipt rule set as the active receipt rule set.</p>
  *          <note>
  *             <p>To disable your email-receiving through Amazon SES completely, you can call this
@@ -63,6 +62,7 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SetActiveReceiptRuleSet
  * ```javascript
  * // The following example sets the active receipt rule set:

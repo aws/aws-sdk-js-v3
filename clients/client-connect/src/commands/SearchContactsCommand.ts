@@ -31,7 +31,6 @@ export interface SearchContactsCommandInput extends SearchContactsRequest {}
 export interface SearchContactsCommandOutput extends SearchContactsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches contacts in an Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -163,6 +162,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchContactsCommand extends $Command
   .classBuilder<

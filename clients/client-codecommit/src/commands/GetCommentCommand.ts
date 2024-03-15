@@ -27,7 +27,6 @@ export interface GetCommentCommandInput extends GetCommentInput {}
 export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>
  *          <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -102,6 +101,7 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetCommentCommand extends $Command
   .classBuilder<

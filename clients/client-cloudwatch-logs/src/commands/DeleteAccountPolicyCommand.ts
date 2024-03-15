@@ -27,7 +27,6 @@ export interface DeleteAccountPolicyCommandInput extends DeleteAccountPolicyRequ
 export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a CloudWatch Logs account policy. This stops the policy from applying to all log groups
  *     or a subset of log groups in the account. Log-group level policies will still be in effect.</p>
  *          <p>To use this operation, you must be signed on with the correct permissions depending on the type of policy
@@ -79,6 +78,7 @@ export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteAccountPolicyCommand extends $Command
   .classBuilder<

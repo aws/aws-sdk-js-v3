@@ -27,7 +27,6 @@ export interface GetLoggingOptionsCommandInput extends GetLoggingOptionsRequest 
 export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetLoggingOptionsCommand extends $Command
   .classBuilder<

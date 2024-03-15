@@ -27,7 +27,6 @@ export interface ImportModelVersionCommandInput extends ImportModelVersionReques
 export interface ImportModelVersionCommandOutput extends ImportModelVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a model that has been trained successfully.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface ImportModelVersionCommandOutput extends ImportModelVersionRespo
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ImportModelVersionCommand extends $Command
   .classBuilder<

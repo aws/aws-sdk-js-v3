@@ -27,7 +27,6 @@ export interface GetVocabularyCommandInput extends GetVocabularyRequest {}
 export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified custom vocabulary.</p>
  *          <p>To view the status of the specified custom vocabulary, check the
  *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -84,6 +83,7 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class GetVocabularyCommand extends $Command
   .classBuilder<

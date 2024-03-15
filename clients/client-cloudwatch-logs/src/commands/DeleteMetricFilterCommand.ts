@@ -27,7 +27,6 @@ export interface DeleteMetricFilterCommandInput extends DeleteMetricFilterReques
 export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified metric filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteMetricFilterCommand extends $Command
   .classBuilder<

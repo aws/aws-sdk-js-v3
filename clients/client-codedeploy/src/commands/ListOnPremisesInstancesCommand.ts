@@ -27,7 +27,6 @@ export interface ListOnPremisesInstancesCommandInput extends ListOnPremisesInsta
 export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of names for one or more on-premises instances.</p>
  *          <p>Unless otherwise specified, both registered and deregistered on-premises instance
  *             names are listed. To list only registered or deregistered on-premises instance names,
@@ -78,6 +77,7 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class ListOnPremisesInstancesCommand extends $Command
   .classBuilder<

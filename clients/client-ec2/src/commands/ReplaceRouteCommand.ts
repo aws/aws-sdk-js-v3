@@ -27,7 +27,6 @@ export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
 export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces an existing route within a route table in a VPC.</p>
  *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
  *            exactly one of the resources from the parameter list, or reset the local route to its default
@@ -74,6 +73,7 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To replace a route
  * ```javascript
  * // This example replaces the specified route in the specified table table. The new route matches the specified CIDR and sends the traffic to the specified virtual private gateway.

@@ -27,7 +27,6 @@ export interface GetDataflowGraphCommandInput extends GetDataflowGraphRequest {}
 export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetDataflowGraphCommand extends $Command
   .classBuilder<

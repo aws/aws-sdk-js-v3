@@ -39,7 +39,6 @@ export type GetMapStyleDescriptorCommandOutputType = Omit<GetMapStyleDescriptorR
 export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescriptorCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the map style descriptor from a map resource. </p>
  *          <p>The style descriptor contains speciﬁcations on how features render on a map. For
  *             example, what data to display, what order to display the data in, and the style for the
@@ -89,6 +88,7 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class GetMapStyleDescriptorCommand extends $Command
   .classBuilder<

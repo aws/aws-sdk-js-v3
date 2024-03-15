@@ -31,7 +31,6 @@ export interface CreateLocationFsxOntapCommandInput extends CreateLocationFsxOnt
 export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for an Amazon FSx for NetApp ONTAP file
  *       system. DataSync can use this location as a source or destination for
  *       transferring data.</p>
@@ -95,6 +94,7 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationFsxOntapCommand extends $Command
   .classBuilder<

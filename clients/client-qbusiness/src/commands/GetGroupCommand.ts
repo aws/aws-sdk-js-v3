@@ -27,7 +27,6 @@ export interface GetGroupCommandInput extends GetGroupRequest {}
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a group by group name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class GetGroupCommand extends $Command
   .classBuilder<

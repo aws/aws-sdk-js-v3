@@ -31,7 +31,6 @@ export interface UpdateStateMachineAliasCommandInput extends UpdateStateMachineA
 export interface UpdateStateMachineAliasCommandOutput extends UpdateStateMachineAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> by modifying its <code>description</code> or <code>routingConfiguration</code>.</p>
  *          <p>You must specify at least one of the <code>description</code> or <code>routingConfiguration</code> parameters to update a state machine alias.</p>
  *          <note>
@@ -121,6 +120,7 @@ export interface UpdateStateMachineAliasCommandOutput extends UpdateStateMachine
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class UpdateStateMachineAliasCommand extends $Command
   .classBuilder<

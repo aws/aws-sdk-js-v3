@@ -27,7 +27,6 @@ export interface UpdateThesaurusCommandInput extends UpdateThesaurusRequest {}
 export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a thesaurus for an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateThesaurusCommand extends $Command
   .classBuilder<

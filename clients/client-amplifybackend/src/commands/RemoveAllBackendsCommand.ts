@@ -27,7 +27,6 @@ export interface RemoveAllBackendsCommandInput extends RemoveAllBackendsRequest 
 export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes all backend environments from your Amplify project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class RemoveAllBackendsCommand extends $Command
   .classBuilder<

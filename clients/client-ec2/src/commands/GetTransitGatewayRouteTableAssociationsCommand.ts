@@ -36,7 +36,6 @@ export interface GetTransitGatewayRouteTableAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the associations for the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetTransitGatewayRouteTableAssociationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetTransitGatewayRouteTableAssociationsCommand extends $Command
   .classBuilder<

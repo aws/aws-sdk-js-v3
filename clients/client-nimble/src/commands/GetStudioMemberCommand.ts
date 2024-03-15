@@ -27,7 +27,6 @@ export interface GetStudioMemberCommandInput extends GetStudioMemberRequest {}
 export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a user's membership in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class GetStudioMemberCommand extends $Command
   .classBuilder<

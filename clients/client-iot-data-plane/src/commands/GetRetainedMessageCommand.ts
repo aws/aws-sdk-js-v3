@@ -27,7 +27,6 @@ export interface GetRetainedMessageCommandInput extends GetRetainedMessageReques
 export interface GetRetainedMessageCommandOutput extends GetRetainedMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a single retained message for the specified topic.</p>
  *          <p>This action returns the message payload of the retained message, which can
  *       incur messaging costs. To list only the topic names of the retained messages, call
@@ -86,6 +85,7 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * @public
  */
 export class GetRetainedMessageCommand extends $Command
   .classBuilder<

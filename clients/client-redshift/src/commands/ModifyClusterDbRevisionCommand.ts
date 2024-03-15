@@ -31,7 +31,6 @@ export interface ModifyClusterDbRevisionCommandInput extends ModifyClusterDbRevi
 export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRevisionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the database revision of a cluster. The database revision is a unique
  *             revision of the database running in a cluster.</p>
  * @example
@@ -262,6 +261,7 @@ export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRev
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyClusterDbRevisionCommand extends $Command
   .classBuilder<

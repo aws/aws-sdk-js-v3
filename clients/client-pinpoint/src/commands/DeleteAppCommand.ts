@@ -27,7 +27,6 @@ export interface DeleteAppCommandInput extends DeleteAppRequest {}
 export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteAppCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelWorldGenerationJobCommandInput extends CancelWorldGenerat
 export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified world generator job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class CancelWorldGenerationJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetInvalidationCommandInput extends GetInvalidationRequest {}
 export interface GetInvalidationCommandOutput extends GetInvalidationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the information about an invalidation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetInvalidationCommand extends $Command
   .classBuilder<

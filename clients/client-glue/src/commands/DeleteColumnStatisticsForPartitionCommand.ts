@@ -35,7 +35,6 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the partition column statistics of a column.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteColumnStatisticsForPartitionCommand extends $Command
   .classBuilder<

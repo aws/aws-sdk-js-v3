@@ -27,7 +27,6 @@ export interface DeleteParallelDataCommandInput extends DeleteParallelDataReques
 export interface DeleteParallelDataCommandOutput extends DeleteParallelDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a parallel data resource in Amazon Translate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class DeleteParallelDataCommand extends $Command
   .classBuilder<

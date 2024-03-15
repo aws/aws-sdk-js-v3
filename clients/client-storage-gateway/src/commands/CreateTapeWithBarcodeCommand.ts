@@ -27,7 +27,6 @@ export interface CreateTapeWithBarcodeCommandInput extends CreateTapeWithBarcode
 export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape and
  *          then archive the tape. A barcode is unique and cannot be reused if it has already been used
  *          on a tape. This applies to barcodes used on deleted tapes. This operation is only supported
@@ -82,6 +81,7 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To create a virtual tape using a barcode
  * ```javascript
  * // Creates a virtual tape by using your own barcode.

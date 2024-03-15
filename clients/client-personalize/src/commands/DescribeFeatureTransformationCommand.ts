@@ -32,7 +32,6 @@ export interface DescribeFeatureTransformationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the given feature transformation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DescribeFeatureTransformationCommandOutput
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeFeatureTransformationCommand extends $Command
   .classBuilder<

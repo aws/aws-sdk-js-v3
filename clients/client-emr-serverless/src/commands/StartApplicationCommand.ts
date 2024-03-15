@@ -27,7 +27,6 @@ export interface StartApplicationCommandInput extends StartApplicationRequest {}
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a specified application and initializes initial capacity if configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class StartApplicationCommand extends $Command
   .classBuilder<

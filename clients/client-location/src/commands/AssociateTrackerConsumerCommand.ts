@@ -27,7 +27,6 @@ export interface AssociateTrackerConsumerCommandInput extends AssociateTrackerCo
 export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerConsumerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between a geofence collection and a tracker resource. This
  *             allows the tracker resource to communicate location data to the linked geofence
  *             collection. </p>
@@ -83,6 +82,7 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class AssociateTrackerConsumerCommand extends $Command
   .classBuilder<

@@ -79,7 +79,6 @@ export interface TranscribeStreaming {
 }
 
 /**
- * @public
  * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
  *       <b>Standard</b>, <b>Medical</b>, and
  *       <b>Call Analytics</b>.</p>
@@ -103,6 +102,7 @@ export interface TranscribeStreaming {
  *           option. Refer to  for details.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class TranscribeStreaming extends TranscribeStreamingClient implements TranscribeStreaming {}
 createAggregatedClient(commands, TranscribeStreaming);

@@ -27,9 +27,6 @@ export interface GetMeetingCommandInput extends GetMeetingRequest {}
 export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetMeeting in the Amazon Chime SDK Meetings Namespace
- *
  * <important>
  *             <p>
  *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html">GetMeeting</a>, in the Amazon Chime SDK.</p>
@@ -105,6 +102,8 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetMeeting in the Amazon Chime SDK Meetings Namespace
  */
 export class GetMeetingCommand extends $Command
   .classBuilder<

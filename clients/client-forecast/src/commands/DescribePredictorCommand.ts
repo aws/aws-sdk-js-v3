@@ -27,7 +27,6 @@ export interface DescribePredictorCommandInput extends DescribePredictorRequest 
 export interface DescribePredictorCommandOutput extends DescribePredictorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p> This operation is only valid for legacy predictors created with CreatePredictor. If you
  *         are not using a legacy predictor, use <a>DescribeAutoPredictor</a>.</p>
@@ -205,6 +204,7 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribePredictorCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeProvisioningParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the configuration required to provision the specified product using
  *          the specified provisioning artifact.</p>
  *          <p>If the output contains a TagOption key with an empty list of values, there is a
@@ -138,6 +137,7 @@ export interface DescribeProvisioningParametersCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeProvisioningParametersCommand extends $Command
   .classBuilder<

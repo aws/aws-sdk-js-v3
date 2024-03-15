@@ -27,7 +27,6 @@ export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequ
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of a specific Amazon EFS file system if either the file system
  *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
  *       returns descriptions of all file systems owned by the caller's Amazon Web Services account in the
@@ -124,6 +123,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To describe an EFS file system
  * ```javascript
  * // This operation describes all of the EFS file systems in an account.

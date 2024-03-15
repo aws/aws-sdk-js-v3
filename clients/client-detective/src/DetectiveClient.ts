@@ -372,7 +372,6 @@ export type DetectiveClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Detective uses machine learning and purpose-built visualizations to help you to
  *          analyze and investigate security issues across your Amazon Web Services (Amazon Web Services) workloads. Detective automatically extracts time-based events such
  *          as login attempts, API calls, and network traffic from CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It also extracts findings detected by
@@ -449,6 +448,7 @@ export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedCo
  *                Detective, the administrator account manages the accounts in their behavior
  *             graph.</p>
  *          </note>
+ * @public
  */
 export class DetectiveClient extends __Client<
   __HttpHandlerOptions,

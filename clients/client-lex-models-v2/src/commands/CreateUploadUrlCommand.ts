@@ -27,7 +27,6 @@ export interface CreateUploadUrlCommandInput extends CreateUploadUrlRequest {}
 export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a pre-signed S3 write URL that you use to upload the zip
  *          archive when importing a bot or a bot locale. </p>
  * @example
@@ -76,6 +75,7 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateUploadUrlCommand extends $Command
   .classBuilder<

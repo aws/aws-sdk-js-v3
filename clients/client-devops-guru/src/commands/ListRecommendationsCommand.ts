@@ -27,7 +27,6 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsRequ
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of a specified insight's recommendations. Each recommendation includes
  * 			a list of related metrics and a list of related events. </p>
  * @example
@@ -119,6 +118,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class ListRecommendationsCommand extends $Command
   .classBuilder<

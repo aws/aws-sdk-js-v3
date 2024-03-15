@@ -27,7 +27,6 @@ export interface RegisterEventTopicCommandInput extends RegisterEventTopicReques
 export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a directory with an Amazon SNS topic. This establishes the directory as a
  *       publisher to the specified Amazon SNS topic. You can then receive email or text (SMS) messages when
  *       the status of your directory changes. You get notified if your directory goes from an Active
@@ -70,6 +69,7 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class RegisterEventTopicCommand extends $Command
   .classBuilder<

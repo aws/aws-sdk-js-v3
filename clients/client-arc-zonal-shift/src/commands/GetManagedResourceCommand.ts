@@ -27,7 +27,6 @@ export interface GetManagedResourceCommandInput extends GetManagedResourceReques
 export interface GetManagedResourceCommandOutput extends GetManagedResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about a resource that's been registered for zonal shifts with Amazon Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for
  *    		zonal shifts are managed resources in Route 53 ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
  *          <p>At this time, you can only start a zonal shift or configure zonal autoshift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
@@ -116,6 +115,7 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class GetManagedResourceCommand extends $Command
   .classBuilder<

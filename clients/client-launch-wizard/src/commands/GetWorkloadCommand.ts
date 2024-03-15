@@ -27,7 +27,6 @@ export interface GetWorkloadCommandInput extends GetWorkloadInput {}
 export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * @public
  */
 export class GetWorkloadCommand extends $Command
   .classBuilder<

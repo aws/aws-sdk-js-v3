@@ -27,7 +27,6 @@ export interface CreateLinkCommandInput extends CreateLinkRequest {}
 export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new link for a specified site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateLinkCommand extends $Command
   .classBuilder<

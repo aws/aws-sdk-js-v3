@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
 
 /**
- * @public
  * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
+ * @public
  */
 export class ActorDoesNotExistException extends __BaseException {
   readonly name: "ActorDoesNotExistException" = "ActorDoesNotExistException";
@@ -38,98 +38,98 @@ export const ApprovalState = {
 export type ApprovalState = (typeof ApprovalState)[keyof typeof ApprovalState];
 
 /**
- * @public
  * <p>Returns information about a specific approval on a pull request.</p>
+ * @public
  */
 export interface Approval {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user.</p>
+   * @public
    */
   userArn?: string;
 
   /**
-   * @public
    * <p>The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.</p>
+   * @public
    */
   approvalState?: ApprovalState;
 }
 
 /**
- * @public
  * <p>Returns information about the template that created the approval rule for a pull request.</p>
+ * @public
  */
 export interface OriginApprovalRuleTemplate {
   /**
-   * @public
    * <p>The ID of the template that created the approval rule.</p>
+   * @public
    */
   approvalRuleTemplateId?: string;
 
   /**
-   * @public
    * <p>The name of the template that created the approval rule.</p>
+   * @public
    */
   approvalRuleTemplateName?: string;
 }
 
 /**
- * @public
  * <p>Returns information about an approval rule.</p>
+ * @public
  */
 export interface ApprovalRule {
   /**
-   * @public
    * <p>The system-generated ID of the approval rule.</p>
+   * @public
    */
   approvalRuleId?: string;
 
   /**
-   * @public
    * <p>The name of the approval rule.</p>
+   * @public
    */
   approvalRuleName?: string;
 
   /**
-   * @public
    * <p>The content of the approval rule.</p>
+   * @public
    */
   approvalRuleContent?: string;
 
   /**
-   * @public
    * <p>The SHA-256 hash signature for the content of the approval rule.</p>
+   * @public
    */
   ruleContentSha256?: string;
 
   /**
-   * @public
    * <p>The date the approval rule was most recently changed, in timestamp format.</p>
+   * @public
    */
   lastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date the approval rule was created, in timestamp format.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule.</p>
+   * @public
    */
   lastModifiedUser?: string;
 
   /**
-   * @public
    * <p>The approval rule template used to create the rule.</p>
+   * @public
    */
   originApprovalRuleTemplate?: OriginApprovalRuleTemplate;
 }
 
 /**
- * @public
  * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
+ * @public
  */
 export class ApprovalRuleContentRequiredException extends __BaseException {
   readonly name: "ApprovalRuleContentRequiredException" = "ApprovalRuleContentRequiredException";
@@ -148,8 +148,8 @@ export class ApprovalRuleContentRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified approval rule does not exist.</p>
+ * @public
  */
 export class ApprovalRuleDoesNotExistException extends __BaseException {
   readonly name: "ApprovalRuleDoesNotExistException" = "ApprovalRuleDoesNotExistException";
@@ -168,33 +168,33 @@ export class ApprovalRuleDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about an event for an approval rule.</p>
+ * @public
  */
 export interface ApprovalRuleEventMetadata {
   /**
-   * @public
    * <p>The name of the approval rule.</p>
+   * @public
    */
   approvalRuleName?: string;
 
   /**
-   * @public
    * <p>The system-generated ID of the approval rule.</p>
+   * @public
    */
   approvalRuleId?: string;
 
   /**
-   * @public
    * <p>The content of the approval rule.</p>
+   * @public
    */
   approvalRuleContent?: string;
 }
 
 /**
- * @public
  * <p>An approval rule with that name already exists. Approval rule names must be unique
  *             within the scope of a pull request.</p>
+ * @public
  */
 export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
   readonly name: "ApprovalRuleNameAlreadyExistsException" = "ApprovalRuleNameAlreadyExistsException";
@@ -213,8 +213,8 @@ export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An approval rule name is required, but was not specified.</p>
+ * @public
  */
 export class ApprovalRuleNameRequiredException extends __BaseException {
   readonly name: "ApprovalRuleNameRequiredException" = "ApprovalRuleNameRequiredException";
@@ -247,80 +247,80 @@ export const OverrideStatus = {
 export type OverrideStatus = (typeof OverrideStatus)[keyof typeof OverrideStatus];
 
 /**
- * @public
  * <p>Returns information about an override event for approval rules for a pull request.</p>
+ * @public
  */
 export interface ApprovalRuleOverriddenEventMetadata {
   /**
-   * @public
    * <p>The revision ID of the pull request when the override event occurred.</p>
+   * @public
    */
   revisionId?: string;
 
   /**
-   * @public
    * <p>The status of the override event.</p>
+   * @public
    */
   overrideStatus?: OverrideStatus;
 }
 
 /**
- * @public
  * <p>Returns information about an approval rule template.</p>
+ * @public
  */
 export interface ApprovalRuleTemplate {
   /**
-   * @public
    * <p>The system-generated ID of the approval rule template.</p>
+   * @public
    */
   approvalRuleTemplateId?: string;
 
   /**
-   * @public
    * <p>The name of the approval rule template.</p>
+   * @public
    */
   approvalRuleTemplateName?: string;
 
   /**
-   * @public
    * <p>The description of the approval rule template.</p>
+   * @public
    */
   approvalRuleTemplateDescription?: string;
 
   /**
-   * @public
    * <p>The content of the approval rule template.</p>
+   * @public
    */
   approvalRuleTemplateContent?: string;
 
   /**
-   * @public
    * <p>The SHA-256 hash signature for the content of the approval rule template.</p>
+   * @public
    */
   ruleContentSha256?: string;
 
   /**
-   * @public
    * <p>The date the approval rule template was most recently changed, in timestamp format.</p>
+   * @public
    */
   lastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date the approval rule template was created, in timestamp format.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.</p>
+   * @public
    */
   lastModifiedUser?: string;
 }
 
 /**
- * @public
  * <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+ * @public
  */
 export class ApprovalRuleTemplateContentRequiredException extends __BaseException {
   readonly name: "ApprovalRuleTemplateContentRequiredException" = "ApprovalRuleTemplateContentRequiredException";
@@ -339,9 +339,9 @@ export class ApprovalRuleTemplateContentRequiredException extends __BaseExceptio
 }
 
 /**
- * @public
  * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the Amazon Web Services Region where the template
  *         was created, and then try again.</p>
+ * @public
  */
 export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
   readonly name: "ApprovalRuleTemplateDoesNotExistException" = "ApprovalRuleTemplateDoesNotExistException";
@@ -360,9 +360,9 @@ export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
  *         all associations, and then try again.</p>
+ * @public
  */
 export class ApprovalRuleTemplateInUseException extends __BaseException {
   readonly name: "ApprovalRuleTemplateInUseException" = "ApprovalRuleTemplateInUseException";
@@ -381,10 +381,10 @@ export class ApprovalRuleTemplateInUseException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You cannot create an approval rule template with that name because a template with
  *             that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template
  *             names must be unique.</p>
+ * @public
  */
 export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseException {
   readonly name: "ApprovalRuleTemplateNameAlreadyExistsException" = "ApprovalRuleTemplateNameAlreadyExistsException";
@@ -403,8 +403,8 @@ export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseExcept
 }
 
 /**
- * @public
  * <p>An approval rule template name is required, but was not specified.</p>
+ * @public
  */
 export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
   readonly name: "ApprovalRuleTemplateNameRequiredException" = "ApprovalRuleTemplateNameRequiredException";
@@ -423,26 +423,26 @@ export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about a change in the approval state for a pull request.</p>
+ * @public
  */
 export interface ApprovalStateChangedEventMetadata {
   /**
-   * @public
    * <p>The revision ID of the pull request when the approval state changed.</p>
+   * @public
    */
   revisionId?: string;
 
   /**
-   * @public
    * <p>The approval status for the pull request.</p>
+   * @public
    */
   approvalStatus?: ApprovalState;
 }
 
 /**
- * @public
  * <p>An approval state is required, but was not specified.</p>
+ * @public
  */
 export class ApprovalStateRequiredException extends __BaseException {
   readonly name: "ApprovalStateRequiredException" = "ApprovalStateRequiredException";
@@ -465,21 +465,21 @@ export class ApprovalStateRequiredException extends __BaseException {
  */
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
   /**
-   * @public
    * <p>The name for the approval rule template. </p>
+   * @public
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository that you want to associate with the template.</p>
+   * @public
    */
   repositoryName: string | undefined;
 }
 
 /**
- * @public
  * <p>An encryption integrity check failed.</p>
+ * @public
  */
 export class EncryptionIntegrityChecksFailedException extends __BaseException {
   readonly name: "EncryptionIntegrityChecksFailedException" = "EncryptionIntegrityChecksFailedException";
@@ -498,8 +498,8 @@ export class EncryptionIntegrityChecksFailedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An encryption key could not be accessed.</p>
+ * @public
  */
 export class EncryptionKeyAccessDeniedException extends __BaseException {
   readonly name: "EncryptionKeyAccessDeniedException" = "EncryptionKeyAccessDeniedException";
@@ -518,8 +518,8 @@ export class EncryptionKeyAccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The encryption key is disabled.</p>
+ * @public
  */
 export class EncryptionKeyDisabledException extends __BaseException {
   readonly name: "EncryptionKeyDisabledException" = "EncryptionKeyDisabledException";
@@ -538,8 +538,8 @@ export class EncryptionKeyDisabledException extends __BaseException {
 }
 
 /**
- * @public
  * <p>No encryption key was found.</p>
+ * @public
  */
 export class EncryptionKeyNotFoundException extends __BaseException {
   readonly name: "EncryptionKeyNotFoundException" = "EncryptionKeyNotFoundException";
@@ -558,8 +558,8 @@ export class EncryptionKeyNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The encryption key is not available.</p>
+ * @public
  */
 export class EncryptionKeyUnavailableException extends __BaseException {
   readonly name: "EncryptionKeyUnavailableException" = "EncryptionKeyUnavailableException";
@@ -578,10 +578,10 @@ export class EncryptionKeyUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The name of the approval rule template is not valid. Template names must be between 1
  *             and 100 valid characters in length. For more information about limits in CodeCommit,
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ * @public
  */
 export class InvalidApprovalRuleTemplateNameException extends __BaseException {
   readonly name: "InvalidApprovalRuleTemplateNameException" = "InvalidApprovalRuleTemplateNameException";
@@ -600,13 +600,13 @@ export class InvalidApprovalRuleTemplateNameException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A specified repository name is not valid.</p>
  *          <note>
  *             <p>This exception occurs only when a specified repository name is not valid. Other
  *                 exceptions occur when a required repository parameter is missing, or when a
  *                 specified repository does not exist.</p>
  *          </note>
+ * @public
  */
 export class InvalidRepositoryNameException extends __BaseException {
   readonly name: "InvalidRepositoryNameException" = "InvalidRepositoryNameException";
@@ -625,9 +625,9 @@ export class InvalidRepositoryNameException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
  *         approval rule templates with a repository.</p>
+ * @public
  */
 export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __BaseException {
   readonly name: "MaximumRuleTemplatesAssociatedWithRepositoryException" =
@@ -647,8 +647,8 @@ export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __Bas
 }
 
 /**
- * @public
  * <p>The specified repository does not exist.</p>
+ * @public
  */
 export class RepositoryDoesNotExistException extends __BaseException {
   readonly name: "RepositoryDoesNotExistException" = "RepositoryDoesNotExistException";
@@ -667,8 +667,8 @@ export class RepositoryDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A repository name is required, but was not specified.</p>
+ * @public
  */
 export class RepositoryNameRequiredException extends __BaseException {
   readonly name: "RepositoryNameRequiredException" = "RepositoryNameRequiredException";
@@ -687,8 +687,8 @@ export class RepositoryNameRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified Amazon Resource Name (ARN) does not exist in the Amazon Web Services account.</p>
+ * @public
  */
 export class AuthorDoesNotExistException extends __BaseException {
   readonly name: "AuthorDoesNotExistException" = "AuthorDoesNotExistException";
@@ -711,41 +711,41 @@ export class AuthorDoesNotExistException extends __BaseException {
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   /**
-   * @public
    * <p>The name of the template you want to associate with one or more repositories.</p>
+   * @public
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   * @public
    * <p>The names of the repositories you want to associate with the template.</p>
    *          <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
+   * @public
    */
   repositoryNames: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Returns information about errors in a BatchAssociateApprovalRuleTemplateWithRepositories operation.</p>
+ * @public
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
   /**
-   * @public
    * <p>The name of the repository where the association was not made.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>An error code that specifies whether the repository name was not valid or not found.</p>
+   * @public
    */
   errorCode?: string;
 
   /**
-   * @public
    * <p>An error message that provides details about why the repository name was not found or not valid.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -755,21 +755,21 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
  */
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   /**
-   * @public
    * <p>A list of names of the repositories that have been associated with the template.</p>
+   * @public
    */
   associatedRepositoryNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of any errors that might have occurred while attempting to create the association between the template and the repositories.</p>
+   * @public
    */
   errors: BatchAssociateApprovalRuleTemplateWithRepositoriesError[] | undefined;
 }
 
 /**
- * @public
  * <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
+ * @public
  */
 export class MaximumRepositoryNamesExceededException extends __BaseException {
   readonly name: "MaximumRepositoryNamesExceededException" = "MaximumRepositoryNamesExceededException";
@@ -788,8 +788,8 @@ export class MaximumRepositoryNamesExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>At least one repository name object is required, but was not specified.</p>
+ * @public
  */
 export class RepositoryNamesRequiredException extends __BaseException {
   readonly name: "RepositoryNamesRequiredException" = "RepositoryNamesRequiredException";
@@ -859,70 +859,70 @@ export type MergeOptionTypeEnum = (typeof MergeOptionTypeEnum)[keyof typeof Merg
  */
 export interface BatchDescribeMergeConflictsInput {
   /**
-   * @public
    * <p>The name of the repository that contains the merge conflicts you want to review.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The merge option or strategy you want to use to merge the code.</p>
+   * @public
    */
   mergeOption: MergeOptionTypeEnum | undefined;
 
   /**
-   * @public
    * <p>The maximum number of merge hunks to include in the output.</p>
+   * @public
    */
   maxMergeHunks?: number;
 
   /**
-   * @public
    * <p>The maximum number of files to include in the output.</p>
+   * @public
    */
   maxConflictFiles?: number;
 
   /**
-   * @public
    * <p>The path of the target files used to describe the conflicts. If not specified, the default is all conflict files.</p>
+   * @public
    */
   filePaths?: string[];
 
   /**
-   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
+   * @public
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
-   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -943,73 +943,73 @@ export const FileModeTypeEnum = {
 export type FileModeTypeEnum = (typeof FileModeTypeEnum)[keyof typeof FileModeTypeEnum];
 
 /**
- * @public
  * <p>Information about file modes in a merge or pull request.</p>
+ * @public
  */
 export interface FileModes {
   /**
-   * @public
    * <p>The file mode of a file in the source of a merge or pull request.</p>
+   * @public
    */
   source?: FileModeTypeEnum;
 
   /**
-   * @public
    * <p>The file mode of a file in the destination of a merge or pull request.</p>
+   * @public
    */
   destination?: FileModeTypeEnum;
 
   /**
-   * @public
    * <p>The file mode of a file in the base of a merge or pull request.</p>
+   * @public
    */
   base?: FileModeTypeEnum;
 }
 
 /**
- * @public
  * <p>Information about the size of files in a merge or pull request.</p>
+ * @public
  */
 export interface FileSizes {
   /**
-   * @public
    * <p>The  size of a file in the source of a merge or pull request.</p>
+   * @public
    */
   source?: number;
 
   /**
-   * @public
    * <p>The size of a file in the destination of a merge or pull request.</p>
+   * @public
    */
   destination?: number;
 
   /**
-   * @public
    * <p>The size of a file in the base of a merge or pull request.</p>
+   * @public
    */
   base?: number;
 }
 
 /**
- * @public
  * <p>Information about whether a file is binary or textual in a merge or pull request operation.</p>
+ * @public
  */
 export interface IsBinaryFile {
   /**
-   * @public
    * <p>The binary or non-binary status of file in the source of a merge or pull request.</p>
+   * @public
    */
   source?: boolean;
 
   /**
-   * @public
    * <p>The binary or non-binary status of a file in the destination of a merge or pull request.</p>
+   * @public
    */
   destination?: boolean;
 
   /**
-   * @public
    * <p>The binary or non-binary status of a file in the base of a merge or pull request.</p>
+   * @public
    */
   base?: boolean;
 }
@@ -1030,20 +1030,20 @@ export const ChangeTypeEnum = {
 export type ChangeTypeEnum = (typeof ChangeTypeEnum)[keyof typeof ChangeTypeEnum];
 
 /**
- * @public
  * <p>Information about the file operation conflicts in a merge operation.</p>
+ * @public
  */
 export interface MergeOperations {
   /**
-   * @public
    * <p>The operation (add, modify, or delete) on a file in the source of a merge or pull
    *             request.</p>
+   * @public
    */
   source?: ChangeTypeEnum;
 
   /**
-   * @public
    * <p>The operation on a file in the destination of a merge or pull request.</p>
+   * @public
    */
   destination?: ChangeTypeEnum;
 }
@@ -1065,192 +1065,192 @@ export const ObjectTypeEnum = {
 export type ObjectTypeEnum = (typeof ObjectTypeEnum)[keyof typeof ObjectTypeEnum];
 
 /**
- * @public
  * <p>Information about the type of an object in a merge operation.</p>
+ * @public
  */
 export interface ObjectTypes {
   /**
-   * @public
    * <p>The type of the object in the source branch.</p>
+   * @public
    */
   source?: ObjectTypeEnum;
 
   /**
-   * @public
    * <p>The type of the object in the destination branch.</p>
+   * @public
    */
   destination?: ObjectTypeEnum;
 
   /**
-   * @public
    * <p>The type of the object in the base commit of the merge.</p>
+   * @public
    */
   base?: ObjectTypeEnum;
 }
 
 /**
- * @public
  * <p>Information about the metadata for a conflict in a merge operation.</p>
+ * @public
  */
 export interface ConflictMetadata {
   /**
-   * @public
    * <p>The path of the file that contains conflicts.</p>
+   * @public
    */
   filePath?: string;
 
   /**
-   * @public
    * <p>The file sizes of the file in the source, destination, and base of the merge.</p>
+   * @public
    */
   fileSizes?: FileSizes;
 
   /**
-   * @public
    * <p>The file modes of the file in the source, destination, and base of the merge.</p>
+   * @public
    */
   fileModes?: FileModes;
 
   /**
-   * @public
    * <p>Information about any object type conflicts in a merge operation.</p>
+   * @public
    */
   objectTypes?: ObjectTypes;
 
   /**
-   * @public
    * <p>The number of conflicts, including both hunk conflicts and metadata conflicts.</p>
+   * @public
    */
   numberOfConflicts?: number;
 
   /**
-   * @public
    * <p>A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.</p>
+   * @public
    */
   isBinaryFile?: IsBinaryFile;
 
   /**
-   * @public
    * <p>A boolean value indicating whether there are conflicts in the content of a file.</p>
+   * @public
    */
   contentConflict?: boolean;
 
   /**
-   * @public
    * <p>A boolean value indicating whether there are conflicts in the file mode of a file.</p>
+   * @public
    */
   fileModeConflict?: boolean;
 
   /**
-   * @public
    * <p>A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.</p>
+   * @public
    */
   objectTypeConflict?: boolean;
 
   /**
-   * @public
    * <p>Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.</p>
+   * @public
    */
   mergeOperations?: MergeOperations;
 }
 
 /**
- * @public
  * <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
+ * @public
  */
 export interface MergeHunkDetail {
   /**
-   * @public
    * <p>The start position of the hunk in the merge result.</p>
+   * @public
    */
   startLine?: number;
 
   /**
-   * @public
    * <p>The end position of the hunk in the merge result.</p>
+   * @public
    */
   endLine?: number;
 
   /**
-   * @public
    * <p>The base-64 encoded content of the hunk merged region that might contain a
    *             conflict.</p>
+   * @public
    */
   hunkContent?: string;
 }
 
 /**
- * @public
  * <p>Information about merge hunks in a merge or pull request operation.</p>
+ * @public
  */
 export interface MergeHunk {
   /**
-   * @public
    * <p>A Boolean value indicating whether a combination of hunks contains a conflict.
    *             Conflicts occur when the same file or the same lines in a file were modified in both the
    *             source and destination of a merge or pull request. Valid values include true, false, and
    *             null. True when the hunk represents a conflict and one or more files contains a line
    *             conflict. File mode conflicts in a merge do not set this to true.</p>
+   * @public
    */
   isConflict?: boolean;
 
   /**
-   * @public
    * <p>Information about the merge hunk in the source of a merge or pull request.</p>
+   * @public
    */
   source?: MergeHunkDetail;
 
   /**
-   * @public
    * <p>Information about the merge hunk in the destination of a merge or pull request.</p>
+   * @public
    */
   destination?: MergeHunkDetail;
 
   /**
-   * @public
    * <p>Information about the merge hunk in the base of a merge or pull request.</p>
+   * @public
    */
   base?: MergeHunkDetail;
 }
 
 /**
- * @public
  * <p>Information about conflicts in a merge operation.</p>
+ * @public
  */
 export interface Conflict {
   /**
-   * @public
    * <p>Metadata about a conflict in a merge operation.</p>
+   * @public
    */
   conflictMetadata?: ConflictMetadata;
 
   /**
-   * @public
    * <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
+   * @public
    */
   mergeHunks?: MergeHunk[];
 }
 
 /**
- * @public
  * <p>Returns information about errors in a BatchDescribeMergeConflicts operation.</p>
+ * @public
  */
 export interface BatchDescribeMergeConflictsError {
   /**
-   * @public
    * <p>The path to the file.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The name of the exception.</p>
+   * @public
    */
   exceptionName: string | undefined;
 
   /**
-   * @public
    * <p>The message provided by the exception.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -1260,45 +1260,45 @@ export interface BatchDescribeMergeConflictsError {
  */
 export interface BatchDescribeMergeConflictsOutput {
   /**
-   * @public
    * <p>A list of conflicts for each file, including the conflict metadata and the hunks of the differences between the files.</p>
+   * @public
    */
   conflicts: Conflict[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of any errors returned while describing the merge conflicts for each file.</p>
+   * @public
    */
   errors?: BatchDescribeMergeConflictsError[];
 
   /**
-   * @public
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   destinationCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   sourceCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the merge base.</p>
+   * @public
    */
   baseCommitId?: string;
 }
 
 /**
- * @public
  * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ * @public
  */
 export class CommitDoesNotExistException extends __BaseException {
   readonly name: "CommitDoesNotExistException" = "CommitDoesNotExistException";
@@ -1317,8 +1317,8 @@ export class CommitDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A commit was not specified.</p>
+ * @public
  */
 export class CommitRequiredException extends __BaseException {
   readonly name: "CommitRequiredException" = "CommitRequiredException";
@@ -1337,8 +1337,8 @@ export class CommitRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified commit is not valid.</p>
+ * @public
  */
 export class InvalidCommitException extends __BaseException {
   readonly name: "InvalidCommitException" = "InvalidCommitException";
@@ -1357,8 +1357,8 @@ export class InvalidCommitException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified conflict detail level is not valid.</p>
+ * @public
  */
 export class InvalidConflictDetailLevelException extends __BaseException {
   readonly name: "InvalidConflictDetailLevelException" = "InvalidConflictDetailLevelException";
@@ -1377,8 +1377,8 @@ export class InvalidConflictDetailLevelException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified conflict resolution strategy is not valid.</p>
+ * @public
  */
 export class InvalidConflictResolutionStrategyException extends __BaseException {
   readonly name: "InvalidConflictResolutionStrategyException" = "InvalidConflictResolutionStrategyException";
@@ -1397,8 +1397,8 @@ export class InvalidConflictResolutionStrategyException extends __BaseException 
 }
 
 /**
- * @public
  * <p>The specified continuation token is not valid.</p>
+ * @public
  */
 export class InvalidContinuationTokenException extends __BaseException {
   readonly name: "InvalidContinuationTokenException" = "InvalidContinuationTokenException";
@@ -1417,8 +1417,8 @@ export class InvalidContinuationTokenException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified value for the number of conflict files to return is not valid.</p>
+ * @public
  */
 export class InvalidMaxConflictFilesException extends __BaseException {
   readonly name: "InvalidMaxConflictFilesException" = "InvalidMaxConflictFilesException";
@@ -1437,8 +1437,8 @@ export class InvalidMaxConflictFilesException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified value for the number of merge hunks to return is not valid.</p>
+ * @public
  */
 export class InvalidMaxMergeHunksException extends __BaseException {
   readonly name: "InvalidMaxMergeHunksException" = "InvalidMaxMergeHunksException";
@@ -1457,8 +1457,8 @@ export class InvalidMaxMergeHunksException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+ * @public
  */
 export class InvalidMergeOptionException extends __BaseException {
   readonly name: "InvalidMergeOptionException" = "InvalidMergeOptionException";
@@ -1477,8 +1477,8 @@ export class InvalidMergeOptionException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of files to load exceeds the allowed limit.</p>
+ * @public
  */
 export class MaximumFileContentToLoadExceededException extends __BaseException {
   readonly name: "MaximumFileContentToLoadExceededException" = "MaximumFileContentToLoadExceededException";
@@ -1497,8 +1497,8 @@ export class MaximumFileContentToLoadExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+ * @public
  */
 export class MaximumItemsToCompareExceededException extends __BaseException {
   readonly name: "MaximumItemsToCompareExceededException" = "MaximumItemsToCompareExceededException";
@@ -1517,8 +1517,8 @@ export class MaximumItemsToCompareExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A merge option or stategy is required, and none was provided.</p>
+ * @public
  */
 export class MergeOptionRequiredException extends __BaseException {
   readonly name: "MergeOptionRequiredException" = "MergeOptionRequiredException";
@@ -1537,9 +1537,9 @@ export class MergeOptionRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+ * @public
  */
 export class TipsDivergenceExceededException extends __BaseException {
   readonly name: "TipsDivergenceExceededException" = "TipsDivergenceExceededException";
@@ -1562,43 +1562,43 @@ export class TipsDivergenceExceededException extends __BaseException {
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   /**
-   * @public
    * <p>The name of the template that you want to disassociate from one or more repositories.</p>
+   * @public
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   * @public
    * <p>The repository names that you want to disassociate from the approval rule
    *             template.</p>
    *          <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
+   * @public
    */
   repositoryNames: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.</p>
+ * @public
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
   /**
-   * @public
    * <p>The name of the repository where the association with the template was not able to be removed.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>An error code that specifies whether the repository name was not valid or not
    *             found.</p>
+   * @public
    */
   errorCode?: string;
 
   /**
-   * @public
    * <p>An error message that provides details about why the repository name was either not found or not valid.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -1608,15 +1608,15 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
  */
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   /**
-   * @public
    * <p>A list of repository names that have had their association with the template
    *             removed.</p>
+   * @public
    */
   disassociatedRepositoryNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
+   * @public
    */
   errors: BatchDisassociateApprovalRuleTemplateFromRepositoriesError[] | undefined;
 }
@@ -1626,121 +1626,121 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
  */
 export interface BatchGetCommitsInput {
   /**
-   * @public
    * <p>The full commit IDs of the commits to get information about.</p>
    *          <note>
    *             <p>You must supply the full SHA IDs of each commit. You cannot use shortened SHA
    *                 IDs.</p>
    *          </note>
+   * @public
    */
   commitIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The name of the repository that contains the commits.</p>
+   * @public
    */
   repositoryName: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the user who made a specified commit.</p>
+ * @public
  */
 export interface UserInfo {
   /**
-   * @public
    * <p>The name of the user who made the specified commit.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The email address associated with the user who made the commit, if any.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>The date when the specified commit was commited, in timestamp format with GMT offset.</p>
+   * @public
    */
   date?: string;
 }
 
 /**
- * @public
  * <p>Returns information about a specific commit.</p>
+ * @public
  */
 export interface Commit {
   /**
-   * @public
    * <p>The full SHA ID of the specified commit. </p>
+   * @public
    */
   commitId?: string;
 
   /**
-   * @public
    * <p>Tree information for the specified commit.</p>
+   * @public
    */
   treeId?: string;
 
   /**
-   * @public
    * <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
+   * @public
    */
   parents?: string[];
 
   /**
-   * @public
    * <p>The commit message associated with the specified commit.</p>
+   * @public
    */
   message?: string;
 
   /**
-   * @public
    * <p>Information about the author of the specified commit. Information includes
    *             the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured
    *             in Git.</p>
+   * @public
    */
   author?: UserInfo;
 
   /**
-   * @public
    * <p>Information about the person who committed the specified commit, also known as the committer. Information includes
    *         the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured
    *         in Git.</p>
    *          <p>For more information
    *             about the difference between an author and a committer in Git, see <a href="http://git-scm.com/book/ch2-3.html">Viewing the Commit History</a> in Pro Git
    *             by Scott Chacon and Ben Straub.</p>
+   * @public
    */
   committer?: UserInfo;
 
   /**
-   * @public
    * <p>Any other data associated with the specified commit.</p>
+   * @public
    */
   additionalData?: string;
 }
 
 /**
- * @public
  * <p>Returns information about errors in a BatchGetCommits operation.</p>
+ * @public
  */
 export interface BatchGetCommitsError {
   /**
-   * @public
    * <p>A commit ID that either could not be found or was not in a valid format.</p>
+   * @public
    */
   commitId?: string;
 
   /**
-   * @public
    * <p>An error code that specifies whether the commit ID was not valid or not found.</p>
+   * @public
    */
   errorCode?: string;
 
   /**
-   * @public
    * <p>An error message that provides detail about why the commit ID either was not found or was not valid.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -1750,23 +1750,23 @@ export interface BatchGetCommitsError {
  */
 export interface BatchGetCommitsOutput {
   /**
-   * @public
    * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
+   * @public
    */
   commits?: Commit[];
 
   /**
-   * @public
    * <p>Returns any commit IDs for which information could not be found. For example, if one
    *             of the commit IDs was a shortened SHA ID or that commit was not found in the specified
    *             repository, the ID returns an error object with more information.</p>
+   * @public
    */
   errors?: BatchGetCommitsError[];
 }
 
 /**
- * @public
  * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
+ * @public
  */
 export class CommitIdsLimitExceededException extends __BaseException {
   readonly name: "CommitIdsLimitExceededException" = "CommitIdsLimitExceededException";
@@ -1785,8 +1785,8 @@ export class CommitIdsLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
+ * @public
  */
 export class CommitIdsListRequiredException extends __BaseException {
   readonly name: "CommitIdsListRequiredException" = "CommitIdsListRequiredException";
@@ -1805,16 +1805,16 @@ export class CommitIdsListRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the input of a batch get repositories operation.</p>
+ * @public
  */
 export interface BatchGetRepositoriesInput {
   /**
-   * @public
    * <p>The names of the repositories to get information about.</p>
    *          <note>
    *             <p>The length constraint limit is for each string in the array. The array itself can be empty.</p>
    *          </note>
+   * @public
    */
   repositoryNames: string[] | undefined;
 }
@@ -1839,134 +1839,134 @@ export type BatchGetRepositoriesErrorCodeEnum =
   (typeof BatchGetRepositoriesErrorCodeEnum)[keyof typeof BatchGetRepositoriesErrorCodeEnum];
 
 /**
- * @public
  * <p>Returns information about errors in a BatchGetRepositories operation.</p>
+ * @public
  */
 export interface BatchGetRepositoriesError {
   /**
-   * @public
    * <p>The ID of a repository that either could not be found or was not in a valid state.</p>
+   * @public
    */
   repositoryId?: string;
 
   /**
-   * @public
    * <p>The name of a repository that either could not be found or was not in a valid state.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>An error code that specifies the type of failure.</p>
+   * @public
    */
   errorCode?: BatchGetRepositoriesErrorCodeEnum;
 
   /**
-   * @public
    * <p>An error message that provides detail about why the repository either was not found or was not in a valid state.</p>
+   * @public
    */
   errorMessage?: string;
 }
 
 /**
- * @public
  * <p>Information about a repository.</p>
+ * @public
  */
 export interface RepositoryMetadata {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account associated with the repository.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The ID of the repository.</p>
+   * @public
    */
   repositoryId?: string;
 
   /**
-   * @public
    * <p>The repository's name.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>A comment or description about the repository.</p>
+   * @public
    */
   repositoryDescription?: string;
 
   /**
-   * @public
    * <p>The repository's default branch name.</p>
+   * @public
    */
   defaultBranch?: string;
 
   /**
-   * @public
    * <p>The date and time the repository was last modified, in timestamp format.</p>
+   * @public
    */
   lastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The date and time the repository was created, in timestamp format.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The URL to use for cloning the repository over HTTPS.</p>
+   * @public
    */
   cloneUrlHttp?: string;
 
   /**
-   * @public
    * <p>The URL to use for cloning the repository over SSH.</p>
+   * @public
    */
   cloneUrlSsh?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the repository.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The ID of the Key Management Service encryption key used to encrypt and decrypt the repository.</p>
+   * @public
    */
   kmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>Represents the output of a batch get repositories operation.</p>
+ * @public
  */
 export interface BatchGetRepositoriesOutput {
   /**
-   * @public
    * <p>A list of repositories returned by the batch get repositories operation.</p>
+   * @public
    */
   repositories?: RepositoryMetadata[];
 
   /**
-   * @public
    * <p>Returns a list of repository names for which information could not be found.</p>
+   * @public
    */
   repositoriesNotFound?: string[];
 
   /**
-   * @public
    * <p>Returns information about any errors returned when attempting to retrieve information about the repositories.</p>
+   * @public
    */
   errors?: BatchGetRepositoriesError[];
 }
 
 /**
- * @public
  * <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
+ * @public
  */
 export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseException {
   readonly name: "BeforeCommitIdAndAfterCommitIdAreSameException" = "BeforeCommitIdAndAfterCommitIdAreSameException";
@@ -1985,8 +1985,8 @@ export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseExcept
 }
 
 /**
- * @public
  * <p>The specified blob does not exist.</p>
+ * @public
  */
 export class BlobIdDoesNotExistException extends __BaseException {
   readonly name: "BlobIdDoesNotExistException" = "BlobIdDoesNotExistException";
@@ -2005,8 +2005,8 @@ export class BlobIdDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A blob ID is required, but was not specified.</p>
+ * @public
  */
 export class BlobIdRequiredException extends __BaseException {
   readonly name: "BlobIdRequiredException" = "BlobIdRequiredException";
@@ -2025,24 +2025,23 @@ export class BlobIdRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about a specific Git blob object.</p>
+ * @public
  */
 export interface BlobMetadata {
   /**
-   * @public
    * <p>The full ID of the blob.</p>
+   * @public
    */
   blobId?: string;
 
   /**
-   * @public
    * <p>The path to the blob and associated file name, if any.</p>
+   * @public
    */
   path?: string;
 
   /**
-   * @public
    * <p>The file mode permissions of the blob. File mode permission codes include:</p>
    *          <ul>
    *             <li>
@@ -2062,13 +2061,14 @@ export interface BlobMetadata {
    *                   <code>120000</code> indicates a symlink</p>
    *             </li>
    *          </ul>
+   * @public
    */
   mode?: string;
 }
 
 /**
- * @public
  * <p>The specified branch does not exist.</p>
+ * @public
  */
 export class BranchDoesNotExistException extends __BaseException {
   readonly name: "BranchDoesNotExistException" = "BranchDoesNotExistException";
@@ -2087,28 +2087,28 @@ export class BranchDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about a branch.</p>
+ * @public
  */
 export interface BranchInfo {
   /**
-   * @public
    * <p>The name of the branch.</p>
+   * @public
    */
   branchName?: string;
 
   /**
-   * @public
    * <p>The ID of the last commit made to the branch.</p>
+   * @public
    */
   commitId?: string;
 }
 
 /**
- * @public
  * <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name.
  *
  *             Branch names must be unique.</p>
+ * @public
  */
 export class BranchNameExistsException extends __BaseException {
   readonly name: "BranchNameExistsException" = "BranchNameExistsException";
@@ -2127,9 +2127,9 @@ export class BranchNameExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+ * @public
  */
 export class BranchNameIsTagNameException extends __BaseException {
   readonly name: "BranchNameIsTagNameException" = "BranchNameIsTagNameException";
@@ -2148,8 +2148,8 @@ export class BranchNameIsTagNameException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A branch name is required, but was not specified.</p>
+ * @public
  */
 export class BranchNameRequiredException extends __BaseException {
   readonly name: "BranchNameRequiredException" = "BranchNameRequiredException";
@@ -2168,9 +2168,9 @@ export class BranchNameRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The approval rule cannot be deleted from the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
+ * @public
  */
 export class CannotDeleteApprovalRuleFromTemplateException extends __BaseException {
   readonly name: "CannotDeleteApprovalRuleFromTemplateException" = "CannotDeleteApprovalRuleFromTemplateException";
@@ -2189,9 +2189,9 @@ export class CannotDeleteApprovalRuleFromTemplateException extends __BaseExcepti
 }
 
 /**
- * @public
  * <p>The approval rule cannot be modified for the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
+ * @public
  */
 export class CannotModifyApprovalRuleFromTemplateException extends __BaseException {
   readonly name: "CannotModifyApprovalRuleFromTemplateException" = "CannotModifyApprovalRuleFromTemplateException";
@@ -2210,12 +2210,12 @@ export class CannotModifyApprovalRuleFromTemplateException extends __BaseExcepti
 }
 
 /**
- * @public
  * <p>A client request token is required. A client request token is an unique,
  *             client-generated idempotency token that, when provided in a request, ensures the request
  *             cannot be repeated with a changed parameter. If a request is received with the same
  *             parameters and a token is included, the request returns information about the initial
  *             request that used that token.</p>
+ * @public
  */
 export class ClientRequestTokenRequiredException extends __BaseException {
   readonly name: "ClientRequestTokenRequiredException" = "ClientRequestTokenRequiredException";
@@ -2238,15 +2238,14 @@ export class ClientRequestTokenRequiredException extends __BaseException {
  */
 export interface CreateApprovalRuleTemplateInput {
   /**
-   * @public
    * <p>The name of the approval rule template. Provide descriptive names, because this name
    *             is applied to the approval rules created automatically in associated
    *             repositories.</p>
+   * @public
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   * @public
    * <p>The content of the approval rule that is created on pull requests in associated
    *             repositories. If you specify one or more destination references (branches), approval
    *             rules are created in an associated repository only if their destination references
@@ -2290,14 +2289,15 @@ export interface CreateApprovalRuleTemplateInput {
    *             <p>For more information about IAM ARNs, wildcards, and formats, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *                     Identifiers</a> in the <i>IAM User Guide</i>.</p>
    *          </note>
+   * @public
    */
   approvalRuleTemplateContent: string | undefined;
 
   /**
-   * @public
    * <p>The description of the approval rule template. Consider providing a description that
    *             explains what this template does and when it might be appropriate to associate it with
    *             repositories.</p>
+   * @public
    */
   approvalRuleTemplateDescription?: string;
 }
@@ -2307,15 +2307,15 @@ export interface CreateApprovalRuleTemplateInput {
  */
 export interface CreateApprovalRuleTemplateOutput {
   /**
-   * @public
    * <p>The content and structure of the created approval rule template.</p>
+   * @public
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
 
 /**
- * @public
  * <p>The content of the approval rule template is not valid.</p>
+ * @public
  */
 export class InvalidApprovalRuleTemplateContentException extends __BaseException {
   readonly name: "InvalidApprovalRuleTemplateContentException" = "InvalidApprovalRuleTemplateContentException";
@@ -2334,10 +2334,10 @@ export class InvalidApprovalRuleTemplateContentException extends __BaseException
 }
 
 /**
- * @public
  * <p>The description for the approval rule template is not valid because it exceeds the
  *             maximum characters allowed for a description. For more information about limits in CodeCommit,
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ * @public
  */
 export class InvalidApprovalRuleTemplateDescriptionException extends __BaseException {
   readonly name: "InvalidApprovalRuleTemplateDescriptionException" = "InvalidApprovalRuleTemplateDescriptionException";
@@ -2356,8 +2356,8 @@ export class InvalidApprovalRuleTemplateDescriptionException extends __BaseExcep
 }
 
 /**
- * @public
  * <p>The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region. </p>
+ * @public
  */
 export class NumberOfRuleTemplatesExceededException extends __BaseException {
   readonly name: "NumberOfRuleTemplatesExceededException" = "NumberOfRuleTemplatesExceededException";
@@ -2376,8 +2376,8 @@ export class NumberOfRuleTemplatesExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A commit ID was not specified.</p>
+ * @public
  */
 export class CommitIdRequiredException extends __BaseException {
   readonly name: "CommitIdRequiredException" = "CommitIdRequiredException";
@@ -2396,32 +2396,32 @@ export class CommitIdRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the input of a create branch operation.</p>
+ * @public
  */
 export interface CreateBranchInput {
   /**
-   * @public
    * <p>The name of the repository in which you want to create the new branch.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the new branch to create.</p>
+   * @public
    */
   branchName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the commit to point the new branch to.</p>
+   * @public
    */
   commitId: string | undefined;
 }
 
 /**
- * @public
  * <p>The specified reference name is not valid.</p>
+ * @public
  */
 export class InvalidBranchNameException extends __BaseException {
   readonly name: "InvalidBranchNameException" = "InvalidBranchNameException";
@@ -2440,8 +2440,8 @@ export class InvalidBranchNameException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified commit ID is not valid.</p>
+ * @public
  */
 export class InvalidCommitIdException extends __BaseException {
   readonly name: "InvalidCommitIdException" = "InvalidCommitIdException";
@@ -2460,8 +2460,8 @@ export class InvalidCommitIdException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit message is too long. Provide a shorter string. </p>
+ * @public
  */
 export class CommitMessageLengthExceededException extends __BaseException {
   readonly name: "CommitMessageLengthExceededException" = "CommitMessageLengthExceededException";
@@ -2480,80 +2480,80 @@ export class CommitMessageLengthExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A file that is deleted as part of a commit.</p>
+ * @public
  */
 export interface DeleteFileEntry {
   /**
-   * @public
    * <p>The full path of the file to be deleted, including the name of the file.</p>
+   * @public
    */
   filePath: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about a source file that is part of changes made in a commit.</p>
+ * @public
  */
 export interface SourceFileSpecifier {
   /**
-   * @public
    * <p>The full path to the file, including the name of the file.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>Whether to remove the source file from the parent commit.</p>
+   * @public
    */
   isMove?: boolean;
 }
 
 /**
- * @public
  * <p>Information about a file added or updated as part of a commit.</p>
+ * @public
  */
 export interface PutFileEntry {
   /**
-   * @public
    * <p>The full path to the file in the repository, including the name of the file.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
+   * @public
    */
   fileMode?: FileModeTypeEnum;
 
   /**
-   * @public
    * <p>The content of the file, if a source file is not specified.</p>
+   * @public
    */
   fileContent?: Uint8Array;
 
   /**
-   * @public
    * <p>The name and full path of the file that contains the changes you want to make as part of the commit,
    *         if you are not providing the file content directly.</p>
+   * @public
    */
   sourceFile?: SourceFileSpecifier;
 }
 
 /**
- * @public
  * <p>Information about the file mode changes.</p>
+ * @public
  */
 export interface SetFileModeEntry {
   /**
-   * @public
    * <p>The full path to the file, including the name of the file.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The file mode for the file.</p>
+   * @public
    */
   fileMode: FileModeTypeEnum | undefined;
 }
@@ -2563,92 +2563,92 @@ export interface SetFileModeEntry {
  */
 export interface CreateCommitInput {
   /**
-   * @public
    * <p>The name of the repository where you create the commit.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the branch where you create the commit.</p>
+   * @public
    */
   branchName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the commit that is the parent of the commit you create. Not required if this
    *             is an empty repository.</p>
+   * @public
    */
   parentCommitId?: string;
 
   /**
-   * @public
    * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
+   * @public
    */
   authorName?: string;
 
   /**
-   * @public
    * <p>The email address of the person who created the commit.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>The commit message you want to include in the commit. Commit messages are limited to
    *             256 KB. If no message is specified, a default message is used.</p>
+   * @public
    */
   commitMessage?: string;
 
   /**
-   * @public
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If true, a ..gitkeep file is created for empty folders.
    *             The default is false.</p>
+   * @public
    */
   keepEmptyFolders?: boolean;
 
   /**
-   * @public
    * <p>The files to add or update in this commit.</p>
+   * @public
    */
   putFiles?: PutFileEntry[];
 
   /**
-   * @public
    * <p>The files to delete in this commit. These files still exist in earlier commits.</p>
+   * @public
    */
   deleteFiles?: DeleteFileEntry[];
 
   /**
-   * @public
    * <p>The file modes to update for files in this commit.</p>
+   * @public
    */
   setFileModes?: SetFileModeEntry[];
 }
 
 /**
- * @public
  * <p>A file to be added, updated, or deleted as part of a commit.</p>
+ * @public
  */
 export interface FileMetadata {
   /**
-   * @public
    * <p>The full path to the file to be added or updated, including the name of the
    *             file.</p>
+   * @public
    */
   absolutePath?: string;
 
   /**
-   * @public
    * <p>The blob ID that contains the file information.</p>
+   * @public
    */
   blobId?: string;
 
   /**
-   * @public
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
+   * @public
    */
   fileMode?: FileModeTypeEnum;
 }
@@ -2658,40 +2658,40 @@ export interface FileMetadata {
  */
 export interface CreateCommitOutput {
   /**
-   * @public
    * <p>The full commit ID of the commit that contains your committed file changes.</p>
+   * @public
    */
   commitId?: string;
 
   /**
-   * @public
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.</p>
+   * @public
    */
   treeId?: string;
 
   /**
-   * @public
    * <p>The files added as part of the committed file changes.</p>
+   * @public
    */
   filesAdded?: FileMetadata[];
 
   /**
-   * @public
    * <p>The files updated as part of the commited file changes.</p>
+   * @public
    */
   filesUpdated?: FileMetadata[];
 
   /**
-   * @public
    * <p>The files deleted as part of the committed file changes.</p>
+   * @public
    */
   filesDeleted?: FileMetadata[];
 }
 
 /**
- * @public
  * <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
  *         Either provide a different name for the file, or specify a different path for the file.</p>
+ * @public
  */
 export class DirectoryNameConflictsWithFileNameException extends __BaseException {
   readonly name: "DirectoryNameConflictsWithFileNameException" = "DirectoryNameConflictsWithFileNameException";
@@ -2710,10 +2710,10 @@ export class DirectoryNameConflictsWithFileNameException extends __BaseException
 }
 
 /**
- * @public
  * <p>The commit cannot be created because both a source file and file content have been
  *             specified for the same file. You cannot provide both. Either specify a source file or
  *             provide the file content directly.</p>
+ * @public
  */
 export class FileContentAndSourceFileSpecifiedException extends __BaseException {
   readonly name: "FileContentAndSourceFileSpecifiedException" = "FileContentAndSourceFileSpecifiedException";
@@ -2732,10 +2732,10 @@ export class FileContentAndSourceFileSpecifiedException extends __BaseException 
 }
 
 /**
- * @public
  * <p>The file cannot be added because it is too large. The maximum file size is 6 MB, and
  *             the combined file content change size is 7 MB. Consider making these changes using a Git
  *             client.</p>
+ * @public
  */
 export class FileContentSizeLimitExceededException extends __BaseException {
   readonly name: "FileContentSizeLimitExceededException" = "FileContentSizeLimitExceededException";
@@ -2754,9 +2754,9 @@ export class FileContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified file does not exist. Verify that you have used the correct file name,
  *             full path, and extension.</p>
+ * @public
  */
 export class FileDoesNotExistException extends __BaseException {
   readonly name: "FileDoesNotExistException" = "FileDoesNotExistException";
@@ -2775,8 +2775,8 @@ export class FileDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
+ * @public
  */
 export class FileEntryRequiredException extends __BaseException {
   readonly name: "FileEntryRequiredException" = "FileEntryRequiredException";
@@ -2795,9 +2795,9 @@ export class FileEntryRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit cannot be created because no file mode has been specified. A file mode is
  *             required to update mode permissions for a file.</p>
+ * @public
  */
 export class FileModeRequiredException extends __BaseException {
   readonly name: "FileModeRequiredException" = "FileModeRequiredException";
@@ -2816,9 +2816,9 @@ export class FileModeRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
  *         another name for the file, or add the file in a directory that does not match the file name.</p>
+ * @public
  */
 export class FileNameConflictsWithDirectoryNameException extends __BaseException {
   readonly name: "FileNameConflictsWithDirectoryNameException" = "FileNameConflictsWithDirectoryNameException";
@@ -2837,9 +2837,9 @@ export class FileNameConflictsWithDirectoryNameException extends __BaseException
 }
 
 /**
- * @public
  * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
  *         have valid file paths that do not point to a submodule.</p>
+ * @public
  */
 export class FilePathConflictsWithSubmodulePathException extends __BaseException {
   readonly name: "FilePathConflictsWithSubmodulePathException" = "FilePathConflictsWithSubmodulePathException";
@@ -2858,10 +2858,10 @@ export class FilePathConflictsWithSubmodulePathException extends __BaseException
 }
 
 /**
- * @public
  * <p>The commit cannot be created because at least one of the overall changes in the commit results in a
  *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
  *         or split the changes across multiple folders.</p>
+ * @public
  */
 export class FolderContentSizeLimitExceededException extends __BaseException {
   readonly name: "FolderContentSizeLimitExceededException" = "FolderContentSizeLimitExceededException";
@@ -2880,8 +2880,8 @@ export class FolderContentSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified deletion parameter is not valid.</p>
+ * @public
  */
 export class InvalidDeletionParameterException extends __BaseException {
   readonly name: "InvalidDeletionParameterException" = "InvalidDeletionParameterException";
@@ -2900,9 +2900,9 @@ export class InvalidDeletionParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
  *         allowed for an email address.</p>
+ * @public
  */
 export class InvalidEmailException extends __BaseException {
   readonly name: "InvalidEmailException" = "InvalidEmailException";
@@ -2921,8 +2921,8 @@ export class InvalidEmailException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
+ * @public
  */
 export class InvalidFileModeException extends __BaseException {
   readonly name: "InvalidFileModeException" = "InvalidFileModeException";
@@ -2941,9 +2941,9 @@ export class InvalidFileModeException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
  *         want to add or update a file.</p>
+ * @public
  */
 export class InvalidParentCommitIdException extends __BaseException {
   readonly name: "InvalidParentCommitIdException" = "InvalidParentCommitIdException";
@@ -2962,8 +2962,8 @@ export class InvalidParentCommitIdException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified path is not valid.</p>
+ * @public
  */
 export class InvalidPathException extends __BaseException {
   readonly name: "InvalidPathException" = "InvalidPathException";
@@ -2982,9 +2982,9 @@ export class InvalidPathException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
  *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
+ * @public
  */
 export class MaximumFileEntriesExceededException extends __BaseException {
   readonly name: "MaximumFileEntriesExceededException" = "MaximumFileEntriesExceededException";
@@ -3003,8 +3003,8 @@ export class MaximumFileEntriesExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
+ * @public
  */
 export class NameLengthExceededException extends __BaseException {
   readonly name: "NameLengthExceededException" = "NameLengthExceededException";
@@ -3023,8 +3023,8 @@ export class NameLengthExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
+ * @public
  */
 export class NoChangeException extends __BaseException {
   readonly name: "NoChangeException" = "NoChangeException";
@@ -3043,8 +3043,8 @@ export class NoChangeException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
+ * @public
  */
 export class ParentCommitDoesNotExistException extends __BaseException {
   readonly name: "ParentCommitDoesNotExistException" = "ParentCommitDoesNotExistException";
@@ -3063,9 +3063,9 @@ export class ParentCommitDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
  *         of the branch, use <a>GetBranch</a>.</p>
+ * @public
  */
 export class ParentCommitIdOutdatedException extends __BaseException {
   readonly name: "ParentCommitIdOutdatedException" = "ParentCommitIdOutdatedException";
@@ -3084,9 +3084,9 @@ export class ParentCommitIdOutdatedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
  *         (for example, git pull or git log).</p>
+ * @public
  */
 export class ParentCommitIdRequiredException extends __BaseException {
   readonly name: "ParentCommitIdRequiredException" = "ParentCommitIdRequiredException";
@@ -3105,8 +3105,8 @@ export class ParentCommitIdRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The folderPath for a location cannot be null.</p>
+ * @public
  */
 export class PathRequiredException extends __BaseException {
   readonly name: "PathRequiredException" = "PathRequiredException";
@@ -3125,8 +3125,8 @@ export class PathRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
+ * @public
  */
 export class PutFileEntryConflictException extends __BaseException {
   readonly name: "PutFileEntryConflictException" = "PutFileEntryConflictException";
@@ -3145,8 +3145,8 @@ export class PutFileEntryConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
+ * @public
  */
 export class RestrictedSourceFileException extends __BaseException {
   readonly name: "RestrictedSourceFileException" = "RestrictedSourceFileException";
@@ -3165,10 +3165,10 @@ export class RestrictedSourceFileException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example,
  *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
  *         file as part of the same commit.</p>
+ * @public
  */
 export class SamePathRequestException extends __BaseException {
   readonly name: "SamePathRequestException" = "SamePathRequestException";
@@ -3187,8 +3187,8 @@ export class SamePathRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
+ * @public
  */
 export class SourceFileOrContentRequiredException extends __BaseException {
   readonly name: "SourceFileOrContentRequiredException" = "SourceFileOrContentRequiredException";
@@ -3207,26 +3207,26 @@ export class SourceFileOrContentRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about a target for a pull request.</p>
+ * @public
  */
 export interface Target {
   /**
-   * @public
    * <p>The name of the repository that contains the pull request.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
+   * @public
    */
   sourceReference: string | undefined;
 
   /**
-   * @public
    * <p>The branch of the repository where the pull request changes are merged. Also known as
    *             the destination branch.</p>
+   * @public
    */
   destinationReference?: string;
 }
@@ -3236,28 +3236,27 @@ export interface Target {
  */
 export interface CreatePullRequestInput {
   /**
-   * @public
    * <p>The title of the pull request. This title is used to identify the pull request to
    *             other users in the repository.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>A description of the pull request.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The targets for the pull request, including the source of the code to be reviewed (the
    *             source branch) and the destination where the creator of the pull request intends the
    *             code to be merged after the pull request is closed (the destination branch).</p>
+   * @public
    */
   targets: Target[] | undefined;
 
   /**
-   * @public
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
@@ -3266,6 +3265,7 @@ export interface CreatePullRequestInput {
    *             <p>The Amazon Web ServicesSDKs prepopulate client request tokens. If you are using an Amazon Web ServicesSDK, an
    *                 idempotency token is created for you.</p>
    *          </note>
+   * @public
    */
   clientRequestToken?: string;
 }
@@ -3285,158 +3285,158 @@ export const PullRequestStatusEnum = {
 export type PullRequestStatusEnum = (typeof PullRequestStatusEnum)[keyof typeof PullRequestStatusEnum];
 
 /**
- * @public
  * <p>Returns information about a merge or potential merge between a source reference and a destination reference in a pull request.</p>
+ * @public
  */
 export interface MergeMetadata {
   /**
-   * @public
    * <p>A Boolean value indicating whether the merge has been made.</p>
+   * @public
    */
   isMerged?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user who merged the branches.</p>
+   * @public
    */
   mergedBy?: string;
 
   /**
-   * @public
    * <p>The commit ID for the merge commit, if any.</p>
+   * @public
    */
   mergeCommitId?: string;
 
   /**
-   * @public
    * <p>The merge strategy used in the merge.</p>
+   * @public
    */
   mergeOption?: MergeOptionTypeEnum;
 }
 
 /**
- * @public
  * <p>Returns information about a pull request target.</p>
+ * @public
  */
 export interface PullRequestTarget {
   /**
-   * @public
    * <p>The name of the repository that contains the pull request source and destination branches.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
+   * @public
    */
   sourceReference?: string;
 
   /**
-   * @public
    * <p>The branch of the repository where the pull request changes are merged. Also known as
    *             the destination branch. </p>
+   * @public
    */
   destinationReference?: string;
 
   /**
-   * @public
    * <p>The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.</p>
+   * @public
    */
   destinationCommit?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the tip of the source branch used to create the pull request. If
    *             the pull request branch is updated by a push while the pull request is open, the commit
    *             ID changes to reflect the new tip of the branch.</p>
+   * @public
    */
   sourceCommit?: string;
 
   /**
-   * @public
    * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+   * @public
    */
   mergeBase?: string;
 
   /**
-   * @public
    * <p>Returns metadata about the state of the merge, including whether the merge has been made.</p>
+   * @public
    */
   mergeMetadata?: MergeMetadata;
 }
 
 /**
- * @public
  * <p>Returns information about a pull request.</p>
+ * @public
  */
 export interface PullRequest {
   /**
-   * @public
    * <p>The system-generated ID of the pull request. </p>
+   * @public
    */
   pullRequestId?: string;
 
   /**
-   * @public
    * <p>The user-defined title of the pull request. This title is displayed in the list of
    *             pull requests to other repository users.</p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The day and time of the last user or system activity on the pull request, in timestamp format.</p>
+   * @public
    */
   lastActivityDate?: Date;
 
   /**
-   * @public
    * <p>The date and time the pull request was originally created, in timestamp format.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The status of the pull request. Pull request status can only change from <code>OPEN</code> to <code>CLOSED</code>.</p>
+   * @public
    */
   pullRequestStatus?: PullRequestStatusEnum;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user who created the pull request.</p>
+   * @public
    */
   authorArn?: string;
 
   /**
-   * @public
    * <p>The targets of the pull request, including the source branch and destination branch for the pull request.</p>
+   * @public
    */
   pullRequestTargets?: PullRequestTarget[];
 
   /**
-   * @public
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
+   * @public
    */
   clientRequestToken?: string;
 
   /**
-   * @public
    * <p>The system-generated revision ID for the pull request.</p>
+   * @public
    */
   revisionId?: string;
 
   /**
-   * @public
    * <p>The approval rules applied to the pull request.</p>
+   * @public
    */
   approvalRules?: ApprovalRule[];
 }
@@ -3446,16 +3446,16 @@ export interface PullRequest {
  */
 export interface CreatePullRequestOutput {
   /**
-   * @public
    * <p>Information about the newly created pull request.</p>
+   * @public
    */
   pullRequest: PullRequest | undefined;
 }
 
 /**
- * @public
  * <p>The client request token is not valid. Either the token is not in a valid format, or
  *             the token has been used in a previous request and cannot be reused.</p>
+ * @public
  */
 export class IdempotencyParameterMismatchException extends __BaseException {
   readonly name: "IdempotencyParameterMismatchException" = "IdempotencyParameterMismatchException";
@@ -3474,8 +3474,8 @@ export class IdempotencyParameterMismatchException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The client request token is not valid.</p>
+ * @public
  */
 export class InvalidClientRequestTokenException extends __BaseException {
   readonly name: "InvalidClientRequestTokenException" = "InvalidClientRequestTokenException";
@@ -3494,9 +3494,9 @@ export class InvalidClientRequestTokenException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
  *             characters.</p>
+ * @public
  */
 export class InvalidDescriptionException extends __BaseException {
   readonly name: "InvalidDescriptionException" = "InvalidDescriptionException";
@@ -3515,10 +3515,10 @@ export class InvalidDescriptionException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified reference name format is not valid. Reference names must conform to the
  *             Git references format (for example, refs/heads/main). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
+ * @public
  */
 export class InvalidReferenceNameException extends __BaseException {
   readonly name: "InvalidReferenceNameException" = "InvalidReferenceNameException";
@@ -3537,8 +3537,8 @@ export class InvalidReferenceNameException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
+ * @public
  */
 export class InvalidTargetException extends __BaseException {
   readonly name: "InvalidTargetException" = "InvalidTargetException";
@@ -3557,9 +3557,9 @@ export class InvalidTargetException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
  *             the repository name, source branch, and destination branch for a pull request.</p>
+ * @public
  */
 export class InvalidTargetsException extends __BaseException {
   readonly name: "InvalidTargetsException" = "InvalidTargetsException";
@@ -3578,8 +3578,8 @@ export class InvalidTargetsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
+ * @public
  */
 export class InvalidTitleException extends __BaseException {
   readonly name: "InvalidTitleException" = "InvalidTitleException";
@@ -3598,9 +3598,9 @@ export class InvalidTitleException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You cannot create the pull request because the repository has too many open pull requests.
  *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
+ * @public
  */
 export class MaximumOpenPullRequestsExceededException extends __BaseException {
   readonly name: "MaximumOpenPullRequestsExceededException" = "MaximumOpenPullRequestsExceededException";
@@ -3619,8 +3619,8 @@ export class MaximumOpenPullRequestsExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
+ * @public
  */
 export class MultipleRepositoriesInPullRequestException extends __BaseException {
   readonly name: "MultipleRepositoriesInPullRequestException" = "MultipleRepositoriesInPullRequestException";
@@ -3639,8 +3639,8 @@ export class MultipleRepositoriesInPullRequestException extends __BaseException 
 }
 
 /**
- * @public
  * <p>The specified reference does not exist. You must provide a full commit ID.</p>
+ * @public
  */
 export class ReferenceDoesNotExistException extends __BaseException {
   readonly name: "ReferenceDoesNotExistException" = "ReferenceDoesNotExistException";
@@ -3659,8 +3659,8 @@ export class ReferenceDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A reference name is required, but none was provided.</p>
+ * @public
  */
 export class ReferenceNameRequiredException extends __BaseException {
   readonly name: "ReferenceNameRequiredException" = "ReferenceNameRequiredException";
@@ -3679,8 +3679,8 @@ export class ReferenceNameRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified reference is not a supported type. </p>
+ * @public
  */
 export class ReferenceTypeNotSupportedException extends __BaseException {
   readonly name: "ReferenceTypeNotSupportedException" = "ReferenceTypeNotSupportedException";
@@ -3699,9 +3699,9 @@ export class ReferenceTypeNotSupportedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The source branch and destination branch for the pull request are the same. You must
  *             specify different branches for the source and destination.</p>
+ * @public
  */
 export class SourceAndDestinationAreSameException extends __BaseException {
   readonly name: "SourceAndDestinationAreSameException" = "SourceAndDestinationAreSameException";
@@ -3720,8 +3720,8 @@ export class SourceAndDestinationAreSameException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
+ * @public
  */
 export class TargetRequiredException extends __BaseException {
   readonly name: "TargetRequiredException" = "TargetRequiredException";
@@ -3740,8 +3740,8 @@ export class TargetRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An array of target objects is required. It cannot be empty or null.</p>
+ * @public
  */
 export class TargetsRequiredException extends __BaseException {
   readonly name: "TargetsRequiredException" = "TargetsRequiredException";
@@ -3760,8 +3760,8 @@ export class TargetsRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A pull request title is required. It cannot be empty or null.</p>
+ * @public
  */
 export class TitleRequiredException extends __BaseException {
   readonly name: "TitleRequiredException" = "TitleRequiredException";
@@ -3784,19 +3784,18 @@ export class TitleRequiredException extends __BaseException {
  */
 export interface CreatePullRequestApprovalRuleInput {
   /**
-   * @public
    * <p>The system-generated ID of the pull request for which you want to create the approval rule.</p>
+   * @public
    */
   pullRequestId: string | undefined;
 
   /**
-   * @public
    * <p>The name for the approval rule.</p>
+   * @public
    */
   approvalRuleName: string | undefined;
 
   /**
-   * @public
    * <p>The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information
    *         about approval pools, see the CodeCommit User Guide.</p>
    *          <note>
@@ -3839,6 +3838,7 @@ export interface CreatePullRequestApprovalRuleInput {
    *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *                 Identifiers</a> in the <i>IAM User Guide</i>.</p>
    *          </note>
+   * @public
    */
   approvalRuleContent: string | undefined;
 }
@@ -3848,15 +3848,15 @@ export interface CreatePullRequestApprovalRuleInput {
  */
 export interface CreatePullRequestApprovalRuleOutput {
   /**
-   * @public
    * <p>Information about the created approval rule.</p>
+   * @public
    */
   approvalRule: ApprovalRule | undefined;
 }
 
 /**
- * @public
  * <p>The content for the approval rule is not valid.</p>
+ * @public
  */
 export class InvalidApprovalRuleContentException extends __BaseException {
   readonly name: "InvalidApprovalRuleContentException" = "InvalidApprovalRuleContentException";
@@ -3875,8 +3875,8 @@ export class InvalidApprovalRuleContentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The name for the approval rule is not valid.</p>
+ * @public
  */
 export class InvalidApprovalRuleNameException extends __BaseException {
   readonly name: "InvalidApprovalRuleNameException" = "InvalidApprovalRuleNameException";
@@ -3895,8 +3895,8 @@ export class InvalidApprovalRuleNameException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ * @public
  */
 export class InvalidPullRequestIdException extends __BaseException {
   readonly name: "InvalidPullRequestIdException" = "InvalidPullRequestIdException";
@@ -3915,8 +3915,8 @@ export class InvalidPullRequestIdException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
+ * @public
  */
 export class NumberOfRulesExceededException extends __BaseException {
   readonly name: "NumberOfRulesExceededException" = "NumberOfRulesExceededException";
@@ -3935,8 +3935,8 @@ export class NumberOfRulesExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The pull request status cannot be updated because it is already closed.</p>
+ * @public
  */
 export class PullRequestAlreadyClosedException extends __BaseException {
   readonly name: "PullRequestAlreadyClosedException" = "PullRequestAlreadyClosedException";
@@ -3955,8 +3955,8 @@ export class PullRequestAlreadyClosedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ * @public
  */
 export class PullRequestDoesNotExistException extends __BaseException {
   readonly name: "PullRequestDoesNotExistException" = "PullRequestDoesNotExistException";
@@ -3975,8 +3975,8 @@ export class PullRequestDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A pull request ID is required, but none was provided.</p>
+ * @public
  */
 export class PullRequestIdRequiredException extends __BaseException {
   readonly name: "PullRequestIdRequiredException" = "PullRequestIdRequiredException";
@@ -3995,12 +3995,11 @@ export class PullRequestIdRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the input of a create repository operation.</p>
+ * @public
  */
 export interface CreateRepositoryInput {
   /**
-   * @public
    * <p>The name of the new repository to be created.</p>
    *          <note>
    *             <p>The repository name must be unique across the calling Amazon Web Services account. Repository names
@@ -4009,11 +4008,11 @@ export interface CreateRepositoryInput {
    *                     <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>. The
    *                 suffix .git is prohibited.</p>
    *          </note>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>A comment or description about the new repository.</p>
    *          <note>
    *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -4022,41 +4021,42 @@ export interface CreateRepositoryInput {
    *                 HTML-encode the description field in any application that uses this API to display
    *                 the repository description on a webpage.</p>
    *          </note>
+   * @public
    */
   repositoryDescription?: string;
 
   /**
-   * @public
    * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
    *             programmatically retrieve a key ID. For more information about acceptable values for kmsKeyID, see
    *             <a href="https://docs.aws.amazon.com/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
    *             the <i>Key Management Service API Reference</i>.</p>
    *          <p>If no key is specified, the default <code>aws/codecommit</code> Amazon Web Services managed key is used.</p>
+   * @public
    */
   kmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>Represents the output of a create repository operation.</p>
+ * @public
  */
 export interface CreateRepositoryOutput {
   /**
-   * @public
    * <p>Information about the newly created repository.</p>
+   * @public
    */
   repositoryMetadata?: RepositoryMetadata;
 }
 
 /**
- * @public
  * <p>The Key Management Service encryption key is not valid.</p>
+ * @public
  */
 export class EncryptionKeyInvalidIdException extends __BaseException {
   readonly name: "EncryptionKeyInvalidIdException" = "EncryptionKeyInvalidIdException";
@@ -4075,9 +4075,9 @@ export class EncryptionKeyInvalidIdException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not
  *         in a valid state to support the operation.</p>
+ * @public
  */
 export class EncryptionKeyInvalidUsageException extends __BaseException {
   readonly name: "EncryptionKeyInvalidUsageException" = "EncryptionKeyInvalidUsageException";
@@ -4096,8 +4096,8 @@ export class EncryptionKeyInvalidUsageException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified repository description is not valid.</p>
+ * @public
  */
 export class InvalidRepositoryDescriptionException extends __BaseException {
   readonly name: "InvalidRepositoryDescriptionException" = "InvalidRepositoryDescriptionException";
@@ -4116,8 +4116,8 @@ export class InvalidRepositoryDescriptionException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+ * @public
  */
 export class InvalidSystemTagUsageException extends __BaseException {
   readonly name: "InvalidSystemTagUsageException" = "InvalidSystemTagUsageException";
@@ -4136,8 +4136,8 @@ export class InvalidSystemTagUsageException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The map of tags is not valid.</p>
+ * @public
  */
 export class InvalidTagsMapException extends __BaseException {
   readonly name: "InvalidTagsMapException" = "InvalidTagsMapException";
@@ -4156,8 +4156,8 @@ export class InvalidTagsMapException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A repository resource limit was exceeded.</p>
+ * @public
  */
 export class RepositoryLimitExceededException extends __BaseException {
   readonly name: "RepositoryLimitExceededException" = "RepositoryLimitExceededException";
@@ -4176,8 +4176,8 @@ export class RepositoryLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified repository name already exists.</p>
+ * @public
  */
 export class RepositoryNameExistsException extends __BaseException {
   readonly name: "RepositoryNameExistsException" = "RepositoryNameExistsException";
@@ -4196,8 +4196,8 @@ export class RepositoryNameExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The tag policy is not valid.</p>
+ * @public
  */
 export class TagPolicyException extends __BaseException {
   readonly name: "TagPolicyException" = "TagPolicyException";
@@ -4216,8 +4216,8 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -4236,8 +4236,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+ * @public
  */
 export class ConcurrentReferenceUpdateException extends __BaseException {
   readonly name: "ConcurrentReferenceUpdateException" = "ConcurrentReferenceUpdateException";
@@ -4272,56 +4272,56 @@ export const ReplacementTypeEnum = {
 export type ReplacementTypeEnum = (typeof ReplacementTypeEnum)[keyof typeof ReplacementTypeEnum];
 
 /**
- * @public
  * <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
+ * @public
  */
 export interface ReplaceContentEntry {
   /**
-   * @public
    * <p>The path of the conflicting file.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The replacement type to use when determining how to resolve the conflict.</p>
+   * @public
    */
   replacementType: ReplacementTypeEnum | undefined;
 
   /**
-   * @public
    * <p>The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.</p>
+   * @public
    */
   content?: Uint8Array;
 
   /**
-   * @public
    * <p>The file mode to apply during conflict resoltion.</p>
+   * @public
    */
   fileMode?: FileModeTypeEnum;
 }
 
 /**
- * @public
  * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
  *             resolving conflicts during a merge.</p>
+ * @public
  */
 export interface ConflictResolution {
   /**
-   * @public
    * <p>Files to have content replaced as part of the merge conflict resolution.</p>
+   * @public
    */
   replaceContents?: ReplaceContentEntry[];
 
   /**
-   * @public
    * <p>Files to be deleted as part of the merge conflict resolution.</p>
+   * @public
    */
   deleteFiles?: DeleteFileEntry[];
 
   /**
-   * @public
    * <p>File modes that are set as part of the merge conflict resolution.</p>
+   * @public
    */
   setFileModes?: SetFileModeEntry[];
 }
@@ -4331,79 +4331,79 @@ export interface ConflictResolution {
  */
 export interface CreateUnreferencedMergeCommitInput {
   /**
-   * @public
    * <p>The name of the repository where you want to create the unreferenced merge commit.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The merge option or strategy you want to use to merge the code.</p>
+   * @public
    */
   mergeOption: MergeOptionTypeEnum | undefined;
 
   /**
-   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
+   * @public
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
-   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
-   * @public
    * <p>The name of the author who created the unreferenced commit. This information is used
    *             as both the author and committer for the commit.</p>
+   * @public
    */
   authorName?: string;
 
   /**
-   * @public
    * <p>The email address for the person who created the unreferenced commit.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>The commit message for the unreferenced commit.</p>
+   * @public
    */
   commitMessage?: string;
 
   /**
-   * @public
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
    *             changes leave the folders empty. If this is specified as true, a .gitkeep file is
    *             created for empty folders. The default is false.</p>
+   * @public
    */
   keepEmptyFolders?: boolean;
 
   /**
-   * @public
    * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
+   * @public
    */
   conflictResolution?: ConflictResolution;
 }
@@ -4413,21 +4413,21 @@ export interface CreateUnreferencedMergeCommitInput {
  */
 export interface CreateUnreferencedMergeCommitOutput {
   /**
-   * @public
    * <p>The full commit ID of the commit that contains your merge results.</p>
+   * @public
    */
   commitId?: string;
 
   /**
-   * @public
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the merge results.</p>
+   * @public
    */
   treeId?: string;
 }
 
 /**
- * @public
  * <p>The specified conflict resolution list is not valid.</p>
+ * @public
  */
 export class InvalidConflictResolutionException extends __BaseException {
   readonly name: "InvalidConflictResolutionException" = "InvalidConflictResolutionException";
@@ -4446,8 +4446,8 @@ export class InvalidConflictResolutionException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
+ * @public
  */
 export class InvalidReplacementContentException extends __BaseException {
   readonly name: "InvalidReplacementContentException" = "InvalidReplacementContentException";
@@ -4466,8 +4466,8 @@ export class InvalidReplacementContentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
+ * @public
  */
 export class InvalidReplacementTypeException extends __BaseException {
   readonly name: "InvalidReplacementTypeException" = "InvalidReplacementTypeException";
@@ -4486,8 +4486,8 @@ export class InvalidReplacementTypeException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+ * @public
  */
 export class ManualMergeRequiredException extends __BaseException {
   readonly name: "ManualMergeRequiredException" = "ManualMergeRequiredException";
@@ -4506,8 +4506,8 @@ export class ManualMergeRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of allowed conflict resolution entries was exceeded.</p>
+ * @public
  */
 export class MaximumConflictResolutionEntriesExceededException extends __BaseException {
   readonly name: "MaximumConflictResolutionEntriesExceededException" =
@@ -4527,8 +4527,8 @@ export class MaximumConflictResolutionEntriesExceededException extends __BaseExc
 }
 
 /**
- * @public
  * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
+ * @public
  */
 export class MultipleConflictResolutionEntriesException extends __BaseException {
   readonly name: "MultipleConflictResolutionEntriesException" = "MultipleConflictResolutionEntriesException";
@@ -4547,8 +4547,8 @@ export class MultipleConflictResolutionEntriesException extends __BaseException 
 }
 
 /**
- * @public
  * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
+ * @public
  */
 export class ReplacementContentRequiredException extends __BaseException {
   readonly name: "ReplacementContentRequiredException" = "ReplacementContentRequiredException";
@@ -4567,8 +4567,8 @@ export class ReplacementContentRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A replacement type is required.</p>
+ * @public
  */
 export class ReplacementTypeRequiredException extends __BaseException {
   readonly name: "ReplacementTypeRequiredException" = "ReplacementTypeRequiredException";
@@ -4591,8 +4591,8 @@ export class ReplacementTypeRequiredException extends __BaseException {
  */
 export interface DeleteApprovalRuleTemplateInput {
   /**
-   * @public
    * <p>The name of the approval rule template to delete.</p>
+   * @public
    */
   approvalRuleTemplateName: string | undefined;
 }
@@ -4602,16 +4602,16 @@ export interface DeleteApprovalRuleTemplateInput {
  */
 export interface DeleteApprovalRuleTemplateOutput {
   /**
-   * @public
    * <p>The system-generated ID of the deleted approval rule template. If the template has
    *             been previously deleted, the only response is a 200 OK.</p>
+   * @public
    */
   approvalRuleTemplateId: string | undefined;
 }
 
 /**
- * @public
  * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
+ * @public
  */
 export class DefaultBranchCannotBeDeletedException extends __BaseException {
   readonly name: "DefaultBranchCannotBeDeletedException" = "DefaultBranchCannotBeDeletedException";
@@ -4630,38 +4630,38 @@ export class DefaultBranchCannotBeDeletedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the input of a delete branch operation.</p>
+ * @public
  */
 export interface DeleteBranchInput {
   /**
-   * @public
    * <p>The name of the repository that contains the branch to be deleted.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the branch to delete.</p>
+   * @public
    */
   branchName: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the output of a delete branch operation.</p>
+ * @public
  */
 export interface DeleteBranchOutput {
   /**
-   * @public
    * <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
+   * @public
    */
   deletedBranch?: BranchInfo;
 }
 
 /**
- * @public
  * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ * @public
  */
 export class CommentDeletedException extends __BaseException {
   readonly name: "CommentDeletedException" = "CommentDeletedException";
@@ -4680,9 +4680,9 @@ export class CommentDeletedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
  *             then try again.</p>
+ * @public
  */
 export class CommentDoesNotExistException extends __BaseException {
   readonly name: "CommentDoesNotExistException" = "CommentDoesNotExistException";
@@ -4701,8 +4701,8 @@ export class CommentDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The comment ID is missing or null. A comment ID is required.</p>
+ * @public
  */
 export class CommentIdRequiredException extends __BaseException {
   readonly name: "CommentIdRequiredException" = "CommentIdRequiredException";
@@ -4725,78 +4725,78 @@ export class CommentIdRequiredException extends __BaseException {
  */
 export interface DeleteCommentContentInput {
   /**
-   * @public
    * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
    *          or <a>GetCommentsForPullRequest</a>.</p>
+   * @public
    */
   commentId: string | undefined;
 }
 
 /**
- * @public
  * <p>Returns information about a specific comment.</p>
+ * @public
  */
 export interface Comment {
   /**
-   * @public
    * <p>The system-generated comment ID.</p>
+   * @public
    */
   commentId?: string;
 
   /**
-   * @public
    * <p>The content of the comment.</p>
+   * @public
    */
   content?: string;
 
   /**
-   * @public
    * <p>The ID of the comment for which this comment is a reply, if any.</p>
+   * @public
    */
   inReplyTo?: string;
 
   /**
-   * @public
    * <p>The date and time the comment was created, in timestamp format.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The date and time the comment was most recently modified, in timestamp format.</p>
+   * @public
    */
   lastModifiedDate?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the person who posted the comment.</p>
+   * @public
    */
   authorArn?: string;
 
   /**
-   * @public
    * <p>A Boolean value indicating whether the comment has been deleted.</p>
+   * @public
    */
   deleted?: boolean;
 
   /**
-   * @public
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
    *             the request cannot be repeated with a changed parameter. If a request is received with
    *             the same parameters and a token is included, the request returns information about the
    *             initial request that used that token.</p>
+   * @public
    */
   clientRequestToken?: string;
 
   /**
-   * @public
    * <p>The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.</p>
+   * @public
    */
   callerReactions?: string[];
 
   /**
-   * @public
    * <p>A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.</p>
+   * @public
    */
   reactionCounts?: Record<string, number>;
 }
@@ -4806,15 +4806,15 @@ export interface Comment {
  */
 export interface DeleteCommentContentOutput {
   /**
-   * @public
    * <p>Information about the comment you just deleted.</p>
+   * @public
    */
   comment?: Comment;
 }
 
 /**
- * @public
  * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ * @public
  */
 export class InvalidCommentIdException extends __BaseException {
   readonly name: "InvalidCommentIdException" = "InvalidCommentIdException";
@@ -4837,61 +4837,61 @@ export class InvalidCommentIdException extends __BaseException {
  */
 export interface DeleteFileInput {
   /**
-   * @public
    * <p>The name of the repository that contains the file to delete.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the branch where the commit that deletes the file is made.</p>
+   * @public
    */
   branchName: string | undefined;
 
   /**
-   * @public
    * <p>The fully qualified path to the file that to be deleted, including the full name and
    *             extension of that file. For example, /examples/file.md is a fully qualified path to a
    *             file named file.md in a folder named examples.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the commit that is the tip of the branch where you want to create the commit
    *             that deletes the file. This must be the HEAD commit for the branch. The commit that
    *             deletes the file is created from this commit ID.</p>
+   * @public
    */
   parentCommitId: string | undefined;
 
   /**
-   * @public
    * <p>If a file is the only object in the folder or directory, specifies whether to delete
    *             the folder or directory that contains the file. By default, empty folders are deleted.
    *             This includes empty folders that are part of the directory structure. For example, if
    *             the path to a file is dir1/dir2/dir3/dir4, and dir2 and dir3 are empty, deleting the
    *             last file in dir4 also deletes the empty folders dir4, dir3, and dir2.</p>
+   * @public
    */
   keepEmptyFolders?: boolean;
 
   /**
-   * @public
    * <p>The commit message you want to include as part of deleting the file. Commit messages
    *             are limited to 256 KB. If no message is specified, a default message is used.</p>
+   * @public
    */
   commitMessage?: string;
 
   /**
-   * @public
    * <p>The name of the author of the commit that deletes the file. If no name is specified,
    *             the user's ARN is used as the author name and committer name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The email address for the commit that deletes the file. If no email address is
    *             specified, the email address is left blank.</p>
+   * @public
    */
   email?: string;
 }
@@ -4901,27 +4901,27 @@ export interface DeleteFileInput {
  */
 export interface DeleteFileOutput {
   /**
-   * @public
    * <p>The full commit ID of the commit that contains the change that deletes the file.</p>
+   * @public
    */
   commitId: string | undefined;
 
   /**
-   * @public
    * <p>The blob ID removed from the tree as part of deleting the file.</p>
+   * @public
    */
   blobId: string | undefined;
 
   /**
-   * @public
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the delete file change.</p>
+   * @public
    */
   treeId: string | undefined;
 
   /**
-   * @public
    * <p>The fully qualified path to the file to be deleted, including the full name and
    *             extension of that file.</p>
+   * @public
    */
   filePath: string | undefined;
 }
@@ -4931,14 +4931,14 @@ export interface DeleteFileOutput {
  */
 export interface DeletePullRequestApprovalRuleInput {
   /**
-   * @public
    * <p>The system-generated ID of the pull request that contains the approval rule you want to delete.</p>
+   * @public
    */
   pullRequestId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the approval rule you want to delete.</p>
+   * @public
    */
   approvalRuleName: string | undefined;
 }
@@ -4948,36 +4948,36 @@ export interface DeletePullRequestApprovalRuleInput {
  */
 export interface DeletePullRequestApprovalRuleOutput {
   /**
-   * @public
    * <p>The ID of the deleted approval rule. </p>
    *          <note>
    *             <p>If the approval rule was deleted in an earlier API call, the response is 200 OK without
    *                 content.</p>
    *          </note>
+   * @public
    */
   approvalRuleId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the input of a delete repository operation.</p>
+ * @public
  */
 export interface DeleteRepositoryInput {
   /**
-   * @public
    * <p>The name of the repository to delete.</p>
+   * @public
    */
   repositoryName: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the output of a delete repository operation.</p>
+ * @public
  */
 export interface DeleteRepositoryOutput {
   /**
-   * @public
    * <p>The ID of the repository that was deleted.</p>
+   * @public
    */
   repositoryId?: string;
 }
@@ -4987,64 +4987,64 @@ export interface DeleteRepositoryOutput {
  */
 export interface DescribeMergeConflictsInput {
   /**
-   * @public
    * <p>The name of the repository where you want to get information about a merge conflict.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The merge option or strategy you want to use to merge the code.</p>
+   * @public
    */
   mergeOption: MergeOptionTypeEnum | undefined;
 
   /**
-   * @public
    * <p>The maximum number of merge hunks to include in the output.</p>
+   * @public
    */
   maxMergeHunks?: number;
 
   /**
-   * @public
    * <p>The path of the target files used to describe the conflicts. </p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
+   * @public
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
-   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -5054,38 +5054,38 @@ export interface DescribeMergeConflictsInput {
  */
 export interface DescribeMergeConflictsOutput {
   /**
-   * @public
    * <p>Contains metadata about the conflicts found in the merge.</p>
+   * @public
    */
   conflictMetadata: ConflictMetadata | undefined;
 
   /**
-   * @public
    * <p>A list of merge hunks of the differences between the files or lines.</p>
+   * @public
    */
   mergeHunks: MergeHunk[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   destinationCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   sourceCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the merge base.</p>
+   * @public
    */
   baseCommitId?: string;
 }
@@ -5116,208 +5116,208 @@ export type PullRequestEventType = (typeof PullRequestEventType)[keyof typeof Pu
  */
 export interface DescribePullRequestEventsInput {
   /**
-   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
    */
   pullRequestId: string | undefined;
 
   /**
-   * @public
    * <p>Optional. The pull request event type about which you want to return information.</p>
+   * @public
    */
   pullRequestEventType?: PullRequestEventType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
    *             Examples include updating the pull request with more commits or changing the status of a
    *             pull request.</p>
+   * @public
    */
   actorArn?: string;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.
    *             The default is 100 events, which is also the maximum number of events that can be returned in a result.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Metadata about the pull request that is used when comparing the pull request source with its destination.</p>
+ * @public
  */
 export interface PullRequestCreatedEventMetadata {
   /**
-   * @public
    * <p>The name of the repository where the pull request was created.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The commit ID on the source branch used when the pull request was created.</p>
+   * @public
    */
   sourceCommitId?: string;
 
   /**
-   * @public
    * <p>The commit ID of the tip of the branch specified as the destination branch when the pull request was created.</p>
+   * @public
    */
   destinationCommitId?: string;
 
   /**
-   * @public
    * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+   * @public
    */
   mergeBase?: string;
 }
 
 /**
- * @public
  * <p>Returns information about the change in the merge state for a pull request event. </p>
+ * @public
  */
 export interface PullRequestMergedStateChangedEventMetadata {
   /**
-   * @public
    * <p>The name of the repository where the pull request was created.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The name of the branch that the pull request is merged into.</p>
+   * @public
    */
   destinationReference?: string;
 
   /**
-   * @public
    * <p>Information about the merge state change event.</p>
+   * @public
    */
   mergeMetadata?: MergeMetadata;
 }
 
 /**
- * @public
  * <p>Information about an update to the source branch of a pull request.</p>
+ * @public
  */
 export interface PullRequestSourceReferenceUpdatedEventMetadata {
   /**
-   * @public
    * <p>The name of the repository where the pull request was updated.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.</p>
+   * @public
    */
   beforeCommitId?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.</p>
+   * @public
    */
   afterCommitId?: string;
 
   /**
-   * @public
    * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
+   * @public
    */
   mergeBase?: string;
 }
 
 /**
- * @public
  * <p>Information about a change to the status of a pull request.</p>
+ * @public
  */
 export interface PullRequestStatusChangedEventMetadata {
   /**
-   * @public
    * <p>The changed status of the pull request.</p>
+   * @public
    */
   pullRequestStatus?: PullRequestStatusEnum;
 }
 
 /**
- * @public
  * <p>Returns information about a pull request event.</p>
+ * @public
  */
 export interface PullRequestEvent {
   /**
-   * @public
    * <p>The system-generated ID of the pull request.</p>
+   * @public
    */
   pullRequestId?: string;
 
   /**
-   * @public
    * <p>The day and time of the pull request event, in timestamp format.</p>
+   * @public
    */
   eventDate?: Date;
 
   /**
-   * @public
    * <p>The type of the pull request event (for example, a status change event
    *             (PULL_REQUEST_STATUS_CHANGED) or update event
    *             (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).</p>
+   * @public
    */
   pullRequestEventType?: PullRequestEventType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
    *             Examples include updating the pull request with more commits or changing the status of a
    *             pull request.</p>
+   * @public
    */
   actorArn?: string;
 
   /**
-   * @public
    * <p>Information about the source and destination branches for the pull request.</p>
+   * @public
    */
   pullRequestCreatedEventMetadata?: PullRequestCreatedEventMetadata;
 
   /**
-   * @public
    * <p>Information about the change in status for the pull request event.</p>
+   * @public
    */
   pullRequestStatusChangedEventMetadata?: PullRequestStatusChangedEventMetadata;
 
   /**
-   * @public
    * <p>Information about the updated source branch for the pull request event. </p>
+   * @public
    */
   pullRequestSourceReferenceUpdatedEventMetadata?: PullRequestSourceReferenceUpdatedEventMetadata;
 
   /**
-   * @public
    * <p>Information about the change in mergability state for the pull request event.</p>
+   * @public
    */
   pullRequestMergedStateChangedEventMetadata?: PullRequestMergedStateChangedEventMetadata;
 
   /**
-   * @public
    * <p>Information about a pull request event.</p>
+   * @public
    */
   approvalRuleEventMetadata?: ApprovalRuleEventMetadata;
 
   /**
-   * @public
    * <p>Information about an approval state change for a pull request.</p>
+   * @public
    */
   approvalStateChangedEventMetadata?: ApprovalStateChangedEventMetadata;
 
   /**
-   * @public
    * <p>Information about an approval rule override event for a pull request.</p>
+   * @public
    */
   approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata;
 }
@@ -5327,22 +5327,22 @@ export interface PullRequestEvent {
  */
 export interface DescribePullRequestEventsOutput {
   /**
-   * @public
    * <p>Information about the pull request events.</p>
+   * @public
    */
   pullRequestEvents: PullRequestEvent[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
  *             and then try again.</p>
+ * @public
  */
 export class InvalidActorArnException extends __BaseException {
   readonly name: "InvalidActorArnException" = "InvalidActorArnException";
@@ -5361,8 +5361,8 @@ export class InvalidActorArnException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified number of maximum results is not valid.</p>
+ * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
   readonly name: "InvalidMaxResultsException" = "InvalidMaxResultsException";
@@ -5381,8 +5381,8 @@ export class InvalidMaxResultsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The pull request event type is not valid. </p>
+ * @public
  */
 export class InvalidPullRequestEventTypeException extends __BaseException {
   readonly name: "InvalidPullRequestEventTypeException" = "InvalidPullRequestEventTypeException";
@@ -5405,14 +5405,14 @@ export class InvalidPullRequestEventTypeException extends __BaseException {
  */
 export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
   /**
-   * @public
    * <p>The name of the approval rule template to disassociate from a specified repository.</p>
+   * @public
    */
   approvalRuleTemplateName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository you want to disassociate from the template.</p>
+   * @public
    */
   repositoryName: string | undefined;
 }
@@ -5422,46 +5422,46 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
  */
 export interface EvaluatePullRequestApprovalRulesInput {
   /**
-   * @public
    * <p>The system-generated ID of the pull request you want to evaluate.</p>
+   * @public
    */
   pullRequestId: string | undefined;
 
   /**
-   * @public
    * <p>The system-generated ID for the pull request revision. To retrieve the most recent
    *             revision ID for a pull request, use
    *             <a>GetPullRequest</a>.</p>
+   * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * @public
  * <p>Returns information about the approval rules applied to a pull request and whether conditions have been met.</p>
+ * @public
  */
 export interface Evaluation {
   /**
-   * @public
    * <p>Whether the state of the pull request is approved.</p>
+   * @public
    */
   approved?: boolean;
 
   /**
-   * @public
    * <p>Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.</p>
+   * @public
    */
   overridden?: boolean;
 
   /**
-   * @public
    * <p>The names of the approval rules that have had their conditions met.</p>
+   * @public
    */
   approvalRulesSatisfied?: string[];
 
   /**
-   * @public
    * <p>The names of the approval rules that have not had their conditions met.</p>
+   * @public
    */
   approvalRulesNotSatisfied?: string[];
 }
@@ -5471,16 +5471,16 @@ export interface Evaluation {
  */
 export interface EvaluatePullRequestApprovalRulesOutput {
   /**
-   * @public
    * <p>The result of the evaluation, including the names of the rules whose conditions have been met (if any), the names of the rules whose conditions have
    *         not been met (if any), whether the pull request is in the approved state, and whether the pull request approval rule has been set aside by an override. </p>
+   * @public
    */
   evaluation: Evaluation | undefined;
 }
 
 /**
- * @public
  * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+ * @public
  */
 export class InvalidRevisionIdException extends __BaseException {
   readonly name: "InvalidRevisionIdException" = "InvalidRevisionIdException";
@@ -5499,8 +5499,8 @@ export class InvalidRevisionIdException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A revision ID is required, but was not provided.</p>
+ * @public
  */
 export class RevisionIdRequiredException extends __BaseException {
   readonly name: "RevisionIdRequiredException" = "RevisionIdRequiredException";
@@ -5519,8 +5519,8 @@ export class RevisionIdRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
+ * @public
  */
 export class RevisionNotCurrentException extends __BaseException {
   readonly name: "RevisionNotCurrentException" = "RevisionNotCurrentException";
@@ -5543,8 +5543,8 @@ export class RevisionNotCurrentException extends __BaseException {
  */
 export interface GetApprovalRuleTemplateInput {
   /**
-   * @public
    * <p>The name of the approval rule template for which you want to get information.</p>
+   * @public
    */
   approvalRuleTemplateName: string | undefined;
 }
@@ -5554,16 +5554,16 @@ export interface GetApprovalRuleTemplateInput {
  */
 export interface GetApprovalRuleTemplateOutput {
   /**
-   * @public
    * <p>The content and structure of the approval rule template.</p>
+   * @public
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
 }
 
 /**
- * @public
  * <p>The specified file exceeds the file size limit for CodeCommit. For more information about limits in CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>CodeCommit User Guide</i>.</p>
+ * @public
  */
 export class FileTooLargeException extends __BaseException {
   readonly name: "FileTooLargeException" = "FileTooLargeException";
@@ -5582,38 +5582,38 @@ export class FileTooLargeException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the input of a get blob operation.</p>
+ * @public
  */
 export interface GetBlobInput {
   /**
-   * @public
    * <p>The name of the repository that contains the blob.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the blob, which is its SHA-1 pointer.</p>
+   * @public
    */
   blobId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the output of a get blob operation.</p>
+ * @public
  */
 export interface GetBlobOutput {
   /**
-   * @public
    * <p>The content of the blob, usually a file.</p>
+   * @public
    */
   content: Uint8Array | undefined;
 }
 
 /**
- * @public
  * <p>The specified blob is not valid.</p>
+ * @public
  */
 export class InvalidBlobIdException extends __BaseException {
   readonly name: "InvalidBlobIdException" = "InvalidBlobIdException";
@@ -5632,31 +5632,31 @@ export class InvalidBlobIdException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the input of a get branch operation.</p>
+ * @public
  */
 export interface GetBranchInput {
   /**
-   * @public
    * <p>The name of the repository that contains the branch for which you want to retrieve information.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The name of the branch for which you want to retrieve information.</p>
+   * @public
    */
   branchName?: string;
 }
 
 /**
- * @public
  * <p>Represents the output of a get branch operation.</p>
+ * @public
  */
 export interface GetBranchOutput {
   /**
-   * @public
    * <p>The name of the branch.</p>
+   * @public
    */
   branch?: BranchInfo;
 }
@@ -5666,9 +5666,9 @@ export interface GetBranchOutput {
  */
 export interface GetCommentInput {
   /**
-   * @public
    * <p>The unique, system-generated ID of the comment. To get this ID, use  <a>GetCommentsForComparedCommit</a>
    *             or <a>GetCommentsForPullRequest</a>.</p>
+   * @public
    */
   commentId: string | undefined;
 }
@@ -5678,8 +5678,8 @@ export interface GetCommentInput {
  */
 export interface GetCommentOutput {
   /**
-   * @public
    * <p>The contents of the comment.</p>
+   * @public
    */
   comment?: Comment;
 }
@@ -5689,75 +5689,75 @@ export interface GetCommentOutput {
  */
 export interface GetCommentReactionsInput {
   /**
-   * @public
    * <p>The ID of the comment for which you want to get reactions information.</p>
+   * @public
    */
   commentId: string | undefined;
 
   /**
-   * @public
    * <p>Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.</p>
+   * @public
    */
   reactionUserArn?: string;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the results. </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.  The default is the same as the allowed maximum, 1,000.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Information about the values for reactions to a comment. CodeCommit supports a limited set of reactions.</p>
+ * @public
  */
 export interface ReactionValueFormats {
   /**
-   * @public
    * <p>The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.</p>
+   * @public
    */
   emoji?: string;
 
   /**
-   * @public
    * <p>The emoji short code for the reaction. Short codes are interpreted slightly differently on different operating systems. </p>
+   * @public
    */
   shortCode?: string;
 
   /**
-   * @public
    * <p>The Unicode codepoint for the reaction.</p>
+   * @public
    */
   unicode?: string;
 }
 
 /**
- * @public
  * <p>Information about the reaction values provided by users on a comment.</p>
+ * @public
  */
 export interface ReactionForComment {
   /**
-   * @public
    * <p>The reaction for a specified comment.</p>
+   * @public
    */
   reaction?: ReactionValueFormats;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.</p>
+   * @public
    */
   reactionUsers?: string[];
 
   /**
-   * @public
    * <p>A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted
    *             from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.</p>
+   * @public
    */
   reactionsFromDeletedUsersCount?: number;
 }
@@ -5767,21 +5767,21 @@ export interface ReactionForComment {
  */
 export interface GetCommentReactionsOutput {
   /**
-   * @public
    * <p>An array of reactions to the specified comment.</p>
+   * @public
    */
   reactionsForComment: ReactionForComment[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
+ * @public
  */
 export class InvalidReactionUserArnException extends __BaseException {
   readonly name: "InvalidReactionUserArnException" = "InvalidReactionUserArnException";
@@ -5804,35 +5804,35 @@ export class InvalidReactionUserArnException extends __BaseException {
  */
 export interface GetCommentsForComparedCommitInput {
   /**
-   * @public
    * <p>The name of the repository where you want to compare commits.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>To establish the directionality of the comparison, the full commit ID of the before
    *             commit.</p>
+   * @public
    */
   beforeCommitId?: string;
 
   /**
-   * @public
    * <p>To establish the directionality of the comparison, the full commit ID of the after
    *             commit.</p>
+   * @public
    */
   afterCommitId: string | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that when provided in a request, returns the next batch of the results. </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results. The
    *             default is 100 comments, but you can configure up to 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -5852,78 +5852,78 @@ export const RelativeFileVersionEnum = {
 export type RelativeFileVersionEnum = (typeof RelativeFileVersionEnum)[keyof typeof RelativeFileVersionEnum];
 
 /**
- * @public
  * <p>Returns information about the location of a change or comment in the comparison between two commits or a pull request.</p>
+ * @public
  */
 export interface Location {
   /**
-   * @public
    * <p>The name of the file being compared, including its extension and subdirectory, if any.</p>
+   * @public
    */
   filePath?: string;
 
   /**
-   * @public
    * <p>The position of a change in a compared file, in line number format.</p>
+   * @public
    */
   filePosition?: number;
 
   /**
-   * @public
    * <p>In a comparison of commits or a pull request, whether the change is in the before or
    *             after of that comparison.</p>
+   * @public
    */
   relativeFileVersion?: RelativeFileVersionEnum;
 }
 
 /**
- * @public
  * <p>Returns information about comments on the comparison between two commits.</p>
+ * @public
  */
 export interface CommentsForComparedCommit {
   /**
-   * @public
    * <p>The name of the repository that contains the compared commits.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit used to establish the before of the
    *             comparison.</p>
+   * @public
    */
   beforeCommitId?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit used to establish the after of the comparison.</p>
+   * @public
    */
   afterCommitId?: string;
 
   /**
-   * @public
    * <p>The full blob ID of the commit used to establish the before of the comparison.</p>
+   * @public
    */
   beforeBlobId?: string;
 
   /**
-   * @public
    * <p>The full blob ID of the commit used to establish the after of the comparison.</p>
+   * @public
    */
   afterBlobId?: string;
 
   /**
-   * @public
    * <p>Location information about the comment on the comparison, including the file name,
    *             line number, and whether the version of the file where the comment was made is BEFORE or
    *             AFTER.</p>
+   * @public
    */
   location?: Location;
 
   /**
-   * @public
    * <p>An array of comment objects. Each comment object contains information about a comment on the comparison
    *          between commits.</p>
+   * @public
    */
   comments?: Comment[];
 }
@@ -5933,14 +5933,14 @@ export interface CommentsForComparedCommit {
  */
 export interface GetCommentsForComparedCommitOutput {
   /**
-   * @public
    * <p>A list of comment objects on the compared commit.</p>
+   * @public
    */
   commentsForComparedCommitData?: CommentsForComparedCommit[];
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -5950,102 +5950,102 @@ export interface GetCommentsForComparedCommitOutput {
  */
 export interface GetCommentsForPullRequestInput {
   /**
-   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
    */
   pullRequestId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository that contains the pull request. Requirement is conditional: <code>repositoryName</code> must be specified when
    *             <code>beforeCommitId</code> and <code>afterCommitId</code> are included.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created. Requirement is conditional:
    *             <code>beforeCommitId</code> must be specified when <code>repositoryName</code> is included.</p>
+   * @public
    */
   beforeCommitId?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made. Requirement is conditional:
    *             <code>afterCommitId</code> must be specified when <code>repositoryName</code> is included.</p>
+   * @public
    */
   afterCommitId?: string;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments.
    *             You can return up to 500 comments with a single request.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Returns information about comments on a pull request.</p>
+ * @public
  */
 export interface CommentsForPullRequest {
   /**
-   * @public
    * <p>The system-generated ID of the pull request.</p>
+   * @public
    */
   pullRequestId?: string;
 
   /**
-   * @public
    * <p>The name of the repository that contains the pull request.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit that was the tip of the destination branch when the
    *             pull request was created. This commit is superceded by the after commit in the source
    *             branch when and if you merge the source branch into the destination branch.</p>
+   * @public
    */
   beforeCommitId?: string;
 
   /**
-   * @public
    * <p>The full commit ID of the commit that was the tip of the source branch at the time the
    *             comment was made. </p>
+   * @public
    */
   afterCommitId?: string;
 
   /**
-   * @public
    * <p>The full blob ID of the file on which you want to comment on the destination commit.</p>
+   * @public
    */
   beforeBlobId?: string;
 
   /**
-   * @public
    * <p>The full blob ID of the file on which you want to comment on the source commit.</p>
+   * @public
    */
   afterBlobId?: string;
 
   /**
-   * @public
    * <p>Location information about the comment on the pull request, including the file name,
    *             line number, and whether the version of the file where the comment was made is BEFORE
    *             (destination branch) or AFTER (source branch).</p>
+   * @public
    */
   location?: Location;
 
   /**
-   * @public
    * <p>An array of comment objects. Each comment object contains information about a comment on the pull request.</p>
+   * @public
    */
   comments?: Comment[];
 }
@@ -6055,21 +6055,21 @@ export interface CommentsForPullRequest {
  */
 export interface GetCommentsForPullRequestOutput {
   /**
-   * @public
    * <p>An array of comment objects on the pull request.</p>
+   * @public
    */
   commentsForPullRequestData?: CommentsForPullRequest[];
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
+ * @public
  */
 export class RepositoryNotAssociatedWithPullRequestException extends __BaseException {
   readonly name: "RepositoryNotAssociatedWithPullRequestException" = "RepositoryNotAssociatedWithPullRequestException";
@@ -6088,8 +6088,8 @@ export class RepositoryNotAssociatedWithPullRequestException extends __BaseExcep
 }
 
 /**
- * @public
  * <p>The specified commit ID does not exist.</p>
+ * @public
  */
 export class CommitIdDoesNotExistException extends __BaseException {
   readonly name: "CommitIdDoesNotExistException" = "CommitIdDoesNotExistException";
@@ -6108,31 +6108,31 @@ export class CommitIdDoesNotExistException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Represents the input of a get commit operation.</p>
+ * @public
  */
 export interface GetCommitInput {
   /**
-   * @public
    * <p>The name of the repository to which the commit was made.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID. Commit IDs are the full SHA ID of the commit.</p>
+   * @public
    */
   commitId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the output of a get commit operation.</p>
+ * @public
  */
 export interface GetCommitOutput {
   /**
-   * @public
    * <p>A commit data type object that contains information about the specified commit.</p>
+   * @public
    */
   commit: Commit | undefined;
 }
@@ -6142,80 +6142,80 @@ export interface GetCommitOutput {
  */
 export interface GetDifferencesInput {
   /**
-   * @public
    * <p>The name of the repository where you want to get differences.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, the full commit ID). Optional. If not specified, all changes before the
    *                 <code>afterCommitSpecifier</code> value are shown. If you do not use
    *                 <code>beforeCommitSpecifier</code> in your request, consider limiting the results
    *             with <code>maxResults</code>.</p>
+   * @public
    */
   beforeCommitSpecifier?: string;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.</p>
+   * @public
    */
   afterCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The file path in which to check for differences. Limits the results to this path. Can
    *             also be used to specify the previous name of a directory or folder. If
    *                 <code>beforePath</code> and <code>afterPath</code> are not specified, differences
    *             are shown for all paths.</p>
+   * @public
    */
   beforePath?: string;
 
   /**
-   * @public
    * <p>The file path in which to check differences. Limits the results to this path. Can also
    *             be used to specify the changed name of a directory or folder, if it has changed. If not
    *             specified, differences are shown for all paths.</p>
+   * @public
    */
   afterPath?: string;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Returns information about a set of differences for a commit specifier.</p>
+ * @public
  */
 export interface Difference {
   /**
-   * @public
    * <p>Information about a <code>beforeBlob</code> data type object, including the ID,
    *             the file mode permission code, and the path.</p>
+   * @public
    */
   beforeBlob?: BlobMetadata;
 
   /**
-   * @public
    * <p>Information about an <code>afterBlob</code> data type object, including the ID,
    *             the file mode permission code, and the path.</p>
+   * @public
    */
   afterBlob?: BlobMetadata;
 
   /**
-   * @public
    * <p>Whether the change type of the difference is an addition (A), deletion (D), or modification (M).</p>
+   * @public
    */
   changeType?: ChangeTypeEnum;
 }
@@ -6225,22 +6225,22 @@ export interface Difference {
  */
 export interface GetDifferencesOutput {
   /**
-   * @public
    * <p>A data type object that contains information about the differences, including whether
    *             the difference is added, modified, or deleted (A, D, M).</p>
+   * @public
    */
   differences?: Difference[];
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The specified path does not exist.</p>
+ * @public
  */
 export class PathDoesNotExistException extends __BaseException {
   readonly name: "PathDoesNotExistException" = "PathDoesNotExistException";
@@ -6263,24 +6263,24 @@ export class PathDoesNotExistException extends __BaseException {
  */
 export interface GetFileInput {
   /**
-   * @public
    * <p>The name of the repository that contains the file.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The fully quaified reference that identifies the commit that contains the file. For
    *             example, you can specify a full commit ID, a tag, a branch name, or a reference such as
    *             refs/heads/main. If none is provided, the head commit is used.</p>
+   * @public
    */
   commitSpecifier?: string;
 
   /**
-   * @public
    * <p>The fully qualified path to the file, including the full name and extension of the
    *             file. For example, /examples/file.md is the fully qualified path to a file named file.md
    *             in a folder named examples.</p>
+   * @public
    */
   filePath: string | undefined;
 }
@@ -6290,52 +6290,52 @@ export interface GetFileInput {
  */
 export interface GetFileOutput {
   /**
-   * @public
    * <p>The full commit ID of the commit that contains the content returned by GetFile.</p>
+   * @public
    */
   commitId: string | undefined;
 
   /**
-   * @public
    * <p>The blob ID of the object that represents the file content.</p>
+   * @public
    */
   blobId: string | undefined;
 
   /**
-   * @public
    * <p>The fully qualified path to the specified file. Returns the name and extension of the
    *             file.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The extrapolated file mode permissions of the blob. Valid values include strings such as EXECUTABLE and not numeric values.</p>
    *          <note>
    *             <p>The file mode permissions returned by this API are not the standard file mode
    *                 permission values, such as 100644, but rather extrapolated values. See the supported
    *                 return values.</p>
    *          </note>
+   * @public
    */
   fileMode: FileModeTypeEnum | undefined;
 
   /**
-   * @public
    * <p>The size of the contents of the file, in bytes.</p>
+   * @public
    */
   fileSize: number | undefined;
 
   /**
-   * @public
    * <p>The base-64 encoded binary data object that represents the content of the file.</p>
+   * @public
    */
   fileContent: Uint8Array | undefined;
 }
 
 /**
- * @public
  * <p>The specified folder does not exist. Either the folder name is not correct, or you did
  *             not enter the full path to the folder.</p>
+ * @public
  */
 export class FolderDoesNotExistException extends __BaseException {
   readonly name: "FolderDoesNotExistException" = "FolderDoesNotExistException";
@@ -6358,133 +6358,133 @@ export class FolderDoesNotExistException extends __BaseException {
  */
 export interface GetFolderInput {
   /**
-   * @public
    * <p>The name of the repository.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>A fully qualified reference used to identify a commit that contains the version of the
    *             folder's content to return. A fully qualified reference can be a commit ID, branch name,
    *             tag, or reference such as HEAD. If no specifier is provided, the folder content is
    *             returned as it exists in the HEAD commit.</p>
+   * @public
    */
   commitSpecifier?: string;
 
   /**
-   * @public
    * <p>The fully qualified path to the folder whose contents are returned, including the
    *             folder name. For example, /examples is a fully-qualified path to a folder named examples
    *             that was created off of the root directory (/) of a repository. </p>
+   * @public
    */
   folderPath: string | undefined;
 }
 
 /**
- * @public
  * <p>Returns information about a file in a repository.</p>
+ * @public
  */
 export interface File {
   /**
-   * @public
    * <p>The blob ID that contains the file information.</p>
+   * @public
    */
   blobId?: string;
 
   /**
-   * @public
    * <p>The fully qualified path to the file in the repository.</p>
+   * @public
    */
   absolutePath?: string;
 
   /**
-   * @public
    * <p>The relative path of the file from the folder where the query originated.</p>
+   * @public
    */
   relativePath?: string;
 
   /**
-   * @public
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
+   * @public
    */
   fileMode?: FileModeTypeEnum;
 }
 
 /**
- * @public
  * <p>Returns information about a folder in a repository.</p>
+ * @public
  */
 export interface Folder {
   /**
-   * @public
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
+   * @public
    */
   treeId?: string;
 
   /**
-   * @public
    * <p>The fully qualified path of the folder in the repository.</p>
+   * @public
    */
   absolutePath?: string;
 
   /**
-   * @public
    * <p>The relative path of the specified folder from the folder where the query originated.</p>
+   * @public
    */
   relativePath?: string;
 }
 
 /**
- * @public
  * <p>Returns information about a submodule reference in a repository folder.</p>
+ * @public
  */
 export interface SubModule {
   /**
-   * @public
    * <p>The commit ID that contains the reference to the submodule.</p>
+   * @public
    */
   commitId?: string;
 
   /**
-   * @public
    * <p>The fully qualified path to the folder that contains the reference to the submodule.</p>
+   * @public
    */
   absolutePath?: string;
 
   /**
-   * @public
    * <p>The relative path of the submodule from the folder where the query originated.</p>
+   * @public
    */
   relativePath?: string;
 }
 
 /**
- * @public
  * <p>Returns information about a symbolic link in a repository folder.</p>
+ * @public
  */
 export interface SymbolicLink {
   /**
-   * @public
    * <p>The blob ID that contains the information about the symbolic link.</p>
+   * @public
    */
   blobId?: string;
 
   /**
-   * @public
    * <p>The fully qualified path to the folder that contains the symbolic link.</p>
+   * @public
    */
   absolutePath?: string;
 
   /**
-   * @public
    * <p>The relative path of the symbolic link from the folder where the query originated.</p>
+   * @public
    */
   relativePath?: string;
 
   /**
-   * @public
    * <p>The file mode permissions of the blob that cotains information about the symbolic link.</p>
+   * @public
    */
   fileMode?: FileModeTypeEnum;
 }
@@ -6494,46 +6494,46 @@ export interface SymbolicLink {
  */
 export interface GetFolderOutput {
   /**
-   * @public
    * <p>The full commit ID used as a reference for the returned version of the folder
    *             content.</p>
+   * @public
    */
   commitId: string | undefined;
 
   /**
-   * @public
    * <p>The fully qualified path of the folder whose contents are returned.</p>
+   * @public
    */
   folderPath: string | undefined;
 
   /**
-   * @public
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
+   * @public
    */
   treeId?: string;
 
   /**
-   * @public
    * <p>The list of folders that exist under the specified folder, if any.</p>
+   * @public
    */
   subFolders?: Folder[];
 
   /**
-   * @public
    * <p>The list of files in the specified folder, if any.</p>
+   * @public
    */
   files?: File[];
 
   /**
-   * @public
    * <p>The list of symbolic links to other files and folders in the specified folder, if
    *             any.</p>
+   * @public
    */
   symbolicLinks?: SymbolicLink[];
 
   /**
-   * @public
    * <p>The list of submodules in the specified folder, if any.</p>
+   * @public
    */
   subModules?: SubModule[];
 }
@@ -6543,39 +6543,39 @@ export interface GetFolderOutput {
  */
 export interface GetMergeCommitInput {
   /**
-   * @public
    * <p>The name of the repository that contains the merge commit about which you want to get information.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
+   * @public
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
-   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 }
@@ -6585,28 +6585,28 @@ export interface GetMergeCommitInput {
  */
 export interface GetMergeCommitOutput {
   /**
-   * @public
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   sourceCommitId?: string;
 
   /**
-   * @public
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   destinationCommitId?: string;
 
   /**
-   * @public
    * <p>The commit ID of the merge base.</p>
+   * @public
    */
   baseCommitId?: string;
 
   /**
-   * @public
    * <p>The commit ID for the merge commit created when the source branch was merged into the
    *             destination branch. If the fast-forward merge strategy was used, there is no merge
    *             commit.</p>
+   * @public
    */
   mergedCommitId?: string;
 }
@@ -6616,58 +6616,58 @@ export interface GetMergeCommitOutput {
  */
 export interface GetMergeConflictsInput {
   /**
-   * @public
    * <p>The name of the repository where the pull request was created.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The merge option or strategy you want to use to merge the code.  </p>
+   * @public
    */
   mergeOption: MergeOptionTypeEnum | undefined;
 
   /**
-   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
+   * @public
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
-   * @public
    * <p>The maximum number of files to include in the output.</p>
+   * @public
    */
   maxConflictFiles?: number;
 
   /**
-   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -6677,46 +6677,46 @@ export interface GetMergeConflictsInput {
  */
 export interface GetMergeConflictsOutput {
   /**
-   * @public
    * <p>A Boolean value that indicates whether the code is mergeable by the specified merge option.</p>
+   * @public
    */
   mergeable: boolean | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   destinationCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   sourceCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the merge base.</p>
+   * @public
    */
   baseCommitId?: string;
 
   /**
-   * @public
    * <p>A list of metadata for any conflicting files. If the specified merge strategy is
    *             FAST_FORWARD_MERGE, this list is always empty.</p>
+   * @public
    */
   conflictMetadataList: ConflictMetadata[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
+ * @public
  */
 export class InvalidDestinationCommitSpecifierException extends __BaseException {
   readonly name: "InvalidDestinationCommitSpecifierException" = "InvalidDestinationCommitSpecifierException";
@@ -6735,8 +6735,8 @@ export class InvalidDestinationCommitSpecifierException extends __BaseException 
 }
 
 /**
- * @public
  * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
+ * @public
  */
 export class InvalidSourceCommitSpecifierException extends __BaseException {
   readonly name: "InvalidSourceCommitSpecifierException" = "InvalidSourceCommitSpecifierException";
@@ -6759,39 +6759,39 @@ export class InvalidSourceCommitSpecifierException extends __BaseException {
  */
 export interface GetMergeOptionsInput {
   /**
-   * @public
    * <p>The name of the repository that contains the commits about which you want to get merge options.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   sourceCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
    *             (for example, a branch name or a full commit ID).</p>
+   * @public
    */
   destinationCommitSpecifier: string | undefined;
 
   /**
-   * @public
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
    *             which returns a not-mergeable result if the same file has differences in both branches.
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
+   * @public
    */
   conflictDetailLevel?: ConflictDetailLevelTypeEnum;
 
   /**
-   * @public
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
+   * @public
    */
   conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
 }
@@ -6801,26 +6801,26 @@ export interface GetMergeOptionsInput {
  */
 export interface GetMergeOptionsOutput {
   /**
-   * @public
    * <p>The merge option or strategy used to merge the code.</p>
+   * @public
    */
   mergeOptions: MergeOptionTypeEnum[] | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   sourceCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
+   * @public
    */
   destinationCommitId: string | undefined;
 
   /**
-   * @public
    * <p>The commit ID of the merge base.</p>
+   * @public
    */
   baseCommitId: string | undefined;
 }
@@ -6830,8 +6830,8 @@ export interface GetMergeOptionsOutput {
  */
 export interface GetPullRequestInput {
   /**
-   * @public
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
+   * @public
    */
   pullRequestId: string | undefined;
 }
@@ -6841,8 +6841,8 @@ export interface GetPullRequestInput {
  */
 export interface GetPullRequestOutput {
   /**
-   * @public
    * <p>Information about the specified pull request.</p>
+   * @public
    */
   pullRequest: PullRequest | undefined;
 }
@@ -6852,14 +6852,14 @@ export interface GetPullRequestOutput {
  */
 export interface GetPullRequestApprovalStatesInput {
   /**
-   * @public
    * <p>The system-generated ID for the pull request.</p>
+   * @public
    */
   pullRequestId: string | undefined;
 
   /**
-   * @public
    * <p>The system-generated ID for the pull request revision.</p>
+   * @public
    */
   revisionId: string | undefined;
 }
@@ -6869,8 +6869,8 @@ export interface GetPullRequestApprovalStatesInput {
  */
 export interface GetPullRequestApprovalStatesOutput {
   /**
-   * @public
    * <p>Information about users who have approved the pull request.</p>
+   * @public
    */
   approvals?: Approval[];
 }
@@ -6880,16 +6880,16 @@ export interface GetPullRequestApprovalStatesOutput {
  */
 export interface GetPullRequestOverrideStateInput {
   /**
-   * @public
    * <p>The ID of the pull request for which you want to get information about whether approval rules have been set aside (overridden).</p>
+   * @public
    */
   pullRequestId: string | undefined;
 
   /**
-   * @public
    * <p>The system-generated ID of the revision for the pull request. To retrieve the most
    *             recent revision ID, use
    *             <a>GetPullRequest</a>.</p>
+   * @public
    */
   revisionId: string | undefined;
 }
@@ -6899,50 +6899,50 @@ export interface GetPullRequestOverrideStateInput {
  */
 export interface GetPullRequestOverrideStateOutput {
   /**
-   * @public
    * <p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>
+   * @public
    */
   overridden?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
+   * @public
    */
   overrider?: string;
 }
 
 /**
- * @public
  * <p>Represents the input of a get repository operation.</p>
+ * @public
  */
 export interface GetRepositoryInput {
   /**
-   * @public
    * <p>The name of the repository to get information about.</p>
+   * @public
    */
   repositoryName: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the output of a get repository operation.</p>
+ * @public
  */
 export interface GetRepositoryOutput {
   /**
-   * @public
    * <p>Information about the repository.</p>
+   * @public
    */
   repositoryMetadata?: RepositoryMetadata;
 }
 
 /**
- * @public
  * <p>Represents the input of a get repository triggers operation.</p>
+ * @public
  */
 export interface GetRepositoryTriggersInput {
   /**
-   * @public
    * <p>The name of the repository for which the trigger is configured.</p>
+   * @public
    */
   repositoryName: string | undefined;
 }
@@ -6964,47 +6964,46 @@ export const RepositoryTriggerEventEnum = {
 export type RepositoryTriggerEventEnum = (typeof RepositoryTriggerEventEnum)[keyof typeof RepositoryTriggerEventEnum];
 
 /**
- * @public
  * <p>Information about a trigger for a repository. </p>
  *          <note>
  *             <p>If you want to receive notifications about repository events, consider using notifications instead of
  *             triggers.  For more information, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-repository-email.html">Configuring
  *             notifications for repository events</a>.</p>
  *          </note>
+ * @public
  */
 export interface RepositoryTrigger {
   /**
-   * @public
    * <p>The name of the trigger.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the resource that is the target for a trigger (for example, the ARN of a
    *             topic in Amazon SNS).</p>
+   * @public
    */
   destinationArn: string | undefined;
 
   /**
-   * @public
    * <p>Any custom data associated with the trigger to be included in the information sent to
    *             the target of the trigger.</p>
+   * @public
    */
   customData?: string;
 
   /**
-   * @public
    * <p>The branches to be included in the trigger configuration. If you specify an empty
    *             array, the trigger applies to all branches.</p>
    *          <note>
    *             <p>Although no content is required in the array, you must include the array itself.</p>
    *          </note>
+   * @public
    */
   branches?: string[];
 
   /**
-   * @public
    * <p>The repository events that cause the trigger to run actions in another service, such
    *             as sending a notification through Amazon SNS.
    *
@@ -7012,24 +7011,25 @@ export interface RepositoryTrigger {
    *          <note>
    *             <p>The valid value "all" cannot be used with any other values.</p>
    *          </note>
+   * @public
    */
   events: RepositoryTriggerEventEnum[] | undefined;
 }
 
 /**
- * @public
  * <p>Represents the output of a get repository triggers operation.</p>
+ * @public
  */
 export interface GetRepositoryTriggersOutput {
   /**
-   * @public
    * <p>The system-generated unique ID for the trigger.</p>
+   * @public
    */
   configurationId?: string;
 
   /**
-   * @public
    * <p>The JSON block of configuration information for each trigger.</p>
+   * @public
    */
   triggers?: RepositoryTrigger[];
 }
@@ -7039,15 +7039,15 @@ export interface GetRepositoryTriggersOutput {
  */
 export interface ListApprovalRuleTemplatesInput {
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7057,14 +7057,14 @@ export interface ListApprovalRuleTemplatesInput {
  */
 export interface ListApprovalRuleTemplatesOutput {
   /**
-   * @public
    * <p>The names of all the approval rule templates found in the Amazon Web Services Region for your Amazon Web Services account.</p>
+   * @public
    */
   approvalRuleTemplateNames?: string[];
 
   /**
-   * @public
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7074,21 +7074,21 @@ export interface ListApprovalRuleTemplatesOutput {
  */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   /**
-   * @public
    * <p>The name of the repository for which you want to list all associated approval rule templates.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7098,50 +7098,50 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
  */
 export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
   /**
-   * @public
    * <p>The names of all approval rule templates associated with the repository.</p>
+   * @public
    */
   approvalRuleTemplateNames?: string[];
 
   /**
-   * @public
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the input of a list branches operation.</p>
+ * @public
  */
 export interface ListBranchesInput {
   /**
-   * @public
    * <p>The name of the repository that contains the branches.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that allows the operation to batch the results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the output of a list branches operation.</p>
+ * @public
  */
 export interface ListBranchesOutput {
   /**
-   * @public
    * <p>The list of branch names.</p>
+   * @public
    */
   branches?: string[];
 
   /**
-   * @public
    * <p>An enumeration token that returns the batch of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7151,65 +7151,65 @@ export interface ListBranchesOutput {
  */
 export interface ListFileCommitHistoryRequest {
   /**
-   * @public
    * <p>The name of the repository that contains the file.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The fully quaified reference that identifies the commit that contains the file. For
    *             example, you can specify a full commit ID, a tag, a branch name, or a reference such as
    *             <code>refs/heads/main</code>. If none is provided, the head commit is used.</p>
+   * @public
    */
   commitSpecifier?: string;
 
   /**
-   * @public
    * <p>The full path of the file whose history you want to retrieve, including the name of the file.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>An enumeration token that allows the operation to batch the results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Information about a version of a file.</p>
+ * @public
  */
 export interface FileVersion {
   /**
-   * @public
    * <p>Returns information about a specific commit.</p>
+   * @public
    */
   commit?: Commit;
 
   /**
-   * @public
    * <p>The blob ID of the object that represents the content of the file in this version.</p>
+   * @public
    */
   blobId?: string;
 
   /**
-   * @public
    * <p>The name and path of the file at which this blob is indexed which contains the data for this version of the file. This value will
    *         vary between file versions if a file is renamed or if its path changes.</p>
+   * @public
    */
   path?: string;
 
   /**
-   * @public
    * <p>An array of commit IDs that contain more recent versions of this file. If there are no additional versions of the file, this array will be empty.</p>
+   * @public
    */
   revisionChildren?: string[];
 }

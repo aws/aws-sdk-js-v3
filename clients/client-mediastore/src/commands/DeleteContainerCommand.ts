@@ -27,7 +27,6 @@ export interface DeleteContainerCommandInput extends DeleteContainerInput {}
 export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>
  *          request, delete any objects in the container or in any folders in the container. You can
  *          delete only empty containers. </p>
@@ -65,6 +64,7 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class DeleteContainerCommand extends $Command
   .classBuilder<

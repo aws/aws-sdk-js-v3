@@ -27,7 +27,6 @@ export interface DeleteTrackerCommandInput extends DeleteTrackerRequest {}
 export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a tracker resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
@@ -74,6 +73,7 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DeleteTrackerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateBucketCommandInput extends CreateBucketRequest {}
 export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Lightsail bucket.</p>
  *          <p>A bucket is a cloud storage resource available in the Lightsail object storage service.
  *       Use buckets to store objects such as data and its descriptive metadata. For more information
@@ -148,6 +147,7 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateBucketCommand extends $Command
   .classBuilder<

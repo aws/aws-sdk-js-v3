@@ -27,7 +27,6 @@ export interface StopContactStreamingCommandInput extends StopContactStreamingRe
 export interface StopContactStreamingCommandOutput extends StopContactStreamingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Ends message streaming on a specified contact. To restart message streaming on that
  *    contact, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
  *    API. </p>
@@ -69,6 +68,7 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StopContactStreamingCommand extends $Command
   .classBuilder<

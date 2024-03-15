@@ -31,7 +31,6 @@ export interface CreateHomeRegionControlCommandInput extends CreateHomeRegionCon
 export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionControlResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API sets up the home region for the calling account only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ * @public
  */
 export class CreateHomeRegionControlCommand extends $Command
   .classBuilder<

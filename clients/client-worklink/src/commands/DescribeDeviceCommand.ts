@@ -27,9 +27,6 @@ export interface DescribeDeviceCommandInput extends DescribeDeviceRequest {}
 export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Provides information about a user's device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +78,8 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DescribeDeviceCommand extends $Command
   .classBuilder<

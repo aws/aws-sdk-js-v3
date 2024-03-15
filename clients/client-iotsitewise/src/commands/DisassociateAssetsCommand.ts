@@ -27,7 +27,6 @@ export interface DisassociateAssetsCommandInput extends DisassociateAssetsReques
 export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
  *       parent asset's model.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DisassociateAssetsCommand extends $Command
   .classBuilder<

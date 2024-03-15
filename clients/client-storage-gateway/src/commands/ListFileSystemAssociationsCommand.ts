@@ -27,7 +27,6 @@ export interface ListFileSystemAssociationsCommandInput extends ListFileSystemAs
 export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemAssociationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of <code>FileSystemAssociationSummary</code> objects. Each object contains a
  *          summary of a file system association. This operation is only supported for FSx File
  *          Gateways.</p>
@@ -76,6 +75,7 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class ListFileSystemAssociationsCommand extends $Command
   .classBuilder<

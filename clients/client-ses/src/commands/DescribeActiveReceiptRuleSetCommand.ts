@@ -29,7 +29,6 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the metadata and receipt rules for the receipt rule set that is currently
  *             active.</p>
  *          <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon SES Developer Guide</a>.</p>
@@ -110,6 +109,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example DescribeActiveReceiptRuleSet
  * ```javascript
  * // The following example returns the metadata and receipt rules for the receipt rule set that is currently active:

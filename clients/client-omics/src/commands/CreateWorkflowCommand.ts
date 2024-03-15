@@ -27,7 +27,6 @@ export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CreateWorkflowCommand extends $Command
   .classBuilder<

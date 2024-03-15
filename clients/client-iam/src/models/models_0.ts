@@ -19,21 +19,20 @@ export type AccessAdvisorUsageGranularityType =
   (typeof AccessAdvisorUsageGranularityType)[keyof typeof AccessAdvisorUsageGranularityType];
 
 /**
- * @public
  * <p>An object that contains details about when a principal in the reported Organizations entity
  *          last attempted to access an Amazon Web Services service. A principal can be an IAM user, an IAM role,
  *          or the Amazon Web Services account root user within the reported Organizations entity.</p>
  *          <p>This data type is a response element in the <a>GetOrganizationsAccessReport</a> operation.</p>
+ * @public
  */
 export interface AccessDetail {
   /**
-   * @public
    * <p>The name of the service in which access was attempted.</p>
+   * @public
    */
   ServiceName: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the service in which access was attempted.</p>
    *          <p>To learn the service namespace of a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the
    *             <i>Service Authorization Reference</i>. Choose the name of the service to
@@ -41,41 +40,42 @@ export interface AccessDetail {
    *          example, <code>(service prefix: a4b)</code>. For more information about service namespaces,
    *          see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services
    *             service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   ServiceNamespace: string | undefined;
 
   /**
-   * @public
    * <p>The Region where the last service access attempt occurred.</p>
    *          <p>This field is null if no principals in the reported Organizations entity attempted to access the
    *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   Region?: string;
 
   /**
-   * @public
    * <p>The path of the Organizations entity (root, organizational unit, or account) from which an
    *          authenticated principal last attempted to access the service. Amazon Web Services does not report
    *          unauthenticated requests.</p>
    *          <p>This field is null if no principals (IAM users, IAM roles, or root user) in the
    *          reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   EntityPath?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when an authenticated principal most recently attempted to access the
    *          service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no principals in the reported Organizations entity attempted to access the
    *          service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   LastAuthenticatedTime?: Date;
 
   /**
-   * @public
    * <p>The number of accounts with authenticated principals (root user, IAM users, and IAM
    *          roles) that attempted to access the service in the tracking period.</p>
+   * @public
    */
   TotalAuthenticatedEntities?: number;
 }
@@ -95,7 +95,6 @@ export const StatusType = {
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 /**
- * @public
  * <p>Contains information about an Amazon Web Services access key.</p>
  *          <p> This data type is used as a response element in the <a>CreateAccessKey</a>
  *          and <a>ListAccessKeys</a> operations. </p>
@@ -104,49 +103,49 @@ export type StatusType = (typeof StatusType)[keyof typeof StatusType];
  *             create an access key; you cannot recover the secret access key later. If you lose a
  *             secret access key, you must create a new access key.</p>
  *          </note>
+ * @public
  */
 export interface AccessKey {
   /**
-   * @public
    * <p>The name of the IAM user that the access key is associated with.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The ID for this access key.</p>
+   * @public
    */
   AccessKeyId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the access key. <code>Active</code> means that the key is valid for API
    *          calls, while <code>Inactive</code> means it is not. </p>
+   * @public
    */
   Status: StatusType | undefined;
 
   /**
-   * @public
    * <p>The secret key used to sign requests.</p>
+   * @public
    */
   SecretAccessKey: string | undefined;
 
   /**
-   * @public
    * <p>The date when the access key was created.</p>
+   * @public
    */
   CreateDate?: Date;
 }
 
 /**
- * @public
  * <p>Contains information about the last time an Amazon Web Services access key was used since IAM began
  *          tracking this information on April 22, 2015.</p>
  *          <p>This data type is used as a response element in the <a>GetAccessKeyLastUsed</a> operation.</p>
+ * @public
  */
 export interface AccessKeyLastUsed {
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the access key was most recently used. This field is null in the
    *          following situations:</p>
@@ -162,11 +161,11 @@ export interface AccessKeyLastUsed {
    *                <p>There is no sign-in data associated with the user.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LastUsedDate: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services service with which this access key was most recently used. The
    *          value of this field is "N/A" in the following situations:</p>
    *          <ul>
@@ -181,11 +180,11 @@ export interface AccessKeyLastUsed {
    *                <p>There is no sign-in data associated with the user.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ServiceName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region where this access key was most recently used. The value for this field
    *          is "N/A" in the following situations:</p>
    *          <ul>
@@ -202,39 +201,40 @@ export interface AccessKeyLastUsed {
    *          </ul>
    *          <p>For more information about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and endpoints</a> in the Amazon Web Services
    *          General Reference.</p>
+   * @public
    */
   Region: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about an Amazon Web Services access key, without its secret key.</p>
  *          <p>This data type is used as a response element in the <a>ListAccessKeys</a>
  *          operation.</p>
+ * @public
  */
 export interface AccessKeyMetadata {
   /**
-   * @public
    * <p>The name of the IAM user that the key is associated with.</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The ID for this access key.</p>
+   * @public
    */
   AccessKeyId?: string;
 
   /**
-   * @public
    * <p>The status of the access key. <code>Active</code> means that the key is valid for API
    *          calls; <code>Inactive</code> means it is not.</p>
+   * @public
    */
   Status?: StatusType;
 
   /**
-   * @public
    * <p>The date when the access key was created.</p>
+   * @public
    */
   CreateDate?: Date;
 }
@@ -244,24 +244,24 @@ export interface AccessKeyMetadata {
  */
 export interface AddClientIDToOpenIDConnectProviderRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to
    *             add the client ID to. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
+   * @public
    */
   OpenIDConnectProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>The client ID (also known as audience) to add to the IAM OpenID Connect provider
    *             resource.</p>
+   * @public
    */
   ClientID: string | undefined;
 }
 
 /**
- * @public
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
+ * @public
  */
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
@@ -280,9 +280,9 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was rejected because it attempted to create resources beyond the current
  *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -301,9 +301,9 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
+ * @public
  */
 export class NoSuchEntityException extends __BaseException {
   readonly name: "NoSuchEntityException" = "NoSuchEntityException";
@@ -322,9 +322,9 @@ export class NoSuchEntityException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
+ * @public
  */
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
@@ -347,26 +347,26 @@ export class ServiceFailureException extends __BaseException {
  */
 export interface AddRoleToInstanceProfileRequest {
   /**
-   * @public
    * <p>The name of the instance profile to update.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the role to add.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 }
 
 /**
- * @public
  * <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>
+ * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
   readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
@@ -385,11 +385,11 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
  *       the service that depends on the service-linked role can modify or delete the role on your
  *       behalf. The error message includes the name of the service that depends on this service-linked
  *       role. You must request the change through that service.</p>
+ * @public
  */
 export class UnmodifiableEntityException extends __BaseException {
   readonly name: "UnmodifiableEntityException" = "UnmodifiableEntityException";
@@ -412,18 +412,18 @@ export class UnmodifiableEntityException extends __BaseException {
  */
 export interface AddUserToGroupRequest {
   /**
-   * @public
    * <p>The name of the group to update.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the user to add.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 }
@@ -458,49 +458,49 @@ export type PermissionsBoundaryAttachmentType =
   (typeof PermissionsBoundaryAttachmentType)[keyof typeof PermissionsBoundaryAttachmentType];
 
 /**
- * @public
  * <p>Contains information about an attached permissions boundary.</p>
  *          <p>An attached permissions boundary is a managed policy that has been attached to a user or
  *          role to set the permissions boundary.</p>
  *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
  *             identities </a> in the <i>IAM User Guide</i>.</p>
+ * @public
  */
 export interface AttachedPermissionsBoundary {
   /**
-   * @public
    * <p> The permissions boundary usage type that indicates what type of IAM resource is used
    *          as the permissions boundary for an entity. This data type can only have a value of
    *             <code>Policy</code>.</p>
+   * @public
    */
   PermissionsBoundaryType?: PermissionsBoundaryAttachmentType;
 
   /**
-   * @public
    * <p> The ARN of the policy used to set the permissions boundary for the user or role.</p>
+   * @public
    */
   PermissionsBoundaryArn?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an attached policy.</p>
  *          <p>An attached policy is a managed policy that has been attached to a user, group, or role.
  *          This data type is used as a response element in the <a>ListAttachedGroupPolicies</a>, <a>ListAttachedRolePolicies</a>, <a>ListAttachedUserPolicies</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
+ * @public
  */
 export interface AttachedPolicy {
   /**
-   * @public
    * <p>The friendly name of the attached policy.</p>
+   * @public
    */
   PolicyName?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   PolicyArn?: string;
 }
@@ -510,25 +510,25 @@ export interface AttachedPolicy {
  */
 export interface AttachGroupPolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the group to attach the policy to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The request failed because Amazon Web Services service role policies can only be attached to the
  *       service-linked role for that service.</p>
+ * @public
  */
 export class PolicyNotAttachableException extends __BaseException {
   readonly name: "PolicyNotAttachableException" = "PolicyNotAttachableException";
@@ -551,17 +551,17 @@ export class PolicyNotAttachableException extends __BaseException {
  */
 export interface AttachRolePolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the role to attach the policy to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
@@ -571,17 +571,17 @@ export interface AttachRolePolicyRequest {
  */
 export interface AttachUserPolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM user to attach the policy to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to attach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
@@ -591,13 +591,12 @@ export interface AttachUserPolicyRequest {
  */
 export interface ChangePasswordRequest {
   /**
-   * @public
    * <p>The IAM user's current password.</p>
+   * @public
    */
   OldPassword: string | undefined;
 
   /**
-   * @public
    * <p>The new password. The new password must conform to the Amazon Web Services account's password
    *             policy, if one exists.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
@@ -607,16 +606,17 @@ export interface ChangePasswordRequest {
    *     characters. Any of these characters are valid in a password. However, many tools, such
    *     as the Amazon Web Services Management Console, might restrict the ability to type certain characters because they have
    *     special meaning within that tool.</p>
+   * @public
    */
   NewPassword: string | undefined;
 }
 
 /**
- * @public
  * <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
  *       such as a user name that was deleted and then recreated. The error indicates that the request
  *       is likely to succeed if you try again after waiting several minutes. The error message
  *       describes the entity.</p>
+ * @public
  */
 export class EntityTemporarilyUnmodifiableException extends __BaseException {
   readonly name: "EntityTemporarilyUnmodifiableException" = "EntityTemporarilyUnmodifiableException";
@@ -635,9 +635,9 @@ export class EntityTemporarilyUnmodifiableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was rejected because the type of user for the transaction was
  *       incorrect.</p>
+ * @public
  */
 export class InvalidUserTypeException extends __BaseException {
   readonly name: "InvalidUserTypeException" = "InvalidUserTypeException";
@@ -656,9 +656,9 @@ export class InvalidUserTypeException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was rejected because the provided password did not meet the requirements
  *       imposed by the account password policy.</p>
+ * @public
  */
 export class PasswordPolicyViolationException extends __BaseException {
   readonly name: "PasswordPolicyViolationException" = "PasswordPolicyViolationException";
@@ -681,31 +681,31 @@ export class PasswordPolicyViolationException extends __BaseException {
  */
 export interface CreateAccessKeyRequest {
   /**
-   * @public
    * <p>The name of the IAM user that the new key will belong to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateAccessKey</a> request.
  *     </p>
+ * @public
  */
 export interface CreateAccessKeyResponse {
   /**
-   * @public
    * <p>A structure with details about the access key.</p>
+   * @public
    */
   AccessKey: AccessKey | undefined;
 }
 
 /**
- * @public
  * <p>The request was rejected because multiple requests to change this object were submitted
  *       simultaneously. Wait a few minutes and submit your request again.</p>
+ * @public
  */
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
@@ -728,11 +728,11 @@ export class ConcurrentModificationException extends __BaseException {
  */
 export interface CreateAccountAliasRequest {
   /**
-   * @public
    * <p>The account alias to create.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of
    *     lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have
    *     two dashes in a row.</p>
+   * @public
    */
   AccountAlias: string | undefined;
 }
@@ -742,7 +742,6 @@ export interface CreateAccountAliasRequest {
  */
 export interface CreateGroupRequest {
   /**
-   * @public
    * <p> The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *                 identifiers</a> in the <i>IAM User Guide</i>.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
@@ -750,21 +749,21 @@ export interface CreateGroupRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The name of the group to create. Do not include the path in this value.</p>
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
    *             not distinguished by case. For example, you cannot create resources named both
    *             "MyResource" and "myresource".</p>
+   * @public
    */
   GroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about an IAM group entity.</p>
  *          <p>This data type is used as a response element in the following operations:</p>
  *          <ul>
@@ -784,73 +783,73 @@ export interface CreateGroupRequest {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface Group {
   /**
-   * @public
    * <p>The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
+   * @public
    */
   Path: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name that identifies the group.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p> The stable and unique string identifying the group. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   GroupId: string | undefined;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) specifying the group. For more information about ARNs
    *          and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the group was created.</p>
+   * @public
    */
   CreateDate: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateGroup</a> request. </p>
+ * @public
  */
 export interface CreateGroupResponse {
   /**
-   * @public
    * <p>A structure containing details about the new group.</p>
+   * @public
    */
   Group: Group | undefined;
 }
 
 /**
- * @public
  * <p>A structure that represents user-provided metadata that can be associated with an IAM
  *       resource. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key name that can be used to look up or retrieve the associated value. For example,
    *         <code>Department</code> or <code>Cost Center</code> are common choices.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value associated with this tag. For example, tags with a key name of
    *         <code>Department</code> could have values such as <code>Human Resources</code>,
    *         <code>Accounting</code>, and <code>Support</code>. Tags with a key name of <code>Cost
@@ -862,6 +861,7 @@ export interface Tag {
    *         store an array, you can store comma-separated values in the string. However, you must
    *         interpret the value in your code.</p>
    *          </note>
+   * @public
    */
   Value: string | undefined;
 }
@@ -871,15 +871,14 @@ export interface Tag {
  */
 export interface CreateInstanceProfileRequest {
   /**
-   * @public
    * <p>The name of the instance profile to create.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 
   /**
-   * @public
    * <p> The path to the instance profile. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *                 Identifiers</a> in the <i>IAM User Guide</i>.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
@@ -887,11 +886,11 @@ export interface CreateInstanceProfileRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the newly created IAM instance profile.
    *       Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -899,12 +898,12 @@ export interface CreateInstanceProfileRequest {
    *             <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
    *    fails and the resource is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains information about the last time that an IAM role was used. This includes the
  *          date and time and the Region in which the role was last used. Activity is only reported for
  *          the trailing 400 days. This period can be shorter if your Region began supporting these
@@ -913,117 +912,117 @@ export interface CreateInstanceProfileRequest {
  *          Guide</i>.</p>
  *          <p>This data type is returned as a response element in the <a>GetRole</a> and
  *             <a>GetAccountAuthorizationDetails</a> operations.</p>
+ * @public
  */
 export interface RoleLastUsed {
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a> that the role was last used.</p>
    *          <p>This field is null if the role has not been used within the IAM tracking period. For
    *          more information about the tracking period, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.
    *       </p>
+   * @public
    */
   LastUsedDate?: Date;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services Region in which the role was last used.</p>
+   * @public
    */
   Region?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an IAM role. This structure is returned as a response
  *          element in several API operations that interact with roles.</p>
+ * @public
  */
 export interface Role {
   /**
-   * @public
    * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
+   * @public
    */
   Path: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name that identifies the role.</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p> The stable and unique string identifying the role. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   RoleId: string | undefined;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and
    *          how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i> guide. </p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the role was created.</p>
+   * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The policy that grants an entity permission to assume the role.</p>
+   * @public
    */
   AssumeRolePolicyDocument?: string;
 
   /**
-   * @public
    * <p>A description of the role that you provide.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The maximum session duration (in seconds) for the specified role. Anyone who uses the
    *          CLI, or API to assume the role can specify the duration using the optional
    *             <code>DurationSeconds</code> API parameter or <code>duration-seconds</code> CLI
    *          parameter.</p>
+   * @public
    */
   MaxSessionDuration?: number;
 
   /**
-   * @public
    * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
    *             identities </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary?: AttachedPermissionsBoundary;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>Contains information about the last time that an IAM role was used. This includes the
    *          date and time and the Region in which the role was last used. Activity is only reported for
    *          the trailing 400 days. This period can be shorter if your Region began supporting these
    *          features within the last year. The role might have been used more than 400 days ago. For
    *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
    *          Guide</i>.</p>
+   * @public
    */
   RoleLastUsed?: RoleLastUsed;
 }
 
 /**
- * @public
  * <p>Contains information about an instance profile.</p>
  *          <p>This data type is used as a response element in the following operations:</p>
  *          <ul>
@@ -1048,65 +1047,66 @@ export interface Role {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface InstanceProfile {
   /**
-   * @public
    * <p> The path to the instance profile. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   Path: string | undefined;
 
   /**
-   * @public
    * <p>The name identifying the instance profile.</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 
   /**
-   * @public
    * <p> The stable and unique string identifying the instance profile. For more information
    *          about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   InstanceProfileId: string | undefined;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) specifying the instance profile. For more information
    *          about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The date when the instance profile was created.</p>
+   * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The role associated with the instance profile.</p>
+   * @public
    */
   Roles: Role[] | undefined;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateInstanceProfile</a> request.
  *     </p>
+ * @public
  */
 export interface CreateInstanceProfileResponse {
   /**
-   * @public
    * <p>A structure containing details about the new instance profile.</p>
+   * @public
    */
   InstanceProfile: InstanceProfile | undefined;
 }
@@ -1116,16 +1116,15 @@ export interface CreateInstanceProfileResponse {
  */
 export interface CreateLoginProfileRequest {
   /**
-   * @public
    * <p>The name of the IAM user to create a password for. The user must already
    *             exist.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The new password for the user.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of characters. That string can include almost any printable
@@ -1134,50 +1133,51 @@ export interface CreateLoginProfileRequest {
    *     characters. Any of these characters are valid in a password. However, many tools, such
    *     as the Amazon Web Services Management Console, might restrict the ability to type certain characters because they have
    *     special meaning within that tool.</p>
+   * @public
    */
   Password: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user is required to set a new password on next sign-in.</p>
+   * @public
    */
   PasswordResetRequired?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the user name and password create date for a user.</p>
  *          <p> This data type is used as a response element in the <a>CreateLoginProfile</a> and <a>GetLoginProfile</a> operations. </p>
+ * @public
  */
 export interface LoginProfile {
   /**
-   * @public
    * <p>The name of the user, which can be used for signing in to the Amazon Web Services Management Console.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The date when the password for the user was created.</p>
+   * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user is required to set a new password on next sign-in.</p>
+   * @public
    */
   PasswordResetRequired?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateLoginProfile</a> request.
  *     </p>
+ * @public
  */
 export interface CreateLoginProfileResponse {
   /**
-   * @public
    * <p>A structure containing the user name and password create date.</p>
+   * @public
    */
   LoginProfile: LoginProfile | undefined;
 }
@@ -1187,7 +1187,6 @@ export interface CreateLoginProfileResponse {
  */
 export interface CreateOpenIDConnectProviderRequest {
   /**
-   * @public
    * <p>The URL of the identity provider. The URL must begin with <code>https://</code> and
    *             should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID
    *             tokens. Per the OIDC standard, path components are allowed but query parameters are not.
@@ -1197,11 +1196,11 @@ export interface CreateOpenIDConnectProviderRequest {
    *          <p>You cannot register the same provider multiple times in a single Amazon Web Services account. If you
    *             try to submit a URL that has already been used for an OpenID Connect provider in the
    *             Amazon Web Services account, you will get an error.</p>
+   * @public
    */
   Url: string | undefined;
 
   /**
-   * @public
    * <p>Provides a list of client IDs, also known as audiences. When a mobile or web app
    *             registers with an OpenID Connect provider, they establish a value that identifies the
    *             application. This is the value that's sent as the <code>client_id</code> parameter on
@@ -1212,11 +1211,11 @@ export interface CreateOpenIDConnectProviderRequest {
    *          <p>There is no defined format for a client ID. The
    *                 <code>CreateOpenIDConnectProviderRequest</code> operation accepts client IDs up to
    *             255 characters long.</p>
+   * @public
    */
   ClientIDList?: string[];
 
   /**
-   * @public
    * <p>A list of server certificate thumbprints for the OpenID Connect (OIDC) identity
    *             provider's server certificates. Typically this list includes only one entry. However,
    *             IAM lets you have up to five thumbprints for an OIDC provider. This lets you maintain
@@ -1233,11 +1232,11 @@ export interface CreateOpenIDConnectProviderRequest {
    *          <p>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining the
    *                 thumbprint for an OpenID Connect provider</a> in the <i>IAM user
    *                 Guide</i>.</p>
+   * @public
    */
   ThumbprintList: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the new IAM OpenID Connect (OIDC) provider.
    *       Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -1245,29 +1244,30 @@ export interface CreateOpenIDConnectProviderRequest {
    *             <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
    *    fails and the resource is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateOpenIDConnectProvider</a>
  *       request. </p>
+ * @public
  */
 export interface CreateOpenIDConnectProviderResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is
    *             created. For more information, see <a>OpenIDConnectProviderListEntry</a>.
    *         </p>
+   * @public
    */
   OpenIDConnectProviderArn?: string;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the new IAM OIDC provider. The returned list of
    *       tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1277,16 +1277,15 @@ export interface CreateOpenIDConnectProviderResponse {
  */
 export interface CreatePolicyRequest {
   /**
-   * @public
    * <p>The friendly name of the policy.</p>
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
    *             not distinguished by case. For example, you cannot create resources named both
    *             "MyResource" and "myresource".</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The path for the policy.</p>
    *          <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *                 <i>IAM User Guide</i>.</p>
@@ -1298,11 +1297,11 @@ export interface CreatePolicyRequest {
    *          <note>
    *             <p>You cannot use an asterisk (*) in the path name.</p>
    *          </note>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The JSON policy document that you want to use as the content for the new
    *             policy.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
@@ -1328,21 +1327,21 @@ export interface CreatePolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyDocument: string | undefined;
 
   /**
-   * @public
    * <p>A friendly description of the policy.</p>
    *          <p>Typically used to store information about the permissions defined in the policy. For
    *             example, "Grants access to production DynamoDB tables."</p>
    *          <p>The policy description is immutable. After a value is assigned, it cannot be
    *             changed.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the new IAM customer managed policy.
    *       Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -1350,126 +1349,127 @@ export interface CreatePolicyRequest {
    *             <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
    *    fails and the resource is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains information about a managed policy.</p>
  *          <p>This data type is used as a response element in the <a>CreatePolicy</a>,
  *             <a>GetPolicy</a>, and <a>ListPolicies</a> operations. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
+ * @public
  */
 export interface Policy {
   /**
-   * @public
    * <p>The friendly name (not ARN) identifying the policy.</p>
+   * @public
    */
   PolicyName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the policy.</p>
    *          <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   PolicyId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The path to the policy.</p>
    *          <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The identifier for the version of the policy that is set as the default version.</p>
+   * @public
    */
   DefaultVersionId?: string;
 
   /**
-   * @public
    * <p>The number of entities (users, groups, and roles) that the policy is attached to.</p>
+   * @public
    */
   AttachmentCount?: number;
 
   /**
-   * @public
    * <p>The number of entities (users and roles) for which the policy is used to set the
    *          permissions boundary. </p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
    *             identities </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundaryUsageCount?: number;
 
   /**
-   * @public
    * <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
+   * @public
    */
   IsAttachable?: boolean;
 
   /**
-   * @public
    * <p>A friendly description of the policy.</p>
    *          <p>This element is included in the response to the <a>GetPolicy</a> operation.
    *          It is not included in the response to the <a>ListPolicies</a> operation. </p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the policy was created.</p>
+   * @public
    */
   CreateDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the policy was last updated.</p>
    *          <p>When a policy has only one version, this field contains the date and time when the
    *          policy was created. When a policy has more than one version, this field contains the date
    *          and time when the most recent policy version was created.</p>
+   * @public
    */
   UpdateDate?: Date;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreatePolicy</a> request.
  *     </p>
+ * @public
  */
 export interface CreatePolicyResponse {
   /**
-   * @public
    * <p>A structure containing details about the new policy.</p>
+   * @public
    */
   Policy?: Policy;
 }
 
 /**
- * @public
  * <p>The request was rejected because the policy document was malformed. The error message
  *       describes the specific error.</p>
+ * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
   readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
@@ -1492,15 +1492,14 @@ export class MalformedPolicyDocumentException extends __BaseException {
  */
 export interface CreatePolicyVersionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new
    *             version.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>The JSON policy document that you want to use as the content for this new version of
    *             the policy.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
@@ -1524,31 +1523,31 @@ export interface CreatePolicyVersionRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyDocument: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether to set this version as the policy's default version.</p>
    *          <p>When this parameter is <code>true</code>, the new policy version becomes the operative
    *             version. That is, it becomes the version that is in effect for the IAM users, groups,
    *             and roles that the policy is attached to.</p>
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
    *                 policies</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   SetAsDefault?: boolean;
 }
 
 /**
- * @public
  * <p>Contains information about a version of a managed policy.</p>
  *          <p>This data type is used as a response element in the <a>CreatePolicyVersion</a>, <a>GetPolicyVersion</a>, <a>ListPolicyVersions</a>, and <a>GetAccountAuthorizationDetails</a> operations. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
+ * @public
  */
 export interface PolicyVersion {
   /**
-   * @public
    * <p>The policy document.</p>
    *          <p>The policy document is returned in the response to the <a>GetPolicyVersion</a> and <a>GetAccountAuthorizationDetails</a> operations. It is not returned in
    *          the response to the <a>CreatePolicyVersion</a> or <a>ListPolicyVersions</a> operations. </p>
@@ -1556,40 +1555,41 @@ export interface PolicyVersion {
    *          method to convert the policy back to plain JSON text. For example, if you use Java, you can
    *          use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
    *          the Java SDK. Other languages and SDKs provide similar functionality.</p>
+   * @public
    */
   Document?: string;
 
   /**
-   * @public
    * <p>The identifier for the policy version.</p>
    *          <p>Policy version identifiers always begin with <code>v</code> (always lowercase). When a
    *          policy is created, the first policy version is <code>v1</code>. </p>
+   * @public
    */
   VersionId?: string;
 
   /**
-   * @public
    * <p>Specifies whether the policy version is set as the policy's default version.</p>
+   * @public
    */
   IsDefaultVersion?: boolean;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the policy version was created.</p>
+   * @public
    */
   CreateDate?: Date;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreatePolicyVersion</a> request.
  *     </p>
+ * @public
  */
 export interface CreatePolicyVersionResponse {
   /**
-   * @public
    * <p>A structure containing details about the new policy version.</p>
+   * @public
    */
   PolicyVersion?: PolicyVersion;
 }
@@ -1599,7 +1599,6 @@ export interface CreatePolicyVersionResponse {
  */
 export interface CreateRoleRequest {
   /**
-   * @public
    * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *                 Identifiers</a> in the <i>IAM User Guide</i>.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
@@ -1607,22 +1606,22 @@ export interface CreateRoleRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The name of the role to create.</p>
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
    *             not distinguished by case. For example, you cannot create resources named both
    *             "MyResource" and "myresource".</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The trust relationship policy document that grants an entity permission to assume the
    *             role.</p>
    *          <p>In IAM, you must provide a JSON policy that has been converted to a string. However,
@@ -1646,17 +1645,17 @@ export interface CreateRoleRequest {
    *             </li>
    *          </ul>
    *          <p> Upon success, the response includes the same trust policy in JSON format.</p>
+   * @public
    */
   AssumeRolePolicyDocument: string | undefined;
 
   /**
-   * @public
    * <p>A description of the role.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The maximum session duration (in seconds) that you want to set for the specified role.
    *             If you do not specify a value for this setting, the default value of one hour is
    *             applied. This setting can have a value from 1 hour to 12 hours.</p>
@@ -1670,11 +1669,11 @@ export interface CreateRoleRequest {
    *             or the <code>assume-role*</code> CLI operations but does not apply when you use those
    *             operations to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
    *                 roles</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   MaxSessionDuration?: number;
 
   /**
-   * @public
    * <p>The ARN of the managed policy that is used to set the permissions boundary for the
    *             role.</p>
    *          <p>A permissions boundary policy defines the maximum permissions that identity-based
@@ -1684,11 +1683,11 @@ export interface CreateRoleRequest {
    *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
    *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
    *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary?: string;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the new role. Each tag consists of a key name and an associated value.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -1696,18 +1695,19 @@ export interface CreateRoleRequest {
    *             <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
    *    fails and the resource is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateRole</a> request. </p>
+ * @public
  */
 export interface CreateRoleResponse {
   /**
-   * @public
    * <p>A structure containing details about the new role.</p>
+   * @public
    */
   Role: Role | undefined;
 }
@@ -1717,7 +1717,6 @@ export interface CreateRoleResponse {
  */
 export interface CreateSAMLProviderRequest {
   /**
-   * @public
    * <p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The
    *             document includes the issuer's name, expiration information, and keys that can be used
    *             to validate the SAML authentication response (assertions) that are received from the
@@ -1726,19 +1725,19 @@ export interface CreateSAMLProviderRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based
    *                 federation</a> in the <i>IAM User Guide</i>
    *          </p>
+   * @public
    */
   SAMLMetadataDocument: string | undefined;
 
   /**
-   * @public
    * <p>The name of the provider to create.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the new IAM SAML provider.
    *       Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -1746,27 +1745,28 @@ export interface CreateSAMLProviderRequest {
    *             <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
    *    fails and the resource is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateSAMLProvider</a> request.
  *     </p>
+ * @public
  */
 export interface CreateSAMLProviderResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.</p>
+   * @public
    */
   SAMLProviderArn?: string;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1776,7 +1776,6 @@ export interface CreateSAMLProviderResponse {
  */
 export interface CreateServiceLinkedRoleRequest {
   /**
-   * @public
    * <p>The service principal for the Amazon Web Services service to which this role is attached. You use a
    *             string similar to a URL but without the http:// in front. For example:
    *                 <code>elasticbeanstalk.amazonaws.com</code>. </p>
@@ -1785,17 +1784,17 @@ export interface CreateServiceLinkedRoleRequest {
    *                 that work with IAM</a> in the <i>IAM User Guide</i>. Look for
    *             the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that
    *             service.</p>
+   * @public
    */
   AWSServiceName: string | undefined;
 
   /**
-   * @public
    * <p>The description of the role.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p></p>
    *          <p>A string that you provide, which is combined with the service-provided prefix to form
    *             the complete role name. If you make multiple requests for the same service, then you
@@ -1805,6 +1804,7 @@ export interface CreateServiceLinkedRoleRequest {
    *          <p>Some services do not support the <code>CustomSuffix</code> parameter. If you provide
    *             an optional suffix and the operation fails, try the operation again without the
    *             suffix.</p>
+   * @public
    */
   CustomSuffix?: string;
 }
@@ -1814,9 +1814,9 @@ export interface CreateServiceLinkedRoleRequest {
  */
 export interface CreateServiceLinkedRoleResponse {
   /**
-   * @public
    * <p>A <a>Role</a> object that contains details about the newly created
    *             role.</p>
+   * @public
    */
   Role?: Role;
 }
@@ -1826,73 +1826,73 @@ export interface CreateServiceLinkedRoleResponse {
  */
 export interface CreateServiceSpecificCredentialRequest {
   /**
-   * @public
    * <p>The name of the IAM user that is to be associated with the credentials. The new
    *             service-specific credentials have the same permissions as the associated user except
    *             that they can be used only to access the specified service.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services service that is to be associated with the credentials. The
    *             service you specify here is the only service that can be accessed using these
    *             credentials.</p>
+   * @public
    */
   ServiceName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the details of a service-specific credential.</p>
+ * @public
  */
 export interface ServiceSpecificCredential {
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the service-specific credential were created.</p>
+   * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the service associated with the service-specific credential.</p>
+   * @public
    */
   ServiceName: string | undefined;
 
   /**
-   * @public
    * <p>The generated user name for the service-specific credential. This value is generated by
    *          combining the IAM user's name combined with the ID number of the Amazon Web Services account, as in
    *             <code>jane-at-123456789012</code>, for example. This value cannot be configured by the
    *          user.</p>
+   * @public
    */
   ServiceUserName: string | undefined;
 
   /**
-   * @public
    * <p>The generated password for the service-specific credential.</p>
+   * @public
    */
   ServicePassword: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the service-specific credential.</p>
+   * @public
    */
   ServiceSpecificCredentialId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the IAM user associated with the service-specific credential.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The status of the service-specific credential. <code>Active</code> means that the key is
    *          valid for API calls, while <code>Inactive</code> means it is not.</p>
+   * @public
    */
   Status: StatusType | undefined;
 }
@@ -1902,20 +1902,20 @@ export interface ServiceSpecificCredential {
  */
 export interface CreateServiceSpecificCredentialResponse {
   /**
-   * @public
    * <p>A structure that contains information about the newly created service-specific
    *             credential.</p>
    *          <important>
    *             <p>This is the only time that the password for this credential set is available. It
    *                 cannot be recovered later. Instead, you must reset the password with <a>ResetServiceSpecificCredential</a>.</p>
    *          </important>
+   * @public
    */
   ServiceSpecificCredential?: ServiceSpecificCredential;
 }
 
 /**
- * @public
  * <p>The specified service does not support service-specific credentials.</p>
+ * @public
  */
 export class ServiceNotSupportedException extends __BaseException {
   readonly name: "ServiceNotSupportedException" = "ServiceNotSupportedException";
@@ -1938,7 +1938,6 @@ export class ServiceNotSupportedException extends __BaseException {
  */
 export interface CreateUserRequest {
   /**
-   * @public
    * <p> The path for the user name. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *                 identifiers</a> in the <i>IAM User Guide</i>.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
@@ -1946,20 +1945,20 @@ export interface CreateUserRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The name of the user to create.</p>
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
    *             not distinguished by case. For example, you cannot create resources named both
    *             "MyResource" and "myresource".</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the managed policy that is used to set the permissions boundary for the
    *             user.</p>
    *          <p>A permissions boundary policy defines the maximum permissions that identity-based
@@ -1969,11 +1968,11 @@ export interface CreateUserRequest {
    *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
    *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
    *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary?: string;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the new user. Each tag consists of a key name and an associated value.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -1981,12 +1980,12 @@ export interface CreateUserRequest {
    *             <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
    *    fails and the resource is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains information about an IAM user entity.</p>
  *          <p>This data type is used as a response element in the following operations:</p>
  *          <ul>
@@ -2006,47 +2005,47 @@ export interface CreateUserRequest {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface User {
   /**
-   * @public
    * <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
    *          <p>The ARN of the policy used to set the permissions boundary for the user.</p>
+   * @public
    */
   Path: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name identifying the user.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the user. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   UserId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs
    *          and how to use ARNs in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the user was created.</p>
+   * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the user's password was last used to sign in to an Amazon Web Services website.
    *          For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential
@@ -2067,32 +2066,33 @@ export interface User {
    *          Also, if the user does not currently have a password but had one in the past, then this
    *          field contains the date and time the most recent password was used.</p>
    *          <p>This value is returned only in the <a>GetUser</a> and <a>ListUsers</a> operations. </p>
+   * @public
    */
   PasswordLastUsed?: Date;
 
   /**
-   * @public
    * <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
    *             identities </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary?: AttachedPermissionsBoundary;
 
   /**
-   * @public
    * <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateUser</a> request. </p>
+ * @public
  */
 export interface CreateUserResponse {
   /**
-   * @public
    * <p>A structure with details about the new IAM user.</p>
+   * @public
    */
   User?: User;
 }
@@ -2102,7 +2102,6 @@ export interface CreateUserResponse {
  */
 export interface CreateVirtualMFADeviceRequest {
   /**
-   * @public
    * <p> The path for the virtual MFA device. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *                 identifiers</a> in the <i>IAM User Guide</i>.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
@@ -2110,20 +2109,20 @@ export interface CreateVirtualMFADeviceRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The name of the virtual MFA device, which must be unique. Use with path to uniquely
    *             identify a virtual MFA device.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   VirtualMFADeviceName: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the new IAM virtual MFA device.
    *       Each tag consists of a key name and an associated value. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
@@ -2131,67 +2130,68 @@ export interface CreateVirtualMFADeviceRequest {
    *             <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
    *    fails and the resource is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains information about a virtual MFA device.</p>
+ * @public
  */
 export interface VirtualMFADevice {
   /**
-   * @public
    * <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p> The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded. </p>
+   * @public
    */
   Base32StringSeed?: Uint8Array;
 
   /**
-   * @public
    * <p> A QR code PNG image that encodes
    *             <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code>
    *          where <code>$virtualMFADeviceName</code> is one of the create call arguments.
    *             <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise),
    *          and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code>
    *          value is base64-encoded. </p>
+   * @public
    */
   QRCodePNG?: Uint8Array;
 
   /**
-   * @public
    * <p>The IAM user associated with this virtual MFA device.</p>
+   * @public
    */
   User?: User;
 
   /**
-   * @public
    * <p>The date and time on which the virtual MFA device was enabled.</p>
+   * @public
    */
   EnableDate?: Date;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>CreateVirtualMFADevice</a> request.
  *     </p>
+ * @public
  */
 export interface CreateVirtualMFADeviceResponse {
   /**
-   * @public
    * <p>A structure containing details about the new virtual MFA device.</p>
+   * @public
    */
   VirtualMFADevice: VirtualMFADevice | undefined;
 }
@@ -2201,20 +2201,20 @@ export interface CreateVirtualMFADeviceResponse {
  */
 export interface DeactivateMFADeviceRequest {
   /**
-   * @public
    * <p>The name of the user whose MFA device you want to deactivate.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
    *             the serial number is the device ARN.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of upper and lowercase alphanumeric characters with no spaces. You can also include any of the
    *     following characters: =,.@:/-</p>
+   * @public
    */
   SerialNumber: string | undefined;
 }
@@ -2224,19 +2224,19 @@ export interface DeactivateMFADeviceRequest {
  */
 export interface DeleteAccessKeyRequest {
   /**
-   * @public
    * <p>The name of the user whose access key pair you want to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The access key ID for the access key ID and secret access key you want to
    *             delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
    *     consist of any upper or lowercased letter or digit.</p>
+   * @public
    */
   AccessKeyId: string | undefined;
 }
@@ -2246,19 +2246,19 @@ export interface DeleteAccessKeyRequest {
  */
 export interface DeleteAccountAliasRequest {
   /**
-   * @public
    * <p>The name of the account alias to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of
    *     lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have
    *     two dashes in a row.</p>
+   * @public
    */
   AccountAlias: string | undefined;
 }
 
 /**
- * @public
  * <p>The request was rejected because it attempted to delete a resource that has attached
  *       subordinate entities. The error message describes these entities.</p>
+ * @public
  */
 export class DeleteConflictException extends __BaseException {
   readonly name: "DeleteConflictException" = "DeleteConflictException";
@@ -2281,10 +2281,10 @@ export class DeleteConflictException extends __BaseException {
  */
 export interface DeleteGroupRequest {
   /**
-   * @public
    * <p>The name of the IAM group to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 }
@@ -2294,19 +2294,19 @@ export interface DeleteGroupRequest {
  */
 export interface DeleteGroupPolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) identifying the group that the policy is embedded
    *             in.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The name identifying the policy document to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 }
@@ -2316,10 +2316,10 @@ export interface DeleteGroupPolicyRequest {
  */
 export interface DeleteInstanceProfileRequest {
   /**
-   * @public
    * <p>The name of the instance profile to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 }
@@ -2329,10 +2329,10 @@ export interface DeleteInstanceProfileRequest {
  */
 export interface DeleteLoginProfileRequest {
   /**
-   * @public
    * <p>The name of the user whose password you want to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 }
@@ -2342,9 +2342,9 @@ export interface DeleteLoginProfileRequest {
  */
 export interface DeleteOpenIDConnectProviderRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to
    *             delete. You can get a list of OpenID Connect provider resource ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
+   * @public
    */
   OpenIDConnectProviderArn: string | undefined;
 }
@@ -2354,9 +2354,9 @@ export interface DeleteOpenIDConnectProviderRequest {
  */
 export interface DeletePolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to delete.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
@@ -2366,21 +2366,21 @@ export interface DeletePolicyRequest {
  */
 export interface DeletePolicyVersionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a
    *             version.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>The policy version to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that
    *     consists of the lowercase letter 'v' followed by one or two digits, and optionally
    *     followed by a period '.' and a string of letters and digits.</p>
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
    *                 policies</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   VersionId: string | undefined;
 }
@@ -2390,10 +2390,10 @@ export interface DeletePolicyVersionRequest {
  */
 export interface DeleteRoleRequest {
   /**
-   * @public
    * <p>The name of the role to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 }
@@ -2403,9 +2403,9 @@ export interface DeleteRoleRequest {
  */
 export interface DeleteRolePermissionsBoundaryRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM role from which you want to remove the
    *             permissions boundary.</p>
+   * @public
    */
   RoleName: string | undefined;
 }
@@ -2415,19 +2415,19 @@ export interface DeleteRolePermissionsBoundaryRequest {
  */
 export interface DeleteRolePolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) identifying the role that the policy is embedded
    *             in.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the inline policy to delete from the specified IAM role.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 }
@@ -2437,8 +2437,8 @@ export interface DeleteRolePolicyRequest {
  */
 export interface DeleteSAMLProviderRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the SAML provider to delete.</p>
+   * @public
    */
   SAMLProviderArn: string | undefined;
 }
@@ -2448,10 +2448,10 @@ export interface DeleteSAMLProviderRequest {
  */
 export interface DeleteServerCertificateRequest {
   /**
-   * @public
    * <p>The name of the server certificate you want to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   ServerCertificateName: string | undefined;
 }
@@ -2461,8 +2461,8 @@ export interface DeleteServerCertificateRequest {
  */
 export interface DeleteServiceLinkedRoleRequest {
   /**
-   * @public
    * <p>The name of the service-linked role to be deleted.</p>
+   * @public
    */
   RoleName: string | undefined;
 }
@@ -2472,10 +2472,10 @@ export interface DeleteServiceLinkedRoleRequest {
  */
 export interface DeleteServiceLinkedRoleResponse {
   /**
-   * @public
    * <p>The deletion task identifier that you can use to check the status of the deletion.
    *             This identifier is returned in the format
    *                 <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
+   * @public
    */
   DeletionTaskId: string | undefined;
 }
@@ -2485,21 +2485,21 @@ export interface DeleteServiceLinkedRoleResponse {
  */
 export interface DeleteServiceSpecificCredentialRequest {
   /**
-   * @public
    * <p>The name of the IAM user associated with the service-specific credential. If this
    *             value is not specified, then the operation assumes the user whose credentials are used
    *             to call the operation.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the service-specific credential. You can get this value by
    *             calling <a>ListServiceSpecificCredentials</a>.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
    *     consist of any upper or lowercased letter or digit.</p>
+   * @public
    */
   ServiceSpecificCredentialId: string | undefined;
 }
@@ -2509,18 +2509,18 @@ export interface DeleteServiceSpecificCredentialRequest {
  */
 export interface DeleteSigningCertificateRequest {
   /**
-   * @public
    * <p>The name of the user the signing certificate belongs to.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The ID of the signing certificate to delete.</p>
    *          <p>The format of this parameter, as described by its <a href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of
    *             characters that can be upper- or lower-cased letters or digits.</p>
+   * @public
    */
   CertificateId: string | undefined;
 }
@@ -2530,18 +2530,18 @@ export interface DeleteSigningCertificateRequest {
  */
 export interface DeleteSSHPublicKeyRequest {
   /**
-   * @public
    * <p>The name of the IAM user associated with the SSH public key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the SSH public key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
    *     consist of any upper or lowercased letter or digit.</p>
+   * @public
    */
   SSHPublicKeyId: string | undefined;
 }
@@ -2551,10 +2551,10 @@ export interface DeleteSSHPublicKeyRequest {
  */
 export interface DeleteUserRequest {
   /**
-   * @public
    * <p>The name of the user to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 }
@@ -2564,9 +2564,9 @@ export interface DeleteUserRequest {
  */
 export interface DeleteUserPermissionsBoundaryRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM user from which you want to remove the
    *             permissions boundary.</p>
+   * @public
    */
   UserName: string | undefined;
 }
@@ -2576,19 +2576,19 @@ export interface DeleteUserPermissionsBoundaryRequest {
  */
 export interface DeleteUserPolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) identifying the user that the policy is embedded
    *             in.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The name identifying the policy document to delete.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 }
@@ -2598,12 +2598,12 @@ export interface DeleteUserPolicyRequest {
  */
 export interface DeleteVirtualMFADeviceRequest {
   /**
-   * @public
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
    *             the serial number is the same as the ARN.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of upper and lowercase alphanumeric characters with no spaces. You can also include any of the
    *     following characters: =,.@:/-</p>
+   * @public
    */
   SerialNumber: string | undefined;
 }
@@ -2613,17 +2613,17 @@ export interface DeleteVirtualMFADeviceRequest {
  */
 export interface DetachGroupPolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM group to detach the policy from.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
@@ -2633,17 +2633,17 @@ export interface DetachGroupPolicyRequest {
  */
 export interface DetachRolePolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM role to detach the policy from.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
@@ -2653,17 +2653,17 @@ export interface DetachRolePolicyRequest {
  */
 export interface DetachUserPolicyRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM user to detach the policy from.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy you want to detach.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
@@ -2673,25 +2673,24 @@ export interface DetachUserPolicyRequest {
  */
 export interface EnableMFADeviceRequest {
   /**
-   * @public
    * <p>The name of the IAM user for whom you want to enable the MFA device.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
    *             the serial number is the device ARN.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of upper and lowercase alphanumeric characters with no spaces. You can also include any of the
    *     following characters: =,.@:/-</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p>An authentication code emitted by the device. </p>
    *          <p>The format for this parameter is a string of six digits.</p>
    *          <important>
@@ -2702,11 +2701,11 @@ export interface EnableMFADeviceRequest {
    *                 time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the
    *                 device</a>.</p>
    *          </important>
+   * @public
    */
   AuthenticationCode1: string | undefined;
 
   /**
-   * @public
    * <p>A subsequent authentication code emitted by the device.</p>
    *          <p>The format for this parameter is a string of six digits.</p>
    *          <important>
@@ -2717,14 +2716,15 @@ export interface EnableMFADeviceRequest {
    *                 time. If this happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync the
    *                 device</a>.</p>
    *          </important>
+   * @public
    */
   AuthenticationCode2: string | undefined;
 }
 
 /**
- * @public
  * <p>The request was rejected because the authentication code was not recognized. The error
  *       message describes the specific error.</p>
+ * @public
  */
 export class InvalidAuthenticationCodeException extends __BaseException {
   readonly name: "InvalidAuthenticationCodeException" = "InvalidAuthenticationCodeException";
@@ -2758,20 +2758,20 @@ export const ReportStateType = {
 export type ReportStateType = (typeof ReportStateType)[keyof typeof ReportStateType];
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GenerateCredentialReport</a>
  *       request. </p>
+ * @public
  */
 export interface GenerateCredentialReportResponse {
   /**
-   * @public
    * <p>Information about the state of the credential report.</p>
+   * @public
    */
   State?: ReportStateType;
 
   /**
-   * @public
    * <p>Information about the credential report.</p>
+   * @public
    */
   Description?: string;
 }
@@ -2781,22 +2781,22 @@ export interface GenerateCredentialReportResponse {
  */
 export interface GenerateOrganizationsAccessReportRequest {
   /**
-   * @public
    * <p>The path of the Organizations entity (root, OU, or account). You can build an entity path
    *             using the known structure of your organization. For example, assume that your account ID
    *             is <code>123456789012</code> and its parent OU ID is <code>ou-rge0-awsabcde</code>. The
    *             organization root ID is <code>r-f6g7h8i9j0example</code> and your organization ID is
    *                 <code>o-a1b2c3d4e5</code>. Your entity path is
    *                 <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012</code>.</p>
+   * @public
    */
   EntityPath: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Organizations service control policy (SCP). This parameter is
    *             optional.</p>
    *          <p>This ID is used to generate information about when an account principal that is
    *             limited by the SCP attempted to access an Amazon Web Services service.</p>
+   * @public
    */
   OrganizationsPolicyId?: string;
 }
@@ -2806,16 +2806,16 @@ export interface GenerateOrganizationsAccessReportRequest {
  */
 export interface GenerateOrganizationsAccessReportResponse {
   /**
-   * @public
    * <p>The job identifier that you can use in the <a>GetOrganizationsAccessReport</a> operation.</p>
+   * @public
    */
   JobId?: string;
 }
 
 /**
- * @public
  * <p>The request failed because the maximum number of concurrent requests for this account are
  *       already running.</p>
+ * @public
  */
 export class ReportGenerationLimitExceededException extends __BaseException {
   readonly name: "ReportGenerationLimitExceededException" = "ReportGenerationLimitExceededException";
@@ -2838,20 +2838,20 @@ export class ReportGenerationLimitExceededException extends __BaseException {
  */
 export interface GenerateServiceLastAccessedDetailsRequest {
   /**
-   * @public
    * <p>The ARN of the IAM resource (user, group, role, or managed policy) used to generate
    *             information about when the resource was last used in an attempt to access an Amazon Web Services
    *             service.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The level of detail that you want to generate. You can specify whether you want to
    *             generate information about the last attempt to access services or actions. If you
    *             specify service-level granularity, this operation generates only service data. If you
    *             specify action-level granularity, it generates service and action data. If you don't
    *             include this optional parameter, the operation generates service data.</p>
+   * @public
    */
   Granularity?: AccessAdvisorUsageGranularityType;
 }
@@ -2861,11 +2861,11 @@ export interface GenerateServiceLastAccessedDetailsRequest {
  */
 export interface GenerateServiceLastAccessedDetailsResponse {
   /**
-   * @public
    * <p>The <code>JobId</code> that you can use in the <a>GetServiceLastAccessedDetails</a> or <a>GetServiceLastAccessedDetailsWithEntities</a> operations. The
    *                 <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code> must
    *             be used by the same role within a session, or by the same user when used to call
    *                 <code>GetServiceLastAccessedDetail</code>.</p>
+   * @public
    */
   JobId?: string;
 }
@@ -2875,31 +2875,31 @@ export interface GenerateServiceLastAccessedDetailsResponse {
  */
 export interface GetAccessKeyLastUsedRequest {
   /**
-   * @public
    * <p>The identifier of an access key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
    *     consist of any upper or lowercased letter or digit.</p>
+   * @public
    */
   AccessKeyId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetAccessKeyLastUsed</a> request.
  *       It is also returned as a member of the <a>AccessKeyMetaData</a> structure returned
  *       by the <a>ListAccessKeys</a> action.</p>
+ * @public
  */
 export interface GetAccessKeyLastUsedResponse {
   /**
-   * @public
    * <p>The name of the IAM user that owns this access key.</p>
    *          <p></p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>Contains information about the last time the access key was used.</p>
+   * @public
    */
   AccessKeyLastUsed?: AccessKeyLastUsed;
 }
@@ -2926,17 +2926,16 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  */
 export interface GetAccountAuthorizationDetailsRequest {
   /**
-   * @public
    * <p>A list of entity types used to filter the results. Only the entities that match the
    *             types you specify are included in the output. Use the value
    *                 <code>LocalManagedPolicy</code> to include customer managed policies.</p>
    *          <p>The format for this parameter is a comma-separated (if more than one) list of strings.
    *             Each string value in the list must be one of the valid values listed below.</p>
+   * @public
    */
   Filter?: EntityType[];
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -2945,507 +2944,508 @@ export interface GetAccountAuthorizationDetailsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an IAM policy, including the policy document.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ * @public
  */
 export interface PolicyDetail {
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName?: string;
 
   /**
-   * @public
    * <p>The policy document.</p>
+   * @public
    */
   PolicyDocument?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an IAM group, including all of the group's policies.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ * @public
  */
 export interface GroupDetail {
   /**
-   * @public
    * <p>The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The friendly name that identifies the group.</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the group. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   GroupId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the group was created.</p>
+   * @public
    */
   CreateDate?: Date;
 
   /**
-   * @public
    * <p>A list of the inline policies embedded in the group.</p>
+   * @public
    */
   GroupPolicyList?: PolicyDetail[];
 
   /**
-   * @public
    * <p>A list of the managed policies attached to the group.</p>
+   * @public
    */
   AttachedManagedPolicies?: AttachedPolicy[];
 }
 
 /**
- * @public
  * <p>Contains information about a managed policy, including the policy's ARN, versions, and
  *          the number of principal entities (users, groups, and roles) that the policy is attached
  *          to.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
  *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
+ * @public
  */
 export interface ManagedPolicyDetail {
   /**
-   * @public
    * <p>The friendly name (not ARN) identifying the policy.</p>
+   * @public
    */
   PolicyName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the policy.</p>
    *          <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   PolicyId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The path to the policy.</p>
    *          <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The identifier for the version of the policy that is set as the default (operative)
    *          version.</p>
    *          <p>For more information about policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
    *             policies</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   DefaultVersionId?: string;
 
   /**
-   * @public
    * <p>The number of principal entities (users, groups, and roles) that the policy is attached
    *          to.</p>
+   * @public
    */
   AttachmentCount?: number;
 
   /**
-   * @public
    * <p>The number of entities (users and roles) for which the policy is used as the permissions
    *          boundary. </p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
    *             identities </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundaryUsageCount?: number;
 
   /**
-   * @public
    * <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
+   * @public
    */
   IsAttachable?: boolean;
 
   /**
-   * @public
    * <p>A friendly description of the policy.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the policy was created.</p>
+   * @public
    */
   CreateDate?: Date;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the policy was last updated.</p>
    *          <p>When a policy has only one version, this field contains the date and time when the
    *          policy was created. When a policy has more than one version, this field contains the date
    *          and time when the most recent policy version was created.</p>
+   * @public
    */
   UpdateDate?: Date;
 
   /**
-   * @public
    * <p>A list containing information about the versions of the policy.</p>
+   * @public
    */
   PolicyVersionList?: PolicyVersion[];
 }
 
 /**
- * @public
  * <p>Contains information about an IAM role, including all of the role's policies.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ * @public
  */
 export interface RoleDetail {
   /**
-   * @public
    * <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The friendly name that identifies the role.</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the role. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   RoleId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the role was created.</p>
+   * @public
    */
   CreateDate?: Date;
 
   /**
-   * @public
    * <p>The trust policy that grants permission to assume the role.</p>
+   * @public
    */
   AssumeRolePolicyDocument?: string;
 
   /**
-   * @public
    * <p>A list of instance profiles that contain this role.</p>
+   * @public
    */
   InstanceProfileList?: InstanceProfile[];
 
   /**
-   * @public
    * <p>A list of inline policies embedded in the role. These policies are the role's access
    *          (permissions) policies.</p>
+   * @public
    */
   RolePolicyList?: PolicyDetail[];
 
   /**
-   * @public
    * <p>A list of managed policies attached to the role. These policies are the role's access
    *          (permissions) policies.</p>
+   * @public
    */
   AttachedManagedPolicies?: AttachedPolicy[];
 
   /**
-   * @public
    * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
    *             identities </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary?: AttachedPermissionsBoundary;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>Contains information about the last time that an IAM role was used. This includes the
    *          date and time and the Region in which the role was last used. Activity is only reported for
    *          the trailing 400 days. This period can be shorter if your Region began supporting these
    *          features within the last year. The role might have been used more than 400 days ago. For
    *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   RoleLastUsed?: RoleLastUsed;
 }
 
 /**
- * @public
  * <p>Contains information about an IAM user, including all the user's policies and all the
  *          IAM groups the user is in.</p>
  *          <p>This data type is used as a response element in the <a>GetAccountAuthorizationDetails</a> operation.</p>
+ * @public
  */
 export interface UserDetail {
   /**
-   * @public
    * <p>The path to the user. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The friendly name identifying the user.</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the user. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   UserId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the user was created.</p>
+   * @public
    */
   CreateDate?: Date;
 
   /**
-   * @public
    * <p>A list of the inline policies embedded in the user.</p>
+   * @public
    */
   UserPolicyList?: PolicyDetail[];
 
   /**
-   * @public
    * <p>A list of IAM groups that the user is in.</p>
+   * @public
    */
   GroupList?: string[];
 
   /**
-   * @public
    * <p>A list of the managed policies attached to the user.</p>
+   * @public
    */
   AttachedManagedPolicies?: AttachedPolicy[];
 
   /**
-   * @public
    * <p>The ARN of the policy used to set the permissions boundary for the user.</p>
    *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
    *             identities </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary?: AttachedPermissionsBoundary;
 
   /**
-   * @public
    * <p>A list of tags that are associated with the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetAccountAuthorizationDetails</a>
  *       request. </p>
+ * @public
  */
 export interface GetAccountAuthorizationDetailsResponse {
   /**
-   * @public
    * <p>A list containing information about IAM users.</p>
+   * @public
    */
   UserDetailList?: UserDetail[];
 
   /**
-   * @public
    * <p>A list containing information about IAM groups.</p>
+   * @public
    */
   GroupDetailList?: GroupDetail[];
 
   /**
-   * @public
    * <p>A list containing information about IAM roles.</p>
+   * @public
    */
   RoleDetailList?: RoleDetail[];
 
   /**
-   * @public
    * <p>A list containing information about managed policies.</p>
+   * @public
    */
   Policies?: ManagedPolicyDetail[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
 
 /**
- * @public
  * <p>Contains information about the account password policy.</p>
  *          <p> This data type is used as a response element in the <a>GetAccountPasswordPolicy</a> operation. </p>
+ * @public
  */
 export interface PasswordPolicy {
   /**
-   * @public
    * <p>Minimum length to require for IAM user passwords.</p>
+   * @public
    */
   MinimumPasswordLength?: number;
 
   /**
-   * @public
    * <p>Specifies whether IAM user passwords must contain at least one of the following
    *          symbols:</p>
    *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] \{ \} | '</p>
+   * @public
    */
   RequireSymbols?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to
    *          9).</p>
+   * @public
    */
   RequireNumbers?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether IAM user passwords must contain at least one uppercase character (A
    *          to Z).</p>
+   * @public
    */
   RequireUppercaseCharacters?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether IAM user passwords must contain at least one lowercase character (a
    *          to z).</p>
+   * @public
    */
   RequireLowercaseCharacters?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether IAM users are allowed to change their own password. Gives IAM
    *          users permissions to <code>iam:ChangePassword</code> for only their user and to the
    *             <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a
    *          permissions policy to each user, rather the permissions are applied at the account-level
    *          for all users by IAM.</p>
+   * @public
    */
   AllowUsersToChangePassword?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether passwords in the account expire. Returns true if
    *             <code>MaxPasswordAge</code> contains a value greater than 0. Returns false if
    *          MaxPasswordAge is 0 or not present.</p>
+   * @public
    */
   ExpirePasswords?: boolean;
 
   /**
-   * @public
    * <p>The number of days that an IAM user password is valid.</p>
+   * @public
    */
   MaxPasswordAge?: number;
 
   /**
-   * @public
    * <p>Specifies the number of previous passwords that IAM users are prevented from
    *          reusing.</p>
+   * @public
    */
   PasswordReusePrevention?: number;
 
   /**
-   * @public
    * <p>Specifies whether IAM users are prevented from setting a new password via the
    *          Amazon Web Services Management Console after their password has expired. The IAM user cannot access the console until
    *          an administrator resets the password. IAM users with <code>iam:ChangePassword</code>
    *          permission and active access keys can reset their own expired console password using the
    *          CLI or API.</p>
+   * @public
    */
   HardExpiry?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetAccountPasswordPolicy</a>
  *       request. </p>
+ * @public
  */
 export interface GetAccountPasswordPolicyResponse {
   /**
-   * @public
    * <p>A structure that contains details about the account's password policy.</p>
+   * @public
    */
   PasswordPolicy: PasswordPolicy | undefined;
 }
@@ -3489,15 +3489,15 @@ export const SummaryKeyType = {
 export type SummaryKeyType = (typeof SummaryKeyType)[keyof typeof SummaryKeyType];
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetAccountSummary</a> request.
  *     </p>
+ * @public
  */
 export interface GetAccountSummaryResponse {
   /**
-   * @public
    * <p>A set of key–value pairs containing information about IAM entity usage and
    *             IAM quotas.</p>
+   * @public
    */
   SummaryMap?: Partial<Record<SummaryKeyType, number>>;
 }
@@ -3507,7 +3507,6 @@ export interface GetAccountSummaryResponse {
  */
 export interface GetContextKeysForCustomPolicyRequest {
   /**
-   * @public
    * <p>A list of policies for which you want the list of context keys referenced in those
    *             policies. Each document is specified as a string containing the complete, valid JSON
    *             text of an IAM policy.</p>
@@ -3527,18 +3526,19 @@ export interface GetContextKeysForCustomPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyInputList: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetContextKeysForPrincipalPolicy</a> or <a>GetContextKeysForCustomPolicy</a> request. </p>
+ * @public
  */
 export interface GetContextKeysForPolicyResponse {
   /**
-   * @public
    * <p>The list of context keys that are referenced in the input policies.</p>
+   * @public
    */
   ContextKeyNames?: string[];
 }
@@ -3548,7 +3548,6 @@ export interface GetContextKeysForPolicyResponse {
  */
 export interface GetContextKeysForPrincipalPolicyRequest {
   /**
-   * @public
    * <p>The ARN of a user, group, or role whose policies contain the context keys that you
    *             want listed. If you specify a user, the list includes context keys that are found in all
    *             policies that are attached to the user. The list also includes all groups that the user
@@ -3557,11 +3556,11 @@ export interface GetContextKeysForPrincipalPolicyRequest {
    *             in unencoded form here for clarity, but must be URL encoded to be included as a part of
    *             a real HTML request.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicySourceArn: string | undefined;
 
   /**
-   * @public
    * <p>An optional list of additional policies for which you want the list of context keys
    *             that are referenced.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
@@ -3580,16 +3579,17 @@ export interface GetContextKeysForPrincipalPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyInputList?: string[];
 }
 
 /**
- * @public
  * <p>The request was rejected because the most recent credential report has expired. To
  *       generate a new credential report, use <a>GenerateCredentialReport</a>. For more
  *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the
  *         <i>IAM User Guide</i>.</p>
+ * @public
  */
 export class CredentialReportExpiredException extends __BaseException {
   readonly name: "CredentialReportExpiredException" = "CredentialReportExpiredException";
@@ -3608,9 +3608,9 @@ export class CredentialReportExpiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was rejected because the credential report does not exist. To generate a
  *       credential report, use <a>GenerateCredentialReport</a>.</p>
+ * @public
  */
 export class CredentialReportNotPresentException extends __BaseException {
   readonly name: "CredentialReportNotPresentException" = "CredentialReportNotPresentException";
@@ -3629,8 +3629,8 @@ export class CredentialReportNotPresentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was rejected because the credential report is still being generated.</p>
+ * @public
  */
 export class CredentialReportNotReadyException extends __BaseException {
   readonly name: "CredentialReportNotReadyException" = "CredentialReportNotReadyException";
@@ -3662,26 +3662,26 @@ export const ReportFormatType = {
 export type ReportFormatType = (typeof ReportFormatType)[keyof typeof ReportFormatType];
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetCredentialReport</a> request.
  *     </p>
+ * @public
  */
 export interface GetCredentialReportResponse {
   /**
-   * @public
    * <p>Contains the credential report. The report is Base64-encoded.</p>
+   * @public
    */
   Content?: Uint8Array;
 
   /**
-   * @public
    * <p>The format (MIME type) of the credential report.</p>
+   * @public
    */
   ReportFormat?: ReportFormatType;
 
   /**
-   * @public
    * <p> The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
+   * @public
    */
   GeneratedTime?: Date;
 }
@@ -3691,24 +3691,23 @@ export interface GetCredentialReportResponse {
  */
 export interface GetGroupRequest {
   /**
-   * @public
    * <p>The name of the group.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -3717,43 +3716,44 @@ export interface GetGroupRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetGroup</a> request. </p>
+ * @public
  */
 export interface GetGroupResponse {
   /**
-   * @public
    * <p>A structure that contains details about the group.</p>
+   * @public
    */
   Group: Group | undefined;
 
   /**
-   * @public
    * <p>A list of users in the group.</p>
+   * @public
    */
   Users: User[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -3763,46 +3763,46 @@ export interface GetGroupResponse {
  */
 export interface GetGroupPolicyRequest {
   /**
-   * @public
    * <p>The name of the group the policy is associated with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy document to get.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetGroupPolicy</a> request.
  *     </p>
+ * @public
  */
 export interface GetGroupPolicyResponse {
   /**
-   * @public
    * <p>The group the policy is associated with.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The policy document.</p>
    *          <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation
    *             templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format
    *             before submitting it to IAM.</p>
+   * @public
    */
   PolicyDocument: string | undefined;
 }
@@ -3812,23 +3812,23 @@ export interface GetGroupPolicyResponse {
  */
 export interface GetInstanceProfileRequest {
   /**
-   * @public
    * <p>The name of the instance profile to get information about.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetInstanceProfile</a> request.
  *     </p>
+ * @public
  */
 export interface GetInstanceProfileResponse {
   /**
-   * @public
    * <p>A structure containing details about the instance profile.</p>
+   * @public
    */
   InstanceProfile: InstanceProfile | undefined;
 }
@@ -3838,24 +3838,24 @@ export interface GetInstanceProfileResponse {
  */
 export interface GetLoginProfileRequest {
   /**
-   * @public
    * <p>The name of the user whose login profile you want to retrieve.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetLoginProfile</a> request.
  *     </p>
+ * @public
  */
 export interface GetLoginProfileResponse {
   /**
-   * @public
    * <p>A structure containing the user name and the profile creation date for the
    *             user.</p>
+   * @public
    */
   LoginProfile: LoginProfile | undefined;
 }
@@ -3865,15 +3865,15 @@ export interface GetLoginProfileResponse {
  */
 export interface GetMFADeviceRequest {
   /**
-   * @public
    * <p>Serial number that uniquely identifies the MFA device. For this API, we only accept
    *             FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name identifying the user.</p>
+   * @public
    */
   UserName?: string;
 }
@@ -3883,29 +3883,29 @@ export interface GetMFADeviceRequest {
  */
 export interface GetMFADeviceResponse {
   /**
-   * @public
    * <p>The friendly name identifying the user.</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>Serial number that uniquely identifies the MFA device. For this API, we only accept
    *             FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p>The date that a specified user's MFA device was first enabled.</p>
+   * @public
    */
   EnableDate?: Date;
 
   /**
-   * @public
    * <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2,
    *             FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service
    *                 (MDS)</a>.</p>
+   * @public
    */
   Certifications?: Record<string, string>;
 }
@@ -3915,53 +3915,53 @@ export interface GetMFADeviceResponse {
  */
 export interface GetOpenIDConnectProviderRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get
    *             information for. You can get a list of OIDC provider resource ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   OpenIDConnectProviderArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetOpenIDConnectProvider</a>
  *       request. </p>
+ * @public
  */
 export interface GetOpenIDConnectProviderResponse {
   /**
-   * @public
    * <p>The URL that the IAM OIDC provider resource object is associated with. For more
    *             information, see <a>CreateOpenIDConnectProvider</a>.</p>
+   * @public
    */
   Url?: string;
 
   /**
-   * @public
    * <p>A list of client IDs (also known as audiences) that are associated with the specified
    *             IAM OIDC provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>.</p>
+   * @public
    */
   ClientIDList?: string[];
 
   /**
-   * @public
    * <p>A list of certificate thumbprints that are associated with the specified IAM OIDC
    *             provider resource object. For more information, see <a>CreateOpenIDConnectProvider</a>. </p>
+   * @public
    */
   ThumbprintList?: string[];
 
   /**
-   * @public
    * <p>The date and time when the IAM OIDC provider resource object was created in the
    *             Amazon Web Services account.</p>
+   * @public
    */
   CreateDate?: Date;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -3987,13 +3987,12 @@ export type SortKeyType = (typeof SortKeyType)[keyof typeof SortKeyType];
  */
 export interface GetOrganizationsAccessReportRequest {
   /**
-   * @public
    * <p>The identifier of the request generated by the <a>GenerateOrganizationsAccessReport</a> operation.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -4002,42 +4001,43 @@ export interface GetOrganizationsAccessReportRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The key that is used to sort the results. If you choose the namespace key, the results
    *             are returned in alphabetical order. If you choose the time key, the results are sorted
    *             numerically by the date and time.</p>
+   * @public
    */
   SortKey?: SortKeyType;
 }
 
 /**
- * @public
  * <p>Contains information about the reason that the operation failed.</p>
  *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
+ * @public
  */
 export interface ErrorDetails {
   /**
-   * @public
    * <p>Detailed information about the reason that the operation failed.</p>
+   * @public
    */
   Message: string | undefined;
 
   /**
-   * @public
    * <p>The error code associated with the operation failure.</p>
+   * @public
    */
   Code: string | undefined;
 }
@@ -4062,71 +4062,71 @@ export type JobStatusType = (typeof JobStatusType)[keyof typeof JobStatusType];
  */
 export interface GetOrganizationsAccessReportResponse {
   /**
-   * @public
    * <p>The status of the job.</p>
+   * @public
    */
   JobStatus: JobStatusType | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the report job was created.</p>
+   * @public
    */
   JobCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the generated report job was completed or failed.</p>
    *          <p>This field is null if the job is still in progress, as indicated by a job status value
    *             of <code>IN_PROGRESS</code>.</p>
+   * @public
    */
   JobCompletionDate?: Date;
 
   /**
-   * @public
    * <p>The number of services that the applicable SCPs allow account principals to
    *             access.</p>
+   * @public
    */
   NumberOfServicesAccessible?: number;
 
   /**
-   * @public
    * <p>The number of services that account principals are allowed but did not attempt to
    *             access.</p>
+   * @public
    */
   NumberOfServicesNotAccessed?: number;
 
   /**
-   * @public
    * <p>An object that contains details about the most recent attempt to access the
    *             service.</p>
+   * @public
    */
   AccessDetails?: AccessDetail[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Contains information about the reason that the operation failed.</p>
    *          <p>This data type is used as a response element in the <a>GetOrganizationsAccessReport</a>, <a>GetServiceLastAccessedDetails</a>, and <a>GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
+   * @public
    */
   ErrorDetails?: ErrorDetails;
 }
@@ -4136,22 +4136,22 @@ export interface GetOrganizationsAccessReportResponse {
  */
 export interface GetPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the managed policy that you want information
    *             about.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetPolicy</a> request. </p>
+ * @public
  */
 export interface GetPolicyResponse {
   /**
-   * @public
    * <p>A structure containing details about the policy.</p>
+   * @public
    */
   Policy?: Policy;
 }
@@ -4161,32 +4161,32 @@ export interface GetPolicyResponse {
  */
 export interface GetPolicyVersionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the managed policy that you want information
    *             about.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>Identifies the policy version to retrieve.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that
    *     consists of the lowercase letter 'v' followed by one or two digits, and optionally
    *     followed by a period '.' and a string of letters and digits.</p>
+   * @public
    */
   VersionId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetPolicyVersion</a> request.
  *     </p>
+ * @public
  */
 export interface GetPolicyVersionResponse {
   /**
-   * @public
    * <p>A structure containing details about the policy version.</p>
+   * @public
    */
   PolicyVersion?: PolicyVersion;
 }
@@ -4196,22 +4196,22 @@ export interface GetPolicyVersionResponse {
  */
 export interface GetRoleRequest {
   /**
-   * @public
    * <p>The name of the IAM role to get information about.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetRole</a> request. </p>
+ * @public
  */
 export interface GetRoleResponse {
   /**
-   * @public
    * <p>A structure containing details about the IAM role.</p>
+   * @public
    */
   Role: Role | undefined;
 }
@@ -4221,46 +4221,46 @@ export interface GetRoleResponse {
  */
 export interface GetRolePolicyRequest {
   /**
-   * @public
    * <p>The name of the role associated with the policy.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy document to get.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetRolePolicy</a> request.
  *     </p>
+ * @public
  */
 export interface GetRolePolicyResponse {
   /**
-   * @public
    * <p>The role the policy is associated with.</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The policy document.</p>
    *          <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation
    *             templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format
    *             before submitting it to IAM.</p>
+   * @public
    */
   PolicyDocument: string | undefined;
 }
@@ -4270,43 +4270,43 @@ export interface GetRolePolicyResponse {
  */
 export interface GetSAMLProviderRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get
    *             information about.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   SAMLProviderArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetSAMLProvider</a> request.
  *     </p>
+ * @public
  */
 export interface GetSAMLProviderResponse {
   /**
-   * @public
    * <p>The XML metadata document that includes information about an identity provider.</p>
+   * @public
    */
   SAMLMetadataDocument?: string;
 
   /**
-   * @public
    * <p>The date and time when the SAML provider was created.</p>
+   * @public
    */
   CreateDate?: Date;
 
   /**
-   * @public
    * <p>The expiration date and time for the SAML provider.</p>
+   * @public
    */
   ValidUntil?: Date;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key.
    *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -4316,105 +4316,105 @@ export interface GetSAMLProviderResponse {
  */
 export interface GetServerCertificateRequest {
   /**
-   * @public
    * <p>The name of the server certificate you want to retrieve information about.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   ServerCertificateName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about a server certificate without its certificate body,
  *          certificate chain, and private key.</p>
  *          <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a>
  *          operations. </p>
+ * @public
  */
 export interface ServerCertificateMetadata {
   /**
-   * @public
    * <p> The path to the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   Path: string | undefined;
 
   /**
-   * @public
    * <p>The name that identifies the server certificate.</p>
+   * @public
    */
   ServerCertificateName: string | undefined;
 
   /**
-   * @public
    * <p> The stable and unique string identifying the server certificate. For more information
    *          about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   ServerCertificateId: string | undefined;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) specifying the server certificate. For more information
    *          about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
    *             <i>IAM User Guide</i>. </p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The date when the server certificate was uploaded.</p>
+   * @public
    */
   UploadDate?: Date;
 
   /**
-   * @public
    * <p>The date on which the certificate is set to expire.</p>
+   * @public
    */
   Expiration?: Date;
 }
 
 /**
- * @public
  * <p>Contains information about a server certificate.</p>
  *          <p> This data type is used as a response element in the <a>GetServerCertificate</a> operation. </p>
+ * @public
  */
 export interface ServerCertificate {
   /**
-   * @public
    * <p>The meta information of the server certificate, such as its name, path, ID, and
    *          ARN.</p>
+   * @public
    */
   ServerCertificateMetadata: ServerCertificateMetadata | undefined;
 
   /**
-   * @public
    * <p>The contents of the public key certificate.</p>
+   * @public
    */
   CertificateBody: string | undefined;
 
   /**
-   * @public
    * <p>The contents of the public key certificate chain.</p>
+   * @public
    */
   CertificateChain?: string;
 
   /**
-   * @public
    * <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
    *       <i>IAM User Guide</i>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetServerCertificate</a> request.
  *     </p>
+ * @public
  */
 export interface GetServerCertificateResponse {
   /**
-   * @public
    * <p>A structure containing details about the server certificate.</p>
+   * @public
    */
   ServerCertificate: ServerCertificate | undefined;
 }
@@ -4424,16 +4424,15 @@ export interface GetServerCertificateResponse {
  */
 export interface GetServiceLastAccessedDetailsRequest {
   /**
-   * @public
    * <p>The ID of the request generated by the <a>GenerateServiceLastAccessedDetails</a> operation. The <code>JobId</code>
    *             returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role
    *             within a session, or by the same user when used to call
    *                 <code>GetServiceLastAccessedDetail</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -4442,85 +4441,85 @@ export interface GetServiceLastAccessedDetailsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 }
 
 /**
- * @public
  * <p>Contains details about the most recent attempt to access an action within the
  *          service.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
+ * @public
  */
 export interface TrackedActionLastAccessed {
   /**
-   * @public
    * <p>The name of the tracked action to which access was attempted. Tracked actions are
    *          actions that report activity to IAM.</p>
+   * @public
    */
   ActionName?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   LastAccessedEntity?: string;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when an authenticated entity most recently attempted to access the
    *          tracked service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   LastAccessedTime?: Date;
 
   /**
-   * @public
    * <p>The Region from which the authenticated entity (user or role) last attempted to access
    *          the tracked action. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   LastAccessedRegion?: string;
 }
 
 /**
- * @public
  * <p>Contains details about the most recent attempt to access the service.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
+ * @public
  */
 export interface ServiceLastAccessed {
   /**
-   * @public
    * <p>The name of the service in which access was attempted.</p>
+   * @public
    */
   ServiceName: string | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when an authenticated entity most recently attempted to access the
    *          service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   LastAuthenticated?: Date;
 
   /**
-   * @public
    * <p>The namespace of the service in which access was attempted.</p>
    *          <p>To learn the service namespace of a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the
    *             <i>Service Authorization Reference</i>. Choose the name of the service to
@@ -4528,43 +4527,44 @@ export interface ServiceLastAccessed {
    *          example, <code>(service prefix: a4b)</code>. For more information about service namespaces,
    *          see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services
    *             Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   ServiceNamespace: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the authenticated entity (user or role) that last attempted to access the
    *          service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   LastAuthenticatedEntity?: string;
 
   /**
-   * @public
    * <p>The Region from which the authenticated entity (user or role) last attempted to access
    *          the service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   LastAuthenticatedRegion?: string;
 
   /**
-   * @public
    * <p>The total number of authenticated principals (root user, IAM users, or IAM roles)
    *          that have attempted to access the service.</p>
    *          <p>This field is null if no principals attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   TotalAuthenticatedEntities?: number;
 
   /**
-   * @public
    * <p>An object that contains details about the most recent attempt to access a tracked action
    *          within the service.</p>
    *          <p>This field is null if there no tracked actions or if the principal did not use the
    *          tracked actions within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>. This field is also null if the report was generated at the
    *          service level and not the action level. For more information, see the
    *             <code>Granularity</code> field in <a>GenerateServiceLastAccessedDetails</a>.</p>
+   * @public
    */
   TrackedActionsLastAccessed?: TrackedActionLastAccessed[];
 }
@@ -4574,64 +4574,64 @@ export interface ServiceLastAccessed {
  */
 export interface GetServiceLastAccessedDetailsResponse {
   /**
-   * @public
    * <p>The status of the job.</p>
+   * @public
    */
   JobStatus: JobStatusType | undefined;
 
   /**
-   * @public
    * <p>The type of job. Service jobs return information about when each service was last
    *             accessed. Action jobs also include information about when tracked actions within the
    *             service were last accessed.</p>
+   * @public
    */
   JobType?: AccessAdvisorUsageGranularityType;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the report job was created.</p>
+   * @public
    */
   JobCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p> A <code>ServiceLastAccessed</code> object that contains details about the most recent
    *             attempt to access the service.</p>
+   * @public
    */
   ServicesLastAccessed: ServiceLastAccessed[] | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the generated report job was completed or failed.</p>
    *          <p>This field is null if the job is still in progress, as indicated by a job status value
    *             of <code>IN_PROGRESS</code>.</p>
+   * @public
    */
   JobCompletionDate: Date | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>An object that contains details about the reason the operation failed.</p>
+   * @public
    */
   Error?: ErrorDetails;
 }
@@ -4641,14 +4641,13 @@ export interface GetServiceLastAccessedDetailsResponse {
  */
 export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
   /**
-   * @public
    * <p>The ID of the request generated by the <code>GenerateServiceLastAccessedDetails</code>
    *             operation.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The service namespace for an Amazon Web Services service. Provide the service namespace to learn
    *             when the IAM entity last attempted to access the specified service.</p>
    *          <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the
@@ -4657,11 +4656,11 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
    *                 <code>(service prefix: a4b)</code>. For more information about service namespaces,
    *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services
    *                 service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   ServiceNamespace: string | undefined;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -4670,15 +4669,16 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -4699,66 +4699,66 @@ export const PolicyOwnerEntityType = {
 export type PolicyOwnerEntityType = (typeof PolicyOwnerEntityType)[keyof typeof PolicyOwnerEntityType];
 
 /**
- * @public
  * <p>Contains details about the specified entity (user or role).</p>
  *          <p>This data type is an element of the <a>EntityDetails</a> object.</p>
+ * @public
  */
 export interface EntityInfo {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the entity (user or role).</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The type of entity (user or role).</p>
+   * @public
    */
   Type: PolicyOwnerEntityType | undefined;
 
   /**
-   * @public
    * <p>The identifier of the entity (user or role).</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The path to the entity (user or role). For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
    */
   Path?: string;
 }
 
 /**
- * @public
  * <p>An object that contains details about when the IAM entities (users or roles) were last
  *          used in an attempt to access the specified Amazon Web Services service.</p>
  *          <p>This data type is a response element in the <a>GetServiceLastAccessedDetailsWithEntities</a> operation.</p>
+ * @public
  */
 export interface EntityDetails {
   /**
-   * @public
    * <p>The <code>EntityInfo</code> object that contains details about the entity (user or
    *          role).</p>
+   * @public
    */
   EntityInfo: EntityInfo | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the authenticated entity last attempted to access Amazon Web Services. Amazon Web Services does
    *          not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
+   * @public
    */
   LastAuthenticated?: Date;
 }
@@ -4768,57 +4768,57 @@ export interface EntityDetails {
  */
 export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   /**
-   * @public
    * <p>The status of the job.</p>
+   * @public
    */
   JobStatus: JobStatusType | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the report job was created.</p>
+   * @public
    */
   JobCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *                 format</a>, when the generated report job was completed or failed.</p>
    *          <p>This field is null if the job is still in progress, as indicated by a job status value
    *             of <code>IN_PROGRESS</code>.</p>
+   * @public
    */
   JobCompletionDate: Date | undefined;
 
   /**
-   * @public
    * <p>An <code>EntityDetailsList</code> object that contains details about when an IAM
    *             entity (user or role) used group or policy permissions in an attempt to access the
    *             specified Amazon Web Services service.</p>
+   * @public
    */
   EntityDetailsList: EntityDetails[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>An object that contains details about the reason the operation failed.</p>
+   * @public
    */
   Error?: ErrorDetails;
 }
@@ -4828,53 +4828,53 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
  */
 export interface GetServiceLinkedRoleDeletionStatusRequest {
   /**
-   * @public
    * <p>The deletion task identifier. This identifier is returned by the <a>DeleteServiceLinkedRole</a> operation in the format
    *                 <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
+   * @public
    */
   DeletionTaskId: string | undefined;
 }
 
 /**
- * @public
  * <p>An object that contains details about how a service-linked role is used, if that
  *          information is returned by the service.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
+ * @public
  */
 export interface RoleUsageType {
   /**
-   * @public
    * <p>The name of the Region where the service-linked role is being used.</p>
+   * @public
    */
   Region?: string;
 
   /**
-   * @public
    * <p>The name of the resource that is using the service-linked role.</p>
+   * @public
    */
   Resources?: string[];
 }
 
 /**
- * @public
  * <p>The reason that the service-linked role deletion failed.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>
+ * @public
  */
 export interface DeletionTaskFailureReasonType {
   /**
-   * @public
    * <p>A short description of the reason that the service-linked role deletion failed.</p>
+   * @public
    */
   Reason?: string;
 
   /**
-   * @public
    * <p>A list of objects that contains details about the service-linked role deletion failure,
    *          if that information is returned by the service. If the service-linked role has active
    *          sessions or if any resources that were used by the role have not been deleted from the
    *          linked service, the role can't be deleted. This parameter includes a list of the resources
    *          that are associated with the role and the Region in which the resources are being
    *          used.</p>
+   * @public
    */
   RoleUsageList?: RoleUsageType[];
 }
@@ -4900,14 +4900,14 @@ export type DeletionTaskStatusType = (typeof DeletionTaskStatusType)[keyof typeo
  */
 export interface GetServiceLinkedRoleDeletionStatusResponse {
   /**
-   * @public
    * <p>The status of the deletion.</p>
+   * @public
    */
   Status: DeletionTaskStatusType | undefined;
 
   /**
-   * @public
    * <p>An object that contains details about the reason the deletion failed.</p>
+   * @public
    */
   Reason?: DeletionTaskFailureReasonType;
 }
@@ -4931,94 +4931,94 @@ export type EncodingType = (typeof EncodingType)[keyof typeof EncodingType];
  */
 export interface GetSSHPublicKeyRequest {
   /**
-   * @public
    * <p>The name of the IAM user associated with the SSH public key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the SSH public key.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
    *     consist of any upper or lowercased letter or digit.</p>
+   * @public
    */
   SSHPublicKeyId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the public key encoding format to use in the response. To retrieve the
    *             public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM
    *             format, use <code>PEM</code>.</p>
+   * @public
    */
   Encoding: EncodingType | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about an SSH public key.</p>
  *          <p>This data type is used as a response element in the <a>GetSSHPublicKey</a>
  *          and <a>UploadSSHPublicKey</a> operations. </p>
+ * @public
  */
 export interface SSHPublicKey {
   /**
-   * @public
    * <p>The name of the IAM user associated with the SSH public key.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the SSH public key.</p>
+   * @public
    */
   SSHPublicKeyId: string | undefined;
 
   /**
-   * @public
    * <p>The MD5 message digest of the SSH public key.</p>
+   * @public
    */
   Fingerprint: string | undefined;
 
   /**
-   * @public
    * <p>The SSH public key.</p>
+   * @public
    */
   SSHPublicKeyBody: string | undefined;
 
   /**
-   * @public
    * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
    *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
    *          used.</p>
+   * @public
    */
   Status: StatusType | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the SSH public key was uploaded.</p>
+   * @public
    */
   UploadDate?: Date;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetSSHPublicKey</a>
  *       request.</p>
+ * @public
  */
 export interface GetSSHPublicKeyResponse {
   /**
-   * @public
    * <p>A structure containing details about the SSH public key.</p>
+   * @public
    */
   SSHPublicKey?: SSHPublicKey;
 }
 
 /**
- * @public
  * <p>The request was rejected because the public key encoding format is unsupported or
  *       unrecognized.</p>
+ * @public
  */
 export class UnrecognizedPublicKeyEncodingException extends __BaseException {
   readonly name: "UnrecognizedPublicKeyEncodingException" = "UnrecognizedPublicKeyEncodingException";
@@ -5041,22 +5041,21 @@ export class UnrecognizedPublicKeyEncodingException extends __BaseException {
  */
 export interface GetUserRequest {
   /**
-   * @public
    * <p>The name of the user to get information about.</p>
    *          <p>This parameter is optional. If it is not included, it defaults to the user making the
    *             request. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetUser</a> request. </p>
+ * @public
  */
 export interface GetUserResponse {
   /**
-   * @public
    * <p>A structure containing details about the IAM user.</p>
    *          <important>
    *             <p>Due to a service issue, password last used data does not include password use from
@@ -5073,6 +5072,7 @@ export interface GetUserResponse {
    *                 keys to access Amazon Web Services programmatically you can refer to access key last used
    *                 information because it is accurate for all dates. </p>
    *          </important>
+   * @public
    */
   User: User | undefined;
 }
@@ -5082,46 +5082,46 @@ export interface GetUserResponse {
  */
 export interface GetUserPolicyRequest {
   /**
-   * @public
    * <p>The name of the user who the policy is associated with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy document to get.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>GetUserPolicy</a> request.
  *     </p>
+ * @public
  */
 export interface GetUserPolicyResponse {
   /**
-   * @public
    * <p>The user the policy is associated with.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy.</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The policy document.</p>
    *          <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation
    *             templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format
    *             before submitting it to IAM.</p>
+   * @public
    */
   PolicyDocument: string | undefined;
 }
@@ -5131,24 +5131,23 @@ export interface GetUserPolicyResponse {
  */
 export interface ListAccessKeysRequest {
   /**
-   * @public
    * <p>The name of the user.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5157,38 +5156,39 @@ export interface ListAccessKeysRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListAccessKeys</a> request.
  *     </p>
+ * @public
  */
 export interface ListAccessKeysResponse {
   /**
-   * @public
    * <p>A list of objects containing metadata about the access keys.</p>
+   * @public
    */
   AccessKeyMetadata: AccessKeyMetadata[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5198,16 +5198,15 @@ export interface ListAccessKeysResponse {
  */
 export interface ListAccountAliasesRequest {
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5216,39 +5215,40 @@ export interface ListAccountAliasesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListAccountAliases</a> request.
  *     </p>
+ * @public
  */
 export interface ListAccountAliasesResponse {
   /**
-   * @public
    * <p>A list of aliases associated with the account. Amazon Web Services supports only one alias per
    *             account.</p>
+   * @public
    */
   AccountAliases: string[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5258,35 +5258,34 @@ export interface ListAccountAliasesResponse {
  */
 export interface ListAttachedGroupPoliciesRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the group to list attached policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *             included, it defaults to a slash (/), listing all policies.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5295,38 +5294,39 @@ export interface ListAttachedGroupPoliciesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListAttachedGroupPolicies</a>
  *       request. </p>
+ * @public
  */
 export interface ListAttachedGroupPoliciesResponse {
   /**
-   * @public
    * <p>A list of the attached policies.</p>
+   * @public
    */
   AttachedPolicies?: AttachedPolicy[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5336,35 +5336,34 @@ export interface ListAttachedGroupPoliciesResponse {
  */
 export interface ListAttachedRolePoliciesRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the role to list attached policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *             included, it defaults to a slash (/), listing all policies.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5373,38 +5372,39 @@ export interface ListAttachedRolePoliciesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListAttachedRolePolicies</a>
  *       request. </p>
+ * @public
  */
 export interface ListAttachedRolePoliciesResponse {
   /**
-   * @public
    * <p>A list of the attached policies.</p>
+   * @public
    */
   AttachedPolicies?: AttachedPolicy[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5414,35 +5414,34 @@ export interface ListAttachedRolePoliciesResponse {
  */
 export interface ListAttachedUserPoliciesRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the user to list attached policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *             included, it defaults to a slash (/), listing all policies.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5451,38 +5450,39 @@ export interface ListAttachedUserPoliciesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListAttachedUserPolicies</a>
  *       request. </p>
+ * @public
  */
 export interface ListAttachedUserPoliciesResponse {
   /**
-   * @public
    * <p>A list of the attached policies.</p>
+   * @public
    */
   AttachedPolicies?: AttachedPolicy[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5506,56 +5506,55 @@ export type PolicyUsageType = (typeof PolicyUsageType)[keyof typeof PolicyUsageT
  */
 export interface ListEntitiesForPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the
    *             versions.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>The entity type to use for filtering the results.</p>
    *          <p>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that
    *             are attached to the specified policy are returned. This parameter is optional. If it is
    *             not included, all attached entities (users, groups, and roles) are returned. The
    *             argument for this parameter must be one of the valid values listed below.</p>
+   * @public
    */
   EntityFilter?: EntityType;
 
   /**
-   * @public
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *             included, it defaults to a slash (/), listing all entities.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>The policy usage method to use for filtering the results.</p>
    *          <p>To list only permissions policies,
    *                 set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only
    *             the policies used to set permissions boundaries, set the value
    *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
+   * @public
    */
   PolicyUsageFilter?: PolicyUsageType;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5564,119 +5563,120 @@ export interface ListEntitiesForPolicyRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains information about a group that a managed policy is attached to.</p>
  *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
+ * @public
  */
 export interface PolicyGroup {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) identifying the group.</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the group. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   GroupId?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a role that a managed policy is attached to.</p>
  *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
+ * @public
  */
 export interface PolicyRole {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) identifying the role.</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the role. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   RoleId?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a user that a managed policy is attached to.</p>
  *          <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> operation. </p>
  *          <p>For more information about managed policies, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *             policies</a> in the <i>IAM User Guide</i>. </p>
+ * @public
  */
 export interface PolicyUser {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) identifying the user.</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The stable and unique string identifying the user. For more information about IDs, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
    *             identifiers</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   UserId?: string;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListEntitiesForPolicy</a> request.
  *     </p>
+ * @public
  */
 export interface ListEntitiesForPolicyResponse {
   /**
-   * @public
    * <p>A list of IAM groups that the policy is attached to.</p>
+   * @public
    */
   PolicyGroups?: PolicyGroup[];
 
   /**
-   * @public
    * <p>A list of IAM users that the policy is attached to.</p>
+   * @public
    */
   PolicyUsers?: PolicyUser[];
 
   /**
-   * @public
    * <p>A list of IAM roles that the policy is attached to.</p>
+   * @public
    */
   PolicyRoles?: PolicyRole[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5686,24 +5686,23 @@ export interface ListEntitiesForPolicyResponse {
  */
 export interface ListGroupPoliciesRequest {
   /**
-   * @public
    * <p>The name of the group to list policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5712,40 +5711,41 @@ export interface ListGroupPoliciesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListGroupPolicies</a> request.
  *     </p>
+ * @public
  */
 export interface ListGroupPoliciesResponse {
   /**
-   * @public
    * <p>A list of policy names.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5755,7 +5755,6 @@ export interface ListGroupPoliciesResponse {
  */
 export interface ListGroupsRequest {
   /**
-   * @public
    * <p> The path prefix for filtering the results. For example, the prefix
    *                 <code>/division_abc/subdivision_xyz/</code> gets all groups whose path starts with
    *                 <code>/division_abc/subdivision_xyz/</code>.</p>
@@ -5764,20 +5763,20 @@ export interface ListGroupsRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5786,37 +5785,38 @@ export interface ListGroupsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListGroups</a> request. </p>
+ * @public
  */
 export interface ListGroupsResponse {
   /**
-   * @public
    * <p>A list of groups.</p>
+   * @public
    */
   Groups: Group[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5826,24 +5826,23 @@ export interface ListGroupsResponse {
  */
 export interface ListGroupsForUserRequest {
   /**
-   * @public
    * <p>The name of the user to list groups for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5852,38 +5851,39 @@ export interface ListGroupsForUserRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListGroupsForUser</a> request.
  *     </p>
+ * @public
  */
 export interface ListGroupsForUserResponse {
   /**
-   * @public
    * <p>A list of groups.</p>
+   * @public
    */
   Groups: Group[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5893,7 +5893,6 @@ export interface ListGroupsForUserResponse {
  */
 export interface ListInstanceProfilesRequest {
   /**
-   * @public
    * <p> The path prefix for filtering the results. For example, the prefix
    *                 <code>/application_abc/component_xyz/</code> gets all instance profiles whose path
    *             starts with <code>/application_abc/component_xyz/</code>.</p>
@@ -5902,20 +5901,20 @@ export interface ListInstanceProfilesRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5924,38 +5923,39 @@ export interface ListInstanceProfilesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListInstanceProfiles</a> request.
  *     </p>
+ * @public
  */
 export interface ListInstanceProfilesResponse {
   /**
-   * @public
    * <p>A list of instance profiles.</p>
+   * @public
    */
   InstanceProfiles: InstanceProfile[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -5965,24 +5965,23 @@ export interface ListInstanceProfilesResponse {
  */
 export interface ListInstanceProfilesForRoleRequest {
   /**
-   * @public
    * <p>The name of the role to list instance profiles for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -5991,38 +5990,39 @@ export interface ListInstanceProfilesForRoleRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListInstanceProfilesForRole</a>
  *       request. </p>
+ * @public
  */
 export interface ListInstanceProfilesForRoleResponse {
   /**
-   * @public
    * <p>A list of instance profiles.</p>
+   * @public
    */
   InstanceProfiles: InstanceProfile[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6032,24 +6032,23 @@ export interface ListInstanceProfilesForRoleResponse {
  */
 export interface ListInstanceProfileTagsRequest {
   /**
-   * @public
    * <p>The name of the IAM instance profile whose tags you want to see.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6058,6 +6057,7 @@ export interface ListInstanceProfileTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -6067,27 +6067,27 @@ export interface ListInstanceProfileTagsRequest {
  */
 export interface ListInstanceProfileTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the IAM instance profile. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6097,24 +6097,23 @@ export interface ListInstanceProfileTagsResponse {
  */
 export interface ListMFADevicesRequest {
   /**
-   * @public
    * <p>The name of the user whose MFA devices you want to list.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6123,65 +6122,66 @@ export interface ListMFADevicesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains information about an MFA device.</p>
  *          <p>This data type is used as a response element in the <a>ListMFADevices</a>
  *          operation.</p>
+ * @public
  */
 export interface MFADevice {
   /**
-   * @public
    * <p>The user with whom the MFA device is associated.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the
    *          serial number is the device ARN.</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p>The date when the MFA device was enabled for the user.</p>
+   * @public
    */
   EnableDate: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListMFADevices</a> request.
  *     </p>
+ * @public
  */
 export interface ListMFADevicesResponse {
   /**
-   * @public
    * <p>A list of MFA devices.</p>
+   * @public
    */
   MFADevices: MFADevice[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6191,25 +6191,24 @@ export interface ListMFADevicesResponse {
  */
 export interface ListMFADeviceTagsRequest {
   /**
-   * @public
    * <p>The unique identifier for the IAM virtual MFA device whose tags you want to see.
    *       For virtual MFA devices, the serial number is the same as the ARN.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6218,6 +6217,7 @@ export interface ListMFADeviceTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -6227,27 +6227,27 @@ export interface ListMFADeviceTagsRequest {
  */
 export interface ListMFADeviceTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the virtual MFA device. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6258,28 +6258,28 @@ export interface ListMFADeviceTagsResponse {
 export interface ListOpenIDConnectProvidersRequest {}
 
 /**
- * @public
  * <p>Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect provider.</p>
+ * @public
  */
 export interface OpenIDConnectProviderListEntry {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   Arn?: string;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListOpenIDConnectProviders</a>
  *       request. </p>
+ * @public
  */
 export interface ListOpenIDConnectProvidersResponse {
   /**
-   * @public
    * <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
+   * @public
    */
   OpenIDConnectProviderList?: OpenIDConnectProviderListEntry[];
 }
@@ -6289,25 +6289,24 @@ export interface ListOpenIDConnectProvidersResponse {
  */
 export interface ListOpenIDConnectProviderTagsRequest {
   /**
-   * @public
    * <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to
    *       see.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   OpenIDConnectProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6316,6 +6315,7 @@ export interface ListOpenIDConnectProviderTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -6325,28 +6325,28 @@ export interface ListOpenIDConnectProviderTagsRequest {
  */
 export interface ListOpenIDConnectProviderTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the OpenID Connect (OIDC) identity
    *       provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6371,58 +6371,57 @@ export type PolicyScopeType = (typeof PolicyScopeType)[keyof typeof PolicyScopeT
  */
 export interface ListPoliciesRequest {
   /**
-   * @public
    * <p>The scope to use for filtering the results.</p>
    *          <p>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>. To
    *             list only the customer managed policies in your Amazon Web Services account, set <code>Scope</code> to
    *                 <code>Local</code>.</p>
    *          <p>This parameter is optional. If it is not included, or if it is set to
    *             <code>All</code>, all policies are returned.</p>
+   * @public
    */
   Scope?: PolicyScopeType;
 
   /**
-   * @public
    * <p>A flag to filter the results to only the attached policies.</p>
    *          <p>When <code>OnlyAttached</code> is <code>true</code>, the returned list contains only
    *             the policies that are attached to an IAM user, group, or role. When
    *                 <code>OnlyAttached</code> is <code>false</code>, or when the parameter is not
    *             included, all policies are returned.</p>
+   * @public
    */
   OnlyAttached?: boolean;
 
   /**
-   * @public
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
    *             included, it defaults to a slash (/), listing all policies. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>The policy usage method to use for filtering the results.</p>
    *          <p>To list only permissions policies,
    *                 set <code>PolicyUsageFilter</code> to <code>PermissionsPolicy</code>. To list only
    *             the policies used to set permissions boundaries, set the value
    *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
+   * @public
    */
   PolicyUsageFilter?: PolicyUsageType;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6431,38 +6430,39 @@ export interface ListPoliciesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListPolicies</a> request.
  *     </p>
+ * @public
  */
 export interface ListPoliciesResponse {
   /**
-   * @public
    * <p>A list of policies.</p>
+   * @public
    */
   Policies?: Policy[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6472,23 +6472,22 @@ export interface ListPoliciesResponse {
  */
 export interface ListPoliciesGrantingServiceAccessRequest {
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The ARN of the IAM identity (user, group, or role) whose policies you want to
    *             list.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
    *          <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the
    *                 <i>IAM User Guide</i>. Choose the name of the service to view
@@ -6496,6 +6495,7 @@ export interface ListPoliciesGrantingServiceAccessRequest {
    *                 <code>(service prefix: a4b)</code>. For more information about service namespaces,
    *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services
    *                 service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   ServiceNamespaces: string[] | undefined;
 }
@@ -6515,63 +6515,62 @@ export const PolicyType = {
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
 /**
- * @public
  * <p>Contains details about the permissions policies that are attached to the specified
  *          identity (user, group, or role).</p>
  *          <p>This data type is an element of the <a>ListPoliciesGrantingServiceAccessEntry</a> object.</p>
+ * @public
  */
 export interface PolicyGrantingServiceAccess {
   /**
-   * @public
    * <p>The policy name.</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed
    *             policies and inline policies</a> in the
    *          <i>IAM User Guide</i>.</p>
+   * @public
    */
   PolicyType: PolicyType | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
    *          <p>For more information about ARNs, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
    *          the <i>Amazon Web Services General Reference</i>. </p>
+   * @public
    */
   PolicyArn?: string;
 
   /**
-   * @public
    * <p>The type of entity (user or role) that used the policy to access the service to which
    *          the inline policy is attached.</p>
    *          <p>This field is null for managed policies. For more information about these policy types,
    *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   EntityType?: PolicyOwnerEntityType;
 
   /**
-   * @public
    * <p>The name of the entity (user or role) to which the inline policy is attached.</p>
    *          <p>This field is null for managed policies. For more information about these policy types,
    *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the
    *             <i>IAM User Guide</i>.</p>
+   * @public
    */
   EntityName?: string;
 }
 
 /**
- * @public
  * <p>Contains details about the permissions policies that are attached to the specified
  *          identity (user, group, or role).</p>
  *          <p>This data type is used as a response element in the <a>ListPoliciesGrantingServiceAccess</a> operation.</p>
+ * @public
  */
 export interface ListPoliciesGrantingServiceAccessEntry {
   /**
-   * @public
    * <p>The namespace of the service that was accessed.</p>
    *          <p>To learn the service namespace of a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the
    *             <i>Service Authorization Reference</i>. Choose the name of the service to
@@ -6579,13 +6578,14 @@ export interface ListPoliciesGrantingServiceAccessEntry {
    *          example, <code>(service prefix: a4b)</code>. For more information about service namespaces,
    *          see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services
    *             service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   ServiceNamespace?: string;
 
   /**
-   * @public
    * <p>The <code>PoliciesGrantingServiceAccess</code> object that contains details about the
    *          policy.</p>
+   * @public
    */
   Policies?: PolicyGrantingServiceAccess[];
 }
@@ -6595,28 +6595,28 @@ export interface ListPoliciesGrantingServiceAccessEntry {
  */
 export interface ListPoliciesGrantingServiceAccessResponse {
   /**
-   * @public
    * <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about
    *             the permissions policies attached to the specified identity (user, group, or
    *             role).</p>
+   * @public
    */
   PoliciesGrantingServiceAccess: ListPoliciesGrantingServiceAccessEntry[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your results were
    *             truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *             request parameter to retrieve more items. We recommend that you check
    *                 <code>IsTruncated</code> after every call to ensure that you receive all your
    *             results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6626,24 +6626,23 @@ export interface ListPoliciesGrantingServiceAccessResponse {
  */
 export interface ListPolicyTagsRequest {
   /**
-   * @public
    * <p>The ARN of the IAM customer managed policy whose tags you want to see.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6652,6 +6651,7 @@ export interface ListPolicyTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -6661,28 +6661,28 @@ export interface ListPolicyTagsRequest {
  */
 export interface ListPolicyTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the IAM customer managed policy.
    *       Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6692,24 +6692,23 @@ export interface ListPolicyTagsResponse {
  */
 export interface ListPolicyVersionsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy for which you want the
    *             versions.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6718,40 +6717,41 @@ export interface ListPolicyVersionsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListPolicyVersions</a> request.
  *     </p>
+ * @public
  */
 export interface ListPolicyVersionsResponse {
   /**
-   * @public
    * <p>A list of policy versions.</p>
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
    *                 policies</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   Versions?: PolicyVersion[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6761,24 +6761,23 @@ export interface ListPolicyVersionsResponse {
  */
 export interface ListRolePoliciesRequest {
   /**
-   * @public
    * <p>The name of the role to list policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6787,38 +6786,39 @@ export interface ListRolePoliciesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListRolePolicies</a> request.
  *     </p>
+ * @public
  */
 export interface ListRolePoliciesResponse {
   /**
-   * @public
    * <p>A list of policy names.</p>
+   * @public
    */
   PolicyNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6828,7 +6828,6 @@ export interface ListRolePoliciesResponse {
  */
 export interface ListRolesRequest {
   /**
-   * @public
    * <p> The path prefix for filtering the results. For example, the prefix
    *                 <code>/application_abc/component_xyz/</code> gets all roles whose path starts with
    *                 <code>/application_abc/component_xyz/</code>.</p>
@@ -6837,20 +6836,20 @@ export interface ListRolesRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6859,37 +6858,38 @@ export interface ListRolesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListRoles</a> request. </p>
+ * @public
  */
 export interface ListRolesResponse {
   /**
-   * @public
    * <p>A list of roles.</p>
+   * @public
    */
   Roles: Role[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6899,24 +6899,23 @@ export interface ListRolesResponse {
  */
 export interface ListRoleTagsRequest {
   /**
-   * @public
    * <p>The name of the IAM role for which you want to see the list of tags.</p>
    *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -6925,6 +6924,7 @@ export interface ListRoleTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -6934,27 +6934,27 @@ export interface ListRoleTagsRequest {
  */
 export interface ListRoleTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the role. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -6965,39 +6965,39 @@ export interface ListRoleTagsResponse {
 export interface ListSAMLProvidersRequest {}
 
 /**
- * @public
  * <p>Contains the list of SAML providers for this account.</p>
+ * @public
  */
 export interface SAMLProviderListEntry {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the SAML provider.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The expiration date and time for the SAML provider.</p>
+   * @public
    */
   ValidUntil?: Date;
 
   /**
-   * @public
    * <p>The date and time when the SAML provider was created.</p>
+   * @public
    */
   CreateDate?: Date;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListSAMLProviders</a> request.
  *     </p>
+ * @public
  */
 export interface ListSAMLProvidersResponse {
   /**
-   * @public
    * <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services
    *             account.</p>
+   * @public
    */
   SAMLProviderList?: SAMLProviderListEntry[];
 }
@@ -7007,25 +7007,24 @@ export interface ListSAMLProvidersResponse {
  */
 export interface ListSAMLProviderTagsRequest {
   /**
-   * @public
    * <p>The ARN of the Security Assertion Markup Language (SAML) identity provider whose tags
    *       you want to see.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   SAMLProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7034,6 +7033,7 @@ export interface ListSAMLProviderTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -7043,28 +7043,28 @@ export interface ListSAMLProviderTagsRequest {
  */
 export interface ListSAMLProviderTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the Security Assertion Markup Language
    *       (SAML) identity provider. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7074,7 +7074,6 @@ export interface ListSAMLProviderTagsResponse {
  */
 export interface ListServerCertificatesRequest {
   /**
-   * @public
    * <p> The path prefix for filtering the results. For example:
    *                 <code>/company/servercerts</code> would get all server certificates for which the
    *             path starts with <code>/company/servercerts</code>.</p>
@@ -7083,20 +7082,20 @@ export interface ListServerCertificatesRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7105,38 +7104,39 @@ export interface ListServerCertificatesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListServerCertificates</a> request.
  *     </p>
+ * @public
  */
 export interface ListServerCertificatesResponse {
   /**
-   * @public
    * <p>A list of server certificates.</p>
+   * @public
    */
   ServerCertificateMetadataList: ServerCertificateMetadata[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7146,24 +7146,23 @@ export interface ListServerCertificatesResponse {
  */
 export interface ListServerCertificateTagsRequest {
   /**
-   * @public
    * <p>The name of the IAM server certificate whose tags you want to see.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   ServerCertificateName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7172,6 +7171,7 @@ export interface ListServerCertificateTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -7181,28 +7181,28 @@ export interface ListServerCertificateTagsRequest {
  */
 export interface ListServerCertificateTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the IAM server certificate.
    *       Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7212,63 +7212,63 @@ export interface ListServerCertificateTagsResponse {
  */
 export interface ListServiceSpecificCredentialsRequest {
   /**
-   * @public
    * <p>The name of the user whose service-specific credentials you want information about. If
    *             this value is not specified, then the operation assumes the user whose credentials are
    *             used to call the operation.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>Filters the returned results to only those for the specified Amazon Web Services service. If not
    *             specified, then Amazon Web Services returns service-specific credentials for all services.</p>
+   * @public
    */
   ServiceName?: string;
 }
 
 /**
- * @public
  * <p>Contains additional details about a service-specific credential.</p>
+ * @public
  */
 export interface ServiceSpecificCredentialMetadata {
   /**
-   * @public
    * <p>The name of the IAM user associated with the service-specific credential.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The status of the service-specific credential. <code>Active</code> means that the key is
    *          valid for API calls, while <code>Inactive</code> means it is not.</p>
+   * @public
    */
   Status: StatusType | undefined;
 
   /**
-   * @public
    * <p>The generated user name for the service-specific credential.</p>
+   * @public
    */
   ServiceUserName: string | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the service-specific credential were created.</p>
+   * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the service-specific credential.</p>
+   * @public
    */
   ServiceSpecificCredentialId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service associated with the service-specific credential.</p>
+   * @public
    */
   ServiceName: string | undefined;
 }
@@ -7278,9 +7278,9 @@ export interface ServiceSpecificCredentialMetadata {
  */
 export interface ListServiceSpecificCredentialsResponse {
   /**
-   * @public
    * <p>A list of structures that each contain details about a service-specific
    *             credential.</p>
+   * @public
    */
   ServiceSpecificCredentials?: ServiceSpecificCredentialMetadata[];
 }
@@ -7290,24 +7290,23 @@ export interface ListServiceSpecificCredentialsResponse {
  */
 export interface ListSigningCertificatesRequest {
   /**
-   * @public
    * <p>The name of the IAM user whose signing certificates you want to examine.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7316,77 +7315,78 @@ export interface ListSigningCertificatesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains information about an X.509 signing certificate.</p>
  *          <p>This data type is used as a response element in the <a>UploadSigningCertificate</a> and <a>ListSigningCertificates</a>
  *          operations. </p>
+ * @public
  */
 export interface SigningCertificate {
   /**
-   * @public
    * <p>The name of the user the signing certificate is associated with.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The ID for the signing certificate.</p>
+   * @public
    */
   CertificateId: string | undefined;
 
   /**
-   * @public
    * <p>The contents of the signing certificate.</p>
+   * @public
    */
   CertificateBody: string | undefined;
 
   /**
-   * @public
    * <p>The status of the signing certificate. <code>Active</code> means that the key is valid
    *          for API calls, while <code>Inactive</code> means it is not.</p>
+   * @public
    */
   Status: StatusType | undefined;
 
   /**
-   * @public
    * <p>The date when the signing certificate was uploaded.</p>
+   * @public
    */
   UploadDate?: Date;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListSigningCertificates</a>
  *       request. </p>
+ * @public
  */
 export interface ListSigningCertificatesResponse {
   /**
-   * @public
    * <p>A list of the user's signing certificate information.</p>
+   * @public
    */
   Certificates: SigningCertificate[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7396,26 +7396,25 @@ export interface ListSigningCertificatesResponse {
  */
 export interface ListSSHPublicKeysRequest {
   /**
-   * @public
    * <p>The name of the IAM user to list SSH public keys for. If none is specified, the
    *                 <code>UserName</code> field is determined implicitly based on the Amazon Web Services access key
    *             used to sign the request.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7424,74 +7423,75 @@ export interface ListSSHPublicKeysRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains information about an SSH public key, without the key's body or
  *          fingerprint.</p>
  *          <p>This data type is used as a response element in the <a>ListSSHPublicKeys</a>
  *          operation.</p>
+ * @public
  */
 export interface SSHPublicKeyMetadata {
   /**
-   * @public
    * <p>The name of the IAM user associated with the SSH public key.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the SSH public key.</p>
+   * @public
    */
   SSHPublicKeyId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
    *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
    *          used.</p>
+   * @public
    */
   Status: StatusType | undefined;
 
   /**
-   * @public
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a>, when the SSH public key was uploaded.</p>
+   * @public
    */
   UploadDate: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListSSHPublicKeys</a>
  *       request.</p>
+ * @public
  */
 export interface ListSSHPublicKeysResponse {
   /**
-   * @public
    * <p>A list of the SSH public keys assigned to IAM user.</p>
+   * @public
    */
   SSHPublicKeys?: SSHPublicKeyMetadata[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7501,24 +7501,23 @@ export interface ListSSHPublicKeysResponse {
  */
 export interface ListUserPoliciesRequest {
   /**
-   * @public
    * <p>The name of the user to list policies for.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7527,38 +7526,39 @@ export interface ListUserPoliciesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListUserPolicies</a> request.
  *     </p>
+ * @public
  */
 export interface ListUserPoliciesResponse {
   /**
-   * @public
    * <p>A list of policy names.</p>
+   * @public
    */
   PolicyNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7568,7 +7568,6 @@ export interface ListUserPoliciesResponse {
  */
 export interface ListUsersRequest {
   /**
-   * @public
    * <p> The path prefix for filtering the results. For example:
    *                 <code>/division_abc/subdivision_xyz/</code>, which would get all user names whose
    *             path starts with <code>/division_abc/subdivision_xyz/</code>.</p>
@@ -7577,20 +7576,20 @@ export interface ListUsersRequest {
    *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
    *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
+   * @public
    */
   PathPrefix?: string;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7599,37 +7598,38 @@ export interface ListUsersRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListUsers</a> request. </p>
+ * @public
  */
 export interface ListUsersResponse {
   /**
-   * @public
    * <p>A list of users.</p>
+   * @public
    */
   Users: User[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7639,24 +7639,23 @@ export interface ListUsersResponse {
  */
 export interface ListUserTagsRequest {
   /**
-   * @public
    * <p>The name of the IAM user whose tags you want to see.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7665,6 +7664,7 @@ export interface ListUserTagsRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -7674,27 +7674,27 @@ export interface ListUserTagsRequest {
  */
 export interface ListUserTagsResponse {
   /**
-   * @public
    * <p>The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7704,25 +7704,24 @@ export interface ListUserTagsResponse {
  */
 export interface ListVirtualMFADevicesRequest {
   /**
-   * @public
    * <p> The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list.
    *             If you do not specify an <code>AssignmentStatus</code>, the operation defaults to
    *                 <code>Any</code>, which lists both assigned and unassigned virtual MFA
    *             devices.,</p>
+   * @public
    */
   AssignmentStatus?: AssignmentStatusType;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -7731,39 +7730,40 @@ export interface ListVirtualMFADevicesRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>ListVirtualMFADevices</a> request.
  *     </p>
+ * @public
  */
 export interface ListVirtualMFADevicesResponse {
   /**
-   * @public
    * <p> The list of virtual MFA devices in the current account that match the
    *                 <code>AssignmentStatus</code> value that was passed in the request.</p>
+   * @public
    */
   VirtualMFADevices: VirtualMFADevice[] | undefined;
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and
    *             contains the value to use for the <code>Marker</code> parameter in a subsequent
    *             pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -7773,23 +7773,22 @@ export interface ListVirtualMFADevicesResponse {
  */
 export interface PutGroupPolicyRequest {
   /**
-   * @public
    * <p>The name of the group to associate the policy with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-.</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy document.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The policy document.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates
    *             formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always
@@ -7810,6 +7809,7 @@ export interface PutGroupPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyDocument: string | undefined;
 }
@@ -7819,14 +7819,13 @@ export interface PutGroupPolicyRequest {
  */
 export interface PutRolePermissionsBoundaryRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM role for which you want to set the
    *             permissions boundary.</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the managed policy that is used to set the permissions boundary for the
    *             role.</p>
    *          <p>A permissions boundary policy defines the maximum permissions that identity-based
@@ -7836,6 +7835,7 @@ export interface PutRolePermissionsBoundaryRequest {
    *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
    *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
    *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary: string | undefined;
 }
@@ -7845,23 +7845,22 @@ export interface PutRolePermissionsBoundaryRequest {
  */
 export interface PutRolePolicyRequest {
   /**
-   * @public
    * <p>The name of the role to associate the policy with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy document.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The policy document.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
    *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
@@ -7882,6 +7881,7 @@ export interface PutRolePolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyDocument: string | undefined;
 }
@@ -7891,14 +7891,13 @@ export interface PutRolePolicyRequest {
  */
 export interface PutUserPermissionsBoundaryRequest {
   /**
-   * @public
    * <p>The name (friendly name, not ARN) of the IAM user for which you want to set the
    *             permissions boundary.</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the managed policy that is used to set the permissions boundary for the
    *             user.</p>
    *          <p>A permissions boundary policy defines the maximum permissions that identity-based
@@ -7908,6 +7907,7 @@ export interface PutUserPermissionsBoundaryRequest {
    *                 for IAM entities</a> in the <i>IAM User Guide</i>.</p>
    *          <p>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy types
    *             </a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   PermissionsBoundary: string | undefined;
 }
@@ -7917,23 +7917,22 @@ export interface PutUserPermissionsBoundaryRequest {
  */
 export interface PutUserPolicyRequest {
   /**
-   * @public
    * <p>The name of the user to associate the policy with.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy document.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The policy document.</p>
    *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
    *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
@@ -7954,6 +7953,7 @@ export interface PutUserPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyDocument: string | undefined;
 }
@@ -7963,17 +7963,17 @@ export interface PutUserPolicyRequest {
  */
 export interface RemoveClientIDFromOpenIDConnectProviderRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the
    *             client ID from. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a> operation.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   OpenIDConnectProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>The client ID (also known as audience) to remove from the IAM OIDC provider
    *             resource. For more information about client IDs, see <a>CreateOpenIDConnectProvider</a>.</p>
+   * @public
    */
   ClientID: string | undefined;
 }
@@ -7983,18 +7983,18 @@ export interface RemoveClientIDFromOpenIDConnectProviderRequest {
  */
 export interface RemoveRoleFromInstanceProfileRequest {
   /**
-   * @public
    * <p>The name of the instance profile to update.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the role to remove.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 }
@@ -8004,18 +8004,18 @@ export interface RemoveRoleFromInstanceProfileRequest {
  */
 export interface RemoveUserFromGroupRequest {
   /**
-   * @public
    * <p>The name of the group to update.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   GroupName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the user to remove.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 }
@@ -8025,20 +8025,20 @@ export interface RemoveUserFromGroupRequest {
  */
 export interface ResetServiceSpecificCredentialRequest {
   /**
-   * @public
    * <p>The name of the IAM user associated with the service-specific credential. If this
    *             value is not specified, then the operation assumes the user whose credentials are used
    *             to call the operation.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the service-specific credential.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
    *     consist of any upper or lowercased letter or digit.</p>
+   * @public
    */
   ServiceSpecificCredentialId: string | undefined;
 }
@@ -8048,13 +8048,13 @@ export interface ResetServiceSpecificCredentialRequest {
  */
 export interface ResetServiceSpecificCredentialResponse {
   /**
-   * @public
    * <p>A structure with details about the updated service-specific credential, including the
    *             new password.</p>
    *          <important>
    *             <p>This is the <b>only</b> time that you can access the
    *                 password. You cannot recover the password later, but you can reset it again.</p>
    *          </important>
+   * @public
    */
   ServiceSpecificCredential?: ServiceSpecificCredential;
 }
@@ -8064,32 +8064,32 @@ export interface ResetServiceSpecificCredentialResponse {
  */
 export interface ResyncMFADeviceRequest {
   /**
-   * @public
    * <p>The name of the user whose MFA device you want to resynchronize.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>Serial number that uniquely identifies the MFA device.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p>An authentication code emitted by the device.</p>
    *          <p>The format for this parameter is a sequence of six digits.</p>
+   * @public
    */
   AuthenticationCode1: string | undefined;
 
   /**
-   * @public
    * <p>A subsequent authentication code emitted by the device.</p>
    *          <p>The format for this parameter is a sequence of six digits.</p>
+   * @public
    */
   AuthenticationCode2: string | undefined;
 }
@@ -8099,18 +8099,18 @@ export interface ResyncMFADeviceRequest {
  */
 export interface SetDefaultPolicyVersionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to
    *             set.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the policy to set as the default (operative) version.</p>
    *          <p>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
    *                 policies</a> in the <i>IAM User Guide</i>.</p>
+   * @public
    */
   VersionId: string | undefined;
 }
@@ -8134,7 +8134,6 @@ export type GlobalEndpointTokenVersion = (typeof GlobalEndpointTokenVersion)[key
  */
 export interface SetSecurityTokenServicePreferencesRequest {
   /**
-   * @public
    * <p>The version of the global endpoint token. Version 1 tokens are valid only in Amazon Web Services Regions that are available by default. These tokens do not work in
    *             manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid
    *             in all Regions. However, version 2 tokens are longer and might affect systems where you
@@ -8142,14 +8141,15 @@ export interface SetSecurityTokenServicePreferencesRequest {
    *          <p>For information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
    *                 deactivating STS in an Amazon Web Services Region</a> in the
    *                 <i>IAM User Guide</i>.</p>
+   * @public
    */
   GlobalEndpointTokenVersion: GlobalEndpointTokenVersion | undefined;
 }
 
 /**
- * @public
  * <p>The request failed because a provided policy could not be successfully evaluated. An
  *       additional detailed message indicates the source of the failure.</p>
+ * @public
  */
 export class PolicyEvaluationException extends __BaseException {
   readonly name: "PolicyEvaluationException" = "PolicyEvaluationException";
@@ -8192,34 +8192,34 @@ export const ContextKeyTypeEnum = {
 export type ContextKeyTypeEnum = (typeof ContextKeyTypeEnum)[keyof typeof ContextKeyTypeEnum];
 
 /**
- * @public
  * <p>Contains information about a condition context key. It includes the name of the key and
  *          specifies the value (or values, if the context key supports multiple values) to use in the
  *          simulation. This information is used when evaluating the <code>Condition</code> elements of
  *          the input policies.</p>
  *          <p>This data type is used as an input parameter to <a>SimulateCustomPolicy</a>
  *          and <a>SimulatePrincipalPolicy</a>.</p>
+ * @public
  */
 export interface ContextEntry {
   /**
-   * @public
    * <p>The full name of a condition context key, including the service prefix. For example,
    *             <code>aws:SourceIp</code> or <code>s3:VersionId</code>.</p>
+   * @public
    */
   ContextKeyName?: string;
 
   /**
-   * @public
    * <p>The value (or values, if the condition context key supports multiple values) to provide
    *          to the simulation when the key is referenced by a <code>Condition</code> element in an
    *          input policy.</p>
+   * @public
    */
   ContextKeyValues?: string[];
 
   /**
-   * @public
    * <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code>
    *          parameter.</p>
+   * @public
    */
   ContextKeyType?: ContextKeyTypeEnum;
 }
@@ -8229,7 +8229,6 @@ export interface ContextEntry {
  */
 export interface SimulateCustomPolicyRequest {
   /**
-   * @public
    * <p>A list of policy documents to include in the simulation. Each document is specified as
    *             a string containing the complete, valid JSON text of an IAM policy. Do not include any
    *             resource-based policies in this parameter. Any resource-based policy must be submitted
@@ -8255,11 +8254,11 @@ export interface SimulateCustomPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyInputList: string[] | undefined;
 
   /**
-   * @public
    * <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the
    *             maximum permissions that an IAM entity can have. You can input only one permissions
    *             boundary when you pass a policy to this operation. For more information about
@@ -8285,20 +8284,20 @@ export interface SimulateCustomPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PermissionsBoundaryPolicyInputList?: string[];
 
   /**
-   * @public
    * <p>A list of names of API operations to evaluate in the simulation. Each operation is
    *             evaluated against each resource. Each operation must include the service identifier,
    *             such as <code>iam:CreateUser</code>. This operation does not support using wildcards (*)
    *             in an action name.</p>
+   * @public
    */
   ActionNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is
    *             not provided, then the value defaults to <code>*</code> (all resources). Each API in the
    *                 <code>ActionNames</code> parameter is evaluated for each resource in this list. The
@@ -8314,11 +8313,11 @@ export interface SimulateCustomPolicyRequest {
    *          <note>
    *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
    *          </note>
+   * @public
    */
   ResourceArns?: string[];
 
   /**
-   * @public
    * <p>A resource-based policy to include in the simulation provided as a string. Each
    *             resource in the simulation is treated as if it had this policy attached. You can include
    *             only one resource-based policy in a simulation.</p>
@@ -8343,11 +8342,11 @@ export interface SimulateCustomPolicyRequest {
    *          <note>
    *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
    *          </note>
+   * @public
    */
   ResourcePolicy?: string;
 
   /**
-   * @public
    * <p>An ARN representing the Amazon Web Services account ID that specifies the owner of any simulated
    *             resource that does not identify its owner in the resource ARN. Examples of resource ARNs
    *             include an S3 bucket or object. If <code>ResourceOwner</code> is specified, it is also
@@ -8361,30 +8360,30 @@ export interface SimulateCustomPolicyRequest {
    *                     <code>arn:aws:iam::<i>AWS-account-ID</i>:root</code>. For example,
    *             to represent the account with the 112233445566 ID, use the following ARN:
    *                 <code>arn:aws:iam::112233445566-ID:root</code>. </p>
+   * @public
    */
   ResourceOwner?: string;
 
   /**
-   * @public
    * <p>The ARN of the IAM user that you want to use as the simulated caller of the API
    *             operations. <code>CallerArn</code> is required if you include a
    *                 <code>ResourcePolicy</code> so that the policy's <code>Principal</code> element has
    *             a value to use in evaluating the policy.</p>
    *          <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an
    *             assumed role, federated user, or a service principal.</p>
+   * @public
    */
   CallerArn?: string;
 
   /**
-   * @public
    * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
    *             context key is evaluated in one of the simulated IAM permissions policies, the
    *             corresponding value is supplied.</p>
+   * @public
    */
   ContextEntries?: ContextEntry[];
 
   /**
-   * @public
    * <p>Specifies the type of simulation to run. Different API operations that support
    *             resource-based policies require different combinations of resources. By specifying the
    *             type of simulation to run, you enable the policy simulator to enforce the presence of
@@ -8424,11 +8423,11 @@ export interface SimulateCustomPolicyRequest {
    *                <p>instance, image, security group, network interface, subnet, volume</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceHandlingOption?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -8437,15 +8436,16 @@ export interface SimulateCustomPolicyRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -8467,23 +8467,23 @@ export type PolicyEvaluationDecisionType =
   (typeof PolicyEvaluationDecisionType)[keyof typeof PolicyEvaluationDecisionType];
 
 /**
- * @public
  * <p>Contains the row and column of a location of a <code>Statement</code> element in a
  *          policy document.</p>
  *          <p>This data type is used as a member of the <code>
  *                <a>Statement</a>
  *             </code> type.</p>
+ * @public
  */
 export interface Position {
   /**
-   * @public
    * <p>The line containing the specified position in the document.</p>
+   * @public
    */
   Line?: number;
 
   /**
-   * @public
    * <p>The column in the line containing the specified position in the document.</p>
+   * @public
    */
   Column?: number;
 }
@@ -8508,61 +8508,60 @@ export const PolicySourceType = {
 export type PolicySourceType = (typeof PolicySourceType)[keyof typeof PolicySourceType];
 
 /**
- * @public
  * <p>Contains a reference to a <code>Statement</code> element in a policy document that
  *          determines the result of the simulation.</p>
  *          <p>This data type is used by the <code>MatchedStatements</code> member of the <code>
  *                <a>EvaluationResult</a>
  *             </code> type.</p>
+ * @public
  */
 export interface Statement {
   /**
-   * @public
    * <p>The identifier of the policy that was provided as an input.</p>
+   * @public
    */
   SourcePolicyId?: string;
 
   /**
-   * @public
    * <p>The type of the policy.</p>
+   * @public
    */
   SourcePolicyType?: PolicySourceType;
 
   /**
-   * @public
    * <p>The row and column of the beginning of the <code>Statement</code> in an IAM
    *          policy.</p>
+   * @public
    */
   StartPosition?: Position;
 
   /**
-   * @public
    * <p>The row and column of the end of a <code>Statement</code> in an IAM policy.</p>
+   * @public
    */
   EndPosition?: Position;
 }
 
 /**
- * @public
  * <p>Contains information about the effect that Organizations has on a policy simulation.</p>
+ * @public
  */
 export interface OrganizationsDecisionDetail {
   /**
-   * @public
    * <p>Specifies whether the simulated operation is allowed by the Organizations service control
    *          policies that impact the simulated user's account.</p>
+   * @public
    */
   AllowedByOrganizations?: boolean;
 }
 
 /**
- * @public
  * <p>Contains information about the effect that a permissions boundary has on a policy
  *          simulation when the boundary is applied to an IAM entity.</p>
+ * @public
  */
 export interface PermissionsBoundaryDecisionDetail {
   /**
-   * @public
    * <p>Specifies whether an action is allowed by a permissions boundary that is applied to an
    *          IAM entity (user or role). A value of <code>true</code> means that the permissions
    *          boundary does not deny the action. This means that the policy includes an
@@ -8571,43 +8570,43 @@ export interface PermissionsBoundaryDecisionDetail {
    *             <code>false</code> means that either the requested action is not allowed (implicitly
    *          denied) or that the action is explicitly denied by the permissions boundary. In both of
    *          these cases, the action is not allowed, regardless of the identity-based policy.</p>
+   * @public
    */
   AllowedByPermissionsBoundary?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the result of the simulation of a single API operation call on a single
  *          resource.</p>
  *          <p>This data type is used by a member of the <a>EvaluationResult</a> data
  *          type.</p>
+ * @public
  */
 export interface ResourceSpecificResult {
   /**
-   * @public
    * <p>The name of the simulated resource, in Amazon Resource Name (ARN) format.</p>
+   * @public
    */
   EvalResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The result of the simulation of the simulated API operation on the resource specified in
    *             <code>EvalResourceName</code>.</p>
+   * @public
    */
   EvalResourceDecision: PolicyEvaluationDecisionType | undefined;
 
   /**
-   * @public
    * <p>A list of the statements in the input policies that determine the result for this part
    *          of the simulation. Remember that even if multiple statements allow the operation on the
    *          resource, if <i>any</i> statement denies that operation, then the explicit
    *          deny overrides any allow. In addition, the deny statement is the only entry included in the
    *          result.</p>
+   * @public
    */
   MatchedStatements?: Statement[];
 
   /**
-   * @public
    * <p>A list of context keys that are required by the included input policies but that were
    *          not provided by one of the input parameters. This list is used when a list of ARNs is
    *          included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify
@@ -8616,90 +8615,90 @@ export interface ResourceSpecificResult {
    *          included under the <code>EvaluationResults</code> section. To discover the context keys
    *          used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or
    *             <a>GetContextKeysForPrincipalPolicy</a>.</p>
+   * @public
    */
   MissingContextValues?: string[];
 
   /**
-   * @public
    * <p>Additional details about the results of the evaluation decision on a single resource.
    *          This parameter is returned only for cross-account simulations. This parameter explains how
    *          each policy type contributes to the resource-specific evaluation decision.</p>
+   * @public
    */
   EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType>;
 
   /**
-   * @public
    * <p>Contains information about the effect that a permissions boundary has on a policy
    *          simulation when that boundary is applied to an IAM entity.</p>
+   * @public
    */
   PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail;
 }
 
 /**
- * @public
  * <p>Contains the results of a simulation.</p>
  *          <p>This data type is used by the return parameter of <code>
  *                <a>SimulateCustomPolicy</a>
  *             </code> and <code>
  *                <a>SimulatePrincipalPolicy</a>
  *             </code>.</p>
+ * @public
  */
 export interface EvaluationResult {
   /**
-   * @public
    * <p>The name of the API operation tested on the indicated resource.</p>
+   * @public
    */
   EvalActionName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the resource that the indicated API operation was tested on.</p>
+   * @public
    */
   EvalResourceName?: string;
 
   /**
-   * @public
    * <p>The result of the simulation.</p>
+   * @public
    */
   EvalDecision: PolicyEvaluationDecisionType | undefined;
 
   /**
-   * @public
    * <p>A list of the statements in the input policies that determine the result for this
    *          scenario. Remember that even if multiple statements allow the operation on the resource, if
    *          only one statement denies that operation, then the explicit deny overrides any allow. In
    *          addition, the deny statement is the only entry included in the result.</p>
+   * @public
    */
   MatchedStatements?: Statement[];
 
   /**
-   * @public
    * <p>A list of context keys that are required by the included input policies but that were
    *          not provided by one of the input parameters. This list is used when the resource in a
    *          simulation is "*", either explicitly, or when the <code>ResourceArns</code> parameter
    *          blank. If you include a list of resources, then any missing context values are instead
    *          included under the <code>ResourceSpecificResults</code> section. To discover the context
    *          keys used by a set of policies, you can call <a>GetContextKeysForCustomPolicy</a> or <a>GetContextKeysForPrincipalPolicy</a>.</p>
+   * @public
    */
   MissingContextValues?: string[];
 
   /**
-   * @public
    * <p>A structure that details how Organizations and its service control policies affect the results of
    *          the simulation. Only applies if the simulated user's account is part of an
    *          organization.</p>
+   * @public
    */
   OrganizationsDecisionDetail?: OrganizationsDecisionDetail;
 
   /**
-   * @public
    * <p>Contains information about the effect that a permissions boundary has on a policy
    *          simulation when the boundary is applied to an IAM entity.</p>
+   * @public
    */
   PermissionsBoundaryDecisionDetail?: PermissionsBoundaryDecisionDetail;
 
   /**
-   * @public
    * <p>Additional details about the results of the cross-account evaluation decision. This
    *          parameter is populated for only cross-account simulations. It contains a brief summary of
    *          how each policy type contributes to the final evaluation decision.</p>
@@ -8713,45 +8712,46 @@ export interface EvaluationResult {
    *          <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In
    *          this case, policy evaluation does not proceed any further and this parameter is not
    *          returned.</p>
+   * @public
    */
   EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType>;
 
   /**
-   * @public
    * <p>The individual results of the simulation of the API operation specified in
    *          EvalActionName on each resource.</p>
+   * @public
    */
   ResourceSpecificResults?: ResourceSpecificResult[];
 }
 
 /**
- * @public
  * <p>Contains the response to a successful <a>SimulatePrincipalPolicy</a> or
  *       <a>SimulateCustomPolicy</a> request.</p>
+ * @public
  */
 export interface SimulatePolicyResponse {
   /**
-   * @public
    * <p>The results of the simulation.</p>
+   * @public
    */
   EvaluationResults?: EvaluationResult[];
 
   /**
-   * @public
    * <p>A flag that indicates whether there are more items to return. If your
    *     results were truncated, you can make a subsequent pagination request using the <code>Marker</code>
    *     request parameter to retrieve more items. Note that IAM might return fewer than the
    *     <code>MaxItems</code> number of results even when there are more results available. We recommend
    *     that you check <code>IsTruncated</code> after every call to ensure that you receive all your
    *     results.</p>
+   * @public
    */
   IsTruncated?: boolean;
 
   /**
-   * @public
    * <p>When <code>IsTruncated</code> is <code>true</code>, this element
    *     is present and contains the value to use for the <code>Marker</code> parameter in a subsequent
    *     pagination request.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -8761,7 +8761,6 @@ export interface SimulatePolicyResponse {
  */
 export interface SimulatePrincipalPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
    *             include in the simulation. If you specify a user, group, or role, the simulation
    *             includes all policies that are associated with that entity. If you specify a user, the
@@ -8770,11 +8769,11 @@ export interface SimulatePrincipalPolicyRequest {
    *          <p>The maximum length of the policy document that you can pass in this operation,
    *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   PolicySourceArn: string | undefined;
 
   /**
-   * @public
    * <p>An optional list of additional policy documents to include in the simulation. Each
    *             document is specified as a string containing the complete, valid JSON text of an IAM
    *             policy.</p>
@@ -8794,11 +8793,11 @@ export interface SimulatePrincipalPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyInputList?: string[];
 
   /**
-   * @public
    * <p>The IAM permissions boundary policy to simulate. The permissions boundary sets the
    *             maximum permissions that the entity can have. You can input only one permissions
    *             boundary when you pass a policy to this operation. An IAM entity can only have one
@@ -8827,19 +8826,19 @@ export interface SimulatePrincipalPolicyRequest {
    *     carriage return (<code>\u000D</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   PermissionsBoundaryPolicyInputList?: string[];
 
   /**
-   * @public
    * <p>A list of names of API operations to evaluate in the simulation. Each operation is
    *             evaluated for each resource. Each operation must include the service identifier, such as
    *                 <code>iam:CreateUser</code>.</p>
+   * @public
    */
   ActionNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of ARNs of Amazon Web Services resources to include in the simulation. If this parameter is
    *             not provided, then the value defaults to <code>*</code> (all resources). Each API in the
    *                 <code>ActionNames</code> parameter is evaluated for each resource in this list. The
@@ -8853,11 +8852,11 @@ export interface SimulatePrincipalPolicyRequest {
    *          <note>
    *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
    *          </note>
+   * @public
    */
   ResourceArns?: string[];
 
   /**
-   * @public
    * <p>A resource-based policy to include in the simulation provided as a string. Each
    *             resource in the simulation is treated as if it had this policy attached. You can include
    *             only one resource-based policy in a simulation.</p>
@@ -8882,11 +8881,11 @@ export interface SimulatePrincipalPolicyRequest {
    *          <note>
    *             <p>Simulation of resource-based policies isn't supported for IAM roles.</p>
    *          </note>
+   * @public
    */
   ResourcePolicy?: string;
 
   /**
-   * @public
    * <p>An Amazon Web Services account ID that specifies the owner of any simulated resource that does not
    *             identify its owner in the resource ARN. Examples of resource ARNs include an S3 bucket
    *             or object. If <code>ResourceOwner</code> is specified, it is also used as the account
@@ -8896,11 +8895,11 @@ export interface SimulatePrincipalPolicyRequest {
    *                 <code>CallerArn</code>. This parameter is required only if you specify a
    *             resource-based policy and account that owns the resource is different from the account
    *             that owns the simulated calling user <code>CallerArn</code>.</p>
+   * @public
    */
   ResourceOwner?: string;
 
   /**
-   * @public
    * <p>The ARN of the IAM user that you want to specify as the simulated caller of the API
    *             operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of
    *             the user that you specify in <code>PolicySourceArn</code>, if you specified a user. If
@@ -8916,19 +8915,19 @@ export interface SimulatePrincipalPolicyRequest {
    *             that the resource-based policy's <code>Principal</code> element has a value to use in
    *             evaluating the policy.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   CallerArn?: string;
 
   /**
-   * @public
    * <p>A list of context keys and corresponding values for the simulation to use. Whenever a
    *             context key is evaluated in one of the simulated IAM permissions policies, the
    *             corresponding value is supplied.</p>
+   * @public
    */
   ContextEntries?: ContextEntry[];
 
   /**
-   * @public
    * <p>Specifies the type of simulation to run. Different API operations that support
    *             resource-based policies require different combinations of resources. By specifying the
    *             type of simulation to run, you enable the policy simulator to enforce the presence of
@@ -8968,11 +8967,11 @@ export interface SimulatePrincipalPolicyRequest {
    *                <p>instance, image, security group, network interface, subnet, volume</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceHandlingOption?: string;
 
   /**
-   * @public
    * <p>Use this only when paginating results to indicate the
    *     maximum number of items you want in the response. If additional items exist beyond the maximum
    *     you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
@@ -8981,15 +8980,16 @@ export interface SimulatePrincipalPolicyRequest {
    *     <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code>
    *     contains a value to include in the subsequent call that tells the service where to continue
    *     from.</p>
+   * @public
    */
   MaxItems?: number;
 
   /**
-   * @public
    * <p>Use this parameter only when paginating results and only after
    *     you receive a response indicating that the results are truncated. Set it to the value of the
    *     <code>Marker</code> element in the response that you received to indicate where the next call
    *     should start.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -8999,17 +8999,17 @@ export interface SimulatePrincipalPolicyRequest {
  */
 export interface TagInstanceProfileRequest {
   /**
-   * @public
    * <p>The name of the IAM instance profile to which you want to add tags.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the IAM instance profile.
    *       Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9019,18 +9019,18 @@ export interface TagInstanceProfileRequest {
  */
 export interface TagMFADeviceRequest {
   /**
-   * @public
    * <p>The unique identifier for the IAM virtual MFA device to which you want to add tags.
    *       For virtual MFA devices, the serial number is the same as the ARN.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   SerialNumber: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the IAM virtual MFA device.
    *       Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9040,17 +9040,17 @@ export interface TagMFADeviceRequest {
  */
 export interface TagOpenIDConnectProviderRequest {
   /**
-   * @public
    * <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   OpenIDConnectProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the OIDC identity provider in IAM.
    *       Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9060,17 +9060,17 @@ export interface TagOpenIDConnectProviderRequest {
  */
 export interface TagPolicyRequest {
   /**
-   * @public
    * <p>The ARN of the IAM customer managed policy to which you want to add tags.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   PolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the IAM customer managed policy.
    *       Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9080,16 +9080,16 @@ export interface TagPolicyRequest {
  */
 export interface TagRoleRequest {
   /**
-   * @public
    * <p>The name of the IAM role to which you want to add tags.</p>
    *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   RoleName: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9099,17 +9099,17 @@ export interface TagRoleRequest {
  */
 export interface TagSAMLProviderRequest {
   /**
-   * @public
    * <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   SAMLProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the SAML identity provider in IAM.
    *       Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9119,17 +9119,17 @@ export interface TagSAMLProviderRequest {
  */
 export interface TagServerCertificateRequest {
   /**
-   * @public
    * <p>The name of the IAM server certificate to which you want to add tags.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   ServerCertificateName: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the IAM server certificate.
    *       Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9139,16 +9139,16 @@ export interface TagServerCertificateRequest {
  */
 export interface TagUserRequest {
   /**
-   * @public
    * <p>The name of the IAM user to which you want to add tags.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   UserName: string | undefined;
 
   /**
-   * @public
    * <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -9158,17 +9158,17 @@ export interface TagUserRequest {
  */
 export interface UntagInstanceProfileRequest {
   /**
-   * @public
    * <p>The name of the IAM instance profile from which you want to remove tags.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
    */
   InstanceProfileName: string | undefined;
 
   /**
-   * @public
    * <p>A list of key names as a simple array of strings. The tags with matching keys are
    *       removed from the specified instance profile.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

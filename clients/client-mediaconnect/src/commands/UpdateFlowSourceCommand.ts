@@ -27,7 +27,6 @@ export interface UpdateFlowSourceCommandInput extends UpdateFlowSourceRequest {}
 export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates the source of a flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -182,6 +181,7 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class UpdateFlowSourceCommand extends $Command
   .classBuilder<

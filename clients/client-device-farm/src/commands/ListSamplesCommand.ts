@@ -27,7 +27,6 @@ export interface ListSamplesCommandInput extends ListSamplesRequest {}
 export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about samples
  * ```javascript
  * // The following example returns information about samples, given a specific Device Farm project.

@@ -27,7 +27,6 @@ export interface DeleteResourceDataSyncCommandInput extends DeleteResourceDataSy
 export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataSyncResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a resource data sync configuration. After the configuration is deleted, changes to
  *    data on managed nodes are no longer synced to or from the target. Deleting a sync configuration
  *    doesn't delete data.</p>
@@ -65,6 +64,7 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteResourceDataSyncCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains
  *          data.</p>
  * @example
@@ -89,6 +88,7 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class PutAppInstanceRetentionSettingsCommand extends $Command
   .classBuilder<

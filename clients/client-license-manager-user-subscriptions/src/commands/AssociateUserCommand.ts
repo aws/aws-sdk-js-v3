@@ -31,7 +31,6 @@ export interface AssociateUserCommandInput extends AssociateUserRequest {}
 export interface AssociateUserCommandOutput extends AssociateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>
  *          <note>
  *             <p>Your estimated bill for charges on the number of users and related costs will take 48
@@ -106,6 +105,7 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class AssociateUserCommand extends $Command
   .classBuilder<

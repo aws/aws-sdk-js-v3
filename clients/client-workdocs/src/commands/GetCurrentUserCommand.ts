@@ -32,7 +32,6 @@ export interface GetCurrentUserCommandInput extends GetCurrentUserRequest {}
 export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details of the current user for whom the authentication token was
  *             generated. This is not a valid action for SigV4 (administrative API) clients.</p>
  *          <p>This action requires an authentication token. To get an authentication token,
@@ -105,6 +104,7 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class GetCurrentUserCommand extends $Command
   .classBuilder<

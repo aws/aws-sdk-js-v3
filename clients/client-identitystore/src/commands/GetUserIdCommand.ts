@@ -27,7 +27,6 @@ export interface GetUserIdCommandInput extends GetUserIdRequest {}
 export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the <code>UserId</code> in an identity store.</p>
  *          <note>
  *             <p>If you have administrator access to a member account, you can use this API from the member account.
@@ -86,6 +85,7 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class GetUserIdCommand extends $Command
   .classBuilder<

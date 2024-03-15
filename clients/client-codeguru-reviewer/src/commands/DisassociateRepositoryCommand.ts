@@ -27,7 +27,6 @@ export interface DisassociateRepositoryCommandInput extends DisassociateReposito
 export interface DisassociateRepositoryCommandOutput extends DisassociateRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class DisassociateRepositoryCommand extends $Command
   .classBuilder<

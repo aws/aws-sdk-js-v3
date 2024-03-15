@@ -28,7 +28,6 @@ export interface GetBucketReplicationCommandInput extends GetBucketReplicationRe
 export interface GetBucketReplicationCommandOutput extends GetBucketReplicationResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation gets an Amazon S3 on Outposts bucket's replication configuration. To get an
  *             S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a>
@@ -162,6 +161,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationR
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetBucketReplicationCommand extends $Command
   .classBuilder<

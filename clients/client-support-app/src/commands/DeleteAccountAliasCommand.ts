@@ -27,7 +27,6 @@ export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasReques
 export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an alias for an Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the
  *       Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * @public
  */
 export class DeleteAccountAliasCommand extends $Command
   .classBuilder<

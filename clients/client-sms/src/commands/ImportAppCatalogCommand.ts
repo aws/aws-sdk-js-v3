@@ -27,7 +27,6 @@ export interface ImportAppCatalogCommandInput extends ImportAppCatalogRequest {}
 export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows application import from Migration Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class ImportAppCatalogCommand extends $Command
   .classBuilder<

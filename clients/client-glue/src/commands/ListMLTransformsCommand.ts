@@ -27,7 +27,6 @@ export interface ListMLTransformsCommandInput extends ListMLTransformsRequest {}
 export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves a sortable, filterable list of existing Glue machine learning transforms in this Amazon Web Services account,
  *        or the resources with the specified tag. This operation takes the optional <code>Tags</code> field, which you can use as
  *        a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag
@@ -98,6 +97,7 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListMLTransformsCommand extends $Command
   .classBuilder<

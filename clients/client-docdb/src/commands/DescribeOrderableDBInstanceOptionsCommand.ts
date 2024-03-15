@@ -32,7 +32,6 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of orderable instance options for the specified engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateModelCommandInput extends CreateModelInput {}
 export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a model in SageMaker. In the request, you name the model and describe a primary
  *             container. For the primary container, you specify the Docker image that
  *             contains inference code, artifacts (from prior training), and a custom environment map
@@ -156,6 +155,7 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateModelCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the VPC endpoint connections to your VPC endpoint services, including any
  *             endpoints that are pending your acceptance.</p>
  * @example
@@ -100,6 +99,7 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVpcEndpointConnectionsCommand extends $Command
   .classBuilder<

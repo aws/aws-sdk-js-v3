@@ -31,7 +31,6 @@ export interface GetViewCommandInput extends GetViewInput {}
 export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details of the specified view.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class GetViewCommand extends $Command
   .classBuilder<

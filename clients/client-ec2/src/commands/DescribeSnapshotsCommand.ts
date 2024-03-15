@@ -27,7 +27,6 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots
  *       available to you.</p>
  *          <p>The snapshots available to you include public snapshots, private snapshots that you own,
@@ -143,6 +142,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a snapshot
  * ```javascript
  * // This example describes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``.

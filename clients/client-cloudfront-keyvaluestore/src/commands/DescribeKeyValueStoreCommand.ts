@@ -31,7 +31,6 @@ export interface DescribeKeyValueStoreCommandInput extends DescribeKeyValueStore
 export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata information about Key Value Store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ * @public
  */
 export class DescribeKeyValueStoreCommand extends $Command
   .classBuilder<

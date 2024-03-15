@@ -27,7 +27,6 @@ export interface UpdateCachePolicyCommandInput extends UpdateCachePolicyRequest 
 export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a cache policy configuration.</p>
  *          <p>When you update a cache policy configuration, all the fields are updated with the
  * 			values provided in the request. You cannot update some fields independent of others. To
@@ -195,6 +194,7 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateCachePolicyCommand extends $Command
   .classBuilder<

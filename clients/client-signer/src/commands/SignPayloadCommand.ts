@@ -27,7 +27,6 @@ export interface SignPayloadCommandInput extends SignPayloadRequest {}
 export interface SignPayloadCommandOutput extends SignPayloadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Signs a binary payload and returns a signature envelope.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface SignPayloadCommandOutput extends SignPayloadResponse, __Metadat
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class SignPayloadCommand extends $Command
   .classBuilder<

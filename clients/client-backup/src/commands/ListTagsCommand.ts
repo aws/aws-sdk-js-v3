@@ -27,7 +27,6 @@ export interface ListTagsCommandInput extends ListTagsInput {}
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
  *          backup vault.</p>
  *          <p>
@@ -78,6 +77,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

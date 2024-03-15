@@ -27,7 +27,6 @@ export interface GetObjectInformationCommandInput extends GetObjectInformationRe
 export interface GetObjectInformationCommandOutput extends GetObjectInformationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metadata about an object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class GetObjectInformationCommand extends $Command
   .classBuilder<

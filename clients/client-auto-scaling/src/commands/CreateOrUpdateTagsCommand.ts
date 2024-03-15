@@ -27,7 +27,6 @@ export interface CreateOrUpdateTagsCommandInput extends CreateOrUpdateTagsType {
 export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates tags for the specified Auto Scaling group.</p>
  *          <p>When you specify a tag with a key that already exists, the operation overwrites the
  *             previous tag definition, and you do not get an error message.</p>
@@ -81,6 +80,7 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To create or update tags for an Auto Scaling group
  * ```javascript
  * // This example adds two tags to the specified Auto Scaling group.

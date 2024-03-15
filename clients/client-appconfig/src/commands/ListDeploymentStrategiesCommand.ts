@@ -27,7 +27,6 @@ export interface ListDeploymentStrategiesCommandInput extends ListDeploymentStra
 export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrategies, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists deployment strategies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list the available deployment strategies
  * ```javascript
  * // The following list-deployment-strategies example lists the available deployment strategies in your AWS account.

@@ -27,7 +27,6 @@ export interface CancelQueryCommandInput extends CancelQueryRequest {}
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a query if the query is not in a terminated state, such as
  *             <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
  *             <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
@@ -98,6 +97,7 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class CancelQueryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPluginsCommandInput extends ListPluginsRequest {}
 export interface ListPluginsCommandOutput extends ListPluginsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists configured Amazon Q plugins.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ListPluginsCommand extends $Command
   .classBuilder<

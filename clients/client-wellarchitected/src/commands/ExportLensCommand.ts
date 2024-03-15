@@ -27,7 +27,6 @@ export interface ExportLensCommandInput extends ExportLensInput {}
 export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Export an existing lens.</p>
  *          <p>Only the owner of a lens can export it. Lenses provided by Amazon Web Services (Amazon Web Services Official Content)
  *             cannot be exported.</p>
@@ -86,6 +85,7 @@ export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBea
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ExportLensCommand extends $Command
   .classBuilder<

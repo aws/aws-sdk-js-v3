@@ -27,7 +27,6 @@ export interface ListCapabilitiesCommandInput extends ListCapabilitiesRequest {}
 export interface ListCapabilitiesCommandOutput extends ListCapabilitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the capabilities associated with your Amazon Web Services account for your current or specified region. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface ListCapabilitiesCommandOutput extends ListCapabilitiesResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample ListCapabilities call
  * ```javascript
  * //

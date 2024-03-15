@@ -27,7 +27,6 @@ export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
 export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns domain configuration information about the specified Amazon OpenSearch Service
  *    domains.</p>
  * @example
@@ -214,6 +213,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainsCommand extends $Command
   .classBuilder<

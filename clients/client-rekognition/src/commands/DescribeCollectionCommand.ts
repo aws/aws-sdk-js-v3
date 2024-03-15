@@ -27,7 +27,6 @@ export interface DescribeCollectionCommandInput extends DescribeCollectionReques
 export interface DescribeCollectionCommandOutput extends DescribeCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified collection. You can use <code>DescribeCollection</code> to get
  *          information, such as the number of faces indexed into a collection and the version of the
  *          model used by the collection for face detection.</p>
@@ -83,6 +82,7 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class DescribeCollectionCommand extends $Command
   .classBuilder<

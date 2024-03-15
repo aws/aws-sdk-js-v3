@@ -27,7 +27,6 @@ export interface DeleteCollaborationCommandInput extends DeleteCollaborationInpu
 export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a collaboration. It can only be called by the collaboration owner.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class DeleteCollaborationCommand extends $Command
   .classBuilder<

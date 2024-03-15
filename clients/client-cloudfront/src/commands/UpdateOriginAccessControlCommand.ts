@@ -27,7 +27,6 @@ export interface UpdateOriginAccessControlCommandInput extends UpdateOriginAcces
 export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAccessControlResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a CloudFront origin access control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateOriginAccessControlCommand extends $Command
   .classBuilder<

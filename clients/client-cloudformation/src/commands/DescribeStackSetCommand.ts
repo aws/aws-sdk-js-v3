@@ -27,7 +27,6 @@ export interface DescribeStackSetCommandInput extends DescribeStackSetInput {}
 export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of the specified StackSet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStackSetCommand extends $Command
   .classBuilder<

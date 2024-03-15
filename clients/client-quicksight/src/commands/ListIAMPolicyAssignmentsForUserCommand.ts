@@ -32,7 +32,6 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of
  * 			the IAM policy assignments, including the Amazon
  * 			Resource Names
@@ -103,6 +102,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListIAMPolicyAssignmentsForUserCommand extends $Command
   .classBuilder<

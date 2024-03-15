@@ -27,7 +27,6 @@ export interface GetContainerPolicyCommandInput extends GetContainerPolicyInput 
 export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the access policy for the specified container. For information about the
  *          data that is included in an access policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and Access Management User
  *             Guide</a>.</p>
@@ -70,6 +69,7 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class GetContainerPolicyCommand extends $Command
   .classBuilder<

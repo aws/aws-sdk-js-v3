@@ -25,7 +25,6 @@ export interface PostPlayerActionCommandInput extends PostPlayerActionInput {}
 export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, __MetadataBearer {}
 
 /**
- * @public
  * This operation defines a union with a Unit member.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, _
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class PostPlayerActionCommand extends $Command
   .classBuilder<

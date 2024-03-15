@@ -31,7 +31,6 @@ export interface ListICD10CMInferenceJobsCommandInput extends ListICD10CMInferen
 export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInferenceJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInfere
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class ListICD10CMInferenceJobsCommand extends $Command
   .classBuilder<

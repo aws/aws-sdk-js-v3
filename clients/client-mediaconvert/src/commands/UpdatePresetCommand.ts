@@ -27,7 +27,6 @@ export interface UpdatePresetCommandInput extends UpdatePresetRequest {}
 export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __MetadataBearer {}
 
 /**
- * @public
  * Modify one of your existing presets.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1683,6 +1682,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class UpdatePresetCommand extends $Command
   .classBuilder<

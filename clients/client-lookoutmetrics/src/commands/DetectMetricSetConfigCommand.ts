@@ -27,7 +27,6 @@ export interface DetectMetricSetConfigCommandInput extends DetectMetricSetConfig
 export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects an Amazon S3 dataset's file format, interval, and offset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -187,6 +186,7 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class DetectMetricSetConfigCommand extends $Command
   .classBuilder<

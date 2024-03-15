@@ -27,7 +27,6 @@ export interface ListLicensesCommandInput extends ListLicensesRequest {}
 export interface ListLicensesCommandOutput extends ListLicensesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the licenses for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -134,6 +133,7 @@ export interface ListLicensesCommandOutput extends ListLicensesResponse, __Metad
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListLicensesCommand extends $Command
   .classBuilder<

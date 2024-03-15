@@ -27,7 +27,6 @@ export interface DeleteWaveCommandInput extends DeleteWaveRequest {}
 export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteWaveCommandOutput extends DeleteWaveResponse, __MetadataB
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DeleteWaveCommand extends $Command
   .classBuilder<

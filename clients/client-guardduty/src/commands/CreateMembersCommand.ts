@@ -31,7 +31,6 @@ export interface CreateMembersCommandInput extends CreateMembersRequest {}
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account
  *       IDs. This step is a prerequisite for managing the associated member accounts either by
  *       invitation or through an organization.</p>
@@ -95,6 +94,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class CreateMembersCommand extends $Command
   .classBuilder<

@@ -264,8 +264,8 @@ export type S3OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface S3OutpostsClientResolvedConfig extends S3OutpostsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
+ * @public
  */
 export class S3OutpostsClient extends __Client<
   __HttpHandlerOptions,

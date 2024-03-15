@@ -27,7 +27,6 @@ export interface ListBackupPlanVersionsCommandInput extends ListBackupPlanVersio
 export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),
  *          backup plan IDs, creation and deletion dates, plan names, and version IDs.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListBackupPlanVersionsCommand extends $Command
   .classBuilder<

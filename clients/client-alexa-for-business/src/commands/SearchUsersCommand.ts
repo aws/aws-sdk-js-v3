@@ -27,9 +27,6 @@ export interface SearchUsersCommandInput extends SearchUsersRequest {}
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Searches users and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -84,6 +81,8 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class SearchUsersCommand extends $Command
   .classBuilder<

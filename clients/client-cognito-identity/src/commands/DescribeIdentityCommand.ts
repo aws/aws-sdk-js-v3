@@ -27,7 +27,6 @@ export interface DescribeIdentityCommandInput extends DescribeIdentityInput {}
 export interface DescribeIdentityCommandOutput extends IdentityDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata related to the given identity, including when the identity was
  *          created and any associated linked logins.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -78,6 +77,7 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class DescribeIdentityCommand extends $Command
   .classBuilder<

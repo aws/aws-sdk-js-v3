@@ -31,7 +31,6 @@ export interface GetDeviceCommandInput extends GetDeviceRequest {}
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information for a thin client device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class GetDeviceCommand extends $Command
   .classBuilder<

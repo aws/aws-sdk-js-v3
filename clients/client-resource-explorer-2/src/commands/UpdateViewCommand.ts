@@ -36,7 +36,6 @@ export interface UpdateViewCommandInput extends UpdateViewInput {}
 export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies some of the details of a view. You can change the filter string and the list
  *             of included properties. You can't change the name of the view.</p>
  * @example
@@ -109,6 +108,7 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class UpdateViewCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListCustomLineItemVersionsCommandInput extends ListCustomLineIt
 export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineItemVersionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>A paginated call to get a list of all custom line item versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class ListCustomLineItemVersionsCommand extends $Command
   .classBuilder<

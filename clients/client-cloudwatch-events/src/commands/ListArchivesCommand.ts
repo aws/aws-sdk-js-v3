@@ -27,7 +27,6 @@ export interface ListArchivesCommandInput extends ListArchivesRequest {}
 export interface ListArchivesCommandOutput extends ListArchivesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your archives. You can either list all the archives or you can provide a prefix to
  *       match to the archive names. Filter parameters are exclusive.</p>
  * @example
@@ -78,6 +77,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ListArchivesCommand extends $Command
   .classBuilder<

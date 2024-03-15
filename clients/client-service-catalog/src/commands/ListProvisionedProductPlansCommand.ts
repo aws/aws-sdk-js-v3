@@ -27,7 +27,6 @@ export interface ListProvisionedProductPlansCommandInput extends ListProvisioned
 export interface ListProvisionedProductPlansCommandOutput extends ListProvisionedProductPlansOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListProvisionedProductPlansCommand extends $Command
   .classBuilder<

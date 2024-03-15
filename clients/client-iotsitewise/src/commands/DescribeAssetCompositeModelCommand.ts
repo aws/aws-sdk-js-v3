@@ -32,7 +32,6 @@ export interface DescribeAssetCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an asset composite model (also known as an asset component).  An <code>AssetCompositeModel</code> is an instance of an <code>AssetModelCompositeModel</code>. If you want to see information about the model this is based on, call
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModelCompositeModel.html">DescribeAssetModelCompositeModel</a>.</p>
  * @example
@@ -132,6 +131,7 @@ export interface DescribeAssetCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeAssetCompositeModelCommand extends $Command
   .classBuilder<

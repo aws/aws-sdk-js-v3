@@ -31,7 +31,6 @@ export interface CreateAccessTokenCommandInput extends CreateAccessTokenRequest 
 export interface CreateAccessTokenCommandOutput extends CreateAccessTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a personal access token (PAT) for the current user. A personal access token (PAT) is similar to a password.
  *       It is associated with your user identity for use across all spaces and projects in Amazon CodeCatalyst. You use PATs to access CodeCatalyst
  *       from resources that include integrated development environments (IDEs) and Git-based source repositories.
@@ -87,6 +86,7 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class CreateAccessTokenCommand extends $Command
   .classBuilder<

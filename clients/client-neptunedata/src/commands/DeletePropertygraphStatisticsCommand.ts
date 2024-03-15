@@ -32,7 +32,6 @@ export interface DeletePropertygraphStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes statistics for Gremlin and openCypher (property graph)
  *       data.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -107,6 +106,7 @@ export interface DeletePropertygraphStatisticsCommandOutput
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class DeletePropertygraphStatisticsCommand extends $Command
   .classBuilder<

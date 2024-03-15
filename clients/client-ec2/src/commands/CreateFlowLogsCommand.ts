@@ -27,7 +27,6 @@ export interface CreateFlowLogsCommandInput extends CreateFlowLogsRequest {}
 export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,
  *             subnet, or VPC. </p>
  *          <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
@@ -106,6 +105,7 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateFlowLogsCommand extends $Command
   .classBuilder<

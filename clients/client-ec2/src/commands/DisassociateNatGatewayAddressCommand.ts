@@ -29,7 +29,6 @@ export interface DisassociateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
  *             You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p>
  *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
@@ -81,6 +80,7 @@ export interface DisassociateNatGatewayAddressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateNatGatewayAddressCommand extends $Command
   .classBuilder<

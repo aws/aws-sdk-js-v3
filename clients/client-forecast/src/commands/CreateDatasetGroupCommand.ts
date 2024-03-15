@@ -31,7 +31,6 @@ export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupReques
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a dataset group, which holds a collection of related datasets. You can add
  *       datasets to the dataset group when you create the dataset group, or later by using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation.</p>
  *          <p>After creating a dataset group and adding datasets, you use the dataset group when you
@@ -95,6 +94,7 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateDatasetGroupCommand extends $Command
   .classBuilder<

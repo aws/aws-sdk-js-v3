@@ -27,7 +27,6 @@ export interface GetResolverRuleAssociationCommandInput extends GetResolverRuleA
 export interface GetResolverRuleAssociationCommandOutput extends GetResolverRuleAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>. </p>
  * @example
@@ -75,6 +74,7 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetResolverRuleAssociationCommand extends $Command
   .classBuilder<

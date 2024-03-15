@@ -27,7 +27,6 @@ export interface DescribeApplicationsCommandInput extends DescribeApplicationsRe
 export interface DescribeApplicationsCommandOutput extends DescribeApplicationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeApplicationsCommand extends $Command
   .classBuilder<

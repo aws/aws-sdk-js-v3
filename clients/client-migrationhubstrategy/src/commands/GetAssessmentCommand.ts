@@ -31,7 +31,6 @@ export interface GetAssessmentCommandInput extends GetAssessmentRequest {}
 export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves the status of an on-going assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetAssessmentCommand extends $Command
   .classBuilder<

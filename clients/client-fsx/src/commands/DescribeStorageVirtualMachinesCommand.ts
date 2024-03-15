@@ -32,7 +32,6 @@ export interface DescribeStorageVirtualMachinesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeStorageVirtualMachinesCommand extends $Command
   .classBuilder<

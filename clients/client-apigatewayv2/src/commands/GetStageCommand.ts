@@ -27,7 +27,6 @@ export interface GetStageCommandInput extends GetStageRequest {}
 export interface GetStageCommandOutput extends GetStageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a Stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class GetStageCommand extends $Command
   .classBuilder<

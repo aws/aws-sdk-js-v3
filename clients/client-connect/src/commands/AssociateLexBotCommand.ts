@@ -27,7 +27,6 @@ export interface AssociateLexBotCommandInput extends AssociateLexBotRequest {}
 export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex
  *    V1 bot. This API only supports the association of Amazon Lex V1 bots.</p>
@@ -80,6 +79,7 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class AssociateLexBotCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetPipelineStateCommandInput extends GetPipelineStateInput {}
 export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the state of a pipeline, including the stages and
  *             actions.</p>
  *          <note>
@@ -122,6 +121,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class GetPipelineStateCommand extends $Command
   .classBuilder<

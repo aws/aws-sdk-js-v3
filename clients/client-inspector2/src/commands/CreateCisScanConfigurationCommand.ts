@@ -27,7 +27,6 @@ export interface CreateCisScanConfigurationCommandInput extends CreateCisScanCon
 export interface CreateCisScanConfigurationCommandOutput extends CreateCisScanConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a CIS scan configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface CreateCisScanConfigurationCommandOutput extends CreateCisScanCo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class CreateCisScanConfigurationCommand extends $Command
   .classBuilder<

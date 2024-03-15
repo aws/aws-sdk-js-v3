@@ -27,7 +27,6 @@ export interface GetFindingAggregatorCommandInput extends GetFindingAggregatorRe
 export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current finding aggregation configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get cross-Region aggregation details
  * ```javascript
  * // The following example returns cross-Region aggregation details for the requesting account.

@@ -36,7 +36,6 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListServiceActionsForProvisioningArtifactCommand extends $Command
   .classBuilder<

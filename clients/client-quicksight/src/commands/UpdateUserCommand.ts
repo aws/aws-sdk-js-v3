@@ -27,7 +27,6 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon QuickSight user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateUserCommand extends $Command
   .classBuilder<

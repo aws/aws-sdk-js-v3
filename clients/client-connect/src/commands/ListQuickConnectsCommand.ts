@@ -27,7 +27,6 @@ export interface ListQuickConnectsCommandInput extends ListQuickConnectsRequest 
 export interface ListQuickConnectsCommandOutput extends ListQuickConnectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the quick connects for the specified Amazon Connect instance.
  *   </p>
  * @example
@@ -86,6 +85,7 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListQuickConnectsCommand extends $Command
   .classBuilder<

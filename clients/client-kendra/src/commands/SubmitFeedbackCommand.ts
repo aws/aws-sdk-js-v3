@@ -27,7 +27,6 @@ export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
 export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables you to provide feedback to Amazon Kendra to improve the
  *             performance of your index.</p>
  *          <p>
@@ -94,6 +93,7 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class SubmitFeedbackCommand extends $Command
   .classBuilder<

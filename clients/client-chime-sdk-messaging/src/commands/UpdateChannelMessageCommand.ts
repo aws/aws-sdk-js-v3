@@ -35,7 +35,6 @@ export interface UpdateChannelMessageCommandInput extends UpdateChannelMessageRe
 export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the content of a message.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -102,6 +101,7 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class UpdateChannelMessageCommand extends $Command
   .classBuilder<

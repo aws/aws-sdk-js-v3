@@ -27,7 +27,6 @@ export interface CreateRecipeJobCommandInput extends CreateRecipeJobRequest {}
 export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new job to transform input data, using steps defined in an existing Glue DataBrew recipe</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class CreateRecipeJobCommand extends $Command
   .classBuilder<

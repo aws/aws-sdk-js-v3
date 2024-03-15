@@ -27,7 +27,6 @@ export interface DeleteConfigurationRecorderCommandInput extends DeleteConfigura
 export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the configuration recorder.</p>
  *          <p>After the configuration recorder is deleted, Config will
  * 			not record resource configuration changes until you create a new
@@ -66,6 +65,7 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationRecorderCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SubmitContactEvaluationCommandInput extends SubmitContactEvalua
 export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits a contact evaluation in the specified Amazon Connect instance. Answers included
  *    in the request are merged with existing answers for the given evaluation. If no answers or notes
  *    are passed, the evaluation is submitted with the existing answers and notes. You can delete an
@@ -91,6 +90,7 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SubmitContactEvaluationCommand extends $Command
   .classBuilder<

@@ -278,9 +278,9 @@ export interface CloudHSMV2 {
 }
 
 /**
- * @public
  * <p>For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
  *       CloudHSM User Guide</a>.</p>
+ * @public
  */
 export class CloudHSMV2 extends CloudHSMV2Client implements CloudHSMV2 {}
 createAggregatedClient(commands, CloudHSMV2);

@@ -27,7 +27,6 @@ export interface CreateDeviceProfileCommandInput extends CreateDeviceProfileRequ
 export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new device profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class CreateDeviceProfileCommand extends $Command
   .classBuilder<

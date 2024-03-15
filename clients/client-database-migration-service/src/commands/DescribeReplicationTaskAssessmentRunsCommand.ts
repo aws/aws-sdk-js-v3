@@ -40,7 +40,6 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of premigration assessment runs based on filter
  *          settings.</p>
  *          <p>These filter settings can specify a combination of premigration assessment runs,
@@ -107,6 +106,7 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command
   .classBuilder<

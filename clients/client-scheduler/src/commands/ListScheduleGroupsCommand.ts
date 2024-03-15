@@ -27,7 +27,6 @@ export interface ListScheduleGroupsCommandInput extends ListScheduleGroupsInput 
 export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of your schedule groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListScheduleGroupsCommandOutput extends ListScheduleGroupsOutpu
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * @public
  */
 export class ListScheduleGroupsCommand extends $Command
   .classBuilder<

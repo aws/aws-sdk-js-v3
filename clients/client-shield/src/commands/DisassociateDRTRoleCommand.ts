@@ -27,7 +27,6 @@ export interface DisassociateDRTRoleCommandInput extends DisassociateDRTRoleRequ
 export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the Shield Response Team's (SRT) access to your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleRes
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DisassociateDRTRoleCommand extends $Command
   .classBuilder<

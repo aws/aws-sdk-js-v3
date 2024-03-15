@@ -27,7 +27,6 @@ export interface BatchAcknowledgeAlarmCommandInput extends BatchAcknowledgeAlarm
 export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlarmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Acknowledges one or more alarms. The alarms change to the <code>ACKNOWLEDGED</code> state
  *       after you acknowledge them.</p>
  * @example
@@ -81,6 +80,7 @@ export interface BatchAcknowledgeAlarmCommandOutput extends BatchAcknowledgeAlar
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class BatchAcknowledgeAlarmCommand extends $Command
   .classBuilder<

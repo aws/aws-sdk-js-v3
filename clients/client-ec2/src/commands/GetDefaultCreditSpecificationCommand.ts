@@ -29,7 +29,6 @@ export interface GetDefaultCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the default credit option for CPU usage of a burstable performance instance
  *             family.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
@@ -64,6 +63,7 @@ export interface GetDefaultCreditSpecificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetDefaultCreditSpecificationCommand extends $Command
   .classBuilder<

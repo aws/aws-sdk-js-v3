@@ -30,7 +30,6 @@ export interface UploadArchiveCommandInput extends Omit<UploadArchiveInput, "bod
 export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation adds an archive to a vault. This is a synchronous operation, and for a
  *          successful upload, your data is durably persisted. Amazon S3 Glacier returns the archive ID in
  *          the <code>x-amz-archive-id</code> header of the response. </p>
@@ -112,6 +111,7 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To upload an archive
  * ```javascript
  * // The example adds an archive to a vault.

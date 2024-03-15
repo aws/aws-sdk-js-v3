@@ -27,7 +27,6 @@ export interface ListModelManifestsCommandInput extends ListModelManifestsReques
 export interface ListModelManifestsCommandOutput extends ListModelManifestsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves a list of vehicle models (model manifests). </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -83,6 +82,7 @@ export interface ListModelManifestsCommandOutput extends ListModelManifestsRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListModelManifestsCommand extends $Command
   .classBuilder<

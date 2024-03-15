@@ -27,7 +27,6 @@ export interface StartCisSessionCommandInput extends StartCisSessionRequest {}
 export interface StartCisSessionCommandOutput extends StartCisSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Starts a CIS session.
  *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
@@ -76,6 +75,7 @@ export interface StartCisSessionCommandOutput extends StartCisSessionResponse, _
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class StartCisSessionCommand extends $Command
   .classBuilder<

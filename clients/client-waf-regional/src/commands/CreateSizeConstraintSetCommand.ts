@@ -27,7 +27,6 @@ export interface CreateSizeConstraintSetCommandInput extends CreateSizeConstrain
 export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -159,6 +158,7 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  * @example To create a size constraint
  * ```javascript
  * // The following example creates size constraint set named MySampleSizeConstraintSet.

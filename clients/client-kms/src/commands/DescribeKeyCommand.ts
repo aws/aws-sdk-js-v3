@@ -27,7 +27,6 @@ export interface DescribeKeyCommandInput extends DescribeKeyRequest {}
 export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed
  *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
@@ -202,6 +201,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To get details about a KMS key
  * ```javascript
  * // The following example gets metadata for a symmetric encryption KMS key.

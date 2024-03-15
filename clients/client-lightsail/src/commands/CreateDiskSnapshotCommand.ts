@@ -27,7 +27,6 @@ export interface CreateDiskSnapshotCommandInput extends CreateDiskSnapshotReques
 export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make
  *       copies of disks, and to save data before shutting down a Lightsail instance.</p>
  *          <p>You can take a snapshot of an attached disk that is in use; however, snapshots only
@@ -129,6 +128,7 @@ export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateDiskSnapshotCommand extends $Command
   .classBuilder<

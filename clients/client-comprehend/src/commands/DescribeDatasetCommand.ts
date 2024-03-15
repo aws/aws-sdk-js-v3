@@ -27,7 +27,6 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the dataset that you specify.
  *       For more information about datasets, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -80,6 +79,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeDatasetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchSuspendUserCommandInput extends BatchSuspendUserRequest {}
 export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime
  *             account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
  *                 Guide</i>.</p>
@@ -97,6 +96,7 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class BatchSuspendUserCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a share request for a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class UpdateAssessmentFrameworkShareCommand extends $Command
   .classBuilder<

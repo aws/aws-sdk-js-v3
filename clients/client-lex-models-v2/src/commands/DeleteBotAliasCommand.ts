@@ -27,7 +27,6 @@ export interface DeleteBotAliasCommandInput extends DeleteBotAliasRequest {}
 export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteBotAliasCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCoreNetworkCommandInput extends CreateCoreNetworkRequest 
 export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a core network as part of your global network, and optionally, with a core network policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateCoreNetworkCommand extends $Command
   .classBuilder<

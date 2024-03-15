@@ -31,7 +31,6 @@ export interface DescribeStateMachineCommandInput extends DescribeStateMachineIn
 export interface DescribeStateMachineCommandOutput extends DescribeStateMachineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a state machine's definition, its IAM role Amazon Resource Name (ARN), and configuration.</p>
  *          <p>A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined within a state machine, a version ARN, or an alias ARN.</p>
  *          <p>The following are some examples of qualified and unqualified state machine ARNs:</p>
@@ -121,6 +120,7 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DescribeStateMachineCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListRunsCommandInput extends ListRunsRequest {}
 export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of runs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListRunsCommand extends $Command
   .classBuilder<

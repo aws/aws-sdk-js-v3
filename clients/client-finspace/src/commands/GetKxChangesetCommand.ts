@@ -27,7 +27,6 @@ export interface GetKxChangesetCommandInput extends GetKxChangesetRequest {}
 export interface GetKxChangesetCommandOutput extends GetKxChangesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a kdb changeset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetKxChangesetCommandOutput extends GetKxChangesetResponse, __M
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxChangesetCommand extends $Command
   .classBuilder<

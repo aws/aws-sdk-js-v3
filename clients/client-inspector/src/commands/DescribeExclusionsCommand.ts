@@ -27,7 +27,6 @@ export interface DescribeExclusionsCommandInput extends DescribeExclusionsReques
 export interface DescribeExclusionsCommandOutput extends DescribeExclusionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  */
 export class DescribeExclusionsCommand extends $Command
   .classBuilder<

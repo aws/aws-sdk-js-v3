@@ -27,7 +27,6 @@ export interface UpdateArchiveRuleCommandInput extends UpdateArchiveRuleRequest 
 export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the criteria and values for the specified archive rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class UpdateArchiveRuleCommand extends $Command
   .classBuilder<

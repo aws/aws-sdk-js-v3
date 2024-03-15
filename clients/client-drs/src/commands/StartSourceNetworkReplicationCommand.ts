@@ -36,7 +36,6 @@ export interface StartSourceNetworkReplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts replication for a Source Network. This action would make the Source Network protected.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface StartSourceNetworkReplicationCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StartSourceNetworkReplicationCommand extends $Command
   .classBuilder<

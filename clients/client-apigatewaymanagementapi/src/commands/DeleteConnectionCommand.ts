@@ -31,7 +31,6 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
 export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the connection with the provided id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayManagementApiServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
+ * @public
  */
 export class DeleteConnectionCommand extends $Command
   .classBuilder<

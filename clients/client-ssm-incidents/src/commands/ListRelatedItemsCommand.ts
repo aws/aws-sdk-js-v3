@@ -27,7 +27,6 @@ export interface ListRelatedItemsCommandInput extends ListRelatedItemsInput {}
 export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all related items for an incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class ListRelatedItemsCommand extends $Command
   .classBuilder<

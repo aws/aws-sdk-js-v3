@@ -32,7 +32,6 @@ export interface ListTargetsForSecurityProfileCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForSecurityProfile</a> action.</p>
  * @example
@@ -80,6 +79,7 @@ export interface ListTargetsForSecurityProfileCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListTargetsForSecurityProfileCommand extends $Command
   .classBuilder<

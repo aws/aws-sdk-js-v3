@@ -27,7 +27,6 @@ export interface ListContainersCommandInput extends ListContainersInput {}
 export interface ListContainersCommandOutput extends ListContainersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the properties of all containers in AWS Elemental MediaStore. </p>
  *          <p>You can query to receive all the containers in one response. Or you can include the
  *             <code>MaxResults</code> parameter to receive a limited number of containers in each
@@ -77,6 +76,7 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class ListContainersCommand extends $Command
   .classBuilder<

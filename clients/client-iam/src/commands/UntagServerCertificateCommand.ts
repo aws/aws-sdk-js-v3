@@ -27,7 +27,6 @@ export interface UntagServerCertificateCommandInput extends UntagServerCertifica
 export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from the IAM server certificate.
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -81,6 +80,7 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UntagServerCertificateCommand extends $Command
   .classBuilder<

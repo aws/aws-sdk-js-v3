@@ -27,7 +27,6 @@ export interface GetImpersonationRoleEffectCommandInput extends GetImpersonation
 export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonationRoleEffectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests whether the given impersonation role can impersonate a target user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetImpersonationRoleEffectCommandOutput extends GetImpersonatio
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class GetImpersonationRoleEffectCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetRecommendationCommandInput extends GetRecommendationRequest 
 export interface GetRecommendationCommandOutput extends GetRecommendationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns both the current and recommended resource configuration and the estimated cost
  *       impact for a recommendation.</p>
  *          <p>The <code>recommendationId</code> is only valid for up to a maximum of 24 hours as
@@ -633,6 +632,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * @public
  */
 export class GetRecommendationCommand extends $Command
   .classBuilder<

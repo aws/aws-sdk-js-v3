@@ -27,7 +27,6 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new image. This request will create a new image along with all of the
  * 			configured output resources defined in the distribution configuration. You must specify
  * 			exactly one recipe for your image, using either a ContainerRecipeArn or an
@@ -131,6 +130,7 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CreateImageCommand extends $Command
   .classBuilder<

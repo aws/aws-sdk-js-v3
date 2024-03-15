@@ -27,7 +27,6 @@ export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes information about a Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer 
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetBasePathMappingsCommandInput extends GetBasePathMappingsRequ
 export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __MetadataBearer {}
 
 /**
- * @public
  * <p>Represents a collection of BasePathMapping resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetBasePathMappingsCommand extends $Command
   .classBuilder<

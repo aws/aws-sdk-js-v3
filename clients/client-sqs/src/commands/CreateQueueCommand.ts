@@ -27,7 +27,6 @@ export interface CreateQueueCommandInput extends CreateQueueRequest {}
 export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in the
  *             request. Keep the following in mind:</p>
  *          <ul>
@@ -155,6 +154,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class CreateQueueCommand extends $Command
   .classBuilder<

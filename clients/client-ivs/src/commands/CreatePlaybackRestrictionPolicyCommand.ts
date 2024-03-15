@@ -32,7 +32,6 @@ export interface CreatePlaybackRestrictionPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new playback restriction policy, for constraining playback by countries and/or
  *       origins.</p>
  * @example
@@ -99,6 +98,7 @@ export interface CreatePlaybackRestrictionPolicyCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class CreatePlaybackRestrictionPolicyCommand extends $Command
   .classBuilder<

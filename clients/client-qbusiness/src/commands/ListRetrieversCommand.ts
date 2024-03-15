@@ -27,7 +27,6 @@ export interface ListRetrieversCommandInput extends ListRetrieversRequest {}
 export interface ListRetrieversCommandOutput extends ListRetrieversResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the retriever used by an Amazon Q application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListRetrieversCommandOutput extends ListRetrieversResponse, __M
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ListRetrieversCommand extends $Command
   .classBuilder<

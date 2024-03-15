@@ -27,7 +27,6 @@ export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
 export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a
  *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -142,6 +141,7 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class ListJobRunsCommand extends $Command
   .classBuilder<

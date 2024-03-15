@@ -27,7 +27,6 @@ export interface UploadSSHPublicKeyCommandInput extends UploadSSHPublicKeyReques
 export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>
  *          <p>The SSH public key uploaded by this operation can be used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -86,6 +85,7 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UploadSSHPublicKeyCommand extends $Command
   .classBuilder<

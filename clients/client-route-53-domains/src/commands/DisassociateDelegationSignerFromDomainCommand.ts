@@ -36,7 +36,6 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a delegation signer (DS) record in the registry zone for this domain
  * 			name.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class DisassociateDelegationSignerFromDomainCommand extends $Command
   .classBuilder<

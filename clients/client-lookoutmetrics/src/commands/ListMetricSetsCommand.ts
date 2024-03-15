@@ -27,7 +27,6 @@ export interface ListMetricSetsCommandInput extends ListMetricSetsRequest {}
 export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the datasets in the current AWS Region.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -88,6 +87,7 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class ListMetricSetsCommand extends $Command
   .classBuilder<

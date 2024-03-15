@@ -27,7 +27,6 @@ export interface DescribeInboundIntegrationsCommandInput extends DescribeInbound
 export interface DescribeInboundIntegrationsCommandOutput extends InboundIntegrationsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of inbound integrations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeInboundIntegrationsCommandOutput extends InboundIntegra
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeInboundIntegrationsCommand extends $Command
   .classBuilder<

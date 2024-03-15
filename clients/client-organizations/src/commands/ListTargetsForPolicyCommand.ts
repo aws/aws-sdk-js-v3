@@ -27,7 +27,6 @@ export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRe
 export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the roots, organizational units (OUs), and accounts that the specified
  *             policy is attached to.</p>
  *          <note>
@@ -206,6 +205,7 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of roots, OUs, and accounts to which a policy is attached
  * ```javascript
  * // The following example shows how to get the list of roots, OUs, and accounts to which the specified policy is attached:/n/n

@@ -27,7 +27,6 @@ export interface ListWorkflowsCommandInput extends ListWorkflowsRequest {}
 export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of workflows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListWorkflowsCommand extends $Command
   .classBuilder<

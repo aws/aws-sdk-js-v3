@@ -27,7 +27,6 @@ export interface GetEventActionCommandInput extends GetEventActionRequest {}
 export interface GetEventActionCommandOutput extends GetEventActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation retrieves information about an event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class GetEventActionCommand extends $Command
   .classBuilder<

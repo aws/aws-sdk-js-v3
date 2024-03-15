@@ -37,7 +37,6 @@ export interface UpdateAssessmentControlSetStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the status of a control set in an Audit Manager assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface UpdateAssessmentControlSetStatusCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class UpdateAssessmentControlSetStatusCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Creates a new room profile with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +101,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class CreateProfileCommand extends $Command
   .classBuilder<

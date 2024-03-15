@@ -31,7 +31,6 @@ export interface ListEnvironmentTemplatesCommandInput extends ListEnvironmentTem
 export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTemplatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List environment templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTe
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListEnvironmentTemplatesCommand extends $Command
   .classBuilder<

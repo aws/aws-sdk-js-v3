@@ -31,7 +31,6 @@ export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
 export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class ListUserProfilesCommand extends $Command
   .classBuilder<

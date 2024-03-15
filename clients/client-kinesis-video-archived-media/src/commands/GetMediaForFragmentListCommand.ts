@@ -39,7 +39,6 @@ export interface GetMediaForFragmentListCommandOutput
 }
 
 /**
- * @public
  * <p>Gets media for a list of fragments (specified by fragment number) from the archived
  *             data in an Amazon Kinesis video stream.</p>
  *          <note>
@@ -128,6 +127,7 @@ export interface GetMediaForFragmentListCommandOutput
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * @public
  */
 export class GetMediaForFragmentListCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteRetrieverCommandInput extends DeleteRetrieverRequest {}
 export interface DeleteRetrieverCommandOutput extends DeleteRetrieverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the retriever used by an Amazon Q application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteRetrieverCommandOutput extends DeleteRetrieverResponse, _
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class DeleteRetrieverCommand extends $Command
   .classBuilder<

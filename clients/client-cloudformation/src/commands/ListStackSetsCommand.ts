@@ -27,7 +27,6 @@ export interface ListStackSetsCommandInput extends ListStackSetsInput {}
 export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summary information about stack sets that are associated with the user.</p>
  *          <ul>
  *             <li>
@@ -92,6 +91,7 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListStackSetsCommand extends $Command
   .classBuilder<

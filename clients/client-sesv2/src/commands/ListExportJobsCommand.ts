@@ -27,7 +27,6 @@ export interface ListExportJobsCommandInput extends ListExportJobsRequest {}
 export interface ListExportJobsCommandOutput extends ListExportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the export jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListExportJobsCommandOutput extends ListExportJobsResponse, __M
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  * @example List export jobs
  * ```javascript
  * // Lists export jobs of type METRICS_DATA and status PROCESSING

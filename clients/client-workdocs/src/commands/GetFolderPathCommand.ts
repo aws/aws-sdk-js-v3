@@ -32,7 +32,6 @@ export interface GetFolderPathCommandInput extends GetFolderPathRequest {}
 export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the path information (the hierarchy from the root folder) for the
  *             specified folder.</p>
  *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
@@ -93,6 +92,7 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class GetFolderPathCommand extends $Command
   .classBuilder<

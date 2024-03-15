@@ -27,7 +27,6 @@ export interface UpdateKeyGroupCommandInput extends UpdateKeyGroupRequest {}
 export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a key group.</p>
  *          <p>When you update a key group, all the fields are updated with the values provided in
  * 			the request. You cannot update some fields independent of others. To update a key
@@ -113,6 +112,7 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateKeyGroupCommand extends $Command
   .classBuilder<

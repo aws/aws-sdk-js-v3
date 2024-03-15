@@ -27,7 +27,6 @@ export interface DeletePortalCommandInput extends DeletePortalRequest {}
 export interface DeletePortalCommandOutput extends DeletePortalResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a portal from IoT SiteWise Monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DeletePortalCommand extends $Command
   .classBuilder<

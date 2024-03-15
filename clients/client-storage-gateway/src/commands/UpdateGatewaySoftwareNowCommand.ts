@@ -27,7 +27,6 @@ export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftw
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the gateway virtual machine (VM) software. The request immediately triggers the
  *          software update.</p>
  *          <note>
@@ -76,6 +75,7 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To update a gateway's VM software
  * ```javascript
  * // Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.

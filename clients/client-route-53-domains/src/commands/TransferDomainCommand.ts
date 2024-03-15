@@ -31,7 +31,6 @@ export interface TransferDomainCommandInput extends TransferDomainRequest {}
 export interface TransferDomainCommandOutput extends TransferDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transfers a domain from another registrar to Amazon Route 53. </p>
  *          <p>For more information about transferring domains, see the following topics:</p>
  *          <ul>
@@ -218,6 +217,7 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class TransferDomainCommand extends $Command
   .classBuilder<

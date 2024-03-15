@@ -27,7 +27,6 @@ export interface CreateWorkspaceImageCommandInput extends CreateWorkspaceImageRe
 export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new WorkSpace image from an existing WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateWorkspaceImageCommandOutput extends CreateWorkspaceImageR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateWorkspaceImageCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface GetFunctionEventInvokeConfigCommandInput extends GetFunctionEve
 export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -83,6 +82,7 @@ export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

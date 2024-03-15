@@ -27,7 +27,6 @@ export interface UpdateAgentCommandInput extends UpdateAgentRequest {}
 export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name of an DataSync agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateAgentCommand extends $Command
   .classBuilder<

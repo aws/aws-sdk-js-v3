@@ -27,7 +27,6 @@ export interface RenewCertificateCommandInput extends RenewCertificateRequest {}
 export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
  *       be renewed with this operation. In order to renew your Amazon Web Services Private CA certificates with ACM, you
  *       must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant the ACM
@@ -64,6 +63,7 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class RenewCertificateCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateLocationAzureBlobCommandInput extends UpdateLocationAzure
 export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies some configurations of the Microsoft Azure Blob Storage transfer location that you're using with DataSync.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzur
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateLocationAzureBlobCommand extends $Command
   .classBuilder<

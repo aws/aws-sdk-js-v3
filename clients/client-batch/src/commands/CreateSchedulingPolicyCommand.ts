@@ -27,7 +27,6 @@ export interface CreateSchedulingPolicyCommandInput extends CreateSchedulingPoli
 export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Batch scheduling policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  */
 export class CreateSchedulingPolicyCommand extends $Command
   .classBuilder<

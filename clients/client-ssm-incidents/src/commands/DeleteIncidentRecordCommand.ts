@@ -27,7 +27,6 @@ export interface DeleteIncidentRecordCommandInput extends DeleteIncidentRecordIn
 export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an incident record from Incident Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class DeleteIncidentRecordCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetOutpostCommandInput extends GetOutpostInput {}
 export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class GetOutpostCommand extends $Command
   .classBuilder<

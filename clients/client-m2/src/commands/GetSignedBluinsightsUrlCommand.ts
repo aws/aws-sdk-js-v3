@@ -27,7 +27,6 @@ export interface GetSignedBluinsightsUrlCommandInput {}
 export interface GetSignedBluinsightsUrlCommandOutput extends GetSignedBluinsightsUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a single sign-on URL that can be used to connect to AWS Blu Insights.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface GetSignedBluinsightsUrlCommandOutput extends GetSignedBluinsigh
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class GetSignedBluinsightsUrlCommand extends $Command
   .classBuilder<

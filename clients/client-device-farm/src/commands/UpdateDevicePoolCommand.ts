@@ -27,7 +27,6 @@ export interface UpdateDevicePoolCommandInput extends UpdateDevicePoolRequest {}
 export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the name, description, and rules in a device pool given the attributes and
  *             the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a
  *             whole (or not at all).</p>
@@ -93,6 +92,7 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To update a device pool
  * ```javascript
  * // The following example updates the specified device pool with a new name and description. It also enables remote access of devices in the device pool.

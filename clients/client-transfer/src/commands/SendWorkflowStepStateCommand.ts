@@ -27,7 +27,6 @@ export interface SendWorkflowStepStateCommandInput extends SendWorkflowStepState
 export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a callback for asynchronous custom steps.</p>
  *          <p>
  *       The <code>ExecutionId</code>, <code>WorkflowId</code>, and <code>Token</code> are passed to the target resource during execution of a custom step of a workflow.
@@ -79,6 +78,7 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class SendWorkflowStepStateCommand extends $Command
   .classBuilder<

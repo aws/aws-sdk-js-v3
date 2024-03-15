@@ -31,7 +31,6 @@ export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a template from an existing Amazon QuickSight analysis or another template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -4683,6 +4682,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateTemplateCommand extends $Command
   .classBuilder<

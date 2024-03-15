@@ -27,9 +27,6 @@ export interface PutRoomSkillParameterCommandInput extends PutRoomSkillParameter
 export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all
  *          skills have a room skill parameter.</p>
  * @example
@@ -64,6 +61,8 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class PutRoomSkillParameterCommand extends $Command
   .classBuilder<

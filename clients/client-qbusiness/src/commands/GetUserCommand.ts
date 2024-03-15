@@ -27,7 +27,6 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the universally unique identifier (UUID) associated with a local user in a
  *             data source.</p>
  * @example
@@ -87,6 +86,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class GetUserCommand extends $Command
   .classBuilder<

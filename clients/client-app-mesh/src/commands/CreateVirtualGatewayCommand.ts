@@ -27,7 +27,6 @@ export interface CreateVirtualGatewayCommandInput extends CreateVirtualGatewayIn
 export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a virtual gateway.</p>
  *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
  *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a
@@ -353,6 +352,7 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class CreateVirtualGatewayCommand extends $Command
   .classBuilder<

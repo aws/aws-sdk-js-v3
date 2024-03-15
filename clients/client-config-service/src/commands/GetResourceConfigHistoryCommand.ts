@@ -27,7 +27,6 @@ export interface GetResourceConfigHistoryCommandInput extends GetResourceConfigH
 export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfigHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <important>
  *             <p>For accurate reporting on the compliance status, you must record the <code>AWS::Config::ResourceCompliance</code> resource type.
  * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources Config Records</a>.</p>
@@ -147,6 +146,7 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetResourceConfigHistoryCommand extends $Command
   .classBuilder<

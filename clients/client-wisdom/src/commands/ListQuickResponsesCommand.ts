@@ -31,7 +31,6 @@ export interface ListQuickResponsesCommandInput extends ListQuickResponsesReques
 export interface ListQuickResponsesCommandOutput extends ListQuickResponsesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListQuickResponsesCommandOutput extends ListQuickResponsesRespo
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class ListQuickResponsesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
 export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can
  *       delete flows one at a time. </p>
  * @example
@@ -67,6 +66,7 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class DeleteFlowCommand extends $Command
   .classBuilder<

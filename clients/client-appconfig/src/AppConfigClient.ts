@@ -438,7 +438,6 @@ export type AppConfigClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface AppConfigClientResolvedConfig extends AppConfigClientResolvedConfigType {}
 
 /**
- * @public
  * <p>AppConfig feature flags and dynamic configurations help software builders
  *          quickly and securely adjust application behavior in production environments without full
  *          code deployments. AppConfig speeds up software release frequency, improves
@@ -589,6 +588,7 @@ export interface AppConfigClientResolvedConfig extends AppConfigClientResolvedCo
  *          </dl>
  *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html">AppConfig User
  *          Guide</a>.</p>
+ * @public
  */
 export class AppConfigClient extends __Client<
   __HttpHandlerOptions,

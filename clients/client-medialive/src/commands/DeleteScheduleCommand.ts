@@ -27,7 +27,6 @@ export interface DeleteScheduleCommandInput extends DeleteScheduleRequest {}
 export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * Delete all schedule actions on a channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DeleteScheduleCommand extends $Command
   .classBuilder<

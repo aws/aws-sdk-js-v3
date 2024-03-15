@@ -27,7 +27,6 @@ export interface SearchResourcesCommandInput extends SearchResourcesRequest {}
 export interface SearchResourcesCommandOutput extends SearchResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -167,6 +166,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class SearchResourcesCommand extends $Command
   .classBuilder<

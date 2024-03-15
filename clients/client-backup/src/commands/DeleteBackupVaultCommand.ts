@@ -27,7 +27,6 @@ export interface DeleteBackupVaultCommandInput extends DeleteBackupVaultInput {}
 export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is
  *          empty.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteBackupVaultCommand extends $Command
   .classBuilder<

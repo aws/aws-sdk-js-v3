@@ -27,7 +27,6 @@ export interface CreateGraphUsingImportTaskCommandInput extends CreateGraphUsing
 export interface CreateGraphUsingImportTaskCommandOutput extends CreateGraphUsingImportTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Neptune Analytics graph and imports data into it, either from Amazon Simple Storage Service (S3) or from a Neptune database
  *     or a Neptune database snapshot.</p>
  *          <p>The data can be loaded from files in S3 that in either the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV
@@ -111,6 +110,7 @@ export interface CreateGraphUsingImportTaskCommandOutput extends CreateGraphUsin
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class CreateGraphUsingImportTaskCommand extends $Command
   .classBuilder<

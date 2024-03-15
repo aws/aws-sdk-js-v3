@@ -27,7 +27,6 @@ export interface GetAccountCommandInput extends GetAccountRequest {}
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint
  *             account in the current AWS Region.</p>
  * @example
@@ -68,6 +67,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetAccountCommand extends $Command
   .classBuilder<

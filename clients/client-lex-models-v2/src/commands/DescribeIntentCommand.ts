@@ -27,7 +27,6 @@ export interface DescribeIntentCommandInput extends DescribeIntentRequest {}
 export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata about an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -541,6 +540,7 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeIntentCommand extends $Command
   .classBuilder<

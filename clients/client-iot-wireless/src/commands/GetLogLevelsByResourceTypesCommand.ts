@@ -32,7 +32,6 @@ export interface GetLogLevelsByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns current default log levels or log levels by resource types. Based on resource
  *             types, log levels can be for wireless device log options or wireless gateway log
  *             options.</p>
@@ -99,6 +98,7 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetLogLevelsByResourceTypesCommand extends $Command
   .classBuilder<

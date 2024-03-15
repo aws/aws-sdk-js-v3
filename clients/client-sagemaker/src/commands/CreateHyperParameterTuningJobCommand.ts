@@ -32,7 +32,6 @@ export interface CreateHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version
  *             of a model by running many training jobs on your dataset using the algorithm you choose
  *             and values for hyperparameters within ranges that you specify. It then chooses the
@@ -449,6 +448,7 @@ export interface CreateHyperParameterTuningJobCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateHyperParameterTuningJobCommand extends $Command
   .classBuilder<

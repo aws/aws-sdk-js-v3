@@ -27,7 +27,6 @@ export interface GetBucketPolicyStatusCommandInput extends GetBucketPolicyStatus
 export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -89,6 +88,7 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class GetBucketPolicyStatusCommand extends $Command
   .classBuilder<

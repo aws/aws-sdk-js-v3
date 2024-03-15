@@ -27,7 +27,6 @@ export interface ListNamedQueriesCommandInput extends ListNamedQueriesInput {}
 export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of available query IDs only for queries saved in the specified
  *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
  *             not specified, lists the saved queries for the primary workgroup.</p>
@@ -70,6 +69,7 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListNamedQueriesCommand extends $Command
   .classBuilder<

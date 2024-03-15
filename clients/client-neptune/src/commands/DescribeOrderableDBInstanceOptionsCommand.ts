@@ -32,7 +32,6 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of orderable DB instance options for the specified engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeOrderableDBInstanceOptionsCommand extends $Command
   .classBuilder<

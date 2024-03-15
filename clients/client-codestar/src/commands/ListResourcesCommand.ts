@@ -27,7 +27,6 @@ export interface ListResourcesCommandInput extends ListResourcesRequest {}
 export interface ListResourcesCommandOutput extends ListResourcesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists resources associated with a project in AWS CodeStar.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class ListResourcesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a template either from a <code>TemplateDefinition</code> or from an existing Amazon QuickSight analysis or template. You can use the resulting
  * 			template to create additional dashboards, templates, or analyses.</p>
  *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
@@ -4710,6 +4709,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateTemplateCommand extends $Command
   .classBuilder<

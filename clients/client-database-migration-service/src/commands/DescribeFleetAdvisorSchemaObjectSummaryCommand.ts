@@ -40,7 +40,6 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides descriptions of the schemas discovered by your Fleet Advisor
  *             collectors.</p>
  * @example
@@ -90,6 +89,7 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeFleetAdvisorSchemaObjectSummaryCommand extends $Command
   .classBuilder<

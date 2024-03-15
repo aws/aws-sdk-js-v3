@@ -27,7 +27,6 @@ export interface ListBotLocalesCommandInput extends ListBotLocalesRequest {}
 export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of locales for the specified bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotLocalesCommand extends $Command
   .classBuilder<

@@ -37,7 +37,6 @@ export interface InitiateDocumentVersionUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new document object and version object.</p>
  *          <p>The client specifies the parent folder ID and name of the document to upload. The
  *             ID is optionally specified when creating a new version of an existing document. This is
@@ -157,6 +156,7 @@ export interface InitiateDocumentVersionUploadCommandOutput
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class InitiateDocumentVersionUploadCommand extends $Command
   .classBuilder<

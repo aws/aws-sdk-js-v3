@@ -31,7 +31,6 @@ export interface ListOriginationNumbersCommandInput extends ListOriginationNumbe
 export interface ListOriginationNumbersCommandOutput extends ListOriginationNumbersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata.
  *             For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
  *             Guide</i>.</p>
@@ -90,6 +89,7 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ListOriginationNumbersCommand extends $Command
   .classBuilder<

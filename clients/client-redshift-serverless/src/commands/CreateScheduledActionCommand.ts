@@ -31,7 +31,6 @@ export interface CreateScheduledActionCommandInput extends CreateScheduledAction
 export interface CreateScheduledActionCommandOutput extends CreateScheduledActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
  *          For example, you can create a schedule of when to run the <code>CreateSnapshot</code> API operation.</p>
  * @example
@@ -124,6 +123,7 @@ export interface CreateScheduledActionCommandOutput extends CreateScheduledActio
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class CreateScheduledActionCommand extends $Command
   .classBuilder<

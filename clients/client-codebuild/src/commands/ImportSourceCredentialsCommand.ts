@@ -31,7 +31,6 @@ export interface ImportSourceCredentialsCommandInput extends ImportSourceCredent
 export interface ImportSourceCredentialsCommandOutput extends ImportSourceCredentialsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Imports the source repository credentials for an CodeBuild project that has its
  *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
  * @example
@@ -74,6 +73,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ImportSourceCredentialsCommand extends $Command
   .classBuilder<

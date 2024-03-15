@@ -27,7 +27,6 @@ export interface ListImportsCommandInput extends ListImportsInput {}
 export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists completed imports within the past 90 days. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ListImportsCommand extends $Command
   .classBuilder<

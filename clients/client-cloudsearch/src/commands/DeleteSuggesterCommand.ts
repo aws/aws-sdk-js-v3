@@ -27,7 +27,6 @@ export interface DeleteSuggesterCommandInput extends DeleteSuggesterRequest {}
 export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DeleteSuggesterCommand extends $Command
   .classBuilder<

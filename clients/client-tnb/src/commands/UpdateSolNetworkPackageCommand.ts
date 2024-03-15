@@ -27,7 +27,6 @@ export interface UpdateSolNetworkPackageCommandInput extends UpdateSolNetworkPac
 export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the operational state of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  *          <p>A network service descriptor is a .yaml file in a network package that uses the TOSCA standard to describe the network functions you want to deploy and the Amazon Web Services infrastructure you want to deploy the network functions on.</p>
@@ -73,6 +72,7 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class UpdateSolNetworkPackageCommand extends $Command
   .classBuilder<

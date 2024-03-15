@@ -31,7 +31,6 @@ export interface InitiateDeviceClaimCommandInput extends InitiateDeviceClaimRequ
 export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Given a device ID, initiates a claim request for the associated device.</p><note>
  *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
  *  and finalizing the claim. For a device of type button, a device event can
@@ -71,6 +70,7 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class InitiateDeviceClaimCommand extends $Command
   .classBuilder<

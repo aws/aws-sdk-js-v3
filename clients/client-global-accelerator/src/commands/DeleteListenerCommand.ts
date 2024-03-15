@@ -31,7 +31,6 @@ export interface DeleteListenerCommandInput extends DeleteListenerRequest {}
 export interface DeleteListenerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a listener from an accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteListenerCommandOutput extends __MetadataBearer {}
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DeleteListenerCommand extends $Command
   .classBuilder<

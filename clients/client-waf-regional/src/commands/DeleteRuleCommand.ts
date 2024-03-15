@@ -27,7 +27,6 @@ export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -126,6 +125,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  * @example To delete a rule
  * ```javascript
  * // The following example deletes a rule with the ID WAFRule-1-Example.

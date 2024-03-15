@@ -32,7 +32,6 @@ export interface DeleteAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Application Component from the Resilience Hub application.</p>
  *          <note>
  *             <ul>
@@ -107,6 +106,7 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DeleteAppVersionAppComponentCommand extends $Command
   .classBuilder<

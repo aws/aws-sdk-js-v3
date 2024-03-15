@@ -27,7 +27,6 @@ export interface ListAccessesCommandInput extends ListAccessesRequest {}
 export interface ListAccessesCommandOutput extends ListAccessesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the details for all the accesses you have on your server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListAccessesCommand extends $Command
   .classBuilder<

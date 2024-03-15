@@ -27,7 +27,6 @@ export interface CreateBillingGroupCommandInput extends CreateBillingGroupReques
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateBillingGroup</a> action.</p>
  * @example
@@ -79,6 +78,7 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateBillingGroupCommand extends $Command
   .classBuilder<

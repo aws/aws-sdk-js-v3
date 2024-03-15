@@ -27,7 +27,6 @@ export interface UpdateMissionProfileCommandInput extends UpdateMissionProfileRe
 export interface UpdateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a mission profile.</p>
  *          <p>Updating a mission profile will not update the execution parameters
  *          for existing future contacts.</p>
@@ -82,6 +81,7 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class UpdateMissionProfileCommand extends $Command
   .classBuilder<

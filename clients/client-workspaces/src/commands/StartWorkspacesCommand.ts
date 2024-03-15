@@ -27,7 +27,6 @@ export interface StartWorkspacesCommandInput extends StartWorkspacesRequest {}
 export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the specified WorkSpaces.</p>
  *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>STOPPED</code>.</p>
@@ -67,6 +66,7 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class StartWorkspacesCommand extends $Command
   .classBuilder<

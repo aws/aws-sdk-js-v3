@@ -27,7 +27,6 @@ export interface PutSinkPolicyCommandInput extends PutSinkPolicyInput {}
 export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the resource policy that grants permissions to source
  *             accounts to link to the monitoring account sink. When you create a sink policy, you can grant
  *             permissions to all accounts in an organization or to individual accounts.</p>
@@ -98,6 +97,7 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class PutSinkPolicyCommand extends $Command
   .classBuilder<

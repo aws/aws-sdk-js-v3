@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch RUM resource. Currently,
  *        the only resources that
  *        can be tagged app monitors.</p>
@@ -78,6 +77,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

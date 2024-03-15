@@ -29,7 +29,6 @@ export interface DescribeRetrainingSchedulerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a description of the retraining scheduler, including information such as the
  *          model name and retraining parameters. </p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeRetrainingSchedulerCommandOutput
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  * @example Describes a retraining scheduler
  * ```javascript
  * //

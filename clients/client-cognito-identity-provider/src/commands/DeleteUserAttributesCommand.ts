@@ -35,7 +35,6 @@ export interface DeleteUserAttributesCommandInput extends DeleteUserAttributesRe
 export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the attributes for a user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
@@ -102,6 +101,7 @@ export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DeleteUserAttributesCommand extends $Command
   .classBuilder<

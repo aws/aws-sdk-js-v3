@@ -32,7 +32,6 @@ export interface DescribeResourceCollectionHealthCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)
  * 			for all closed insights in resource collections in your account. You specify the type of
  * 			Amazon Web Services resources collection. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
@@ -114,6 +113,7 @@ export interface DescribeResourceCollectionHealthCommandOutput
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeResourceCollectionHealthCommand extends $Command
   .classBuilder<

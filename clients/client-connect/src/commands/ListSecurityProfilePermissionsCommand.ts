@@ -32,7 +32,6 @@ export interface ListSecurityProfilePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the permissions granted to a security profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListSecurityProfilePermissionsCommand extends $Command
   .classBuilder<

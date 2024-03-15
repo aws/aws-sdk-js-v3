@@ -32,7 +32,6 @@ export interface UpdateViewContentCommandInput extends UpdateViewContentRequest 
 export interface UpdateViewContentCommandOutput extends UpdateViewContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the view content of the given view identifier in the specified Amazon Connect
  *    instance.</p>
  *          <p>It performs content validation if <code>Status</code> is set to <code>SAVED</code> and
@@ -116,6 +115,7 @@ export interface UpdateViewContentCommandOutput extends UpdateViewContentRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateViewContentCommand extends $Command
   .classBuilder<

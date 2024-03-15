@@ -32,7 +32,6 @@ export interface CreateExtendedSourceServerCommandInput extends CreateExtendedSo
 export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedSourceServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an extended source server in the target Account based on the source server in staging account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -187,6 +186,7 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class CreateExtendedSourceServerCommand extends $Command
   .classBuilder<

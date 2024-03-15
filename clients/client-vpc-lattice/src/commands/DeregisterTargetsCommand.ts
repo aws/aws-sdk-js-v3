@@ -27,7 +27,6 @@ export interface DeregisterTargetsCommandInput extends DeregisterTargetsRequest 
 export interface DeregisterTargetsCommandOutput extends DeregisterTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the specified targets from the specified target group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeregisterTargetsCommand extends $Command
   .classBuilder<

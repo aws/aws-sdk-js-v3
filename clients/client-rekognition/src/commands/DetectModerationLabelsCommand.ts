@@ -27,7 +27,6 @@ export interface DetectModerationLabelsCommandInput extends DetectModerationLabe
 export interface DetectModerationLabelsCommandOutput extends DetectModerationLabelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
  *         <code>DetectModerationLabels</code> to moderate images depending on your requirements. For
  *       example, you might want to filter images that contain nudity, but not images containing
@@ -149,6 +148,7 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class DetectModerationLabelsCommand extends $Command
   .classBuilder<

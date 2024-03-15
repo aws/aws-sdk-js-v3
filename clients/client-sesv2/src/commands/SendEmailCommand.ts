@@ -27,7 +27,6 @@ export interface SendEmailCommandInput extends SendEmailRequest {}
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends an email message. You can use the Amazon SES API v2 to send the following types of
  *             messages:</p>
  *          <ul>
@@ -170,6 +169,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class SendEmailCommand extends $Command
   .classBuilder<

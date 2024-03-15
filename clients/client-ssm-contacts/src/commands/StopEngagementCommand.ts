@@ -27,7 +27,6 @@ export interface StopEngagementCommandInput extends StopEngagementRequest {}
 export interface StopEngagementCommandOutput extends StopEngagementResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an engagement before it finishes the final stage of the escalation plan or
  *          engagement plan. Further contacts aren't engaged.</p>
  * @example
@@ -71,6 +70,7 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class StopEngagementCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAssessmentReportCommandInput extends GetAssessmentReportRequ
 export interface GetAssessmentReportCommandOutput extends GetAssessmentReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Produces an assessment report that includes detailed and comprehensive results of a
  *          specified assessment run. </p>
  * @example
@@ -87,6 +86,7 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  */
 export class GetAssessmentReportCommand extends $Command
   .classBuilder<

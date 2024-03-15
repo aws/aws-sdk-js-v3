@@ -33,7 +33,6 @@ export interface DeleteElasticsearchServiceRoleCommandInput {}
 export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DeleteElasticsearchServiceRoleCommand extends $Command
   .classBuilder<

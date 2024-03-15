@@ -27,7 +27,6 @@ export interface EvaluateFeatureCommandInput extends EvaluateFeatureRequest {}
 export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation assigns a feature variation to one given user session. You pass in an
  *         <code>entityID</code> that represents the user. Evidently then checks the evaluation rules
  *       and assigns the variation.</p>
@@ -102,6 +101,7 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class EvaluateFeatureCommand extends $Command
   .classBuilder<

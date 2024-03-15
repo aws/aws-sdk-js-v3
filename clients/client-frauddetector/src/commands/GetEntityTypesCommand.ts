@@ -27,7 +27,6 @@ export interface GetEntityTypesCommandInput extends GetEntityTypesRequest {}
 export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all entity types or a specific entity type if a name is specified. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
@@ -86,6 +85,7 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetEntityTypesCommand extends $Command
   .classBuilder<

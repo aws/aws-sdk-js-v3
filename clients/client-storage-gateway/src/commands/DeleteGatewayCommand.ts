@@ -27,7 +27,6 @@ export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
  *          (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
  *          not delete the gateway virtual machine (VM) from your host computer.</p>
@@ -78,6 +77,7 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To delete a gatgeway
  * ```javascript
  * // This operation deletes the gateway, but not the gateway's VM from the host computer.

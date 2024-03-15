@@ -27,7 +27,6 @@ export interface GetFlowAssociationCommandInput extends GetFlowAssociationReques
 export interface GetFlowAssociationCommandOutput extends GetFlowAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the flow associated for a given resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetFlowAssociationCommandOutput extends GetFlowAssociationRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetFlowAssociationCommand extends $Command
   .classBuilder<

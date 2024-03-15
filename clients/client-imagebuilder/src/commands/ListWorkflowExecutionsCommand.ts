@@ -27,7 +27,6 @@ export interface ListWorkflowExecutionsCommandInput extends ListWorkflowExecutio
 export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of workflow runtime instance metadata objects for a specific image build
  * 			version.</p>
  * @example
@@ -101,6 +100,7 @@ export interface ListWorkflowExecutionsCommandOutput extends ListWorkflowExecuti
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListWorkflowExecutionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDeploymentGroupCommandInput extends DeleteDeploymentGroup
 export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class DeleteDeploymentGroupCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeScalingPlanResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the scalable resources in the specified scaling plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface DescribeScalingPlanResourcesCommandOutput
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * @public
  */
 export class DescribeScalingPlanResourcesCommand extends $Command
   .classBuilder<

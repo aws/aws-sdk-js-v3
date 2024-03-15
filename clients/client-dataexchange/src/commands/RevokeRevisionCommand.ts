@@ -27,7 +27,6 @@ export interface RevokeRevisionCommandInput extends RevokeRevisionRequest {}
 export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation revokes subscribers' access to a revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class RevokeRevisionCommand extends $Command
   .classBuilder<

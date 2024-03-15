@@ -27,7 +27,6 @@ export interface RestoreDocumentVersionsCommandInput extends RestoreDocumentVers
 export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Recovers a deleted version of an Amazon WorkDocs document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class RestoreDocumentVersionsCommand extends $Command
   .classBuilder<

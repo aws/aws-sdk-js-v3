@@ -32,7 +32,6 @@ export interface DeleteRumMetricsDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a destination for CloudWatch RUM extended metrics, so that the specified app monitor stops
  *          sending extended metrics to that destination.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DeleteRumMetricsDestinationCommandOutput
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class DeleteRumMetricsDestinationCommand extends $Command
   .classBuilder<

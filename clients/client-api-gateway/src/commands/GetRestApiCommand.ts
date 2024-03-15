@@ -27,7 +27,6 @@ export interface GetRestApiCommandInput extends GetRestApiRequest {}
 export interface GetRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the RestApi resource in the collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetRestApiCommand extends $Command
   .classBuilder<

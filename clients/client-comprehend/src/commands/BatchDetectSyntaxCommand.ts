@@ -32,7 +32,6 @@ export interface BatchDetectSyntaxCommandInput extends BatchDetectSyntaxRequest 
 export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
  *       in the document and returns information about them. For more information, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a> in the Comprehend Developer Guide.
@@ -107,6 +106,7 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class BatchDetectSyntaxCommand extends $Command
   .classBuilder<

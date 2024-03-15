@@ -31,7 +31,6 @@ export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRe
 export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more Amazon OpenSearch Service-managed VPC endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeVpcEndpointsCommand extends $Command
   .classBuilder<

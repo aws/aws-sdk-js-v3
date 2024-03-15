@@ -342,7 +342,6 @@ export type KinesisAnalyticsClientResolvedConfigType = __SmithyResolvedConfigura
 export interface KinesisAnalyticsClientResolvedConfig extends KinesisAnalyticsClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Kinesis Analytics</fullname>
  *         <p>
  *             <b>Overview</b>
@@ -353,6 +352,7 @@ export interface KinesisAnalyticsClientResolvedConfig extends KinesisAnalyticsCl
  *         <p>This is the <i>Amazon Kinesis Analytics v1 API Reference</i>.
  *             The Amazon Kinesis Analytics Developer Guide provides additional information.
  *             </p>
+ * @public
  */
 export class KinesisAnalyticsClient extends __Client<
   __HttpHandlerOptions,

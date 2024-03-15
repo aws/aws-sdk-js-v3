@@ -27,7 +27,6 @@ export interface GetBaiduChannelCommandInput extends GetBaiduChannelRequest {}
 export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the Baidu channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetBaiduChannelCommand extends $Command
   .classBuilder<

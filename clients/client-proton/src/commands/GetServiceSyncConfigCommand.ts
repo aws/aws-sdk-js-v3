@@ -27,7 +27,6 @@ export interface GetServiceSyncConfigCommandInput extends GetServiceSyncConfigIn
 export interface GetServiceSyncConfigCommandOutput extends GetServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed information for the service sync configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetServiceSyncConfigCommandOutput extends GetServiceSyncConfigO
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetServiceSyncConfigCommand extends $Command
   .classBuilder<

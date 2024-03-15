@@ -32,7 +32,6 @@ export interface ListAvailableResourceDimensionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the dimensions that can be queried for each specified metric type on a specified DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class ListAvailableResourceDimensionsCommand extends $Command
   .classBuilder<

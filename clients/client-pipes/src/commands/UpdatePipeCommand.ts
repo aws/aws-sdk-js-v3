@@ -27,7 +27,6 @@ export interface UpdatePipeCommandInput extends UpdatePipeRequest {}
 export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an existing pipe. When you call <code>UpdatePipe</code>, EventBridge only the updates fields you have specified in the request; the rest remain unchanged.
  *          The exception to this is if you modify any Amazon Web Services-service specific fields in the <code>SourceParameters</code>, <code>EnrichmentParameters</code>, or
  *          <code>TargetParameters</code> objects. For example, <code>DynamoDBStreamParameters</code> or <code>EventBridgeEventBusParameters</code>.
@@ -380,6 +379,7 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * @public
  */
 export class UpdatePipeCommand extends $Command
   .classBuilder<

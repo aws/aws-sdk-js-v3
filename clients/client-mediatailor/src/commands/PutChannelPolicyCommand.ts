@@ -27,7 +27,6 @@ export interface PutChannelPolicyCommandInput extends PutChannelPolicyRequest {}
 export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IAM policy for the channel. IAM policies are used to control access to your channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +53,7 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class PutChannelPolicyCommand extends $Command
   .classBuilder<

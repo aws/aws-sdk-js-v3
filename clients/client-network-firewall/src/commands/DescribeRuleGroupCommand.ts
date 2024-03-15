@@ -27,7 +27,6 @@ export interface DescribeRuleGroupCommandInput extends DescribeRuleGroupRequest 
 export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the data objects for the specified rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -244,6 +243,7 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DescribeRuleGroupCommand extends $Command
   .classBuilder<

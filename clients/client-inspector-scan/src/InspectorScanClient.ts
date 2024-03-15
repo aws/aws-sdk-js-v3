@@ -247,8 +247,8 @@ export type InspectorScanClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface InspectorScanClientResolvedConfig extends InspectorScanClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Inspector Scan is a vulnerability discovery service that scans a provided Software Bill of Materials (SBOM) for security vulnerabilities.</p>
+ * @public
  */
 export class InspectorScanClient extends __Client<
   __HttpHandlerOptions,

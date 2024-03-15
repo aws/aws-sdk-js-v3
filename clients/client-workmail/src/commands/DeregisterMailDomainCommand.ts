@@ -27,7 +27,6 @@ export interface DeregisterMailDomainCommandInput extends DeregisterMailDomainRe
 export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a domain from WorkMail, stops email routing to WorkMail, and removes the authorization allowing WorkMail use. SES keeps the domain because other applications may use it. You must first
  *          remove any email address used by WorkMail entities before you remove the domain.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainR
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeregisterMailDomainCommand extends $Command
   .classBuilder<

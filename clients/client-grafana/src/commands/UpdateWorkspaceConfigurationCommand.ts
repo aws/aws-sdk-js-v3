@@ -32,7 +32,6 @@ export interface UpdateWorkspaceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration string for the given workspace</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateWorkspaceConfigurationCommandOutput
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class UpdateWorkspaceConfigurationCommand extends $Command
   .classBuilder<

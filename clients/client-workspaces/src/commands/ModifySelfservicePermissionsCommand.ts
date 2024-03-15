@@ -32,7 +32,6 @@ export interface ModifySelfservicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the self-service WorkSpace management capabilities for your users. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ModifySelfservicePermissionsCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifySelfservicePermissionsCommand extends $Command
   .classBuilder<

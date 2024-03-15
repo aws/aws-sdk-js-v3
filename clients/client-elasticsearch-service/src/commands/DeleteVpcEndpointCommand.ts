@@ -31,7 +31,6 @@ export interface DeleteVpcEndpointCommandInput extends DeleteVpcEndpointRequest 
 export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DeleteVpcEndpointCommand extends $Command
   .classBuilder<

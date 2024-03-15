@@ -27,7 +27,6 @@ export interface StartSchemaMergeCommandInput extends StartSchemaMergeRequest {}
 export interface StartSchemaMergeCommandOutput extends StartSchemaMergeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a merge operation. Returns a status that shows the result of the merge operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface StartSchemaMergeCommandOutput extends StartSchemaMergeResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class StartSchemaMergeCommand extends $Command
   .classBuilder<

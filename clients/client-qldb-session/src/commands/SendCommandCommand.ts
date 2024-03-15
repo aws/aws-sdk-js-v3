@@ -27,7 +27,6 @@ export interface SendCommandCommandInput extends SendCommandRequest {}
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a command to an Amazon QLDB ledger.</p>
  *          <note>
  *             <p>Instead of interacting directly with this API, we recommend using the QLDB driver
@@ -183,6 +182,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * @throws {@link QLDBSessionServiceException}
  * <p>Base exception class for all service exceptions from QLDBSession service.</p>
  *
+ * @public
  */
 export class SendCommandCommand extends $Command
   .classBuilder<

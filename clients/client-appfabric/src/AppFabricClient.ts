@@ -366,7 +366,6 @@ export type AppFabricClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface AppFabricClientResolvedConfig extends AppFabricClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Web Services AppFabric quickly connects software as a service (SaaS) applications across your
  *          organization. This allows IT and security teams to easily manage and secure applications
  *          using a standard schema, and employees can complete everyday tasks faster using generative
@@ -376,6 +375,7 @@ export interface AppFabricClientResolvedConfig extends AppFabricClientResolvedCo
  *          information about using the Command Line Interface (CLI) to manage your
  *          AppFabric resources, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/appfabric/index.html">AppFabric section of the CLI
  *             Reference</a>.</p>
+ * @public
  */
 export class AppFabricClient extends __Client<
   __HttpHandlerOptions,

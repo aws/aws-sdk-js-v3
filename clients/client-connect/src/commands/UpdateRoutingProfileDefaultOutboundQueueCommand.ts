@@ -31,7 +31,6 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandInput
 export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the default outbound queue of a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command
   .classBuilder<

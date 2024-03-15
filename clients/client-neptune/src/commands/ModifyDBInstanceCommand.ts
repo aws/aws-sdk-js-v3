@@ -31,7 +31,6 @@ export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies settings for a DB instance. You can change one or more database configuration
  *       parameters by specifying these parameters and the new values in the request. To learn what
  *       modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
@@ -301,6 +300,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyDBInstanceCommand extends $Command
   .classBuilder<

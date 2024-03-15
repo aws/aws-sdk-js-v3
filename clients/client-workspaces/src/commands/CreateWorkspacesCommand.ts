@@ -27,7 +27,6 @@ export interface CreateWorkspacesCommandInput extends CreateWorkspacesRequest {}
 export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more WorkSpaces.</p>
  *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
  *          <note>
@@ -192,6 +191,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateWorkspacesCommand extends $Command
   .classBuilder<

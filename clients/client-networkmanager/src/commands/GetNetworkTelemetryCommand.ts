@@ -27,7 +27,6 @@ export interface GetNetworkTelemetryCommandInput extends GetNetworkTelemetryRequ
 export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the network telemetry of the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetNetworkTelemetryCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectCommandInputType
 export interface UpdateProjectCommandOutput extends UpdateProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Update an existing project.
  *         </p>
@@ -131,6 +130,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<

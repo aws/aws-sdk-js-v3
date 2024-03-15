@@ -27,7 +27,6 @@ export interface ListImagePackagesCommandInput extends ListImagePackagesRequest 
 export interface ListImagePackagesCommandOutput extends ListImagePackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the Packages that are associated with an Image Build Version, as determined by
  * 			Amazon Web Services Systems Manager Inventory at build time.</p>
  * @example
@@ -92,6 +91,7 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListImagePackagesCommand extends $Command
   .classBuilder<

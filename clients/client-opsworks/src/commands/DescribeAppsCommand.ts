@@ -27,7 +27,6 @@ export interface DescribeAppsCommandInput extends DescribeAppsRequest {}
 export interface DescribeAppsCommandOutput extends DescribeAppsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a description of a specified set of apps.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -116,6 +115,7 @@ export interface DescribeAppsCommandOutput extends DescribeAppsResult, __Metadat
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeAppsCommand extends $Command
   .classBuilder<

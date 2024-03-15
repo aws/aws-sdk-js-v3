@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified tag keys and values to a resource share or managed permission. If you choose a resource share, the
  *             tags are attached to only the resource share, not to the resources that are in the resource share.</p>
  *          <p>The tags on a managed permission are the same for all versions of the managed permission.</p>
@@ -90,6 +89,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

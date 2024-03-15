@@ -27,7 +27,6 @@ export interface CreateApprovalRuleTemplateCommandInput extends CreateApprovalRu
 export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a template for approval rules that can then be associated with one or more
  *             repositories in your Amazon Web Services account. When you associate a template with a repository,
  *             CodeCommit creates an approval rule that matches the conditions of the template for all
@@ -97,6 +96,7 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class CreateApprovalRuleTemplateCommand extends $Command
   .classBuilder<

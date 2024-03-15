@@ -27,7 +27,6 @@ export interface AddBridgeSourcesCommandInput extends AddBridgeSourcesRequest {}
 export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Adds sources to an existing bridge.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class AddBridgeSourcesCommand extends $Command
   .classBuilder<

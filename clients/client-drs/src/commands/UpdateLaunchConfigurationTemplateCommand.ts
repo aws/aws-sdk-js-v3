@@ -36,7 +36,6 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Launch Configuration Template by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class UpdateLaunchConfigurationTemplateCommand extends $Command
   .classBuilder<

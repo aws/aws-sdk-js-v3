@@ -32,7 +32,6 @@ export interface GetDefaultScraperConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>GetDefaultScraperConfiguration</code> operation returns the default
  *             scraper configuration used when Amazon EKS creates a scraper for you.</p>
  * @example
@@ -68,6 +67,7 @@ export interface GetDefaultScraperConfigurationCommandOutput
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class GetDefaultScraperConfigurationCommand extends $Command
   .classBuilder<

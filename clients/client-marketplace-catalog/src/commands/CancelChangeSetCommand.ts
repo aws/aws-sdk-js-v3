@@ -31,7 +31,6 @@ export interface CancelChangeSetCommandInput extends CancelChangeSetRequest {}
 export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to cancel an open change request. Must be sent before the status of the request
  *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
  *             can describe a change during the 60-day request history retention period for API
@@ -87,6 +86,7 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class CancelChangeSetCommand extends $Command
   .classBuilder<

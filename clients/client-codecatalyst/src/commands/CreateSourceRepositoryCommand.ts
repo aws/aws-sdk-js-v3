@@ -27,7 +27,6 @@ export interface CreateSourceRepositoryCommandInput extends CreateSourceReposito
 export interface CreateSourceRepositoryCommandOutput extends CreateSourceRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty Git-based source repository in a specified project. The repository is
  *       created with an initial empty commit with a default branch named <code>main</code>.</p>
  * @example
@@ -82,6 +81,7 @@ export interface CreateSourceRepositoryCommandOutput extends CreateSourceReposit
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class CreateSourceRepositoryCommand extends $Command
   .classBuilder<

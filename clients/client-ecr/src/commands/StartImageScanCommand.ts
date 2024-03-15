@@ -27,7 +27,6 @@ export interface StartImageScanCommandInput extends StartImageScanRequest {}
 export interface StartImageScanCommandOutput extends StartImageScanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an image vulnerability scan. An image scan can only be started once per 24
  *             hours on an individual image. This limit includes if an image was scanned on initial
  *             push. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image scanning</a> in the
@@ -97,6 +96,7 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class StartImageScanCommand extends $Command
   .classBuilder<

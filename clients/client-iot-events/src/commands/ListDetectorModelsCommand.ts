@@ -27,7 +27,6 @@ export interface ListDetectorModelsCommandInput extends ListDetectorModelsReques
 export interface ListDetectorModelsCommandOutput extends ListDetectorModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the detector models you have created. Only the metadata associated with each
  *       detector model is returned.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class ListDetectorModelsCommand extends $Command
   .classBuilder<

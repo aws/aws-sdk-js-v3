@@ -27,7 +27,6 @@ export interface StopProjectVersionCommandInput extends StopProjectVersionReques
 export interface StopProjectVersionCommandOutput extends StopProjectVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -84,6 +83,7 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To stop an Amazon Rekognition Custom Labels model.
  * ```javascript
  * // Stops a version of an Amazon Rekognition Custom Labels model.

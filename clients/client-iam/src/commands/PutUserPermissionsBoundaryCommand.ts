@@ -27,7 +27,6 @@ export interface PutUserPermissionsBoundaryCommandInput extends PutUserPermissio
 export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates the policy that is specified as the IAM user's permissions
  *             boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
  *             boundary for a user. Use the boundary to control the maximum permissions that the user
@@ -80,6 +79,7 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class PutUserPermissionsBoundaryCommand extends $Command
   .classBuilder<

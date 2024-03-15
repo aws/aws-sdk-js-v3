@@ -35,7 +35,6 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a lifecycle configuration that you can associate with a notebook instance. A
  *          <i>lifecycle configuration</i> is a collection of shell scripts that
  *          run when you create or start a notebook instance.</p>
@@ -90,6 +89,7 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateNotebookInstanceLifecycleConfigCommand extends $Command
   .classBuilder<

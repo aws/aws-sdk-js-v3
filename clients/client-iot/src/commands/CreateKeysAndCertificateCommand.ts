@@ -31,7 +31,6 @@ export interface CreateKeysAndCertificateCommandInput extends CreateKeysAndCerti
 export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
  *          public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a
  *          device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p>
@@ -86,6 +85,7 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateKeysAndCertificateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListFieldOptionsCommandInput extends ListFieldOptionsRequest {}
 export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the field options for a field identifier in the domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListFieldOptionsCommandOutput extends ListFieldOptionsResponse,
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class ListFieldOptionsCommand extends $Command
   .classBuilder<

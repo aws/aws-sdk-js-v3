@@ -27,7 +27,6 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a job in an Batch job queue. Jobs that are in the
  *       <code>SUBMITTED</code>
  *       or
@@ -82,6 +81,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To cancel a job
  * ```javascript
  * // This example cancels a job with the specified job ID.

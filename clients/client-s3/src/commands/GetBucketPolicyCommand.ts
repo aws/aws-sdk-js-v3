@@ -27,7 +27,6 @@ export interface GetBucketPolicyCommandInput extends GetBucketPolicyRequest {}
 export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the policy of a specified bucket.</p>
  *          <note>
  *             <p>
@@ -117,6 +116,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To get bucket policy
  * ```javascript
  * // The following example returns bucket policy associated with a bucket.

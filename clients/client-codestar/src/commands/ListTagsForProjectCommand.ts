@@ -27,7 +27,6 @@ export interface ListTagsForProjectCommandInput extends ListTagsForProjectReques
 export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the tags for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResul
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class ListTagsForProjectCommand extends $Command
   .classBuilder<

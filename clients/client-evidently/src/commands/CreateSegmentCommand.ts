@@ -27,7 +27,6 @@ export interface CreateSegmentCommandInput extends CreateSegmentRequest {}
 export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to define a <i>segment</i> of your audience. A segment
  *       is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users,
  *       users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects,
@@ -96,6 +95,7 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class CreateSegmentCommand extends $Command
   .classBuilder<

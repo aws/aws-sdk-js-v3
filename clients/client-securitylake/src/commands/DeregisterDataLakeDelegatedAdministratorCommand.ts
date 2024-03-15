@@ -36,7 +36,6 @@ export interface DeregisterDataLakeDelegatedAdministratorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the Amazon Security Lake delegated administrator account for the organization. This API
  *          can only be called by the organization management account. The organization management
  *          account cannot be the delegated administrator account.</p>
@@ -87,6 +86,7 @@ export interface DeregisterDataLakeDelegatedAdministratorCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class DeregisterDataLakeDelegatedAdministratorCommand extends $Command
   .classBuilder<

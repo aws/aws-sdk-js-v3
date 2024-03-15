@@ -27,7 +27,6 @@ export interface ListAssessmentTargetsCommandInput extends ListAssessmentTargets
 export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the ARNs of the assessment targets within this AWS account. For more
  *          information about assessment targets, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon Inspector Assessment
  *             Targets</a>.</p>
@@ -74,6 +73,7 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example List assessment targets
  * ```javascript
  * // Lists the ARNs of the assessment targets within this AWS account.

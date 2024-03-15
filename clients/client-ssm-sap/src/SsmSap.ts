@@ -376,10 +376,10 @@ export interface SsmSap {
 }
 
 /**
- * @public
  * <p>This API reference provides descriptions, syntax, and other details about each of the
  *          actions and data types for AWS Systems Manager for SAP. The topic for each action shows
  *          the API request parameters and responses. </p>
+ * @public
  */
 export class SsmSap extends SsmSapClient implements SsmSap {}
 createAggregatedClient(commands, SsmSap);

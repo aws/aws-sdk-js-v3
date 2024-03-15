@@ -27,7 +27,6 @@ export interface AnalyzeIDCommandInput extends AnalyzeIDRequest {}
 export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Analyzes identity documents for relevant information. This information is extracted and
  *          returned as <code>IdentityDocumentFields</code>, which records both the normalized field
  *          and value of the extracted text. Unlike other Amazon Textract operations,
@@ -182,6 +181,7 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class AnalyzeIDCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetChannelScheduleCommandInput extends GetChannelScheduleReques
 export interface GetChannelScheduleCommandOutput extends GetChannelScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about your channel's schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class GetChannelScheduleCommand extends $Command
   .classBuilder<

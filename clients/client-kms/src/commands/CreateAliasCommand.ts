@@ -27,7 +27,6 @@ export interface CreateAliasCommandInput extends CreateAliasRequest {}
 export interface CreateAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a friendly name for a KMS key. </p>
  *          <note>
  *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -156,6 +155,7 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To create an alias
  * ```javascript
  * // The following example creates an alias for the specified KMS key.

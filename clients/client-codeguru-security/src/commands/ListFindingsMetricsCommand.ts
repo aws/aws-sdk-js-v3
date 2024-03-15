@@ -27,7 +27,6 @@ export interface ListFindingsMetricsCommandInput extends ListFindingsMetricsRequ
 export interface ListFindingsMetricsCommandOutput extends ListFindingsMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metrics about all findings in an account within a specified time range.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListFindingsMetricsCommandOutput extends ListFindingsMetricsRes
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class ListFindingsMetricsCommand extends $Command
   .classBuilder<

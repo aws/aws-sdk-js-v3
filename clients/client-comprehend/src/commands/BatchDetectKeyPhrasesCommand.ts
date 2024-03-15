@@ -32,7 +32,6 @@ export interface BatchDetectKeyPhrasesCommandInput extends BatchDetectKeyPhrases
 export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects the key noun phrases found in a batch of documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class BatchDetectKeyPhrasesCommand extends $Command
   .classBuilder<

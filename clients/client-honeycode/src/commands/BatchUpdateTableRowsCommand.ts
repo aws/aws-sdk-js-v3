@@ -31,7 +31,6 @@ export interface BatchUpdateTableRowsCommandInput extends BatchUpdateTableRowsRe
 export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook.
  *         </p>
@@ -115,6 +114,7 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class BatchUpdateTableRowsCommand extends $Command
   .classBuilder<

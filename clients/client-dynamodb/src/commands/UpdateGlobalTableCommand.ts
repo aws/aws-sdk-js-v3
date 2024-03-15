@@ -27,7 +27,6 @@ export interface UpdateGlobalTableCommandInput extends UpdateGlobalTableInput {}
 export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or removes replicas in the specified global table. The global table must already
  *             exist to be able to use this operation. Any replica to be added must be empty, have the
  *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
@@ -155,6 +154,7 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class UpdateGlobalTableCommand extends $Command
   .classBuilder<

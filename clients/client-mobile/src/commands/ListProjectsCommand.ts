@@ -27,7 +27,6 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Lists projects in AWS Mobile Hub.
  *         </p>
@@ -93,6 +92,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class ListProjectsCommand extends $Command
   .classBuilder<

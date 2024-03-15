@@ -27,7 +27,6 @@ export interface ListModelCustomizationJobsCommandInput extends ListModelCustomi
 export interface ListModelCustomizationJobsCommandOutput extends ListModelCustomizationJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of model customization jobs that you have submitted. You can filter the jobs to return based on
  *       one or more criteria.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
@@ -90,6 +89,7 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class ListModelCustomizationJobsCommand extends $Command
   .classBuilder<

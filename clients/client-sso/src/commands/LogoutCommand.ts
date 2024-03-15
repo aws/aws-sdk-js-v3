@@ -27,7 +27,6 @@ export interface LogoutCommandInput extends LogoutRequest {}
 export interface LogoutCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the locally stored SSO tokens from the client-side cache and sends an API call to
  *       the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in
  *       session.</p>
@@ -78,6 +77,7 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * @throws {@link SSOServiceException}
  * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ * @public
  */
 export class LogoutCommand extends $Command
   .classBuilder<

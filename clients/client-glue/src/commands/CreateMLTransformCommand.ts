@@ -27,7 +27,6 @@ export interface CreateMLTransformCommandInput extends CreateMLTransformRequest 
 export interface CreateMLTransformCommandOutput extends CreateMLTransformResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Glue machine learning transform. This operation creates the transform and
  *       all the necessary parameters to train it.</p>
  *          <p>Call this operation as the first step in the process of using a machine learning transform
@@ -124,6 +123,7 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateMLTransformCommand extends $Command
   .classBuilder<

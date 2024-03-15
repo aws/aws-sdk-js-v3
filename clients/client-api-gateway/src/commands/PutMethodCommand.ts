@@ -27,7 +27,6 @@ export interface PutMethodCommandInput extends PutMethodRequest {}
 export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add a method to an existing Resource resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class PutMethodCommand extends $Command
   .classBuilder<

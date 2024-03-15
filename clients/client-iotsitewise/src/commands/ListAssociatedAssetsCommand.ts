@@ -27,7 +27,6 @@ export interface ListAssociatedAssetsCommandInput extends ListAssociatedAssetsRe
 export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of associated assets.</p>
  *          <p>You can use this operation to do the following:</p>
  *          <ul>
@@ -116,6 +115,7 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListAssociatedAssetsCommand extends $Command
   .classBuilder<

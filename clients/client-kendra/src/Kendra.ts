@@ -1377,8 +1377,8 @@ export interface Kendra {
 }
 
 /**
- * @public
  * <p>Amazon Kendra is a service for indexing large document sets.</p>
+ * @public
  */
 export class Kendra extends KendraClient implements Kendra {}
 createAggregatedClient(commands, Kendra);

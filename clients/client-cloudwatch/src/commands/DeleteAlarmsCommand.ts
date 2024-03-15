@@ -27,7 +27,6 @@ export interface DeleteAlarmsCommandInput extends DeleteAlarmsInput {}
 export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more
  * 			than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't
  * 			delete two composite alarms with one operation.</p>
@@ -75,6 +74,7 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DeleteAlarmsCommand extends $Command
   .classBuilder<

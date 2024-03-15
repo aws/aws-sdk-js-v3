@@ -27,7 +27,6 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
  * 		    and an optional value. If you add a tag using a key that is already associated with the ML object,
  * 			<code>AddTags</code> updates the tag's value.</p>
@@ -78,6 +77,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<

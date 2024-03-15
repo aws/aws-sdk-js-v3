@@ -27,7 +27,6 @@ export interface DeleteAccessEntryCommandInput extends DeleteAccessEntryRequest 
 export interface DeleteAccessEntryCommandOutput extends DeleteAccessEntryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an access entry.</p>
  *          <p>Deleting an access entry of a type other than <code>Standard</code> can cause your
  *             cluster to function improperly. If you delete an access entry in error, you can recreate
@@ -69,6 +68,7 @@ export interface DeleteAccessEntryCommandOutput extends DeleteAccessEntryRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DeleteAccessEntryCommand extends $Command
   .classBuilder<

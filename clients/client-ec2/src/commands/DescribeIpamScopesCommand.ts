@@ -27,7 +27,6 @@ export interface DescribeIpamScopesCommandInput extends DescribeIpamScopesReques
 export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about your IPAM scopes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeIpamScopesCommandOutput extends DescribeIpamScopesResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeIpamScopesCommand extends $Command
   .classBuilder<

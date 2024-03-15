@@ -35,7 +35,6 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The related resources of an Audit finding.
  *       The following resources can be returned from calling this API:</p>
  *          <ul>
@@ -140,6 +139,7 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListRelatedResourcesForAuditFindingCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetVPCEConfigurationCommandInput extends GetVPCEConfigurationRe
 export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the configuration settings for your Amazon Virtual Private
  *             Cloud (VPC) endpoint.</p>
  * @example
@@ -71,6 +70,7 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class GetVPCEConfigurationCommand extends $Command
   .classBuilder<

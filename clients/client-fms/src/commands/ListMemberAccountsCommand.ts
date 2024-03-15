@@ -27,7 +27,6 @@ export interface ListMemberAccountsCommandInput extends ListMemberAccountsReques
 export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
  *       administrator's Amazon Web Services organization.</p>
  *          <p>Either an Firewall Manager administrator or the organization's management account can make this request.</p>
@@ -68,6 +67,7 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListMemberAccountsCommand extends $Command
   .classBuilder<

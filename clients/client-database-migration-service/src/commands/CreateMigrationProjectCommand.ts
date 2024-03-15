@@ -31,7 +31,6 @@ export interface CreateMigrationProjectCommandInput extends CreateMigrationProje
 export interface CreateMigrationProjectCommandOutput extends CreateMigrationProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the migration project using the specified parameters.</p>
  *          <p>You can run this action only after you create an instance profile and data providers
  *          using <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html">CreateInstanceProfile</a> and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html">CreateDataProvider</a>.</p>
@@ -137,6 +136,7 @@ export interface CreateMigrationProjectCommandOutput extends CreateMigrationProj
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Create Migration Project
  * ```javascript
  * // Creates the migration project with the specified parameters.

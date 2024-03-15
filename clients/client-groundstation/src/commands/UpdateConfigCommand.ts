@@ -27,7 +27,6 @@ export interface UpdateConfigCommandInput extends UpdateConfigRequest {}
 export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the <code>Config</code> used when scheduling contacts.</p>
  *          <p>Updating a <code>Config</code> will not update the execution parameters
  *          for existing future contacts scheduled with this <code>Config</code>.</p>
@@ -134,6 +133,7 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class UpdateConfigCommand extends $Command
   .classBuilder<

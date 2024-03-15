@@ -358,8 +358,8 @@ export type SageMakerGeospatialClientResolvedConfigType = __SmithyResolvedConfig
 export interface SageMakerGeospatialClientResolvedConfig extends SageMakerGeospatialClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Provides APIs for creating and managing SageMaker geospatial resources.</p>
+ * @public
  */
 export class SageMakerGeospatialClient extends __Client<
   __HttpHandlerOptions,

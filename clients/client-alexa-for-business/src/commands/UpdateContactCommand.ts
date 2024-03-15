@@ -31,9 +31,6 @@ export interface UpdateContactCommandInput extends UpdateContactRequest {}
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Updates the contact details by the contact ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +78,8 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateContactCommand extends $Command
   .classBuilder<

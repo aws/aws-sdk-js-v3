@@ -31,7 +31,6 @@ export interface ListGeofencesCommandInput extends ListGeofencesRequest {}
 export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists geofences stored in a given geofence collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class ListGeofencesCommand extends $Command
   .classBuilder<

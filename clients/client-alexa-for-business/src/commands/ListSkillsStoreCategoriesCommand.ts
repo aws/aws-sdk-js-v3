@@ -27,9 +27,6 @@ export interface ListSkillsStoreCategoriesCommandInput extends ListSkillsStoreCa
 export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreCategoriesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Lists all categories in the Alexa skill store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +61,8 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ListSkillsStoreCategoriesCommand extends $Command
   .classBuilder<

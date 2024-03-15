@@ -27,7 +27,6 @@ export interface EnableLoggingCommandInput extends EnableLoggingMessage {}
 export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts logging information, such as queries and connection attempts, for the
  *             specified Amazon Redshift cluster.</p>
  * @example
@@ -98,6 +97,7 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class EnableLoggingCommand extends $Command
   .classBuilder<

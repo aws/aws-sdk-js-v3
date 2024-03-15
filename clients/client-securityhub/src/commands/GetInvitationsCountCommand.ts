@@ -27,7 +27,6 @@ export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequ
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the count of all Security Hub membership invitations that were sent to the
  *          current member account, not including the currently accepted invitation. </p>
  * @example
@@ -68,6 +67,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get a count of membership invitations
  * ```javascript
  * // The following example returns a count of invitations that the Security Hub administrator sent to the current member account, not including the currently accepted invitation.

@@ -27,7 +27,6 @@ export interface ListNetworkProfilesCommandInput extends ListNetworkProfilesRequ
 export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of available network profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class ListNetworkProfilesCommand extends $Command
   .classBuilder<

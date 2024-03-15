@@ -27,7 +27,6 @@ export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
 export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the standard customer profile and all data pertaining to the profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class DeleteProfileCommand extends $Command
   .classBuilder<

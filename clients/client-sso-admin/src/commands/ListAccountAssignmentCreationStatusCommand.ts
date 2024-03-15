@@ -35,7 +35,6 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the status of the Amazon Web Services account assignment creation requests for a specified
  *             IAM Identity Center instance.</p>
  * @example
@@ -93,6 +92,7 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListAccountAssignmentCreationStatusCommand extends $Command
   .classBuilder<

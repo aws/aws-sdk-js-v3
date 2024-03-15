@@ -27,7 +27,6 @@ export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyReques
 export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the lifecycle policy for the specified repository. For more
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle policy
  *                 template</a>.</p>
@@ -75,6 +74,7 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class PutLifecyclePolicyCommand extends $Command
   .classBuilder<

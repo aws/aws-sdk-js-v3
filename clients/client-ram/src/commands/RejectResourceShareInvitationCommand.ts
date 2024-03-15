@@ -32,7 +32,6 @@ export interface RejectResourceShareInvitationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects an invitation to a resource share from another Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface RejectResourceShareInvitationCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class RejectResourceShareInvitationCommand extends $Command
   .classBuilder<

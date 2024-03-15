@@ -27,7 +27,6 @@ export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeFleetsCommand extends $Command
   .classBuilder<

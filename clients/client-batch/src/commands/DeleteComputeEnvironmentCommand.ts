@@ -27,7 +27,6 @@ export interface DeleteComputeEnvironmentCommandInput extends DeleteComputeEnvir
 export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Batch compute environment.</p>
  *          <p>Before you can delete a compute environment, you must set its state to
  *         <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and
@@ -67,6 +66,7 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To delete a compute environment
  * ```javascript
  * // This example deletes the P2OnDemand compute environment.

@@ -27,7 +27,6 @@ export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
 export interface ChangePasswordCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the password of the IAM user who is calling this operation. This operation
  *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
  *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
@@ -87,6 +86,7 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To change the password for your IAM user
  * ```javascript
  * // The following command changes the password for the current IAM user.

@@ -27,7 +27,6 @@ export interface CreateActivationCommandInput extends CreateActivationRequest {}
 export interface CreateActivationCommandOutput extends CreateActivationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates an activation code and activation ID you can use to register your on-premises
  *    servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
  *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
@@ -89,6 +88,7 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreateActivationCommand extends $Command
   .classBuilder<

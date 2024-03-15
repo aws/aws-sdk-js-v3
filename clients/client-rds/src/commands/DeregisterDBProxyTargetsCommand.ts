@@ -27,7 +27,6 @@ export interface DeregisterDBProxyTargetsCommandInput extends DeregisterDBProxyT
 export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DeregisterDBProxyTargetsCommand extends $Command
   .classBuilder<

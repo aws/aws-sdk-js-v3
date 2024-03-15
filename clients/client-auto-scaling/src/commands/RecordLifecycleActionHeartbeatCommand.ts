@@ -32,7 +32,6 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Records a heartbeat for the lifecycle action associated with the specified token or
  *             instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a> API call.</p>
  *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
@@ -101,6 +100,7 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To record a lifecycle action heartbeat
  * ```javascript
  * // This example records a lifecycle action heartbeat to keep the instance in a pending state.

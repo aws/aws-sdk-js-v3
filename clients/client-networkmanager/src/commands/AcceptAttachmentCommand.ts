@@ -27,7 +27,6 @@ export interface AcceptAttachmentCommandInput extends AcceptAttachmentRequest {}
 export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a core network attachment request. </p>
  *          <p>Once the attachment request is accepted by a core network owner, the attachment is
  *          created and connected to a core network.</p>
@@ -105,6 +104,7 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class AcceptAttachmentCommand extends $Command
   .classBuilder<

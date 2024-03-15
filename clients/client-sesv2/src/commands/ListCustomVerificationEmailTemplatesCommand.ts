@@ -35,7 +35,6 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the existing custom verification email templates for your account in the current
  *                 Amazon Web Services Region.</p>
  *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
@@ -84,6 +83,7 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class ListCustomVerificationEmailTemplatesCommand extends $Command
   .classBuilder<

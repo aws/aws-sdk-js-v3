@@ -27,7 +27,6 @@ export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a collection in an AWS Region. You can add faces to the collection using the
  *         <a>IndexFaces</a> operation. </p>
  *          <p>For example, you might create collections, one for each of your application users. A
@@ -99,6 +98,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To create a collection
  * ```javascript
  * // This operation creates a Rekognition collection for storing image data.

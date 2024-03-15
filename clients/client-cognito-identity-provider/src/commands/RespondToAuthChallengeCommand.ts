@@ -36,7 +36,6 @@ export interface RespondToAuthChallengeCommandInput extends RespondToAuthChallen
 export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChallengeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Some API operations in a user pool generate a challenge, like a prompt for an MFA
  *             code, for device authentication that bypasses MFA, or for a custom authentication
  *             challenge. A <code>RespondToAuthChallenge</code> API request provides the answer to that
@@ -203,6 +202,7 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class RespondToAuthChallengeCommand extends $Command
   .classBuilder<

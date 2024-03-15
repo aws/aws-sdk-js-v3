@@ -35,7 +35,6 @@ export interface StartSingleWirelessDeviceImportTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Start import task for a single wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface StartSingleWirelessDeviceImportTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class StartSingleWirelessDeviceImportTaskCommand extends $Command
   .classBuilder<

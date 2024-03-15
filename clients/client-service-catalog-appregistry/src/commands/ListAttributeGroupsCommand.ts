@@ -31,7 +31,6 @@ export interface ListAttributeGroupsCommandInput extends ListAttributeGroupsRequ
 export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all attribute groups which you have access to. Results are paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class ListAttributeGroupsCommand extends $Command
   .classBuilder<

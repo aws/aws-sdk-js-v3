@@ -27,7 +27,6 @@ export interface UpdateVpcEndpointCommandInput extends UpdateVpcEndpointRequest 
 export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an Amazon OpenSearch Service-managed interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class UpdateVpcEndpointCommand extends $Command
   .classBuilder<

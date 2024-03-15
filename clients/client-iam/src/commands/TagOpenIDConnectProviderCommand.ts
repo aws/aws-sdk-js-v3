@@ -27,7 +27,6 @@ export interface TagOpenIDConnectProviderCommandInput extends TagOpenIDConnectPr
 export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider. For
  *       more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>. If
  *       a tag with the same key name already exists, then that tag is overwritten with the new
@@ -116,6 +115,7 @@ export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class TagOpenIDConnectProviderCommand extends $Command
   .classBuilder<

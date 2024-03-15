@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Disassociates a resource from a list of tags. The resource is identified by the
  *                 <code>ResourceArn</code> input parameter. The tags are identified by the list of
  *             keys in the <code>TagKeys</code> input parameter. </p>
@@ -84,6 +83,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

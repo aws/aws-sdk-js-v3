@@ -27,7 +27,6 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the names and codes for the Amazon Web Services integrated with Service Quotas.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class ListServicesCommand extends $Command
   .classBuilder<

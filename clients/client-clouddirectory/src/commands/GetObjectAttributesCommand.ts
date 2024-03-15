@@ -27,7 +27,6 @@ export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequ
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves attributes within a facet that are associated with an object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class GetObjectAttributesCommand extends $Command
   .classBuilder<

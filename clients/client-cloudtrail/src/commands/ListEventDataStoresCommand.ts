@@ -27,7 +27,6 @@ export interface ListEventDataStoresCommandInput extends ListEventDataStoresRequ
 export interface ListEventDataStoresCommandOutput extends ListEventDataStoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all event data stores in the account, in the current
  *          Region.</p>
  * @example
@@ -113,6 +112,7 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListEventDataStoresCommand extends $Command
   .classBuilder<

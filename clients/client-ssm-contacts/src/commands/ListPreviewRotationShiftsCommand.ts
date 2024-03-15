@@ -27,7 +27,6 @@ export interface ListPreviewRotationShiftsCommandInput extends ListPreviewRotati
 export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotationShiftsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of shifts based on rotation configuration parameters.</p>
  *          <note>
  *             <p>The Incident Manager primarily uses this operation to populate the <b>Preview</b> calendar. It is not typically run by end users.</p>
@@ -139,6 +138,7 @@ export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotat
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListPreviewRotationShiftsCommand extends $Command
   .classBuilder<

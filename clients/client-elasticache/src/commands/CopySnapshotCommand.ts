@@ -27,7 +27,6 @@ export interface CopySnapshotCommandInput extends CopySnapshotMessage {}
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Makes a copy of an existing snapshot.</p>
  *          <note>
  *             <p>This operation is valid for Redis only.</p>
@@ -230,6 +229,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example CopySnapshot
  * ```javascript
  * // Copies a snapshot to a specified name.

@@ -27,7 +27,6 @@ export interface DescribeCacheParametersCommandInput extends DescribeCacheParame
 export interface DescribeCacheParametersCommandOutput extends CacheParameterGroupDetails, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the detailed parameter list for a particular cache parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeCacheParameters
  * ```javascript
  * // Lists up to 100 user parameter values for the parameter group custom.redis2.8.

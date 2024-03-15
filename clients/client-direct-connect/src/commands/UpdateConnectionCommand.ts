@@ -27,7 +27,6 @@ export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 export interface UpdateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Direct Connect dedicated connection configuration.</p>
  *          <p>You can update the following parameters for a connection:</p>
  *          <ul>
@@ -105,6 +104,7 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class UpdateConnectionCommand extends $Command
   .classBuilder<

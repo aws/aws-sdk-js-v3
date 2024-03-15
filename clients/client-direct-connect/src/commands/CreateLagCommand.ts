@@ -27,7 +27,6 @@ export interface CreateLagCommandInput extends CreateLagRequest {}
 export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a link aggregation group (LAG) with the specified number of bundled
  *       physical dedicated connections between the customer network and a specific Direct Connect location.
  *       A LAG is a logical interface that uses the Link Aggregation Control Protocol
@@ -171,6 +170,7 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreateLagCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface CreatePrivacyBudgetTemplateCommandInput extends CreatePrivacyBu
 export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a privacy budget template for a specified membership. Each membership can have only one privacy budget template, but it can be deleted and recreated. If you need to change the privacy budget template for a membership, use the <a>UpdatePrivacyBudgetTemplate</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class CreatePrivacyBudgetTemplateCommand extends $Command
   .classBuilder<

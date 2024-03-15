@@ -27,7 +27,6 @@ export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
 export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased
  *             quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code>
  *             error if the user is not permitted to invoke the operation. If you must be able to invoke this operation,
@@ -104,6 +103,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To purchase a device slot offering
  * ```javascript
  * // The following example purchases a specific device slot offering.

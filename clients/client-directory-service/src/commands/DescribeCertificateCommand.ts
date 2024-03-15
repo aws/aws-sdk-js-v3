@@ -27,7 +27,6 @@ export interface DescribeCertificateCommandInput extends DescribeCertificateRequ
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays information about the certificate registered for secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeCertificateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListWorkforcesCommandInput extends ListWorkforcesRequest {}
 export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to list all private and vendor workforces in an Amazon Web Services Region. Note that you can only
  *            have one private workforce per Amazon Web Services Region.</p>
  * @example
@@ -99,6 +98,7 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListWorkforcesCommand extends $Command
   .classBuilder<

@@ -37,7 +37,6 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
 }
 
 /**
- * @public
  * <p>Retrieves an object from Amazon S3.</p>
  *          <p>In the <code>GetObject</code> request, specify the full key name for the object.</p>
  *          <p>
@@ -285,6 +284,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To retrieve a byte range of an object
  * ```javascript
  * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.

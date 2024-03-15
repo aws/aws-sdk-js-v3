@@ -27,7 +27,6 @@ export interface UpdateFormCommandInput extends UpdateFormRequest {}
 export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing form.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -374,6 +373,7 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class UpdateFormCommand extends $Command
   .classBuilder<

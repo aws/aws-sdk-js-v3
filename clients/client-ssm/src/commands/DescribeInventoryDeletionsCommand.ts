@@ -27,7 +27,6 @@ export interface DescribeInventoryDeletionsCommandInput extends DescribeInventor
 export interface DescribeInventoryDeletionsCommandOutput extends DescribeInventoryDeletionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a specific delete inventory operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeInventoryDeletionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RebootInstanceCommandInput extends RebootInstanceRequest {}
 export interface RebootInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Reboots a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
  *         Stopping, and Rebooting Instances</a>.</p>
  *          <p>
@@ -65,6 +64,7 @@ export interface RebootInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class RebootInstanceCommand extends $Command
   .classBuilder<

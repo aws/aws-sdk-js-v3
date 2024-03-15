@@ -27,7 +27,6 @@ export interface UpdateCertificateCommandInput extends UpdateCertificateRequest 
 export interface UpdateCertificateCommandOutput extends UpdateCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the active and inactive dates for a certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateCertificateCommandOutput extends UpdateCertificateRespons
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UpdateCertificateCommand extends $Command
   .classBuilder<

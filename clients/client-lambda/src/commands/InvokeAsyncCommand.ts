@@ -30,9 +30,6 @@ export interface InvokeAsyncCommandInput extends Omit<InvokeAsyncRequest, "Invok
 export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <important>
  *             <p>For asynchronous function invocation, use <a>Invoke</a>.</p>
  *          </important>
@@ -83,6 +80,8 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class InvokeAsyncCommand extends $Command
   .classBuilder<

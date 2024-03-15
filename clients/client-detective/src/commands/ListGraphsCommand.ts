@@ -27,7 +27,6 @@ export interface ListGraphsCommandInput extends ListGraphsRequest {}
 export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of behavior graphs that the calling account is an administrator account
  *          of. This operation can only be called by an administrator account.</p>
  *          <p>Because an account can currently only be the administrator of one behavior graph within
@@ -75,6 +74,7 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class ListGraphsCommand extends $Command
   .classBuilder<

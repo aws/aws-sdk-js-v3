@@ -27,7 +27,6 @@ export interface GetAdminScopeCommandInput extends GetAdminScopeRequest {}
 export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified account's administrative scope. The admistrative scope defines the resources that an Firewall Manager administrator can manage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __Met
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetAdminScopeCommand extends $Command
   .classBuilder<

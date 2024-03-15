@@ -261,7 +261,6 @@ export type SSOOIDCClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfigType {}
 
 /**
- * @public
  * <p>IAM Identity Center OpenID Connect (OIDC) is a web service that enables a client (such as CLI
  *       or a native application) to register with IAM Identity Center. The service also enables the client to
  *       fetch the user’s access token upon successful authentication and authorization with
@@ -300,6 +299,7 @@ export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfig
  *          </ul>
  *          <p>For general information about IAM Identity Center, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What is
  *         IAM Identity Center?</a> in the <i>IAM Identity Center User Guide</i>.</p>
+ * @public
  */
 export class SSOOIDCClient extends __Client<
   __HttpHandlerOptions,

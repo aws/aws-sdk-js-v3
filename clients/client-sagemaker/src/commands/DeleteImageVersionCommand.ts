@@ -27,7 +27,6 @@ export interface DeleteImageVersionCommandInput extends DeleteImageVersionReques
 export interface DeleteImageVersionCommandOutput extends DeleteImageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a version of a SageMaker image. The container image the version represents isn't
  *         deleted.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteImageVersionCommand extends $Command
   .classBuilder<

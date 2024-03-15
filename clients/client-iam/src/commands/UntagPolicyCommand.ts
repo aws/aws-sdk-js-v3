@@ -27,7 +27,6 @@ export interface UntagPolicyCommandInput extends UntagPolicyRequest {}
 export interface UntagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from the customer managed policy. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -73,6 +72,7 @@ export interface UntagPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UntagPolicyCommand extends $Command
   .classBuilder<

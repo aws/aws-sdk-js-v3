@@ -35,7 +35,6 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Validates the integrity of an assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ValidateAssessmentReportIntegrityCommand extends $Command
   .classBuilder<

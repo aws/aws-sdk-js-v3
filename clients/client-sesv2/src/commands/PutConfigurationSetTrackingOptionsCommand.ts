@@ -35,7 +35,6 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Specify a custom domain to use for open and click tracking elements in email that you
  *             send.</p>
  * @example
@@ -72,6 +71,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command
   .classBuilder<

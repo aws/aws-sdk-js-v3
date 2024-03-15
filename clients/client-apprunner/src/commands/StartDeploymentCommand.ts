@@ -27,7 +27,6 @@ export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
 export interface StartDeploymentCommandOutput extends StartDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiate a manual deployment of the latest commit in a source code repository or the latest image in a source image repository to an App Runner
  *       service.</p>
  *          <p>For a source code repository, App Runner retrieves the commit and builds a Docker image. For a source image repository, App Runner retrieves the latest Docker
@@ -69,6 +68,7 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class StartDeploymentCommand extends $Command
   .classBuilder<

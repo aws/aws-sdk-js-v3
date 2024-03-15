@@ -27,7 +27,6 @@ export interface ListReportJobsCommandInput extends ListReportJobsInput {}
 export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about your report jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListReportJobsCommand extends $Command
   .classBuilder<

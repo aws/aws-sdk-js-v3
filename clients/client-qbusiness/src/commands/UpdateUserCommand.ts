@@ -27,7 +27,6 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a information associated with a user id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class UpdateUserCommand extends $Command
   .classBuilder<

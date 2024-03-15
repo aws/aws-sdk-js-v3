@@ -27,7 +27,6 @@ export interface DescribeEC2InstanceLimitsCommandInput extends DescribeEC2Instan
 export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2InstanceLimitsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the instance limits and current utilization for an Amazon Web Services Region or location.
  *             Instance limits control the number of instances, per instance type, per location, that
  *             your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
@@ -131,6 +130,7 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeEC2InstanceLimitsCommand extends $Command
   .classBuilder<

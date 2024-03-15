@@ -27,7 +27,6 @@ export interface ListTranscriptionJobsCommandInput extends ListTranscriptionJobs
 export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of transcription jobs that match the specified criteria. If no
  *             criteria are specified, all transcription jobs are returned.</p>
  *          <p>To get detailed information about a specific transcription job, use the  operation.</p>
@@ -113,6 +112,7 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListTranscriptionJobsCommand extends $Command
   .classBuilder<

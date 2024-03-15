@@ -179,7 +179,6 @@ export interface ConnectParticipant {
 }
 
 /**
- * @public
  * <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
  *             enables companies of any size to deliver superior customer service at a lower cost.
  *                 Amazon Connect communications capabilities make it easy for companies to deliver
@@ -189,6 +188,7 @@ export interface ConnectParticipant {
  *             chat contact. The APIs in the service enable the following: sending chat messages,
  *             attachment sharing, managing a participant's connection state and message events, and
  *             retrieving chat transcripts.</p>
+ * @public
  */
 export class ConnectParticipant extends ConnectParticipantClient implements ConnectParticipant {}
 createAggregatedClient(commands, ConnectParticipant);

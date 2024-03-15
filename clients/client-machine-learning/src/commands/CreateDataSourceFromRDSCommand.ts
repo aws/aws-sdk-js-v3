@@ -31,7 +31,6 @@ export interface CreateDataSourceFromRDSCommandInput extends CreateDataSourceFro
 export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFromRDSOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>DataSource</code> object from an <a href="http://aws.amazon.com/rds/"> Amazon Relational Database Service</a> (Amazon RDS). A <code>DataSource</code> references data that can be used to perform <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p>
  *
  *         <p>
@@ -103,6 +102,7 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class CreateDataSourceFromRDSCommand extends $Command
   .classBuilder<

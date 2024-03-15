@@ -27,7 +27,6 @@ export interface ListAnomalyGroupSummariesCommandInput extends ListAnomalyGroupS
 export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroupSummariesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of anomaly groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class ListAnomalyGroupSummariesCommand extends $Command
   .classBuilder<

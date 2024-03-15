@@ -27,7 +27,6 @@ export interface GetAlarmsCommandInput extends GetAlarmsRequest {}
 export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the configured alarms. Specify an alarm name in your request to
  *       return information about a specific alarm, or specify a monitored resource name to return
  *       information about all alarms for a specific resource.</p>
@@ -124,6 +123,7 @@ export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBeare
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetAlarmsCommand extends $Command
   .classBuilder<

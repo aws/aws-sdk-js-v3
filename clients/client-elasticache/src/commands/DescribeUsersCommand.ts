@@ -27,7 +27,6 @@ export interface DescribeUsersCommandInput extends DescribeUsersMessage {}
 export interface DescribeUsersCommandOutput extends DescribeUsersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DescribeUsersCommand extends $Command
   .classBuilder<

@@ -37,7 +37,6 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates an embed URL that you can use to embed an Amazon QuickSight dashboard or visual in your website, without having to register any reader users. Before you use this action, make sure that you have configured the dashboards and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
  *          <ul>
@@ -153,6 +152,7 @@ export interface GenerateEmbedUrlForAnonymousUserCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class GenerateEmbedUrlForAnonymousUserCommand extends $Command
   .classBuilder<

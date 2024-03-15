@@ -27,7 +27,6 @@ export interface GetPolicyCommandInput extends GetPolicyRequest {}
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource-based policy attached to a private CA. If either the private CA
  * 			resource or the policy cannot be found, this action returns a
  * 				<code>ResourceNotFoundException</code>. </p>
@@ -99,6 +98,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class GetPolicyCommand extends $Command
   .classBuilder<

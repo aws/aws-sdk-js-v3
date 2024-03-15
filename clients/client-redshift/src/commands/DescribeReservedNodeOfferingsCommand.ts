@@ -30,7 +30,6 @@ export interface DescribeReservedNodeOfferingsCommandInput extends DescribeReser
 export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNodeOfferingsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the available reserved node offerings by Amazon Redshift with their
  *             descriptions including the node type, the fixed and recurring costs of reserving the
  *             node and duration the node will be reserved for you. These descriptions help you
@@ -97,6 +96,7 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeReservedNodeOfferingsCommand extends $Command
   .classBuilder<

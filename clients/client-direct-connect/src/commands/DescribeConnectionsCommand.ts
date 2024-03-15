@@ -27,7 +27,6 @@ export interface DescribeConnectionsCommandInput extends DescribeConnectionsRequ
 export interface DescribeConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays the specified connection or all connections in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeConnectionsCommand extends $Command
   .classBuilder<

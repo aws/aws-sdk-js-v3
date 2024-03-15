@@ -27,7 +27,6 @@ export interface CopyOptionGroupCommandInput extends CopyOptionGroupMessage {}
 export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified option group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To copy an option group
  * ```javascript
  * // The following example makes a copy of an option group.

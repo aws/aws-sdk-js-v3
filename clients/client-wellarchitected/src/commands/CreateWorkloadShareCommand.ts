@@ -27,7 +27,6 @@ export interface CreateWorkloadShareCommandInput extends CreateWorkloadShareInpu
 export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a workload share.</p>
  *          <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same
  *             Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
@@ -87,6 +86,7 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class CreateWorkloadShareCommand extends $Command
   .classBuilder<

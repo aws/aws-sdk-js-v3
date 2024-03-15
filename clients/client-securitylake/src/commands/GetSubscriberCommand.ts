@@ -27,7 +27,6 @@ export interface GetSubscriberCommandInput extends GetSubscriberRequest {}
 export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the subscription information for the specified subscription ID. You can get
  *          information about a specific subscriber.</p>
  * @example
@@ -122,6 +121,7 @@ export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __Met
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class GetSubscriberCommand extends $Command
   .classBuilder<

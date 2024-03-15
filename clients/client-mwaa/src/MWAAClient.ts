@@ -285,7 +285,6 @@ export type MWAAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
 export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Managed Workflows for Apache Airflow</fullname>
  *          <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What is Amazon MWAA?</a>.</p>
  *          <p>
@@ -359,6 +358,7 @@ export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {
  *             <b>Regions</b>
  *          </p>
  *          <p>For a list of supported regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/mwaa.html">Amazon MWAA endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ * @public
  */
 export class MWAAClient extends __Client<
   __HttpHandlerOptions,

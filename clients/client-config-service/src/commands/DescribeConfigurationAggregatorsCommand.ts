@@ -32,7 +32,6 @@ export interface DescribeConfigurationAggregatorsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of one or more configuration aggregators.
  * 			If the configuration aggregator is not specified, this action
  * 			returns the details for all the configuration aggregators associated
@@ -109,6 +108,7 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationAggregatorsCommand extends $Command
   .classBuilder<

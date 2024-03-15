@@ -27,7 +27,6 @@ export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftw
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the gateway virtual machine (VM) software.
  *       The request immediately triggers the software update.</p>
  *          <note>
@@ -74,6 +73,7 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class UpdateGatewaySoftwareNowCommand extends $Command
   .classBuilder<

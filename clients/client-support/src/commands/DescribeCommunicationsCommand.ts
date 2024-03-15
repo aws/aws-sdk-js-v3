@@ -27,7 +27,6 @@ export interface DescribeCommunicationsCommandInput extends DescribeCommunicatio
 export interface DescribeCommunicationsCommandOutput extends DescribeCommunicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns communications and attachments for one or more support cases. Use the
  *                 <code>afterTime</code> and <code>beforeTime</code> parameters to filter by date. You
  *             can use the <code>caseId</code> parameter to restrict the results to a specific
@@ -102,6 +101,7 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeCommunicationsCommand extends $Command
   .classBuilder<

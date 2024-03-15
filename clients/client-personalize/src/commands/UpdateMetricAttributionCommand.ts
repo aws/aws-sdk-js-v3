@@ -27,7 +27,6 @@ export interface UpdateMetricAttributionCommandInput extends UpdateMetricAttribu
 export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttributionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class UpdateMetricAttributionCommand extends $Command
   .classBuilder<

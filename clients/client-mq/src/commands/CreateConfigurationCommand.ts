@@ -27,7 +27,6 @@ export interface CreateConfigurationCommandInput extends CreateConfigurationRequ
 export interface CreateConfigurationCommandOutput extends CreateConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class CreateConfigurationCommand extends $Command
   .classBuilder<

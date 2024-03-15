@@ -27,7 +27,6 @@ export interface GetOrganizationStatisticsCommandInput {}
 export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves how many active member accounts have
  *       each feature enabled within GuardDuty. Only a delegated GuardDuty administrator of an organization can run this API.</p>
  *          <p>When you create a new organization, it might take up to 24
@@ -82,6 +81,7 @@ export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationS
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetOrganizationStatisticsCommand extends $Command
   .classBuilder<

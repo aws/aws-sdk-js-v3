@@ -27,7 +27,6 @@ export interface AddRegionCommandInput extends AddRegionRequest {}
 export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds two domain controllers in the specified Region for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class AddRegionCommand extends $Command
   .classBuilder<

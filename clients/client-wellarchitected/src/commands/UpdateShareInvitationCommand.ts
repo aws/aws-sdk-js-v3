@@ -27,7 +27,6 @@ export interface UpdateShareInvitationCommandInput extends UpdateShareInvitation
 export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a workload or custom lens share invitation.</p>
  *          <note>
  *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
@@ -85,6 +84,7 @@ export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitatio
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class UpdateShareInvitationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAssessmentRunsCommandInput extends ListAssessmentRunsReques
 export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the assessment runs that correspond to the assessment templates that are
  *          specified by the ARNs of the assessment templates.</p>
  * @example
@@ -102,6 +101,7 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example List assessment runs
  * ```javascript
  * // Lists the assessment runs that correspond to the assessment templates that are specified by the ARNs of the assessment templates.

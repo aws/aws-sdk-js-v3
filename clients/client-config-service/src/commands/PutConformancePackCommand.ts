@@ -27,7 +27,6 @@ export interface PutConformancePackCommandInput extends PutConformancePackReques
 export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a conformance pack. A conformance pack is a collection of Config rules that can be easily deployed in an account and a region and across an organization.
  * 			For information on how many conformance packs you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -141,6 +140,7 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutConformancePackCommand extends $Command
   .classBuilder<

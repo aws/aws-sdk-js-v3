@@ -28,7 +28,6 @@ export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Run SQL queries to retrieve metadata and time-series data from asset models, assets, measurements, metrics, transforms, and aggregates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ExecuteQueryCommand extends $Command
   .classBuilder<

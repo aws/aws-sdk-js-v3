@@ -35,7 +35,6 @@ export interface AdminUpdateUserAttributesCommandInput extends AdminUpdateUserAt
 export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -167,6 +166,7 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminUpdateUserAttributesCommand extends $Command
   .classBuilder<

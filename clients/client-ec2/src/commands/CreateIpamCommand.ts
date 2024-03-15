@@ -27,7 +27,6 @@ export interface CreateIpamCommandInput extends CreateIpamRequest {}
 export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use
  *          to automate your IP address management workflows including assigning, tracking,
  *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
@@ -105,6 +104,7 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateIpamCommand extends $Command
   .classBuilder<

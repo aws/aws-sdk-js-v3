@@ -32,7 +32,6 @@ export interface DescribePendingMaintenanceActionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of resources (for example, instances) that have at least one pending
  *             maintenance action.</p>
  * @example
@@ -89,6 +88,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command
   .classBuilder<

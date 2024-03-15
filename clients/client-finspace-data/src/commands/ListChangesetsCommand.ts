@@ -27,9 +27,6 @@ export interface ListChangesetsCommandInput extends ListChangesetsRequest {}
 export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Lists the FinSpace Changesets for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +99,8 @@ export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __M
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class ListChangesetsCommand extends $Command
   .classBuilder<

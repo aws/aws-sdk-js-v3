@@ -27,7 +27,6 @@ export interface CreateDomainAssociationCommandInput extends CreateDomainAssocia
 export interface CreateDomainAssociationCommandOutput extends CreateDomainAssociationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new domain association for an Amplify app. This action associates a custom
  *             domain with the Amplify app </p>
  * @example
@@ -117,6 +116,7 @@ export interface CreateDomainAssociationCommandOutput extends CreateDomainAssoci
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class CreateDomainAssociationCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a wireless device from a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command
   .classBuilder<

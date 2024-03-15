@@ -314,7 +314,6 @@ export interface CodeGuruReviewer {
 }
 
 /**
- * @public
  * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a
  *          service that uses program analysis and machine learning to detect potential defects that
  *          are difficult for developers to find and recommends fixes in your Java and Python
@@ -330,6 +329,7 @@ export interface CodeGuruReviewer {
  *          more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/vpc-interface-endpoints.html">CodeGuru Reviewer and interface VPC
  *             endpoints (Amazon Web Services PrivateLink)</a> in the <i>Amazon CodeGuru Reviewer User
  *          Guide</i>.</p>
+ * @public
  */
 export class CodeGuruReviewer extends CodeGuruReviewerClient implements CodeGuruReviewer {}
 createAggregatedClient(commands, CodeGuruReviewer);

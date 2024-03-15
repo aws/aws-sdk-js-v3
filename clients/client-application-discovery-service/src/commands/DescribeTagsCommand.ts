@@ -31,7 +31,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of configuration items that have tags as specified by the key-value
  *       pairs, name and value, passed to the optional parameter <code>filters</code>.</p>
  *          <p>There are three valid tag filter names:</p>
@@ -113,6 +112,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

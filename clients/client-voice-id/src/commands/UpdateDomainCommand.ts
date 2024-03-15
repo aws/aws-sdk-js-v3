@@ -32,7 +32,6 @@ export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified domain. This API has clobber behavior, and clears and replaces
  *             all attributes. If an optional field, such as 'Description' is not provided, it is
  *             removed from the domain.</p>
@@ -111,6 +110,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class UpdateDomainCommand extends $Command
   .classBuilder<

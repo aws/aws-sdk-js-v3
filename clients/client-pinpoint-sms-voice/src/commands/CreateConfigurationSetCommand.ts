@@ -27,7 +27,6 @@ export interface CreateConfigurationSetCommandInput extends CreateConfigurationS
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetCommand extends $Command
   .classBuilder<

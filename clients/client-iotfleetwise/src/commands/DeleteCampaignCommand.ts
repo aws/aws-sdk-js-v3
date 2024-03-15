@@ -27,7 +27,6 @@ export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
 export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a data collection campaign. Deleting a campaign suspends all data collection
  *             and removes it from any vehicles. </p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class DeleteCampaignCommand extends $Command
   .classBuilder<

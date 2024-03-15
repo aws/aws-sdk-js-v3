@@ -31,7 +31,6 @@ export interface DeleteDeviceCommandInput extends DeleteDeviceRequest {}
 export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a thin client device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class DeleteDeviceCommand extends $Command
   .classBuilder<

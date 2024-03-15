@@ -27,7 +27,6 @@ export interface RecordActivityTaskHeartbeatCommandInput extends RecordActivityT
 export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskStatus, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by activity workers to report to the service that the <a>ActivityTask</a> represented by the specified <code>taskToken</code> is still making progress. The worker
  *       can also specify details of the progress, for example percent complete, using the
  *         <code>details</code> parameter. This action can also be used by the worker as a mechanism to
@@ -109,6 +108,7 @@ export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskSt
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RecordActivityTaskHeartbeatCommand extends $Command
   .classBuilder<

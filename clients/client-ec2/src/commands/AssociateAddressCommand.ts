@@ -27,7 +27,6 @@ export interface AssociateAddressCommandInput extends AssociateAddressRequest {}
 export interface AssociateAddressCommandOutput extends AssociateAddressResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an Elastic IP address, or carrier IP address (for instances that are in
  *       subnets in Wavelength Zones) with an instance or a network interface. Before you can use an
  *       Elastic IP address, you must allocate it to your account.</p>
@@ -78,6 +77,7 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To associate an Elastic IP address
  * ```javascript
  * // This example associates the specified Elastic IP address with the specified instance.

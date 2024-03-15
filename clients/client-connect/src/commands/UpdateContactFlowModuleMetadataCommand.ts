@@ -32,7 +32,6 @@ export interface UpdateContactFlowModuleMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates metadata about specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateContactFlowModuleMetadataCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateContactFlowModuleMetadataCommand extends $Command
   .classBuilder<

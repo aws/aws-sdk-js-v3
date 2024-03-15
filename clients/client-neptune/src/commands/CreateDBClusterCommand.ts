@@ -28,7 +28,6 @@ export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon Neptune DB cluster.</p>
  *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
  *       cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.</p>
@@ -259,6 +258,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CreateDBClusterCommand extends $Command
   .classBuilder<

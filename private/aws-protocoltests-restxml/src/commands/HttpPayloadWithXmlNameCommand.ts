@@ -25,7 +25,6 @@ export interface HttpPayloadWithXmlNameCommandInput extends HttpPayloadWithXmlNa
 export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlNameInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * The following example serializes a payload that uses an XML name,
  * changing the wrapper name.
  * @example
@@ -58,6 +57,7 @@ export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlN
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class HttpPayloadWithXmlNameCommand extends $Command
   .classBuilder<

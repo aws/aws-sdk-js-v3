@@ -27,7 +27,6 @@ export interface ListGroupsCommandInput extends ListGroupsRequest {}
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summaries of the organization's groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListGroupsCommand extends $Command
   .classBuilder<

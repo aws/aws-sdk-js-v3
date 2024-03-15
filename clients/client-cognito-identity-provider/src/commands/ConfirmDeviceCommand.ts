@@ -35,7 +35,6 @@ export interface ConfirmDeviceCommandInput extends ConfirmDeviceRequest {}
 export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Confirms tracking of the device. This API call is the call that begins device
  *             tracking. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
@@ -121,6 +120,7 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ConfirmDeviceCommand extends $Command
   .classBuilder<

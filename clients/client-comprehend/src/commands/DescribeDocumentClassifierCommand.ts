@@ -31,7 +31,6 @@ export interface DescribeDocumentClassifierCommandInput extends DescribeDocument
 export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumentClassifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a document classifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -145,6 +144,7 @@ export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumen
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeDocumentClassifierCommand extends $Command
   .classBuilder<

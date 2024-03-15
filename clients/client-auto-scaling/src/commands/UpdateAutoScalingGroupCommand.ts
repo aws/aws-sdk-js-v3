@@ -27,7 +27,6 @@ export interface UpdateAutoScalingGroupCommandInput extends UpdateAutoScalingGro
 export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
  *          </p>
@@ -231,6 +230,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To update an Auto Scaling group
  * ```javascript
  * // This example updates multiple properties at the same time.

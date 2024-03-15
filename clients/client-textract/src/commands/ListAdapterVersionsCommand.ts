@@ -27,7 +27,6 @@ export interface ListAdapterVersionsCommandInput extends ListAdapterVersionsRequ
 export interface ListAdapterVersionsCommandOutput extends ListAdapterVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all version of an adapter that meet the specified filtration criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface ListAdapterVersionsCommandOutput extends ListAdapterVersionsRes
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class ListAdapterVersionsCommand extends $Command
   .classBuilder<

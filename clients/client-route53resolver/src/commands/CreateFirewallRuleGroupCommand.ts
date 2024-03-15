@@ -27,7 +27,6 @@ export interface CreateFirewallRuleGroupCommandInput extends CreateFirewallRuleG
 export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group
  *            by calling <a>CreateFirewallRule</a>. </p>
  * @example
@@ -91,6 +90,7 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class CreateFirewallRuleGroupCommand extends $Command
   .classBuilder<

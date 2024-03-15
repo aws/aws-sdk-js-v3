@@ -31,7 +31,6 @@ export interface BatchGetViewCommandInput extends BatchGetViewInput {}
 export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about a list of views.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class BatchGetViewCommand extends $Command
   .classBuilder<

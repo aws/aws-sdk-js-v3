@@ -27,7 +27,6 @@ export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest 
 export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * Permanently delete a job template you have created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class DeleteJobTemplateCommand extends $Command
   .classBuilder<

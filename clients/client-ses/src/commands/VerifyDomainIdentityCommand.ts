@@ -27,7 +27,6 @@ export interface VerifyDomainIdentityCommandInput extends VerifyDomainIdentityRe
 export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a domain to the list of identities for your Amazon SES account in the current
  *             Amazon Web Services Region and attempts to verify it. For more information about verifying domains,
  *             see <a href="https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer
@@ -60,6 +59,7 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example VerifyDomainIdentity
  * ```javascript
  * // The following example starts the domain verification process with Amazon SES:

@@ -27,9 +27,6 @@ export interface DeleteMediaCapturePipelineCommandInput extends DeleteMediaCaptu
 export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace
- *
  * <p>Deletes the media capture pipeline.</p>
  *          <important>
  *             <p>
@@ -84,6 +81,8 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace
  */
 export class DeleteMediaCapturePipelineCommand extends $Command
   .classBuilder<

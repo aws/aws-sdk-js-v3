@@ -483,9 +483,9 @@ export type LicenseManagerClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface LicenseManagerClientResolvedConfig extends LicenseManagerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>License Manager makes it easier to manage licenses from software vendors across multiple
  *          Amazon Web Services accounts and on-premises servers.</p>
+ * @public
  */
 export class LicenseManagerClient extends __Client<
   __HttpHandlerOptions,

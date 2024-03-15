@@ -27,7 +27,6 @@ export interface DeleteAgentVersionCommandInput extends DeleteAgentVersionReques
 export interface DeleteAgentVersionCommandOutput extends DeleteAgentVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes an Agent version for existing Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteAgentVersionCommandOutput extends DeleteAgentVersionRespo
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class DeleteAgentVersionCommand extends $Command
   .classBuilder<

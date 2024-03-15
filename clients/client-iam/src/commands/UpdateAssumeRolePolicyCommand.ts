@@ -27,7 +27,6 @@ export interface UpdateAssumeRolePolicyCommandInput extends UpdateAssumeRolePoli
 export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the policy that grants an IAM entity permission to assume a role. This is
  *             typically referred to as the "role trust policy". For more information about roles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using roles to
@@ -79,6 +78,7 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To update the trust policy for an IAM role
  * ```javascript
  * // The following command updates the role trust policy for the role named Test-Role:

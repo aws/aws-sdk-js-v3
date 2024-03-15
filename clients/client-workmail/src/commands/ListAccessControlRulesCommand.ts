@@ -27,7 +27,6 @@ export interface ListAccessControlRulesCommandInput extends ListAccessControlRul
 export interface ListAccessControlRulesCommandOutput extends ListAccessControlRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the access control rules for the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListAccessControlRulesCommand extends $Command
   .classBuilder<

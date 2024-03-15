@@ -31,7 +31,6 @@ export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoT
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides scheduled Auto-Tune action details for the Elasticsearch domain, such as Auto-Tune action type, description, severity, and scheduled date.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeDomainAutoTunesCommand extends $Command
   .classBuilder<

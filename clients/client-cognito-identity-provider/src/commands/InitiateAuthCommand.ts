@@ -36,7 +36,6 @@ export interface InitiateAuthCommandInput extends InitiateAuthRequest {}
 export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates sign-in for a user in the Amazon Cognito user directory. You can't sign in a user
  *             with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html"> Adding user pool sign-in through a third party</a>.</p>
  *          <note>
@@ -172,6 +171,7 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  * @example Example username and password sign-in for a user who has TOTP MFA
  * ```javascript
  * // The following example signs in the user mytestuser with analytics data, client metadata, and user context data for advanced security.

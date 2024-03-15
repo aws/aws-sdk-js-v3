@@ -27,7 +27,6 @@ export interface ListSupportedInstanceTypesCommandInput extends ListSupportedIns
 export interface ListSupportedInstanceTypesCommandOutput extends ListSupportedInstanceTypesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of the instance types that Amazon EMR supports. You can filter the
  *          list by Amazon Web Services Region and Amazon EMR release. </p>
  * @example
@@ -79,6 +78,7 @@ export interface ListSupportedInstanceTypesCommandOutput extends ListSupportedIn
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListSupportedInstanceTypesCommand extends $Command
   .classBuilder<

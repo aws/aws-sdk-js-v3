@@ -27,7 +27,6 @@ export interface ListMonitorsCommandInput extends ListMonitorsInput {}
 export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all of your monitors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class ListMonitorsCommand extends $Command
   .classBuilder<

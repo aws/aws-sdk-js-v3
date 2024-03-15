@@ -36,7 +36,6 @@ export interface ListRepositorySyncDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the repository sync definitions for repository links in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class ListRepositorySyncDefinitionsCommand extends $Command
   .classBuilder<

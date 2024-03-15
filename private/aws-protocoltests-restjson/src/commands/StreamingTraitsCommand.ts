@@ -34,7 +34,6 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
 }
 
 /**
- * @public
  * This examples serializes a streaming blob shape in the request body.
  *
  * In this example, no JSON document is synthesized because the payload is
@@ -67,6 +66,7 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class StreamingTraitsCommand extends $Command
   .classBuilder<

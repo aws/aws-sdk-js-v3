@@ -27,7 +27,6 @@ export interface ListStorageSystemsCommandInput extends ListStorageSystemsReques
 export interface ListStorageSystemsCommandOutput extends ListStorageSystemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the on-premises storage systems that you're using with DataSync Discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListStorageSystemsCommandOutput extends ListStorageSystemsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class ListStorageSystemsCommand extends $Command
   .classBuilder<

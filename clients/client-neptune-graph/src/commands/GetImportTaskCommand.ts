@@ -27,7 +27,6 @@ export interface GetImportTaskCommandInput extends GetImportTaskInput {}
 export interface GetImportTaskCommandOutput extends GetImportTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a specified import task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetImportTaskCommandOutput extends GetImportTaskOutput, __Metad
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class GetImportTaskCommand extends $Command
   .classBuilder<

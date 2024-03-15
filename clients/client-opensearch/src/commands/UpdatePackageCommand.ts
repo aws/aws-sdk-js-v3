@@ -27,7 +27,6 @@ export interface UpdatePackageCommandInput extends UpdatePackageRequest {}
 export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a package for use with Amazon OpenSearch Service domains. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -101,6 +100,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class UpdatePackageCommand extends $Command
   .classBuilder<

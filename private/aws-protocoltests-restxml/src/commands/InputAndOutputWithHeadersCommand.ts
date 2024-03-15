@@ -25,7 +25,6 @@ export interface InputAndOutputWithHeadersCommandInput extends InputAndOutputWit
 export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWithHeadersIO, __MetadataBearer {}
 
 /**
- * @public
  * The example tests how requests and responses are serialized when there is
  * no input or output payload but there are HTTP header bindings.
  * @example
@@ -108,6 +107,7 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class InputAndOutputWithHeadersCommand extends $Command
   .classBuilder<

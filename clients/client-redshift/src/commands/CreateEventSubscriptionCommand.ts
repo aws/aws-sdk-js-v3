@@ -27,7 +27,6 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN
  *             (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console,
  *             the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you
@@ -152,6 +151,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateEventSubscriptionCommand extends $Command
   .classBuilder<

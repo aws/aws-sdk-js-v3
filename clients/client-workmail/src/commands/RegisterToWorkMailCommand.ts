@@ -27,7 +27,6 @@ export interface RegisterToWorkMailCommandInput extends RegisterToWorkMailReques
 export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an existing and disabled user, group, or resource for WorkMail use by
  *          associating a mailbox and calendaring capabilities. It performs no change if the user,
  *          group, or resource is enabled and fails if the user, group, or resource is deleted. This
@@ -101,6 +100,7 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class RegisterToWorkMailCommand extends $Command
   .classBuilder<

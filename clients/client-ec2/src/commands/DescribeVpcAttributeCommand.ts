@@ -27,7 +27,6 @@ export interface DescribeVpcAttributeCommandInput extends DescribeVpcAttributeRe
 export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the enableDnsSupport attribute
  * ```javascript
  * // This example describes the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.

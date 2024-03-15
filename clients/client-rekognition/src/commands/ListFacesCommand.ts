@@ -27,7 +27,6 @@ export interface ListFacesCommandInput extends ListFacesRequest {}
 export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata for faces in the specified collection. This metadata
  *       includes information such as the bounding box coordinates, the confidence (that the bounding
  *       box contains a face), and face ID. For an example, see Listing Faces in a Collection in the
@@ -106,6 +105,7 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To list the faces in a collection
  * ```javascript
  * // This operation lists the faces in a Rekognition collection.

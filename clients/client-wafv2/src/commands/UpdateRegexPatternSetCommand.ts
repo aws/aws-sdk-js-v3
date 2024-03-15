@@ -27,7 +27,6 @@ export interface UpdateRegexPatternSetCommandInput extends UpdateRegexPatternSet
 export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified <a>RegexPatternSet</a>.</p>
  *          <note>
  *             <p>This operation completely replaces the mutable specifications that you already have for the regex pattern set with the ones that you provide to this call. </p>
@@ -148,6 +147,7 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class UpdateRegexPatternSetCommand extends $Command
   .classBuilder<

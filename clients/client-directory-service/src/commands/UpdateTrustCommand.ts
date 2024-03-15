@@ -27,7 +27,6 @@ export interface UpdateTrustCommandInput extends UpdateTrustRequest {}
 export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the trust that has been set up between your Managed Microsoft AD directory and an
  *       self-managed Active Directory.</p>
  * @example
@@ -70,6 +69,7 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class UpdateTrustCommand extends $Command
   .classBuilder<

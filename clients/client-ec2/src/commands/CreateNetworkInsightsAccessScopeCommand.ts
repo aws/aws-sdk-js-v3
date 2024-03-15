@@ -32,7 +32,6 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Network Access Scope.</p>
  *          <p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams
  *          to verify that their networks on Amazon Web Services conform to their network security and governance
@@ -287,6 +286,7 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateNetworkInsightsAccessScopeCommand extends $Command
   .classBuilder<

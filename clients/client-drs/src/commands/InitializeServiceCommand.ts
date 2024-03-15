@@ -27,7 +27,6 @@ export interface InitializeServiceCommandInput extends InitializeServiceRequest 
 export interface InitializeServiceCommandOutput extends InitializeServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initialize Elastic Disaster Recovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class InitializeServiceCommand extends $Command
   .classBuilder<

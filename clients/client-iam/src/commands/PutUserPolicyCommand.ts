@@ -27,7 +27,6 @@ export interface PutUserPolicyCommandInput extends PutUserPolicyRequest {}
 export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             user.</p>
  *          <p>An IAM user can also have a managed policy attached to it. To attach a managed
@@ -89,6 +88,7 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To attach a policy to an IAM user
  * ```javascript
  * // The following command attaches a policy to the IAM user named Bob.

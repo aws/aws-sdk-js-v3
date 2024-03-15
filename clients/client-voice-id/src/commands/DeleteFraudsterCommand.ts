@@ -27,7 +27,6 @@ export interface DeleteFraudsterCommandInput extends DeleteFraudsterRequest {}
 export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified fraudster from Voice ID. This action disassociates the fraudster from any watchlists it is a part of.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DeleteFraudsterCommand extends $Command
   .classBuilder<

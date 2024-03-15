@@ -27,7 +27,6 @@ export interface GetReplicationRunsCommandInput extends GetReplicationRunsReques
 export interface GetReplicationRunsCommandOutput extends GetReplicationRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the replication runs for the specified replication job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface GetReplicationRunsCommandOutput extends GetReplicationRunsRespo
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class GetReplicationRunsCommand extends $Command
   .classBuilder<

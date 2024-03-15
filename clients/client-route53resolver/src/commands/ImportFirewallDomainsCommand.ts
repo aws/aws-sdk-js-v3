@@ -27,7 +27,6 @@ export interface ImportFirewallDomainsCommandInput extends ImportFirewallDomains
 export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>
  *          <p>Each domain specification in your domain list must satisfy the following
  * 	requirements: </p>
@@ -99,6 +98,7 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ImportFirewallDomainsCommand extends $Command
   .classBuilder<

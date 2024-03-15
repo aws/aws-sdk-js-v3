@@ -27,7 +27,6 @@ export interface ListFindingsCommandInput extends ListFindingsRequest {}
 export interface ListFindingsCommandOutput extends ListFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists GuardDuty findings for the specified detector ID.</p>
  *          <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty
  *       is currently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
@@ -98,6 +97,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListFindingsCommand extends $Command
   .classBuilder<

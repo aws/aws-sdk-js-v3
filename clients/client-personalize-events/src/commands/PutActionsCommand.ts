@@ -31,7 +31,6 @@ export interface PutActionsCommandInput extends PutActionsRequest {}
 export interface PutActionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more actions to an Actions dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-actions.html">Importing actions individually</a>.
  *     </p>
@@ -74,6 +73,7 @@ export interface PutActionsCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ * @public
  */
 export class PutActionsCommand extends $Command
   .classBuilder<

@@ -80,7 +80,6 @@ export interface MarketplaceAgreement {
 }
 
 /**
- * @public
  * <p>AWS Marketplace is a curated digital catalog that customers can use to find, buy, deploy, and manage third-party software, data, and services to build solutions and run their businesses. The AWS Marketplace Agreement Service provides an API interface that helps AWS Marketplace sellers manage their product-related agreements, including listing, searching, and filtering agreements.</p>
  *          <p>To manage agreements in AWS Marketplace, you must ensure that your AWS Identity and
  *          Access Management (IAM) policies and roles are set up. The user must have the required
@@ -102,6 +101,7 @@ export interface MarketplaceAgreement {
  *                their agreements.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class MarketplaceAgreement extends MarketplaceAgreementClient implements MarketplaceAgreement {}
 createAggregatedClient(commands, MarketplaceAgreement);

@@ -27,7 +27,6 @@ export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
 export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a room’s configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class UpdateRoomCommand extends $Command
   .classBuilder<

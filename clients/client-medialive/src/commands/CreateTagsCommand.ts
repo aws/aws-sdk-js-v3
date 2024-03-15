@@ -27,7 +27,6 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Create tags for a resource
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CreateTagsCommand extends $Command
   .classBuilder<

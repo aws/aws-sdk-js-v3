@@ -27,7 +27,6 @@ export interface ResetImageAttributeCommandInput extends ResetImageAttributeRequ
 export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets an attribute of an AMI to its default value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +54,7 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To reset the launchPermission attribute
  * ```javascript
  * // This example resets the launchPermission attribute for the specified AMI. By default, AMIs are private.

@@ -32,7 +32,6 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns configuration data for the specified CloudFormation extensions, from the CloudFormation registry
  *    for the account and Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
@@ -109,6 +108,7 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class BatchDescribeTypeConfigurationsCommand extends $Command
   .classBuilder<

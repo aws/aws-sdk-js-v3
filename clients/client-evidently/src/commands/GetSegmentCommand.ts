@@ -27,7 +27,6 @@ export interface GetSegmentCommandInput extends GetSegmentRequest {}
 export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified segment. Specify the segment you want to view
  *     by specifying its ARN.</p>
  * @example
@@ -80,6 +79,7 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class GetSegmentCommand extends $Command
   .classBuilder<

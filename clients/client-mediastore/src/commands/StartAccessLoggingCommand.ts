@@ -27,7 +27,6 @@ export interface StartAccessLoggingCommandInput extends StartAccessLoggingInput 
 export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class StartAccessLoggingCommand extends $Command
   .classBuilder<

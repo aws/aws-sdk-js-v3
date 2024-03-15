@@ -27,7 +27,6 @@ export interface CreateRetrainingSchedulerCommandInput extends CreateRetrainingS
 export interface CreateRetrainingSchedulerCommandOutput extends CreateRetrainingSchedulerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a retraining scheduler on the specified model. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateRetrainingSchedulerCommandOutput extends CreateRetraining
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  * @example Creates a retraining scheduler with manual promote mode
  * ```javascript
  * //

@@ -32,7 +32,6 @@ export interface CreateSubscriptionDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface CreateSubscriptionDefinitionCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateSubscriptionDefinitionCommand extends $Command
   .classBuilder<

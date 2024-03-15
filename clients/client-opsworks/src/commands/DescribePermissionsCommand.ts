@@ -27,7 +27,6 @@ export interface DescribePermissionsCommandInput extends DescribePermissionsRequ
 export interface DescribePermissionsCommandOutput extends DescribePermissionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the permissions for a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -75,6 +74,7 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribePermissionsCommand extends $Command
   .classBuilder<

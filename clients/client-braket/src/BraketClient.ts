@@ -288,7 +288,6 @@ export type BraketClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface BraketClientResolvedConfig extends BraketClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The Amazon Braket API Reference provides information about the operations and structures
  *          supported in Amazon Braket.</p>
  *          <p>Additional Resources:</p>
@@ -299,6 +298,7 @@ export interface BraketClientResolvedConfig extends BraketClientResolvedConfigTy
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class BraketClient extends __Client<
   __HttpHandlerOptions,

@@ -27,9 +27,6 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest 
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Update your FinSpace environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +105,8 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRe
 export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all the instance profiles in an AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class ListInstanceProfilesCommand extends $Command
   .classBuilder<

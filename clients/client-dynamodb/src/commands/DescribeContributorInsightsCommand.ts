@@ -27,7 +27,6 @@ export interface DescribeContributorInsightsCommandInput extends DescribeContrib
 export interface DescribeContributorInsightsCommandOutput extends DescribeContributorInsightsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about contributor insights for a given table or global secondary
  *             index.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DescribeContributorInsightsCommand extends $Command
   .classBuilder<

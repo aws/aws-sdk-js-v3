@@ -27,7 +27,6 @@ export interface AttachSecurityProfileCommandInput extends AttachSecurityProfile
 export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a Device Defender security profile with a thing group or this account. Each
  *         thing group or account can have up to five security profiles associated with it.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachSecurityProfile</a> action.</p>
@@ -76,6 +75,7 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class AttachSecurityProfileCommand extends $Command
   .classBuilder<

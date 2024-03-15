@@ -27,7 +27,6 @@ export interface ListSessionMetricsCommandInput extends ListSessionMetricsReques
 export interface ListSessionMetricsCommandOutput extends ListSessionMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves summary metrics for the user sessions with your bot. The following fields are required:</p>
  *          <ul>
  *             <li>
@@ -151,6 +150,7 @@ export interface ListSessionMetricsCommandOutput extends ListSessionMetricsRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListSessionMetricsCommand extends $Command
   .classBuilder<

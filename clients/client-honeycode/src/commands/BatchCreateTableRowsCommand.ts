@@ -31,7 +31,6 @@ export interface BatchCreateTableRowsCommandInput extends BatchCreateTableRowsRe
 export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The BatchCreateTableRows API allows you to create one or more rows at the end of a table in a workbook.
  *             The API allows you to specify the values to set in some or all of the columns in the new rows.
@@ -123,6 +122,7 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class BatchCreateTableRowsCommand extends $Command
   .classBuilder<

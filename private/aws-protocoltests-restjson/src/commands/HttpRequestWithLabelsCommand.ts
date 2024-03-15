@@ -25,7 +25,6 @@ export interface HttpRequestWithLabelsCommandInput extends HttpRequestWithLabels
 export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * The example tests how requests are serialized when there's no input
  * payload but there are HTTP labels.
  * @example
@@ -59,6 +58,7 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class HttpRequestWithLabelsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an instance's Amazon EBS volumes.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -91,6 +90,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeVolumesCommand extends $Command
   .classBuilder<

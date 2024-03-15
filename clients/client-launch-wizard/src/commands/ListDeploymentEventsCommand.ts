@@ -27,7 +27,6 @@ export interface ListDeploymentEventsCommandInput extends ListDeploymentEventsIn
 export interface ListDeploymentEventsCommandOutput extends ListDeploymentEventsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the events of a deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListDeploymentEventsCommandOutput extends ListDeploymentEventsO
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * @public
  */
 export class ListDeploymentEventsCommand extends $Command
   .classBuilder<

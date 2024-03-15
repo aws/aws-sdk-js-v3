@@ -27,7 +27,6 @@ export interface DescribeGlobalClustersCommandInput extends DescribeGlobalCluste
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about Neptune global database clusters. This API
  *       supports pagination.</p>
  * @example
@@ -82,6 +81,7 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeGlobalClustersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchStopUpdateActionCommandInput extends BatchStopUpdateAction
 export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stop the service update. For more information on service updates and stopping them,
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html">Stopping
  *                 Service Updates</a>.</p>
@@ -85,6 +84,7 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class BatchStopUpdateActionCommand extends $Command
   .classBuilder<

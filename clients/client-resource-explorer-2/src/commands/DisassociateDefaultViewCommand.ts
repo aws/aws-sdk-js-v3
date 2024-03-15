@@ -30,7 +30,6 @@ export interface DisassociateDefaultViewCommandInput {}
 export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>After you call this operation, the affected Amazon Web Services Region no longer has a default view.
  *             All <a>Search</a> operations in that Region must explicitly specify a view or
  *             the operation fails. You can configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
@@ -80,6 +79,7 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class DisassociateDefaultViewCommand extends $Command
   .classBuilder<

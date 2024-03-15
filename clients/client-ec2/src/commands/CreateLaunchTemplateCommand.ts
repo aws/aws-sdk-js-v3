@@ -31,7 +31,6 @@ export interface CreateLaunchTemplateCommandInput extends CreateLaunchTemplateRe
 export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a launch template.</p>
  *          <p>A launch template contains the parameters to launch an instance. When you launch an
  *             instance using <a>RunInstances</a>, you can specify a launch template instead
@@ -352,6 +351,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a launch template
  * ```javascript
  * // This example creates a launch template that specifies the subnet in which to launch the instance, assigns a public IP address and an IPv6 address to the instance, and creates a tag for the instance.

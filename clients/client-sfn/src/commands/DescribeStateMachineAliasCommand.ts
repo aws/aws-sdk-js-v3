@@ -31,7 +31,6 @@ export interface DescribeStateMachineAliasCommandInput extends DescribeStateMach
 export interface DescribeStateMachineAliasCommandOutput extends DescribeStateMachineAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.</p>
  *          <p>
  *             <b>Related operations:</b>
@@ -103,6 +102,7 @@ export interface DescribeStateMachineAliasCommandOutput extends DescribeStateMac
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DescribeStateMachineAliasCommand extends $Command
   .classBuilder<

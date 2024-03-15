@@ -27,7 +27,6 @@ export interface DescribeResourcePolicyCommandInput {}
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a resource policy.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -285,6 +284,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class DescribeResourcePolicyCommand extends $Command
   .classBuilder<

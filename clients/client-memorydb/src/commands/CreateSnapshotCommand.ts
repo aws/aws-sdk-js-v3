@@ -27,7 +27,6 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a copy of an entire cluster at a specific moment in time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class CreateSnapshotCommand extends $Command
   .classBuilder<

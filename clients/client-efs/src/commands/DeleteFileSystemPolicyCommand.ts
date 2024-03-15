@@ -27,7 +27,6 @@ export interface DeleteFileSystemPolicyCommandInput extends DeleteFileSystemPoli
 export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the <code>FileSystemPolicy</code> for the specified file system.
  *       The default <code>FileSystemPolicy</code> goes into effect once the existing policy is deleted.
  *       For more information about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.</p>
@@ -70,6 +69,7 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DeleteFileSystemPolicyCommand extends $Command
   .classBuilder<

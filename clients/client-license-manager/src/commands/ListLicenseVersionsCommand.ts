@@ -27,7 +27,6 @@ export interface ListLicenseVersionsCommandInput extends ListLicenseVersionsRequ
 export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all versions of the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsRes
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListLicenseVersionsCommand extends $Command
   .classBuilder<

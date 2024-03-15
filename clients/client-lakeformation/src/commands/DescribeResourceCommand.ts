@@ -27,7 +27,6 @@ export interface DescribeResourceCommandInput extends DescribeResourceRequest {}
 export interface DescribeResourceCommandOutput extends DescribeResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current data access role for the given resource registered in Lake Formation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DescribeResourceCommand extends $Command
   .classBuilder<

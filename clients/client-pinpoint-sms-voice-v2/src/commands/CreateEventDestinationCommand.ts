@@ -31,7 +31,6 @@ export interface CreateEventDestinationCommandInput extends CreateEventDestinati
 export interface CreateEventDestinationCommandOutput extends CreateEventDestinationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new event destination in a configuration set.</p>
  *          <p>An event destination is a location where you send message events. The event options
  *             are Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example,
@@ -129,6 +128,7 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateEventDestinationCommand extends $Command
   .classBuilder<

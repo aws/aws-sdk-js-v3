@@ -27,7 +27,6 @@ export interface DeleteConnectorDefinitionCommandInput extends DeleteConnectorDe
 export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a connector definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class DeleteConnectorDefinitionCommand extends $Command
   .classBuilder<

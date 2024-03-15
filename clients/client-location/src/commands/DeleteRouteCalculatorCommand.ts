@@ -27,7 +27,6 @@ export interface DeleteRouteCalculatorCommandInput extends DeleteRouteCalculator
 export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a route calculator resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
@@ -72,6 +71,7 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DeleteRouteCalculatorCommand extends $Command
   .classBuilder<

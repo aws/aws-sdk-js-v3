@@ -27,7 +27,6 @@ export interface DeleteBackendAPICommandInput extends DeleteBackendAPIRequest {}
 export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse,
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class DeleteBackendAPICommand extends $Command
   .classBuilder<

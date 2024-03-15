@@ -36,7 +36,6 @@ export interface CreateLogicallyAirGappedBackupVaultCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This request creates a logical container to where backups may be copied.</p>
  *          <p>This request includes a name, the Region, the maximum number of retention days, the
  *       minimum number of retention days, and optionally can include tags and a creator request
@@ -101,6 +100,7 @@ export interface CreateLogicallyAirGappedBackupVaultCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateLogicallyAirGappedBackupVaultCommand extends $Command
   .classBuilder<

@@ -32,9 +32,6 @@ export interface ListChannelModeratorsCommandInput extends ListChannelModerators
 export interface ListChannelModeratorsCommandOutput extends ListChannelModeratorsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListChannelModerators in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Lists all the moderators for a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -104,6 +101,8 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListChannelModerators in the Amazon Chime SDK Messaging Namespace
  */
 export class ListChannelModeratorsCommand extends $Command
   .classBuilder<

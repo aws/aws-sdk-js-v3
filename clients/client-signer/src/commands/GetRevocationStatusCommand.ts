@@ -27,7 +27,6 @@ export interface GetRevocationStatusCommandInput extends GetRevocationStatusRequ
 export interface GetRevocationStatusCommandOutput extends GetRevocationStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the revocation status of one or more of the signing profile, signing job,
  * 			and signing certificate.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetRevocationStatusCommandOutput extends GetRevocationStatusRes
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class GetRevocationStatusCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListDatasourcePackagesCommandInput extends ListDatasourcePackag
 export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists data source packages in the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListDatasourcePackagesCommandOutput extends ListDatasourcePacka
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class ListDatasourcePackagesCommand extends $Command
   .classBuilder<

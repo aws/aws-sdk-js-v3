@@ -27,7 +27,6 @@ export interface ListCidrLocationsCommandInput extends ListCidrLocationsRequest 
 export interface ListCidrLocationsCommandOutput extends ListCidrLocationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of CIDR locations for the given collection (metadata only,
  * 			does not include CIDR blocks).</p>
  * @example
@@ -69,6 +68,7 @@ export interface ListCidrLocationsCommandOutput extends ListCidrLocationsRespons
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListCidrLocationsCommand extends $Command
   .classBuilder<

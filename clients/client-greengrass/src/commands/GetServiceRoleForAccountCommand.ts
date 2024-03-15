@@ -27,7 +27,6 @@ export interface GetServiceRoleForAccountCommandInput extends GetServiceRoleForA
 export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleForAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves the service role that is attached to your account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetServiceRoleForAccountCommand extends $Command
   .classBuilder<

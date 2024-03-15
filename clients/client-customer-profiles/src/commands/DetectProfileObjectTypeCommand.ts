@@ -32,7 +32,6 @@ export interface DetectProfileObjectTypeCommandInput extends DetectProfileObject
 export interface DetectProfileObjectTypeCommandOutput extends DetectProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The process of detecting profile object type mapping by using given objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DetectProfileObjectTypeCommandOutput extends DetectProfileObjec
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class DetectProfileObjectTypeCommand extends $Command
   .classBuilder<

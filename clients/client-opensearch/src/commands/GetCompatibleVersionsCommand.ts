@@ -27,7 +27,6 @@ export interface GetCompatibleVersionsCommandInput extends GetCompatibleVersions
 export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade them
  *    to.</p>
  * @example
@@ -78,6 +77,7 @@ export interface GetCompatibleVersionsCommandOutput extends GetCompatibleVersion
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class GetCompatibleVersionsCommand extends $Command
   .classBuilder<

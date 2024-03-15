@@ -32,7 +32,6 @@ export interface CreateNetworkSiteCommandInput extends CreateNetworkSiteRequest 
 export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -150,6 +149,7 @@ export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteRespons
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class CreateNetworkSiteCommand extends $Command
   .classBuilder<

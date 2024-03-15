@@ -27,7 +27,6 @@ export interface UpdateSignalingChannelCommandInput extends UpdateSignalingChann
 export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChannelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the existing signaling channel. This is an asynchronous operation and takes
  *             time to complete. </p>
  *          <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
@@ -100,6 +99,7 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class UpdateSignalingChannelCommand extends $Command
   .classBuilder<

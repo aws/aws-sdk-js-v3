@@ -28,7 +28,6 @@ export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy a
  *       snapshot within the same Region, from one Region to another, or from a Region to an Outpost.
  *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
@@ -100,6 +99,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To copy a snapshot
  * ```javascript
  * // This example copies a snapshot with the snapshot ID of ``snap-066877671789bd71b`` from the ``us-west-2`` region to the ``us-east-1`` region and adds a short description to identify the snapshot.

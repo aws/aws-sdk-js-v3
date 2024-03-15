@@ -27,7 +27,6 @@ export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from a trail, event data store, or channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -135,6 +134,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class RemoveTagsCommand extends $Command
   .classBuilder<

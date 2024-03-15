@@ -27,7 +27,6 @@ export interface UpdateContributorInsightsCommandInput extends UpdateContributor
 export interface UpdateContributorInsightsCommandOutput extends UpdateContributorInsightsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status for contributor insights for a specific table or index. CloudWatch
  *             Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
  *             sort key of frequently accessed items and frequently throttled items in plaintext. If
@@ -72,6 +71,7 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class UpdateContributorInsightsCommand extends $Command
   .classBuilder<

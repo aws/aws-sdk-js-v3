@@ -27,7 +27,6 @@ export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>You might need to reboot your instance, usually for maintenance reasons. For
  *             example, if you make certain changes, or if you change the cluster parameter group
  *             that is associated with the instance, you must reboot the instance for the changes to
@@ -159,6 +158,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class RebootDBInstanceCommand extends $Command
   .classBuilder<

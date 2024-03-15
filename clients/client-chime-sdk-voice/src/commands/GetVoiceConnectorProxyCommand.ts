@@ -31,7 +31,6 @@ export interface GetVoiceConnectorProxyCommandInput extends GetVoiceConnectorPro
 export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the proxy configuration details for the specified Amazon Chime SDK Voice
  *             Connector.</p>
  * @example
@@ -88,6 +87,7 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorProxyCommand extends $Command
   .classBuilder<

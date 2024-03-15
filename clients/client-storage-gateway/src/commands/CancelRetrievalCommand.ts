@@ -27,7 +27,6 @@ export interface CancelRetrievalCommandInput extends CancelRetrievalInput {}
 export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after
  *          the retrieval process is initiated. The virtual tape is returned to the VTS. This operation
  *          is only supported in the tape gateway type.</p>
@@ -66,6 +65,7 @@ export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To cancel virtual tape retrieval
  * ```javascript
  * // Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated.

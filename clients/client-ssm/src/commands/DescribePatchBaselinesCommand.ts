@@ -27,7 +27,6 @@ export interface DescribePatchBaselinesCommandInput extends DescribePatchBaselin
 export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaselinesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the patch baselines in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribePatchBaselinesCommand extends $Command
   .classBuilder<

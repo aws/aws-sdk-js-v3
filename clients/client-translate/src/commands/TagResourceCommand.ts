@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a specific tag with a resource. A tag is a key-value pair
  *       that adds as a metadata to a resource.
  *       For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
@@ -81,6 +80,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListThesauriCommandInput extends ListThesauriRequest {}
 export interface ListThesauriCommandOutput extends ListThesauriResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the thesauri for an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListThesauriCommand extends $Command
   .classBuilder<

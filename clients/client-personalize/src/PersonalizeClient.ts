@@ -528,9 +528,9 @@ export type PersonalizeClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface PersonalizeClientResolvedConfig extends PersonalizeClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Personalize is a machine learning service that makes it easy to add individualized
  *       recommendations to customers.</p>
+ * @public
  */
 export class PersonalizeClient extends __Client<
   __HttpHandlerOptions,

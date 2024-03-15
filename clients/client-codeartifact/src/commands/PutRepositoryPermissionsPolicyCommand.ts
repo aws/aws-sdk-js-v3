@@ -32,7 +32,6 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Sets the resource policy on a repository that specifies permissions to access it.
  *       </p>
@@ -108,6 +107,7 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class PutRepositoryPermissionsPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface EnableKeyCommandInput extends EnableKeyRequest {}
 export interface EnableKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
  *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
@@ -106,6 +105,7 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To enable a KMS key
  * ```javascript
  * // The following example enables the specified KMS key.

@@ -31,7 +31,6 @@ export interface DescribeTableStatisticsCommandInput extends DescribeTableStatis
 export interface DescribeTableStatisticsCommandOutput extends DescribeTableStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns table statistics on the database migration task, including table name, rows
  *          inserted, rows updated, and rows deleted.</p>
  *          <p>Note that the "last updated" column the DMS console only indicates the time that DMS
@@ -107,6 +106,7 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe table statistics
  * ```javascript
  * // Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.

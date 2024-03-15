@@ -27,7 +27,6 @@ export interface GetDataSetDetailsCommandInput extends GetDataSetDetailsRequest 
 export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a specific data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class GetDataSetDetailsCommand extends $Command
   .classBuilder<

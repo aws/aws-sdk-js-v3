@@ -27,7 +27,6 @@ export interface GetJobCommandInput extends GetJobRequest {}
 export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a job for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class GetJobCommand extends $Command
   .classBuilder<

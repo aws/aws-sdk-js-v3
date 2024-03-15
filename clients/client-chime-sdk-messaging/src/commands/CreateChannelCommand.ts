@@ -35,7 +35,6 @@ export interface CreateChannelCommandInput extends CreateChannelRequest {}
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a channel to which you can add users and send messages.</p>
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's
@@ -124,6 +123,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class CreateChannelCommand extends $Command
   .classBuilder<

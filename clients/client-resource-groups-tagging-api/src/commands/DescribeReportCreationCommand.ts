@@ -31,7 +31,6 @@ export interface DescribeReportCreationCommandInput extends DescribeReportCreati
 export interface DescribeReportCreationCommandOutput extends DescribeReportCreationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
  *          <p>You can call this operation only from the organization's
  *     management account and from the us-east-1 Region.</p>
@@ -114,6 +113,7 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * @public
  */
 export class DescribeReportCreationCommand extends $Command
   .classBuilder<

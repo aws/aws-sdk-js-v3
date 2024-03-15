@@ -31,7 +31,6 @@ export interface GetBuiltinIntentsCommandInput extends GetBuiltinIntentsRequest 
 export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of built-in intents that meet the specified
  *       criteria.</p>
  *          <p>This operation requires permission for the
@@ -84,6 +83,7 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetBuiltinIntentsCommand extends $Command
   .classBuilder<

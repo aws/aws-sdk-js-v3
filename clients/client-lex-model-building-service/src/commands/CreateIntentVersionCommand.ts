@@ -31,7 +31,6 @@ export interface CreateIntentVersionCommandInput extends CreateIntentVersionRequ
 export interface CreateIntentVersionCommandOutput extends CreateIntentVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of an intent based on the
  *         <code>$LATEST</code> version of the intent. If the <code>$LATEST</code>
  *       version of this intent hasn't changed since you last updated it, Amazon Lex
@@ -199,6 +198,7 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class CreateIntentVersionCommand extends $Command
   .classBuilder<

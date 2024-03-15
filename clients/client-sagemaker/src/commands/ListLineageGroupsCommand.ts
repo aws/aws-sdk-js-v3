@@ -27,7 +27,6 @@ export interface ListLineageGroupsCommandInput extends ListLineageGroupsRequest 
 export interface ListLineageGroupsCommandOutput extends ListLineageGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of lineage groups shared with your Amazon Web Services account.
  *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html">
  *             Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
@@ -71,6 +70,7 @@ export interface ListLineageGroupsCommandOutput extends ListLineageGroupsRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListLineageGroupsCommand extends $Command
   .classBuilder<

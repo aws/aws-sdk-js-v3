@@ -27,7 +27,6 @@ export interface VerifySessionCommandInput {}
 export interface VerifySessionCommandOutput extends VerifySessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Verifies whether the calling user has a valid Amazon CodeCatalyst login and session.  If successful, this returns the ID of the user in Amazon CodeCatalyst.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class VerifySessionCommand extends $Command
   .classBuilder<

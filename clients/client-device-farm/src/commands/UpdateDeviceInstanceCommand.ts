@@ -27,7 +27,6 @@ export interface UpdateDeviceInstanceCommandInput extends UpdateDeviceInstanceRe
 export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information about a private device instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class UpdateDeviceInstanceCommand extends $Command
   .classBuilder<

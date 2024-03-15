@@ -27,7 +27,6 @@ export interface ListPrefetchSchedulesCommandInput extends ListPrefetchSchedules
 export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the prefetch schedules for a playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class ListPrefetchSchedulesCommand extends $Command
   .classBuilder<

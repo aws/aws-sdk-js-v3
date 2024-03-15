@@ -36,7 +36,6 @@ export interface StartMetadataModelAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a database migration assessment report by assessing the migration complexity for
  *          your source database. A database migration assessment report summarizes all of the schema
  *          conversion tasks. It also details the action items for database objects that can't be converted
@@ -94,6 +93,7 @@ export interface StartMetadataModelAssessmentCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Start Metadata Model Assessment
  * ```javascript
  * // Creates a database migration assessment report by assessing the migration complexity for

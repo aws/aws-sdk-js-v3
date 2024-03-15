@@ -31,7 +31,6 @@ export interface GetKxConnectionStringCommandInput extends GetKxConnectionString
 export interface GetKxConnectionStringCommandOutput extends GetKxConnectionStringResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a connection string for a user to connect to a kdb cluster. You must call this API using the same role that you have defined while creating a user. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetKxConnectionStringCommandOutput extends GetKxConnectionStrin
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxConnectionStringCommand extends $Command
   .classBuilder<

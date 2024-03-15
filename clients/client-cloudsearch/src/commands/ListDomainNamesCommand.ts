@@ -27,7 +27,6 @@ export interface ListDomainNamesCommandInput {}
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all search domains owned by an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class ListDomainNamesCommand extends $Command
   .classBuilder<

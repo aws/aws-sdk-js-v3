@@ -27,7 +27,6 @@ export interface GetIdentityDkimAttributesCommandInput extends GetIdentityDkimAt
 export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current status of Easy DKIM signing for an entity. For domain name
  *             identities, this operation also returns the DKIM tokens that are required for Easy DKIM
  *             signing, and whether Amazon SES has successfully verified that these tokens have been
@@ -88,6 +87,7 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetIdentityDkimAttributes
  * ```javascript
  * // The following example retrieves the Amazon SES Easy DKIM attributes for a list of identities:

@@ -32,7 +32,6 @@ export interface DeleteProvisionedModelThroughputCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a provisioned throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned throughput</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteProvisionedModelThroughputCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class DeleteProvisionedModelThroughputCommand extends $Command
   .classBuilder<

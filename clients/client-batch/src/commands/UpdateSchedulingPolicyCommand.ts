@@ -27,7 +27,6 @@ export interface UpdateSchedulingPolicyCommandInput extends UpdateSchedulingPoli
 export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a scheduling policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface UpdateSchedulingPolicyCommandOutput extends UpdateSchedulingPol
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  */
 export class UpdateSchedulingPolicyCommand extends $Command
   .classBuilder<

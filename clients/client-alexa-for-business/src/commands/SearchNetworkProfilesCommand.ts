@@ -27,9 +27,6 @@ export interface SearchNetworkProfilesCommandInput extends SearchNetworkProfiles
 export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Searches network profiles and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -85,6 +82,8 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class SearchNetworkProfilesCommand extends $Command
   .classBuilder<

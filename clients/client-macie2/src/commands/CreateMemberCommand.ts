@@ -27,7 +27,6 @@ export interface CreateMemberCommandInput extends CreateMemberRequest {}
 export interface CreateMemberCommandOutput extends CreateMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an account with an Amazon Macie administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class CreateMemberCommand extends $Command
   .classBuilder<

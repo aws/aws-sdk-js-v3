@@ -31,7 +31,6 @@ export interface GetImportFileTaskCommandInput extends GetImportFileTaskRequest 
 export interface GetImportFileTaskCommandOutput extends GetImportFileTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves the details about a specific import task. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetImportFileTaskCommandOutput extends GetImportFileTaskRespons
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetImportFileTaskCommand extends $Command
   .classBuilder<

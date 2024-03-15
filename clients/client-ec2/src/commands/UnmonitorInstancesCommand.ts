@@ -27,7 +27,6 @@ export interface UnmonitorInstancesCommandInput extends UnmonitorInstancesReques
 export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
  *                 your instances and volumes</a> in the
  *             <i>Amazon EC2 User Guide</i>.</p>
@@ -67,6 +66,7 @@ export interface UnmonitorInstancesCommandOutput extends UnmonitorInstancesResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class UnmonitorInstancesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ModifyReplicationConfigCommandInput extends ModifyReplicationCo
 export interface ModifyReplicationConfigCommandOutput extends ModifyReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing DMS Serverless replication configuration that you can use
  *          to start a replication. This command includes input validation and logic to check
  *          the state of any replication that uses this configuration. You can only modify a replication
@@ -129,6 +128,7 @@ export interface ModifyReplicationConfigCommandOutput extends ModifyReplicationC
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class ModifyReplicationConfigCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateGlossaryTermCommandInput extends UpdateGlossaryTermInput 
 export interface UpdateGlossaryTermCommandOutput extends UpdateGlossaryTermOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a business glossary term in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface UpdateGlossaryTermCommandOutput extends UpdateGlossaryTermOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateGlossaryTermCommand extends $Command
   .classBuilder<

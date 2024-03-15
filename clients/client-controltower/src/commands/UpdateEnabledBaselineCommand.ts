@@ -27,7 +27,6 @@ export interface UpdateEnabledBaselineCommandInput extends UpdateEnabledBaseline
 export interface UpdateEnabledBaselineCommandOutput extends UpdateEnabledBaselineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an <code>EnabledBaseline</code> resource's applied parameters or version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateEnabledBaselineCommandOutput extends UpdateEnabledBaselin
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class UpdateEnabledBaselineCommand extends $Command
   .classBuilder<

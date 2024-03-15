@@ -27,7 +27,6 @@ export interface ActivatePipelineCommandInput extends ActivatePipelineInput {}
 export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation,
  *            activation fails.</p>
  *         <p>If you need to pause the pipeline to investigate an issue with a component, such as a data source or script,
@@ -102,6 +101,7 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class ActivatePipelineCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AssociateBudgetWithResourceCommandInput extends AssociateBudget
 export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudgetWithResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified budget with the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class AssociateBudgetWithResourceCommand extends $Command
   .classBuilder<

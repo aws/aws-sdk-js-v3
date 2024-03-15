@@ -31,7 +31,6 @@ export interface RestoreServerCommandInput extends RestoreServerRequest {}
 export interface RestoreServerCommandOutput extends RestoreServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Restores a backup to a server that is in a <code>CONNECTION_LOST</code>, <code>HEALTHY</code>, <code>RUNNING</code>, <code>UNHEALTHY</code>, or <code>TERMINATED</code> state.
  *       When you run RestoreServer, the server's EC2 instance is deleted, and a new EC2 instance is configured. RestoreServer maintains
@@ -122,6 +121,7 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class RestoreServerCommand extends $Command
   .classBuilder<

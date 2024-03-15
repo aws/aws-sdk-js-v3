@@ -27,7 +27,6 @@ export interface CreateCachePolicyCommandInput extends CreateCachePolicyRequest 
 export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a cache policy.</p>
  *          <p>After you create a cache policy, you can attach it to one or more cache behaviors.
  * 			When it's attached to a cache behavior, the cache policy determines the
@@ -191,6 +190,7 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateCachePolicyCommand extends $Command
   .classBuilder<

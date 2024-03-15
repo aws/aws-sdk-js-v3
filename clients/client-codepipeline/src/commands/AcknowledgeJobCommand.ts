@@ -27,7 +27,6 @@ export interface AcknowledgeJobCommandInput extends AcknowledgeJobInput {}
 export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specified job and whether that job has been received by
  *             the job worker. Used for custom actions only.</p>
  * @example
@@ -66,6 +65,7 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class AcknowledgeJobCommand extends $Command
   .classBuilder<

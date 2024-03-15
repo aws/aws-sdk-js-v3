@@ -27,7 +27,6 @@ export interface UpdatePrimaryRegionCommandInput extends UpdatePrimaryRegionRequ
 export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the primary key of a multi-Region key. </p>
  *          <p>This operation changes the replica key in the specified Region to a primary key and
  *       changes the former primary key to a replica key. For example, suppose you have a primary key
@@ -160,6 +159,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To update the primary Region of a multi-Region KMS key
  * ```javascript
  * // The following UpdatePrimaryRegion example changes the multi-Region replica key in the eu-central-1 Region to the primary key. The current primary key in the us-west-1 Region becomes a replica key.

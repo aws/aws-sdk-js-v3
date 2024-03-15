@@ -27,7 +27,6 @@ export interface DescribeSubnetGroupsCommandInput extends DescribeSubnetGroupsRe
 export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of subnet group descriptions. If a subnet group name is specified,
  *             the list will contain only the description of that group.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DescribeSubnetGroupsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListConfigurationSetsCommandInput extends ListConfigurationSets
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all of the configuration sets associated with your Amazon Pinpoint account in the current
  *             region.</p>
  *         <p>In Amazon Pinpoint, <i>configuration sets</i> are groups of rules that you can
@@ -71,6 +70,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class ListConfigurationSetsCommand extends $Command
   .classBuilder<

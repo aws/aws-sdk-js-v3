@@ -27,7 +27,6 @@ export interface ListKeyspacesCommandInput extends ListKeyspacesRequest {}
 export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of keyspaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class ListKeyspacesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RestoreWorkspaceCommandInput extends RestoreWorkspaceRequest {}
 export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores the specified WorkSpace to its last known healthy state.</p>
  *          <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,
  *             <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p>
@@ -72,6 +71,7 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class RestoreWorkspaceCommand extends $Command
   .classBuilder<

@@ -31,9 +31,6 @@ export interface ListUsersByPermissionGroupCommandInput extends ListUsersByPermi
 export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPermissionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Lists details of all the users in a specific permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +89,8 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class ListUsersByPermissionGroupCommand extends $Command
   .classBuilder<

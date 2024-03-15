@@ -31,7 +31,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or edits tags on an Application Auto Scaling scalable target.</p>
  *          <p>Each tag consists of a tag key and a tag value, which are both case-sensitive strings.
  *          To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag
@@ -81,6 +80,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To add a tag to a scalable target
  * ```javascript
  * // This example adds a tag with the key name "environment" and the value "production" to the scalable target specified by its ARN.

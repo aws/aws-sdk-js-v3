@@ -29,7 +29,6 @@ export interface CreateOpenIDConnectProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>
  *          <p>The OIDC provider that you create with this operation can be used as a principal in a
  *             role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and
@@ -136,6 +135,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To create an instance profile
  * ```javascript
  * // The following example defines a new OIDC provider in IAM with a client ID of my-application-id and pointing at the server with a URL of https://server.example.com.

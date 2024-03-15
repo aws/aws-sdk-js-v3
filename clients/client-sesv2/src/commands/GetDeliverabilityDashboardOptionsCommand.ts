@@ -35,7 +35,6 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve information about the status of the Deliverability dashboard for your account. When
  *             the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other
  *             metrics for the domains that you use to send email. You also gain the ability to perform
@@ -102,6 +101,7 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetDeliverabilityDashboardOptionsCommand extends $Command
   .classBuilder<

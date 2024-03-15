@@ -27,7 +27,6 @@ export interface ListTargetGroupsCommandInput extends ListTargetGroupsRequest {}
 export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your target groups. You can narrow your search by using the filters below in your
  *    request.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class ListTargetGroupsCommand extends $Command
   .classBuilder<

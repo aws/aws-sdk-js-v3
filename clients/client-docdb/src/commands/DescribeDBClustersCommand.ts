@@ -27,7 +27,6 @@ export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessag
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about provisioned Amazon DocumentDB clusters. This API
  *             operation supports pagination. For certain management features
  *             such as cluster and instance lifecycle management, Amazon DocumentDB leverages
@@ -134,6 +133,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeDBClustersCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your
  *       Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
  *       trust stores, listeners, and rules.</p>
@@ -90,6 +89,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To add tags to a load balancer
  * ```javascript
  * // This example adds the specified tags to the specified load balancer.

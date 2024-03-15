@@ -27,7 +27,6 @@ export interface DeleteCoipCidrCommandInput extends DeleteCoipCidrRequest {}
 export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a range of customer-owned IP addresses.
  *       </p>
@@ -63,6 +62,7 @@ export interface DeleteCoipCidrCommandOutput extends DeleteCoipCidrResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteCoipCidrCommand extends $Command
   .classBuilder<

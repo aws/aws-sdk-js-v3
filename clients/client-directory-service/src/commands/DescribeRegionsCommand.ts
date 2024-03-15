@@ -27,7 +27,6 @@ export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
 export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the Regions that are configured for multi-Region
  *       replication.</p>
  * @example
@@ -97,6 +96,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeRegionsCommand extends $Command
   .classBuilder<

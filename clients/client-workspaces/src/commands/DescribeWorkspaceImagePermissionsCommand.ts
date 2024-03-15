@@ -32,7 +32,6 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceImagePermissionsCommand extends $Command
   .classBuilder<

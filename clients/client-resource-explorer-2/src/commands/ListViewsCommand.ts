@@ -31,7 +31,6 @@ export interface ListViewsCommandInput extends ListViewsInput {}
 export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you
  *             call this operation.</p>
  *          <note>
@@ -89,6 +88,7 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class ListViewsCommand extends $Command
   .classBuilder<

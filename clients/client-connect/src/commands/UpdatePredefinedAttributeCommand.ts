@@ -27,7 +27,6 @@ export interface UpdatePredefinedAttributeCommandInput extends UpdatePredefinedA
 export interface UpdatePredefinedAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a predefined attribute for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdatePredefinedAttributeCommandOutput extends __MetadataBearer
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdatePredefinedAttributeCommand extends $Command
   .classBuilder<

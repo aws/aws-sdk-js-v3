@@ -31,7 +31,6 @@ export interface PutPortfolioPreferencesCommandInput extends PutPortfolioPrefere
 export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Saves the specified migration and modernization preferences. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class PutPortfolioPreferencesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteViewCommandInput extends DeleteViewInput {}
 export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified view.</p>
  *          <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
  *             until you configure a new default by calling the <a>AssociateDefaultView</a>
@@ -86,6 +85,7 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class DeleteViewCommand extends $Command
   .classBuilder<

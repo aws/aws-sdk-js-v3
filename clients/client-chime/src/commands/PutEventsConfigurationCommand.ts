@@ -32,7 +32,6 @@ export interface PutEventsConfigurationCommandInput extends PutEventsConfigurati
 export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon
  *             Chime. Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
  *             see <a>Bot</a>.</p>
@@ -90,6 +89,7 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class PutEventsConfigurationCommand extends $Command
   .classBuilder<

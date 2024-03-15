@@ -27,7 +27,6 @@ export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configurable settings for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class UpdateSettingsCommand extends $Command
   .classBuilder<

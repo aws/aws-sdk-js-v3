@@ -27,7 +27,6 @@ export interface ListConnectorEntitiesCommandInput extends ListConnectorEntities
 export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns the list of available connector entities supported by Amazon AppFlow. For
  *       example, you can query Salesforce for <i>Account</i> and
  *         <i>Opportunity</i> entities, or query ServiceNow for the
@@ -89,6 +88,7 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class ListConnectorEntitiesCommand extends $Command
   .classBuilder<

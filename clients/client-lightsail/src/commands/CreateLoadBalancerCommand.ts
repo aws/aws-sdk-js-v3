@@ -27,7 +27,6 @@ export interface CreateLoadBalancerCommandInput extends CreateLoadBalancerReques
 export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Lightsail load balancer. To learn more about deciding whether to load balance
  *       your application, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/configure-lightsail-instances-for-load-balancing">Configure your Lightsail instances for load balancing</a>. You can create up to 5
  *       load balancers per AWS Region in your account.</p>
@@ -125,6 +124,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateLoadBalancerCommand extends $Command
   .classBuilder<

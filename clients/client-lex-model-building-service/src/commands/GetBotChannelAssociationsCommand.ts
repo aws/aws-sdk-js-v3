@@ -35,7 +35,6 @@ export interface GetBotChannelAssociationsCommandInput extends GetBotChannelAsso
 export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of all of the channels associated with the
  *       specified bot. </p>
  *          <p>The <code>GetBotChannelAssociations</code> operation requires
@@ -97,6 +96,7 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetBotChannelAssociationsCommand extends $Command
   .classBuilder<

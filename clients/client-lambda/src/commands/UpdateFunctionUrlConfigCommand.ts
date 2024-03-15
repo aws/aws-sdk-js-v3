@@ -27,7 +27,6 @@ export interface UpdateFunctionUrlConfigCommandInput extends UpdateFunctionUrlCo
 export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration for a Lambda function URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class UpdateFunctionUrlConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListIdentityPoolsCommandInput extends ListIdentityPoolsInput {}
 export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the Cognito identity pools registered for your account.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class ListIdentityPoolsCommand extends $Command
   .classBuilder<

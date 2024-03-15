@@ -31,7 +31,6 @@ export interface CreateCellCommandInput extends CreateCellRequest {}
 export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a cell in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class CreateCellCommand extends $Command
   .classBuilder<

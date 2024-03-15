@@ -27,7 +27,6 @@ export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutio
 export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a summary of the most recent executions for a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class ListPipelineExecutionsCommand extends $Command
   .classBuilder<

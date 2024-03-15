@@ -27,7 +27,6 @@ export interface GetRepositoryCommandInput extends GetRepositoryInput {}
 export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a repository.</p>
  *          <note>
  *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -103,6 +102,7 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetRepositoryCommand extends $Command
   .classBuilder<

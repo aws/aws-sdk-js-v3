@@ -27,7 +27,6 @@ export interface CreateWirelessDeviceCommandInput extends CreateWirelessDeviceRe
 export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface CreateWirelessDeviceCommandOutput extends CreateWirelessDeviceR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class CreateWirelessDeviceCommand extends $Command
   .classBuilder<

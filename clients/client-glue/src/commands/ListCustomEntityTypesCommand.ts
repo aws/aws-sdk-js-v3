@@ -27,7 +27,6 @@ export interface ListCustomEntityTypesCommandInput extends ListCustomEntityTypes
 export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the custom patterns that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityType
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListCustomEntityTypesCommand extends $Command
   .classBuilder<

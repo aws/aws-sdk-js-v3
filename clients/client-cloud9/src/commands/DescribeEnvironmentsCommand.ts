@@ -31,7 +31,6 @@ export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsRe
 export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about Cloud9 development environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example DescribeEnvironments
  * ```javascript
  * //

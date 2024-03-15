@@ -27,7 +27,6 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a new transcoding job. For information about jobs and job settings, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -3029,6 +3028,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class CreateJobCommand extends $Command
   .classBuilder<

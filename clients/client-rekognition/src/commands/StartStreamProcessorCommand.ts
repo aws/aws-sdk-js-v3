@@ -27,7 +27,6 @@ export interface StartStreamProcessorCommandInput extends StartStreamProcessorRe
 export interface StartStreamProcessorCommandOutput extends StartStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.
  *             To tell <code>StartStreamProcessor</code> which stream processor to start, use the value of the <code>Name</code> field specified in the call to
  *             <code>CreateStreamProcessor</code>.</p>
@@ -90,6 +89,7 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartStreamProcessorCommand extends $Command
   .classBuilder<

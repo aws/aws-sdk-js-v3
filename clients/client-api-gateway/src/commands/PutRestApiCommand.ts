@@ -34,7 +34,6 @@ export interface PutRestApiCommandInput extends PutRestApiCommandInputType {}
 export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
- * @public
  * <p>A feature of the API Gateway control service for updating an existing API with an input of external API definitions.
  *             The update can take the form of merging the supplied definition into the existing API or overwriting the existing API.</p>
  * @example
@@ -113,6 +112,7 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class PutRestApiCommand extends $Command
   .classBuilder<

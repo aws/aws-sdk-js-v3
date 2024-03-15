@@ -31,7 +31,6 @@ export interface RegisterApplicationCommandInput extends RegisterApplicationInpu
 export interface RegisterApplicationCommandOutput extends RegisterApplicationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Register an SAP application with AWS Systems Manager for SAP. You must meet the
  *          following requirements before registering. </p>
  *          <p>The SAP application you want to register with AWS Systems Manager for SAP is running
@@ -108,6 +107,7 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class RegisterApplicationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateComponentVersionCommandInput extends CreateComponentVersi
 export interface CreateComponentVersionCommandOutput extends CreateComponentVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a component. Components are software that run on Greengrass core devices. After you
  *       develop and test a component on your core device, you can use this operation to upload your
  *       component to IoT Greengrass. Then, you can deploy the component to other core devices.</p>
@@ -228,6 +227,7 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class CreateComponentVersionCommand extends $Command
   .classBuilder<

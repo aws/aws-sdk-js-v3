@@ -27,7 +27,6 @@ export interface ListLabelsCommandInput extends ListLabelsRequest {}
 export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Provides a list of labels. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ListLabelsCommand extends $Command
   .classBuilder<

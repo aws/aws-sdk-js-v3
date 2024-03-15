@@ -27,7 +27,6 @@ export interface CreateLabelingJobCommandInput extends CreateLabelingJobRequest 
 export interface CreateLabelingJobCommandOutput extends CreateLabelingJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a job that uses workers to label the data objects in your input dataset. You
  *             can use the labeled data to train machine learning models. </p>
  *          <p>You can select your workforce from one of three providers:</p>
@@ -174,6 +173,7 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateLabelingJobCommand extends $Command
   .classBuilder<

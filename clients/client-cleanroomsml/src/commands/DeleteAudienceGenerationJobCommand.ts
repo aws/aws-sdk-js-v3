@@ -30,7 +30,6 @@ export interface DeleteAudienceGenerationJobCommandInput extends DeleteAudienceG
 export interface DeleteAudienceGenerationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified audience generation job, and removes all data associated with the job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteAudienceGenerationJobCommandOutput extends __MetadataBear
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class DeleteAudienceGenerationJobCommand extends $Command
   .classBuilder<

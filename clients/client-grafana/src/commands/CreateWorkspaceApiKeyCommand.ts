@@ -31,7 +31,6 @@ export interface CreateWorkspaceApiKeyCommandInput extends CreateWorkspaceApiKey
 export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Grafana API key for the workspace. This key can be used to authenticate
  *             requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
  *             for available APIs and example requests.</p>
@@ -87,6 +86,7 @@ export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKe
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class CreateWorkspaceApiKeyCommand extends $Command
   .classBuilder<

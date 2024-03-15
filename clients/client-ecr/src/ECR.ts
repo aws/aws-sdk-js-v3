@@ -956,7 +956,6 @@ export interface ECR {
 }
 
 /**
- * @public
  * <fullname>Amazon Elastic Container Registry</fullname>
  *          <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the
  *             familiar Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR
@@ -966,6 +965,7 @@ export interface ECR {
  *             repositories and images.</p>
  *          <p>Amazon ECR has service endpoints in each supported Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ecr.html">Amazon ECR endpoints</a> in the
  *                 <i>Amazon Web Services General Reference</i>.</p>
+ * @public
  */
 export class ECR extends ECRClient implements ECR {}
 createAggregatedClient(commands, ECR);

@@ -36,7 +36,6 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
  *         <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions
  *       of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
@@ -101,6 +100,7 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentTemplateVersionCommand extends $Command
   .classBuilder<

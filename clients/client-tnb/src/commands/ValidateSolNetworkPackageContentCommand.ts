@@ -40,7 +40,6 @@ export interface ValidateSolNetworkPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates network package content. This can be used as a dry run before uploading network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -103,6 +102,7 @@ export interface ValidateSolNetworkPackageContentCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class ValidateSolNetworkPackageContentCommand extends $Command
   .classBuilder<

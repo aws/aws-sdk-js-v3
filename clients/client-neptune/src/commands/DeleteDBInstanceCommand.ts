@@ -27,7 +27,6 @@ export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete
  *       a DB instance, all automated backups for that instance are deleted and can't be recovered.
  *       Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not
@@ -222,6 +221,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteDBInstanceCommand extends $Command
   .classBuilder<

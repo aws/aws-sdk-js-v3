@@ -27,7 +27,6 @@ export interface GetBillingGroupCostReportCommandInput extends GetBillingGroupCo
 export interface GetBillingGroupCostReportCommandOutput extends GetBillingGroupCostReportOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the margin summary report, which includes the Amazon Web Services cost and charged
  *       amount (pro forma cost) by Amazon Web Service for a specific billing group.</p>
  * @example
@@ -100,6 +99,7 @@ export interface GetBillingGroupCostReportCommandOutput extends GetBillingGroupC
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class GetBillingGroupCostReportCommand extends $Command
   .classBuilder<

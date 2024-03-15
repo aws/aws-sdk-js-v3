@@ -36,7 +36,6 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new license conversion task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CreateLicenseConversionTaskForResourceCommand extends $Command
   .classBuilder<

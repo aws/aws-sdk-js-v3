@@ -27,7 +27,6 @@ export interface StartMonitoringScheduleCommandInput extends StartMonitoringSche
 export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a previously stopped monitoring schedule.</p>
  *          <note>
  *             <p>By default, when you successfully create a new schedule, the status of a monitoring
@@ -60,6 +59,7 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StartMonitoringScheduleCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface StopApplicationCommandInput extends StopApplicationRequest {}
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the application from processing data. You can stop
  *       an application only if it is in the running status, unless you set the <code>Force</code>
  *         parameter to <code>true</code>.</p>
@@ -84,6 +83,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class StopApplicationCommand extends $Command
   .classBuilder<

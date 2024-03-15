@@ -27,7 +27,6 @@ export interface ListExecutionsCommandInput extends ListExecutionsRequest {}
 export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all in-progress executions for the specified workflow.</p>
  *          <note>
  *             <p>If the specified workflow ID cannot be found, <code>ListExecutions</code> returns a
@@ -103,6 +102,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListExecutionsCommand extends $Command
   .classBuilder<

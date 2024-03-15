@@ -27,7 +27,6 @@ export interface BatchExecuteStatementCommandInput extends BatchExecuteStatement
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs a batch SQL statement over an array of data.</p>
  *          <p>You can run bulk update and insert operations for multiple records using a DML
  *             statement with different parameter sets. Bulk operations can provide a significant
@@ -219,6 +218,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * @public
  */
 export class BatchExecuteStatementCommand extends $Command
   .classBuilder<

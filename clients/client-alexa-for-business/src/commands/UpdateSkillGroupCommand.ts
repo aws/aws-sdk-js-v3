@@ -27,9 +27,6 @@ export interface UpdateSkillGroupCommandInput extends UpdateSkillGroupRequest {}
 export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Updates skill group details by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +63,8 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateSkillGroupCommand extends $Command
   .classBuilder<

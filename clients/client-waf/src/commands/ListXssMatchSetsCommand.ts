@@ -27,7 +27,6 @@ export interface ListXssMatchSetsCommandInput extends ListXssMatchSetsRequest {}
 export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -76,6 +75,7 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To list XSS match sets
  * ```javascript
  * // The following example returns an array of up to 100 XSS match sets.

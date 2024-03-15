@@ -27,7 +27,6 @@ export interface DeleteCorsConfigurationCommandInput extends DeleteCorsConfigura
 export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a CORS configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class DeleteCorsConfigurationCommand extends $Command
   .classBuilder<

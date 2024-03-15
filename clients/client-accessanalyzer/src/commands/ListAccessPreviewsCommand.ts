@@ -27,7 +27,6 @@ export interface ListAccessPreviewsCommandInput extends ListAccessPreviewsReques
 export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of access previews for the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class ListAccessPreviewsCommand extends $Command
   .classBuilder<

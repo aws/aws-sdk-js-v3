@@ -27,7 +27,6 @@ export interface GetUsagePlanCommandInput extends GetUsagePlanRequest {}
 export interface GetUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a usage plan of a given plan identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetUsagePlanCommand extends $Command
   .classBuilder<

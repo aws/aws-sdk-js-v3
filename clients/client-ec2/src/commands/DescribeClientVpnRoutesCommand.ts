@@ -27,7 +27,6 @@ export interface DescribeClientVpnRoutesCommandInput extends DescribeClientVpnRo
 export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnRoutesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the routes for the specified Client VPN endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeClientVpnRoutesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateConnectorDefinitionCommandInput extends UpdateConnectorDe
 export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates a connector definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorD
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class UpdateConnectorDefinitionCommand extends $Command
   .classBuilder<

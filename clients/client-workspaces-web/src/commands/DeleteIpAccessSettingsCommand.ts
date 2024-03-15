@@ -27,7 +27,6 @@ export interface DeleteIpAccessSettingsCommandInput extends DeleteIpAccessSettin
 export interface DeleteIpAccessSettingsCommandOutput extends DeleteIpAccessSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes IP access settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteIpAccessSettingsCommandOutput extends DeleteIpAccessSetti
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DeleteIpAccessSettingsCommand extends $Command
   .classBuilder<

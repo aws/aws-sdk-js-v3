@@ -27,7 +27,6 @@ export interface DescribeLocationSmbCommandInput extends DescribeLocationSmbRequ
 export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for a Server
  *       Message Block (SMB) file server is configured.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationSmbCommand extends $Command
   .classBuilder<

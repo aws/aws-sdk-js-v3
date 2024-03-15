@@ -669,7 +669,6 @@ export type StorageGatewayClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface StorageGatewayClientResolvedConfig extends StorageGatewayClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Storage Gateway Service</fullname>
  *          <p>Storage Gateway is the service that connects an on-premises software appliance
  *          with cloud-based storage to provide seamless and secure integration between an
@@ -729,6 +728,7 @@ export interface StorageGatewayClientResolvedConfig extends StorageGatewayClient
  *                Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
  *             2016</a>.</p>
  *          </important>
+ * @public
  */
 export class StorageGatewayClient extends __Client<
   __HttpHandlerOptions,

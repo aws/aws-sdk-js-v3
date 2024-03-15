@@ -40,7 +40,6 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe the attributes of a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command
   .classBuilder<

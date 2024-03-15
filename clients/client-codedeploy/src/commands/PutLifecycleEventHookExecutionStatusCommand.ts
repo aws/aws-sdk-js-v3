@@ -35,7 +35,6 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Sets the result of a Lambda validation function. The function validates
  *             lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available
  *             lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
@@ -98,6 +97,7 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class PutLifecycleEventHookExecutionStatusCommand extends $Command
   .classBuilder<

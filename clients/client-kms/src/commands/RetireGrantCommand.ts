@@ -27,7 +27,6 @@ export interface RetireGrantCommandInput extends RetireGrantRequest {}
 export interface RetireGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
  *       identify the grant to retire, use a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">grant token</a>, or both the grant ID and a
  *       key identifier (key ID or key ARN) of the KMS key. The <a>CreateGrant</a> operation
@@ -149,6 +148,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To retire a grant
  * ```javascript
  * // The following example retires a grant.

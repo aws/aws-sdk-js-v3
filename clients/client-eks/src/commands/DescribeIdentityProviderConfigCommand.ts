@@ -32,7 +32,6 @@ export interface DescribeIdentityProviderConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an identity provider configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DescribeIdentityProviderConfigCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeIdentityProviderConfigCommand extends $Command
   .classBuilder<

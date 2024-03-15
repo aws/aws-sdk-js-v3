@@ -27,7 +27,6 @@ export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVe
 export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the available engines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeDBEngineVersionsCommand extends $Command
   .classBuilder<

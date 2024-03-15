@@ -27,7 +27,6 @@ export interface ListSessionsCommandInput extends ListSessionsRequest {}
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve a list of sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListSessionsCommand extends $Command
   .classBuilder<

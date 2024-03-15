@@ -31,7 +31,6 @@ export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association between configuration items and one or more tags. This API
  *       accepts a list of multiple configuration items.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataB
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

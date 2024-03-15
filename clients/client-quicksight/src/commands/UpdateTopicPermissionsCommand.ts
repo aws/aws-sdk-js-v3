@@ -27,7 +27,6 @@ export interface UpdateTopicPermissionsCommandInput extends UpdateTopicPermissio
 export interface UpdateTopicPermissionsCommandOutput extends UpdateTopicPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the permissions of a topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface UpdateTopicPermissionsCommandOutput extends UpdateTopicPermissi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateTopicPermissionsCommand extends $Command
   .classBuilder<

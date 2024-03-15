@@ -31,7 +31,6 @@ export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyReques
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections
  *             and the resources within them, and allow a user to access that data irrespective of the
  *             access mechanism or network source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access
@@ -89,6 +88,7 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class CreateAccessPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeBatchPredictionsCommandInput extends DescribeBatchPredi
 export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPredictionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DescribeBatchPredictionsCommand extends $Command
   .classBuilder<

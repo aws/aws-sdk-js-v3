@@ -384,8 +384,8 @@ export type ChatbotClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface ChatbotClientResolvedConfig extends ChatbotClientResolvedConfigType {}
 
 /**
- * @public
  * AWS Chatbot API
+ * @public
  */
 export class ChatbotClient extends __Client<
   __HttpHandlerOptions,

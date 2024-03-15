@@ -27,7 +27,6 @@ export interface ListGeoLocationsCommandInput extends ListGeoLocationsRequest {}
 export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of supported geographic locations.</p>
  *          <p>Countries are listed first, and continents are listed last. If Amazon Route 53
  * 			supports subdivisions for a country (for example, states or provinces), the subdivisions
@@ -83,6 +82,7 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListGeoLocationsCommand extends $Command
   .classBuilder<

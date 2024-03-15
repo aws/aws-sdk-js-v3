@@ -27,7 +27,6 @@ export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a connection definition in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateConnectionCommand extends $Command
   .classBuilder<

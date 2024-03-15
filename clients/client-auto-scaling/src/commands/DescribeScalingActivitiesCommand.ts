@@ -27,7 +27,6 @@ export interface DescribeScalingActivitiesCommandInput extends DescribeScalingAc
 export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the scaling activities in the account and Region.</p>
  *          <p>When scaling events occur, you see a record of the scaling activity in the scaling
  *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
@@ -92,6 +91,7 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the scaling activities for an Auto Scaling group
  * ```javascript
  * // This example describes the scaling activities for the specified Auto Scaling group.

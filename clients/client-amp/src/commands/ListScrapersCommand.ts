@@ -27,7 +27,6 @@ export interface ListScrapersCommandInput extends ListScrapersRequest {}
 export interface ListScrapersCommandOutput extends ListScrapersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>ListScrapers</code> operation lists all of the scrapers in
  *             your account. This includes scrapers being created or deleted. You can optionally
  *             filter the returned list.</p>
@@ -109,6 +108,7 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class ListScrapersCommand extends $Command
   .classBuilder<

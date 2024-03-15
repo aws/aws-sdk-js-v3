@@ -27,7 +27,6 @@ export interface GetCrawlerMetricsCommandInput extends GetCrawlerMetricsRequest 
 export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metrics about specified crawlers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetCrawlerMetricsCommand extends $Command
   .classBuilder<

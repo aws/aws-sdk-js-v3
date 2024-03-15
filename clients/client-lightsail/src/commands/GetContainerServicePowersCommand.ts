@@ -27,7 +27,6 @@ export interface GetContainerServicePowersCommandInput extends GetContainerServi
 export interface GetContainerServicePowersCommandOutput extends GetContainerServicePowersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
  *       services.</p>
  *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
@@ -88,6 +87,7 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetContainerServicePowersCommand extends $Command
   .classBuilder<

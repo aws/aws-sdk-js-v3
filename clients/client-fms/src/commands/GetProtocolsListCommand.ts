@@ -27,7 +27,6 @@ export interface GetProtocolsListCommandInput extends GetProtocolsListRequest {}
 export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified Firewall Manager protocols list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse,
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetProtocolsListCommand extends $Command
   .classBuilder<

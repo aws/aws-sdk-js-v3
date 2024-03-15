@@ -27,7 +27,6 @@ export interface CreateBGPPeerCommandInput extends CreateBGPPeerRequest {}
 export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a BGP peer on the specified virtual interface.</p>
  *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to
  *       access Amazon Web Services resources that also use that address family.</p>
@@ -132,6 +131,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreateBGPPeerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartIdMappingJobCommandInput extends StartIdMappingJobInput {}
 export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the <code>IdMappingJob</code> of a workflow. The workflow must have previously
  *          been created using the <code>CreateIdMappingWorkflow</code> endpoint.</p>
  * @example
@@ -92,6 +91,7 @@ export interface StartIdMappingJobCommandOutput extends StartIdMappingJobOutput,
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class StartIdMappingJobCommand extends $Command
   .classBuilder<

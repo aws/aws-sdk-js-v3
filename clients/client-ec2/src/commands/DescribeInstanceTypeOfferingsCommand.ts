@@ -29,7 +29,6 @@ export interface DescribeInstanceTypeOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all instance types offered. The results can be filtered by location (Region or Availability
  *    Zone). If no location is specified, the instance types offered in the current Region are returned.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DescribeInstanceTypeOfferingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeInstanceTypeOfferingsCommand extends $Command
   .classBuilder<

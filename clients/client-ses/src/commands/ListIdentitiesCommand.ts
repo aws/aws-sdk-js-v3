@@ -27,7 +27,6 @@ export interface ListIdentitiesCommandInput extends ListIdentitiesRequest {}
 export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list containing all of the identities (email addresses and domains) for your
  *             Amazon Web Services account in the current Amazon Web Services Region, regardless of verification status.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -72,6 +71,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example ListIdentities
  * ```javascript
  * // The following example lists the email address identities that have been submitted for verification with Amazon SES:

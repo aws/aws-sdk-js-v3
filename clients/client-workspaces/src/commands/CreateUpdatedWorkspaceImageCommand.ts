@@ -27,7 +27,6 @@ export interface CreateUpdatedWorkspaceImageCommandInput extends CreateUpdatedWo
 export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new updated WorkSpace image based on the specified source image. The new
  *          updated WorkSpace image has the latest drivers and other updates required by the
  *          Amazon WorkSpaces components.</p>
@@ -105,6 +104,7 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateUpdatedWorkspaceImageCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface SelectAggregateResourceConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
  * 			performs the corresponding search, and returns resource configurations matching the properties.</p>
  *          <p>For more information about query components, see the
@@ -99,6 +98,7 @@ export interface SelectAggregateResourceConfigCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class SelectAggregateResourceConfigCommand extends $Command
   .classBuilder<

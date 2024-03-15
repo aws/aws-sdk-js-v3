@@ -27,7 +27,6 @@ export interface DeleteSlotTypeCommandInput extends DeleteSlotTypeRequest {}
 export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a slot type from a bot locale.</p>
  *          <p>If a slot is using the slot type, Amazon Lex throws a
  *             <code>ResourceInUseException</code> exception. To avoid the
@@ -86,6 +85,7 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteSlotTypeCommand extends $Command
   .classBuilder<

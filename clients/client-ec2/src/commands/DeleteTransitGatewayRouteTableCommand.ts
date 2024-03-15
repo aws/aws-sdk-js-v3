@@ -32,7 +32,6 @@ export interface DeleteTransitGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified transit gateway route table. You must disassociate the route table from any
  *           transit gateway route tables before you can delete it.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteTransitGatewayRouteTableCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteTransitGatewayRouteTableCommand extends $Command
   .classBuilder<

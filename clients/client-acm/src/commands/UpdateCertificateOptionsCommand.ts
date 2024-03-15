@@ -27,7 +27,6 @@ export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateO
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a certificate. Currently, you can use this function to specify whether to opt in
  *       to or out of recording your certificate in a certificate transparency log. For more
  *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting Out of
@@ -72,6 +71,7 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class UpdateCertificateOptionsCommand extends $Command
   .classBuilder<

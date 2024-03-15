@@ -32,7 +32,6 @@ export interface BatchDeleteFeaturedResultsSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more sets of featured results. Features results are placed
  *             above all other results for certain queries. If there's an exact match of a
  *             query, then one or more specific documents are featured in the search results.</p>
@@ -91,6 +90,7 @@ export interface BatchDeleteFeaturedResultsSetCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class BatchDeleteFeaturedResultsSetCommand extends $Command
   .classBuilder<

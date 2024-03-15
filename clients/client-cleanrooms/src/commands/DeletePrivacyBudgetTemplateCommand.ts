@@ -30,7 +30,6 @@ export interface DeletePrivacyBudgetTemplateCommandInput extends DeletePrivacyBu
 export interface DeletePrivacyBudgetTemplateCommandOutput extends DeletePrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a privacy budget template for a specified membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeletePrivacyBudgetTemplateCommandOutput extends DeletePrivacyB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class DeletePrivacyBudgetTemplateCommand extends $Command
   .classBuilder<

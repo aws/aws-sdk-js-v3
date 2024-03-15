@@ -265,8 +265,8 @@ export type BedrockAgentRuntimeClientResolvedConfigType = __SmithyResolvedConfig
 export interface BedrockAgentRuntimeClientResolvedConfig extends BedrockAgentRuntimeClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Contains APIs related to model invocation and querying of knowledge bases.</p>
+ * @public
  */
 export class BedrockAgentRuntimeClient extends __Client<
   __HttpHandlerOptions,

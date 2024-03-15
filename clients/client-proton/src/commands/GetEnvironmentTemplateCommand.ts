@@ -31,7 +31,6 @@ export interface GetEnvironmentTemplateCommandInput extends GetEnvironmentTempla
 export interface GetEnvironmentTemplateCommandOutput extends GetEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed data for an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetEnvironmentTemplateCommandOutput extends GetEnvironmentTempl
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetEnvironmentTemplateCommand extends $Command
   .classBuilder<

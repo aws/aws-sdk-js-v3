@@ -27,7 +27,6 @@ export interface StartEntitiesDetectionJobCommandInput extends StartEntitiesDete
 export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
  *          <p>This API can be used for either standard entity detection or custom entity recognition. In
  *       order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code>
@@ -126,6 +125,7 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartEntitiesDetectionJobCommand extends $Command
   .classBuilder<

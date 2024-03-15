@@ -27,7 +27,6 @@ export interface CreateVpcAttachmentCommandInput extends CreateVpcAttachmentRequ
 export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a VPC attachment on an edge location of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface CreateVpcAttachmentCommandOutput extends CreateVpcAttachmentRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateVpcAttachmentCommand extends $Command
   .classBuilder<

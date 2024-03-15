@@ -27,7 +27,6 @@ export interface PutAlertManagerDefinitionCommandInput extends PutAlertManagerDe
 export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing alert manager definition in a workspace. If the workspace does not
  *             already have an alert manager definition, don't use this operation to create it.
  *             Instead, use <code>CreateAlertManagerDefinition</code>.</p>
@@ -84,6 +83,7 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class PutAlertManagerDefinitionCommand extends $Command
   .classBuilder<

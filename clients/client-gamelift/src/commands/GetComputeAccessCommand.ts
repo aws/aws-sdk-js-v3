@@ -31,7 +31,6 @@ export interface GetComputeAccessCommandInput extends GetComputeAccessInput {}
 export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests authorization to remotely connect to a compute resource in an Amazon GameLift fleet.
  *             Call this action to connect to an instance in a managed EC2 fleet if the fleet's game
  *             build uses Amazon GameLift server SDK 5.x or later. To connect to instances with game builds
@@ -101,6 +100,7 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class GetComputeAccessCommand extends $Command
   .classBuilder<

@@ -390,7 +390,6 @@ export type SFNClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Step Functions</fullname>
  *          <p>Step Functions is a service that lets you coordinate the components of distributed applications
  *       and microservices using visual workflows.</p>
@@ -410,6 +409,7 @@ export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
  *          <important>
  *             <p>If you use the Step Functions API actions using Amazon Web Services SDK integrations, make sure the API actions are in camel case and parameter names are in Pascal case. For example, you could use Step Functions API action <code>startSyncExecution</code> and specify its parameter as <code>StateMachineArn</code>.</p>
  *          </important>
+ * @public
  */
 export class SFNClient extends __Client<
   __HttpHandlerOptions,

@@ -32,7 +32,6 @@ export interface PutCapacityAssignmentConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts a new capacity assignment configuration for a specified capacity reservation. If
  *             a capacity assignment configuration already exists for the capacity reservation,
  *             replaces the existing capacity assignment configuration.</p>
@@ -75,6 +74,7 @@ export interface PutCapacityAssignmentConfigurationCommandOutput
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class PutCapacityAssignmentConfigurationCommand extends $Command
   .classBuilder<

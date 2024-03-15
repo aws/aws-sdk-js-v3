@@ -27,7 +27,6 @@ export interface DescribeEdgeDeploymentPlanCommandInput extends DescribeEdgeDepl
 export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDeploymentPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an edge deployment plan with deployment status per stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeEdgeDeploymentPlanCommandOutput extends DescribeEdgeDep
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeEdgeDeploymentPlanCommand extends $Command
   .classBuilder<

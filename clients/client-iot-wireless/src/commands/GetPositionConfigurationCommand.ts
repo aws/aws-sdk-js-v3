@@ -27,9 +27,6 @@ export interface GetPositionConfigurationCommandInput extends GetPositionConfigu
 export interface GetPositionConfigurationCommandOutput extends GetPositionConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is no longer supported.
- *
  * <p>Get position configuration for a given resource.</p>
  *          <important>
  *             <p>This action is no longer supported. Calls to retrieve the position configuration
@@ -85,6 +82,8 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
+ * @deprecated This operation is no longer supported.
  */
 export class GetPositionConfigurationCommand extends $Command
   .classBuilder<

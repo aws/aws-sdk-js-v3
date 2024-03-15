@@ -27,7 +27,6 @@ export interface RegisterWorkspaceDirectoryCommandInput extends RegisterWorkspac
 export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers the specified directory. This operation is asynchronous and returns before the
  *          WorkSpace directory is registered. If this is the first time you are registering a
  *          directory, you will need to create the workspaces_DefaultRole role before you can register
@@ -97,6 +96,7 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateEndpointAccessCommandInput extends CreateEndpointAccessMe
 export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Redshift-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateEndpointAccessCommand extends $Command
   .classBuilder<

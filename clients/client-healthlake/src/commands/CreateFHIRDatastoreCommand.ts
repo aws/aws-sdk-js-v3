@@ -27,7 +27,6 @@ export interface CreateFHIRDatastoreCommandInput extends CreateFHIRDatastoreRequ
 export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data store that can ingest and export FHIR formatted data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * @public
  */
 export class CreateFHIRDatastoreCommand extends $Command
   .classBuilder<

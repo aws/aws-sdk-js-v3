@@ -27,7 +27,6 @@ export interface ListQualificationRequestsCommandInput extends ListQualification
 export interface ListQualificationRequestsCommandOutput extends ListQualificationRequestsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>ListQualificationRequests</code>
@@ -81,6 +80,7 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListQualificationRequestsCommand extends $Command
   .classBuilder<

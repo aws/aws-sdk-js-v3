@@ -31,9 +31,6 @@ export interface ListPermissionGroupsCommandInput extends ListPermissionGroupsRe
 export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Lists all available permission groups in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +85,8 @@ export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsR
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class ListPermissionGroupsCommand extends $Command
   .classBuilder<

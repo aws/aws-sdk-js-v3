@@ -32,7 +32,6 @@ export interface CreateMicrosoftTeamsChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates MS Teams Channel Configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface CreateMicrosoftTeamsChannelConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class CreateMicrosoftTeamsChannelConfigurationCommand extends $Command
   .classBuilder<

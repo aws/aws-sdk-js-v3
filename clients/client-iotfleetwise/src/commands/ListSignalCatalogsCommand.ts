@@ -27,7 +27,6 @@ export interface ListSignalCatalogsCommandInput extends ListSignalCatalogsReques
 export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists all the created signal catalogs in an Amazon Web Services account. </p>
  *          <p>You can use  to list information about
  *             each signal (node) specified in a signal catalog.</p>
@@ -81,6 +80,7 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListSignalCatalogsCommand extends $Command
   .classBuilder<

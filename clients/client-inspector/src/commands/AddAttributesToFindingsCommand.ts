@@ -27,7 +27,6 @@ export interface AddAttributesToFindingsCommandInput extends AddAttributesToFind
 export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns attributes (key and value pairs) to the findings that are specified by the
  *          ARNs of the findings.</p>
  * @example
@@ -86,6 +85,7 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Add attributes to findings
  * ```javascript
  * // Assigns attributes (key and value pairs) to the findings that are specified by the ARNs of the findings.

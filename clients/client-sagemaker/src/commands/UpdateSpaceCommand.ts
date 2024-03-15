@@ -27,7 +27,6 @@ export interface UpdateSpaceCommandInput extends UpdateSpaceRequest {}
 export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings of a space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateSpaceCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateWorkerConfigurationCommandInput extends CreateWorkerConfi
 export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a worker configuration using the specified properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class CreateWorkerConfigurationCommand extends $Command
   .classBuilder<

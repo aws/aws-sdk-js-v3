@@ -32,7 +32,6 @@ export interface PutFunctionCodeSigningConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the
  *       next time a user tries to deploy a code package to the function. </p>
  * @example
@@ -81,6 +80,7 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class PutFunctionCodeSigningConfigCommand extends $Command
   .classBuilder<

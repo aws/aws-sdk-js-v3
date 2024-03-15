@@ -27,7 +27,6 @@ export interface RegisterAdminCommandInput extends RegisterAdminInput {}
 export interface RegisterAdminCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a user or group to the list of administrators of the private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface RegisterAdminCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class RegisterAdminCommand extends $Command
   .classBuilder<

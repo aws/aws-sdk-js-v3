@@ -27,7 +27,6 @@ export interface ListLoaderJobsCommandInput extends ListLoaderJobsInput {}
 export interface ListLoaderJobsCommandOutput extends ListLoaderJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the <code>loadIds</code> for all active
  *       loader jobs.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -102,6 +101,7 @@ export interface ListLoaderJobsCommandOutput extends ListLoaderJobsOutput, __Met
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ListLoaderJobsCommand extends $Command
   .classBuilder<

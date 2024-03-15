@@ -40,7 +40,6 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides feedback for an authentication event indicating if it was from a valid user.
  *             This feedback is used for improving the risk evaluation decision for the user pool as
  *             part of Amazon Cognito advanced security.</p>
@@ -115,6 +114,7 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminUpdateAuthEventFeedbackCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateEventDataStoreCommandInput extends UpdateEventDataStoreRe
 export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
  *          the ID portion of the ARN. Other parameters are optional, but at least one optional
  *          parameter must be specified, or CloudTrail throws an error.
@@ -245,6 +244,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class UpdateEventDataStoreCommand extends $Command
   .classBuilder<

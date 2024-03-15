@@ -27,7 +27,6 @@ export interface DescribeAlertCommandInput extends DescribeAlertRequest {}
 export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an alert.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -107,6 +106,7 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class DescribeAlertCommand extends $Command
   .classBuilder<

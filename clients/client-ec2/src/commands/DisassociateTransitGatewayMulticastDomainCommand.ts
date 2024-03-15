@@ -36,7 +36,6 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateTransitGatewayMulticastDomainCommand extends $Command
   .classBuilder<

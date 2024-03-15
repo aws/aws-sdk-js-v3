@@ -27,7 +27,6 @@ export interface DeleteModelCommandInput extends DeleteModelRequest {}
 export interface DeleteModelCommandOutput extends DeleteModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Lookout for Vision model. You can't delete a running model. To stop a running model,
  *       use the <a>StopModel</a> operation.</p>
  *          <p>It might take a few seconds to delete a model. To determine if a model has been deleted, call
@@ -83,6 +82,7 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class DeleteModelCommand extends $Command
   .classBuilder<

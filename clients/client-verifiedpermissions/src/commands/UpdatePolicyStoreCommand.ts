@@ -35,7 +35,6 @@ export interface UpdatePolicyStoreCommandInput extends UpdatePolicyStoreInput {}
 export interface UpdatePolicyStoreCommandOutput extends UpdatePolicyStoreOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the validation setting for a policy store.</p>
  *          <note>
  *             <p>Verified Permissions is <i>
@@ -176,6 +175,7 @@ export interface UpdatePolicyStoreCommandOutput extends UpdatePolicyStoreOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class UpdatePolicyStoreCommand extends $Command
   .classBuilder<

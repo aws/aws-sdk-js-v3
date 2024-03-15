@@ -27,7 +27,6 @@ export interface CancelRotateSecretCommandInput extends CancelRotateSecretReques
 export interface CancelRotateSecretCommandOutput extends CancelRotateSecretResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Turns off automatic rotation, and if a rotation is currently in
  *       progress, cancels the rotation.</p>
  *          <p>If you cancel a rotation in progress, it can leave the <code>VersionStage</code>
@@ -102,6 +101,7 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To cancel scheduled rotation for a secret
  * ```javascript
  * // The following example shows how to cancel rotation for a secret. The operation sets the RotationEnabled field to false and cancels all scheduled rotations. To resume scheduled rotations, you must re-enable rotation by calling the rotate-secret operation.

@@ -27,7 +27,6 @@ export interface DescribeMultiplexCommandInput extends DescribeMultiplexRequest 
 export interface DescribeMultiplexCommandOutput extends DescribeMultiplexResponse, __MetadataBearer {}
 
 /**
- * @public
  * Gets details about a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeMultiplexCommandOutput extends DescribeMultiplexRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DescribeMultiplexCommand extends $Command
   .classBuilder<

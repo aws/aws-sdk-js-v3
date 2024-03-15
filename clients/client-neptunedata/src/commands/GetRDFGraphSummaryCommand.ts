@@ -27,7 +27,6 @@ export interface GetRDFGraphSummaryCommandInput extends GetRDFGraphSummaryInput 
 export interface GetRDFGraphSummaryCommandOutput extends GetRDFGraphSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a graph summary for an RDF graph.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
  *       authentication enabled, the IAM user or role making the request must
@@ -124,6 +123,7 @@ export interface GetRDFGraphSummaryCommandOutput extends GetRDFGraphSummaryOutpu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetRDFGraphSummaryCommand extends $Command
   .classBuilder<

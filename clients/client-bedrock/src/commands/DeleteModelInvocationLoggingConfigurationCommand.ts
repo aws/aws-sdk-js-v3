@@ -36,7 +36,6 @@ export interface DeleteModelInvocationLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the invocation logging. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteModelInvocationLoggingConfigurationCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class DeleteModelInvocationLoggingConfigurationCommand extends $Command
   .classBuilder<

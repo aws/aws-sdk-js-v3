@@ -27,7 +27,6 @@ export interface AddTagsToStreamCommandInput extends AddTagsToStreamInput {}
 export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
  *             tags to a data stream.</p>
  *          <note>
@@ -88,6 +87,7 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class AddTagsToStreamCommand extends $Command
   .classBuilder<

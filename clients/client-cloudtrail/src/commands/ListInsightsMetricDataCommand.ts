@@ -27,7 +27,6 @@ export interface ListInsightsMetricDataCommandInput extends ListInsightsMetricDa
 export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns Insights metrics data for trails that have enabled Insights. The request must include the <code>EventSource</code>,
  *          <code>EventName</code>, and <code>InsightType</code> parameters.</p>
  *          <p>If the <code>InsightType</code> is set to <code>ApiErrorRateInsight</code>, the request must also include the <code>ErrorCode</code> parameter.</p>
@@ -99,6 +98,7 @@ export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricD
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListInsightsMetricDataCommand extends $Command
   .classBuilder<

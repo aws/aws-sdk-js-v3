@@ -35,7 +35,6 @@ export interface CreateElasticsearchDomainCommandInput extends CreateElasticsear
 export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Elasticsearch domain. For more information,
  *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
  * @example
@@ -321,6 +320,7 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class CreateElasticsearchDomainCommand extends $Command
   .classBuilder<

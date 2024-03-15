@@ -27,7 +27,6 @@ export interface ListNotificationChannelsCommandInput extends ListNotificationCh
 export interface ListNotificationChannelsCommandOutput extends ListNotificationChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of notification channels configured for DevOps Guru. Each notification
  * 			channel is used to notify you when DevOps Guru generates an insight that contains information
  * 			about how to improve your operations. The one
@@ -92,6 +91,7 @@ export interface ListNotificationChannelsCommandOutput extends ListNotificationC
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class ListNotificationChannelsCommand extends $Command
   .classBuilder<

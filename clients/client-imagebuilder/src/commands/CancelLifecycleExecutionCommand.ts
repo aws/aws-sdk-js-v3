@@ -27,7 +27,6 @@ export interface CancelLifecycleExecutionCommandInput extends CancelLifecycleExe
 export interface CancelLifecycleExecutionCommandOutput extends CancelLifecycleExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancel a specific image lifecycle policy runtime instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CancelLifecycleExecutionCommandOutput extends CancelLifecycleEx
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CancelLifecycleExecutionCommand extends $Command
   .classBuilder<

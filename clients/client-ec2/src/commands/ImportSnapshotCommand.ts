@@ -32,7 +32,6 @@ export interface ImportSnapshotCommandInput extends ImportSnapshotRequest {}
 export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a disk into an EBS snapshot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing a disk as a snapshot using VM Import/Export</a> in the
  *    <i>VM Import/Export User Guide</i>.</p>
@@ -116,6 +115,7 @@ export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ImportSnapshotCommand extends $Command
   .classBuilder<

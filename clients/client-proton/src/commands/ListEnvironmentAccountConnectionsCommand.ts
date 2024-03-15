@@ -32,7 +32,6 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>View a list of environment account connections.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
  *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -94,6 +93,7 @@ export interface ListEnvironmentAccountConnectionsCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListEnvironmentAccountConnectionsCommand extends $Command
   .classBuilder<

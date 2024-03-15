@@ -27,7 +27,6 @@ export interface GetInsightSummariesCommandInput extends GetInsightSummariesRequ
 export interface GetInsightSummariesCommandOutput extends GetInsightSummariesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the summaries of all insights in the specified group matching the provided filter values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface GetInsightSummariesCommandOutput extends GetInsightSummariesRes
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetInsightSummariesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateBudgetActionCommandInput extends CreateBudgetActionReques
 export interface CreateBudgetActionCommandOutput extends CreateBudgetActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Creates a budget action.
  *       </p>
@@ -127,6 +126,7 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class CreateBudgetActionCommand extends $Command
   .classBuilder<

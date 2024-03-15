@@ -36,7 +36,6 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides organization Config rule deployment status for an organization.</p>
  *          <note>
  *             <p>The status is not considered successful until organization Config rule is successfully deployed in all the member
@@ -116,6 +115,7 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConfigRuleStatusesCommand extends $Command
   .classBuilder<

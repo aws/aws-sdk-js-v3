@@ -27,7 +27,6 @@ export interface ListResponseHeadersPoliciesCommandInput extends ListResponseHea
 export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHeadersPoliciesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of response headers policies.</p>
  *          <p>You can optionally apply a filter to get only the managed policies created by Amazon Web Services,
  * 			or only the custom policies created in your Amazon Web Services account.</p>
@@ -170,6 +169,7 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListResponseHeadersPoliciesCommand extends $Command
   .classBuilder<

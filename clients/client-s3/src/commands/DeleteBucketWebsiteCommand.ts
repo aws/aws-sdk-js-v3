@@ -27,7 +27,6 @@ export interface DeleteBucketWebsiteCommandInput extends DeleteBucketWebsiteRequ
 export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -80,6 +79,7 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To delete bucket website configuration
  * ```javascript
  * // The following example deletes bucket website configuration.

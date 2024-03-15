@@ -27,7 +27,6 @@ export interface ListHealthChecksCommandInput extends ListHealthChecksRequest {}
 export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve a list of the health checks that are associated with the current Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListHealthChecksCommand extends $Command
   .classBuilder<

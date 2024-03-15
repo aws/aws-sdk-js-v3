@@ -31,7 +31,6 @@ export interface DescribeEndpointGroupCommandInput extends DescribeEndpointGroup
 export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe an endpoint group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGrou
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DescribeEndpointGroupCommand extends $Command
   .classBuilder<

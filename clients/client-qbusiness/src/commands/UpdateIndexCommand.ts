@@ -27,7 +27,6 @@ export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
 export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon Q index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class UpdateIndexCommand extends $Command
   .classBuilder<

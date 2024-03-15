@@ -27,7 +27,6 @@ export interface ConfirmProductInstanceCommandInput extends ConfirmProductInstan
 export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Determines whether a product code is associated with an instance. This action can only
  *             be used by the owner of the product code. It is useful when a product code owner must
  *             verify whether another user's instance is eligible for support.</p>
@@ -60,6 +59,7 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To confirm the product instance
  * ```javascript
  * // This example determines whether the specified product code is associated with the specified instance.

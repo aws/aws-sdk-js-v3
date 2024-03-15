@@ -35,7 +35,6 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The status of the associations for the managed nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeInstanceAssociationsStatusCommand extends $Command
   .classBuilder<

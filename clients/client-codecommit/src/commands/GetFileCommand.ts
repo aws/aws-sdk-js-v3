@@ -27,7 +27,6 @@ export interface GetFileCommandInput extends GetFileInput {}
 export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetFileCommand extends $Command
   .classBuilder<

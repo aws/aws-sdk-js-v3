@@ -27,7 +27,6 @@ export interface ListGroupsCommandInput extends ListGroupsInput {}
 export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of existing Resource Groups in your account.</p>
  *          <p>
  *             <b>Minimum permissions</b>
@@ -104,6 +103,7 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class ListGroupsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
  *          <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
  *                 <code>restore</code> as the <code>AttributeName</code> and use the
@@ -105,6 +104,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify a DB cluster snapshot attribute
  * ```javascript
  * // The following example makes changes to the specified DB cluster snapshot attribute.

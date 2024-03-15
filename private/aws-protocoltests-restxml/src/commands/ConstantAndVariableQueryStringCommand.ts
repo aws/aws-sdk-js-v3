@@ -28,7 +28,6 @@ export interface ConstantAndVariableQueryStringCommandInput extends ConstantAndV
 export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This example uses fixed query string params and variable query string params.
  * The fixed query string parameters and variable parameters must both be
  * serialized (implementations may need to merge them together).
@@ -57,6 +56,7 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class ConstantAndVariableQueryStringCommand extends $Command
   .classBuilder<

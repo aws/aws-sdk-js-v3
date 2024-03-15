@@ -1587,7 +1587,6 @@ export interface Route53 {
 }
 
 /**
- * @public
  * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web
  * 			service.</p>
  *          <p>You can use Route 53 to:</p>
@@ -1605,6 +1604,7 @@ export interface Route53 {
  *                <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html">How Route 53 checks the health of your resources</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Route53 extends Route53Client implements Route53 {}
 createAggregatedClient(commands, Route53);

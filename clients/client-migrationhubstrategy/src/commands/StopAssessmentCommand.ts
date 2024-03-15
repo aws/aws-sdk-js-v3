@@ -31,7 +31,6 @@ export interface StopAssessmentCommandInput extends StopAssessmentRequest {}
 export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Stops the assessment of an on-premises environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class StopAssessmentCommand extends $Command
   .classBuilder<

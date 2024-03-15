@@ -25,7 +25,6 @@ export interface XmlBlobsCommandInput extends XmlBlobsRequest {}
 export interface XmlBlobsCommandOutput extends XmlBlobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsResponse, __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlBlobsCommand extends $Command
   .classBuilder<

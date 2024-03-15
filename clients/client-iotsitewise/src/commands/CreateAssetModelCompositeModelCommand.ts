@@ -32,7 +32,6 @@ export interface CreateAssetModelCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom composite model from specified property and hierarchy definitions. There are two types of custom composite models,
  *       <code>inline</code> and <code>component-model-based</code>. </p>
  *          <p>Use component-model-based custom composite models to define standard, reusable components.  A component-model-based custom composite model consists of a name,
@@ -199,6 +198,7 @@ export interface CreateAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateAssetModelCompositeModelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartInstanceCommandInput extends StartInstanceRequest {}
 export interface StartInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
  *         Stopping, and Rebooting Instances</a>.</p>
  *          <p>
@@ -65,6 +64,7 @@ export interface StartInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class StartInstanceCommand extends $Command
   .classBuilder<

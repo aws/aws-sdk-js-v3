@@ -27,9 +27,6 @@ export interface CreateSystemTemplateCommandInput extends CreateSystemTemplateRe
 export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Creates a system. The system is validated against the entities in the
  *          latest version of the user's namespace unless another namespace version is specified in the request.</p>
  * @example
@@ -79,6 +76,8 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class CreateSystemTemplateCommand extends $Command
   .classBuilder<

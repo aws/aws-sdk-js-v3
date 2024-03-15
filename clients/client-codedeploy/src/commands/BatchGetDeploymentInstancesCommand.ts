@@ -27,9 +27,6 @@ export interface BatchGetDeploymentInstancesCommandInput extends BatchGetDeploym
 export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is deprecated, use BatchGetDeploymentTargets instead.
- *
  * <note>
  *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
  *                 instead. </p>
@@ -111,6 +108,8 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
+ * @deprecated This operation is deprecated, use BatchGetDeploymentTargets instead.
  */
 export class BatchGetDeploymentInstancesCommand extends $Command
   .classBuilder<

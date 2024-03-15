@@ -27,7 +27,6 @@ export interface UpdatePipelineExecutionCommandInput extends UpdatePipelineExecu
 export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdatePipelineExecutionCommand extends $Command
   .classBuilder<

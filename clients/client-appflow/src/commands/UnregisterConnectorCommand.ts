@@ -27,7 +27,6 @@ export interface UnregisterConnectorCommandInput extends UnregisterConnectorRequ
 export interface UnregisterConnectorCommandOutput extends UnregisterConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Unregisters the custom connector registered in your account that matches the connector
  *       label provided in the request.</p>
  * @example
@@ -67,6 +66,7 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class UnregisterConnectorCommand extends $Command
   .classBuilder<

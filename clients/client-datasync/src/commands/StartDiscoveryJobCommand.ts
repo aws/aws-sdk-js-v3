@@ -27,7 +27,6 @@ export interface StartDiscoveryJobCommandInput extends StartDiscoveryJobRequest 
 export interface StartDiscoveryJobCommandOutput extends StartDiscoveryJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs a DataSync discovery job on your on-premises storage system. If you haven't added the
  *       storage system to DataSync Discovery yet, do this first by using the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_AddStorageSystem.html">AddStorageSystem</a>
  *       operation.</p>
@@ -72,6 +71,7 @@ export interface StartDiscoveryJobCommandOutput extends StartDiscoveryJobRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class StartDiscoveryJobCommand extends $Command
   .classBuilder<

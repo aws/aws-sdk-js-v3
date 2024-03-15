@@ -27,7 +27,6 @@ export interface DescribeResourceGroupsCommandInput extends DescribeResourceGrou
 export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the resource groups that are specified by the ARNs of the resource
  *          groups.</p>
  * @example
@@ -82,6 +81,7 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Describe resource groups
  * ```javascript
  * // Describes the resource groups that are specified by the ARNs of the resource groups.

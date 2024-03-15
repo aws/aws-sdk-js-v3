@@ -27,7 +27,6 @@ export interface GetLoggingOptionsCommandInput extends GetLoggingOptionsRequest 
 export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the logging options.</p>
  *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
  *          instead.</p>
@@ -66,6 +65,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetLoggingOptionsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface PutAppValidationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a validation configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface PutAppValidationConfigurationCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class PutAppValidationConfigurationCommand extends $Command
   .classBuilder<

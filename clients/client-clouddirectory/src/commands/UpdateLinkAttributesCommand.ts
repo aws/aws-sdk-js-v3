@@ -27,7 +27,6 @@ export interface UpdateLinkAttributesCommandInput extends UpdateLinkAttributesRe
 export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class UpdateLinkAttributesCommand extends $Command
   .classBuilder<

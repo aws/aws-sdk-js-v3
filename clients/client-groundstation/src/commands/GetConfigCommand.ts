@@ -27,7 +27,6 @@ export interface GetConfigCommandInput extends GetConfigRequest {}
 export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns <code>Config</code> information.</p>
  *          <p>Only one <code>Config</code> response can be returned.</p>
  * @example
@@ -136,6 +135,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class GetConfigCommand extends $Command
   .classBuilder<

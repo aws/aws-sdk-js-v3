@@ -35,7 +35,6 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all Amazon QLDB journal streams for a given ledger.</p>
  *          <p>This action does not return any expired journal streams. For more information, see
  *             <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration for terminal streams</a> in the <i>Amazon QLDB Developer
@@ -98,6 +97,7 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class ListJournalKinesisStreamsForLedgerCommand extends $Command
   .classBuilder<

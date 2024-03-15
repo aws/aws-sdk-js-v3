@@ -27,7 +27,6 @@ export interface GetTemplateSummaryCommandInput extends GetTemplateSummaryInput 
 export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a new or existing template. The <code>GetTemplateSummary</code> action is useful for
  *    viewing parameter information, such as default parameter values and parameter types, before you create or update a
  *    stack or stack set.</p>
@@ -113,6 +112,7 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class GetTemplateSummaryCommand extends $Command
   .classBuilder<

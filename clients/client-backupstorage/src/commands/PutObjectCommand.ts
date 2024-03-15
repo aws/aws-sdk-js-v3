@@ -30,7 +30,6 @@ export interface PutObjectCommandInput extends Omit<PutObjectInput, "InlineChunk
 export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * Upload object that can store object metadata String and data blob in single API call using inline chunk field.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class PutObjectCommand extends $Command
   .classBuilder<

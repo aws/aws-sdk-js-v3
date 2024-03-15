@@ -40,7 +40,6 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the replication instance types that can be created in the
  *          specified region.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe orderable replication instances
  * ```javascript
  * // Returns information about the replication instance types that can be created in the specified region.

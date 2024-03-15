@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { AppIntegrationsServiceException as __BaseException } from "./AppIntegrationsServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -26,73 +26,73 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The external URL source for the application.</p>
+ * @public
  */
 export interface ExternalUrlConfig {
   /**
-   * @public
    * <p>The URL to access the application.</p>
+   * @public
    */
   AccessUrl: string | undefined;
 
   /**
-   * @public
    * <p>Additional URLs to allow list if different than the access URL.</p>
+   * @public
    */
   ApprovedOrigins?: string[];
 }
 
 /**
- * @public
  * <p>The configuration for where the application should be loaded from.</p>
+ * @public
  */
 export interface ApplicationSourceConfig {
   /**
-   * @public
    * <p>The external URL source for the application.</p>
+   * @public
    */
   ExternalUrlConfig?: ExternalUrlConfig;
 }
 
 /**
- * @public
  * <p>The configuration of an event that the application publishes.</p>
+ * @public
  */
 export interface Publication {
   /**
-   * @public
    * <p>The name of the publication.</p>
+   * @public
    */
   Event: string | undefined;
 
   /**
-   * @public
    * <p>The JSON schema of the publication event.</p>
+   * @public
    */
   Schema: string | undefined;
 
   /**
-   * @public
    * <p>The description of the publication.</p>
+   * @public
    */
   Description?: string;
 }
 
 /**
- * @public
  * <p>The configuration of an event that the application subscribes.</p>
+ * @public
  */
 export interface Subscription {
   /**
-   * @public
    * <p>The name of the subscription.</p>
+   * @public
    */
   Event: string | undefined;
 
   /**
-   * @public
    * <p>The description of the subscription.</p>
+   * @public
    */
   Description?: string;
 }
@@ -102,63 +102,63 @@ export interface Subscription {
  */
 export interface CreateApplicationRequest {
   /**
-   * @public
    * <p>The name of the application.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the application.</p>
+   * @public
    */
   Namespace: string | undefined;
 
   /**
-   * @public
    * <p>The description of the application.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The configuration for where the application should be loaded from.</p>
+   * @public
    */
   ApplicationSourceConfig: ApplicationSourceConfig | undefined;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The events that the application subscribes.</p>
+   * @public
    */
   Subscriptions?: Subscription[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The events that the application publishes.</p>
+   * @public
    */
   Publications?: Publication[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration of events or requests that the application has access to.</p>
+   * @public
    */
   Permissions?: string[];
 }
@@ -168,21 +168,21 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>A unique identifier for the Application.</p>
+   * @public
    */
   Id?: string;
 }
 
 /**
- * @public
  * <p>A resource with the specified name already exists.</p>
+ * @public
  */
 export class DuplicateResourceException extends __BaseException {
   readonly name: "DuplicateResourceException" = "DuplicateResourceException";
@@ -203,8 +203,8 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request processing failed due to an error or failure with the service.</p>
+ * @public
  */
 export class InternalServiceError extends __BaseException {
   readonly name: "InternalServiceError" = "InternalServiceError";
@@ -225,8 +225,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request is not valid. </p>
+ * @public
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
@@ -247,8 +247,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The allowed quota for the resource has been exceeded.</p>
+ * @public
  */
 export class ResourceQuotaExceededException extends __BaseException {
   readonly name: "ResourceQuotaExceededException" = "ResourceQuotaExceededException";
@@ -269,8 +269,8 @@ export class ResourceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The throttling limit has been exceeded.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -291,8 +291,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation is not supported.</p>
+ * @public
  */
 export class UnsupportedOperationException extends __BaseException {
   readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
@@ -313,44 +313,44 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The configuration for what files should be pulled from the source.</p>
+ * @public
  */
 export interface FileConfiguration {
   /**
-   * @public
    * <p>Identifiers for the source folders to pull all files from recursively.</p>
+   * @public
    */
   Folders: string[] | undefined;
 
   /**
-   * @public
    * <p>Restrictions for what files should be pulled from the source.</p>
+   * @public
    */
   Filters?: Record<string, string[]>;
 }
 
 /**
- * @public
  * <p>The name of the data and how often it should be pulled from the source.</p>
+ * @public
  */
 export interface ScheduleConfiguration {
   /**
-   * @public
    * <p>The start date for objects to import in the first flow run as an Unix/epoch timestamp in
    *       milliseconds or in ISO-8601 format.</p>
+   * @public
    */
   FirstExecutionFrom?: string;
 
   /**
-   * @public
    * <p>The name of the object to pull from the data source.</p>
+   * @public
    */
   Object?: string;
 
   /**
-   * @public
    * <p>How often the data should be pulled from data source.</p>
+   * @public
    */
   ScheduleExpression: string | undefined;
 }
@@ -360,59 +360,59 @@ export interface ScheduleConfiguration {
  */
 export interface CreateDataIntegrationRequest {
   /**
-   * @public
    * <p>The name of the DataIntegration.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the DataIntegration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The KMS key for the DataIntegration.</p>
+   * @public
    */
   KmsKey: string | undefined;
 
   /**
-   * @public
    * <p>The URI of the data source.</p>
+   * @public
    */
   SourceURI: string | undefined;
 
   /**
-   * @public
    * <p>The name of the data and how often it should be pulled from the source.</p>
+   * @public
    */
   ScheduleConfig?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The configuration for what files should be pulled from the source.</p>
+   * @public
    */
   FileConfiguration?: FileConfiguration;
 
   /**
-   * @public
    * <p>The configuration for what data should be pulled from the source.</p>
+   * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
@@ -422,83 +422,83 @@ export interface CreateDataIntegrationRequest {
  */
 export interface CreateDataIntegrationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN)</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>A unique identifier.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the DataIntegration.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>A description of the DataIntegration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The KMS key for the DataIntegration.</p>
+   * @public
    */
   KmsKey?: string;
 
   /**
-   * @public
    * <p>The URI of the data source.</p>
+   * @public
    */
   SourceURI?: string;
 
   /**
-   * @public
    * <p>The name of the data and how often it should be pulled from the source.</p>
+   * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The configuration for what files should be pulled from the source.</p>
+   * @public
    */
   FileConfiguration?: FileConfiguration;
 
   /**
-   * @public
    * <p>The configuration for what data should be pulled from the source.</p>
+   * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
 /**
- * @public
  * <p>The event filter.</p>
+ * @public
  */
 export interface EventFilter {
   /**
-   * @public
    * <p>The source of the events.</p>
+   * @public
    */
   Source: string | undefined;
 }
@@ -508,41 +508,41 @@ export interface EventFilter {
  */
 export interface CreateEventIntegrationRequest {
   /**
-   * @public
    * <p>The name of the event integration.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the event integration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The event filter.</p>
+   * @public
    */
   EventFilter: EventFilter | undefined;
 
   /**
-   * @public
    * <p>The EventBridge bus.</p>
+   * @public
    */
   EventBridgeBus: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -552,8 +552,8 @@ export interface CreateEventIntegrationRequest {
  */
 export interface CreateEventIntegrationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the event integration. </p>
+   * @public
    */
   EventIntegrationArn?: string;
 }
@@ -563,8 +563,8 @@ export interface CreateEventIntegrationResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -575,8 +575,8 @@ export interface DeleteApplicationRequest {
 export interface DeleteApplicationResponse {}
 
 /**
- * @public
  * <p>The specified resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -601,8 +601,8 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteDataIntegrationRequest {
   /**
-   * @public
    * <p>A unique identifier for the DataIntegration.</p>
+   * @public
    */
   DataIntegrationIdentifier: string | undefined;
 }
@@ -617,8 +617,8 @@ export interface DeleteDataIntegrationResponse {}
  */
 export interface DeleteEventIntegrationRequest {
   /**
-   * @public
    * <p>The name of the event integration.</p>
+   * @public
    */
   Name: string | undefined;
 }
@@ -633,8 +633,8 @@ export interface DeleteEventIntegrationResponse {}
  */
 export interface GetApplicationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -644,78 +644,78 @@ export interface GetApplicationRequest {
  */
 export interface GetApplicationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>A unique identifier for the Application.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the application.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The namespace of the application.</p>
+   * @public
    */
   Namespace?: string;
 
   /**
-   * @public
    * <p>The description of the application.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The configuration for where the application should be loaded from.</p>
+   * @public
    */
   ApplicationSourceConfig?: ApplicationSourceConfig;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The events that the application subscribes.</p>
+   * @public
    */
   Subscriptions?: Subscription[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The events that the application publishes.</p>
+   * @public
    */
   Publications?: Publication[];
 
   /**
-   * @public
    * <p>The created time of the Application.</p>
+   * @public
    */
   CreatedTime?: Date;
 
   /**
-   * @public
    * <p>The last modified time of the Application.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration of events or requests that the application has access to.</p>
+   * @public
    */
   Permissions?: string[];
 }
@@ -725,8 +725,8 @@ export interface GetApplicationResponse {
  */
 export interface GetDataIntegrationRequest {
   /**
-   * @public
    * <p>A unique identifier.</p>
+   * @public
    */
   Identifier: string | undefined;
 }
@@ -736,62 +736,62 @@ export interface GetDataIntegrationRequest {
  */
 export interface GetDataIntegrationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the DataIntegration.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>A unique identifier.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the DataIntegration.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The KMS key for the DataIntegration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The KMS key for the DataIntegration.</p>
+   * @public
    */
   KmsKey?: string;
 
   /**
-   * @public
    * <p>The URI of the data source.</p>
+   * @public
    */
   SourceURI?: string;
 
   /**
-   * @public
    * <p>The name of the data and how often it should be pulled from the source.</p>
+   * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration for what files should be pulled from the source.</p>
+   * @public
    */
   FileConfiguration?: FileConfiguration;
 
   /**
-   * @public
    * <p>The configuration for what data should be pulled from the source.</p>
+   * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
@@ -801,8 +801,8 @@ export interface GetDataIntegrationResponse {
  */
 export interface GetEventIntegrationRequest {
   /**
-   * @public
    * <p>The name of the event integration. </p>
+   * @public
    */
   Name: string | undefined;
 }
@@ -812,38 +812,38 @@ export interface GetEventIntegrationRequest {
  */
 export interface GetEventIntegrationResponse {
   /**
-   * @public
    * <p>The name of the event integration. </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The description of the event integration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the event integration.</p>
+   * @public
    */
   EventIntegrationArn?: string;
 
   /**
-   * @public
    * <p>The EventBridge bus.</p>
+   * @public
    */
   EventBridgeBus?: string;
 
   /**
-   * @public
    * <p>The event filter.</p>
+   * @public
    */
   EventFilter?: EventFilter;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -853,45 +853,45 @@ export interface GetEventIntegrationResponse {
  */
 export interface ListApplicationAssociationsRequest {
   /**
-   * @public
    * <p>A unique identifier for the Application.</p>
+   * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about the Application Association.</p>
+ * @public
  */
 export interface ApplicationAssociationSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application Association.</p>
+   * @public
    */
   ApplicationAssociationArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * @public
    */
   ApplicationArn?: string;
 
   /**
-   * @public
    * <p>The identifier for the client that is associated with the Application Association.</p>
+   * @public
    */
   ClientId?: string;
 }
@@ -901,14 +901,14 @@ export interface ApplicationAssociationSummary {
  */
 export interface ListApplicationAssociationsResponse {
   /**
-   * @public
    * <p>List of Application Associations for the Application.</p>
+   * @public
    */
   ApplicationAssociations?: ApplicationAssociationSummary[];
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -918,57 +918,57 @@ export interface ListApplicationAssociationsResponse {
  */
 export interface ListApplicationsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about the Application.</p>
+ * @public
  */
 export interface ApplicationSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>A unique identifier for the Application.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the application.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The namespace of the application.</p>
+   * @public
    */
   Namespace?: string;
 
   /**
-   * @public
    * <p>The time when the application was created.</p>
+   * @public
    */
   CreatedTime?: Date;
 
   /**
-   * @public
    * <p>The time when the application was last modified.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 }
@@ -978,14 +978,14 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * @public
    * <p>The Applications associated with this account.</p>
+   * @public
    */
   Applications?: ApplicationSummary[];
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -995,46 +995,46 @@ export interface ListApplicationsResponse {
  */
 export interface ListDataIntegrationAssociationsRequest {
   /**
-   * @public
    * <p>A unique identifier for the DataIntegration.</p>
+   * @public
    */
   DataIntegrationIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about the DataIntegration association.</p>
+ * @public
  */
 export interface DataIntegrationAssociationSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DataIntegration association.</p>
+   * @public
    */
   DataIntegrationAssociationArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DataIntegration.</p>
+   * @public
    */
   DataIntegrationArn?: string;
 
   /**
-   * @public
    * <p>The identifier for the client that is associated with the DataIntegration
    *       association.</p>
+   * @public
    */
   ClientId?: string;
 }
@@ -1044,14 +1044,14 @@ export interface DataIntegrationAssociationSummary {
  */
 export interface ListDataIntegrationAssociationsResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) and unique ID of the DataIntegration association.</p>
+   * @public
    */
   DataIntegrationAssociations?: DataIntegrationAssociationSummary[];
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1061,39 +1061,39 @@ export interface ListDataIntegrationAssociationsResponse {
  */
 export interface ListDataIntegrationsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about the DataIntegration.</p>
+ * @public
  */
 export interface DataIntegrationSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DataIntegration.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The name of the DataIntegration.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The URI of the data source.</p>
+   * @public
    */
   SourceURI?: string;
 }
@@ -1103,14 +1103,14 @@ export interface DataIntegrationSummary {
  */
 export interface ListDataIntegrationsResponse {
   /**
-   * @public
    * <p>The DataIntegrations associated with this account.</p>
+   * @public
    */
   DataIntegrations?: DataIntegrationSummary[];
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1120,63 +1120,63 @@ export interface ListDataIntegrationsResponse {
  */
 export interface ListEventIntegrationAssociationsRequest {
   /**
-   * @public
    * <p>The name of the event integration. </p>
+   * @public
    */
   EventIntegrationName: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>The event integration association.</p>
+ * @public
  */
 export interface EventIntegrationAssociation {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the event integration association.</p>
+   * @public
    */
   EventIntegrationAssociationArn?: string;
 
   /**
-   * @public
    * <p>The identifier for the event integration association.</p>
+   * @public
    */
   EventIntegrationAssociationId?: string;
 
   /**
-   * @public
    * <p>The name of the event integration.</p>
+   * @public
    */
   EventIntegrationName?: string;
 
   /**
-   * @public
    * <p>The identifier for the client that is associated with the event integration.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>The name of the EventBridge rule.</p>
+   * @public
    */
   EventBridgeRuleName?: string;
 
   /**
-   * @public
    * <p>The metadata associated with the client.</p>
+   * @public
    */
   ClientAssociationMetadata?: Record<string, string>;
 }
@@ -1186,14 +1186,14 @@ export interface EventIntegrationAssociation {
  */
 export interface ListEventIntegrationAssociationsResponse {
   /**
-   * @public
    * <p>The event integration associations.</p>
+   * @public
    */
   EventIntegrationAssociations?: EventIntegrationAssociation[];
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1203,57 +1203,57 @@ export interface ListEventIntegrationAssociationsResponse {
  */
 export interface ListEventIntegrationsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>The event integration.</p>
+ * @public
  */
 export interface EventIntegration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the event integration.</p>
+   * @public
    */
   EventIntegrationArn?: string;
 
   /**
-   * @public
    * <p>The name of the event integration.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The event integration description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The event integration filter.</p>
+   * @public
    */
   EventFilter?: EventFilter;
 
   /**
-   * @public
    * <p>The Amazon EventBridge bus for the event integration.</p>
+   * @public
    */
   EventBridgeBus?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1263,14 +1263,14 @@ export interface EventIntegration {
  */
 export interface ListEventIntegrationsResponse {
   /**
-   * @public
    * <p>The event integrations.</p>
+   * @public
    */
   EventIntegrations?: EventIntegration[];
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1280,8 +1280,8 @@ export interface ListEventIntegrationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource. </p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1291,8 +1291,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Information about the tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1302,14 +1302,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1324,14 +1324,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -1346,48 +1346,48 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApplicationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the application.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The description of the application.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The configuration for where the application should be loaded from.</p>
+   * @public
    */
   ApplicationSourceConfig?: ApplicationSourceConfig;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The events that the application subscribes.</p>
+   * @public
    */
   Subscriptions?: Subscription[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The events that the application publishes.</p>
+   * @public
    */
   Publications?: Publication[];
 
   /**
-   * @public
    * <p>The configuration of events or requests that the application has access to.</p>
+   * @public
    */
   Permissions?: string[];
 }
@@ -1402,20 +1402,20 @@ export interface UpdateApplicationResponse {}
  */
 export interface UpdateDataIntegrationRequest {
   /**
-   * @public
    * <p>A unique identifier for the DataIntegration.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of the DataIntegration.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>A description of the DataIntegration.</p>
+   * @public
    */
   Description?: string;
 }
@@ -1430,14 +1430,14 @@ export interface UpdateDataIntegrationResponse {}
  */
 export interface UpdateEventIntegrationRequest {
   /**
-   * @public
    * <p>The name of the event integration.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the event integration.</p>
+   * @public
    */
   Description?: string;
 }

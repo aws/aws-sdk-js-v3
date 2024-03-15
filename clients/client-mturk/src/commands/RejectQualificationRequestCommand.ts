@@ -27,7 +27,6 @@ export interface RejectQualificationRequestCommandInput extends RejectQualificat
 export interface RejectQualificationRequestCommandOutput extends RejectQualificationRequestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>RejectQualificationRequest</code>
@@ -66,6 +65,7 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class RejectQualificationRequestCommand extends $Command
   .classBuilder<

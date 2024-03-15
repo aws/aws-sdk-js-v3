@@ -27,7 +27,6 @@ export interface PublishTypeCommandInput extends PublishTypeInput {}
 export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes the specified extension to the CloudFormation registry as a public extension in this Region. Public
  *    extensions are available for use by all CloudFormation users. For more information about publishing extensions, see
  *    <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to
@@ -70,6 +69,7 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class PublishTypeCommand extends $Command
   .classBuilder<

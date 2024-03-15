@@ -27,7 +27,6 @@ export interface ListObjectsCommandInput extends ListObjectsRequest {}
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -139,6 +138,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To list objects in a bucket
  * ```javascript
  * // The following example list two objects in a bucket.

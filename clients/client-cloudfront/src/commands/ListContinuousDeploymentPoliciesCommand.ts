@@ -32,7 +32,6 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the continuous deployment policies in your Amazon Web Services account.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -110,6 +109,7 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListContinuousDeploymentPoliciesCommand extends $Command
   .classBuilder<

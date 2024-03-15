@@ -29,7 +29,6 @@ export interface CreateAccessGrantCommandInput extends CreateAccessGrantRequest 
 export interface CreateAccessGrantCommandOutput extends CreateAccessGrantResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an access grant that gives a grantee access to your S3 data. The grantee can be an IAM user or role or a directory user, or group. Before you can create a grant, you must have an S3 Access Grants instance in the same Region as the S3 data. You can create an S3 Access Grants instance using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsInstance.html">CreateAccessGrantsInstance</a>. You must also have registered at least one S3 data location in your S3 Access Grants instance using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsLocation.html">CreateAccessGrantsLocation</a>.  </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -102,6 +101,7 @@ export interface CreateAccessGrantCommandOutput extends CreateAccessGrantResult,
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class CreateAccessGrantCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ActivateGatewayCommandInput extends ActivateGatewayInput {}
 export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates the gateway you previously deployed on your host. In the activation process,
  *          you specify information such as the Amazon Web Services Region that you want to use for
  *          storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot
@@ -82,6 +81,7 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To activate the gateway
  * ```javascript
  * // Activates the gateway you previously deployed on your host.

@@ -27,7 +27,6 @@ export interface DeleteSlotCommandInput extends DeleteSlotRequest {}
 export interface DeleteSlotCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified slot from an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteSlotCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteSlotCommand extends $Command
   .classBuilder<

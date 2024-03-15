@@ -27,7 +27,6 @@ export interface GetPushTemplateCommandInput extends GetPushTemplateRequest {}
 export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetPushTemplateCommand extends $Command
   .classBuilder<

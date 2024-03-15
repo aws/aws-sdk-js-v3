@@ -27,7 +27,6 @@ export interface ListScramSecretsCommandInput extends ListScramSecretsRequest {}
 export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class ListScramSecretsCommand extends $Command
   .classBuilder<

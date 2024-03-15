@@ -27,7 +27,6 @@ export interface CreateBotReplicaCommandInput extends CreateBotReplicaRequest {}
 export interface CreateBotReplicaCommandOutput extends CreateBotReplicaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Action to create a replication of the source bot in the secondary region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateBotReplicaCommandOutput extends CreateBotReplicaResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateBotReplicaCommand extends $Command
   .classBuilder<

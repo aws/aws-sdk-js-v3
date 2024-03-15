@@ -27,7 +27,6 @@ export interface CreateGroupCommandInput extends CreateGroupInput {}
 export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a resource group with the specified name and description. You can optionally
  *             include either a resource query or a service configuration. For more information about
  *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html">Build queries and groups in
@@ -148,6 +147,7 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class CreateGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeLaunchTemplatesCommandInput extends DescribeLaunchTempl
 export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemplatesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more launch templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a launch template
  * ```javascript
  * // This example describes the specified launch template.

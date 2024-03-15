@@ -35,7 +35,6 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a list of environmental variables in an API by its ID value. </p>
  *          <p>When creating an environmental variable, it must follow the constraints below:</p>
  *          <ul>
@@ -132,6 +131,7 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class PutGraphqlApiEnvironmentVariablesCommand extends $Command
   .classBuilder<

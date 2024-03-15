@@ -31,7 +31,6 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -364,6 +363,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDataSourceCommand extends $Command
   .classBuilder<

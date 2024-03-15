@@ -27,7 +27,6 @@ export interface DeleteEvaluationFormCommandInput extends DeleteEvaluationFormRe
 export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an evaluation form in the specified Amazon Connect instance. </p>
  *          <ul>
  *             <li>
@@ -79,6 +78,7 @@ export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteEvaluationFormCommand extends $Command
   .classBuilder<

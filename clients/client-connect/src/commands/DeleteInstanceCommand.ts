@@ -27,7 +27,6 @@ export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes the Amazon Connect instance.</p>
  *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
@@ -66,6 +65,7 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteInstanceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteStateMachineCommandInput extends DeleteStateMachineInput 
 export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a state machine. This is an asynchronous operation. It sets the state machine's
  *       status to <code>DELETING</code> and begins the deletion process. A state machine is deleted only when all its executions are completed. On the next state transition, the state machine's executions are terminated.</p>
  *          <p>A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined within a state machine, a version ARN, or an alias ARN.</p>
@@ -85,6 +84,7 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DeleteStateMachineCommand extends $Command
   .classBuilder<

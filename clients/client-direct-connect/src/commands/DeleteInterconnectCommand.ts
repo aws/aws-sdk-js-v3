@@ -27,7 +27,6 @@ export interface DeleteInterconnectCommandInput extends DeleteInterconnectReques
 export interface DeleteInterconnectCommandOutput extends DeleteInterconnectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use
@@ -65,6 +64,7 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteInterconnectCommand extends $Command
   .classBuilder<

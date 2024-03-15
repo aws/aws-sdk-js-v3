@@ -27,7 +27,6 @@ export interface DiscoverPollEndpointCommandInput extends DiscoverPollEndpointRe
 export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -69,6 +68,7 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class DiscoverPollEndpointCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeJobLogItemsCommandInput extends DescribeJobLogItemsRequ
 export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves detailed job log items with paging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DescribeJobLogItemsCommand extends $Command
   .classBuilder<

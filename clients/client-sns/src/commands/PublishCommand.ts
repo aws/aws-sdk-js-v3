@@ -27,7 +27,6 @@ export interface PublishCommandInput extends PublishInput {}
 export interface PublishCommandOutput extends PublishResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone
  *             number, or a message to a mobile platform endpoint (when you specify the
  *                 <code>TargetArn</code>).</p>
@@ -142,6 +141,7 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class PublishCommand extends $Command
   .classBuilder<

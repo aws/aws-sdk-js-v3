@@ -27,7 +27,6 @@ export interface RemoveThingFromThingGroupCommandInput extends RemoveThingFromTh
 export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove the specified thing from the specified group.</p>
  *          <p>You must specify either a <code>thingGroupArn</code> or a
  * 			<code>thingGroupName</code> to identify the thing group and
@@ -74,6 +73,7 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class RemoveThingFromThingGroupCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateWatchlistCommandInput extends UpdateWatchlistRequest {}
 export interface UpdateWatchlistCommandOutput extends UpdateWatchlistResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified watchlist. Every domain has a default watchlist which cannot be updated.
  *         </p>
  * @example
@@ -97,6 +96,7 @@ export interface UpdateWatchlistCommandOutput extends UpdateWatchlistResponse, _
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class UpdateWatchlistCommand extends $Command
   .classBuilder<

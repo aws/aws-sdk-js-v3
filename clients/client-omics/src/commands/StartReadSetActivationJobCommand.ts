@@ -27,7 +27,6 @@ export interface StartReadSetActivationJobCommandInput extends StartReadSetActiv
 export interface StartReadSetActivationJobCommandOutput extends StartReadSetActivationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates an archived read set. To reduce storage charges, Amazon Omics archives unused read
  *        sets after 30 days.</p>
  * @example
@@ -86,6 +85,7 @@ export interface StartReadSetActivationJobCommandOutput extends StartReadSetActi
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class StartReadSetActivationJobCommand extends $Command
   .classBuilder<

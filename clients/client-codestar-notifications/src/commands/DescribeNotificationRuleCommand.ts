@@ -35,7 +35,6 @@ export interface DescribeNotificationRuleCommandInput extends DescribeNotificati
 export interface DescribeNotificationRuleCommandOutput extends DescribeNotificationRuleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specified notification rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class DescribeNotificationRuleCommand extends $Command
   .classBuilder<

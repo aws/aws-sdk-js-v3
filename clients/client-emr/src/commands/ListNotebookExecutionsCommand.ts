@@ -27,7 +27,6 @@ export interface ListNotebookExecutionsCommandInput extends ListNotebookExecutio
 export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecutionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides summaries of all notebook executions. You can filter the list based on multiple
  *          criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
  *          executions and a marker to track the paging of a longer notebook execution list across
@@ -85,6 +84,7 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListNotebookExecutionsCommand extends $Command
   .classBuilder<

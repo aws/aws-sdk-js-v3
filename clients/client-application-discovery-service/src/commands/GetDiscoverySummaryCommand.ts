@@ -31,7 +31,6 @@ export interface GetDiscoverySummaryCommandInput extends GetDiscoverySummaryRequ
 export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a short summary of discovered assets.</p>
  *          <p>This API operation takes no request parameters and is called as is at the command
  *       prompt as shown in the example.</p>
@@ -115,6 +114,7 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class GetDiscoverySummaryCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required
  *             parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
  *             EC2SecurityGroupName or EC2SecurityGroupId).</p>
@@ -103,6 +102,7 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To revoke ingress for a DB security group
  * ```javascript
  * // This example revokes ingress for the specified CIDR block associated with the specified DB security group.

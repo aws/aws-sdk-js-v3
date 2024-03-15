@@ -32,7 +32,6 @@ export interface ListDevicePositionsCommandInput extends ListDevicePositionsRequ
 export interface ListDevicePositionsCommandOutput extends ListDevicePositionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A batch request to retrieve all device positions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class ListDevicePositionsCommand extends $Command
   .classBuilder<

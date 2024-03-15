@@ -27,7 +27,6 @@ export interface DescribeEventsDetectionJobCommandInput extends DescribeEventsDe
 export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status and details of an events detection job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsD
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeEventsDetectionJobCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces service. The account owner of the service is always the
  *       environment owner, regardless of which account in the environment creates the service.
  *       Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda
@@ -133,6 +132,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class CreateServiceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListMFADeviceTagsCommandInput extends ListMFADeviceTagsRequest 
 export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags that are attached to the specified IAM virtual multi-factor authentication (MFA) device. The returned list of tags is
  *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -78,6 +77,7 @@ export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListMFADeviceTagsCommand extends $Command
   .classBuilder<

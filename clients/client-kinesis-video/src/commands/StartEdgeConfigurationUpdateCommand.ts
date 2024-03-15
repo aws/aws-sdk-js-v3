@@ -37,7 +37,6 @@ export interface StartEdgeConfigurationUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>An asynchronous API that updates a stream’s existing edge configuration.
  *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
  *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
@@ -174,6 +173,7 @@ export interface StartEdgeConfigurationUpdateCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class StartEdgeConfigurationUpdateCommand extends $Command
   .classBuilder<

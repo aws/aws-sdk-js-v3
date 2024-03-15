@@ -27,7 +27,6 @@ export interface DescribeConfigurationSetCommandInput extends DescribeConfigurat
 export interface DescribeConfigurationSetCommandOutput extends DescribeConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of the specified configuration set. For information about using
  *             configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
  *             Guide</a>.</p>
@@ -102,6 +101,7 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationSetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateVpcIngressConnectionCommandInput extends CreateVpcIngress
 export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an App Runner VPC Ingress Connection resource. App Runner requires this resource when you want to associate your App Runner service with an Amazon VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class CreateVpcIngressConnectionCommand extends $Command
   .classBuilder<

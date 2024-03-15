@@ -27,7 +27,6 @@ export interface UpdateVocabularyFilterCommandInput extends UpdateVocabularyFilt
 export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing custom vocabulary filter with a new list of words. The new list
  *             you provide overwrites all previous entries; you cannot append new terms onto an
  *             existing custom vocabulary filter.</p>
@@ -82,6 +81,7 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class UpdateVocabularyFilterCommand extends $Command
   .classBuilder<

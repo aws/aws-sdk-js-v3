@@ -27,7 +27,6 @@ export interface ProvisionPermissionSetCommandInput extends ProvisionPermissionS
 export interface ProvisionPermissionSetCommandOutput extends ProvisionPermissionSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The process by which a specified permission set is provisioned to the specified
  *             target.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ProvisionPermissionSetCommand extends $Command
   .classBuilder<

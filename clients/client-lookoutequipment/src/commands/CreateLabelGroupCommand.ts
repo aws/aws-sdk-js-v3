@@ -27,7 +27,6 @@ export interface CreateLabelGroupCommandInput extends CreateLabelGroupRequest {}
 export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a group of labels. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class CreateLabelGroupCommand extends $Command
   .classBuilder<

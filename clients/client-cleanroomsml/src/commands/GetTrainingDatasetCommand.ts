@@ -27,7 +27,6 @@ export interface GetTrainingDatasetCommandInput extends GetTrainingDatasetReques
 export interface GetTrainingDatasetCommandOutput extends GetTrainingDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a training dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetTrainingDatasetCommandOutput extends GetTrainingDatasetRespo
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class GetTrainingDatasetCommand extends $Command
   .classBuilder<

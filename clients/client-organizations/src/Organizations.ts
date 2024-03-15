@@ -1171,7 +1171,6 @@ export interface Organizations {
 }
 
 /**
- * @public
  * <p>Organizations is a web service that enables you to consolidate your multiple
  *             Amazon Web Services accounts into an <i>organization</i> and centrally manage your
  *             accounts and their resources.</p>
@@ -1244,6 +1243,7 @@ export interface Organizations {
  *                 Organizations API calls with CloudTrail</a> in the
  *             <i>Organizations User Guide</i>. To learn more about CloudTrail, including how to turn it
  *             on and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">CloudTrail User Guide</a>.</p>
+ * @public
  */
 export class Organizations extends OrganizationsClient implements Organizations {}
 createAggregatedClient(commands, Organizations);

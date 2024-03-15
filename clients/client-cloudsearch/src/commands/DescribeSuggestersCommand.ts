@@ -27,7 +27,6 @@ export interface DescribeSuggestersCommandInput extends DescribeSuggestersReques
 export interface DescribeSuggestersCommandOutput extends DescribeSuggestersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries.  Can be limited to specific suggesters by name.  By default, shows all suggesters and includes any pending changes to the configuration. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes.  For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DescribeSuggestersCommand extends $Command
   .classBuilder<

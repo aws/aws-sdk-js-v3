@@ -27,7 +27,6 @@ export interface CreateOrganizationCommandInput extends CreateOrganizationReques
 export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
  *          <p>You can associate multiple email domains with an organization, then choose your
  *          default email domain from the WorkMail console. You can also associate a domain that is managed
@@ -88,6 +87,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class CreateOrganizationCommand extends $Command
   .classBuilder<

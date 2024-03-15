@@ -27,7 +27,6 @@ export interface DisassociateAccountsCommandInput extends DisassociateAccountsIn
 export interface DisassociateAccountsCommandOutput extends DisassociateAccountsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified list of account IDs from the given billing group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class DisassociateAccountsCommand extends $Command
   .classBuilder<

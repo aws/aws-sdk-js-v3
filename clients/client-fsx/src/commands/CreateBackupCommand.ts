@@ -27,7 +27,6 @@ export interface CreateBackupCommandInput extends CreateBackupRequest {}
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a backup of an existing Amazon FSx for Windows File Server file
  *             system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP
  *             volume, or Amazon FSx for OpenZFS file system. We recommend creating regular
@@ -725,6 +724,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To create a new backup
  * ```javascript
  * // This operation creates a new backup.

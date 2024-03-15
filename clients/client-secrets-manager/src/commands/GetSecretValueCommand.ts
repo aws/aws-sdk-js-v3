@@ -31,7 +31,6 @@ export interface GetSecretValueCommandInput extends GetSecretValueRequest {}
 export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
  *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
  *       content.</p>
@@ -116,6 +115,7 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To retrieve the encrypted secret value of a secret
  * ```javascript
  * // The following example shows how to retrieve a secret string value.

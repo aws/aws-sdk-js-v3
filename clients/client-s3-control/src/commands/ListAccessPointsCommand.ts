@@ -28,7 +28,6 @@ export interface ListAccessPointsCommandInput extends ListAccessPointsRequest {}
 export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -102,6 +101,7 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class ListAccessPointsCommand extends $Command
   .classBuilder<

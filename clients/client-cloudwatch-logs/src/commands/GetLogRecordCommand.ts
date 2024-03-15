@@ -27,7 +27,6 @@ export interface GetLogRecordCommandInput extends GetLogRecordRequest {}
 export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all of the fields and values of a single log event. All fields are retrieved,
  *       even if the original query that produced the <code>logRecordPointer</code> retrieved only a
  *       subset of fields. Fields are returned as field name/field value pairs.</p>
@@ -73,6 +72,7 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetLogRecordCommand extends $Command
   .classBuilder<

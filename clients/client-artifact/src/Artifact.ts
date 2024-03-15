@@ -131,8 +131,8 @@ export interface Artifact {
 }
 
 /**
- * @public
  * <p>This reference provides descriptions of the low-level AWS Artifact Service API.</p>
+ * @public
  */
 export class Artifact extends ArtifactClient implements Artifact {}
 createAggregatedClient(commands, Artifact);

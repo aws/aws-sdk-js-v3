@@ -27,7 +27,6 @@ export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
 export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a segment from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -229,6 +228,7 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteSegmentCommand extends $Command
   .classBuilder<

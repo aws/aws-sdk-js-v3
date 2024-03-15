@@ -27,7 +27,6 @@ export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.
  *             How the policy affects accounts depends on the type of policy. Refer to the
  *                 <i>Organizations User Guide</i> for information about each policy type:</p>
@@ -429,6 +428,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To attach a policy to an OU
  * ```javascript
  * // The following example shows how to attach a service control policy (SCP) to an OU:

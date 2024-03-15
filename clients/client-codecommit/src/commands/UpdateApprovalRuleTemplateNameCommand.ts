@@ -32,7 +32,6 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name of a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpdateApprovalRuleTemplateNameCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdateApprovalRuleTemplateNameCommand extends $Command
   .classBuilder<

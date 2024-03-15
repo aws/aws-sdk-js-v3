@@ -31,7 +31,6 @@ export interface ListLogPatternSetsCommandInput extends ListLogPatternSetsReques
 export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the log pattern sets in the specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class ListLogPatternSetsCommand extends $Command
   .classBuilder<

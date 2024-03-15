@@ -31,7 +31,6 @@ export interface DeleteHomeRegionControlCommandInput extends DeleteHomeRegionCon
 export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionControlResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes the home region configuration for the calling account. The operation does not delete discovery or migration tracking data in the home region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionCo
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ * @public
  */
 export class DeleteHomeRegionControlCommand extends $Command
   .classBuilder<

@@ -1341,8 +1341,8 @@ export interface RestXmlProtocol {
 }
 
 /**
- * @public
  * A REST XML service that sends XML requests and responses.
+ * @public
  */
 export class RestXmlProtocol extends RestXmlProtocolClient implements RestXmlProtocol {}
 createAggregatedClient(commands, RestXmlProtocol);

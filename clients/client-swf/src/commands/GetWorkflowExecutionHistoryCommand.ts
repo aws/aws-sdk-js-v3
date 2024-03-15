@@ -27,7 +27,6 @@ export interface GetWorkflowExecutionHistoryCommandInput extends GetWorkflowExec
 export interface GetWorkflowExecutionHistoryCommandOutput extends History, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the history of the specified workflow execution. The results may be split into
  *       multiple pages. To retrieve subsequent pages, make the call again using the
  *         <code>nextPageToken</code> returned by the initial call.</p>
@@ -483,6 +482,7 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class GetWorkflowExecutionHistoryCommand extends $Command
   .classBuilder<

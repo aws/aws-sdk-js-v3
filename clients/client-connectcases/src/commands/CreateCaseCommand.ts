@@ -27,7 +27,6 @@ export interface CreateCaseCommandInput extends CreateCaseRequest {}
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
  *          </note>
@@ -116,6 +115,7 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class CreateCaseCommand extends $Command
   .classBuilder<

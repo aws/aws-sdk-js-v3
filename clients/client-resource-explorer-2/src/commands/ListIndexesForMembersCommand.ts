@@ -31,7 +31,6 @@ export interface ListIndexesForMembersCommandInput extends ListIndexesForMembers
 export interface ListIndexesForMembersCommandOutput extends ListIndexesForMembersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of a member's indexes in all Amazon Web Services Regions that are currently
  *             collecting resource information for Amazon Web Services Resource Explorer. Only the management account or a
  *             delegated administrator with service access enabled can invoke this API call.
@@ -91,6 +90,7 @@ export interface ListIndexesForMembersCommandOutput extends ListIndexesForMember
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class ListIndexesForMembersCommand extends $Command
   .classBuilder<

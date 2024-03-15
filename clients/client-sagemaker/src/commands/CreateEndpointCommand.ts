@@ -27,7 +27,6 @@ export interface CreateEndpointCommandInput extends CreateEndpointInput {}
 export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an endpoint using the endpoint configuration specified in the request. SageMaker
  *             uses the endpoint to provision resources and deploy models. You create the endpoint
  *             configuration with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> API. </p>
@@ -177,6 +176,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateEndpointCommand extends $Command
   .classBuilder<

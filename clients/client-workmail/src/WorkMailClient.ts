@@ -651,7 +651,6 @@ export type WorkMailClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface WorkMailClientResolvedConfig extends WorkMailClientResolvedConfigType {}
 
 /**
- * @public
  * <p>WorkMail is a secure, managed business email and calendaring service with support for
  *          existing desktop and mobile email clients. You can access your email, contacts, and
  *          calendars using Microsoft Outlook, your browser, or other native iOS and Android email
@@ -688,6 +687,7 @@ export interface WorkMailClientResolvedConfig extends WorkMailClientResolvedConf
  *          users, groups, and resources. This allows developers to perform the scenarios listed above,
  *          as well as give users the ability to grant access on a selective basis using the IAM
  *          model.</p>
+ * @public
  */
 export class WorkMailClient extends __Client<
   __HttpHandlerOptions,

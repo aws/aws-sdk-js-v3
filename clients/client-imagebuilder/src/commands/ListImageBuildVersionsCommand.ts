@@ -27,7 +27,6 @@ export interface ListImageBuildVersionsCommandInput extends ListImageBuildVersio
 export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of image build versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListImageBuildVersionsCommand extends $Command
   .classBuilder<

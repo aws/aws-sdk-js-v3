@@ -27,7 +27,6 @@ export interface ListObjectAttributesCommandInput extends ListObjectAttributesRe
 export interface ListObjectAttributesCommandOutput extends ListObjectAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all attributes that are associated with an object.
  *       </p>
  * @example
@@ -114,6 +113,7 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListObjectAttributesCommand extends $Command
   .classBuilder<

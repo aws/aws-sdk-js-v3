@@ -27,7 +27,6 @@ export interface DetachObjectCommandInput extends DetachObjectRequest {}
 export interface DetachObjectCommandOutput extends DetachObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a given object from the parent object. The object that is to be detached from the
  *       parent is specified by the link name.</p>
  * @example
@@ -89,6 +88,7 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class DetachObjectCommand extends $Command
   .classBuilder<

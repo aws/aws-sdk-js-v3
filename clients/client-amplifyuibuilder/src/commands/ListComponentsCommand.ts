@@ -27,7 +27,6 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of components for a specified Amplify app and backend
  *       environment.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ListComponentsCommand extends $Command
   .classBuilder<

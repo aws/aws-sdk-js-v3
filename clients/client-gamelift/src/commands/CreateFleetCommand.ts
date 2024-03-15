@@ -27,7 +27,6 @@ export interface CreateFleetCommandInput extends CreateFleetInput {}
 export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your custom game server or
  *             Realtime Servers. Use this operation to configure the computing resources for your fleet and
  *             provide instructions for running game servers on each instance.</p>
@@ -231,6 +230,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateFleetCommand extends $Command
   .classBuilder<

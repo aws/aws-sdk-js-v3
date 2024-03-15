@@ -27,7 +27,6 @@ export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
 export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the
  *             specified PEM or PPK format. Amazon EC2 stores the public key and displays the private
  *             key for you to save to a file. The private key is returned as an unencrypted PEM encoded
@@ -88,6 +87,7 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a key pair
  * ```javascript
  * // This example creates a key pair named my-key-pair.

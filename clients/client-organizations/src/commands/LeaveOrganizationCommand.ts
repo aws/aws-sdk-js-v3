@@ -26,7 +26,6 @@ export interface LeaveOrganizationCommandInput {}
 export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a member account from its parent organization. This version of the operation
  *             is performed by the account that wants to leave. To remove a member account as a user in
  *             the management account, use <a>RemoveAccountFromOrganization</a>
@@ -452,6 +451,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To leave an organization as a member account
  * ```javascript
  * // TThe following example shows how to remove your member account from an organization:

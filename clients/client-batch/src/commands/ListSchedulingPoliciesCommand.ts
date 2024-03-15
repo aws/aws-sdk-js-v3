@@ -27,7 +27,6 @@ export interface ListSchedulingPoliciesCommandInput extends ListSchedulingPolici
 export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Batch scheduling policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPolic
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  */
 export class ListSchedulingPoliciesCommand extends $Command
   .classBuilder<

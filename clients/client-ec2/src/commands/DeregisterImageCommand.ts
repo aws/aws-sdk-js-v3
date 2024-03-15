@@ -27,7 +27,6 @@ export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
 export interface DeregisterImageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
  *        launch new instances.</p>
  *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
@@ -65,6 +64,7 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeregisterImageCommand extends $Command
   .classBuilder<

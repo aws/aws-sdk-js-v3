@@ -29,7 +29,6 @@ export interface GetDataAccessCommandInput extends GetDataAccessRequest {}
 export interface GetDataAccessCommandOutput extends GetDataAccessResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a temporary access credential from S3 Access Grants to the grantee or client application. The <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html">temporary credential</a> is an Amazon Web Services STS token that grants them access to the S3 data. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -78,6 +77,7 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetDataAccessCommand extends $Command
   .classBuilder<

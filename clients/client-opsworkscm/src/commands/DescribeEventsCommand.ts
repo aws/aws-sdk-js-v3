@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Describes events for a specified server. Results are ordered by time, with newest events first.
  *     </p>
@@ -86,6 +85,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

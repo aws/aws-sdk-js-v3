@@ -32,7 +32,6 @@ export interface DescribeAnalysisPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the read and write permissions for an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeAnalysisPermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeAnalysisPermissionsCommand extends $Command
   .classBuilder<

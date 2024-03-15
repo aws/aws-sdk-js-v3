@@ -27,7 +27,6 @@ export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInfor
 export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a gateway's name. Specify which gateway to update using the Amazon Resource Name
  *       (ARN) of the gateway in your request.</p>
  * @example
@@ -73,6 +72,7 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class UpdateGatewayInformationCommand extends $Command
   .classBuilder<

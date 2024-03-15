@@ -27,7 +27,6 @@ export interface ExecuteActionCommandInput extends ExecuteActionRequest {}
 export interface ExecuteActionCommandOutput extends ExecuteActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes an action on a target resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ExecuteActionCommandOutput extends ExecuteActionResponse, __Met
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ExecuteActionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAlarmModelVersionsCommandInput extends ListAlarmModelVersio
 export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the versions of an alarm model. The operation returns only the metadata
  *       associated with each alarm model version.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class ListAlarmModelVersionsCommand extends $Command
   .classBuilder<

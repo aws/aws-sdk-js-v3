@@ -27,7 +27,6 @@ export interface ListMonitoredResourcesCommandInput extends ListMonitoredResourc
 export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * 			Returns the list of all log groups that are being monitored and tagged by DevOps Guru.
  * 		</p>
@@ -100,6 +99,7 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class ListMonitoredResourcesCommand extends $Command
   .classBuilder<

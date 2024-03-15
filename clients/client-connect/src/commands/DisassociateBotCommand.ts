@@ -27,7 +27,6 @@ export interface DisassociateBotCommandInput extends DisassociateBotRequest {}
 export interface DisassociateBotCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
  *    bot. </p>
@@ -74,6 +73,7 @@ export interface DisassociateBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateBotCommand extends $Command
   .classBuilder<

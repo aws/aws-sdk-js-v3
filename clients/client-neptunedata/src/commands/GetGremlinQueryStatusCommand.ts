@@ -27,7 +27,6 @@ export interface GetGremlinQueryStatusCommandInput extends GetGremlinQueryStatus
 export interface GetGremlinQueryStatusCommandOutput extends GetGremlinQueryStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of a specified Gremlin query.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
  *       authentication enabled, the IAM user or role making the request must
@@ -119,6 +118,7 @@ export interface GetGremlinQueryStatusCommandOutput extends GetGremlinQueryStatu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetGremlinQueryStatusCommand extends $Command
   .classBuilder<

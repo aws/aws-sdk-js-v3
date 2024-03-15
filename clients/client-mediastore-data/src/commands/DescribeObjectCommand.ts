@@ -27,7 +27,6 @@ export interface DescribeObjectCommandInput extends DescribeObjectRequest {}
 export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the headers for an object at the specified path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * @public
  */
 export class DescribeObjectCommand extends $Command
   .classBuilder<

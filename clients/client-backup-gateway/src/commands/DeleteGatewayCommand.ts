@@ -27,7 +27,6 @@ export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a backup gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class DeleteGatewayCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateModelManifestCommandInput extends CreateModelManifestRequ
 export interface CreateModelManifestCommandOutput extends CreateModelManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a vehicle model (model manifest) that specifies signals (attributes,
  *             branches, sensors, and actuators). </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/vehicle-models.html">Vehicle models</a>
@@ -95,6 +94,7 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class CreateModelManifestCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CloseInstancePublicPortsCommandInput extends CloseInstancePubli
 export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePublicPortsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Closes ports for a specific Amazon Lightsail instance.</p>
  *          <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via
  *       resource tags applied to the resource identified by <code>instanceName</code>. For more
@@ -118,6 +117,7 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CloseInstancePublicPortsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface RestoreCoreNetworkPolicyVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a previous policy version as a new, immutable version of a core network policy. A subsequent change set is created showing the differences between the LIVE policy and restored policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface RestoreCoreNetworkPolicyVersionCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class RestoreCoreNetworkPolicyVersionCommand extends $Command
   .classBuilder<

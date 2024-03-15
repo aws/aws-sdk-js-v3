@@ -27,7 +27,6 @@ export interface PushDomainCommandInput extends PushDomainRequest {}
 export interface PushDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Moves a domain from Amazon Web Services to another registrar. </p>
  *          <p>Supported actions:</p>
  *          <ul>
@@ -74,6 +73,7 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class PushDomainCommand extends $Command
   .classBuilder<

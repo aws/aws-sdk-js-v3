@@ -27,7 +27,6 @@ export interface RegisterDBProxyTargetsCommandInput extends RegisterDBProxyTarge
 export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class RegisterDBProxyTargetsCommand extends $Command
   .classBuilder<

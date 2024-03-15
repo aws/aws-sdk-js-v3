@@ -32,7 +32,6 @@ export interface SearchPlaceIndexForTextCommandInput extends SearchPlaceIndexFor
 export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexForTextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
  *             search for Places or points of interest. </p>
  *          <p>Optional parameters let you narrow your search results by bounding box or country, or
@@ -158,6 +157,7 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class SearchPlaceIndexForTextCommand extends $Command
   .classBuilder<

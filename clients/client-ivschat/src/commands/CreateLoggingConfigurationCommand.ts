@@ -27,7 +27,6 @@ export interface CreateLoggingConfigurationCommandInput extends CreateLoggingCon
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a logging configuration that allows clients to store and record sent
  *          messages.</p>
  * @example
@@ -107,6 +106,7 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class CreateLoggingConfigurationCommand extends $Command
   .classBuilder<

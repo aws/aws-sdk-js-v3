@@ -35,7 +35,6 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES
  *             forwards bounce and complaint notifications as email. Feedback forwarding can only be
  *             disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and
@@ -72,6 +71,7 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SetIdentityFeedbackForwardingEnabled
  * ```javascript
  * // The following example configures Amazon SES to forward an identity's bounces and complaints via email:

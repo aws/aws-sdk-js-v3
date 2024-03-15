@@ -27,7 +27,6 @@ export interface CopyProjectVersionCommandInput extends CopyProjectVersionReques
 export interface CopyProjectVersionCommandOutput extends CopyProjectVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -125,6 +124,7 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example CopyProjectVersion
  * ```javascript
  * // Copies a version of an Amazon Rekognition Custom Labels model from a source project to a destination project.

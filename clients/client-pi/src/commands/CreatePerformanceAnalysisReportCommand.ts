@@ -32,7 +32,6 @@ export interface CreatePerformanceAnalysisReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new performance analysis report for a specific time period for the
  *             DB instance.</p>
  * @example
@@ -79,6 +78,7 @@ export interface CreatePerformanceAnalysisReportCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class CreatePerformanceAnalysisReportCommand extends $Command
   .classBuilder<

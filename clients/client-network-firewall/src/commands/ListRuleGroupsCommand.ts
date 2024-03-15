@@ -27,7 +27,6 @@ export interface ListRuleGroupsCommandInput extends ListRuleGroupsRequest {}
 export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the metadata for the rule groups that you have defined. Depending on your
  *          setting for max results and the number of rule groups, a single call might not return the
  *          full list. </p>
@@ -90,6 +89,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class ListRuleGroupsCommand extends $Command
   .classBuilder<

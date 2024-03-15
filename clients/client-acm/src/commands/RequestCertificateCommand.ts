@@ -27,7 +27,6 @@ export interface RequestCertificateCommandInput extends RequestCertificateReques
 export interface RequestCertificateCommandOutput extends RequestCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM
  *       certificate, you must specify a fully qualified domain name (FQDN) in the
  *         <code>DomainName</code> parameter. You can also specify additional FQDNs in the
@@ -115,6 +114,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class RequestCertificateCommand extends $Command
   .classBuilder<

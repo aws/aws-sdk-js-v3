@@ -27,7 +27,6 @@ export interface ListResourceDefinitionsCommandInput extends ListResourceDefinit
 export interface ListResourceDefinitionsCommandOutput extends ListResourceDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves a list of resource definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListResourceDefinitionsCommand extends $Command
   .classBuilder<

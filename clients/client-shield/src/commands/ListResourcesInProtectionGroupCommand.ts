@@ -32,7 +32,6 @@ export interface ListResourcesInProtectionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resources that are included in the protection group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListResourcesInProtectionGroupCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class ListResourcesInProtectionGroupCommand extends $Command
   .classBuilder<

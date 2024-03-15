@@ -2079,8 +2079,8 @@ export interface RestJsonProtocol {
 }
 
 /**
- * @public
  * A REST JSON service that sends JSON requests and responses.
+ * @public
  */
 export class RestJsonProtocol extends RestJsonProtocolClient implements RestJsonProtocol {}
 createAggregatedClient(commands, RestJsonProtocol);

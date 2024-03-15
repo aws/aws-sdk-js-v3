@@ -27,7 +27,6 @@ export interface DeleteUserSettingsCommandInput extends DeleteUserSettingsReques
 export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes user settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteUserSettingsCommandOutput extends DeleteUserSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DeleteUserSettingsCommand extends $Command
   .classBuilder<

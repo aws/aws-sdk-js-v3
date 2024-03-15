@@ -36,7 +36,6 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks whether occurrences of sensitive data can be retrieved for a finding.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetSensitiveDataOccurrencesAvailabilityCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetSensitiveDataOccurrencesAvailabilityCommand extends $Command
   .classBuilder<

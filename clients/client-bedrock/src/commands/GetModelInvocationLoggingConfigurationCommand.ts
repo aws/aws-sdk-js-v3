@@ -36,7 +36,6 @@ export interface GetModelInvocationLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the current configuration values for model invocation logging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetModelInvocationLoggingConfigurationCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class GetModelInvocationLoggingConfigurationCommand extends $Command
   .classBuilder<

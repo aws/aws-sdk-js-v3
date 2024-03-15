@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource.
  *         Currently, the only CloudWatch Logs resources that
  *         can be tagged are log groups and destinations. </p>
@@ -79,6 +78,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface StartExportTaskCommandInput extends StartExportTaskRequest {}
 export interface StartExportTaskCommandOutput extends StartExportTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Begins the export of a discovered data report to an Amazon S3 bucket managed by Amazon Web Services.</p>
  *          <note>
  *             <p>Exports might provide an estimate of fees and savings based on certain information
@@ -136,6 +135,7 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class StartExportTaskCommand extends $Command
   .classBuilder<

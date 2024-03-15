@@ -27,7 +27,6 @@ export interface RegisterOnPremisesInstanceCommandInput extends RegisterOnPremis
 export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an on-premises instance.</p>
  *          <note>
  *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
@@ -90,6 +89,7 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class RegisterOnPremisesInstanceCommand extends $Command
   .classBuilder<

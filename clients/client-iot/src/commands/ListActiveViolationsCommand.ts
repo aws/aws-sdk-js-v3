@@ -27,7 +27,6 @@ export interface ListActiveViolationsCommandInput extends ListActiveViolationsRe
 export interface ListActiveViolationsCommandOutput extends ListActiveViolationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the active violations for a given Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListActiveViolations</a> action.</p>
  * @example
@@ -142,6 +141,7 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListActiveViolationsCommand extends $Command
   .classBuilder<

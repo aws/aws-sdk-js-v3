@@ -36,7 +36,6 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command
   .classBuilder<

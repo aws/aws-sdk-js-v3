@@ -27,7 +27,6 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user and associates them with an existing file transfer protocol-enabled server.
  *       You can only create and associate users with servers that have the
  *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
@@ -104,6 +103,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class CreateUserCommand extends $Command
   .classBuilder<

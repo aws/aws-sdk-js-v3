@@ -27,7 +27,6 @@ export interface AssociateAccessPolicyCommandInput extends AssociateAccessPolicy
 export interface AssociateAccessPolicyCommandOutput extends AssociateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an access policy and its scope to an access entry. For more information
  *             about associating access policies, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-policies.html">Associating and disassociating
  *                 access policies to and from access entries</a> in the <i>Amazon EKS User Guide</i>.</p>
@@ -93,6 +92,7 @@ export interface AssociateAccessPolicyCommandOutput extends AssociateAccessPolic
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class AssociateAccessPolicyCommand extends $Command
   .classBuilder<

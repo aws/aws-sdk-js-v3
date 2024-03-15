@@ -28,7 +28,6 @@ export interface ListResourceRecordSetsCommandInput extends ListResourceRecordSe
 export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resource record sets in a specified hosted zone.</p>
  *          <p>
  *             <code>ListResourceRecordSets</code> returns up to 300 resource record sets at a time
@@ -182,6 +181,7 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListResourceRecordSetsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartCelebrityRecognitionCommandInput extends StartCelebrityRec
 export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts asynchronous recognition of celebrities in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *       and the filename of the video.
@@ -112,6 +111,7 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartCelebrityRecognitionCommand extends $Command
   .classBuilder<

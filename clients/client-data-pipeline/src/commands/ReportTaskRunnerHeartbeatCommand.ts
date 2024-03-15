@@ -27,7 +27,6 @@ export interface ReportTaskRunnerHeartbeatCommandInput extends ReportTaskRunnerH
 export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunnerHeartbeatOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational.
  *             If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use
  *             this call to detect when the task runner application has failed and restart a new instance.</p>
@@ -95,6 +94,7 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class ReportTaskRunnerHeartbeatCommand extends $Command
   .classBuilder<

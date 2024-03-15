@@ -27,7 +27,6 @@ export interface SearchQuickConnectsCommandInput extends SearchQuickConnectsRequ
 export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches quick connects in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchQuickConnectsCommand extends $Command
   .classBuilder<

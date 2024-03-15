@@ -31,7 +31,6 @@ export interface DescribeSenderIdsCommandInput extends DescribeSenderIdsRequest 
 export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified SenderIds or all SenderIds associated with your Amazon Web Services account.</p>
  *          <p>If you specify SenderIds, the output includes information for only the specified
  *             SenderIds. If you specify filters, the output includes information for only those
@@ -111,6 +110,7 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeSenderIdsCommand extends $Command
   .classBuilder<

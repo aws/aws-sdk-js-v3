@@ -27,7 +27,6 @@ export interface DeleteAccessPointCommandInput extends DeleteAccessPointRequest 
 export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified access point. After deletion is complete, new clients can no
  *       longer connect to the access points. Clients connected to the access point at the time of
  *       deletion will continue to function until they terminate their connection.</p>
@@ -67,6 +66,7 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DeleteAccessPointCommand extends $Command
   .classBuilder<

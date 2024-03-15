@@ -27,7 +27,6 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API lists the components of an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class ListComponentsCommand extends $Command
   .classBuilder<

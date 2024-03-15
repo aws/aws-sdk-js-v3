@@ -35,7 +35,6 @@ export interface GetApplicationAuthenticationMethodCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about an authentication method used by an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetApplicationAuthenticationMethodCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class GetApplicationAuthenticationMethodCommand extends $Command
   .classBuilder<

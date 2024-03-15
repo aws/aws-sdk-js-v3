@@ -32,7 +32,6 @@ export interface UpdateSubscriptionTargetCommandInput extends UpdateSubscription
 export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptionTargetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified subscription target in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateSubscriptionTargetCommand extends $Command
   .classBuilder<

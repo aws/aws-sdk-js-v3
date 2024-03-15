@@ -27,7 +27,6 @@ export interface ListCoreNetworksCommandInput extends ListCoreNetworksRequest {}
 export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of owned and shared core networks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class ListCoreNetworksCommand extends $Command
   .classBuilder<

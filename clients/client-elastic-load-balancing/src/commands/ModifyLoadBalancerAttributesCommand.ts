@@ -33,7 +33,6 @@ export interface ModifyLoadBalancerAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the attributes of the specified load balancer.</p>
  *         <p>You can modify the load balancer attributes, such as <code>AccessLogs</code>, <code>ConnectionDraining</code>, and
  *             <code>CrossZoneLoadBalancing</code> by either enabling or disabling them. Or, you can modify the load balancer attribute
@@ -144,6 +143,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To enable cross-zone load balancing
  * ```javascript
  * // This example enables cross-zone load balancing for the specified load balancer.

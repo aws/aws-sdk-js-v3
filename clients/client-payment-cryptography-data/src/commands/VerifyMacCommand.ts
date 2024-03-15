@@ -31,7 +31,6 @@ export interface VerifyMacCommandInput extends VerifyMacInput {}
 export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Verifies a Message Authentication Code (MAC). </p>
  *          <p>You can use this operation to verify MAC for message data authentication such as . In this operation, you must use the same message data, secret encryption key and MAC algorithm that was used to generate MAC. You can use this operation to verify a DUPKT, CMAC, HMAC or EMV MAC by setting generation attributes and algorithm to the associated values. </p>
  *          <p>For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p>
@@ -123,6 +122,7 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ * @public
  */
 export class VerifyMacCommand extends $Command
   .classBuilder<

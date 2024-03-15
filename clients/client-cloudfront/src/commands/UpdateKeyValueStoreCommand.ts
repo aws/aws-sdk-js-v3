@@ -27,7 +27,6 @@ export interface UpdateKeyValueStoreCommandInput extends UpdateKeyValueStoreRequ
 export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies the Key Value Store to update.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  * @example To update a KeyValueStore
  * ```javascript
  * // Use the following command to update a KeyValueStore.

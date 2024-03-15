@@ -36,7 +36,6 @@ export interface GetMessagingSessionEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The details of the endpoint for the messaging session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetMessagingSessionEndpointCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class GetMessagingSessionEndpointCommand extends $Command
   .classBuilder<

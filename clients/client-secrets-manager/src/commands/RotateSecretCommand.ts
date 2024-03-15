@@ -27,7 +27,6 @@ export interface RotateSecretCommandInput extends RotateSecretRequest {}
 export interface RotateSecretCommandOutput extends RotateSecretResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures and starts the asynchronous process of rotating the secret. For information about rotation,
  *       see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration parameters, the operation sets the values for the secret and then immediately starts a rotation. If you don't include the configuration parameters, the operation starts a rotation with the values already stored in the secret. </p>
  *          <p>When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
@@ -107,6 +106,7 @@ export interface RotateSecretCommandOutput extends RotateSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To configure rotation for a secret
  * ```javascript
  * // The following example configures rotation for a secret using a cron expression. The first rotation happens immediately after the changes are stored in the secret. The rotation schedule is the first and 15th day of every month. The rotation window begins at 4:00 PM UTC and ends at 6:00 PM.

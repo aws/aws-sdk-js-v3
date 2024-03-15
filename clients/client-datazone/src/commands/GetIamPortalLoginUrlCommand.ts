@@ -27,7 +27,6 @@ export interface GetIamPortalLoginUrlCommandInput extends GetIamPortalLoginUrlIn
 export interface GetIamPortalLoginUrlCommandOutput extends GetIamPortalLoginUrlOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the data portal URL for the specified Amazon DataZone domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetIamPortalLoginUrlCommandOutput extends GetIamPortalLoginUrlO
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetIamPortalLoginUrlCommand extends $Command
   .classBuilder<

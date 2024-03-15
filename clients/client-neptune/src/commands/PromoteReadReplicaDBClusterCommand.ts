@@ -27,7 +27,6 @@ export interface PromoteReadReplicaDBClusterCommandInput extends PromoteReadRepl
 export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadReplicaDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Not supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -156,6 +155,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class PromoteReadReplicaDBClusterCommand extends $Command
   .classBuilder<

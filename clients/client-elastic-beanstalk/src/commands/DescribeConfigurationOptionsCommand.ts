@@ -27,7 +27,6 @@ export interface DescribeConfigurationOptionsCommandInput extends DescribeConfig
 export interface DescribeConfigurationOptionsCommandOutput extends ConfigurationOptionsDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the configuration options that are used in a particular configuration
  *       template or environment, or that a specified solution stack defines. The description includes
  *       the values the options, their default values, and an indication of the required action on a
@@ -93,6 +92,7 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view configuration options for an environment
  * ```javascript
  * // The following operation retrieves descriptions of all available configuration options for an environment named my-env:

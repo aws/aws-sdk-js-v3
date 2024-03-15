@@ -27,7 +27,6 @@ export interface GetDatabaseCommandInput extends GetDatabaseInput {}
 export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the SAP HANA database of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class GetDatabaseCommand extends $Command
   .classBuilder<

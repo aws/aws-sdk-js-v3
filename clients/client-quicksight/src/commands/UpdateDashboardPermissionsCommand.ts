@@ -27,7 +27,6 @@ export interface UpdateDashboardPermissionsCommandInput extends UpdateDashboardP
 export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboardPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates read and write permissions on a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -133,6 +132,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDashboardPermissionsCommand extends $Command
   .classBuilder<

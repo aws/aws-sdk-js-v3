@@ -37,7 +37,6 @@ export interface PutSolNetworkPackageContentCommandInput extends PutSolNetworkPa
 export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkPackageContentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads the contents of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -100,6 +99,7 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class PutSolNetworkPackageContentCommand extends $Command
   .classBuilder<

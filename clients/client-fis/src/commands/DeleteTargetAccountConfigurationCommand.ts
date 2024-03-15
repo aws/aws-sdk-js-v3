@@ -32,7 +32,6 @@ export interface DeleteTargetAccountConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified target account configuration of the experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteTargetAccountConfigurationCommandOutput
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class DeleteTargetAccountConfigurationCommand extends $Command
   .classBuilder<

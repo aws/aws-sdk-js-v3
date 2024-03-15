@@ -31,7 +31,6 @@ export interface AllowCustomRoutingTrafficCommandInput extends AllowCustomRoutin
 export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that can receive traffic
  * 			for a custom routing accelerator. You can allow traffic to all destinations in the subnet endpoint, or allow traffic to a
  * 			specified list of destination IP addresses and ports in the subnet. Note that you cannot specify IP addresses or ports
@@ -79,6 +78,7 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class AllowCustomRoutingTrafficCommand extends $Command
   .classBuilder<

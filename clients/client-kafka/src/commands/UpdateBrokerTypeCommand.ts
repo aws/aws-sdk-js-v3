@@ -27,7 +27,6 @@ export interface UpdateBrokerTypeCommandInput extends UpdateBrokerTypeRequest {}
 export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates EC2 instance type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateBrokerTypeCommand extends $Command
   .classBuilder<

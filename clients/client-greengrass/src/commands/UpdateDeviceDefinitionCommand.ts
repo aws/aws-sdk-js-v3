@@ -27,7 +27,6 @@ export interface UpdateDeviceDefinitionCommandInput extends UpdateDeviceDefiniti
 export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates a device definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class UpdateDeviceDefinitionCommand extends $Command
   .classBuilder<

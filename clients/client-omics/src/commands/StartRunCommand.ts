@@ -27,7 +27,6 @@ export interface StartRunCommandInput extends StartRunRequest {}
 export interface StartRunCommandOutput extends StartRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
  *       remaining parameters are copied from the previous run.</p>
  *          <p>The total number of runs in your account is subject to a quota per Region. To avoid
@@ -105,6 +104,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class StartRunCommand extends $Command
   .classBuilder<

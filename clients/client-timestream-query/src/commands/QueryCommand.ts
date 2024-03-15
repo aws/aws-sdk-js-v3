@@ -28,7 +28,6 @@ export interface QueryCommandInput extends QueryRequest {}
 export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>Query</code> is a synchronous operation that enables you to run a query against
  *             your Amazon Timestream data. <code>Query</code> will time out after 60 seconds.
@@ -173,6 +172,7 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class QueryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
 export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the details for the instance of IAM Identity Center that is owned by the
  *             Amazon Web Services account.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class UpdateInstanceCommand extends $Command
   .classBuilder<

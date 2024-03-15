@@ -27,7 +27,6 @@ export interface CreateWirelessGatewayTaskCommandInput extends CreateWirelessGat
 export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGatewayTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a task for a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface CreateWirelessGatewayTaskCommandOutput extends CreateWirelessGa
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class CreateWirelessGatewayTaskCommand extends $Command
   .classBuilder<

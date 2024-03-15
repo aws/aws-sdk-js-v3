@@ -28,7 +28,6 @@ export interface EnableHostedZoneDNSSECCommandInput extends EnableHostedZoneDNSS
 export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables DNSSEC signing in a specific hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class EnableHostedZoneDNSSECCommand extends $Command
   .classBuilder<

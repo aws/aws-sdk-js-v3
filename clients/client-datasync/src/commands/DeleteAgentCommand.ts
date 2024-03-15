@@ -27,7 +27,6 @@ export interface DeleteAgentCommandInput extends DeleteAgentRequest {}
 export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an DataSync agent resource from your Amazon Web Services account.</p>
  *          <p>Keep in mind that this operation (which can't be undone) doesn't remove the agent's
  *       virtual machine (VM) or Amazon EC2 instance from your storage environment. For next
@@ -64,6 +63,7 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DeleteAgentCommand extends $Command
   .classBuilder<

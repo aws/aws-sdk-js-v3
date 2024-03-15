@@ -31,7 +31,6 @@ export interface DeletePresetCommandInput extends DeletePresetRequest {}
 export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The DeletePreset operation removes a preset that you've added in an AWS region.</p>
  *         <note>
  *             <p>You can't delete the default presets that are included with Elastic Transcoder.</p>
@@ -75,6 +74,7 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class DeletePresetCommand extends $Command
   .classBuilder<

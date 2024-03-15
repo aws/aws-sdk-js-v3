@@ -439,7 +439,6 @@ export interface SQS {
 }
 
 /**
- * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
  *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they
  *             travel between applications or microservices. Amazon SQS moves data between distributed
@@ -513,6 +512,7 @@ export interface SQS {
  *                </ul>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SQS extends SQSClient implements SQS {}
 createAggregatedClient(commands, SQS);

@@ -27,7 +27,6 @@ export interface QueryObjectsCommandInput extends QueryObjectsInput {}
 export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>
  *
  *         <examples>
@@ -125,6 +124,7 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class QueryObjectsCommand extends $Command
   .classBuilder<

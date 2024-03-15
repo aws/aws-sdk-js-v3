@@ -35,7 +35,6 @@ export interface CreateServiceNetworkVpcAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a VPC with a service network. When you associate a VPC with the service network,
  *    it enables all the resources within that VPC to be clients and communicate with other services in
  *    the service network. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-vpc-associations">Manage VPC associations</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
@@ -109,6 +108,7 @@ export interface CreateServiceNetworkVpcAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class CreateServiceNetworkVpcAssociationCommand extends $Command
   .classBuilder<

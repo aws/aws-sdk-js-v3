@@ -31,7 +31,6 @@ export interface UploadServerCertificateCommandInput extends UploadServerCertifi
 export interface UploadServerCertificateCommandOutput extends UploadServerCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads a server certificate entity for the Amazon Web Services account. The server certificate
  *             entity includes a public key certificate, a private key, and an optional certificate
  *             chain, which should all be PEM-encoded.</p>
@@ -133,6 +132,7 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To upload a server certificate to your AWS account
  * ```javascript
  * // The following upload-server-certificate command uploads a server certificate to your AWS account:

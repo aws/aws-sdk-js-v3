@@ -27,7 +27,6 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationMessage 
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified application along with all associated versions and
  *       configurations. The application versions will not be deleted from your Amazon S3
  *       bucket.</p>
@@ -63,6 +62,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To delete an application
  * ```javascript
  * // The following operation deletes an application named my-app:

@@ -32,7 +32,6 @@ export interface DescribeProvisioningArtifactCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface DescribeProvisioningArtifactCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeProvisioningArtifactCommand extends $Command
   .classBuilder<

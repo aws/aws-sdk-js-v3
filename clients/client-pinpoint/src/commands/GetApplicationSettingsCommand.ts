@@ -27,7 +27,6 @@ export interface GetApplicationSettingsCommandInput extends GetApplicationSettin
 export interface GetApplicationSettingsCommandOutput extends GetApplicationSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetApplicationSettingsCommand extends $Command
   .classBuilder<

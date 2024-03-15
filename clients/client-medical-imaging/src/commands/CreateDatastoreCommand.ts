@@ -27,7 +27,6 @@ export interface CreateDatastoreCommandInput extends CreateDatastoreRequest {}
 export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a data store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class CreateDatastoreCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetContainerRecipePolicyCommandInput extends GetContainerRecipe
 export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the policy for a container recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetContainerRecipePolicyCommand extends $Command
   .classBuilder<

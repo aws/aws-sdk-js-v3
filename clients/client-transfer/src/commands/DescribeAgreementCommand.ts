@@ -27,7 +27,6 @@ export interface DescribeAgreementCommandInput extends DescribeAgreementRequest 
 export interface DescribeAgreementCommandOutput extends DescribeAgreementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the agreement that's identified by the <code>AgreementId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeAgreementCommand extends $Command
   .classBuilder<

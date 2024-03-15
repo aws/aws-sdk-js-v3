@@ -27,7 +27,6 @@ export interface GetEvidenceFolderCommandInput extends GetEvidenceFolderRequest 
 export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets an evidence folder from a specified assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetEvidenceFolderCommand extends $Command
   .classBuilder<

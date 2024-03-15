@@ -976,9 +976,9 @@ export interface FSx {
 }
 
 /**
- * @public
  * <p>Amazon FSx is a fully managed service that makes it easy for storage and
  *             application administrators to launch and use shared file storage.</p>
+ * @public
  */
 export class FSx extends FSxClient implements FSx {}
 createAggregatedClient(commands, FSx);

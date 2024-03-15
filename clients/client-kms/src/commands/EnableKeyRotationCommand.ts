@@ -27,7 +27,6 @@ export interface EnableKeyRotationCommandInput extends EnableKeyRotationRequest 
 export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
  *         of the key material</a> of the specified symmetric encryption KMS key. </p>
  *          <p>When you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
@@ -139,6 +138,7 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To enable automatic rotation of key material
  * ```javascript
  * // The following example enables automatic annual rotation of the key material for the specified KMS key.

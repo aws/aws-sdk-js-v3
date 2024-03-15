@@ -32,7 +32,6 @@ export interface DeleteAppValidationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the validation configuration for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteAppValidationConfigurationCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class DeleteAppValidationConfigurationCommand extends $Command
   .classBuilder<

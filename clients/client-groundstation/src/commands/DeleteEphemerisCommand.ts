@@ -27,7 +27,6 @@ export interface DeleteEphemerisCommandInput extends DeleteEphemerisRequest {}
 export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an ephemeris</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class DeleteEphemerisCommand extends $Command
   .classBuilder<

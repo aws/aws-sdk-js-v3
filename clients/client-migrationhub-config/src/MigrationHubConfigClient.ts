@@ -267,7 +267,6 @@ export type MigrationHubConfigClientResolvedConfigType = __SmithyResolvedConfigu
 export interface MigrationHubConfigClientResolvedConfig extends MigrationHubConfigClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>
@@ -292,6 +291,7 @@ export interface MigrationHubConfigClientResolvedConfig extends MigrationHubConf
  *          </ul>
  *          <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region
  *       API reference. </p>
+ * @public
  */
 export class MigrationHubConfigClient extends __Client<
   __HttpHandlerOptions,

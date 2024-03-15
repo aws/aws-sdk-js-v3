@@ -27,7 +27,6 @@ export interface AssociateCustomerGatewayCommandInput extends AssociateCustomerG
 export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomerGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a customer gateway with a device and optionally, with a link. If you
  *             specify a link, it must be associated with the specified device. </p>
  *          <p>You can only associate customer gateways that are connected to a VPN attachment on a
@@ -94,6 +93,7 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class AssociateCustomerGatewayCommand extends $Command
   .classBuilder<

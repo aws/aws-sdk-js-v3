@@ -27,7 +27,6 @@ export interface CreateReturnShippingLabelCommandInput extends CreateReturnShipp
 export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShippingLabelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a shipping label that will be used to return the Snow device to Amazon Web Services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  */
 export class CreateReturnShippingLabelCommand extends $Command
   .classBuilder<

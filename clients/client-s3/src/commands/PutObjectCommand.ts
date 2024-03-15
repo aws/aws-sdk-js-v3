@@ -38,7 +38,6 @@ export interface PutObjectCommandInput extends Omit<PutObjectRequest, "Body"> {
 export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an object to a bucket.</p>
  *          <note>
  *             <ul>
@@ -244,6 +243,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To create an object.
  * ```javascript
  * // The following example creates an object. If the bucket is versioning enabled, S3 returns version ID in response.

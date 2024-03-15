@@ -27,7 +27,6 @@ export interface StartPipelineCommandInput extends StartPipelineRequest {}
 export interface StartPipelineCommandOutput extends StartPipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start">Starting an OpenSearch Ingestion pipeline</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class StartPipelineCommand extends $Command
   .classBuilder<

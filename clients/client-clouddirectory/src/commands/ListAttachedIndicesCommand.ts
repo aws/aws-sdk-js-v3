@@ -27,7 +27,6 @@ export interface ListAttachedIndicesCommandInput extends ListAttachedIndicesRequ
 export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists indices attached to the specified object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListAttachedIndicesCommand extends $Command
   .classBuilder<

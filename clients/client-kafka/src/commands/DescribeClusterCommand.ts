@@ -27,7 +27,6 @@ export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 export interface DescribeClusterCommandOutput extends DescribeClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -192,6 +191,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class DescribeClusterCommand extends $Command
   .classBuilder<

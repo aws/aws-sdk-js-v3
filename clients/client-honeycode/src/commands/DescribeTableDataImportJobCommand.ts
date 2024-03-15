@@ -31,7 +31,6 @@ export interface DescribeTableDataImportJobCommandInput extends DescribeTableDat
 export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDataImportJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The DescribeTableDataImportJob API allows you to retrieve the status and details of a table data import job.
  *         </p>
@@ -118,6 +117,7 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class DescribeTableDataImportJobCommand extends $Command
   .classBuilder<

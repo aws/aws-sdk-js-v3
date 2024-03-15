@@ -27,7 +27,6 @@ export interface DescribeRecoverySnapshotsCommandInput extends DescribeRecoveryS
 export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecoverySnapshotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Recovery Snapshots for a single Source Server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class DescribeRecoverySnapshotsCommand extends $Command
   .classBuilder<

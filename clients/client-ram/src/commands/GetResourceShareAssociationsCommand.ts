@@ -32,7 +32,6 @@ export interface GetResourceShareAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the lists of resources and principals that associated for resource shares that you
  *             own.</p>
  * @example
@@ -107,6 +106,7 @@ export interface GetResourceShareAssociationsCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class GetResourceShareAssociationsCommand extends $Command
   .classBuilder<

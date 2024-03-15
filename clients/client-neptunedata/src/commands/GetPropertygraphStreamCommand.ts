@@ -27,7 +27,6 @@ export interface GetPropertygraphStreamCommandInput extends GetPropertygraphStre
 export interface GetPropertygraphStreamCommandOutput extends GetPropertygraphStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a stream for a property graph.</p>
  *          <p>With the Neptune Streams feature, you can generate a complete
  *       sequence of change-log entries that record every change made to your
@@ -153,6 +152,7 @@ export interface GetPropertygraphStreamCommandOutput extends GetPropertygraphStr
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetPropertygraphStreamCommand extends $Command
   .classBuilder<

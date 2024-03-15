@@ -27,7 +27,6 @@ export interface BatchGetOnPremisesInstancesCommandInput extends BatchGetOnPremi
 export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more on-premises instances. The maximum number of
  *             on-premises instances that can be returned is 25.</p>
  * @example
@@ -82,6 +81,7 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command
   .classBuilder<

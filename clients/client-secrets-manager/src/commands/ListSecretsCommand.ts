@@ -27,7 +27,6 @@ export interface ListSecretsCommandInput extends ListSecretsRequest {}
 export interface ListSecretsCommandOutput extends ListSecretsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
  *       that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager console.</p>
  *          <p>All Secrets Manager operations are eventually consistent. ListSecrets might not reflect changes from the last five minutes. You can get more recent information for a specific secret by calling <a>DescribeSecret</a>.</p>
@@ -139,6 +138,7 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To list the secrets in your account
  * ```javascript
  * // The following example shows how to list all of the secrets in your account.

@@ -27,7 +27,6 @@ export interface ListServiceNetworksCommandInput extends ListServiceNetworksRequ
 export interface ListServiceNetworksCommandOutput extends ListServiceNetworksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the service networks owned by the caller account or shared with the caller account.
  *    Also includes the account ID in the ARN to show which account owns the service network.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class ListServiceNetworksCommand extends $Command
   .classBuilder<

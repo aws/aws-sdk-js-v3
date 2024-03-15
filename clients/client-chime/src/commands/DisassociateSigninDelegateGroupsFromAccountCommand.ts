@@ -36,7 +36,6 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
   .classBuilder<

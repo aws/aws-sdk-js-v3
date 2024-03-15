@@ -27,7 +27,6 @@ export interface GetMetricDataCommandInput extends GetMetricDataInput {}
 export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values. The operation
  * 			can also include a CloudWatch Metrics Insights query, and one or more metric math functions.</p>
  *          <p>A <code>GetMetricData</code> operation that does not include a query can retrieve as many as 500 different
@@ -162,6 +161,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class GetMetricDataCommand extends $Command
   .classBuilder<

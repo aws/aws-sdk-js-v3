@@ -32,7 +32,6 @@ export interface DeletePodIdentityAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a EKS Pod Identity association.</p>
  *          <p>The temporary Amazon Web Services credentials from the previous IAM role session might still be valid until the session expiry. If you need to immediately revoke the temporary session credentials, then go to the role in the IAM console.</p>
  * @example
@@ -90,6 +89,7 @@ export interface DeletePodIdentityAssociationCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DeletePodIdentityAssociationCommand extends $Command
   .classBuilder<

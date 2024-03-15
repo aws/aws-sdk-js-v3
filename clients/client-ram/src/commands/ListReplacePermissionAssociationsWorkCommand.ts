@@ -36,7 +36,6 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current status of the asynchronous tasks performed by RAM when you
  *             perform the <a>ReplacePermissionAssociationsWork</a> operation.</p>
  * @example
@@ -98,6 +97,7 @@ export interface ListReplacePermissionAssociationsWorkCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListReplacePermissionAssociationsWorkCommand extends $Command
   .classBuilder<

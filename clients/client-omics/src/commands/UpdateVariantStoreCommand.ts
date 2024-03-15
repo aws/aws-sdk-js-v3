@@ -27,7 +27,6 @@ export interface UpdateVariantStoreCommandInput extends UpdateVariantStoreReques
 export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a variant store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class UpdateVariantStoreCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteOriginEndpointCommandInput extends DeleteOriginEndpointRe
 export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes an existing OriginEndpoint.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class DeleteOriginEndpointCommand extends $Command
   .classBuilder<

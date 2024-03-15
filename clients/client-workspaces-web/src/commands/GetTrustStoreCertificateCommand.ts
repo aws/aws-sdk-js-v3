@@ -27,7 +27,6 @@ export interface GetTrustStoreCertificateCommandInput extends GetTrustStoreCerti
 export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the trust store certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class GetTrustStoreCertificateCommand extends $Command
   .classBuilder<

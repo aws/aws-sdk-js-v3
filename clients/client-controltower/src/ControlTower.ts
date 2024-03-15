@@ -538,7 +538,6 @@ export interface ControlTower {
 }
 
 /**
- * @public
  * <p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
  *          <i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
  *          <p>To call these APIs, you'll need to know:</p>
@@ -645,6 +644,7 @@ export interface ControlTower {
  *             Actions with Amazon Web Services CloudTrail</a> in the Amazon Web Services Control Tower User Guide. To learn more about
  *          CloudTrail, including how to turn it on and find your log files, see the Amazon Web Services CloudTrail User
  *          Guide.</p>
+ * @public
  */
 export class ControlTower extends ControlTowerClient implements ControlTower {}
 createAggregatedClient(commands, ControlTower);

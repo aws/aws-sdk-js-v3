@@ -27,7 +27,6 @@ export interface SetRepositoryPolicyCommandInput extends SetRepositoryPolicyRequ
 export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a repository policy to the specified repository to control access permissions.
  *             For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html">Amazon ECR Repository
  *                 policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -73,6 +72,7 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class SetRepositoryPolicyCommand extends $Command
   .classBuilder<

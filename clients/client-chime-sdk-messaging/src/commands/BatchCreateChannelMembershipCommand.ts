@@ -40,7 +40,6 @@ export interface BatchCreateChannelMembershipCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a specified number of users and bots to a channel. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface BatchCreateChannelMembershipCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class BatchCreateChannelMembershipCommand extends $Command
   .classBuilder<

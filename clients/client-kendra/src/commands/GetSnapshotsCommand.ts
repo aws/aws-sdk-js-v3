@@ -27,7 +27,6 @@ export interface GetSnapshotsCommandInput extends GetSnapshotsRequest {}
 export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves search metrics data. The data provides a snapshot of how your users interact
  *             with your search application and how effective the application is.</p>
  * @example
@@ -88,6 +87,7 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class GetSnapshotsCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface GetBucketTaggingCommandInput extends GetBucketTaggingRequest {}
 export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action gets an Amazon S3 on Outposts bucket's tags. To get an S3 bucket tags, see
  *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html">GetBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -98,6 +97,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetBucketTaggingCommand extends $Command
   .classBuilder<

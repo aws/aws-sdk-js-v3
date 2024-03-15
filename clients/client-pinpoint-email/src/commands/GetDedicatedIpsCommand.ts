@@ -27,7 +27,6 @@ export interface GetDedicatedIpsCommandInput extends GetDedicatedIpsRequest {}
 export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the dedicated IP addresses that are associated with your Amazon Pinpoint
  *             account.</p>
  * @example
@@ -75,6 +74,7 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetDedicatedIpsCommand extends $Command
   .classBuilder<

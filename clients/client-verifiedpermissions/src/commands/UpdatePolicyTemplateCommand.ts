@@ -35,7 +35,6 @@ export interface UpdatePolicyTemplateCommandInput extends UpdatePolicyTemplateIn
 export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified policy template. You can update only the description and the some elements
  *             of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody">policyBody</a>. </p>
  *          <important>
@@ -181,6 +180,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class UpdatePolicyTemplateCommand extends $Command
   .classBuilder<

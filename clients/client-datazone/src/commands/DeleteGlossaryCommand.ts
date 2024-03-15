@@ -27,7 +27,6 @@ export interface DeleteGlossaryCommandInput extends DeleteGlossaryInput {}
 export interface DeleteGlossaryCommandOutput extends DeleteGlossaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a business glossary in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteGlossaryCommandOutput extends DeleteGlossaryOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class DeleteGlossaryCommand extends $Command
   .classBuilder<

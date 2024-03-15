@@ -27,7 +27,6 @@ export interface DeleteRefreshScheduleCommandInput extends DeleteRefreshSchedule
 export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a refresh schedule from a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteRefreshScheduleCommandOutput extends DeleteRefreshSchedul
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteRefreshScheduleCommand extends $Command
   .classBuilder<

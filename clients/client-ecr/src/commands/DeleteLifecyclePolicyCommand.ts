@@ -27,7 +27,6 @@ export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicy
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the lifecycle policy associated with the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DeleteLifecyclePolicyCommand extends $Command
   .classBuilder<

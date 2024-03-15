@@ -27,7 +27,6 @@ export interface DescribeEventSourceCommandInput extends DescribeEventSourceRequ
 export interface DescribeEventSourceCommandOutput extends DescribeEventSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists details about a partner event source that is shared with your
  *       account.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DescribeEventSourceCommand extends $Command
   .classBuilder<

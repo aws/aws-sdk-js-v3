@@ -27,7 +27,6 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a resource policy from this account. This revokes
  *     the access of the identities in that policy to put log events to this account.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

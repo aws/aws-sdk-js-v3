@@ -27,7 +27,6 @@ export interface GetQueryResultsCommandInput extends GetQueryResultsInput {}
 export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return the data for a query with the Amazon CloudWatch Internet Monitor query interface. Specify the query that you want to return results for by providing
  * 			a <code>QueryId</code> and a monitor name.</p>
  *          <p>For more information about using the query interface, including examples, see
@@ -88,6 +87,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class GetQueryResultsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeServerlessCachesCommandInput extends DescribeServerless
 export interface DescribeServerlessCachesCommandOutput extends DescribeServerlessCachesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific serverless cache.
  *            If no identifier is specified, then the API returns information on all the serverless caches belonging to
  *            this Amazon Web Services account.</p>
@@ -107,6 +106,7 @@ export interface DescribeServerlessCachesCommandOutput extends DescribeServerles
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DescribeServerlessCachesCommand extends $Command
   .classBuilder<

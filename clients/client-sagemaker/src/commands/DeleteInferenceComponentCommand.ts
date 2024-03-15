@@ -27,7 +27,6 @@ export interface DeleteInferenceComponentCommandInput extends DeleteInferenceCom
 export interface DeleteInferenceComponentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an inference component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface DeleteInferenceComponentCommandOutput extends __MetadataBearer 
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteInferenceComponentCommand extends $Command
   .classBuilder<

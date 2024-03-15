@@ -32,7 +32,6 @@ export interface StartWirelessDeviceImportTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Start import task for provisioning Sidewalk devices in bulk using an S3 CSV
  *             file.</p>
  * @example
@@ -91,6 +90,7 @@ export interface StartWirelessDeviceImportTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class StartWirelessDeviceImportTaskCommand extends $Command
   .classBuilder<

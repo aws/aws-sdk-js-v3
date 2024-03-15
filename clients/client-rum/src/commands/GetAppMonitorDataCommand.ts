@@ -27,7 +27,6 @@ export interface GetAppMonitorDataCommandInput extends GetAppMonitorDataRequest 
 export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the raw performance events that RUM has collected from your web application,
  *          so that you can do your own processing or analysis of this data.</p>
  * @example
@@ -88,6 +87,7 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class GetAppMonitorDataCommand extends $Command
   .classBuilder<

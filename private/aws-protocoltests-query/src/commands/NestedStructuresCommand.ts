@@ -25,7 +25,6 @@ export interface NestedStructuresCommandInput extends NestedStructuresInput {}
 export interface NestedStructuresCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This test serializes nested and recursive structure members.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class NestedStructuresCommand extends $Command
   .classBuilder<

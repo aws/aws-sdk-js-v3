@@ -27,7 +27,6 @@ export interface GetTransformerCommandInput extends GetTransformerRequest {}
 export interface GetTransformerCommandOutput extends GetTransformerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details for the transformer specified by the transformer ID. A transformer
  *    describes how to process the incoming EDI documents and extract the necessary
  *    information to the output file.</p>
@@ -86,6 +85,7 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample GetTransformer call
  * ```javascript
  * //

@@ -35,7 +35,6 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of the Service Linked Role (SLR) deployment for the accounts in a given Amazon Web Services Organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListOrganizationServiceAccessStatusCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class ListOrganizationServiceAccessStatusCommand extends $Command
   .classBuilder<

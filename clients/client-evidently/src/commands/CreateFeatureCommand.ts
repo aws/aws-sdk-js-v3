@@ -27,7 +27,6 @@ export interface CreateFeatureCommandInput extends CreateFeatureRequest {}
 export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Evidently <i>feature</i> that you want to launch or test. You can define up to
  *        five variations of a feature, and use these variations in your launches and experiments. A feature must be created in
  *        a project. For information about creating a project, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html">CreateProject</a>.</p>
@@ -129,6 +128,7 @@ export interface CreateFeatureCommandOutput extends CreateFeatureResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class CreateFeatureCommand extends $Command
   .classBuilder<

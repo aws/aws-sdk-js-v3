@@ -27,7 +27,6 @@ export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a dataset to replace its schema with a new or existing one. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/updating-dataset-schema.html">Replacing a dataset's schema</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class UpdateDatasetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateConfigCommandInput extends CreateConfigRequest {}
 export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p>
  *          <p>Only one type of <code>configData</code> can be specified.</p>
  * @example
@@ -137,6 +136,7 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class CreateConfigCommand extends $Command
   .classBuilder<

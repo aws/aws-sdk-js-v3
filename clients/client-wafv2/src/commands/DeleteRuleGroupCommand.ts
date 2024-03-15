@@ -27,7 +27,6 @@ export interface DeleteRuleGroupCommandInput extends DeleteRuleGroupRequest {}
 export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified <a>RuleGroup</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DeleteRuleGroupCommand extends $Command
   .classBuilder<

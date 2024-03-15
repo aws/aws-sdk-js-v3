@@ -27,7 +27,6 @@ export interface ListConstraintsForPortfolioCommandInput extends ListConstraints
 export interface ListConstraintsForPortfolioCommandOutput extends ListConstraintsForPortfolioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the constraints for the specified portfolio and product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListConstraintsForPortfolioCommand extends $Command
   .classBuilder<

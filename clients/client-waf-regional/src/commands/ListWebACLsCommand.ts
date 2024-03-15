@@ -27,7 +27,6 @@ export interface ListWebACLsCommandInput extends ListWebACLsRequest {}
 export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -76,6 +75,7 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  * @example To list Web ACLs
  * ```javascript
  * // The following example returns an array of up to 100 web ACLs.

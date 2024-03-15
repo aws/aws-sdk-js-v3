@@ -25,7 +25,6 @@ export interface TestNoPayloadCommandInput extends TestNoPayloadInputOutput {}
 export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example operation serializes a request without an HTTP body.
  *
  * These tests are to ensure we do not attach a body or related headers
@@ -58,6 +57,7 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class TestNoPayloadCommand extends $Command
   .classBuilder<

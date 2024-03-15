@@ -27,7 +27,6 @@ export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies settings for an instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -204,6 +203,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class ModifyDBInstanceCommand extends $Command
   .classBuilder<

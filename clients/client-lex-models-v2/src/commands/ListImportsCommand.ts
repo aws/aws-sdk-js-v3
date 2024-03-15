@@ -27,7 +27,6 @@ export interface ListImportsCommandInput extends ListImportsRequest {}
 export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the imports for a bot, bot locale, or custom vocabulary.
  *          Imports are kept in the list for 7 days.</p>
  * @example
@@ -100,6 +99,7 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListImportsCommand extends $Command
   .classBuilder<

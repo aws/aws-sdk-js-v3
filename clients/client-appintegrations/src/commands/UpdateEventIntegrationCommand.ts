@@ -27,7 +27,6 @@ export interface UpdateEventIntegrationCommandInput extends UpdateEventIntegrati
 export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description of an event integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class UpdateEventIntegrationCommand extends $Command
   .classBuilder<

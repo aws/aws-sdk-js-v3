@@ -31,7 +31,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists applications owned by the requester.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

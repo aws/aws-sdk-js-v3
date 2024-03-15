@@ -31,9 +31,6 @@ export interface DescribeAppInstanceUserCommandInput extends DescribeAppInstance
 export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanceUserResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DescribeAppInstanceUser in the Amazon Chime SDK Identity Namespace
- *
  * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
  *          <important>
  *             <p>
@@ -92,6 +89,8 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DescribeAppInstanceUser in the Amazon Chime SDK Identity Namespace
  */
 export class DescribeAppInstanceUserCommand extends $Command
   .classBuilder<

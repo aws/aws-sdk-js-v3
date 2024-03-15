@@ -27,7 +27,6 @@ export interface DescribeDBLogFilesCommandInput extends DescribeDBLogFilesMessag
 export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of DB log files for the DB instance.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the log files for a DB instance
  * ```javascript
  * // The following example retrieves details about the log files for the specified DB instance.

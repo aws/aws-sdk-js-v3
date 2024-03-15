@@ -27,7 +27,6 @@ export interface ListContainerInstancesCommandInput extends ListContainerInstanc
 export interface ListContainerInstancesCommandOutput extends ListContainerInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of container instances in a specified cluster. You can filter the
  * 			results of a <code>ListContainerInstances</code> operation with cluster query language
  * 			statements inside the <code>filter</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -79,6 +78,7 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To list your available container instances in a cluster
  * ```javascript
  * // This example lists all of your available container instances in the specified cluster in your default region.

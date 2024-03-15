@@ -81,8 +81,8 @@ export interface PersonalizeRuntime {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class PersonalizeRuntime extends PersonalizeRuntimeClient implements PersonalizeRuntime {}
 createAggregatedClient(commands, PersonalizeRuntime);

@@ -27,7 +27,6 @@ export interface DisassociateTeamMemberCommandInput extends DisassociateTeamMemb
 export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMemberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a user from a project. Removing a user from a project also removes the IAM
  *       policies from that user that allowed access to the project and its resources. Disassociating a
  *       team member does not remove that user's profile from AWS CodeStar. It does not remove the user from
@@ -70,6 +69,7 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class DisassociateTeamMemberCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetAgreementTermsCommandInput extends GetAgreementTermsInput {}
 export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains details about the terms in an agreement that you participated in as proposer or
  *          acceptor.</p>
  *          <p>The details include:</p>
@@ -221,6 +220,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * @throws {@link MarketplaceAgreementServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ * @public
  */
 export class GetAgreementTermsCommand extends $Command
   .classBuilder<

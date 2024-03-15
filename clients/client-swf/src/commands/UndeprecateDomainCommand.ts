@@ -27,7 +27,6 @@ export interface UndeprecateDomainCommandInput extends UndeprecateDomainInput {}
 export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Undeprecates a previously deprecated domain. After a domain has been undeprecated it can be used
  *       to create new workflow executions or register new types.</p>
  *          <note>
@@ -90,6 +89,7 @@ export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class UndeprecateDomainCommand extends $Command
   .classBuilder<

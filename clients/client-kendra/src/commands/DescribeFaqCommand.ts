@@ -27,7 +27,6 @@ export interface DescribeFaqCommandInput extends DescribeFaqRequest {}
 export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an FAQ list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeFaqCommand extends $Command
   .classBuilder<

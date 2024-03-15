@@ -30,7 +30,6 @@ export interface UpdateQuerySuggestionsConfigCommandInput extends UpdateQuerySug
 export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings of query suggestions for an index.</p>
  *          <p>Amazon Kendra supports partial updates, so you only need to provide
  *             the fields you want to update.</p>
@@ -105,6 +104,7 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateQuerySuggestionsConfigCommand extends $Command
   .classBuilder<

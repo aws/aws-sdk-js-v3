@@ -31,7 +31,6 @@ export interface ListServiceInstancesCommandInput extends ListServiceInstancesIn
 export interface ListServiceInstancesCommandOutput extends ListServiceInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List service instances with summary data. This action lists service instances of all
  *       services in the Amazon Web Services account.</p>
  * @example
@@ -103,6 +102,7 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListServiceInstancesCommand extends $Command
   .classBuilder<

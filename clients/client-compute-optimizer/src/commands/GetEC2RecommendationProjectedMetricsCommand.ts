@@ -35,7 +35,6 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the projected utilization metrics of Amazon EC2 instance
  *             recommendations.</p>
  *          <note>
@@ -120,6 +119,7 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetEC2RecommendationProjectedMetricsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetConsoleScreenshotCommandInput extends GetConsoleScreenshotRe
 export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve a JPG-format screenshot of a running instance to help with
  *             troubleshooting.</p>
  *          <p>The returned content is Base64-encoded.</p>
@@ -60,6 +59,7 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetConsoleScreenshotCommand extends $Command
   .classBuilder<

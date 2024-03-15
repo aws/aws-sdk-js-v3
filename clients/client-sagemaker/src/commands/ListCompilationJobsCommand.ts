@@ -27,7 +27,6 @@ export interface ListCompilationJobsCommandInput extends ListCompilationJobsRequ
 export interface ListCompilationJobsCommandOutput extends ListCompilationJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists model compilation jobs that satisfy various filters.</p>
  *          <p>To create a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html">CreateCompilationJob</a>. To get information about a particular model
  *             compilation job you have created, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>.</p>
@@ -81,6 +80,7 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListCompilationJobsCommand extends $Command
   .classBuilder<

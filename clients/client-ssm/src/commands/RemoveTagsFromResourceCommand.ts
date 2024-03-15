@@ -27,7 +27,6 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes tag keys from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<

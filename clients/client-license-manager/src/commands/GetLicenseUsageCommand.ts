@@ -27,7 +27,6 @@ export interface GetLicenseUsageCommandInput extends GetLicenseUsageRequest {}
 export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets detailed information about the usage of the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, _
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class GetLicenseUsageCommand extends $Command
   .classBuilder<

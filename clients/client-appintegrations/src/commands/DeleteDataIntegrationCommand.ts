@@ -27,7 +27,6 @@ export interface DeleteDataIntegrationCommandInput extends DeleteDataIntegration
 export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the DataIntegration. Only DataIntegrations that don't have any
  *       DataIntegrationAssociations can be deleted. Deleting a DataIntegration also deletes the
  *       underlying Amazon AppFlow flow and service linked role. </p>
@@ -75,6 +74,7 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class DeleteDataIntegrationCommand extends $Command
   .classBuilder<

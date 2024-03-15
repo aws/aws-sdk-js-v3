@@ -35,7 +35,6 @@ export interface ListAccountAssignmentsForPrincipalCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the IAM Identity Center associated Amazon Web Services accounts that the principal has access
  *             to.</p>
  * @example
@@ -96,6 +95,7 @@ export interface ListAccountAssignmentsForPrincipalCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListAccountAssignmentsForPrincipalCommand extends $Command
   .classBuilder<

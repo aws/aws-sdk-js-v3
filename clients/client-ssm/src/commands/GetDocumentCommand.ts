@@ -27,7 +27,6 @@ export interface GetDocumentCommandInput extends GetDocumentRequest {}
 export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the contents of the specified Amazon Web Services Systems Manager document (SSM document).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetDocumentCommand extends $Command
   .classBuilder<

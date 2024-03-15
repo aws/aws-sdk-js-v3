@@ -27,7 +27,6 @@ export interface OpenInstancePublicPortsCommandInput extends OpenInstancePublicP
 export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublicPortsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  *          <p>The <code>OpenInstancePublicPorts</code> action supports tag-based access control via
@@ -119,6 +118,7 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class OpenInstancePublicPortsCommand extends $Command
   .classBuilder<

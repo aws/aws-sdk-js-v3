@@ -27,7 +27,6 @@ export interface ListFlowAssociationsCommandInput extends ListFlowAssociationsRe
 export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the flow association based on the filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListFlowAssociationsCommand extends $Command
   .classBuilder<

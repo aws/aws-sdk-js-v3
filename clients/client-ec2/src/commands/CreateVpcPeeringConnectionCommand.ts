@@ -27,7 +27,6 @@ export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeering
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
  * 		  an accepter VPC with which to create the connection. The accepter VPC can belong to
  * 		  another Amazon Web Services account and can be in a different Region to the requester VPC.
@@ -137,6 +136,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVpcPeeringConnectionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteWarmPoolCommandInput extends DeleteWarmPoolType {}
 export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the warm pool for the specified Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -73,6 +72,7 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  */
 export class DeleteWarmPoolCommand extends $Command
   .classBuilder<

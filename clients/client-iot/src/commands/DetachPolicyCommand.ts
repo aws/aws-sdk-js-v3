@@ -27,7 +27,6 @@ export interface DetachPolicyCommandInput extends DetachPolicyRequest {}
 export interface DetachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a policy from the specified target.</p>
  *          <note>
  *             <p>Because of the distributed nature of Amazon Web Services, it can take up to five minutes after
@@ -77,6 +76,7 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DetachPolicyCommand extends $Command
   .classBuilder<

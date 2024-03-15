@@ -31,7 +31,6 @@ export interface DescribeConnectorCommandInput extends DescribeConnectorRequest 
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summary information about the connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -165,6 +164,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class DescribeConnectorCommand extends $Command
   .classBuilder<

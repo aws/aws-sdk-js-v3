@@ -27,7 +27,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsInput {}
 export interface ListApplicationsCommandOutput extends ListApplicationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the applications registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

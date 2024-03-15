@@ -27,7 +27,6 @@ export interface DescribeDBRecommendationsCommandInput extends DescribeDBRecomme
 export interface DescribeDBRecommendationsCommandOutput extends DBRecommendationsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the recommendations to resolve the issues for your DB instances, DB clusters, and DB parameter groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -186,6 +185,7 @@ export interface DescribeDBRecommendationsCommandOutput extends DBRecommendation
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeDBRecommendationsCommand extends $Command
   .classBuilder<

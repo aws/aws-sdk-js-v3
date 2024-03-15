@@ -27,7 +27,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an environment. Deleting an environment does not delete a configuration from a
  *          host.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To delete an environment
  * ```javascript
  * // The following delete-environment example deletes the specified application environment.

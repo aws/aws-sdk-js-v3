@@ -31,7 +31,6 @@ export interface ListChangedBlocksCommandInput extends ListChangedBlocksRequest 
 export interface ListChangedBlocksCommandOutput extends ListChangedBlocksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the blocks that are different between two
  *             Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.</p>
  *          <note>
@@ -99,6 +98,7 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * @public
  */
 export class ListChangedBlocksCommand extends $Command
   .classBuilder<

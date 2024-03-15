@@ -31,7 +31,6 @@ export interface ListPhoneNumberOrdersCommandInput extends ListPhoneNumberOrders
 export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrdersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the phone numbers for an administrator's Amazon Chime SDK account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class ListPhoneNumberOrdersCommand extends $Command
   .classBuilder<

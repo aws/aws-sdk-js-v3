@@ -27,7 +27,6 @@ export interface ListApplicationDPUSizesCommandInput extends ListApplicationDPUS
 export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPUSizesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the supported DPU sizes for the supported application runtimes (for example,
  *                 <code>Athena notebook version 1</code>). </p>
  * @example
@@ -76,6 +75,7 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListApplicationDPUSizesCommand extends $Command
   .classBuilder<

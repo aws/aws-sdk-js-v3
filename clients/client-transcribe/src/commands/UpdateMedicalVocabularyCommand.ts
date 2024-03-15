@@ -27,7 +27,6 @@ export interface UpdateMedicalVocabularyCommandInput extends UpdateMedicalVocabu
 export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing custom medical vocabulary with new values. This operation
  *             overwrites all existing information with your new values; you cannot append new terms
  *             onto an existing custom vocabulary.</p>
@@ -84,6 +83,7 @@ export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocab
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class UpdateMedicalVocabularyCommand extends $Command
   .classBuilder<

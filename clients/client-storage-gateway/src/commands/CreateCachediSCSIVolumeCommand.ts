@@ -27,7 +27,6 @@ export interface CreateCachediSCSIVolumeCommandInput extends CreateCachediSCSIVo
 export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a cached volume on a specified cached volume gateway. This operation is only
  *          supported in the cached volume gateway type.</p>
  *          <note>
@@ -92,6 +91,7 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To create a cached iSCSI volume
  * ```javascript
  * // Creates a cached volume on a specified cached gateway.

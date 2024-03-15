@@ -27,7 +27,6 @@ export interface RebuildEnvironmentCommandInput extends RebuildEnvironmentMessag
 export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
  *       load balancer, etc.) for a specified environment and forces a restart.</p>
  * @example
@@ -59,6 +58,7 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To rebuild an environment
  * ```javascript
  * // The following operation terminates and recreates the resources in an environment named my-env:

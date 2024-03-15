@@ -27,7 +27,6 @@ export interface GetKxEnvironmentCommandInput extends GetKxEnvironmentRequest {}
 export interface GetKxEnvironmentCommandOutput extends GetKxEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all the information for the specified kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface GetKxEnvironmentCommandOutput extends GetKxEnvironmentResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxEnvironmentCommand extends $Command
   .classBuilder<

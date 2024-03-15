@@ -27,7 +27,6 @@ export interface GetReservationCoverageCommandInput extends GetReservationCovera
 export interface GetReservationCoverageCommandOutput extends GetReservationCoverageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the reservation coverage for your account, which you can use to see how much
  *       of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service,
  *       or Amazon Redshift usage is covered by a reservation. An organization's management account can
@@ -245,6 +244,7 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetReservationCoverageCommand extends $Command
   .classBuilder<

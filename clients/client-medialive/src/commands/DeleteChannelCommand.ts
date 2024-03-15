@@ -27,7 +27,6 @@ export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * Starts deletion of channel. The associated outputs are also deleted.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1106,6 +1105,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DeleteChannelCommand extends $Command
   .classBuilder<

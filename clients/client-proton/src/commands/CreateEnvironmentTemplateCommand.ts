@@ -32,7 +32,6 @@ export interface CreateEnvironmentTemplateCommandInput extends CreateEnvironment
 export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
  *          <p>You can create an environment template in one of the two following ways:</p>
  *          <ul>
@@ -113,6 +112,7 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateEnvironmentTemplateCommand extends $Command
   .classBuilder<

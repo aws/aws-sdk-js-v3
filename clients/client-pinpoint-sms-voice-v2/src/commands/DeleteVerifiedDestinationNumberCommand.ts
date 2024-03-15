@@ -36,7 +36,6 @@ export interface DeleteVerifiedDestinationNumberCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a verified destination phone number.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DeleteVerifiedDestinationNumberCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteVerifiedDestinationNumberCommand extends $Command
   .classBuilder<

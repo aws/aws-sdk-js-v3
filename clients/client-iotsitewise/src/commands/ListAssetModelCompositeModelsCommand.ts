@@ -32,7 +32,6 @@ export interface ListAssetModelCompositeModelsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of composite models associated with the asset model</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListAssetModelCompositeModelsCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListAssetModelCompositeModelsCommand extends $Command
   .classBuilder<

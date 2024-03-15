@@ -27,7 +27,6 @@ export interface CreateSecurityGroupCommandInput extends CreateSecurityGroupRequ
 export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a security group.</p>
  *          <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
  *          For more information, see
@@ -93,6 +92,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a security group for a VPC
  * ```javascript
  * // This example creates a security group for the specified VPC.

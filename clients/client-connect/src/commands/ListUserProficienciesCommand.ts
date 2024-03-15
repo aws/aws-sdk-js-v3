@@ -27,7 +27,6 @@ export interface ListUserProficienciesCommandInput extends ListUserProficiencies
 export interface ListUserProficienciesCommandOutput extends ListUserProficienciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists proficiencies associated with a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListUserProficienciesCommandOutput extends ListUserProficiencie
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListUserProficienciesCommand extends $Command
   .classBuilder<

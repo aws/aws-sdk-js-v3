@@ -27,7 +27,6 @@ export interface GetNetworkProfileCommandInput extends GetNetworkProfileRequest 
 export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class GetNetworkProfileCommand extends $Command
   .classBuilder<

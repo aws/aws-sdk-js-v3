@@ -27,7 +27,6 @@ export interface DescribeIntegrationsCommandInput extends DescribeIntegrationsMe
 export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe one or more zero-ETL integrations with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe a zero-ETL integration
  * ```javascript
  * // The following example retrieves information about a zero-ETL integration with Amazon Redshift.

@@ -86,7 +86,6 @@ export interface SSO {
 }
 
 /**
- * @public
  * <p>AWS IAM Identity Center (successor to AWS Single Sign-On) Portal is a web service that makes it easy for you to assign user access to
  *       IAM Identity Center resources such as the AWS access portal. Users can get AWS account applications and roles
  *       assigned to them and get federated into the application.</p>
@@ -103,6 +102,7 @@ export interface SSO {
  *         convenient way to create programmatic access to IAM Identity Center and other AWS services. For more
  *         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
+ * @public
  */
 export class SSO extends SSOClient implements SSO {}
 createAggregatedClient(commands, SSO);

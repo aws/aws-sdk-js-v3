@@ -33,7 +33,6 @@ export interface PrepareQueryCommandInput extends PrepareQueryRequest {}
 export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A synchronous operation that allows you to submit a query with parameters to be stored
  *             by Timestream for later running. Timestream only supports using this operation with the
  *                 <code>PrepareQueryRequest$ValidateOnly</code> set to <code>true</code>. </p>
@@ -119,6 +118,7 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class PrepareQueryCommand extends $Command
   .classBuilder<

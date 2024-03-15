@@ -27,9 +27,6 @@ export interface CreateChangesetCommandInput extends CreateChangesetRequest {}
 export interface CreateChangesetCommandOutput extends CreateChangesetResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Creates a new Changeset in a FinSpace Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +85,8 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class CreateChangesetCommand extends $Command
   .classBuilder<

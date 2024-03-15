@@ -27,7 +27,6 @@ export interface ListPartsCommandInput extends ListPartsInput {}
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists the parts of an archive that have been uploaded in a specific
  *          multipart upload. You can make this request at any time during an in-progress multipart
  *          upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List
@@ -104,6 +103,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To list the parts of an archive that have been uploaded in a multipart upload
  * ```javascript
  * // The example lists all the parts of a multipart upload.

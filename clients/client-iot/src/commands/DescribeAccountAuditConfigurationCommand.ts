@@ -35,7 +35,6 @@ export interface DescribeAccountAuditConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the Device Defender audit settings for this account.
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
@@ -82,6 +81,7 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeAccountAuditConfigurationCommand extends $Command
   .classBuilder<

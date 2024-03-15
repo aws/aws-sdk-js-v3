@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { B2biServiceException as __BaseException } from "./B2biServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,8 +24,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -44,20 +44,20 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Specifies the details for the Amazon S3 file location that is being used with Amazon Web Services B2BI Data Interchange. File
  *          locations in Amazon S3 are identified using a combination of the bucket and key.</p>
+ * @public
  */
 export interface S3Location {
   /**
-   * @public
    * <p>Specifies the name of the Amazon S3 bucket.</p>
+   * @public
    */
   bucketName?: string;
 
   /**
-   * @public
    * <p>Specifies the Amazon S3 key for the file location.</p>
+   * @public
    */
   key?: string;
 }
@@ -115,29 +115,29 @@ export const X12Version = {
 export type X12Version = (typeof X12Version)[keyof typeof X12Version];
 
 /**
- * @public
  * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p>
  *          <note>
  *             <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p>
  *          </note>
+ * @public
  */
 export interface X12Details {
   /**
-   * @public
    * <p>Returns an enumerated type where each value identifies an X12 transaction set. Transaction sets are maintained by the X12 Accredited Standards Committee.</p>
+   * @public
    */
   transactionSet?: X12TransactionSet;
 
   /**
-   * @public
    * <p>Returns the version to use for the specified X12 transaction set. Supported versions are <code>4010</code>, <code>4030</code>, and <code>5010</code>.</p>
+   * @public
    */
   version?: X12Version;
 }
 
 /**
- * @public
  * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+ * @public
  */
 export type EdiType = EdiType.X12DetailsMember | EdiType.$UnknownMember;
 
@@ -146,8 +146,8 @@ export type EdiType = EdiType.X12DetailsMember | EdiType.$UnknownMember;
  */
 export namespace EdiType {
   /**
-   * @public
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   export interface X12DetailsMember {
     x12Details: X12Details;
@@ -174,38 +174,38 @@ export namespace EdiType {
 }
 
 /**
- * @public
  * <p>Specifies the details for the EDI (electronic data interchange) transformation.</p>
+ * @public
  */
 export interface EdiConfiguration {
   /**
-   * @public
    * <p>Returns the type of the capability. Currently, only <code>edi</code> is supported.</p>
+   * @public
    */
   type: EdiType | undefined;
 
   /**
-   * @public
    * <p>Contains the Amazon S3 bucket and prefix for the location of the input file, which is contained in an <code>S3Location</code> object.</p>
+   * @public
    */
   inputLocation: S3Location | undefined;
 
   /**
-   * @public
    * <p>Contains the Amazon S3 bucket and prefix for the location of the output file, which is contained in an <code>S3Location</code> object.</p>
+   * @public
    */
   outputLocation: S3Location | undefined;
 
   /**
-   * @public
    * <p>Returns the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 }
 
 /**
- * @public
  * <p>A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+ * @public
  */
 export type CapabilityConfiguration = CapabilityConfiguration.EdiMember | CapabilityConfiguration.$UnknownMember;
 
@@ -214,8 +214,8 @@ export type CapabilityConfiguration = CapabilityConfiguration.EdiMember | Capabi
  */
 export namespace CapabilityConfiguration {
   /**
-   * @public
    * <p>An EDI (electronic data interchange) configuration object.</p>
+   * @public
    */
   export interface EdiMember {
     edi: EdiConfiguration;
@@ -242,21 +242,21 @@ export namespace CapabilityConfiguration {
 }
 
 /**
- * @public
  * <p>Creates a key-value pair for a specific resource. Tags are metadata that you can use to search for and group a resource for various purposes.
  *          You can apply tags to capabilities, partnerships, profiles and transformers. A tag key can take more than one value. For example, to group capabilities for accounting purposes,
  *          you might create a tag called <code>Group</code> and assign the values <code>Research</code> and <code>Accounting</code> to that group.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>Specifies the name assigned to the tag that you create.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>Contains one or more values that you assigned to the key name that you create.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -279,38 +279,38 @@ export type CapabilityType = (typeof CapabilityType)[keyof typeof CapabilityType
  */
 export interface CreateCapabilityRequest {
   /**
-   * @public
    * <p>Specifies the name of the capability, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the type of the capability. Currently, only <code>edi</code> is supported.</p>
+   * @public
    */
   type: CapabilityType | undefined;
 
   /**
-   * @public
    * <p>Specifies a structure that contains the details for a capability.</p>
+   * @public
    */
   configuration: CapabilityConfiguration | undefined;
 
   /**
-   * @public
    * <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+   * @public
    */
   instructionsDocuments?: S3Location[];
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -320,59 +320,59 @@ export interface CreateCapabilityRequest {
  */
 export interface CreateCapabilityResponse {
   /**
-   * @public
    * <p>Returns a system-assigned unique identifier for the capability.</p>
+   * @public
    */
   capabilityId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   capabilityArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the capability used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the type of the capability. Currently, only <code>edi</code> is supported.</p>
+   * @public
    */
   type: CapabilityType | undefined;
 
   /**
-   * @public
    * <p>Returns a structure that contains the details for a capability.</p>
+   * @public
    */
   configuration: CapabilityConfiguration | undefined;
 
   /**
-   * @public
    * <p>Returns one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+   * @public
    */
   instructionsDocuments?: S3Location[];
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the capability.</p>
+   * @public
    */
   createdAt: Date | undefined;
 }
 
 /**
- * @public
  * <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>The server attempts to retry a failed command.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -391,8 +391,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -411,33 +411,33 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Occurs when the calling command attempts to exceed one of the service quotas, for example trying to create a capability when you already have the maximum number of capabilities allowed.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID for the resource that exceeded the quota, which caused the exception.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The resource type (profile, partnership, transformer, or capability) that exceeded the quota, which caused the exception.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>The code responsible for exceeding the quota, which caused the exception.</p>
+   * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * @public
    * <p>The quota that was exceeded, which caused the exception.</p>
+   * @public
    */
   quotaCode: string | undefined;
 
@@ -459,16 +459,16 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
-   * @public
    * <p>The server attempts to retry a command that was throttled.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -487,8 +487,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Occurs when a B2BI object cannot be validated against a request from another object.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -513,8 +513,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteCapabilityRequest {
   /**
-   * @public
    * <p>Specifies a system-assigned unique identifier for the capability.</p>
+   * @public
    */
   capabilityId: string | undefined;
 }
@@ -524,8 +524,8 @@ export interface DeleteCapabilityRequest {
  */
 export interface GetCapabilityRequest {
   /**
-   * @public
    * <p>Specifies a system-assigned unique identifier for the capability.</p>
+   * @public
    */
   capabilityId: string | undefined;
 }
@@ -535,50 +535,50 @@ export interface GetCapabilityRequest {
  */
 export interface GetCapabilityResponse {
   /**
-   * @public
    * <p>Returns a system-assigned unique identifier for the capability.</p>
+   * @public
    */
   capabilityId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   capabilityArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the capability, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the type of the capability. Currently, only <code>edi</code> is supported.</p>
+   * @public
    */
   type: CapabilityType | undefined;
 
   /**
-   * @public
    * <p>Returns a structure that contains the details for a capability.</p>
+   * @public
    */
   configuration: CapabilityConfiguration | undefined;
 
   /**
-   * @public
    * <p>Returns one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+   * @public
    */
   instructionsDocuments?: S3Location[];
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the capability.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp for last time the capability was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -588,51 +588,51 @@ export interface GetCapabilityResponse {
  */
 export interface ListCapabilitiesRequest {
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the maximum number of capabilities to return.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Returns the capability summary details. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
+ * @public
  */
 export interface CapabilitySummary {
   /**
-   * @public
    * <p>Returns a system-assigned unique identifier for the capability.</p>
+   * @public
    */
   capabilityId: string | undefined;
 
   /**
-   * @public
    * <p>The display name of the capability.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the type of the capability. Currently, only <code>edi</code> is supported.</p>
+   * @public
    */
   type: CapabilityType | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the capability.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp that identifies the most recent date and time that the capability was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -642,15 +642,15 @@ export interface CapabilitySummary {
  */
 export interface ListCapabilitiesResponse {
   /**
-   * @public
    * <p>Returns one or more capabilities associated with this partnership.</p>
+   * @public
    */
   capabilities: CapabilitySummary[] | undefined;
 
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -660,26 +660,26 @@ export interface ListCapabilitiesResponse {
  */
 export interface UpdateCapabilityRequest {
   /**
-   * @public
    * <p>Specifies a system-assigned unique identifier for the capability.</p>
+   * @public
    */
   capabilityId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a new name for the capability, to replace the existing name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies a structure that contains the details for a capability.</p>
+   * @public
    */
   configuration?: CapabilityConfiguration;
 
   /**
-   * @public
    * <p>Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+   * @public
    */
   instructionsDocuments?: S3Location[];
 }
@@ -689,50 +689,50 @@ export interface UpdateCapabilityRequest {
  */
 export interface UpdateCapabilityResponse {
   /**
-   * @public
    * <p>Returns a system-assigned unique identifier for the capability.</p>
+   * @public
    */
   capabilityId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   capabilityArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the capability, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the type of the capability. Currently, only <code>edi</code> is supported.</p>
+   * @public
    */
   type: CapabilityType | undefined;
 
   /**
-   * @public
    * <p>Returns a structure that contains the details for a capability.</p>
+   * @public
    */
   configuration: CapabilityConfiguration | undefined;
 
   /**
-   * @public
    * <p>Returns one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.</p>
+   * @public
    */
   instructionsDocuments?: S3Location[];
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the capability.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp for last time the capability was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -742,14 +742,14 @@ export interface UpdateCapabilityResponse {
  */
 export interface GetTransformerJobRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for a transformer run.</p>
+   * @public
    */
   transformerJobId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 }
@@ -774,24 +774,24 @@ export type TransformerJobStatus = (typeof TransformerJobStatus)[keyof typeof Tr
  */
 export interface GetTransformerJobResponse {
   /**
-   * @public
    * <p>Returns the current state of the transformer job, either <code>running</code>,
    *             <code>succeeded</code>, or <code>failed</code>.</p>
+   * @public
    */
   status: TransformerJobStatus | undefined;
 
   /**
-   * @public
    * <p>Returns the location for the output files. If the caller specified a directory for the
    *          output, then this contains the full path to the output file, including the file name
    *          generated by the service.</p>
+   * @public
    */
   outputFiles?: S3Location[];
 
   /**
-   * @public
    * <p>Returns an optional error message, which gets populated when the job is not run
    *          successfully.</p>
+   * @public
    */
   message?: string;
 }
@@ -801,8 +801,8 @@ export interface GetTransformerJobResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN is an identifier for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 }
@@ -812,8 +812,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Returns the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -823,44 +823,44 @@ export interface ListTagsForResourceResponse {
  */
 export interface CreatePartnershipRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for the profile connected to this partnership.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a descriptive name for the partnership.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the email address associated with this trading partner.</p>
+   * @public
    */
   email: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the phone number associated with the partnership.</p>
+   * @public
    */
   phone?: string;
 
   /**
-   * @public
    * <p>Specifies a list of the capabilities associated with this partnership.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -870,56 +870,56 @@ export interface CreatePartnershipRequest {
  */
 export interface CreatePartnershipResponse {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile connected to this partnership.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a partnership.</p>
+   * @public
    */
   partnershipId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   partnershipArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns a descriptive name for the partnership.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Returns the email address associated with this trading partner.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Returns the phone number associated with the partnership.</p>
+   * @public
    */
   phone?: string;
 
   /**
-   * @public
    * <p>Returns one or more capabilities associated with this partnership.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a trading partner.</p>
+   * @public
    */
   tradingPartnerId?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the partnership.</p>
+   * @public
    */
   createdAt: Date | undefined;
 }
@@ -929,8 +929,8 @@ export interface CreatePartnershipResponse {
  */
 export interface DeletePartnershipRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for a partnership.</p>
+   * @public
    */
   partnershipId: string | undefined;
 }
@@ -940,8 +940,8 @@ export interface DeletePartnershipRequest {
  */
 export interface GetPartnershipRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for a partnership.</p>
+   * @public
    */
   partnershipId: string | undefined;
 }
@@ -951,62 +951,62 @@ export interface GetPartnershipRequest {
  */
 export interface GetPartnershipResponse {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile connected to this partnership.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a partnership.</p>
+   * @public
    */
   partnershipId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   partnershipArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the display name of the partnership</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Returns the email address associated with this trading partner.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Returns the phone number associated with the partnership.</p>
+   * @public
    */
   phone?: string;
 
   /**
-   * @public
    * <p>Returns one or more capabilities associated with this partnership.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>Returns the unique identifier for the partner for this partnership.</p>
+   * @public
    */
   tradingPartnerId?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the partnership.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -1016,70 +1016,70 @@ export interface GetPartnershipResponse {
  */
 export interface ListPartnershipsRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for the profile connected to this partnership.</p>
+   * @public
    */
   profileId?: string;
 
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the maximum number of capabilities to return.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>A structure that contains the details for a partnership. A partnership represents the connection between you and your trading partner. It ties
  *    together a profile and one or more trading capabilities.</p>
+ * @public
  */
 export interface PartnershipSummary {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile connected to this partnership.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a partnership.</p>
+   * @public
    */
   partnershipId: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the partnership.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Returns one or more capabilities associated with this partnership.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a trading partner.</p>
+   * @public
    */
   tradingPartnerId?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the partnership.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -1089,15 +1089,15 @@ export interface PartnershipSummary {
  */
 export interface ListPartnershipsResponse {
   /**
-   * @public
    * <p>Specifies a list of your partnerships.</p>
+   * @public
    */
   partnerships: PartnershipSummary[] | undefined;
 
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1107,20 +1107,20 @@ export interface ListPartnershipsResponse {
  */
 export interface UpdatePartnershipRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for a partnership.</p>
+   * @public
    */
   partnershipId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the partnership, used to identify it.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>List of the capabilities associated with this partnership.</p>
+   * @public
    */
   capabilities?: string[];
 }
@@ -1130,62 +1130,62 @@ export interface UpdatePartnershipRequest {
  */
 export interface UpdatePartnershipResponse {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile connected to this partnership.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a partnership.</p>
+   * @public
    */
   partnershipId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   partnershipArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the partnership, used to identify it.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Returns the email address associated with this trading partner.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Returns the phone number associated with the partnership.</p>
+   * @public
    */
   phone?: string;
 
   /**
-   * @public
    * <p>Returns one or more capabilities associated with this partnership.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a trading partner.</p>
+   * @public
    */
   tradingPartnerId?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp that identifies the most recent date and time that the partnership was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -1209,44 +1209,44 @@ export type Logging = (typeof Logging)[keyof typeof Logging];
  */
 export interface CreateProfileRequest {
   /**
-   * @public
    * <p>Specifies the name of the profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the email address associated with this customer profile.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Specifies the phone number associated with the profile.</p>
+   * @public
    */
   phone: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the name for the business associated with this profile.</p>
+   * @public
    */
   businessName: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether or not logging is enabled for this profile.</p>
+   * @public
    */
   logging: Logging | undefined;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1256,56 +1256,56 @@ export interface CreateProfileRequest {
  */
 export interface CreateProfileResponse {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for the profile.</p>
+   * @public
    */
   profileArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the profile, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name for the business associated with this profile.</p>
+   * @public
    */
   businessName: string | undefined;
 
   /**
-   * @public
    * <p>Returns the phone number associated with the profile.</p>
+   * @public
    */
   phone: string | undefined;
 
   /**
-   * @public
    * <p>Returns the email address associated with this customer profile.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Returns whether or not logging is turned on for this profile.</p>
+   * @public
    */
   logging?: Logging;
 
   /**
-   * @public
    * <p>Returns the name of the logging group.</p>
+   * @public
    */
   logGroupName?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp representing the time the profile was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 }
@@ -1315,8 +1315,8 @@ export interface CreateProfileResponse {
  */
 export interface DeleteProfileRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 }
@@ -1326,8 +1326,8 @@ export interface DeleteProfileRequest {
  */
 export interface GetProfileRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 }
@@ -1337,62 +1337,62 @@ export interface GetProfileRequest {
  */
 export interface GetProfileResponse {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   profileArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the profile, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the email address associated with this customer profile.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Returns the phone number associated with the profile.</p>
+   * @public
    */
   phone: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name for the business associated with this profile.</p>
+   * @public
    */
   businessName: string | undefined;
 
   /**
-   * @public
    * <p>Returns whether or not logging is enabled for this profile.</p>
+   * @public
    */
   logging?: Logging;
 
   /**
-   * @public
    * <p>Returns the name of the logging group.</p>
+   * @public
    */
   logGroupName?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the transformer.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp for last time the profile was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -1402,64 +1402,64 @@ export interface GetProfileResponse {
  */
 export interface ListProfilesRequest {
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the maximum number of profiles to return.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains the details for a profile. A profile is the mechanism used to create the concept of
  *    a private network.</p>
+ * @public
  */
 export interface ProfileSummary {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns the display name for profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name for the business associated with this profile.</p>
+   * @public
    */
   businessName: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether or not logging is enabled for this profile.</p>
+   * @public
    */
   logging?: Logging;
 
   /**
-   * @public
    * <p>Returns the name of the logging group.</p>
+   * @public
    */
   logGroupName?: string;
 
   /**
-   * @public
    * <p>Returns the timestamp for creation date and time of the profile.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns the timestamp that identifies the most recent date and time that the profile was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -1469,15 +1469,15 @@ export interface ProfileSummary {
  */
 export interface ListProfilesResponse {
   /**
-   * @public
    * <p>Returns an array of <code>ProfileSummary</code> objects.</p>
+   * @public
    */
   profiles: ProfileSummary[] | undefined;
 
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1487,32 +1487,32 @@ export interface ListProfilesResponse {
  */
 export interface UpdateProfileRequest {
   /**
-   * @public
    * <p>Specifies the unique, system-generated identifier for the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the profile, used to identify it.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies the email address associated with this customer profile.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Specifies the phone number associated with the profile.</p>
+   * @public
    */
   phone?: string;
 
   /**
-   * @public
    * <p>Specifies the name for the business associated with this profile.</p>
+   * @public
    */
   businessName?: string;
 }
@@ -1522,62 +1522,62 @@ export interface UpdateProfileRequest {
  */
 export interface UpdateProfileResponse {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for the profile.</p>
+   * @public
    */
   profileId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for the profile.</p>
+   * @public
    */
   profileArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns the email address associated with this customer profile.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>Returns the phone number associated with the profile.</p>
+   * @public
    */
   phone: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name for the business associated with this profile.</p>
+   * @public
    */
   businessName: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether or not logging is enabled for this profile.</p>
+   * @public
    */
   logging?: Logging;
 
   /**
-   * @public
    * <p>Returns the name of the logging group.</p>
+   * @public
    */
   logGroupName?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the profile.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp for last time the profile was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -1587,26 +1587,26 @@ export interface UpdateProfileResponse {
  */
 export interface StartTransformerJobRequest {
   /**
-   * @public
    * <p>Specifies the location of the input file for the transformation. The location consists of an Amazon S3 bucket and prefix.</p>
+   * @public
    */
   inputFile: S3Location | undefined;
 
   /**
-   * @public
    * <p>Specifies the location of the output file for the transformation. The location consists of an Amazon S3 bucket and prefix.</p>
+   * @public
    */
   outputLocation: S3Location | undefined;
 
   /**
-   * @public
    * <p>Specifies the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1616,8 +1616,8 @@ export interface StartTransformerJobRequest {
  */
 export interface StartTransformerJobResponse {
   /**
-   * @public
    * <p>Returns the unique, system-generated identifier for a transformer run.</p>
+   * @public
    */
   transformerJobId: string | undefined;
 }
@@ -1627,14 +1627,14 @@ export interface StartTransformerJobResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>Specifies an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -1658,21 +1658,21 @@ export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
  */
 export interface TestMappingRequest {
   /**
-   * @public
    * <p>Specify the contents of the EDI (electronic data interchange) XML or JSON file that is used as input for the transform.</p>
+   * @public
    */
   inputFileContent: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the name of the mapping template for the transformer. This template is used to convert the input document into the
    *       correct set of objects.</p>
+   * @public
    */
   mappingTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 }
@@ -1682,8 +1682,8 @@ export interface TestMappingRequest {
  */
 export interface TestMappingResponse {
   /**
-   * @public
    * <p>Returns a string for the mapping that can be used to identify the mapping. Similar to a fingerprint</p>
+   * @public
    */
   mappedFileContent: string | undefined;
 }
@@ -1693,20 +1693,20 @@ export interface TestMappingResponse {
  */
 export interface TestParsingRequest {
   /**
-   * @public
    * <p>Specifies an <code>S3Location</code> object, which contains the Amazon S3 bucket and prefix for the location of the input file.</p>
+   * @public
    */
   inputFile: S3Location | undefined;
 
   /**
-   * @public
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * @public
    * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   ediType: EdiType | undefined;
 }
@@ -1716,8 +1716,8 @@ export interface TestParsingRequest {
  */
 export interface TestParsingResponse {
   /**
-   * @public
    * <p>Returns the contents of the input file being tested, parsed according to the specified EDI (electronic data interchange) type.</p>
+   * @public
    */
   parsedFileContent: string | undefined;
 }
@@ -1727,45 +1727,45 @@ export interface TestParsingResponse {
  */
 export interface CreateTransformerRequest {
   /**
-   * @public
    * <p>Specifies the name of the transformer, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * @public
    * <p>Specifies the name of the mapping template for the transformer. This template is used to convert the input document into the
    *       correct set of objects.</p>
+   * @public
    */
   mappingTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   ediType: EdiType | undefined;
 
   /**
-   * @public
    * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * @public
    */
   sampleDocument?: string;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1789,59 +1789,59 @@ export type TransformerStatus = (typeof TransformerStatus)[keyof typeof Transfor
  */
 export interface CreateTransformerResponse {
   /**
-   * @public
    * <p>Returns the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   transformerArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the transformer, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
    *       correct set of objects.</p>
+   * @public
    */
   mappingTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Returns the state of the newly created transformer. The transformer can be either
    *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
    *          capability, its status must <code>active</code>.</p>
+   * @public
    */
   status: TransformerStatus | undefined;
 
   /**
-   * @public
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   ediType: EdiType | undefined;
 
   /**
-   * @public
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * @public
    */
   sampleDocument?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the transformer.</p>
+   * @public
    */
   createdAt: Date | undefined;
 }
@@ -1851,8 +1851,8 @@ export interface CreateTransformerResponse {
  */
 export interface DeleteTransformerRequest {
   /**
-   * @public
    * <p>Specifies the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 }
@@ -1862,8 +1862,8 @@ export interface DeleteTransformerRequest {
  */
 export interface GetTransformerRequest {
   /**
-   * @public
    * <p>Specifies the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 }
@@ -1873,65 +1873,65 @@ export interface GetTransformerRequest {
  */
 export interface GetTransformerResponse {
   /**
-   * @public
    * <p>Returns the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   transformerArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the transformer, used to identify it.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
    *       correct set of objects.</p>
+   * @public
    */
   mappingTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Returns the state of the newly created transformer. The transformer can be either
    *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
    *          capability, its status must <code>active</code>.</p>
+   * @public
    */
   status: TransformerStatus | undefined;
 
   /**
-   * @public
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   ediType: EdiType | undefined;
 
   /**
-   * @public
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * @public
    */
   sampleDocument?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the transformer.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp for last time the transformer was modified.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -1941,81 +1941,81 @@ export interface GetTransformerResponse {
  */
 export interface ListTransformersRequest {
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the number of items to return for the API response.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains the details for a transformer object. A transformer
  *    describes how to process the incoming EDI documents and extract the necessary
  *    information to the output file.</p>
+ * @public
  */
 export interface TransformerSummary {
   /**
-   * @public
    * <p>Returns the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 
   /**
-   * @public
    * <p>Returns the descriptive name for the transformer.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
    *       correct set of objects.</p>
+   * @public
    */
   mappingTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Returns the state of the newly created transformer. The transformer can be either
    *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
    *          capability, its status must <code>active</code>.</p>
+   * @public
    */
   status: TransformerStatus | undefined;
 
   /**
-   * @public
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   ediType: EdiType | undefined;
 
   /**
-   * @public
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * @public
    */
   sampleDocument?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp indicating when the transformer was created. For example,
    *          <code>2023-07-20T19:58:44.624Z</code>.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp representing the date and time for the most recent change for the transformer object.</p>
+   * @public
    */
   modifiedAt?: Date;
 }
@@ -2025,17 +2025,17 @@ export interface TransformerSummary {
  */
 export interface ListTransformersResponse {
   /**
-   * @public
    * <p>Returns an array of one or more transformer objects.</p>
    *          <p>For each transformer, a <code>TransformerSummary</code> object is returned.
    *          The <code>TransformerSummary</code> contains all the details for a specific transformer.</p>
+   * @public
    */
   transformers: TransformerSummary[] | undefined;
 
   /**
-   * @public
    * <p>When additional results are obtained from the command, a <code>NextToken</code> parameter is returned in the output.
    *    You can then pass the <code>NextToken</code> parameter in a subsequent command to continue listing additional resources.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2045,45 +2045,45 @@ export interface ListTransformersResponse {
  */
 export interface UpdateTransformerRequest {
   /**
-   * @public
    * <p>Specifies the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 
   /**
-   * @public
    * <p>Specify a new name for the transformer, if you want to update it.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat?: FileFormat;
 
   /**
-   * @public
    * <p>Specifies the name of the mapping template for the transformer. This template is used to convert the input document into the
    *       correct set of objects.</p>
+   * @public
    */
   mappingTemplate?: string;
 
   /**
-   * @public
    * <p>Specifies the transformer's status. You can update the state of the transformer, from <code>active</code> to <code>inactive</code>, or <code>inactive</code> to <code>active</code>.</p>
+   * @public
    */
   status?: TransformerStatus;
 
   /**
-   * @public
    * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   ediType?: EdiType;
 
   /**
-   * @public
    * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * @public
    */
   sampleDocument?: string;
 }
@@ -2093,65 +2093,65 @@ export interface UpdateTransformerRequest {
  */
 export interface UpdateTransformerResponse {
   /**
-   * @public
    * <p>Returns the system-assigned unique identifier for the transformer.</p>
+   * @public
    */
   transformerId: string | undefined;
 
   /**
-   * @public
    * <p>Returns an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   transformerArn: string | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the transformer.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * @public
    * <p>Returns the name of the mapping template for the transformer. This template is used to convert the input document into the
    *       correct set of objects.</p>
+   * @public
    */
   mappingTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Returns the state of the newly created transformer. The transformer can be either
    *             <code>active</code> or <code>inactive</code>. For the transformer to be used in a
    *          capability, its status must <code>active</code>.</p>
+   * @public
    */
   status: TransformerStatus | undefined;
 
   /**
-   * @public
    * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * @public
    */
   ediType: EdiType | undefined;
 
   /**
-   * @public
    * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * @public
    */
   sampleDocument?: string;
 
   /**
-   * @public
    * <p>Returns a timestamp for creation date and time of the transformer.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Returns a timestamp for last time the transformer was modified.</p>
+   * @public
    */
   modifiedAt: Date | undefined;
 }
@@ -2161,14 +2161,14 @@ export interface UpdateTransformerResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>Specifies an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

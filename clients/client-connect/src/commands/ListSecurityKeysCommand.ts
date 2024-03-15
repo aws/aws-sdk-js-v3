@@ -27,7 +27,6 @@ export interface ListSecurityKeysCommandInput extends ListSecurityKeysRequest {}
 export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all security keys associated with the instance.</p>
  * @example
@@ -80,6 +79,7 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListSecurityKeysCommand extends $Command
   .classBuilder<

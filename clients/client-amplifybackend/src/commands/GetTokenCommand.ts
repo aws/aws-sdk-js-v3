@@ -27,7 +27,6 @@ export interface GetTokenCommandInput extends GetTokenRequest {}
 export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the challenge token based on the given appId and sessionId.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class GetTokenCommand extends $Command
   .classBuilder<

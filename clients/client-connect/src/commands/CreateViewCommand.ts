@@ -32,7 +32,6 @@ export interface CreateViewCommandInput extends CreateViewRequest {}
 export interface CreateViewCommandOutput extends CreateViewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new view with the possible status of <code>SAVED</code> or
  *    <code>PUBLISHED</code>.</p>
  *          <p>The views will have a unique name for each connect instance.</p>
@@ -129,6 +128,7 @@ export interface CreateViewCommandOutput extends CreateViewResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateViewCommand extends $Command
   .classBuilder<

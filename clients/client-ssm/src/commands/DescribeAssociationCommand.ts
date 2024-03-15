@@ -31,7 +31,6 @@ export interface DescribeAssociationCommandInput extends DescribeAssociationRequ
 export interface DescribeAssociationCommandOutput extends DescribeAssociationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the association for the specified target or managed node. If you created the
  *    association by using the <code>Targets</code> parameter, then you must retrieve the association
  *    by using the association ID.</p>
@@ -196,6 +195,7 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeAssociationCommand extends $Command
   .classBuilder<

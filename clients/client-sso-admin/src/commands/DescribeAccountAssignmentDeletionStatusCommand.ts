@@ -36,7 +36,6 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of the assignment deletion request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribeAccountAssignmentDeletionStatusCommand extends $Command
   .classBuilder<

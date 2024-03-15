@@ -27,7 +27,6 @@ export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the managed policies that are available in your Amazon Web Services account, including
  *             your own customer-defined managed policies and all Amazon Web Services managed policies.</p>
  *          <p>You can filter the list of policies that is returned using the optional
@@ -101,6 +100,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListPoliciesCommand extends $Command
   .classBuilder<

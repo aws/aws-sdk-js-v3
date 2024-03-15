@@ -27,7 +27,6 @@ export interface DeregisterStreamConsumerCommandInput extends DeregisterStreamCo
 export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
  *             the data stream and the name you gave the consumer when you registered it. You may also
  *             provide all three parameters, as long as they don't conflict with each other. If you
@@ -74,6 +73,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DeregisterStreamConsumerCommand extends $Command
   .classBuilder<

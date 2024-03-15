@@ -27,7 +27,6 @@ export interface UpdateResourceDefinitionCommandInput extends UpdateResourceDefi
 export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates a resource definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class UpdateResourceDefinitionCommand extends $Command
   .classBuilder<

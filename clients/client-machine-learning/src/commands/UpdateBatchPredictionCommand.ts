@@ -27,7 +27,6 @@ export interface UpdateBatchPredictionCommandInput extends UpdateBatchPrediction
 export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
  *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -66,6 +65,7 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class UpdateBatchPredictionCommand extends $Command
   .classBuilder<

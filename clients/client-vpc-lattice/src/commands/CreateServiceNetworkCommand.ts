@@ -27,7 +27,6 @@ export interface CreateServiceNetworkCommandInput extends CreateServiceNetworkRe
 export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a service network. A service network is a logical boundary for a collection of
  *    services. You can associate services and VPCs with a service network.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html">Service networks</a> in the
@@ -89,6 +88,7 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class CreateServiceNetworkCommand extends $Command
   .classBuilder<

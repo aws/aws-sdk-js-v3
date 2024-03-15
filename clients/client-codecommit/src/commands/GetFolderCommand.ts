@@ -27,7 +27,6 @@ export interface GetFolderCommandInput extends GetFolderInput {}
 export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the contents of a specified folder in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -134,6 +133,7 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetFolderCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateTestGridProjectCommandInput extends CreateTestGridProject
 export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>
  *          instances.</p>
  * @example
@@ -90,6 +89,7 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class CreateTestGridProjectCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the logging configuration settings for the specified Voice Connector.
  *          Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorLoggingConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateCertificateAuthorityCommandInput extends UpdateCertificat
 export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status or configuration of a private certificate authority (CA). Your
  * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
  * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
@@ -101,6 +100,7 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class UpdateCertificateAuthorityCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateStudioCommandInput extends UpdateStudioInput {}
 export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon EMR Studio configuration, including attributes such as name,
  *          description, and subnets.</p>
  * @example
@@ -68,6 +67,7 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class UpdateStudioCommand extends $Command
   .classBuilder<

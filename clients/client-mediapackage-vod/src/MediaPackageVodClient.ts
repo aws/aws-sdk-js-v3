@@ -327,8 +327,8 @@ export type MediaPackageVodClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface MediaPackageVodClientResolvedConfig extends MediaPackageVodClientResolvedConfigType {}
 
 /**
- * @public
  * AWS Elemental MediaPackage VOD
+ * @public
  */
 export class MediaPackageVodClient extends __Client<
   __HttpHandlerOptions,

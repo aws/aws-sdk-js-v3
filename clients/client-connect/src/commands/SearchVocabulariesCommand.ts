@@ -27,7 +27,6 @@ export interface SearchVocabulariesCommandInput extends SearchVocabulariesReques
 export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for vocabularies within a specific Amazon Connect instance using
  *     <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
  * @example
@@ -84,6 +83,7 @@ export interface SearchVocabulariesCommandOutput extends SearchVocabulariesRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchVocabulariesCommand extends $Command
   .classBuilder<

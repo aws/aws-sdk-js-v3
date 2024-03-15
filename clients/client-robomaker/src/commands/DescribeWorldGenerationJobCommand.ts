@@ -27,7 +27,6 @@ export interface DescribeWorldGenerationJobCommandInput extends DescribeWorldGen
 export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a world generation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeWorldGenerationJobCommandOutput extends DescribeWorldGe
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class DescribeWorldGenerationJobCommand extends $Command
   .classBuilder<

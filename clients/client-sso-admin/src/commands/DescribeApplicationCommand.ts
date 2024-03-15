@@ -27,7 +27,6 @@ export interface DescribeApplicationCommandInput extends DescribeApplicationRequ
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of an application associated with an instance of IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribeApplicationCommand extends $Command
   .classBuilder<

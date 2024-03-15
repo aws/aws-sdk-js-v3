@@ -27,7 +27,6 @@ export interface UpdateScriptCommandInput extends UpdateScriptInput {}
 export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates Realtime script metadata and content.</p>
  *          <p>To update script metadata, specify the script ID and provide updated name and/or
  *             version values. </p>
@@ -112,6 +111,7 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateScriptCommand extends $Command
   .classBuilder<

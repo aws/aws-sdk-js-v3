@@ -27,7 +27,6 @@ export interface UpdateSchemaMappingCommandInput extends UpdateSchemaMappingInpu
 export interface UpdateSchemaMappingCommandOutput extends UpdateSchemaMappingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a schema mapping.</p>
  *          <note>
  *             <p>A schema is immutable if it is being used by a workflow. Therefore, you can't update
@@ -110,6 +109,7 @@ export interface UpdateSchemaMappingCommandOutput extends UpdateSchemaMappingOut
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class UpdateSchemaMappingCommand extends $Command
   .classBuilder<

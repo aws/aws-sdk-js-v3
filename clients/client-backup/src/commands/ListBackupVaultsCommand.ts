@@ -27,7 +27,6 @@ export interface ListBackupVaultsCommandInput extends ListBackupVaultsInput {}
 export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of recovery point storage containers along with information about
  *          them.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListBackupVaultsCommand extends $Command
   .classBuilder<

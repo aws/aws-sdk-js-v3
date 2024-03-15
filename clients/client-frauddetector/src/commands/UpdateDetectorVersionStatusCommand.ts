@@ -27,7 +27,6 @@ export interface UpdateDetectorVersionStatusCommandInput extends UpdateDetectorV
 export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetectorVersionStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the detector version’s status. You can perform the following promotions or
  *             demotions using <code>UpdateDetectorVersionStatus</code>: <code>DRAFT</code> to <code>ACTIVE</code>, <code>ACTIVE</code> to <code>INACTIVE</code>, and <code>INACTIVE</code> to <code>ACTIVE</code>.</p>
  * @example
@@ -74,6 +73,7 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateDetectorVersionStatusCommand extends $Command
   .classBuilder<

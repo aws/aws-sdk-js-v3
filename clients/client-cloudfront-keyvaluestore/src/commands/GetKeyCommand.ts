@@ -31,7 +31,6 @@ export interface GetKeyCommandInput extends GetKeyRequest {}
 export interface GetKeyCommandOutput extends GetKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a key value pair.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetKeyCommandOutput extends GetKeyResponse, __MetadataBearer {}
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ * @public
  */
 export class GetKeyCommand extends $Command
   .classBuilder<

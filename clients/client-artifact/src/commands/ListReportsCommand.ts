@@ -27,7 +27,6 @@ export interface ListReportsCommandInput extends ListReportsRequest {}
 export interface ListReportsCommandOutput extends ListReportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List available reports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ * @public
  */
 export class ListReportsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SetPermissionCommandInput extends SetPermissionRequest {}
 export interface SetPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies a user's permissions. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and
  *         Permissions</a>.</p>
  *          <p>
@@ -69,6 +68,7 @@ export interface SetPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class SetPermissionCommand extends $Command
   .classBuilder<

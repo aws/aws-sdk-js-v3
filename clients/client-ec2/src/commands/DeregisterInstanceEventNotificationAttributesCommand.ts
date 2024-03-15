@@ -36,7 +36,6 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
  * 			in scheduled event notifications for resources in the Region.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeregisterInstanceEventNotificationAttributesCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface DeleteChannelMessageCommandInput extends DeleteChannelMessageRe
 export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteChannelMessage in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
  *          inaccessible immediately. A background process deletes any revisions created by
  *             <code>UpdateChannelMessage</code>.</p>
@@ -89,6 +86,8 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteChannelMessage in the Amazon Chime SDK Messaging Namespace
  */
 export class DeleteChannelMessageCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteUserByPrincipalIdCommandInput extends DeleteUserByPrincip
 export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrincipalIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user identified by its principal ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteUserByPrincipalIdCommand extends $Command
   .classBuilder<

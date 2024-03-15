@@ -27,7 +27,6 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a JSON description of the data in each time series dataset, including names,
  *          column names, and data types.</p>
  * @example
@@ -126,6 +125,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeDatasetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface QueryForecastCommandInput extends QueryForecastRequest {}
 export interface QueryForecastCommandOutput extends QueryForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p>
  *          <p>The criteria is a key-value pair. The key is either <code>item_id</code> (or the
  *       equivalent non-timestamp, non-target field) from the <code>TARGET_TIME_SERIES</code> dataset,
@@ -97,6 +96,7 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * @throws {@link ForecastqueryServiceException}
  * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
+ * @public
  */
 export class QueryForecastCommand extends $Command
   .classBuilder<

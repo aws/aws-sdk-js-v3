@@ -31,7 +31,6 @@ export interface ListReportDefinitionsCommandInput extends ListReportDefinitions
 export interface ListReportDefinitionsCommandOutput extends ListReportDefinitionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all reports and their configurations for your AWS account.</p>
  *          <p>The maximum number of reports is one.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * @public
  */
 export class ListReportDefinitionsCommand extends $Command
   .classBuilder<

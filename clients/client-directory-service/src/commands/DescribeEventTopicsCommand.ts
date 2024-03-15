@@ -27,7 +27,6 @@ export interface DescribeEventTopicsCommandInput extends DescribeEventTopicsRequ
 export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains information about which Amazon SNS topics receive status messages from the specified
  *       directory.</p>
  *          <p>If no input parameters are provided, such as DirectoryId or TopicName, this request
@@ -81,6 +80,7 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeEventTopicsCommand extends $Command
   .classBuilder<

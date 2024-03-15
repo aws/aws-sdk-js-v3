@@ -40,7 +40,6 @@ export type HttpPayloadTraitsCommandOutputType = Omit<HttpPayloadTraitsInputOutp
 export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes a blob shape in the payload.
  *
  * In this example, no JSON document is synthesized because the payload is
@@ -73,6 +72,7 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsCommand
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class HttpPayloadTraitsCommand extends $Command
   .classBuilder<

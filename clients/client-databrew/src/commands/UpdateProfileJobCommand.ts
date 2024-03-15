@@ -27,7 +27,6 @@ export interface UpdateProfileJobCommandInput extends UpdateProfileJobRequest {}
 export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the definition of an existing profile job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class UpdateProfileJobCommand extends $Command
   .classBuilder<

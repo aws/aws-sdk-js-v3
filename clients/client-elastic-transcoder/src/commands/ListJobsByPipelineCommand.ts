@@ -31,7 +31,6 @@ export interface ListJobsByPipelineCommandInput extends ListJobsByPipelineReques
 export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.</p>
  *         <p>Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains
  *             one element for each job that satisfies the search criteria.</p>
@@ -328,6 +327,7 @@ export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineRespo
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class ListJobsByPipelineCommand extends $Command
   .classBuilder<

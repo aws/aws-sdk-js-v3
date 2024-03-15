@@ -27,7 +27,6 @@ export interface GetAudienceGenerationJobCommandInput extends GetAudienceGenerat
 export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenerationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an audience generation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class GetAudienceGenerationJobCommand extends $Command
   .classBuilder<

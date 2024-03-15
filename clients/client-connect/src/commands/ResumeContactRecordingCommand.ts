@@ -27,7 +27,6 @@ export interface ResumeContactRecordingCommandInput extends ResumeContactRecordi
 export interface ResumeContactRecordingCommandOutput extends ResumeContactRecordingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>When a contact is being recorded, and the recording has been suspended using
  *    SuspendContactRecording, this API resumes recording whatever recording is selected in the flow
  *    configuration: call, screen, or both. If only call recording or only screen recording is enabled,
@@ -68,6 +67,7 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ResumeContactRecordingCommand extends $Command
   .classBuilder<

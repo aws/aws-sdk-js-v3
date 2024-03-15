@@ -27,7 +27,6 @@ export interface DisableCrlCommandInput extends ScalarCrlRequest {}
 export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -74,6 +73,7 @@ export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBe
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class DisableCrlCommand extends $Command
   .classBuilder<

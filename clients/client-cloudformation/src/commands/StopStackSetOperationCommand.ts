@@ -27,7 +27,6 @@ export interface StopStackSetOperationCommandInput extends StopStackSetOperation
 export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets will cancel all the
  *    unstarted stack instance deployments and wait for those are in-progress to complete.</p>
  * @example
@@ -65,6 +64,7 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class StopStackSetOperationCommand extends $Command
   .classBuilder<

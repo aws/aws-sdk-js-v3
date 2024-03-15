@@ -31,7 +31,6 @@ export interface GetRecordCommandInput extends GetRecordRequest {}
 export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the
  *          latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with
  *             <code>RecordIdentifierValue</code> is found, then an empty result is returned. </p>
@@ -91,6 +90,7 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * @public
  */
 export class GetRecordCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface ListHostedZonesByNameCommandInput extends ListHostedZonesByName
 export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNameResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a
  * 				<code>HostedZones</code> child element for each hosted zone created by the current
  * 				Amazon Web Services account. </p>
@@ -140,6 +139,7 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListHostedZonesByNameCommand extends $Command
   .classBuilder<

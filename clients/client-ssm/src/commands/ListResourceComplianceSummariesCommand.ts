@@ -32,7 +32,6 @@ export interface ListResourceComplianceSummariesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a resource-level summary count. The summary includes information about compliant and
  *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
  *    criteria you specify.</p>
@@ -117,6 +116,7 @@ export interface ListResourceComplianceSummariesCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListResourceComplianceSummariesCommand extends $Command
   .classBuilder<

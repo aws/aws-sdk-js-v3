@@ -27,7 +27,6 @@ export interface GetNamedQueryCommandInput extends GetNamedQueryInput {}
 export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a single query. Requires that you have access to the
  *             workgroup in which the query was saved.</p>
  * @example
@@ -71,6 +70,7 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetNamedQueryCommand extends $Command
   .classBuilder<

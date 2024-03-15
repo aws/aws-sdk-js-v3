@@ -27,7 +27,6 @@ export interface AssociateFlowCommandInput extends AssociateFlowRequest {}
 export interface AssociateFlowCommandOutput extends AssociateFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a connect resource to a flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface AssociateFlowCommandOutput extends AssociateFlowResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class AssociateFlowCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGro
 export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB parameter group.</p>
  *          <p>A DB parameter group is initially created with the default parameters for the database
  *       engine used by the DB instance. To provide custom values for any of the parameters, you must
@@ -93,6 +92,7 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CreateDBParameterGroupCommand extends $Command
   .classBuilder<

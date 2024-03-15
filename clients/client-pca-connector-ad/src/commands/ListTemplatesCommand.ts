@@ -27,7 +27,6 @@ export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the templates, if any, that are associated with a connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -331,6 +330,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class ListTemplatesCommand extends $Command
   .classBuilder<

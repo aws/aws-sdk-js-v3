@@ -27,7 +27,6 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for
  *   	backups, to make copies of EBS volumes, and to save data before shutting down an
  *   	instance.</p>
@@ -115,6 +114,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a snapshot
  * ```javascript
  * // This example creates a snapshot of the volume with a volume ID of ``vol-1234567890abcdef0`` and a short description to identify the snapshot.

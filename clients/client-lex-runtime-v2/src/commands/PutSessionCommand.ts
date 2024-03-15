@@ -34,7 +34,6 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
 }
 
 /**
- * @public
  * <p>Creates a new session or modifies an existing session with an Amazon Lex V2
  *          bot. Use this operation to enable your application to set the state of
  *          the bot.</p>
@@ -206,6 +205,7 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * @public
  */
 export class PutSessionCommand extends $Command
   .classBuilder<

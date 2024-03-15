@@ -27,7 +27,6 @@ export interface GetRoleCommandInput extends GetRoleRequest {}
 export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,
  *             and the role's trust policy that grants permission to assume the role. For more
  *             information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
@@ -96,6 +95,7 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To get information about an IAM role
  * ```javascript
  * // The following command gets information about the role named Test-Role.

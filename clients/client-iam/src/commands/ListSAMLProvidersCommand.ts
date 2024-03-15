@@ -27,7 +27,6 @@ export interface ListSAMLProvidersCommandInput extends ListSAMLProvidersRequest 
 export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the SAML provider resource objects defined in IAM in the account.
  *             IAM resource-listing operations return a subset of the available
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a SAML provider, see <a>GetSAMLProvider</a>.</p>
@@ -68,6 +67,7 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListSAMLProvidersCommand extends $Command
   .classBuilder<

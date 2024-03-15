@@ -27,7 +27,6 @@ export interface CreateEventTrackerCommandInput extends CreateEventTrackerReques
 export interface CreateEventTrackerCommandOutput extends CreateEventTrackerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an event tracker that you use when adding event data to a specified dataset
  *       group using the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
@@ -126,6 +125,7 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateEventTrackerCommand extends $Command
   .classBuilder<

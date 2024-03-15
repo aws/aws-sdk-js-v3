@@ -27,7 +27,6 @@ export interface CreateConnectAttachmentCommandInput extends CreateConnectAttach
 export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a core network Connect attachment from a specified core network attachment. </p>
  *          <p>A core network Connect attachment is a GRE-based tunnel attachment that you can use to
  *          establish a connection between a core network and an appliance. A core network Connect
@@ -124,6 +123,7 @@ export interface CreateConnectAttachmentCommandOutput extends CreateConnectAttac
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateConnectAttachmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Grafana
  *             resource. Currently, the only resource that can be tagged is workspaces. </p>
  *          <p>If you specify a new tag key for the resource, this tag is appended to the list of
@@ -76,6 +75,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

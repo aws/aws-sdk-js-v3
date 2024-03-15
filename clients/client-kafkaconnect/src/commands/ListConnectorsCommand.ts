@@ -27,7 +27,6 @@ export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the connectors in this account and Region. The list is limited to
  *          connectors whose name starts with the specified prefix. The response also includes a
  *          description of each of the listed connectors.</p>
@@ -163,6 +162,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class ListConnectorsCommand extends $Command
   .classBuilder<

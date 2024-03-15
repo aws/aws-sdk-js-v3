@@ -27,7 +27,6 @@ export interface GetTableOptimizerCommandInput extends GetTableOptimizerRequest 
 export interface GetTableOptimizerCommandOutput extends GetTableOptimizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the configuration of all optimizers associated with a specified table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetTableOptimizerCommand extends $Command
   .classBuilder<

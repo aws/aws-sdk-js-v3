@@ -32,7 +32,6 @@ export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest 
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates phone number details, such as product type or calling name, for the
  *          specified phone number ID. You can update one phone number detail at a time. For
  *          example, you can update either the product type or the calling name in one action.</p>
@@ -123,6 +122,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class UpdatePhoneNumberCommand extends $Command
   .classBuilder<

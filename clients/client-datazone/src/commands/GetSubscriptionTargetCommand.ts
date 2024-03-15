@@ -31,7 +31,6 @@ export interface GetSubscriptionTargetCommandInput extends GetSubscriptionTarget
 export interface GetSubscriptionTargetCommandOutput extends GetSubscriptionTargetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the subscription target in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetSubscriptionTargetCommandOutput extends GetSubscriptionTarge
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetSubscriptionTargetCommand extends $Command
   .classBuilder<

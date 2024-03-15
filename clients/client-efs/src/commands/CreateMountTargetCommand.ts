@@ -27,7 +27,6 @@ export interface CreateMountTargetCommandInput extends CreateMountTargetRequest 
 export interface CreateMountTargetCommandOutput extends MountTargetDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a mount target for a file system. You can then mount the file system on EC2
  *       instances by using the mount target.</p>
  *          <p>You can create one mount target in each Availability Zone in your VPC. All EC2
@@ -262,6 +261,7 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To create a new mount target
  * ```javascript
  * // This operation creates a new mount target for an EFS file system.

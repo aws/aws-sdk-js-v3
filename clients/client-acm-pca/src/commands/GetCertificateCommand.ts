@@ -27,7 +27,6 @@ export interface GetCertificateCommandInput extends GetCertificateRequest {}
 export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a certificate from your private CA or one that has been shared with you. The
  * 			ARN of the certificate is returned when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action. You
  * 			must specify both the ARN of your private CA and the ARN of the issued certificate when
@@ -81,6 +80,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class GetCertificateCommand extends $Command
   .classBuilder<

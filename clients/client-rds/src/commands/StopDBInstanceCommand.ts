@@ -27,7 +27,6 @@ export interface StopDBInstanceCommandInput extends StopDBInstanceMessage {}
 export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
  *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
  *             necessary.</p>
@@ -307,6 +306,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To stop a DB instance
  * ```javascript
  * // The following example stops the specified DB instance.

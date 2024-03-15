@@ -27,7 +27,6 @@ export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
 export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1519,6 +1518,7 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class ListJobTemplatesCommand extends $Command
   .classBuilder<

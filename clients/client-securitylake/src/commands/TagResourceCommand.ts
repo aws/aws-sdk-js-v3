@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates one or more tags that are associated with an Amazon Security Lake resource: a subscriber, or the data lake configuration for your
  *          Amazon Web Services account in a particular Amazon Web Services Region. A <i>tag</i> is a label that you can define and associate with
  *          Amazon Web Services resources. Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>. A
@@ -91,6 +90,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

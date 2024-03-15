@@ -27,7 +27,6 @@ export interface GetCoreNetworkCommandInput extends GetCoreNetworkRequest {}
 export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the LIVE policy for a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetCoreNetworkCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteFlowDefinitionCommandInput extends DeleteFlowDefinitionRe
 export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified flow definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteFlowDefinitionCommand extends $Command
   .classBuilder<

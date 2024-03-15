@@ -29,7 +29,6 @@ export interface DescribeRouterConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Details about the router.
  *     </p>
@@ -76,6 +75,7 @@ export interface DescribeRouterConfigurationCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeRouterConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopLabelingJobCommandInput extends StopLabelingJobRequest {}
 export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
  *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
  * @example
@@ -57,6 +56,7 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopLabelingJobCommand extends $Command
   .classBuilder<

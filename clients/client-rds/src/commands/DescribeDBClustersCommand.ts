@@ -27,7 +27,6 @@ export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessag
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination.</p>
  *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -265,6 +264,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe a DB cluster
  * ```javascript
  * // The following example retrieves the details of the specified DB cluster.

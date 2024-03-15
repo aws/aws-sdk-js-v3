@@ -27,7 +27,6 @@ export interface DeleteProgramCommandInput extends DeleteProgramRequest {}
 export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +53,7 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class DeleteProgramCommand extends $Command
   .classBuilder<

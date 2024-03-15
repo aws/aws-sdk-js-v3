@@ -27,7 +27,6 @@ export interface GetFindingsReportStatusCommandInput extends GetFindingsReportSt
 export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of a findings report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -207,6 +206,7 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class GetFindingsReportStatusCommand extends $Command
   .classBuilder<

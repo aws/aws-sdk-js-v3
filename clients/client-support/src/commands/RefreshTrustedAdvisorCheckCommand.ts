@@ -27,7 +27,6 @@ export interface RefreshTrustedAdvisorCheckCommandInput extends RefreshTrustedAd
 export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedAdvisorCheckResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Refreshes the Trusted Advisor check that you specify using the check ID. You can get the
  *             check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
  *             operation.</p>
@@ -87,6 +86,7 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class RefreshTrustedAdvisorCheckCommand extends $Command
   .classBuilder<

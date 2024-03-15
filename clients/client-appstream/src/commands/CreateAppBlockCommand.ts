@@ -27,7 +27,6 @@ export interface CreateAppBlockCommandInput extends CreateAppBlockRequest {}
 export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an app block.</p>
  *          <p>App blocks are an Amazon AppStream 2.0 resource that stores the details about the
  *             virtual hard disk in an S3 bucket. It also stores the setup script with details about
@@ -137,6 +136,7 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateAppBlockCommand extends $Command
   .classBuilder<

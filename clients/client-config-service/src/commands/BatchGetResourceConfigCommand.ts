@@ -27,7 +27,6 @@ export interface BatchGetResourceConfigCommandInput extends BatchGetResourceConf
 export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the <code>BaseConfigurationItem</code> for one or more requested resources.
  * 			The operation also returns a list of resources that are
  * 			not processed in the current request. If there are no unprocessed
@@ -115,6 +114,7 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class BatchGetResourceConfigCommand extends $Command
   .classBuilder<

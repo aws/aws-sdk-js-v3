@@ -35,7 +35,6 @@ export type DeleteThingShadowCommandOutputType = Omit<DeleteThingShadowResponse,
 export interface DeleteThingShadowCommandOutput extends DeleteThingShadowCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the shadow for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the IoT Developer Guide.</p>
@@ -90,6 +89,7 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowCommand
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * @public
  */
 export class DeleteThingShadowCommand extends $Command
   .classBuilder<

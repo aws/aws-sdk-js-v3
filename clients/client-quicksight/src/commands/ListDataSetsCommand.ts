@@ -27,7 +27,6 @@ export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
 export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
  * @example
@@ -97,6 +96,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListDataSetsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDiskCommandInput extends DeleteDiskRequest {}
 export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified block storage disk. The disk must be in the <code>available</code>
  *       state (not attached to a Lightsail instance).</p>
  *          <note>
@@ -111,6 +110,7 @@ export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteDiskCommand extends $Command
   .classBuilder<

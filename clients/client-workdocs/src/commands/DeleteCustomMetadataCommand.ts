@@ -31,7 +31,6 @@ export interface DeleteCustomMetadataCommandInput extends DeleteCustomMetadataRe
 export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes custom metadata from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeleteCustomMetadataCommand extends $Command
   .classBuilder<

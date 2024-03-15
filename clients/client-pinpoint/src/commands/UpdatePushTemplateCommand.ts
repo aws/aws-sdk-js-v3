@@ -27,7 +27,6 @@ export interface UpdatePushTemplateCommandInput extends UpdatePushTemplateReques
 export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdatePushTemplateCommand extends $Command
   .classBuilder<

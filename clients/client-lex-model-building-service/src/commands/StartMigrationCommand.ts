@@ -31,7 +31,6 @@ export interface StartMigrationCommandInput extends StartMigrationRequest {}
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2. Migrate your bot when
  *       you want to take advantage of the new features of Amazon Lex V2.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/migrate.html">Migrating a bot</a> in the <i>Amazon Lex
@@ -92,6 +91,7 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class StartMigrationCommand extends $Command
   .classBuilder<

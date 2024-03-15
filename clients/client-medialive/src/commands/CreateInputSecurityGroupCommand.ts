@@ -27,7 +27,6 @@ export interface CreateInputSecurityGroupCommandInput extends CreateInputSecurit
 export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CreateInputSecurityGroupCommand extends $Command
   .classBuilder<

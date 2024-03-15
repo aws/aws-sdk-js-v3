@@ -31,7 +31,6 @@ export interface DescribeFilterCommandInput extends DescribeFilterRequest {}
 export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a filter's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeFilterCommand extends $Command
   .classBuilder<

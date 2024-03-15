@@ -31,7 +31,6 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a resource-based policy on an entity that is identified by its resource
  *             ARN.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

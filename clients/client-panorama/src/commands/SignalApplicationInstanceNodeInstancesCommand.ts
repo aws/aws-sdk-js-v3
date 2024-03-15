@@ -36,7 +36,6 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Signal camera nodes to stop or resume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface SignalApplicationInstanceNodeInstancesCommandOutput
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class SignalApplicationInstanceNodeInstancesCommand extends $Command
   .classBuilder<

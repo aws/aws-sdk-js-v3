@@ -27,7 +27,6 @@ export interface GetStreamCommandInput extends GetStreamRequest {}
 export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the active (live) stream on a specified channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class GetStreamCommand extends $Command
   .classBuilder<

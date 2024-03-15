@@ -28,7 +28,6 @@ export interface CreateHostedZoneCommandInput extends CreateHostedZoneRequest {}
 export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new public or private hosted zone. You create records in a public hosted
  * 			zone to define how you want to route traffic on the internet for a domain, such as
  * 			example.com, and its subdomains (apex.example.com, acme.example.com). You create records
@@ -225,6 +224,7 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateHostedZoneCommand extends $Command
   .classBuilder<

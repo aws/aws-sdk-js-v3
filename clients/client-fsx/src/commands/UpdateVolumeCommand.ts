@@ -27,7 +27,6 @@ export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
 export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -690,6 +689,7 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class UpdateVolumeCommand extends $Command
   .classBuilder<

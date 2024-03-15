@@ -27,7 +27,6 @@ export interface DescribeDeploymentsCommandInput extends DescribeDeploymentsRequ
 export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a description of a specified set of deployments.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -97,6 +96,7 @@ export interface DescribeDeploymentsCommandOutput extends DescribeDeploymentsRes
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeDeploymentsCommand extends $Command
   .classBuilder<

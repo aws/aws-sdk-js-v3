@@ -27,7 +27,6 @@ export interface CreateSinkCommandInput extends CreateSinkInput {}
 export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this to create a <i>sink</i> in the current account, so that it can be
  *             used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that
  *             represents an attachment point in a monitoring account. Source accounts can link to the sink
@@ -84,6 +83,7 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class CreateSinkCommand extends $Command
   .classBuilder<

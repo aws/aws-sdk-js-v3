@@ -27,7 +27,6 @@ export interface DescribeFrameworkCommandInput extends DescribeFrameworkInput {}
 export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the framework details for the specified <code>FrameworkName</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeFrameworkCommandOutput extends DescribeFrameworkOutput,
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeFrameworkCommand extends $Command
   .classBuilder<

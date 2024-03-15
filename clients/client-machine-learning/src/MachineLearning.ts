@@ -582,9 +582,9 @@ export interface MachineLearning {
 }
 
 /**
- * @public
  * Definition of the public APIs
  * 		exposed by Amazon Machine Learning
+ * @public
  */
 export class MachineLearning extends MachineLearningClient implements MachineLearning {}
 createAggregatedClient(commands, MachineLearning);

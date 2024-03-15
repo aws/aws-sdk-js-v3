@@ -29,7 +29,6 @@ export interface DisableOrganizationAdminAccountCommandInput {}
 export interface DisableOrganizationAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the Detective administrator account in the current Region. Deletes the
  *          organization behavior graph.</p>
  *          <p>Can only be called by the organization management account.</p>
@@ -72,6 +71,7 @@ export interface DisableOrganizationAdminAccountCommandOutput extends __Metadata
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class DisableOrganizationAdminAccountCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateExplainabilityExportCommandInput extends CreateExplainabi
 export interface CreateExplainabilityExportCommandOutput extends CreateExplainabilityExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports an Explainability resource created by the <a>CreateExplainability</a> operation. Exported files are exported to an Amazon Simple Storage Service (Amazon
  *             S3) bucket.</p>
  *          <p>You must specify a <a>DataDestination</a> object that includes an Amazon S3
@@ -99,6 +98,7 @@ export interface CreateExplainabilityExportCommandOutput extends CreateExplainab
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateExplainabilityExportCommand extends $Command
   .classBuilder<

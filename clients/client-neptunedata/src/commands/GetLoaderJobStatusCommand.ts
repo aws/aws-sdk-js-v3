@@ -27,7 +27,6 @@ export interface GetLoaderJobStatusCommandInput extends GetLoaderJobStatusInput 
 export interface GetLoaderJobStatusCommandOutput extends GetLoaderJobStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets status information about a specified load job.
  *       Neptune keeps track of the most recent 1,024 bulk load jobs,
  *       and stores the last 10,000 error details per job.</p>
@@ -107,6 +106,7 @@ export interface GetLoaderJobStatusCommandOutput extends GetLoaderJobStatusOutpu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetLoaderJobStatusCommand extends $Command
   .classBuilder<

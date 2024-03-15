@@ -31,7 +31,6 @@ export interface ModifyVpnConnectionOptionsCommandInput extends ModifyVpnConnect
 export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnectionOptionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
  *          <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the
  *                 Amazon Web Services side do not change, and the tunnel options do not change. Your
@@ -173,6 +172,7 @@ export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnec
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVpnConnectionOptionsCommand extends $Command
   .classBuilder<

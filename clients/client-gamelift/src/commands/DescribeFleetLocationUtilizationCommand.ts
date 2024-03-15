@@ -32,7 +32,6 @@ export interface DescribeFleetLocationUtilizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves current usage data for a fleet location. Utilization data provides a
  *             snapshot of current game hosting activity at the requested location. Use this operation
  *             to retrieve utilization information for a fleet's remote location or home Region (you
@@ -103,6 +102,7 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetLocationUtilizationCommand extends $Command
   .classBuilder<

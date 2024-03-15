@@ -27,7 +27,6 @@ export interface CreateDomainNameCommandInput extends CreateDomainNameRequest {}
 export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom <code>DomainName</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class CreateDomainNameCommand extends $Command
   .classBuilder<

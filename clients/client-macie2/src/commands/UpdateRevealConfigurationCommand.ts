@@ -27,7 +27,6 @@ export interface UpdateRevealConfigurationCommandInput extends UpdateRevealConfi
 export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateRevealConfigurationCommandOutput extends UpdateRevealConf
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateRevealConfigurationCommand extends $Command
   .classBuilder<

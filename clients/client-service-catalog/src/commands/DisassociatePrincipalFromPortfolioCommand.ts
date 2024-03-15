@@ -32,7 +32,6 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a previously associated principal ARN from a specified
  *          portfolio.</p>
  *          <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the
@@ -84,6 +83,7 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DisassociatePrincipalFromPortfolioCommand extends $Command
   .classBuilder<

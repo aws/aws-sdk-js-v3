@@ -27,7 +27,6 @@ export interface ListBranchesCommandInput extends ListBranchesRequest {}
 export interface ListBranchesCommandOutput extends ListBranchesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists the branches of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class ListBranchesCommand extends $Command
   .classBuilder<

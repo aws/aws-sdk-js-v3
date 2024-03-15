@@ -27,7 +27,6 @@ export interface DescribeStackInstanceCommandInput extends DescribeStackInstance
 export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account, and
  *    Amazon Web Services Region.</p>
  *          <p>For a list of stack instances that are associated with a specific StackSet, use <a>ListStackInstances</a>.</p>
@@ -88,6 +87,7 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStackInstanceCommand extends $Command
   .classBuilder<

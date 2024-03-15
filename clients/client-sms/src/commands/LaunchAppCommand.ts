@@ -27,7 +27,6 @@ export interface LaunchAppCommandInput extends LaunchAppRequest {}
 export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches the specified application as a stack in CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class LaunchAppCommand extends $Command
   .classBuilder<

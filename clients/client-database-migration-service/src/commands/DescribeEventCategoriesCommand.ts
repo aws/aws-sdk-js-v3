@@ -31,7 +31,6 @@ export interface DescribeEventCategoriesCommandInput extends DescribeEventCatego
 export interface DescribeEventCategoriesCommandOutput extends DescribeEventCategoriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists categories for all event source types, or, if specified, for a specified source
  *          type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events
  *             and Notifications</a> in the <i>Database Migration Service User
@@ -78,6 +77,7 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeEventCategoriesCommand extends $Command
   .classBuilder<

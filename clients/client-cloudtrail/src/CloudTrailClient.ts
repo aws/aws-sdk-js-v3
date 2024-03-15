@@ -432,7 +432,6 @@ export type CloudTrailClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface CloudTrailClientResolvedConfig extends CloudTrailClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>CloudTrail</fullname>
  *          <p>This is the CloudTrail API Reference. It provides descriptions of actions, data
  *          types, common parameters, and common errors for CloudTrail.</p>
@@ -449,6 +448,7 @@ export interface CloudTrailClientResolvedConfig extends CloudTrailClientResolved
  *          </note>
  *          <p>See the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">CloudTrail
  *          User Guide</a> for information about the data that is included with each Amazon Web Services API call listed in the log files.</p>
+ * @public
  */
 export class CloudTrailClient extends __Client<
   __HttpHandlerOptions,

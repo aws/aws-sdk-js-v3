@@ -27,7 +27,6 @@ export interface ImportDecoderManifestCommandInput extends ImportDecoderManifest
 export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a decoder manifest using your existing CAN DBC file from your local device.
  *         </p>
  * @example
@@ -95,6 +94,7 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ImportDecoderManifestCommand extends $Command
   .classBuilder<

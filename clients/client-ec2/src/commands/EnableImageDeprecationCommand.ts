@@ -27,7 +27,6 @@ export interface EnableImageDeprecationCommandInput extends EnableImageDeprecati
 export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables deprecation of the specified AMI at the specified date and time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
@@ -58,6 +57,7 @@ export interface EnableImageDeprecationCommandOutput extends EnableImageDeprecat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableImageDeprecationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateScheduledActionCommandInput extends UpdateScheduledAction
 export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reschedules a planned domain configuration change for a later time. This change can be a
  *    scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
@@ -93,6 +92,7 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class UpdateScheduledActionCommand extends $Command
   .classBuilder<

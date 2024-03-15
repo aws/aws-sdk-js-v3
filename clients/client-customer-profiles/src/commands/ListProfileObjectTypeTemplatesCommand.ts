@@ -32,7 +32,6 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the template information for object types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListProfileObjectTypeTemplatesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAnalysisTemplatesCommandInput extends ListAnalysisTemplates
 export interface ListAnalysisTemplatesCommandOutput extends ListAnalysisTemplatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists analysis templates that the caller owns.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListAnalysisTemplatesCommandOutput extends ListAnalysisTemplate
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListAnalysisTemplatesCommand extends $Command
   .classBuilder<

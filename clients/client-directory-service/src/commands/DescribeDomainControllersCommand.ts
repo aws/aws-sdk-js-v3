@@ -27,7 +27,6 @@ export interface DescribeDomainControllersCommandInput extends DescribeDomainCon
 export interface DescribeDomainControllersCommandOutput extends DescribeDomainControllersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about any domain controllers in your directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeDomainControllersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeImagePermissionsCommandInput extends DescribeImagePermi
 export interface DescribeImagePermissionsCommandOutput extends DescribeImagePermissionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeImagePermissionsCommand extends $Command
   .classBuilder<

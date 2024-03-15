@@ -32,7 +32,6 @@ export interface ListRecommendationResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List Resources of a Recommendation</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListRecommendationResourcesCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class ListRecommendationResourcesCommand extends $Command
   .classBuilder<

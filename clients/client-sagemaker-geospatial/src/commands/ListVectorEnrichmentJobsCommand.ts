@@ -36,7 +36,6 @@ export interface ListVectorEnrichmentJobsCommandInput extends ListVectorEnrichme
 export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of vector enrichment jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class ListVectorEnrichmentJobsCommand extends $Command
   .classBuilder<

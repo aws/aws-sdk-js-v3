@@ -27,9 +27,6 @@ export interface UntagLogGroupCommandInput extends UntagLogGroupRequest {}
 export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Please use the generic tagging API UntagResource
- *
  * <important>
  *             <p>The UntagLogGroup operation is on the path to deprecation. We recommend that you use
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a> instead.</p>
@@ -71,6 +68,8 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
+ * @deprecated Please use the generic tagging API UntagResource
  */
 export class UntagLogGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateCapabilityCommandInput extends UpdateCapabilityRequest {}
 export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some of the parameters for a capability, based on the specified parameters.
  *       A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
@@ -133,6 +132,7 @@ export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample UpdateCapability call
  * ```javascript
  * //

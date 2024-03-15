@@ -32,7 +32,6 @@ export interface DisassociateDiscoveredResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociate an Application Discovery Service discovered resource from a migration
  *          task.</p>
  * @example
@@ -96,6 +95,7 @@ export interface DisassociateDiscoveredResourceCommandOutput
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class DisassociateDiscoveredResourceCommand extends $Command
   .classBuilder<

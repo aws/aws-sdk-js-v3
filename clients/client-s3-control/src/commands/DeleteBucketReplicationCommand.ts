@@ -28,7 +28,6 @@ export interface DeleteBucketReplicationCommandInput extends DeleteBucketReplica
 export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation deletes an Amazon S3 on Outposts bucket's replication configuration. To
  *             delete an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -89,6 +88,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteBucketReplicationCommand extends $Command
   .classBuilder<

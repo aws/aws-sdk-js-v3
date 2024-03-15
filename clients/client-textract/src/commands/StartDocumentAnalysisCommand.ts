@@ -27,7 +27,6 @@ export interface StartDocumentAnalysisCommandInput extends StartDocumentAnalysis
 export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the asynchronous analysis of an input document for relationships between detected
  *          items such as key-value pairs, tables, and selection elements.</p>
  *          <p>
@@ -169,6 +168,7 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class StartDocumentAnalysisCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetReservationUtilizationCommandInput extends GetReservationUti
 export interface GetReservationUtilizationCommandOutput extends GetReservationUtilizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the reservation utilization for your account. Management account in an
  *       organization have access to member accounts. You can filter data by dimensions in a time
  *       period. You can use <code>GetDimensionValues</code> to determine the possible dimension
@@ -206,6 +205,7 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetReservationUtilizationCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateCommentCommandInput extends CreateCommentRequest {}
 export interface CreateCommentCommandOutput extends CreateCommentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new comment to the specified document version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class CreateCommentCommand extends $Command
   .classBuilder<

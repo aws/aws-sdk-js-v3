@@ -27,7 +27,6 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create and register a link to a repository. Proton uses the link to repeatedly access the repository, to either push to it (self-managed
  *       provisioning) or pull from it (template sync). You can share a linked repository across multiple resources (like environments using self-managed
  *       provisioning, or synced templates). When you create a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html">service-linked role</a> for you.</p>
@@ -94,6 +93,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateRepositoryCommand extends $Command
   .classBuilder<

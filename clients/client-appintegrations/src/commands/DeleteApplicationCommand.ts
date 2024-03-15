@@ -27,7 +27,6 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the Application. Only Applications that don't have any Application Associations can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  * @example To delete an application
  * ```javascript
  * // The following deletes an application.

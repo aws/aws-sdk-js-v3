@@ -27,7 +27,6 @@ export interface ListRolesCommandInput extends ListRolesRequest {}
 export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the IAM roles that have the specified path prefix. If there are none, the
  *             operation returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
  *                 <i>IAM User Guide</i>.</p>
@@ -108,6 +107,7 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListRolesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetProjectCommandInput extends GetProjectRequest {}
 export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details about one launch. You must already know the
  *        project name. To retrieve a list of projects in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html">ListProjects</a>.</p>
  * @example
@@ -97,6 +96,7 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class GetProjectCommand extends $Command
   .classBuilder<

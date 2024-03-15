@@ -27,7 +27,6 @@ export interface ModifyIpamCommandInput extends ModifyIpamRequest {}
 export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify the configurations of an IPAM.
  *       </p>
  * @example
@@ -95,6 +94,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyIpamCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeDomainChangeProgressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the current blue/green deployment happening on an Amazon
  *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Making configuration changes in Amazon OpenSearch Service</a>.</p>
  * @example
@@ -96,6 +95,7 @@ export interface DescribeDomainChangeProgressCommandOutput
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainChangeProgressCommand extends $Command
   .classBuilder<

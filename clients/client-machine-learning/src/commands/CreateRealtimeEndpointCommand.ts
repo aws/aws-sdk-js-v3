@@ -27,7 +27,6 @@ export interface CreateRealtimeEndpointCommandInput extends CreateRealtimeEndpoi
 export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class CreateRealtimeEndpointCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetPolicyCommandInput extends GetPolicyRequest {}
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified managed policy, including the policy's
  *             default version and the total number of IAM users, groups, and roles to which the
  *             policy is attached. To retrieve the list of the specific users, groups, and roles that
@@ -94,6 +93,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetPolicyCommand extends $Command
   .classBuilder<

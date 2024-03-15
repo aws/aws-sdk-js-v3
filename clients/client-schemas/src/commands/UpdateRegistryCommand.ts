@@ -27,7 +27,6 @@ export interface UpdateRegistryCommandInput extends UpdateRegistryRequest {}
 export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class UpdateRegistryCommand extends $Command
   .classBuilder<

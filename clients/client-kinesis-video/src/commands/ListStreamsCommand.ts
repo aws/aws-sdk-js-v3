@@ -27,7 +27,6 @@ export interface ListStreamsCommandInput extends ListStreamsInput {}
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a
  *             stream. To retrieve only streams that satisfy a specific condition, you can specify a
  *                 <code>StreamNameCondition</code>. </p>
@@ -82,6 +81,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class ListStreamsCommand extends $Command
   .classBuilder<

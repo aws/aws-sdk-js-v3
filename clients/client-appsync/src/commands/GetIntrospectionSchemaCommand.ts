@@ -37,7 +37,6 @@ export interface GetIntrospectionSchemaCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the introspection schema for a GraphQL API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetIntrospectionSchemaCommandOutput
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetIntrospectionSchemaCommand extends $Command
   .classBuilder<

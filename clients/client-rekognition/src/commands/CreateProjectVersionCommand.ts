@@ -27,7 +27,6 @@ export interface CreateProjectVersionCommandInput extends CreateProjectVersionRe
 export interface CreateProjectVersionCommandOutput extends CreateProjectVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of Amazon Rekognition project (like a Custom Labels model or a custom adapter)
  *          and begins training. Models and adapters are managed as part of a Rekognition project. The
  *          response from <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the
@@ -160,6 +159,7 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To train an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Trains a version of an Amazon Rekognition Custom Labels model.

@@ -27,7 +27,6 @@ export interface DescribeAccountOverviewCommandInput extends DescribeAccountOver
 export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOverviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> For the time range passed in, returns the number of open reactive insight that were
  * 			created, the number of open proactive insights that were created, and the Mean Time to Recover (MTTR) for all
  * 			closed reactive insights. </p>
@@ -76,6 +75,7 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeAccountOverviewCommand extends $Command
   .classBuilder<

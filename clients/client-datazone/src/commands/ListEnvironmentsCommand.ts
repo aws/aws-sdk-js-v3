@@ -31,7 +31,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists Amazon DataZone environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

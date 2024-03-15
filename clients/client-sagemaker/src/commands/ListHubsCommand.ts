@@ -27,7 +27,6 @@ export interface ListHubsCommandInput extends ListHubsRequest {}
 export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all existing hubs.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -80,6 +79,7 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListHubsCommand extends $Command
   .classBuilder<

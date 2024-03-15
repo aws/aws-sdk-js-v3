@@ -28,7 +28,6 @@ export interface GetQueryLoggingConfigCommandInput extends GetQueryLoggingConfig
 export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified configuration for DNS query logging.</p>
  *          <p>For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a> and <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS
  * 			Queries</a>.</p>
@@ -68,6 +67,7 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetQueryLoggingConfigCommand extends $Command
   .classBuilder<

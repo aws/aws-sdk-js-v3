@@ -27,7 +27,6 @@ export interface DescribeLedgerCommandInput extends DescribeLedgerRequest {}
 export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a ledger, including its state, permissions mode, encryption at
  *          rest settings, and when it was created.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class DescribeLedgerCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface DeleteMultiRegionAccessPointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -100,6 +99,7 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteMultiRegionAccessPointCommand extends $Command
   .classBuilder<

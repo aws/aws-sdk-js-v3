@@ -32,7 +32,6 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be
  *       shared across services.</p>
  *          <p class="title">
@@ -144,6 +143,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateEnvironmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCanaryCommandInput extends CreateCanaryRequest {}
 export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a canary. Canaries are scripts that monitor your endpoints and APIs from the
  *          outside-in. Canaries help you check the availability and latency of your web services and
  *          troubleshoot anomalies by investigating load time data, screenshots of the UI, logs, and
@@ -180,6 +179,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class CreateCanaryCommand extends $Command
   .classBuilder<

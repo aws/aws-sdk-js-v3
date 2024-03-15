@@ -36,7 +36,6 @@ export interface CreateApplicationPresignedUrlCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and returns a URL that you can use to connect to
  *             an application's extension.</p>
  *         <p>The IAM role or user used to call this API defines the permissions to access the
@@ -87,6 +86,7 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class CreateApplicationPresignedUrlCommand extends $Command
   .classBuilder<

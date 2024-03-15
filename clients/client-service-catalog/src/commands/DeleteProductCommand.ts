@@ -27,7 +27,6 @@ export interface DeleteProductCommandInput extends DeleteProductInput {}
 export interface DeleteProductCommandOutput extends DeleteProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified product.</p>
  *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
@@ -70,6 +69,7 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeleteProductCommand extends $Command
   .classBuilder<

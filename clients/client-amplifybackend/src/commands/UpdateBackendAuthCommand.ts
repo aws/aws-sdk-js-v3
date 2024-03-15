@@ -31,7 +31,6 @@ export interface UpdateBackendAuthCommandInput extends UpdateBackendAuthRequest 
 export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing backend authentication resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -155,6 +154,7 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class UpdateBackendAuthCommand extends $Command
   .classBuilder<

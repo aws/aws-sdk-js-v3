@@ -28,7 +28,6 @@ export interface ListHostedZonesCommandInput extends ListHostedZonesRequest {}
 export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the public and private hosted zones that are associated with the
  * 			current Amazon Web Services account. The response includes a <code>HostedZones</code>
  * 			child element for each hosted zone.</p>
@@ -92,6 +91,7 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListHostedZonesCommand extends $Command
   .classBuilder<

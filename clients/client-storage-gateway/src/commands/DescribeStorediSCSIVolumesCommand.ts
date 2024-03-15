@@ -27,7 +27,6 @@ export interface DescribeStorediSCSIVolumesCommandInput extends DescribeStorediS
 export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStorediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of the gateway volumes specified in the request. The list of
  *          gateway volumes in the request must be from one gateway. In the response, Storage Gateway returns volume information sorted by volume ARNs. This operation is only
  *          supported in stored volume gateway type.</p>
@@ -91,6 +90,7 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe the volumes of a gateway
  * ```javascript
  * // Returns the description of the gateway volumes specified in the request belonging to the same gateway.

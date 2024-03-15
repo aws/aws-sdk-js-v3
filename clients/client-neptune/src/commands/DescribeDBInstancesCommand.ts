@@ -27,7 +27,6 @@ export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMess
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about provisioned instances, and supports pagination.</p>
  *          <note>
  *             <p>This operation can also return information for Amazon RDS instances
@@ -211,6 +210,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBInstancesCommand extends $Command
   .classBuilder<

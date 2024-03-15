@@ -27,7 +27,6 @@ export interface GetDiscoveredSchemaCommandInput extends GetDiscoveredSchemaRequ
 export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the discovered schema that was generated based on sampled events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class GetDiscoveredSchemaCommand extends $Command
   .classBuilder<

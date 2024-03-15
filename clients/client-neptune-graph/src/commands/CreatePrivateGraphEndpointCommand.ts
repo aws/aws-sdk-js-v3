@@ -27,7 +27,6 @@ export interface CreatePrivateGraphEndpointCommandInput extends CreatePrivateGra
 export interface CreatePrivateGraphEndpointCommandOutput extends CreatePrivateGraphEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a private graph endpoint to allow private access from to the graph from within
  *     a VPC. You can attach security groups to the private graph endpoint. VPC endpoint charges apply.</p>
  * @example
@@ -86,6 +85,7 @@ export interface CreatePrivateGraphEndpointCommandOutput extends CreatePrivateGr
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class CreatePrivateGraphEndpointCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetDbParameterGroupCommandInput extends GetDbParameterGroupInpu
 export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a Timestream for InfluxDB DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * @public
  */
 export class GetDbParameterGroupCommand extends $Command
   .classBuilder<

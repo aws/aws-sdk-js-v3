@@ -36,7 +36,6 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates the verification process to prove that the service provider owns the private
  *             DNS name domain for the endpoint service.</p>
  *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
@@ -68,6 +67,7 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeGroupMembershipCommandInput extends DescribeGroupMember
 export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use the <code>DescribeGroupMembership</code> operation to determine if a user is a
  * 			member of the specified group. If the user exists and is a member of the specified
  * 			group, an associated <code>GroupMember</code> object is returned.</p>
@@ -89,6 +88,7 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeGroupMembershipCommand extends $Command
   .classBuilder<

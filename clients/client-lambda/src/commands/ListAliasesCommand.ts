@@ -27,7 +27,6 @@ export interface ListAliasesCommandInput extends ListAliasesRequest {}
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
  *       for a Lambda function.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListAliasesCommand extends $Command
   .classBuilder<

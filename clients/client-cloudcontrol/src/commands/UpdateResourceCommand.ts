@@ -32,7 +32,6 @@ export interface UpdateResourceCommandInput extends UpdateResourceInput {}
 export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified property values in the resource.</p>
  *          <p>You specify your resource property updates as a list of patch operations contained in a
  *       JSON patch document that adheres to the <a href="https://datatracker.ietf.org/doc/html/rfc6902">
@@ -160,6 +159,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * @public
  */
 export class UpdateResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetActionTypeCommandInput extends GetActionTypeInput {}
 export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an action type created for an external provider, where the
  *             action is to be used by customers of the external provider. The action can be created
  *             with any supported integration model.</p>
@@ -121,6 +120,7 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class GetActionTypeCommand extends $Command
   .classBuilder<

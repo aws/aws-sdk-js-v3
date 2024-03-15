@@ -27,7 +27,6 @@ export interface AssociateApprovedOriginCommandInput extends AssociateApprovedOr
 export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates an approved origin to an Amazon Connect instance.</p>
  * @example
@@ -76,6 +75,7 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class AssociateApprovedOriginCommand extends $Command
   .classBuilder<

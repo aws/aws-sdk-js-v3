@@ -27,7 +27,6 @@ export interface DescribeDatasetExportJobCommandInput extends DescribeDatasetExp
 export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the dataset export job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>, including the export job status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeDatasetExportJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectInput {}
 export interface DeleteProjectCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface DeleteProjectCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

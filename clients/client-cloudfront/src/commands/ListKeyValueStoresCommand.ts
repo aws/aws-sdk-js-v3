@@ -27,7 +27,6 @@ export interface ListKeyValueStoresCommandInput extends ListKeyValueStoresReques
 export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies the Key Value Stores to list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResul
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  * @example To get a list of KeyValueStores
  * ```javascript
  * // The following command retrieves a list of KeyValueStores with READY status.

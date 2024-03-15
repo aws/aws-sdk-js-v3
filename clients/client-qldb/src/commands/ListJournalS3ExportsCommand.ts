@@ -27,7 +27,6 @@ export interface ListJournalS3ExportsCommandInput extends ListJournalS3ExportsRe
 export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all journal export jobs for all ledgers that are associated with the current
  *          Amazon Web Services account and Region.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
@@ -82,6 +81,7 @@ export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsR
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class ListJournalS3ExportsCommand extends $Command
   .classBuilder<

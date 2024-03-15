@@ -27,7 +27,6 @@ export interface ListVirtualMachinesCommandInput extends ListVirtualMachinesInpu
 export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your virtual machines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class ListVirtualMachinesCommand extends $Command
   .classBuilder<

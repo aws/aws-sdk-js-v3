@@ -27,7 +27,6 @@ export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this
  *       operation from a member account, the IPSets returned are the IPSets from the associated
  *       administrator account.</p>
@@ -68,6 +67,7 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListIPSetsCommand extends $Command
   .classBuilder<

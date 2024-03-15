@@ -27,7 +27,6 @@ export interface UpdateExtensionCommandInput extends UpdateExtensionRequest {}
 export interface UpdateExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an AppConfig extension. For more information about extensions, see
  *             <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
  *             workflows</a> in the <i>AppConfig User Guide</i>.</p>
@@ -110,6 +109,7 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class UpdateExtensionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListFargateProfilesCommandInput extends ListFargateProfilesRequ
 export interface ListFargateProfilesCommandOutput extends ListFargateProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Fargate profiles associated with the specified cluster in
  *             your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  * @example
@@ -78,6 +77,7 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListFargateProfilesCommand extends $Command
   .classBuilder<

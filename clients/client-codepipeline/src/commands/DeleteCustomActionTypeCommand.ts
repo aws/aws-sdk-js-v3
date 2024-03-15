@@ -27,7 +27,6 @@ export interface DeleteCustomActionTypeCommandInput extends DeleteCustomActionTy
 export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Marks a custom action as deleted. <code>PollForJobs</code> for the custom action
  *             fails after the action is marked for deletion. Used for custom actions only.</p>
  *          <important>
@@ -69,6 +68,7 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class DeleteCustomActionTypeCommand extends $Command
   .classBuilder<

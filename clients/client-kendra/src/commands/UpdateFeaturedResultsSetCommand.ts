@@ -27,7 +27,6 @@ export interface UpdateFeaturedResultsSetCommandInput extends UpdateFeaturedResu
 export interface UpdateFeaturedResultsSetCommandOutput extends UpdateFeaturedResultsSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a set of featured results. Features results are placed
  *             above
  *             all other results for certain queries. You map specific queries to specific documents
@@ -112,6 +111,7 @@ export interface UpdateFeaturedResultsSetCommandOutput extends UpdateFeaturedRes
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateFeaturedResultsSetCommand extends $Command
   .classBuilder<

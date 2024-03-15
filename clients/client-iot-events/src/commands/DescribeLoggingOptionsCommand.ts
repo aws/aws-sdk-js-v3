@@ -27,7 +27,6 @@ export interface DescribeLoggingOptionsCommandInput extends DescribeLoggingOptio
 export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current settings of the AWS IoT Events logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DescribeLoggingOptionsCommand extends $Command
   .classBuilder<

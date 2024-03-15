@@ -31,7 +31,6 @@ export interface DeleteApplicationOutputCommandInput extends DeleteApplicationOu
 export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationOutputResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the output destination configuration from your SQL-based Kinesis Data Analytics application's configuration.
  *       Kinesis Data Analytics will no longer write data from
  *       the corresponding in-application stream to the external output destination.</p>
@@ -81,6 +80,7 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class DeleteApplicationOutputCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteStackCommandInput extends DeleteStackInput {}
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks don't
  *    show up in the <a>DescribeStacks</a> operation if the deletion has been completed successfully.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DeleteStackCommand extends $Command
   .classBuilder<

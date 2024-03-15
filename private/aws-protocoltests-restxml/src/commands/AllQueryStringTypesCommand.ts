@@ -25,7 +25,6 @@ export interface AllQueryStringTypesCommandInput extends AllQueryStringTypesInpu
 export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This example uses all query string types.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class AllQueryStringTypesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateUserIdentityInfoCommandInput extends UpdateUserIdentityIn
 export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the identity information for the specified user.</p>
  *          <important>
  *             <p>We strongly recommend limiting who has the ability to invoke
@@ -85,6 +84,7 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateUserIdentityInfoCommand extends $Command
   .classBuilder<

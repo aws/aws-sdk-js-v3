@@ -27,7 +27,6 @@ export interface UpdateLicenseConfigurationCommandInput extends UpdateLicenseCon
 export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the attributes of an existing license configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class UpdateLicenseConfigurationCommand extends $Command
   .classBuilder<

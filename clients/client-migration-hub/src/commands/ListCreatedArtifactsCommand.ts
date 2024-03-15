@@ -27,7 +27,6 @@ export interface ListCreatedArtifactsCommandInput extends ListCreatedArtifactsRe
 export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the created artifacts attached to a given migration task in an update stream. This
  *          API has the following traits:</p>
  *          <ul>
@@ -104,6 +103,7 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class ListCreatedArtifactsCommand extends $Command
   .classBuilder<

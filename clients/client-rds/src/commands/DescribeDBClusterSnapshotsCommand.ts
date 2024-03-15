@@ -27,7 +27,6 @@ export interface DescribeDBClusterSnapshotsCommandInput extends DescribeDBCluste
 export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapshotMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about DB cluster snapshots. This API action supports pagination.</p>
  *          <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -117,6 +116,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe a DB cluster snapshot for a DB cluster
  * ```javascript
  * // The following example retrieves the details for the DB cluster snapshots for the specified DB cluster.

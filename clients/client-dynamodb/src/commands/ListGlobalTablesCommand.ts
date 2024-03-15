@@ -27,7 +27,6 @@ export interface ListGlobalTablesCommandInput extends ListGlobalTablesInput {}
 export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all global tables that have a replica in the specified Region.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -84,6 +83,7 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ListGlobalTablesCommand extends $Command
   .classBuilder<

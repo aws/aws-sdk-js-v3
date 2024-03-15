@@ -27,7 +27,6 @@ export interface DescribeOrganizationCommandInput extends DescribeOrganizationRe
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides more information regarding a given organization based on its
  *          identifier.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationCommand extends $Command
   .classBuilder<

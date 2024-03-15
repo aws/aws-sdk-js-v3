@@ -27,7 +27,6 @@ export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotSchedu
 export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a snapshot schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteSnapshotScheduleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetOfferingStatusCommandInput extends GetOfferingStatusRequest 
 export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the current status and future status of all offerings purchased by an AWS account. The response
  *             indicates how many offerings are currently available and the offerings that will be available in the next
  *             period. The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the
@@ -118,6 +117,7 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get status information about device offerings
  * ```javascript
  * // The following example returns information about Device Farm offerings available to your account.

@@ -27,7 +27,6 @@ export interface DeleteRegistryCommandInput extends DeleteRegistryInput {}
 export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the entire registry including schema and all of its versions. To get the status of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous call. Deleting a registry will deactivate all online operations for the registry such as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>, and <code>RegisterSchemaVersion</code> APIs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteRegistryCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateAssessmentControlCommandInput extends UpdateAssessmentCon
 export interface UpdateAssessmentControlCommandOutput extends UpdateAssessmentControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a control within an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateAssessmentControlCommandOutput extends UpdateAssessmentCo
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class UpdateAssessmentControlCommand extends $Command
   .classBuilder<

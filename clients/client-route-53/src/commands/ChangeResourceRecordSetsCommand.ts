@@ -28,7 +28,6 @@ export interface ChangeResourceRecordSetsCommandInput extends ChangeResourceReco
 export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRecordSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates, changes, or deletes a resource record set, which contains authoritative DNS
  * 			information for a specified domain name or subdomain name. For example, you can use
  * 				<code>ChangeResourceRecordSets</code> to create a resource record set that routes
@@ -218,6 +217,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  * @example To create a basic resource record set
  * ```javascript
  * // The following example creates a resource record set that routes Internet traffic to a resource with an IP address of 192.0.2.44.

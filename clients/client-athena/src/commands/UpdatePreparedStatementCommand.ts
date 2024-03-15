@@ -27,7 +27,6 @@ export interface UpdatePreparedStatementCommandInput extends UpdatePreparedState
 export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a prepared statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class UpdatePreparedStatementCommand extends $Command
   .classBuilder<

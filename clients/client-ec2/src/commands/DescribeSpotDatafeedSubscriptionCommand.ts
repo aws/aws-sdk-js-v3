@@ -32,7 +32,6 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
  *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the datafeed for your AWS account
  * ```javascript
  * // This example describes the Spot Instance datafeed subscription for your AWS account.

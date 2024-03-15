@@ -36,7 +36,6 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an audit report that lists every time that your CA private key is used. The
  * 			report is saved in the Amazon S3 bucket that you specify on input. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
  * 			the private key. </p>
@@ -102,6 +101,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class CreateCertificateAuthorityAuditReportCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartDataSourceRunCommandInput extends StartDataSourceRunInput 
 export interface StartDataSourceRunCommandOutput extends StartDataSourceRunOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start the run of the specified data source in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface StartDataSourceRunCommandOutput extends StartDataSourceRunOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class StartDataSourceRunCommand extends $Command
   .classBuilder<

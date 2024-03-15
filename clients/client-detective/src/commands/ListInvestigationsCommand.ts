@@ -27,7 +27,6 @@ export interface ListInvestigationsCommandInput extends ListInvestigationsReques
 export interface ListInvestigationsCommandOutput extends ListInvestigationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detective investigations lets you investigate IAM users and
  *             IAM roles using indicators of compromise. An indicator of compromise
  *          (IOC) is an artifact observed in or on a network, system, or environment that can (with a
@@ -112,6 +111,7 @@ export interface ListInvestigationsCommandOutput extends ListInvestigationsRespo
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class ListInvestigationsCommand extends $Command
   .classBuilder<

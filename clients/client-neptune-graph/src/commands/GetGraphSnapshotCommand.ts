@@ -27,7 +27,6 @@ export interface GetGraphSnapshotCommandInput extends GetGraphSnapshotInput {}
 export interface GetGraphSnapshotCommandOutput extends GetGraphSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a specified graph snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetGraphSnapshotCommandOutput extends GetGraphSnapshotOutput, _
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class GetGraphSnapshotCommand extends $Command
   .classBuilder<

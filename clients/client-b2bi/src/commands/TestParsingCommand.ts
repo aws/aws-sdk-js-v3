@@ -27,7 +27,6 @@ export interface TestParsingCommandInput extends TestParsingRequest {}
 export interface TestParsingCommandOutput extends TestParsingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Parses the input EDI (electronic data interchange) file. The input file has a file size limit of 250 KB.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface TestParsingCommandOutput extends TestParsingResponse, __Metadat
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample TestParsing call
  * ```javascript
  * //

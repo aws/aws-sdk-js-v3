@@ -37,7 +37,6 @@ export interface UploadPartCommandInput extends Omit<UploadPartRequest, "Body"> 
 export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads a part in a multipart upload.</p>
  *          <note>
  *             <p>In this operation, you provide new data as a part of an object in your request. However, you have an option
@@ -253,6 +252,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To upload a part
  * ```javascript
  * // The following example uploads part 1 of a multipart upload. The example specifies a file name for the part data. The Upload ID is same that is returned by the initiate multipart upload.

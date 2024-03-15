@@ -36,7 +36,6 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of distributions that have a cache behavior that's associated with the
  * 			specified real-time log configuration.</p>
  *          <p>You can specify the real-time log configuration by its name or its Amazon Resource
@@ -376,6 +375,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListDistributionsByRealtimeLogConfigCommand extends $Command
   .classBuilder<

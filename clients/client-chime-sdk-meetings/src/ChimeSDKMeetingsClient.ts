@@ -315,10 +315,10 @@ export type ChimeSDKMeetingsClientResolvedConfigType = __SmithyResolvedConfigura
 export interface ChimeSDKMeetingsClientResolvedConfig extends ChimeSDKMeetingsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The Amazon Chime SDK meetings APIs in this section allow software developers to create Amazon Chime SDK meetings, set the Amazon Web Services Regions for meetings, create and manage users, and send and
  *             receive meeting notifications. For more information about the meeting APIs, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Meetings.html">Amazon Chime SDK meetings</a>.</p>
+ * @public
  */
 export class ChimeSDKMeetingsClient extends __Client<
   __HttpHandlerOptions,

@@ -35,7 +35,6 @@ export interface SetUserSettingsCommandInput extends SetUserSettingsRequest {}
 export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <i>This action is no longer supported.</i> You can use it to configure
  *             only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
@@ -104,6 +103,7 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class SetUserSettingsCommand extends $Command
   .classBuilder<

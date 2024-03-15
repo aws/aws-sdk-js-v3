@@ -31,7 +31,6 @@ export interface ExecuteCommandCommandInput extends ExecuteCommandRequest {}
 export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs a command remotely on a container within a task.</p>
  *          <p>If you use a condition key in your IAM policy to refine the conditions for the
  * 			policy statement, for example limit the actions to a specific cluster, you receive an
@@ -115,6 +114,7 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class ExecuteCommandCommand extends $Command
   .classBuilder<

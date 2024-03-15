@@ -27,7 +27,6 @@ export interface UpdateChannelGroupCommandInput extends UpdateChannelGroupReques
 export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the specified channel group. You can edit the description on a channel group for easier identification later from the AWS Elemental MediaPackage console. You can't edit the name of the channel group.</p>
  *          <p>Any edits you make that impact the video output may not be reflected for a few minutes.</p>
  * @example
@@ -85,6 +84,7 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class UpdateChannelGroupCommand extends $Command
   .classBuilder<

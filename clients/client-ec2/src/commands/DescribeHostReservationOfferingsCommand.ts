@@ -32,7 +32,6 @@ export interface DescribeHostReservationOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
  *          <p>The results describe all of the Dedicated Host reservation offerings, including
  *             offerings that might not match the instance family and Region of your Dedicated Hosts.
@@ -89,6 +88,7 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeHostReservationOfferingsCommand extends $Command
   .classBuilder<

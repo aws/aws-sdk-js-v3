@@ -31,7 +31,6 @@ export interface CreateLegalHoldCommandInput extends CreateLegalHoldInput {}
 export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action creates a legal hold on a recovery point (backup). A legal hold
  *          is a restraint on altering or deleting a backup until an authorized user cancels the
  *          legal hold. Any actions to delete or disassociate a recovery point will fail with
@@ -110,6 +109,7 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateLegalHoldCommand extends $Command
   .classBuilder<

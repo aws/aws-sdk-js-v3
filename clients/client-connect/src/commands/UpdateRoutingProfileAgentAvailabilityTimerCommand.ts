@@ -31,7 +31,6 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerCommandInput
 export interface UpdateRoutingProfileAgentAvailabilityTimerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Whether agents with this routing profile will have their routing order calculated based on
  *     <i>time since their last inbound contact</i> or <i>longest idle
  *     time</i>. </p>
@@ -76,6 +75,7 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerCommandOutput extends
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends $Command
   .classBuilder<

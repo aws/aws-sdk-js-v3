@@ -546,7 +546,6 @@ export type AuditManagerClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface AuditManagerClientResolvedConfig extends AuditManagerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Welcome to the Audit Manager API reference. This guide is for developers who
  *          need detailed information about the Audit Manager API operations, data types, and
  *          errors. </p>
@@ -583,6 +582,7 @@ export interface AuditManagerClientResolvedConfig extends AuditManagerClientReso
  *          </ul>
  *          <p>If you're new to Audit Manager, we recommend that you review the <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html">
  *             Audit Manager User Guide</a>.</p>
+ * @public
  */
 export class AuditManagerClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface PutConfigRuleCommandInput extends PutConfigRuleRequest {}
 export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates an Config rule to evaluate if your
  * 			Amazon Web Services resources comply with your desired configurations. For information on how many Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -204,6 +203,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutConfigRuleCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface DescribeSubscriptionFiltersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.
  *       The results are ASCII-sorted by filter name.</p>
  * @example
@@ -81,6 +80,7 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeSubscriptionFiltersCommand extends $Command
   .classBuilder<

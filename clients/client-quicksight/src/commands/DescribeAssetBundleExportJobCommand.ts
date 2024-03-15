@@ -36,7 +36,6 @@ export interface DescribeAssetBundleExportJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing export job.</p>
  *          <p>Poll job descriptions after a job starts to know the status of the job. When a job succeeds, a URL is provided to download the exported assets' data from. Download URLs are valid for five minutes after they are generated. You can call the <code>DescribeAssetBundleExportJob</code> API for a new download URL as needed.</p>
  *          <p>Job descriptions are available for 14 days after the job starts.</p>
@@ -170,6 +169,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeAssetBundleExportJobCommand extends $Command
   .classBuilder<

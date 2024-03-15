@@ -8,46 +8,46 @@ import { IoT1ClickDevicesServiceServiceException as __BaseException } from "./Io
  */
 export interface DeviceDescription {
   /**
-   * @public
    * <p>The ARN of the device.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>An array of zero or more elements of DeviceAttribute objects providing
    *  user specified device attributes.</p>
+   * @public
    */
   Attributes?: Record<string, string>;
 
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId?: string;
 
   /**
-   * @public
    * <p>A Boolean value indicating whether or not the device is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the
    *  device.</p>
+   * @public
    */
   RemainingLife?: number;
 
   /**
-   * @public
    * <p>The type of the device, such as "button".</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The tags currently associated with the AWS IoT 1-Click device.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -62,20 +62,20 @@ export interface Attributes {}
  */
 export interface Device {
   /**
-   * @public
    * <p>The user specified attributes associated with the device for an event.</p>
+   * @public
    */
   Attributes?: Attributes;
 
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId?: string;
 
   /**
-   * @public
    * <p>The device type, such as "button".</p>
+   * @public
    */
   Type?: string;
 }
@@ -85,14 +85,14 @@ export interface Device {
  */
 export interface DeviceEvent {
   /**
-   * @public
    * <p>An object representing the device associated with the event.</p>
+   * @public
    */
   Device?: Device;
 
   /**
-   * @public
    * <p>A serialized JSON object representing the device-type specific event.</p>
+   * @public
    */
   StdEvent?: string;
 }
@@ -102,14 +102,14 @@ export interface DeviceEvent {
  */
 export interface DeviceMethod {
   /**
-   * @public
    * <p>The type of the device, such as "button".</p>
+   * @public
    */
   DeviceType?: string;
 
   /**
-   * @public
    * <p>The name of the method applicable to the deviceType.</p>
+   * @public
    */
   MethodName?: string;
 }
@@ -119,8 +119,8 @@ export interface DeviceMethod {
  */
 export interface ClaimDevicesByClaimCodeRequest {
   /**
-   * @public
    * <p>The claim code, starting with "C-", as provided by the device manufacturer.</p>
+   * @public
    */
   ClaimCode: string | undefined;
 }
@@ -130,15 +130,15 @@ export interface ClaimDevicesByClaimCodeRequest {
  */
 export interface ClaimDevicesByClaimCodeResponse {
   /**
-   * @public
    * <p>The claim code provided by the device manufacturer.</p>
+   * @public
    */
   ClaimCode?: string;
 
   /**
-   * @public
    * <p>The total number of devices associated with the claim code that has been processed in
    *  the claim request.</p>
+   * @public
    */
   Total?: number;
 }
@@ -150,14 +150,14 @@ export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>403</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>The 403 error message returned by the web server.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -182,14 +182,14 @@ export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>500</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>The 500 error message returned by the web server.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -214,14 +214,14 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>400</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>The 400 error message returned by the web server.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -244,8 +244,8 @@ export class InvalidRequestException extends __BaseException {
  */
 export interface DescribeDeviceRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 }
@@ -255,8 +255,8 @@ export interface DescribeDeviceRequest {
  */
 export interface DescribeDeviceResponse {
   /**
-   * @public
    * <p>Device details.</p>
+   * @public
    */
   DeviceDescription?: DeviceDescription;
 }
@@ -268,14 +268,14 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>404</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>The requested device could not be found.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -298,18 +298,18 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface FinalizeDeviceClaimRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 
   /**
-   * @public
    * <p>A collection of key/value pairs defining the resource tags. For example, \{
    *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -319,8 +319,8 @@ export interface FinalizeDeviceClaimRequest {
  */
 export interface FinalizeDeviceClaimResponse {
   /**
-   * @public
    * <p>The device's final claim state.</p>
+   * @public
    */
   State?: string;
 }
@@ -332,14 +332,14 @@ export class PreconditionFailedException extends __BaseException {
   readonly name: "PreconditionFailedException" = "PreconditionFailedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>412</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>An error message explaining the error or its remedy.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -364,14 +364,14 @@ export class ResourceConflictException extends __BaseException {
   readonly name: "ResourceConflictException" = "ResourceConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>409</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>An error message explaining the error or its remedy.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -394,8 +394,8 @@ export class ResourceConflictException extends __BaseException {
  */
 export interface GetDeviceMethodsRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 }
@@ -405,8 +405,8 @@ export interface GetDeviceMethodsRequest {
  */
 export interface GetDeviceMethodsResponse {
   /**
-   * @public
    * <p>List of available device APIs.</p>
+   * @public
    */
   DeviceMethods?: DeviceMethod[];
 }
@@ -416,8 +416,8 @@ export interface GetDeviceMethodsResponse {
  */
 export interface InitiateDeviceClaimRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 }
@@ -427,8 +427,8 @@ export interface InitiateDeviceClaimRequest {
  */
 export interface InitiateDeviceClaimResponse {
   /**
-   * @public
    * <p>The device's final claim state.</p>
+   * @public
    */
   State?: string;
 }
@@ -438,20 +438,20 @@ export interface InitiateDeviceClaimResponse {
  */
 export interface InvokeDeviceMethodRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 
   /**
-   * @public
    * <p>The device method to invoke.</p>
+   * @public
    */
   DeviceMethod?: DeviceMethod;
 
   /**
-   * @public
    * <p>A JSON encoded string containing the device method request parameters.</p>
+   * @public
    */
   DeviceMethodParameters?: string;
 }
@@ -461,8 +461,8 @@ export interface InvokeDeviceMethodRequest {
  */
 export interface InvokeDeviceMethodResponse {
   /**
-   * @public
    * <p>A JSON encoded string containing the device method response.</p>
+   * @public
    */
   DeviceMethodResponse?: string;
 }
@@ -474,15 +474,15 @@ export class RangeNotSatisfiableException extends __BaseException {
   readonly name: "RangeNotSatisfiableException" = "RangeNotSatisfiableException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>416</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>The requested number of results specified by nextToken cannot be
    *  satisfied.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -505,37 +505,37 @@ export class RangeNotSatisfiableException extends __BaseException {
  */
 export interface ListDeviceEventsRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 
   /**
-   * @public
    * <p>The start date for the device event query, in ISO8061 format. For example,
    *  2018-03-28T15:45:12.880Z
    *  </p>
+   * @public
    */
   FromTimeStamp: Date | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per request. If not set, a default value of
    *  100 is used.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The end date for the device event query, in ISO8061 format. For example,
    *  2018-03-28T15:45:12.880Z
    *  </p>
+   * @public
    */
   ToTimeStamp: Date | undefined;
 }
@@ -545,15 +545,15 @@ export interface ListDeviceEventsRequest {
  */
 export interface ListDeviceEventsResponse {
   /**
-   * @public
    * <p>An array of zero or more elements describing the event(s) associated with the
    *  device.</p>
+   * @public
    */
   Events?: DeviceEvent[];
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -563,21 +563,21 @@ export interface ListDeviceEventsResponse {
  */
 export interface ListDevicesRequest {
   /**
-   * @public
    * <p>The type of the device, such as "button".</p>
+   * @public
    */
   DeviceType?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per request. If not set, a default value of
    *  100 is used.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -587,14 +587,14 @@ export interface ListDevicesRequest {
  */
 export interface ListDevicesResponse {
   /**
-   * @public
    * <p>A list of devices.</p>
+   * @public
    */
   Devices?: DeviceDescription[];
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -604,8 +604,8 @@ export interface ListDevicesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -615,12 +615,12 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A collection of key/value pairs defining the resource tags. For example, \{
    *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -630,18 +630,18 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A collection of key/value pairs defining the resource tags. For example, \{
    *  "tags": \{"key1": "value1", "key2": "value2"\} \}. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
    *
    *  </p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -651,8 +651,8 @@ export interface TagResourceRequest {
  */
 export interface UnclaimDeviceRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 }
@@ -662,8 +662,8 @@ export interface UnclaimDeviceRequest {
  */
 export interface UnclaimDeviceResponse {
   /**
-   * @public
    * <p>The device's final claim state.</p>
+   * @public
    */
   State?: string;
 }
@@ -673,14 +673,14 @@ export interface UnclaimDeviceResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A collections of tag keys. For example, \{"key1","key2"\}</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -690,15 +690,15 @@ export interface UntagResourceRequest {
  */
 export interface UpdateDeviceStateRequest {
   /**
-   * @public
    * <p>The unique identifier of the device.</p>
+   * @public
    */
   DeviceId: string | undefined;
 
   /**
-   * @public
    * <p>If true, the device is enabled. If false, the device is
    *  disabled.</p>
+   * @public
    */
   Enabled?: boolean;
 }

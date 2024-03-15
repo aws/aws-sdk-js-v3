@@ -27,7 +27,6 @@ export interface CreateLandingZoneCommandInput extends CreateLandingZoneInput {}
 export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone,
  *          based on the parameters specified in the manifest JSON file.</p>
  * @example
@@ -76,6 +75,7 @@ export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class CreateLandingZoneCommand extends $Command
   .classBuilder<

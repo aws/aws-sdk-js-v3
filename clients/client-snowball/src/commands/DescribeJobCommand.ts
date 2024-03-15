@@ -27,7 +27,6 @@ export interface DescribeJobCommandInput extends DescribeJobRequest {}
 export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific job including shipping information, job status,
  *       and other important metadata. </p>
  * @example
@@ -305,6 +304,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To describe a job you've created for AWS Snowball
  * ```javascript
  * // This operation describes a job you've created for AWS Snowball.

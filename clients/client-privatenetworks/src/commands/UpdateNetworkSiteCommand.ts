@@ -31,7 +31,6 @@ export interface UpdateNetworkSiteCommandInput extends UpdateNetworkSiteRequest 
 export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class UpdateNetworkSiteCommand extends $Command
   .classBuilder<

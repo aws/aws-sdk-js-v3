@@ -32,7 +32,6 @@ export interface DisassociateTrackerConsumerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the association between a tracker resource and a geofence collection.</p>
  *          <note>
  *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
@@ -79,6 +78,7 @@ export interface DisassociateTrackerConsumerCommandOutput
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DisassociateTrackerConsumerCommand extends $Command
   .classBuilder<

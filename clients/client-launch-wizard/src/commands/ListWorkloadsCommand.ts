@@ -27,7 +27,6 @@ export interface ListWorkloadsCommandInput extends ListWorkloadsInput {}
 export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the workloads.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * @public
  */
 export class ListWorkloadsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeOutboundConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
  *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -108,6 +107,7 @@ export interface DescribeOutboundConnectionsCommandOutput
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeOutboundConnectionsCommand extends $Command
   .classBuilder<

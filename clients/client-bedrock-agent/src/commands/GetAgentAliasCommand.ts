@@ -27,7 +27,6 @@ export interface GetAgentAliasCommandInput extends GetAgentAliasRequest {}
 export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * Describes an Alias for a Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetAgentAliasCommandOutput extends GetAgentAliasResponse, __Met
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class GetAgentAliasCommand extends $Command
   .classBuilder<

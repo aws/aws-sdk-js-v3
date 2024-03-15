@@ -32,7 +32,6 @@ export interface StartCutoverCommandInput extends StartCutoverRequest {}
 export interface StartCutoverCommandOutput extends StartCutoverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class StartCutoverCommand extends $Command
   .classBuilder<

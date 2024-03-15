@@ -27,7 +27,6 @@ export interface CreateTrialComponentCommandInput extends CreateTrialComponentRe
 export interface CreateTrialComponentCommandOutput extends CreateTrialComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <i>trial component</i>, which is a stage of a machine learning
  *         <i>trial</i>. A trial is composed of one or more trial components. A trial
  *       component can be used in multiple trials.</p>
@@ -105,6 +104,7 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateTrialComponentCommand extends $Command
   .classBuilder<

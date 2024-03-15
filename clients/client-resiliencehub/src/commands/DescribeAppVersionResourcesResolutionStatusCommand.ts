@@ -36,7 +36,6 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the resolution status for the specified resolution identifier for an application
  *       version. If <code>resolutionId</code> is not specified, the current resolution status is
  *       returned.</p>
@@ -90,6 +89,7 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
   .classBuilder<

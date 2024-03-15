@@ -27,7 +27,6 @@ export interface ListRulesCommandInput extends ListRulesRequest {}
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -76,6 +75,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To list rules
  * ```javascript
  * // The following example returns an array of up to 100 rules.

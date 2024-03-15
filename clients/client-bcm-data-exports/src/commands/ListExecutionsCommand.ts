@@ -27,7 +27,6 @@ export interface ListExecutionsCommandInput extends ListExecutionsRequest {}
 export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the historical executions for the export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class ListExecutionsCommand extends $Command
   .classBuilder<

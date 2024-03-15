@@ -27,7 +27,6 @@ export interface ListFiltersCommandInput extends ListFiltersRequest {}
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of the current filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListFiltersCommand extends $Command
   .classBuilder<

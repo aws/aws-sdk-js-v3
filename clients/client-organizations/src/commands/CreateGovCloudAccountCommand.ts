@@ -32,7 +32,6 @@ export interface CreateGovCloudAccountCommandInput extends CreateGovCloudAccount
 export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action is available if all of the following are true:</p>
  *          <ul>
  *             <li>
@@ -537,6 +536,7 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class CreateGovCloudAccountCommand extends $Command
   .classBuilder<

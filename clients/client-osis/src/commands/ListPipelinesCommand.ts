@@ -27,7 +27,6 @@ export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
 export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account and Region. For
  *    more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html">Viewing Amazon OpenSearch Ingestion pipelines</a>.</p>
  * @example
@@ -90,6 +89,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class ListPipelinesCommand extends $Command
   .classBuilder<

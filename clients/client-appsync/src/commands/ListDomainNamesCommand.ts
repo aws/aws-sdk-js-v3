@@ -27,7 +27,6 @@ export interface ListDomainNamesCommandInput extends ListDomainNamesRequest {}
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists multiple custom domain names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListDomainNamesCommand extends $Command
   .classBuilder<

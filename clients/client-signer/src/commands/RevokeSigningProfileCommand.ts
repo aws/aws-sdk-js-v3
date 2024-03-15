@@ -27,7 +27,6 @@ export interface RevokeSigningProfileCommandInput extends RevokeSigningProfileRe
 export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures
  * 			generated using the signing profile after an effective start date are no longer
  * 			valid.</p>
@@ -74,6 +73,7 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class RevokeSigningProfileCommand extends $Command
   .classBuilder<

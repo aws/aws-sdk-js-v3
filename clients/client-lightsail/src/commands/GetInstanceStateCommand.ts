@@ -27,7 +27,6 @@ export interface GetInstanceStateCommandInput extends GetInstanceStateRequest {}
 export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the state of a specific instance. Works on one instance at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetInstanceStateCommand extends $Command
   .classBuilder<

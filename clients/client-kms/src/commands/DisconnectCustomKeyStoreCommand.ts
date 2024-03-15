@@ -27,7 +27,6 @@ export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKe
 export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
  *       CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
  *       the external key store proxy that communicates with your external key manager.</p>
@@ -151,6 +150,7 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To disconnect a custom key store from its CloudHSM cluster
  * ```javascript
  * // This example disconnects an AWS KMS custom key store from its backing key store. For an AWS CloudHSM key store, it disconnects the key store from its AWS CloudHSM cluster. For an external key store, it disconnects the key store from the external key store proxy that communicates with your external key manager. This operation doesn't return any data. To verify that the custom key store is disconnected, use the <code>DescribeCustomKeyStores</code> operation.

@@ -27,7 +27,6 @@ export interface DeleteEntityRecognizerCommandInput extends DeleteEntityRecogniz
 export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecognizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an entity recognizer.</p>
  *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
  *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
@@ -79,6 +78,7 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DeleteEntityRecognizerCommand extends $Command
   .classBuilder<

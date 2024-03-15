@@ -36,7 +36,6 @@ export interface BatchGetConfigurationPolicyAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Returns associations between an Security Hub configuration and a batch of target accounts, organizational units, or the root.
  *             Only the Security Hub delegated administrator can invoke this operation from the home Region. A configuration
@@ -119,6 +118,7 @@ export interface BatchGetConfigurationPolicyAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get configuration associations for a batch of targets
  * ```javascript
  * // This operation provides details about configuration associations for a batch of target accounts, organizational units, or the root.

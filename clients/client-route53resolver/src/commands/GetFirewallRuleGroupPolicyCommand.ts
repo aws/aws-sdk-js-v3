@@ -27,7 +27,6 @@ export interface GetFirewallRuleGroupPolicyCommandInput extends GetFirewallRuleG
 export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing the
  *        	specified rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). </p>
  * @example
@@ -72,6 +71,7 @@ export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRule
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetFirewallRuleGroupPolicyCommand extends $Command
   .classBuilder<

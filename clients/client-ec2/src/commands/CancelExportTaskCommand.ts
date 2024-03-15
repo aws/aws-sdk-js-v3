@@ -27,7 +27,6 @@ export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created
  *    Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the
  *    command fails and returns an error.</p>
@@ -55,6 +54,7 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CancelExportTaskCommand extends $Command
   .classBuilder<

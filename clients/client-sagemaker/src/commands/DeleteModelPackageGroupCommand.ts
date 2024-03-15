@@ -27,7 +27,6 @@ export interface DeleteModelPackageGroupCommandInput extends DeleteModelPackageG
 export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified model group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteModelPackageGroupCommand extends $Command
   .classBuilder<

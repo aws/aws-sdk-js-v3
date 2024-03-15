@@ -27,7 +27,6 @@ export interface GetAppAuthorizationCommandInput extends GetAppAuthorizationRequ
 export interface GetAppAuthorizationCommandOutput extends GetAppAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an app authorization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetAppAuthorizationCommandOutput extends GetAppAuthorizationRes
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class GetAppAuthorizationCommand extends $Command
   .classBuilder<

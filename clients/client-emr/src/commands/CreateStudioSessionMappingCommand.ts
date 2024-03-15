@@ -27,7 +27,6 @@ export interface CreateStudioSessionMappingCommandInput extends CreateStudioSess
 export interface CreateStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Maps a user or group to the Amazon EMR Studio specified by
  *          <code>StudioId</code>, and applies a session policy to refine Studio permissions for that
  *          user or group. Use <code>CreateStudioSessionMapping</code> to assign users to a Studio when
@@ -68,6 +67,7 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class CreateStudioSessionMappingCommand extends $Command
   .classBuilder<

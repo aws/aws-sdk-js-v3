@@ -643,8 +643,8 @@ export interface KinesisVideo {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class KinesisVideo extends KinesisVideoClient implements KinesisVideo {}
 createAggregatedClient(commands, KinesisVideo);

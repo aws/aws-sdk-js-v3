@@ -32,7 +32,6 @@ export interface StartAuditMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartAuditMitigationActionsTask</a> action.</p>
  * @example
@@ -95,6 +94,7 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class StartAuditMitigationActionsTaskCommand extends $Command
   .classBuilder<

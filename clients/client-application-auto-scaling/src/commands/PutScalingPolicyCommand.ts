@@ -31,7 +31,6 @@ export interface PutScalingPolicyCommandInput extends PutScalingPolicyRequest {}
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>
  *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
  *          dimension. A scaling policy applies to the scalable target identified by those three
@@ -177,6 +176,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To apply a target tracking scaling policy with a predefined metric specification
  * ```javascript
  * // The following example applies a target tracking scaling policy with a predefined metric specification to an Amazon ECS service called web-app in the default cluster. The policy keeps the average CPU utilization of the service at 75 percent, with scale-out and scale-in cooldown periods of 60 seconds.

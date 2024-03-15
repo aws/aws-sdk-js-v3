@@ -32,7 +32,6 @@ export interface GetPlaybackRestrictionPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified playback restriction policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetPlaybackRestrictionPolicyCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class GetPlaybackRestrictionPolicyCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateMembersCommandInput extends CreateMembersRequest {}
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>CreateMembers</code> is used to send invitations to accounts. For the organization
  *          behavior graph, the Detective administrator account uses
@@ -157,6 +156,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class CreateMembersCommand extends $Command
   .classBuilder<

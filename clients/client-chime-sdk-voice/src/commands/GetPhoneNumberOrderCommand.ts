@@ -31,7 +31,6 @@ export interface GetPhoneNumberOrderCommandInput extends GetPhoneNumberOrderRequ
 export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details for the specified phone number order, such as the order
  *          creation timestamp, phone numbers in E.164 format, product type, and
  *          order status.</p>
@@ -95,6 +94,7 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetPhoneNumberOrderCommand extends $Command
   .classBuilder<

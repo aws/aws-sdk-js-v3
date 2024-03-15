@@ -27,7 +27,6 @@ export interface DetectLabelsCommandInput extends DetectLabelsRequest {}
 export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as
  *       input. This includes objects like flower, tree, and table; events like wedding, graduation,
  *       and birthday party; and concepts like landscape, evening, and nature. </p>
@@ -308,6 +307,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To detect labels
  * ```javascript
  * // This operation detects labels in the supplied image

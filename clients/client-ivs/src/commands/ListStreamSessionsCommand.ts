@@ -27,7 +27,6 @@ export interface ListStreamSessionsCommandInput extends ListStreamSessionsReques
 export interface ListStreamSessionsCommandOutput extends ListStreamSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a summary of current and previous streams for a specified channel in your account, in
  *       the AWS region where the API request is processed.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class ListStreamSessionsCommand extends $Command
   .classBuilder<

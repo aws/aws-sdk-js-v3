@@ -27,7 +27,6 @@ export interface GetDifferencesCommandInput extends GetDifferencesInput {}
 export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the differences in a valid commit specifier (such as a
  *             branch, tag, HEAD, commit ID, or other fully qualified reference). Results can be
  *             limited to a specified path.</p>
@@ -131,6 +130,7 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetDifferencesCommand extends $Command
   .classBuilder<

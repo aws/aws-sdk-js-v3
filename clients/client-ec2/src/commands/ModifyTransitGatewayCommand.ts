@@ -27,7 +27,6 @@ export interface ModifyTransitGatewayCommandInput extends ModifyTransitGatewayRe
 export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified transit gateway. When you modify a transit gateway, the modified options are applied to new transit gateway attachments only. Your existing transit gateway attachments are not modified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyTransitGatewayCommand extends $Command
   .classBuilder<

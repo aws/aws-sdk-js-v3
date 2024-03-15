@@ -27,7 +27,6 @@ export interface DeleteTransitGatewayRouteCommandInput extends DeleteTransitGate
 export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified route from the specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteTransitGatewayRouteCommandOutput extends DeleteTransitGat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteTransitGatewayRouteCommand extends $Command
   .classBuilder<

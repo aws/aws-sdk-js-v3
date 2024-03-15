@@ -27,7 +27,6 @@ export interface ListRepositoriesCommandInput extends ListRepositoriesInput {}
 export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List linked repositories with detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListRepositoriesCommand extends $Command
   .classBuilder<

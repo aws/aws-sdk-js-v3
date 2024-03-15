@@ -27,7 +27,6 @@ export interface GetIPSetCommandInput extends GetIPSetRequest {}
 export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetIPSetCommand extends $Command
   .classBuilder<

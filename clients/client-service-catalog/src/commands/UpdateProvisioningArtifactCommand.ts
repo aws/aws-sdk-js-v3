@@ -27,7 +27,6 @@ export interface UpdateProvisioningArtifactCommandInput extends UpdateProvisioni
 export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot update a provisioning artifact for a product that was shared with you.</p>
  * @example
@@ -81,6 +80,7 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class UpdateProvisioningArtifactCommand extends $Command
   .classBuilder<

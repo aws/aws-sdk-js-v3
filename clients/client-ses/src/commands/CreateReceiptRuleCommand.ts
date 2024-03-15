@@ -27,7 +27,6 @@ export interface CreateReceiptRuleCommandInput extends CreateReceiptRuleRequest 
 export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a receipt rule.</p>
  *          <p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -136,6 +135,7 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example CreateReceiptRule
  * ```javascript
  * // The following example creates a new receipt rule:

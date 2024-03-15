@@ -27,7 +27,6 @@ export interface GetResourcesSummaryCommandInput extends GetResourcesSummaryInpu
 export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get counts of Proton resources.</p>
  *          <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action returns staleness counts. A
  *    resource is stale when it's behind the recommended version of the Proton template that it uses and it needs an update to become current.</p>
@@ -112,6 +111,7 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetResourcesSummaryCommand extends $Command
   .classBuilder<

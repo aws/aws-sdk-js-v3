@@ -53,20 +53,20 @@ import {
  */
 export interface RejectPredictionsOutput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   assetRevision: string | undefined;
 }
@@ -76,21 +76,21 @@ export interface RejectPredictionsOutput {
  */
 export interface RejectSubscriptionRequestInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the subscription request was
    *          rejected.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request that was rejected.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The decision comment of the rejected subscription request.</p>
+   * @public
    */
   decisionComment?: string;
 }
@@ -100,75 +100,75 @@ export interface RejectSubscriptionRequestInput {
  */
 export interface RejectSubscriptionRequestOutput {
   /**
-   * @public
    * <p>The identifier of the subscription request that was rejected.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was rejected.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the subscription request was
    *          rejected.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription request.</p>
+   * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was rejected.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the subscription request.</p>
+   * @public
    */
   requestReason: string | undefined;
 
   /**
-   * @public
    * <p>The subscribed principals of the subscription request.</p>
+   * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * @public
    * <p>The subscribed listings of the subscription request.</p>
+   * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request reviewer.</p>
+   * @public
    */
   reviewerId?: string;
 
   /**
-   * @public
    * <p>The decision comment of the rejected subscription request.</p>
+   * @public
    */
   decisionComment?: string;
 }
@@ -178,20 +178,20 @@ export interface RejectSubscriptionRequestOutput {
  */
 export interface RevokeSubscriptionInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the revoked subscription.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * @public
    */
   retainPermissions?: boolean;
 }
@@ -201,68 +201,68 @@ export interface RevokeSubscriptionInput {
  */
 export interface RevokeSubscriptionOutput {
   /**
-   * @public
    * <p>The identifier of the revoked subscription.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the user who revoked the subscription.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who revoked the subscription.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the revoked subscription.</p>
+   * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription was revoked.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription was revoked.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The subscribed principal of the revoked subscription.</p>
+   * @public
    */
   subscribedPrincipal: SubscribedPrincipal | undefined;
 
   /**
-   * @public
    * <p>The subscribed listing of the revoked subscription.</p>
+   * @public
    */
   subscribedListing: SubscribedListing | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request for the revoked subscription.</p>
+   * @public
    */
   subscriptionRequestId?: string;
 
   /**
-   * @public
    * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * @public
    */
   retainPermissions?: boolean;
 }
@@ -282,31 +282,31 @@ export type SearchOutputAdditionalAttribute =
   (typeof SearchOutputAdditionalAttribute)[keyof typeof SearchOutputAdditionalAttribute];
 
 /**
- * @public
  * <p>A search filter in Amazon DataZone.</p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>A search filter attribute in Amazon DataZone.</p>
+   * @public
    */
   attribute: string | undefined;
 
   /**
-   * @public
    * <p>A search filter value in Amazon DataZone.</p>
+   * @public
    */
   value: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the search.</p>
+ * @public
  */
 export interface SearchInItem {
   /**
-   * @public
    * <p>The search attribute.</p>
+   * @public
    */
   attribute: string | undefined;
 }
@@ -327,170 +327,170 @@ export const InventorySearchScope = {
 export type InventorySearchScope = (typeof InventorySearchScope)[keyof typeof InventorySearchScope];
 
 /**
- * @public
  * <p>The details of the way to sort search results.</p>
+ * @public
  */
 export interface SearchSort {
   /**
-   * @public
    * <p>The attribute detail of the way to sort search results.</p>
+   * @public
    */
   attribute: string | undefined;
 
   /**
-   * @public
    * <p>The order detail of the wya to sort search results.</p>
+   * @public
    */
   order?: SortOrder;
 }
 
 /**
- * @public
  * <p>The details of a business glossary.</p>
+ * @public
  */
 export interface GlossaryItem {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the glossary.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the glossary.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project that owns the business glosary.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The business glossary description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The business glossary status.</p>
+   * @public
    */
   status: GlossaryStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the glossary was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the glossary.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the business glossary was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the business glossary.</p>
+   * @public
    */
   updatedBy?: string;
 }
 
 /**
- * @public
  * <p>The details of a business glossary term.</p>
+ * @public
  */
 export interface GlossaryTermItem {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the business glossary to which the term belongs.</p>
+   * @public
    */
   glossaryId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the business glossary term.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the business glossary term.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The short description of the business glossary term.</p>
+   * @public
    */
   shortDescription?: string;
 
   /**
-   * @public
    * <p>The long description of the business glossary term.</p>
+   * @public
    */
   longDescription?: string;
 
   /**
-   * @public
    * <p>The relations of the business glossary term.</p>
+   * @public
    */
   termRelations?: TermRelations;
 
   /**
-   * @public
    * <p>The status of the business glossary term.</p>
+   * @public
    */
   status: GlossaryTermStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when a business glossary term was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the business glossary.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when a business glossary term was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the business glossary term.</p>
+   * @public
    */
   updatedBy?: string;
 }
 
 /**
- * @public
  * <p>The details of the search results.</p>
+ * @public
  */
 export type SearchInventoryResultItem =
   | SearchInventoryResultItem.AssetItemMember
@@ -504,8 +504,8 @@ export type SearchInventoryResultItem =
  */
 export namespace SearchInventoryResultItem {
   /**
-   * @public
    * <p>The glossary item included in the search results.</p>
+   * @public
    */
   export interface GlossaryItemMember {
     glossaryItem: GlossaryItem;
@@ -516,8 +516,8 @@ export namespace SearchInventoryResultItem {
   }
 
   /**
-   * @public
    * <p>The glossary term item included in the search results.</p>
+   * @public
    */
   export interface GlossaryTermItemMember {
     glossaryItem?: never;
@@ -528,8 +528,8 @@ export namespace SearchInventoryResultItem {
   }
 
   /**
-   * @public
    * <p>The asset item included in the search results.</p>
+   * @public
    */
   export interface AssetItemMember {
     glossaryItem?: never;
@@ -540,8 +540,8 @@ export namespace SearchInventoryResultItem {
   }
 
   /**
-   * @public
    * <p>The data product item included in the search results.</p>
+   * @public
    */
   export interface DataProductItemMember {
     glossaryItem?: never;
@@ -584,24 +584,24 @@ export namespace SearchInventoryResultItem {
  */
 export interface SearchOutput {
   /**
-   * @public
    * <p>The results of the <code>Search</code> action.</p>
+   * @public
    */
   items?: SearchInventoryResultItem[];
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Total number of search results.</p>
+   * @public
    */
   totalMatchCount?: number;
 }
@@ -625,72 +625,72 @@ export type GroupSearchType = (typeof GroupSearchType)[keyof typeof GroupSearchT
  */
 export interface SearchGroupProfilesInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which you want to search group
    *          profiles.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The group type for which to search.</p>
+   * @public
    */
   groupType: GroupSearchType | undefined;
 
   /**
-   * @public
    * <p>Specifies the text for which to search.</p>
+   * @public
    */
   searchText?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call to
    *             <code>SearchGroupProfiles</code>. When the number of results to be listed is greater
    *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
    *          value that you can use in a subsequent call to <code>SearchGroupProfiles</code> to list the
    *          next set of results. </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of a group profile.</p>
+ * @public
  */
 export interface GroupProfileSummary {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain of a group profile.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The ID of a group profile.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The status of a group profile.</p>
+   * @public
    */
   status?: GroupProfileStatus;
 
   /**
-   * @public
    * <p>The group name of a group profile.</p>
+   * @public
    */
   groupName?: string;
 }
@@ -700,26 +700,26 @@ export interface GroupProfileSummary {
  */
 export interface SearchGroupProfilesOutput {
   /**
-   * @public
    * <p>The results of the <code>SearchGroupProfiles</code> action.</p>
+   * @public
    */
   items?: GroupProfileSummary[];
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of the results of the <code>SearchListings</code> action.</p>
+ * @public
  */
 export type SearchResultItem = SearchResultItem.AssetListingMember | SearchResultItem.$UnknownMember;
 
@@ -728,9 +728,9 @@ export type SearchResultItem = SearchResultItem.AssetListingMember | SearchResul
  */
 export namespace SearchResultItem {
   /**
-   * @public
    * <p>The asset listing included in the results of the <code>SearchListings</code>
    *          action.</p>
+   * @public
    */
   export interface AssetListingMember {
     assetListing: AssetListingItem;
@@ -761,25 +761,25 @@ export namespace SearchResultItem {
  */
 export interface SearchListingsOutput {
   /**
-   * @public
    * <p>The results of the <code>SearchListings</code> action.</p>
+   * @public
    */
   items?: SearchResultItem[];
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchListings</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Total number of search results.</p>
+   * @public
    */
   totalMatchCount?: number;
 }
@@ -799,87 +799,87 @@ export const TypesSearchScope = {
 export type TypesSearchScope = (typeof TypesSearchScope)[keyof typeof TypesSearchScope];
 
 /**
- * @public
  * <p>The details of the metadata form type.</p>
+ * @public
  */
 export interface FormTypeData {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the form type exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the form type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the form type.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The model of the form type.</p>
+   * @public
    */
   model?: Model;
 
   /**
-   * @public
    * <p>The status of the form type.</p>
+   * @public
    */
   status?: FormTypeStatus;
 
   /**
-   * @public
    * <p>The identifier of the project that owns the form type.</p>
+   * @public
    */
   owningProjectId?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the form type was originally
    *          created.</p>
+   * @public
    */
   originDomainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the project in which the form type was originally created.</p>
+   * @public
    */
   originProjectId?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the metadata form type was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created teh metadata form type.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The description of the metadata form type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The imports specified in the form type.</p>
+   * @public
    */
   imports?: Import[];
 }
 
 /**
- * @public
  * <p>The details of the results of the <code>SearchTypes</code> action.</p>
+ * @public
  */
 export type SearchTypesResultItem =
   | SearchTypesResultItem.AssetTypeItemMember
@@ -891,8 +891,8 @@ export type SearchTypesResultItem =
  */
 export namespace SearchTypesResultItem {
   /**
-   * @public
    * <p>The asset type included in the results of the <code>SearchTypes</code> action.</p>
+   * @public
    */
   export interface AssetTypeItemMember {
     assetTypeItem: AssetTypeItem;
@@ -901,8 +901,8 @@ export namespace SearchTypesResultItem {
   }
 
   /**
-   * @public
    * <p>The form type included in the results of the <code>SearchTypes</code> action.</p>
+   * @public
    */
   export interface FormTypeItemMember {
     assetTypeItem?: never;
@@ -937,25 +937,25 @@ export namespace SearchTypesResultItem {
  */
 export interface SearchTypesOutput {
   /**
-   * @public
    * <p>The results of the <code>SearchTypes</code> action.</p>
+   * @public
    */
   items?: SearchTypesResultItem[];
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchTypes</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Total number of search results.</p>
+   * @public
    */
   totalMatchCount?: number;
 }
@@ -981,78 +981,78 @@ export type UserSearchType = (typeof UserSearchType)[keyof typeof UserSearchType
  */
 export interface SearchUserProfilesInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which you want to search user
    *          profiles.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the user type for the <code>SearchUserProfiles</code> action.</p>
+   * @public
    */
   userType: UserSearchType | undefined;
 
   /**
-   * @public
    * <p>Specifies the text for which to search.</p>
+   * @public
    */
   searchText?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call to
    *             <code>SearchUserProfiles</code>. When the number of results to be listed is greater than
    *          the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value
    *          that you can use in a subsequent call to <code>SearchUserProfiles</code> to list the next
    *          set of results. </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of the user profile.</p>
+ * @public
  */
 export interface UserProfileSummary {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain of the user profile.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The ID of the user profile.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The type of the user profile.</p>
+   * @public
    */
   type?: UserProfileType;
 
   /**
-   * @public
    * <p>The status of the user profile.</p>
+   * @public
    */
   status?: UserProfileStatus;
 
   /**
-   * @public
    * <p>The details of the user profile.</p>
+   * @public
    */
   details?: UserProfileDetails;
 }
@@ -1062,19 +1062,19 @@ export interface UserProfileSummary {
  */
 export interface SearchUserProfilesOutput {
   /**
-   * @public
    * <p>The results of the <code>SearchUserProfiles</code> action.</p>
+   * @public
    */
   items?: UserProfileSummary[];
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1084,14 +1084,14 @@ export interface SearchUserProfilesOutput {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource to be tagged in Amazon DataZone.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the tags for the <code>TagResource</code> action.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1106,14 +1106,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource to be untagged in Amazon DataZone.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the tag keys for the <code>UntagResource</code> action.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -1128,34 +1128,34 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateEnvironmentInput {
   /**
-   * @public
    * <p>The identifier of the domain in which the environment is to be updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment that is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   glossaryTerms?: string[];
 }
@@ -1165,136 +1165,136 @@ export interface UpdateEnvironmentInput {
  */
 export interface UpdateEnvironmentOutput {
   /**
-   * @public
    * <p>The project identifier of the environment.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment that is to be updated.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The identifier of the domain in which the environment is to be updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the environment.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the environment was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the environment was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The profile identifier of the environment.</p>
+   * @public
    */
   environmentProfileId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services account in which the environment is to be
    *          updated.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region in which the environment is updated.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The provider identifier of the environment.</p>
+   * @public
    */
   provider: string | undefined;
 
   /**
-   * @public
    * <p>The provisioned resources to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   provisionedResources?: Resource[];
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * @public
    */
   status?: EnvironmentStatus;
 
   /**
-   * @public
    * <p>The environment actions to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   environmentActions?: ConfigurableEnvironmentAction[];
 
   /**
-   * @public
    * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The user parameters to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   userParameters?: CustomParameter[];
 
   /**
-   * @public
    * <p>The last deployment of the environment.</p>
+   * @public
    */
   lastDeployment?: Deployment;
 
   /**
-   * @public
    * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   provisioningProperties?: ProvisioningProperties;
 
   /**
-   * @public
    * <p>The deployment properties to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
+   * @public
    */
   deploymentProperties?: DeploymentProperties;
 
   /**
-   * @public
    * <p>The blueprint identifier of the environment.</p>
+   * @public
    */
   environmentBlueprintId?: string;
 }
@@ -1304,50 +1304,50 @@ export interface UpdateEnvironmentOutput {
  */
 export interface UpdateEnvironmentProfileInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which an environment profile is to be
    *          updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment profile that is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
+   * @public
    */
   userParameters?: EnvironmentParameter[];
 
   /**
-   * @public
    * <p>The Amazon Web Services account in which a specified environment profile is to be
    *          udpated.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region in which a specified environment profile is to be
    *          updated.</p>
+   * @public
    */
   awsAccountRegion?: string;
 }
@@ -1357,80 +1357,80 @@ export interface UpdateEnvironmentProfileInput {
  */
 export interface UpdateEnvironmentProfileOutput {
   /**
-   * @public
    * <p>The identifier of the environment profile that is to be udpated.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the environment profile is to be
    *          updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account in which a specified environment profile is to be
    *          udpated.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region in which a specified environment profile is to be
    *          updated.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the environment profile.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the environment profile was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the environment profile was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The identifier of the blueprint of the environment profile that is to be updated.</p>
+   * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project of the environment profile that is to be updated.</p>
+   * @public
    */
   projectId?: string;
 
   /**
-   * @public
    * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
+   * @public
    */
   userParameters?: CustomParameter[];
 }
@@ -1440,20 +1440,20 @@ export interface UpdateEnvironmentProfileOutput {
  */
 export interface UpdateGroupProfileInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the group profile that is updated.</p>
+   * @public
    */
   groupIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The status of the group profile that is updated.</p>
+   * @public
    */
   status: GroupProfileStatus | undefined;
 }
@@ -1463,26 +1463,26 @@ export interface UpdateGroupProfileInput {
  */
 export interface UpdateGroupProfileOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the group profile that is updated.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The status of the group profile that is updated.</p>
+   * @public
    */
   status?: GroupProfileStatus;
 
   /**
-   * @public
    * <p>The name of the group profile that is updated.</p>
+   * @public
    */
   groupName?: string;
 }
@@ -1492,33 +1492,33 @@ export interface UpdateGroupProfileOutput {
  */
 export interface UpdateProjectInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a project is to be updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project that is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateProject</code> action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateProject</code> action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The glossary terms to be updated as part of the <code>UpdateProject</code>
    *          action.</p>
+   * @public
    */
   glossaryTerms?: string[];
 }
@@ -1528,62 +1528,62 @@ export interface UpdateProjectInput {
  */
 export interface UpdateProjectOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a project is updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project that is to be updated.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the project that is to be updated.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the project that is to be updated.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Status of the project
+   * @public
    */
   projectStatus?: ProjectStatus;
 
   /**
-   * @public
    * Reasons for failed project deletion
+   * @public
    */
   failureReasons?: ProjectDeletionError[];
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the project.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the project was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the project was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The glossary terms of the project that are to be updated.</p>
+   * @public
    */
   glossaryTerms?: string[];
 }
@@ -1593,43 +1593,43 @@ export interface UpdateProjectOutput {
  */
 export interface UpdateSubscriptionGrantStatusInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be
    *          updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription grant the status of which is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the asset the subscription grant status of which is to be
    *          updated.</p>
+   * @public
    */
   assetIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
    *          action.</p>
+   * @public
    */
   status: SubscriptionGrantStatus | undefined;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   failureCause?: FailureCause;
 
   /**
-   * @public
    * <p>The target name to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
    *          action.</p>
+   * @public
    */
   targetName?: string;
 }
@@ -1639,72 +1639,72 @@ export interface UpdateSubscriptionGrantStatusInput {
  */
 export interface UpdateSubscriptionGrantStatusOutput {
   /**
-   * @public
    * <p>The identifier of the subscription grant.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone domain user who created the subscription grant status.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription grant status.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be
    *          updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription grant status was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription grant status is to be updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription target whose subscription grant status is to be
    *          updated.</p>
+   * @public
    */
   subscriptionTargetId: string | undefined;
 
   /**
-   * @public
    * <p>The granted entity to be updated as part of the
    *             <code>UpdateSubscriptionGrantStatus</code> action.</p>
+   * @public
    */
   grantedEntity: GrantedEntity | undefined;
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
    *          action.</p>
+   * @public
    */
   status: SubscriptionGrantOverallStatus | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   assets?: SubscribedAsset[];
 
   /**
-   * @public
    * <p>The identifier of the subscription.</p>
+   * @public
    */
   subscriptionId?: string;
 }
@@ -1714,21 +1714,21 @@ export interface UpdateSubscriptionGrantStatusOutput {
  */
 export interface UpdateSubscriptionRequestInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be
    *          updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request that is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The reason for the <code>UpdateSubscriptionRequest</code> action.</p>
+   * @public
    */
   requestReason: string | undefined;
 }
@@ -1738,75 +1738,75 @@ export interface UpdateSubscriptionRequestInput {
  */
 export interface UpdateSubscriptionRequestOutput {
   /**
-   * @public
    * <p>The identifier of the subscription request that is to be updated.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription request.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be
    *          updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription request.</p>
+   * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the <code>UpdateSubscriptionRequest</code> action.</p>
+   * @public
    */
   requestReason: string | undefined;
 
   /**
-   * @public
    * <p>The subscribed principals of the subscription request.</p>
+   * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * @public
    * <p>The subscribed listings of the subscription request.</p>
+   * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone user who reviews the subscription request.</p>
+   * @public
    */
   reviewerId?: string;
 
   /**
-   * @public
    * <p>The decision comment of the <code>UpdateSubscriptionRequest</code> action.</p>
+   * @public
    */
   decisionComment?: string;
 }
@@ -1816,64 +1816,64 @@ export interface UpdateSubscriptionRequestOutput {
  */
 export interface UpdateSubscriptionTargetInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be
    *          updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment in which a subscription target is to be
    *          updated.</p>
+   * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Identifier of the subscription target that is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The authorized principals to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * @public
    */
   authorizedPrincipals?: string[];
 
   /**
-   * @public
    * <p>The applicable asset types to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * @public
    */
   applicableAssetTypes?: string[];
 
   /**
-   * @public
    * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
+   * @public
    */
   subscriptionTargetConfig?: SubscriptionTargetForm[];
 
   /**
-   * @public
    * <p>The manage access role to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * @public
    */
   manageAccessRole?: string;
 
   /**
-   * @public
    * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
+   * @public
    */
   provider?: string;
 }
@@ -1883,101 +1883,101 @@ export interface UpdateSubscriptionTargetInput {
  */
 export interface UpdateSubscriptionTargetOutput {
   /**
-   * @public
    * <p>Identifier of the subscription target that is to be updated.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The authorized principals to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * @public
    */
   authorizedPrincipals: string[] | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be
    *          updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project in which a subscription target is to be updated.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment in which a subscription target is to be
    *          updated.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription target.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when a subscription target was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription target was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The manage access role to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * @public
    */
   manageAccessRole: string | undefined;
 
   /**
-   * @public
    * <p>The applicable asset types to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
+   * @public
    */
   applicableAssetTypes: string[] | undefined;
 
   /**
-   * @public
    * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
+   * @public
    */
   subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
 
   /**
-   * @public
    * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
+   * @public
    */
   provider: string | undefined;
 }
@@ -1987,26 +1987,26 @@ export interface UpdateSubscriptionTargetOutput {
  */
 export interface UpdateUserProfileInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a user profile is updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the user whose user profile is to be updated.</p>
+   * @public
    */
   userIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The type of the user profile that are to be updated.</p>
+   * @public
    */
   type?: UserProfileType;
 
   /**
-   * @public
    * <p>The status of the user profile that are to be updated.</p>
+   * @public
    */
   status: UserProfileStatus | undefined;
 }
@@ -2016,39 +2016,39 @@ export interface UpdateUserProfileInput {
  */
 export interface UpdateUserProfileOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a user profile is updated.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the user profile.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The type of the user profile.</p>
+   * @public
    */
   type?: UserProfileType;
 
   /**
-   * @public
    * <p>The status of the user profile.</p>
+   * @public
    */
   status?: UserProfileStatus;
 
   /**
-   * @public
    * <p>The details of the user profile in Amazon DataZone.</p>
+   * @public
    */
   details?: UserProfileDetails;
 }
 
 /**
- * @public
  * <p>A search filter clause in Amazon DataZone.</p>
+ * @public
  */
 export type FilterClause =
   | FilterClause.AndMember
@@ -2061,8 +2061,8 @@ export type FilterClause =
  */
 export namespace FilterClause {
   /**
-   * @public
    * <p>A search filter in Amazon DataZone.</p>
+   * @public
    */
   export interface FilterMember {
     filter: Filter;
@@ -2072,8 +2072,8 @@ export namespace FilterClause {
   }
 
   /**
-   * @public
    * <p>The 'and' search filter clause in Amazon DataZone.</p>
+   * @public
    */
   export interface AndMember {
     filter?: never;
@@ -2083,8 +2083,8 @@ export namespace FilterClause {
   }
 
   /**
-   * @public
    * <p>The 'or' search filter clause in Amazon DataZone.</p>
+   * @public
    */
   export interface OrMember {
     filter?: never;
@@ -2123,69 +2123,69 @@ export namespace FilterClause {
  */
 export interface SearchInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the owning project specified for the search.</p>
+   * @public
    */
   owningProjectIdentifier?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call to <code>Search</code>. When
    *          the number of results to be listed is greater than the value of <code>MaxResults</code>,
    *          the response contains a <code>NextToken</code> value that you can use in a subsequent call
    *          to <code>Search</code> to list the next set of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The scope of the search.</p>
+   * @public
    */
   searchScope: InventorySearchScope | undefined;
 
   /**
-   * @public
    * <p>Specifies the text for which to search.</p>
+   * @public
    */
   searchText?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   searchIn?: SearchInItem[];
 
   /**
-   * @public
    * <p>Specifies the search filters.</p>
+   * @public
    */
   filters?: FilterClause;
 
   /**
-   * @public
    * <p>Specifies the way in which the search results are to be sorted.</p>
+   * @public
    */
   sort?: SearchSort;
 
   /**
-   * @public
    * <p>Specifies additional attributes for the <code>Search</code> action.</p>
+   * @public
    */
   additionalAttributes?: SearchOutputAdditionalAttribute[];
 }
@@ -2195,59 +2195,59 @@ export interface SearchInput {
  */
 export interface SearchListingsInput {
   /**
-   * @public
    * <p>The identifier of the domain in which to search listings.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the text for which to search.</p>
+   * @public
    */
   searchText?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   searchIn?: SearchInItem[];
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call to <code>SearchListings</code>.
    *          When the number of results to be listed is greater than the value of
    *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
    *          can use in a subsequent call to <code>SearchListings</code> to list the next set of
    *          results. </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchListings</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the filters for the search of listings.</p>
+   * @public
    */
   filters?: FilterClause;
 
   /**
-   * @public
    * <p>Specifies the way for sorting the search results.</p>
+   * @public
    */
   sort?: SearchSort;
 
   /**
-   * @public
    * <p>Specifies additional attributes for the search.</p>
+   * @public
    */
   additionalAttributes?: SearchOutputAdditionalAttribute[];
 }
@@ -2257,66 +2257,66 @@ export interface SearchListingsInput {
  */
 export interface SearchTypesInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which to invoke the <code>SearchTypes</code>
    *          action.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call to <code>SearchTypes</code>.
    *          When the number of results to be listed is greater than the value of
    *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
    *          can use in a subsequent call to <code>SearchTypes</code> to list the next set of results.
    *       </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of results is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of results, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>SearchTypes</code> to list the next set of
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the scope of the search for types.</p>
+   * @public
    */
   searchScope: TypesSearchScope | undefined;
 
   /**
-   * @public
    * <p>Specifies the text for which to search.</p>
+   * @public
    */
   searchText?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   searchIn?: SearchInItem[];
 
   /**
-   * @public
    * <p>The filters for the <code>SearchTypes</code> action.</p>
+   * @public
    */
   filters?: FilterClause;
 
   /**
-   * @public
    * <p>The specifies the way to sort the <code>SearchTypes</code> results.</p>
+   * @public
    */
   sort?: SearchSort;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   managed: boolean | undefined;
 }

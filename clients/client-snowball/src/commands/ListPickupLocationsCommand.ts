@@ -27,7 +27,6 @@ export interface ListPickupLocationsCommandInput extends ListPickupLocationsRequ
 export interface ListPickupLocationsCommandOutput extends ListPickupLocationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of locations from which the customer can choose to pickup a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListPickupLocationsCommandOutput extends ListPickupLocationsRes
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To get a list of locations from which the customer can choose to pickup a device.
  * ```javascript
  * // Returns a specified number of Address objects. Each Address is a pickup location address for Snow Family devices.

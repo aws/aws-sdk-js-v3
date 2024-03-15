@@ -27,7 +27,6 @@ export interface DeleteEmailIdentityCommandInput extends DeleteEmailIdentityRequ
 export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an email identity. An identity can be either an email address or a domain
  *             name.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class DeleteEmailIdentityCommand extends $Command
   .classBuilder<

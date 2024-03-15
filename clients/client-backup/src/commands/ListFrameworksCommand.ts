@@ -27,7 +27,6 @@ export interface ListFrameworksCommandInput extends ListFrameworksInput {}
 export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all frameworks for an Amazon Web Services account and Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListFrameworksCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAccountSettingsCommandInput extends GetAccountSettingsReques
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves account settings for the specified Amazon Chime account ID, such as remote control
  *             and dialout settings. For more information about these settings, see
  *     <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.
@@ -82,6 +81,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetAccountSettingsCommand extends $Command
   .classBuilder<

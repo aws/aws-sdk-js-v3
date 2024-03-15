@@ -32,7 +32,6 @@ export interface GetCommentsForComparedCommitCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about comments made on the comparison between two commits.</p>
  *          <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -144,6 +143,7 @@ export interface GetCommentsForComparedCommitCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetCommentsForComparedCommitCommand extends $Command
   .classBuilder<

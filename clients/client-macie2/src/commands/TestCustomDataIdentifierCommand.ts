@@ -27,7 +27,6 @@ export interface TestCustomDataIdentifierCommandInput extends TestCustomDataIden
 export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIde
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class TestCustomDataIdentifierCommand extends $Command
   .classBuilder<

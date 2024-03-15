@@ -27,7 +27,6 @@ export interface StartApplicationRefreshCommandInput extends StartApplicationRef
 export interface StartApplicationRefreshCommandOutput extends StartApplicationRefreshOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Refreshes a registered application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StartApplicationRefreshCommandOutput extends StartApplicationRe
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class StartApplicationRefreshCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecution
 export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Returns a list of objects that contain information about events in a flow execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +76,8 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class ListFlowExecutionMessagesCommand extends $Command
   .classBuilder<

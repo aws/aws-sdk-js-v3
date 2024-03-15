@@ -27,7 +27,6 @@ export interface CreateAutomationRuleCommandInput extends CreateAutomationRuleRe
 export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Creates an automation rule based on input parameters.
  *       </p>
@@ -259,6 +258,7 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To create an automation rule
  * ```javascript
  * // The following example creates an automation rule.

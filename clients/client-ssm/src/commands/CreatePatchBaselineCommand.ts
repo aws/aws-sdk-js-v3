@@ -31,7 +31,6 @@ export interface CreatePatchBaselineCommandInput extends CreatePatchBaselineRequ
 export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a patch baseline.</p>
  *          <note>
  *             <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported
@@ -133,6 +132,7 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreatePatchBaselineCommand extends $Command
   .classBuilder<

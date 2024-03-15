@@ -27,7 +27,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of Fleet Hub for AWS IoT Device Management web applications for the current account.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -78,6 +77,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link IoTFleetHubServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

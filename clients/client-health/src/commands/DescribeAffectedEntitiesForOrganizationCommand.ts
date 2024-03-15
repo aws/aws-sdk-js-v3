@@ -36,7 +36,6 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of entities that have been affected by one or more events for one or more
  *          accounts in your organization in Organizations, based on the filter criteria. Entities can refer
  *          to individual customer resources, groups of customer resources, or any other construct,
@@ -127,6 +126,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeAffectedEntitiesForOrganizationCommand extends $Command
   .classBuilder<

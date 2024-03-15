@@ -27,7 +27,6 @@ export interface ListVolumesCommandInput extends ListVolumesInput {}
 export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The
  *          response includes only the volume ARNs. If you want additional volume information, use the
  *             <a>DescribeStorediSCSIVolumes</a> or the <a>DescribeCachediSCSIVolumes</a> API.</p>
@@ -85,6 +84,7 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To list the iSCSI stored volumes of a gateway
  * ```javascript
  * // Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN up to a maximum of 100 volumes.

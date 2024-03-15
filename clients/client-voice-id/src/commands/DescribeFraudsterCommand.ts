@@ -31,7 +31,6 @@ export interface DescribeFraudsterCommandInput extends DescribeFraudsterRequest 
 export interface DescribeFraudsterCommandOutput extends DescribeFraudsterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified fraudster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DescribeFraudsterCommand extends $Command
   .classBuilder<

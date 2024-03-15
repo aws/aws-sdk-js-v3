@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a <i>tag</i> to an Amazon Web Services resource. Tags are
  *       key-value pairs that can help you manage, filter, and search for your resources.</p>
  *          <p>These include DataSync resources, such as locations, tasks, and task
@@ -69,6 +68,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

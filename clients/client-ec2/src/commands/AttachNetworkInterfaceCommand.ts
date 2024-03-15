@@ -27,7 +27,6 @@ export interface AttachNetworkInterfaceCommandInput extends AttachNetworkInterfa
 export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterfaceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a network interface to an instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To attach a network interface to an instance
  * ```javascript
  * // This example attaches the specified network interface to the specified instance.

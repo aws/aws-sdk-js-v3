@@ -37,7 +37,6 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to define the identity provider (IdP) that this workspace
  *             authenticates users from, using SAML. You can also map SAML assertion attributes to
  *             workspace user information and define which groups in the assertion attribute are to
@@ -155,6 +154,7 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class UpdateWorkspaceAuthenticationCommand extends $Command
   .classBuilder<

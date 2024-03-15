@@ -27,7 +27,6 @@ export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for a DAX cluster. You can use this action to change one or
  *             more cluster configuration parameters by specifying the parameters and the new
  *             values.</p>
@@ -141,6 +140,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class UpdateClusterCommand extends $Command
   .classBuilder<

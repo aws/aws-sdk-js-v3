@@ -27,7 +27,6 @@ export interface ListWebACLsCommandInput extends ListWebACLsRequest {}
 export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you
  *          manage.</p>
  * @example
@@ -95,6 +94,7 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListWebACLsCommand extends $Command
   .classBuilder<

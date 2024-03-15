@@ -27,7 +27,6 @@ export interface AddAttachmentsToSetCommandInput extends AddAttachmentsToSetRequ
 export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more attachments to an attachment set. </p>
  *          <p>An attachment set is a temporary container for attachments that you add to a case or
  *             case communication. The set is available for 1 hour after it's created. The
@@ -97,6 +96,7 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class AddAttachmentsToSetCommand extends $Command
   .classBuilder<

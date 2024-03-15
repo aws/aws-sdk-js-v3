@@ -27,7 +27,6 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing Amazon Redshift event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyEventSubscriptionCommand extends $Command
   .classBuilder<

@@ -673,8 +673,8 @@ export interface Route53RecoveryReadiness {
 }
 
 /**
- * @public
  * <p>Recovery readiness</p>
+ * @public
  */
 export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient implements Route53RecoveryReadiness {}
 createAggregatedClient(commands, Route53RecoveryReadiness);

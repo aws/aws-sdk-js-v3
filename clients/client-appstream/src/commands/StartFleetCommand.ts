@@ -27,7 +27,6 @@ export interface StartFleetCommandInput extends StartFleetRequest {}
 export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class StartFleetCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeDefaultClusterParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of parameter settings for the specified parameter group
  *             family.</p>
  *          <p>
@@ -83,6 +82,7 @@ export interface DescribeDefaultClusterParametersCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeDefaultClusterParametersCommand extends $Command
   .classBuilder<

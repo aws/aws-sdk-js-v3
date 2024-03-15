@@ -27,7 +27,6 @@ export interface ListGameServerGroupsCommandInput extends ListGameServerGroupsIn
 export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists a game server groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ListGameServerGroupsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 export interface CreateConnectionCommandOutput extends CreateConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an App Runner connection resource. App Runner requires a connection resource when you create App Runner services that access private repositories from
  *       certain third-party providers. You can share a connection across multiple services.</p>
  *          <p>A connection resource is needed to access GitHub and Bitbucket repositories. Both require
@@ -83,6 +82,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class CreateConnectionCommand extends $Command
   .classBuilder<

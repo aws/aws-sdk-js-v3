@@ -31,7 +31,6 @@ export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionH
 export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class GetPackageVersionHistoryCommand extends $Command
   .classBuilder<

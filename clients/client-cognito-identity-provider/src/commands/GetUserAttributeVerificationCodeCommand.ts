@@ -40,7 +40,6 @@ export interface GetUserAttributeVerificationCodeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a user attribute verification code for the specified attribute name. Sends a
  *             message to a user with a code that they must return in a VerifyUserAttribute
  *             request.</p>
@@ -166,6 +165,7 @@ export interface GetUserAttributeVerificationCodeCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetUserAttributeVerificationCodeCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface PutDedicatedIpPoolScalingAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to convert a dedicated IP pool to a different scaling mode.</p>
  *          <note>
  *             <p>
@@ -78,6 +77,7 @@ export interface PutDedicatedIpPoolScalingAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  * @example Used to convert a dedicated IP pool to a different scaling mode.
  * ```javascript
  * // This example converts a dedicated IP pool from STANDARD to MANAGED.

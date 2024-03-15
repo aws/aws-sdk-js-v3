@@ -32,7 +32,6 @@ export interface GetOriginAccessControlConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a CloudFront origin access control configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetOriginAccessControlConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetOriginAccessControlConfigCommand extends $Command
   .classBuilder<

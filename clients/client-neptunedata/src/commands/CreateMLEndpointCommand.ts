@@ -27,7 +27,6 @@ export interface CreateMLEndpointCommandInput extends CreateMLEndpointInput {}
 export interface CreateMLEndpointCommandOutput extends CreateMLEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Neptune ML inference endpoint that lets you query
  *       one specific model that the model-training process constructed. See
  *       <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html">Managing
@@ -105,6 +104,7 @@ export interface CreateMLEndpointCommandOutput extends CreateMLEndpointOutput, _
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class CreateMLEndpointCommand extends $Command
   .classBuilder<

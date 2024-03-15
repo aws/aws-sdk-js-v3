@@ -27,7 +27,6 @@ export interface AssociateMergedGraphqlApiCommandInput extends AssociateMergedGr
 export interface AssociateMergedGraphqlApiCommandOutput extends AssociateMergedGraphqlApiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between a Merged API and source API using the source API's identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface AssociateMergedGraphqlApiCommandOutput extends AssociateMergedG
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class AssociateMergedGraphqlApiCommand extends $Command
   .classBuilder<

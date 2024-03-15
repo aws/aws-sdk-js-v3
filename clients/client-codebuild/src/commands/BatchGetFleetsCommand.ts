@@ -27,7 +27,6 @@ export interface BatchGetFleetsCommandInput extends BatchGetFleetsInput {}
 export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more compute fleets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class BatchGetFleetsCommand extends $Command
   .classBuilder<

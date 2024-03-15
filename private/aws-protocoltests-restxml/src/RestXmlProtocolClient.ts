@@ -529,8 +529,8 @@ export type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface RestXmlProtocolClientResolvedConfig extends RestXmlProtocolClientResolvedConfigType {}
 
 /**
- * @public
  * A REST XML service that sends XML requests and responses.
+ * @public
  */
 export class RestXmlProtocolClient extends __Client<
   __HttpHandlerOptions,

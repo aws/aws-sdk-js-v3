@@ -27,7 +27,6 @@ export interface DescribeFunctionCommandInput extends DescribeFunctionRequest {}
 export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets configuration information and metadata about a CloudFront function, but not the
  * 			function's code. To get a function's code, use <code>GetFunction</code>.</p>
  *          <p>To get configuration information and metadata about a function, you must provide the
@@ -88,6 +87,7 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DescribeFunctionCommand extends $Command
   .classBuilder<

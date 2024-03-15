@@ -31,7 +31,6 @@ export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
 export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Use the <code>UpdatePipeline</code> operation to update settings for a pipeline.</p>
  *         <important>
  *             <p>When you change pipeline settings, your changes take effect immediately.
@@ -166,6 +165,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class UpdatePipelineCommand extends $Command
   .classBuilder<

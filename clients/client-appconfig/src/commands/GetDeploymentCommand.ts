@@ -27,7 +27,6 @@ export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a configuration deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To retrieve deployment details
  * ```javascript
  * // The following get-deployment example lists details of the deployment to the application in the specified environment and deployment.

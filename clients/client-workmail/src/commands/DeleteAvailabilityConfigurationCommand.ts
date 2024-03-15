@@ -32,7 +32,6 @@ export interface DeleteAvailabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the <code>AvailabilityConfiguration</code> for the given WorkMail organization and domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteAvailabilityConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteAvailabilityConfigurationCommand extends $Command
   .classBuilder<

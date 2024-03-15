@@ -27,7 +27,6 @@ export interface CancelBatchPredictionJobCommandInput extends CancelBatchPredict
 export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredictionJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified batch prediction job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class CancelBatchPredictionJobCommand extends $Command
   .classBuilder<

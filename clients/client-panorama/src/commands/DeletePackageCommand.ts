@@ -27,7 +27,6 @@ export interface DeletePackageCommandInput extends DeletePackageRequest {}
 export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a package.</p>
  *          <note>
  *             <p>To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition to permissions for
@@ -73,6 +72,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class DeletePackageCommand extends $Command
   .classBuilder<

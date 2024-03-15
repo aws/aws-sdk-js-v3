@@ -27,7 +27,6 @@ export interface DescribeDBParametersCommandInput extends DescribeDBParametersMe
 export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetails, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBParametersCommand extends $Command
   .classBuilder<

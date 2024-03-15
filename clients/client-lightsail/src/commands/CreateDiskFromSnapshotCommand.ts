@@ -27,7 +27,6 @@ export interface CreateDiskFromSnapshotCommandInput extends CreateDiskFromSnapsh
 export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting
  *       disk can be attached to an Amazon Lightsail instance in the same Availability Zone (<code>us-east-2a</code>).</p>
  *          <p>The <code>create disk from snapshot</code> operation supports tag-based access control via
@@ -131,6 +130,7 @@ export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnaps
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateDiskFromSnapshotCommand extends $Command
   .classBuilder<

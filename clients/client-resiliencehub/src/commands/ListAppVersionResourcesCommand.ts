@@ -27,7 +27,6 @@ export interface ListAppVersionResourcesCommandInput extends ListAppVersionResou
 export interface ListAppVersionResourcesCommandOutput extends ListAppVersionResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the resources in an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface ListAppVersionResourcesCommandOutput extends ListAppVersionReso
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppVersionResourcesCommand extends $Command
   .classBuilder<

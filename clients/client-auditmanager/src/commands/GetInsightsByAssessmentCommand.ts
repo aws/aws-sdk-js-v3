@@ -27,7 +27,6 @@ export interface GetInsightsByAssessmentCommandInput extends GetInsightsByAssess
 export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAssessmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the latest analytics data for a specific active assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetInsightsByAssessmentCommandOutput extends GetInsightsByAsses
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetInsightsByAssessmentCommand extends $Command
   .classBuilder<

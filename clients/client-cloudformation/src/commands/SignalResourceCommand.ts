@@ -27,7 +27,6 @@ export interface SignalResourceCommandInput extends SignalResourceInput {}
 export interface SignalResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a signal to the specified resource with a success or failure status. You can use the
  *    <code>SignalResource</code> operation in conjunction with a creation policy or update policy. CloudFormation doesn't
  *    proceed with a stack creation or update until resources receive the required number of signals or the timeout period
@@ -60,6 +59,7 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class SignalResourceCommand extends $Command
   .classBuilder<

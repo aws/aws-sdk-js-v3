@@ -31,7 +31,6 @@ export interface CreateNetworkSettingsCommandInput extends CreateNetworkSettings
 export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a network settings resource that can be associated with a web portal. Once
  *          associated with a web portal, network settings define how streaming instances will connect
  *          with your specified VPC. </p>
@@ -92,6 +91,7 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class CreateNetworkSettingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddFlowVpcInterfacesCommandInput extends AddFlowVpcInterfacesRe
 export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Adds VPC interfaces to flow
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class AddFlowVpcInterfacesCommand extends $Command
   .classBuilder<

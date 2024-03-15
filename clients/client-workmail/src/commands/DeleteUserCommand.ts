@@ -27,7 +27,6 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user from WorkMail and all subsequent systems. Before you can delete a
  *          user, the user state must be <code>DISABLED</code>. Use the <a>DescribeUser</a>
  *          action to confirm the user state.</p>
@@ -82,6 +81,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class PurchaseReservedInstanceOfferingCommand extends $Command
   .classBuilder<

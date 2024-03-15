@@ -27,7 +27,6 @@ export interface DeleteChannelGroupCommandInput extends DeleteChannelGroupReques
 export interface DeleteChannelGroupCommandOutput extends DeleteChannelGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a channel group. You must delete the channel group's channels and origin endpoints before you can delete the channel group. If you delete a channel group, you'll lose access to the egress domain and will have to create a new channel group to replace it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteChannelGroupCommandOutput extends DeleteChannelGroupRespo
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class DeleteChannelGroupCommand extends $Command
   .classBuilder<

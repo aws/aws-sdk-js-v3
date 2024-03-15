@@ -31,7 +31,6 @@ export interface AdminForgetDeviceCommandInput extends AdminForgetDeviceRequest 
 export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Forgets the device, as an administrator.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -103,6 +102,7 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminForgetDeviceCommand extends $Command
   .classBuilder<

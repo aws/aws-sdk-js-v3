@@ -27,7 +27,6 @@ export interface DeleteAssetCommandInput extends DeleteAssetRequest {}
 export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
  *         models</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <note>
@@ -93,6 +92,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DeleteAssetCommand extends $Command
   .classBuilder<

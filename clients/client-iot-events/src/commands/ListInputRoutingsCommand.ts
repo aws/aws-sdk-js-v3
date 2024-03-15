@@ -27,7 +27,6 @@ export interface ListInputRoutingsCommandInput extends ListInputRoutingsRequest 
 export interface ListInputRoutingsCommandOutput extends ListInputRoutingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Lists one or more input routings.
  *     </p>
@@ -90,6 +89,7 @@ export interface ListInputRoutingsCommandOutput extends ListInputRoutingsRespons
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class ListInputRoutingsCommand extends $Command
   .classBuilder<

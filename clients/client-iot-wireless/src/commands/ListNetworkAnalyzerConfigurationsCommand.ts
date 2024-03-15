@@ -35,7 +35,6 @@ export interface ListNetworkAnalyzerConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the network analyzer configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListNetworkAnalyzerConfigurationsCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListNetworkAnalyzerConfigurationsCommand extends $Command
   .classBuilder<

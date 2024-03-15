@@ -27,7 +27,6 @@ export interface CreateKxUserCommandInput extends CreateKxUserRequest {}
 export interface CreateKxUserCommandOutput extends CreateKxUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user in FinSpace kdb environment with an associated IAM role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateKxUserCommandOutput extends CreateKxUserResponse, __Metad
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class CreateKxUserCommand extends $Command
   .classBuilder<

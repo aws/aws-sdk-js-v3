@@ -27,7 +27,6 @@ export interface CreateListenerCommandInput extends CreateListenerRequest {}
 export interface CreateListenerCommandOutput extends CreateListenerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must
  *    add one or more listeners. A listener is a process that checks for connection requests to your
  *    services. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html">Listeners</a> in the
@@ -120,6 +119,7 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class CreateListenerCommand extends $Command
   .classBuilder<

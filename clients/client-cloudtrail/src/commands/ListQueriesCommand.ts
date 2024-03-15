@@ -27,7 +27,6 @@ export interface ListQueriesCommandInput extends ListQueriesRequest {}
 export interface ListQueriesCommandOutput extends ListQueriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of queries and query statuses for the past seven days. You must specify
  *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
  *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
@@ -111,6 +110,7 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListQueriesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetServiceSettingCommandInput extends GetServiceSettingRequest 
 export interface GetServiceSettingCommandOutput extends GetServiceSettingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -82,6 +81,7 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetServiceSettingCommand extends $Command
   .classBuilder<

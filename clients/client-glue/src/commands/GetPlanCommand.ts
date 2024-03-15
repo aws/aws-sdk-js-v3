@@ -27,7 +27,6 @@ export interface GetPlanCommandInput extends GetPlanRequest {}
 export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets code to perform a specified mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetPlanCommand extends $Command
   .classBuilder<

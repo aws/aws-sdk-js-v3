@@ -27,7 +27,6 @@ export interface GetDeploymentsCommandInput extends GetDeploymentsRequest {}
 export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use to get the active deployments from a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  * @throws {@link SagemakerEdgeServiceException}
  * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
+ * @public
  */
 export class GetDeploymentsCommand extends $Command
   .classBuilder<

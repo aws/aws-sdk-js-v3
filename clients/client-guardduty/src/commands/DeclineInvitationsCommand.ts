@@ -27,7 +27,6 @@ export interface DeclineInvitationsCommandInput extends DeclineInvitationsReques
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by
  *       their account IDs.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DeclineInvitationsCommand extends $Command
   .classBuilder<

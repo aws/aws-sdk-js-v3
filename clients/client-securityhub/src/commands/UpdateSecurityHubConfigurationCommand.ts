@@ -32,7 +32,6 @@ export interface UpdateSecurityHubConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates configuration options for Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update Security Hub settings
  * ```javascript
  * // The following example updates Security Hub settings to turn on consolidated control findings, and to automatically enable new controls in enabled standards.

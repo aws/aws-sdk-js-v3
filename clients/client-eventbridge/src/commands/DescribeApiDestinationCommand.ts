@@ -27,7 +27,6 @@ export interface DescribeApiDestinationCommandInput extends DescribeApiDestinati
 export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about an API destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DescribeApiDestinationCommand extends $Command
   .classBuilder<

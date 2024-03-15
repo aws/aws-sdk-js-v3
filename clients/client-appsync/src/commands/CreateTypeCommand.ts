@@ -27,7 +27,6 @@ export interface CreateTypeCommandInput extends CreateTypeRequest {}
 export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class CreateTypeCommand extends $Command
   .classBuilder<

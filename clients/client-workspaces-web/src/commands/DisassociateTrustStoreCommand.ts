@@ -27,7 +27,6 @@ export interface DisassociateTrustStoreCommandInput extends DisassociateTrustSto
 export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a trust store from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DisassociateTrustStoreCommand extends $Command
   .classBuilder<

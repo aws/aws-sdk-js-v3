@@ -31,7 +31,6 @@ export interface DeregisterTargetsCommandInput extends DeregisterTargetsInput {}
 export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the specified targets from the specified target group. After the targets are
  *       deregistered, they no longer receive traffic from the load balancer.</p>
  *          <p>The load balancer stops sending requests to targets that are deregistering, but uses
@@ -97,6 +96,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To deregister a target from a target group
  * ```javascript
  * // This example deregisters the specified instance from the specified target group.

@@ -31,7 +31,6 @@ export interface DeactivateDeviceIdentifierCommandInput extends DeactivateDevice
 export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDeviceIdentifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates the specified device identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeactivateDeviceIdentifierCommandOutput extends DeactivateDevic
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class DeactivateDeviceIdentifierCommand extends $Command
   .classBuilder<

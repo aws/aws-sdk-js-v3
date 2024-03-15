@@ -27,7 +27,6 @@ export interface GetChangeLogsCommandInput extends GetChangeLogsRequest {}
 export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets a list of changelogs from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetChangeLogsCommand extends $Command
   .classBuilder<

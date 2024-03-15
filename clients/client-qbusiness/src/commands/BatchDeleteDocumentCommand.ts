@@ -27,7 +27,6 @@ export interface BatchDeleteDocumentCommandInput extends BatchDeleteDocumentRequ
 export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Asynchronously deletes one or more documents added using the
  *                 <code>BatchPutDocument</code> API from an Amazon Q index.</p>
  *          <p>You can see the progress of the deletion, and any error messages related to the
@@ -98,6 +97,7 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class BatchDeleteDocumentCommand extends $Command
   .classBuilder<

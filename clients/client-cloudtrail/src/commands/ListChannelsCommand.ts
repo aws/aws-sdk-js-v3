@@ -27,7 +27,6 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists the channels in the current account, and their source names.
  *       </p>
  * @example
@@ -73,6 +72,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListChannelsCommand extends $Command
   .classBuilder<

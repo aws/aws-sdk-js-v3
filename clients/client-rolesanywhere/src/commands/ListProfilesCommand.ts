@@ -27,7 +27,6 @@ export interface ListProfilesCommandInput extends ListRequest {}
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all profiles in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -86,6 +85,7 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class ListProfilesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RemoveStorageSystemCommandInput extends RemoveStorageSystemRequ
 export interface RemoveStorageSystemCommandOutput extends RemoveStorageSystemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently removes a storage system resource from DataSync Discovery, including the associated
  *       discovery jobs, collected data, and recommendations.</p>
  * @example
@@ -61,6 +60,7 @@ export interface RemoveStorageSystemCommandOutput extends RemoveStorageSystemRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class RemoveStorageSystemCommand extends $Command
   .classBuilder<

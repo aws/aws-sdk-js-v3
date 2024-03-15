@@ -27,7 +27,6 @@ export interface StartPipeCommandInput extends StartPipeRequest {}
 export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start an existing pipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * @public
  */
 export class StartPipeCommand extends $Command
   .classBuilder<

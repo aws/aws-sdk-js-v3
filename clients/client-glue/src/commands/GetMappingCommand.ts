@@ -27,7 +27,6 @@ export interface GetMappingCommandInput extends GetMappingRequest {}
 export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetMappingCommand extends $Command
   .classBuilder<

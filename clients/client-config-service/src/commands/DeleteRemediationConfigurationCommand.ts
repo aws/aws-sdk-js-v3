@@ -32,7 +32,6 @@ export interface DeleteRemediationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the remediation configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DeleteRemediationConfigurationCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteRemediationConfigurationCommand extends $Command
   .classBuilder<

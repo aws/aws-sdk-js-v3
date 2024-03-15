@@ -28,7 +28,6 @@ export interface GetRetentionSettingsCommandInput extends GetRetentionSettingsRe
 export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Gets the retention settings for the specified Amazon Chime Enterprise account. For more information about retention settings, see
  * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
@@ -88,6 +87,7 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetRetentionSettingsCommand extends $Command
   .classBuilder<

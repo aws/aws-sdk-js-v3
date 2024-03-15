@@ -27,7 +27,6 @@ export interface ListTransformJobsCommandInput extends ListTransformJobsRequest 
 export interface ListTransformJobsCommandOutput extends ListTransformJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists transform jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListTransformJobsCommandOutput extends ListTransformJobsRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListTransformJobsCommand extends $Command
   .classBuilder<

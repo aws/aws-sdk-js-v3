@@ -27,7 +27,6 @@ export interface ListStreamsCommandInput extends ListStreamsInput {}
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your Kinesis data streams.</p>
  *          <p>The number of streams may be too large to return from a single call to
  *                 <code>ListStreams</code>. You can limit the number of returned streams using the
@@ -98,6 +97,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class ListStreamsCommand extends $Command
   .classBuilder<

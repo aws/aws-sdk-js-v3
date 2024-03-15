@@ -27,7 +27,6 @@ export interface GetDeviceRegistrationCommandInput extends GetDeviceRegistration
 export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistrationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * @throws {@link SagemakerEdgeServiceException}
  * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
+ * @public
  */
 export class GetDeviceRegistrationCommand extends $Command
   .classBuilder<

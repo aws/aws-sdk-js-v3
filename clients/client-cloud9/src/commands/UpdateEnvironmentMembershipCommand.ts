@@ -27,7 +27,6 @@ export interface UpdateEnvironmentMembershipCommandInput extends UpdateEnvironme
 export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the settings of an existing environment member for an Cloud9 development
  *       environment.</p>
  * @example
@@ -85,6 +84,7 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example UpdateEnvironmentMembership
  * ```javascript
  * //

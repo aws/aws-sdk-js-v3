@@ -27,7 +27,6 @@ export interface ListInferenceEventsCommandInput extends ListInferenceEventsRequ
 export interface ListInferenceEventsCommandOutput extends ListInferenceEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists all inference events that have been found for the specified inference scheduler.
  *       </p>
  * @example
@@ -89,6 +88,7 @@ export interface ListInferenceEventsCommandOutput extends ListInferenceEventsRes
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ListInferenceEventsCommand extends $Command
   .classBuilder<

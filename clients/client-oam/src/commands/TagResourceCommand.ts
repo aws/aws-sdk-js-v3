@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more tags (key-value pairs) to the specified resource.
  *             Both sinks and links can be tagged. </p>
  *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
@@ -81,6 +80,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

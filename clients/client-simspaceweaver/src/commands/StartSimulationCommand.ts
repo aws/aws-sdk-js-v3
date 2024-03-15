@@ -31,7 +31,6 @@ export interface StartSimulationCommandInput extends StartSimulationInput {}
 export interface StartSimulationCommandOutput extends StartSimulationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a simulation with the given name. You must choose to start your
  *          simulation from a schema or from a snapshot.
  *          For more information about the schema, see the <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html">schema reference</a>
@@ -96,6 +95,7 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class StartSimulationCommand extends $Command
   .classBuilder<

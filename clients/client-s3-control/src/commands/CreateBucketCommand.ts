@@ -29,7 +29,6 @@ export interface CreateBucketCommandInput extends CreateBucketRequest {}
 export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create
  *                Bucket</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -130,6 +129,7 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class CreateBucketCommand extends $Command
   .classBuilder<

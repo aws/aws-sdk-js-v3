@@ -27,7 +27,6 @@ export interface DeleteThesaurusCommandInput extends DeleteThesaurusRequest {}
 export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing Amazon Kendra thesaurus.
  *       </p>
  * @example
@@ -79,6 +78,7 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DeleteThesaurusCommand extends $Command
   .classBuilder<

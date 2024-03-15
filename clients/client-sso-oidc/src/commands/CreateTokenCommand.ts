@@ -32,7 +32,6 @@ export interface CreateTokenCommandInput extends CreateTokenRequest {}
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and returns access and refresh tokens for clients that are authenticated using
  *       client secrets. The access token can be used to fetch short-term credentials for the assigned
  *       AWS accounts or to access application APIs using <code>bearer</code> authentication.</p>
@@ -116,6 +115,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @public
  * @example Call OAuth/OIDC /token endpoint for Device Code grant with Secret authentication
  * ```javascript
  * //

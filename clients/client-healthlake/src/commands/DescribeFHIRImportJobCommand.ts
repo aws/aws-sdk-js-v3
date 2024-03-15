@@ -27,7 +27,6 @@ export interface DescribeFHIRImportJobCommandInput extends DescribeFHIRImportJob
 export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * @public
  */
 export class DescribeFHIRImportJobCommand extends $Command
   .classBuilder<

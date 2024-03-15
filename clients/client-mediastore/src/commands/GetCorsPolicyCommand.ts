@@ -27,7 +27,6 @@ export interface GetCorsPolicyCommandInput extends GetCorsPolicyInput {}
 export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the cross-origin resource sharing (CORS) configuration information that is
  *          set for the container.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -88,6 +87,7 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class GetCorsPolicyCommand extends $Command
   .classBuilder<

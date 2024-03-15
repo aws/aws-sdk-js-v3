@@ -36,7 +36,6 @@ export interface UpdatePolicyCommandInput extends UpdatePolicyInput {}
 export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a Cedar static policy in the specified policy store. You can change only certain elements of
  *             the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyInput.html#amazonverifiedpermissions-UpdatePolicy-request-UpdatePolicyDefinition">UpdatePolicyDefinition</a> parameter. You can directly update only static policies. To
  *             change a template-linked policy, you must update the template instead, using <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html">UpdatePolicyTemplate</a>.</p>
@@ -236,6 +235,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class UpdatePolicyCommand extends $Command
   .classBuilder<

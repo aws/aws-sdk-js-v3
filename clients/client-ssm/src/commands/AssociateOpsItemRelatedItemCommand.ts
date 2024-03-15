@@ -29,7 +29,6 @@ export interface AssociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
  *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are capabilities of
  *    Amazon Web Services Systems Manager.</p>
@@ -81,6 +80,7 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class AssociateOpsItemRelatedItemCommand extends $Command
   .classBuilder<

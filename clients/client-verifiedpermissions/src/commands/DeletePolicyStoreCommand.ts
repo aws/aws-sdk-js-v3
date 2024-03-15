@@ -31,7 +31,6 @@ export interface DeletePolicyStoreCommandInput extends DeletePolicyStoreInput {}
 export interface DeletePolicyStoreCommandOutput extends DeletePolicyStoreOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified policy store.</p>
  *          <p>This operation is idempotent. If you specify a policy store that does not exist, the request
  *             response will still return a successful HTTP 200 status code.</p>
@@ -152,6 +151,7 @@ export interface DeletePolicyStoreCommandOutput extends DeletePolicyStoreOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class DeletePolicyStoreCommand extends $Command
   .classBuilder<

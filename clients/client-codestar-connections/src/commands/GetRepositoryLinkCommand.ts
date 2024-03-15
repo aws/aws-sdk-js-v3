@@ -31,7 +31,6 @@ export interface GetRepositoryLinkCommandInput extends GetRepositoryLinkInput {}
 export interface GetRepositoryLinkCommandOutput extends GetRepositoryLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a repository link. A repository link allows Git sync to monitor
  *       and sync changes from files in a specified Git repository.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetRepositoryLinkCommandOutput extends GetRepositoryLinkOutput,
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class GetRepositoryLinkCommand extends $Command
   .classBuilder<

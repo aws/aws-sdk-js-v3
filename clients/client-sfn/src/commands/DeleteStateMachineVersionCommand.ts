@@ -27,7 +27,6 @@ export interface DeleteStateMachineVersionCommandInput extends DeleteStateMachin
 export interface DeleteStateMachineVersionCommandOutput extends DeleteStateMachineVersionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>. After
  *       you delete a version, you can't call <a>StartExecution</a> using that version's ARN
  *       or use
@@ -88,6 +87,7 @@ export interface DeleteStateMachineVersionCommandOutput extends DeleteStateMachi
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DeleteStateMachineVersionCommand extends $Command
   .classBuilder<

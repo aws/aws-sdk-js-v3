@@ -36,7 +36,6 @@ export interface ListElasticsearchInstanceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListElasticsearchInstanceTypesCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class ListElasticsearchInstanceTypesCommand extends $Command
   .classBuilder<

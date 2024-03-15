@@ -27,7 +27,6 @@ export interface ListCustomVocabularyItemsCommandInput extends ListCustomVocabul
 export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabularyItemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Paginated list of custom vocabulary items for a given bot locale's
  *          custom vocabulary.</p>
  * @example
@@ -90,6 +89,7 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListCustomVocabularyItemsCommand extends $Command
   .classBuilder<

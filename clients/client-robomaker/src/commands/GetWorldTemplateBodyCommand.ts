@@ -27,7 +27,6 @@ export interface GetWorldTemplateBodyCommandInput extends GetWorldTemplateBodyRe
 export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the world template body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class GetWorldTemplateBodyCommand extends $Command
   .classBuilder<

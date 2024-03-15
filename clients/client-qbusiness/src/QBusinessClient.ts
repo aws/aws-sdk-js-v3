@@ -444,7 +444,6 @@ export type QBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface QBusinessClientResolvedConfig extends QBusinessClientResolvedConfigType {}
 
 /**
- * @public
  * <note>
  *             <p>Amazon Q is in preview release and is subject to change.</p>
  *          </note>
@@ -528,6 +527,7 @@ export interface QBusinessClientResolvedConfig extends QBusinessClientResolvedCo
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class QBusinessClient extends __Client<
   __HttpHandlerOptions,

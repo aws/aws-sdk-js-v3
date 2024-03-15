@@ -27,7 +27,6 @@ export interface DisassociateLinkCommandInput extends DisassociateLinkRequest {}
 export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an existing device from a link. You must first disassociate any customer
  *             gateways that are associated with the link.</p>
  * @example
@@ -82,6 +81,7 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DisassociateLinkCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequ
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve status of one or more export tasks. You can retrieve the status of up to 100
  *       export tasks.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DescribeExportTasksCommand extends $Command
   .classBuilder<

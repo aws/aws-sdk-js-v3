@@ -27,7 +27,6 @@ export interface ListTypesCommandInput extends ListTypesInput {}
 export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summary information about extension that have been registered with CloudFormation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListTypesCommand extends $Command
   .classBuilder<

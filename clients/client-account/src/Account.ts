@@ -197,8 +197,8 @@ export interface Account {
 }
 
 /**
- * @public
  * <p>Operations for Amazon Web Services Account Management</p>
+ * @public
  */
 export class Account extends AccountClient implements Account {}
 createAggregatedClient(commands, Account);

@@ -31,7 +31,6 @@ export interface InferSNOMEDCTCommandInput extends InferSNOMEDCTRequest {}
 export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       InferSNOMEDCT detects possible medical concepts as entities and links them to codes from the Systematized Nomenclature of Medicine, Clinical Terms (SNOMED-CT) ontology</p>
  * @example
@@ -143,6 +142,7 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class InferSNOMEDCTCommand extends $Command
   .classBuilder<

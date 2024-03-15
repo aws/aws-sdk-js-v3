@@ -30,7 +30,6 @@ export interface SageMakerMetrics {
 }
 
 /**
- * @public
  * <p>Contains all data plane API operations and data types for Amazon SageMaker Metrics.
  *          Use these APIs to put and retrieve (get) features related to your training run.</p>
  *          <ul>
@@ -40,6 +39,7 @@ export interface SageMakerMetrics {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SageMakerMetrics extends SageMakerMetricsClient implements SageMakerMetrics {}
 createAggregatedClient(commands, SageMakerMetrics);

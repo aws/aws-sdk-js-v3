@@ -27,7 +27,6 @@ export interface ListPlatformApplicationsCommandInput extends ListPlatformApplic
 export interface ListPlatformApplicationsCommandOutput extends ListPlatformApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the platform application objects for the supported push notification services,
  *             such as APNS and GCM (Firebase Cloud Messaging). The results for
  *                 <code>ListPlatformApplications</code> are paginated and return a limited list of
@@ -82,6 +81,7 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ListPlatformApplicationsCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to
  *             access each specified service.</p>
  *          <note>
@@ -129,6 +128,7 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list policies that allow access to a service
  * ```javascript
  * // The following operation lists policies that allow ExampleUser01 to access IAM or EC2.

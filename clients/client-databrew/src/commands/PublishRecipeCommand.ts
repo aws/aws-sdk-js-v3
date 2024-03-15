@@ -27,7 +27,6 @@ export interface PublishRecipeCommandInput extends PublishRecipeRequest {}
 export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes a new version of a DataBrew recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class PublishRecipeCommand extends $Command
   .classBuilder<

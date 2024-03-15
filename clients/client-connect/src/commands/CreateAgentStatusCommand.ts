@@ -27,7 +27,6 @@ export interface CreateAgentStatusCommandInput extends CreateAgentStatusRequest 
 export interface CreateAgentStatusCommandOutput extends CreateAgentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates an agent status for the specified Amazon Connect instance.</p>
  * @example
@@ -85,6 +84,7 @@ export interface CreateAgentStatusCommandOutput extends CreateAgentStatusRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateAgentStatusCommand extends $Command
   .classBuilder<

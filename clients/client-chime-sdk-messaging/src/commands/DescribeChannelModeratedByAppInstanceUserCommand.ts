@@ -41,7 +41,6 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the full details of a channel moderated by the specified
  *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
  *          <note>
@@ -104,6 +103,7 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command
   .classBuilder<

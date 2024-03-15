@@ -27,7 +27,6 @@ export interface DeleteIndexFieldCommandInput extends DeleteIndexFieldRequest {}
 export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an <code><a>IndexField</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -167,6 +166,7 @@ export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse,
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DeleteIndexFieldCommand extends $Command
   .classBuilder<

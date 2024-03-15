@@ -32,7 +32,6 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p>
  *          <p>While unassigning is in progress, you cannot assign/unassign additional IP addresses while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
  *          <p>A private IP address will only be released at the end of MaxDrainDurationSeconds. The
@@ -85,6 +84,7 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class UnassignPrivateNatGatewayAddressCommand extends $Command
   .classBuilder<

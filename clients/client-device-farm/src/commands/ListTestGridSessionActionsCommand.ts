@@ -27,7 +27,6 @@ export interface ListTestGridSessionActionsCommandInput extends ListTestGridSess
 export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSessionActionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the actions taken in a <a>TestGridSession</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class ListTestGridSessionActionsCommand extends $Command
   .classBuilder<

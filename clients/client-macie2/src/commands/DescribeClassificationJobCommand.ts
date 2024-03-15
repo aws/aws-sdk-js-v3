@@ -27,7 +27,6 @@ export interface DescribeClassificationJobCommandInput extends DescribeClassific
 export interface DescribeClassificationJobCommandOutput extends DescribeClassificationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status and settings for a classification job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -220,6 +219,7 @@ export interface DescribeClassificationJobCommandOutput extends DescribeClassifi
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DescribeClassificationJobCommand extends $Command
   .classBuilder<

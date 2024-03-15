@@ -27,7 +27,6 @@ export interface DescribeElasticGpusCommandInput extends DescribeElasticGpusRequ
 export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
  *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
@@ -93,6 +92,7 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeElasticGpusCommand extends $Command
   .classBuilder<

@@ -33,7 +33,6 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53
  * 			private hosted zone. Note the following:</p>
  *          <ul>
@@ -137,6 +136,7 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DisassociateVPCFromHostedZoneCommand extends $Command
   .classBuilder<

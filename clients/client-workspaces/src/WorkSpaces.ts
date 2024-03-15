@@ -1643,7 +1643,6 @@ export interface WorkSpaces {
 }
 
 /**
- * @public
  * <fullname>Amazon WorkSpaces Service</fullname>
  *          <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows
  *          or Amazon Linux desktops for your users, known as <i>WorkSpaces</i>.
@@ -1661,6 +1660,7 @@ export interface WorkSpaces {
  *          browser to access provisioned WorkSpaces, see the <a href="https://docs.aws.amazon.com/workspaces/latest/userguide/">Amazon WorkSpaces User Guide</a>. For more
  *          information about using the CLI to manage your WorkSpaces resources,
  *          see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html">WorkSpaces section of the CLI Reference</a>.</p>
+ * @public
  */
 export class WorkSpaces extends WorkSpacesClient implements WorkSpaces {}
 createAggregatedClient(commands, WorkSpaces);

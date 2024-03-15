@@ -27,7 +27,6 @@ export interface RegisterStreamConsumerCommandInput extends RegisterStreamConsum
 export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsumerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a consumer with a Kinesis data stream. When you use this operation, the
  *             consumer you register can then call <a>SubscribeToShard</a> to receive data
  *             from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every
@@ -90,6 +89,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class RegisterStreamConsumerCommand extends $Command
   .classBuilder<

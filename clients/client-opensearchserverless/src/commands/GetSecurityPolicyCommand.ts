@@ -31,7 +31,6 @@ export interface GetSecurityPolicyCommandInput extends GetSecurityPolicyRequest 
 export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a configured OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
  *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
  *                 rest for Amazon OpenSearch Serverless</a>.</p>
@@ -80,6 +79,7 @@ export interface GetSecurityPolicyCommandOutput extends GetSecurityPolicyRespons
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class GetSecurityPolicyCommand extends $Command
   .classBuilder<

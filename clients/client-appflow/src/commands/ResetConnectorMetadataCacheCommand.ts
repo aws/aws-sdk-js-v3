@@ -32,7 +32,6 @@ export interface ResetConnectorMetadataCacheCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets metadata about your connector entities that Amazon AppFlow stored in its
  *       cache. Use this action when you want Amazon AppFlow to return the latest information
  *       about the data that you have in a source application.</p>
@@ -83,6 +82,7 @@ export interface ResetConnectorMetadataCacheCommandOutput
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class ResetConnectorMetadataCacheCommand extends $Command
   .classBuilder<

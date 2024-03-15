@@ -31,7 +31,6 @@ export interface UpdateUserPoolCommandInput extends UpdateUserPoolRequest {}
 export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -237,6 +236,7 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class UpdateUserPoolCommand extends $Command
   .classBuilder<

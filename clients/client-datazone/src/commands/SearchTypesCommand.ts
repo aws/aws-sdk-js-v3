@@ -27,7 +27,6 @@ export interface SearchTypesCommandInput extends SearchTypesInput {}
 export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for types in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -153,6 +152,7 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class SearchTypesCommand extends $Command
   .classBuilder<

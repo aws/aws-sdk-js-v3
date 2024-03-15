@@ -27,7 +27,6 @@ export interface GetRequestValidatorsCommandInput extends GetRequestValidatorsRe
 export interface GetRequestValidatorsCommandOutput extends RequestValidators, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the RequestValidators collection of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetRequestValidatorsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceA
 export interface DescribeInstanceAttributeCommandOutput extends DescribeInstanceAttributeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified instance attribute.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeInstanceAttributeCommand extends $Command
   .classBuilder<

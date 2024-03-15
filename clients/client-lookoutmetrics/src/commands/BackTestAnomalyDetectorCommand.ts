@@ -27,7 +27,6 @@ export interface BackTestAnomalyDetectorCommandInput extends BackTestAnomalyDete
 export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs a backtest for anomaly detection for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class BackTestAnomalyDetectorCommand extends $Command
   .classBuilder<

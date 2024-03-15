@@ -27,7 +27,6 @@ export interface DeletePackagingGroupCommandInput extends DeletePackagingGroupRe
 export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a MediaPackage VOD PackagingGroup resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class DeletePackagingGroupCommand extends $Command
   .classBuilder<

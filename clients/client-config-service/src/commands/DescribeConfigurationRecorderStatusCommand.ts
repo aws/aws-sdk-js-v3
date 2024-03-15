@@ -35,7 +35,6 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current status of the specified configuration
  * 			recorder as well as the status of the last recording event for the recorder. If a configuration recorder is not specified, this action
  * 			returns the status of all configuration recorders associated with
@@ -87,6 +86,7 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationRecorderStatusCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateObservabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an App Runner observability configuration resource. App Runner requires this resource when you create or update App Runner services and you want to enable
  *       non-default observability features. You can share an observability configuration across multiple services.</p>
  *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>ObservabilityConfigurationName</code>. The
@@ -99,6 +98,7 @@ export interface CreateObservabilityConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class CreateObservabilityConfigurationCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ConfigureAccessPointCommandInput extends ConfigureAccessPointRe
 export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures the specified network resource. </p>
  *          <p> Use this action to specify the geographic position of the hardware. You must provide
  *             Certified Professional Installer (CPI) credentials in the request so that we can obtain
@@ -137,6 +136,7 @@ export interface ConfigureAccessPointCommandOutput extends ConfigureAccessPointR
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ConfigureAccessPointCommand extends $Command
   .classBuilder<

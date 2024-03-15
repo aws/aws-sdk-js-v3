@@ -27,7 +27,6 @@ export interface ListBudgetsForResourceCommandInput extends ListBudgetsForResour
 export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the budgets associated to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListBudgetsForResourceCommand extends $Command
   .classBuilder<

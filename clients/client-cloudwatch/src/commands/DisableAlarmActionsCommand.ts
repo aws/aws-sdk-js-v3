@@ -27,7 +27,6 @@ export interface DisableAlarmActionsCommandInput extends DisableAlarmActionsInpu
 export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
  * 			alarm actions do not execute when the alarm state changes.</p>
  * @example
@@ -56,6 +55,7 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DisableAlarmActionsCommand extends $Command
   .classBuilder<

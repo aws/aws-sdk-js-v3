@@ -27,7 +27,6 @@ export interface RollbackInstanceRefreshCommandInput extends RollbackInstanceRef
 export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an instance refresh that is in progress and rolls back any changes that it
  *             made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh.
  *             This restores your Auto Scaling group to the configuration that it was using before the start of
@@ -97,6 +96,7 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  */
 export class RollbackInstanceRefreshCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface EnableStageTransitionCommandInput extends EnableStageTransition
 export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class EnableStageTransitionCommand extends $Command
   .classBuilder<

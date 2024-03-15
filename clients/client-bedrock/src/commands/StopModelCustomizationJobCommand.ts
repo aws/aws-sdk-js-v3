@@ -27,7 +27,6 @@ export interface StopModelCustomizationJobCommandInput extends StopModelCustomiz
 export interface StopModelCustomizationJobCommandOutput extends StopModelCustomizationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an active model customization job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface StopModelCustomizationJobCommandOutput extends StopModelCustomi
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class StopModelCustomizationJobCommand extends $Command
   .classBuilder<

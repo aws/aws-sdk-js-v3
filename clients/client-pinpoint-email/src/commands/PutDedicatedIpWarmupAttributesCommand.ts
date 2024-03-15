@@ -32,7 +32,6 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class PutDedicatedIpWarmupAttributesCommand extends $Command
   .classBuilder<

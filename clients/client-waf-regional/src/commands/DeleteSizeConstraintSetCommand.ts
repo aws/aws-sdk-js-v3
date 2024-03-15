@@ -27,7 +27,6 @@ export interface DeleteSizeConstraintSetCommandInput extends DeleteSizeConstrain
 export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -120,6 +119,7 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  * @example To delete a size constraint set
  * ```javascript
  * // The following example deletes a size constraint set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

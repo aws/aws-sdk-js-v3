@@ -27,7 +27,6 @@ export interface CreateSubnetCommandInput extends CreateSubnetRequest {}
 export interface CreateSubnetCommandOutput extends CreateSubnetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR block.
  *             If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead.
  *             For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both
@@ -133,6 +132,7 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a subnet
  * ```javascript
  * // This example creates a subnet in the specified VPC with the specified CIDR block. We recommend that you let us select an Availability Zone for you.

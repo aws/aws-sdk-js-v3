@@ -27,7 +27,6 @@ export interface TestRepositoryTriggersCommandInput extends TestRepositoryTrigge
 export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests the functionality of repository triggers by sending information to the trigger
  *             target. If real data is available in the repository, the test sends data from the last
  *             commit. If no data is available, sample data is generated.</p>
@@ -150,6 +149,7 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class TestRepositoryTriggersCommand extends $Command
   .classBuilder<

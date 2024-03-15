@@ -27,7 +27,6 @@ export interface GetSignalCatalogCommandInput extends GetSignalCatalogRequest {}
 export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about a signal catalog. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetSignalCatalogCommandOutput extends GetSignalCatalogResponse,
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetSignalCatalogCommand extends $Command
   .classBuilder<

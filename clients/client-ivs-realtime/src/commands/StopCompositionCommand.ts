@@ -27,7 +27,6 @@ export interface StopCompositionCommandInput extends StopCompositionRequest {}
 export interface StopCompositionCommandOutput extends StopCompositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops and deletes a Composition resource. Any broadcast from the Composition resource
  *          is stopped.</p>
  * @example
@@ -72,6 +71,7 @@ export interface StopCompositionCommandOutput extends StopCompositionResponse, _
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class StopCompositionCommand extends $Command
   .classBuilder<

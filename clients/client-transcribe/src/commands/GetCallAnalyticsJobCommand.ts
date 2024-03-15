@@ -27,7 +27,6 @@ export interface GetCallAnalyticsJobCommandInput extends GetCallAnalyticsJobRequ
 export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified Call Analytics job.</p>
  *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
  *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
@@ -136,6 +135,7 @@ export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class GetCallAnalyticsJobCommand extends $Command
   .classBuilder<

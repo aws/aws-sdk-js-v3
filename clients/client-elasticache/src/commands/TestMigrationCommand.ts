@@ -27,7 +27,6 @@ export interface TestMigrationCommandInput extends TestMigrationMessage {}
 export interface TestMigrationCommandOutput extends TestMigrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Async API to test connection between source and target replication group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -192,6 +191,7 @@ export interface TestMigrationCommandOutput extends TestMigrationResponse, __Met
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class TestMigrationCommand extends $Command
   .classBuilder<

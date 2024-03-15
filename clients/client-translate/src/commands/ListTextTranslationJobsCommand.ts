@@ -27,7 +27,6 @@ export interface ListTextTranslationJobsCommandInput extends ListTextTranslation
 export interface ListTextTranslationJobsCommandOutput extends ListTextTranslationJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the batch translation jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class ListTextTranslationJobsCommand extends $Command
   .classBuilder<

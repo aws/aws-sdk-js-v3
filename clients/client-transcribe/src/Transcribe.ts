@@ -986,7 +986,6 @@ export interface Transcribe {
 }
 
 /**
- * @public
  * <p>Amazon Transcribe offers three main types of batch transcription: <b>Standard</b>, <b>Medical</b>, and
  *                 <b>Call Analytics</b>.</p>
  *          <ul>
@@ -1009,6 +1008,7 @@ export interface Transcribe {
  *                     insight into customer service calls, use this option. Refer to  for details.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Transcribe extends TranscribeClient implements Transcribe {}
 createAggregatedClient(commands, Transcribe);

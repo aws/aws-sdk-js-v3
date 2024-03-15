@@ -35,7 +35,6 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Amazon Macie configuration settings for an organization in Organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConfigurationCommand extends $Command
   .classBuilder<

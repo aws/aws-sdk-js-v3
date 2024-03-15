@@ -36,7 +36,6 @@ export interface AdminGetUserCommandInput extends AdminGetUserRequest {}
 export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified user by user name in a user pool as an administrator. Works on any
  *             user.</p>
  *          <note>
@@ -127,6 +126,7 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminGetUserCommand extends $Command
   .classBuilder<

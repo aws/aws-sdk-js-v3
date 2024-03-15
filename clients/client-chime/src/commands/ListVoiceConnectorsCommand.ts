@@ -27,9 +27,6 @@ export interface ListVoiceConnectorsCommandInput extends ListVoiceConnectorsRequ
 export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListVoiceConnectors in the Amazon Chime SDK Voice Namespace
- *
  * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
  *          <important>
  *             <p>
@@ -95,6 +92,8 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListVoiceConnectors in the Amazon Chime SDK Voice Namespace
  */
 export class ListVoiceConnectorsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetMLModelTransformJobCommandInput extends GetMLModelTransformJ
 export interface GetMLModelTransformJobCommandOutput extends GetMLModelTransformJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified model transform job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html">Use
  *       a trained model to generate new model artifacts</a>.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -117,6 +116,7 @@ export interface GetMLModelTransformJobCommandOutput extends GetMLModelTransform
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetMLModelTransformJobCommand extends $Command
   .classBuilder<

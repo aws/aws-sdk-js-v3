@@ -27,7 +27,6 @@ export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
 export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a>Directory</a> by copying the published schema into the
  *       directory. A directory cannot be created without a schema.</p>
  *          <p>You can also quickly create a directory using a managed schema, called the
@@ -88,6 +87,7 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class CreateDirectoryCommand extends $Command
   .classBuilder<

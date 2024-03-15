@@ -32,7 +32,6 @@ export interface CancelCapacityReservationFleetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
  * 			Fleet, the following happens:</p>
  *          <ul>
@@ -92,6 +91,7 @@ export interface CancelCapacityReservationFleetsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CancelCapacityReservationFleetsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAdapterVersionCommandInput extends GetAdapterVersionRequest 
 export interface GetAdapterVersionCommandOutput extends GetAdapterVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets configuration information for the specified adapter version, including:
  *          AdapterId, AdapterVersion, FeatureTypes, Status, StatusMessage, DatasetConfig,
  *          KMSKeyId, OutputConfig, Tags and EvaluationMetrics.</p>
@@ -122,6 +121,7 @@ export interface GetAdapterVersionCommandOutput extends GetAdapterVersionRespons
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class GetAdapterVersionCommand extends $Command
   .classBuilder<

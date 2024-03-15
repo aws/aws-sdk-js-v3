@@ -31,7 +31,6 @@ export interface DescribeComputeCommandInput extends DescribeComputeInput {}
 export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves properties for a compute resource in an Amazon GameLift fleet. Call <a>ListCompute</a> to get a list of compute resources in a fleet. You can
  *             request information for computes in either managed EC2 fleets or Anywhere fleets. </p>
  *          <p>To request compute properties, specify the compute name and fleet ID.</p>
@@ -92,6 +91,7 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeComputeCommand extends $Command
   .classBuilder<

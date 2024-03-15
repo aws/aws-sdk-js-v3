@@ -32,7 +32,6 @@ export interface GetDistributionLatestCacheResetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
  *       content delivery network (CDN) distribution.</p>
  * @example
@@ -88,6 +87,7 @@ export interface GetDistributionLatestCacheResetCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetDistributionLatestCacheResetCommand extends $Command
   .classBuilder<

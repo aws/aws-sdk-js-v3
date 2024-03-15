@@ -27,7 +27,6 @@ export interface ListVirtualClustersCommandInput extends ListVirtualClustersRequ
 export interface ListVirtualClustersCommandOutput extends ListVirtualClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about the specified virtual cluster. Virtual cluster is a managed
  *          entity on Amazon EMR on EKS. You can create, describe, list and delete virtual
  *          clusters. They do not consume any additional resource in your system. A single virtual
@@ -95,6 +94,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class ListVirtualClustersCommand extends $Command
   .classBuilder<

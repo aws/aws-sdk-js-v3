@@ -33,7 +33,6 @@ export interface UpdateAcceleratorAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the attributes for an accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateAcceleratorAttributesCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class UpdateAcceleratorAttributesCommand extends $Command
   .classBuilder<

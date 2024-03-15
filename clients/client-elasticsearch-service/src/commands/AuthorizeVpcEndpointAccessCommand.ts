@@ -31,7 +31,6 @@ export interface AuthorizeVpcEndpointAccessCommandInput extends AuthorizeVpcEndp
 export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class AuthorizeVpcEndpointAccessCommand extends $Command
   .classBuilder<

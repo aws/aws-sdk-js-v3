@@ -27,7 +27,6 @@ export interface AddUserToGroupCommandInput extends AddUserToGroupRequest {}
 export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified user to the specified group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To add a user to an IAM group
  * ```javascript
  * // The following command adds an IAM user named Bob to the IAM group named Admins:

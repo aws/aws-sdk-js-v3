@@ -27,7 +27,6 @@ export interface ListPartnerEventSourcesCommandInput extends ListPartnerEventSou
 export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>An SaaS partner can use this operation to list all the partner event source names that
  *       they have created. This operation is not used by Amazon Web Services customers.</p>
  * @example
@@ -70,6 +69,7 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ListPartnerEventSourcesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateAppInstanceAdminCommandInput extends CreateAppInstanceAdm
 export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAdminResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Promotes an <code>AppInstanceUser</code> or <code>AppInstanceBot</code> to an
  *          <code>AppInstanceAdmin</code>. The
  *          promoted entity can perform the following actions. </p>
@@ -104,6 +103,7 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class CreateAppInstanceAdminCommand extends $Command
   .classBuilder<

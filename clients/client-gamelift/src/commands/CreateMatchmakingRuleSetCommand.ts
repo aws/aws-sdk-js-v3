@@ -27,7 +27,6 @@ export interface CreateMatchmakingRuleSetCommandInput extends CreateMatchmakingR
 export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
  *             to create, such as the number and size of teams. It also sets the parameters for
  *             acceptable player matches, such as minimum skill level or character type.</p>
@@ -117,6 +116,7 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateMatchmakingRuleSetCommand extends $Command
   .classBuilder<

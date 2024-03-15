@@ -27,7 +27,6 @@ export interface DeleteSourceNetworkCommandInput extends DeleteSourceNetworkRequ
 export interface DeleteSourceNetworkCommandOutput extends DeleteSourceNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete Source Network resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteSourceNetworkCommandOutput extends DeleteSourceNetworkRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class DeleteSourceNetworkCommand extends $Command
   .classBuilder<

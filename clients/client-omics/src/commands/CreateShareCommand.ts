@@ -27,7 +27,6 @@ export interface CreateShareCommandInput extends CreateShareRequest {}
 export interface CreateShareCommandOutput extends CreateShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a share offer that can be accepted outside the account by a subscriber. The share is created by the owner and accepted by the principal subscriber.
  *     </p>
@@ -82,6 +81,7 @@ export interface CreateShareCommandOutput extends CreateShareResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CreateShareCommand extends $Command
   .classBuilder<

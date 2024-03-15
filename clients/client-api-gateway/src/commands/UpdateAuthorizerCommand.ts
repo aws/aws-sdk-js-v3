@@ -27,7 +27,6 @@ export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
 export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Authorizer resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateAuthorizerCommand extends $Command
   .classBuilder<

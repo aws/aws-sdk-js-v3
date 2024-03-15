@@ -27,7 +27,6 @@ export interface ProvisionProductCommandInput extends ProvisionProductInput {}
 export interface ProvisionProductCommandOutput extends ProvisionProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Provisions the specified product.
  *       </p>
@@ -160,6 +159,7 @@ export interface ProvisionProductCommandOutput extends ProvisionProductOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ProvisionProductCommand extends $Command
   .classBuilder<

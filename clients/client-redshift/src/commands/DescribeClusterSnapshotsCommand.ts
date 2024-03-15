@@ -27,7 +27,6 @@ export interface DescribeClusterSnapshotsCommandInput extends DescribeClusterSna
 export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns one or more snapshot objects, which contain metadata about your cluster
  *             snapshots. By default, this operation returns information about all snapshots of all
  *             clusters that are owned by your Amazon Web Services account. No information is returned for
@@ -153,6 +152,7 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterSnapshotsCommand extends $Command
   .classBuilder<

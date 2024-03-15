@@ -27,7 +27,6 @@ export interface CreateHoursOfOperationCommandInput extends CreateHoursOfOperati
 export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates hours of operation. </p>
  * @example
@@ -97,6 +96,7 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateHoursOfOperationCommand extends $Command
   .classBuilder<

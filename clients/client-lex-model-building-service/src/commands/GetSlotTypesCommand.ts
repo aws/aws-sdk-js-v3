@@ -31,7 +31,6 @@ export interface GetSlotTypesCommandInput extends GetSlotTypesRequest {}
 export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns slot type information as follows: </p>
  *          <ul>
  *             <li>
@@ -99,6 +98,7 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To get a list of slot types
  * ```javascript
  * // This example shows how to get a list of all of the slot types in your account.

@@ -32,9 +32,6 @@ export interface QueryAssistantCommandInput extends QueryAssistantRequest {}
 export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated QueryAssistant API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.
- *
  * <p>Performs a manual search against the specified assistant. To retrieve recommendations for
  *       an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
  *     </p>
@@ -113,6 +110,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
+ * @deprecated QueryAssistant API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.
  */
 export class QueryAssistantCommand extends $Command
   .classBuilder<

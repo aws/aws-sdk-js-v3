@@ -36,7 +36,6 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a source identifier from an existing event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command
   .classBuilder<

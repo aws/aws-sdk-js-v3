@@ -27,7 +27,6 @@ export interface DeleteLedgerCommandInput extends DeleteLedgerRequest {}
 export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a ledger and all of its contents. This action is irreversible.</p>
  *          <p>If deletion protection is enabled, you must first disable it before you can delete the
  *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
@@ -67,6 +66,7 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class DeleteLedgerCommand extends $Command
   .classBuilder<

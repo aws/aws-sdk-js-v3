@@ -27,7 +27,6 @@ export interface SendApiAssetCommandInput extends SendApiAssetRequest {}
 export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class SendApiAssetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteLFTagCommandInput extends DeleteLFTagRequest {}
 export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified LF-tag given a key name. If the input parameter tag key was not found, then the operation will throw an exception. When you delete an LF-tag, the <code>LFTagPolicy</code> attached to the LF-tag becomes invalid. If the deleted LF-tag was still assigned to any resource, the tag policy attach to the deleted LF-tag will no longer be applied to the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DeleteLFTagCommand extends $Command
   .classBuilder<

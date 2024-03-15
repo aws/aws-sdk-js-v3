@@ -27,7 +27,6 @@ export interface ConfirmCustomerAgreementCommandInput extends ConfirmCustomerAgr
 export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAgreementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       The confirmation of the terms of agreement when creating the connection/link aggregation group (LAG).
  *     </p>
@@ -63,6 +62,7 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class ConfirmCustomerAgreementCommand extends $Command
   .classBuilder<

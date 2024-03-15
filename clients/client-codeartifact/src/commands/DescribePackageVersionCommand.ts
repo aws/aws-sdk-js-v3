@@ -27,7 +27,6 @@ export interface DescribePackageVersionCommandInput extends DescribePackageVersi
 export interface DescribePackageVersionCommandOutput extends DescribePackageVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Returns a
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
@@ -118,6 +117,7 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DescribePackageVersionCommand extends $Command
   .classBuilder<

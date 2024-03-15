@@ -27,7 +27,6 @@ export interface RevokeSignatureCommandInput extends RevokeSignatureRequest {}
 export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no
  * 			longer valid.</p>
  * @example
@@ -72,6 +71,7 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class RevokeSignatureCommand extends $Command
   .classBuilder<

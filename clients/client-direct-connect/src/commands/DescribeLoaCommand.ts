@@ -27,7 +27,6 @@ export interface DescribeLoaCommandInput extends DescribeLoaRequest {}
 export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing
  *       your cross connect to Amazon Web Services at the colocation facility. For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at Direct Connect Locations</a>
@@ -67,6 +66,7 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeLoaCommand extends $Command
   .classBuilder<

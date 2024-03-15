@@ -27,7 +27,6 @@ export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMess
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a setting for an Amazon Aurora global database cluster. You can change one or more database configuration
  *         parameters by specifying these parameters and the new values in the request. For more information on
  *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
@@ -104,6 +103,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify a global database cluster
  * ```javascript
  * // The following example enables deletion protection for an Aurora MySQL-based global database cluster.

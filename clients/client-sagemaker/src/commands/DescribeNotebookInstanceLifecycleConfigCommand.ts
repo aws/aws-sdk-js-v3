@@ -36,7 +36,6 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of a notebook instance lifecycle configuration.</p>
  *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
  *          2.1: (Optional) Customize a Notebook Instance</a>.</p>
@@ -79,6 +78,7 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command
   .classBuilder<

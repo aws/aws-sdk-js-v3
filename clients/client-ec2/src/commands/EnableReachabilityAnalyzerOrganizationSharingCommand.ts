@@ -36,7 +36,6 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
  *          This operation must be performed by the management account for the organization.</p>
  *          <p>After you establish a trust relationship, a user in the management account or
@@ -68,6 +67,7 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Command
   .classBuilder<

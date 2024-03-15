@@ -27,7 +27,6 @@ export interface DescribeDBClusterParametersCommandInput extends DescribeDBClust
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the detailed parameter list for a particular cluster parameter
  *             group.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterParametersCommand extends $Command
   .classBuilder<

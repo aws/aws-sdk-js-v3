@@ -27,7 +27,6 @@ export interface ListPackagesForDomainCommandInput extends ListPackagesForDomain
 export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all packages associated with an Amazon OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
@@ -90,6 +89,7 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListPackagesForDomainCommand extends $Command
   .classBuilder<

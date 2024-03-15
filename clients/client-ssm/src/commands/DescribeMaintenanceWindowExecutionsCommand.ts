@@ -35,7 +35,6 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the executions of a maintenance window. This includes information about when the
  *    maintenance window was scheduled to be active, and information about tasks registered and run
  *    with the maintenance window.</p>
@@ -88,6 +87,7 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeMaintenanceWindowExecutionsCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface ListCallAnalyticsCategoriesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of Call Analytics categories, including all rules that make up each
  *             category.</p>
  *          <p>To get detailed information about a specific Call Analytics category, use the  operation.</p>
@@ -158,6 +157,7 @@ export interface ListCallAnalyticsCategoriesCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListCallAnalyticsCategoriesCommand extends $Command
   .classBuilder<

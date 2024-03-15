@@ -27,7 +27,6 @@ export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
 export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
  *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
  *       list of trace IDs.</p>
@@ -82,6 +81,7 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class BatchGetTracesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListActionsCommandInput extends ListActionsRequest {}
 export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of actions for a specific target resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListActionsCommand extends $Command
   .classBuilder<

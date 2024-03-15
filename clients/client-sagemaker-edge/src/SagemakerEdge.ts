@@ -70,8 +70,8 @@ export interface SagemakerEdge {
 }
 
 /**
- * @public
  * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
+ * @public
  */
 export class SagemakerEdge extends SagemakerEdgeClient implements SagemakerEdge {}
 createAggregatedClient(commands, SagemakerEdge);

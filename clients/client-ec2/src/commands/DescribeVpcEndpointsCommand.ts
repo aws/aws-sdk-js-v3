@@ -27,7 +27,6 @@ export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRe
 export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your VPC endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVpcEndpointsCommand extends $Command
   .classBuilder<

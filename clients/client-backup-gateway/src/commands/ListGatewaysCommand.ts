@@ -27,7 +27,6 @@ export interface ListGatewaysCommandInput extends ListGatewaysInput {}
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists backup gateways owned by an Amazon Web Services account in an Amazon Web Services Region. The returned list is ordered by gateway Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class ListGatewaysCommand extends $Command
   .classBuilder<

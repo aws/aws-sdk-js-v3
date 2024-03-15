@@ -27,7 +27,6 @@ export interface GetLifecyclePolicyPreviewCommandInput extends GetLifecyclePolic
 export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePolicyPreviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the results of the lifecycle policy preview request for the specified
  *             repository.</p>
  * @example
@@ -105,6 +104,7 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class GetLifecyclePolicyPreviewCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesReques
 export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of access policies for an identity (an IAM Identity Center user, an IAM Identity Center
  *       group, or an IAM user) or an IoT SiteWise Monitor resource (a portal or project).</p>
  * @example
@@ -105,6 +104,7 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListAccessPoliciesCommand extends $Command
   .classBuilder<

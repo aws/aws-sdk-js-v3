@@ -27,7 +27,6 @@ export interface TransactWriteItemsCommandInput extends TransactWriteItemsInput 
 export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 100
  *             action requests. These actions can target items in different tables, but not in
@@ -641,6 +640,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class TransactWriteItemsCommand extends $Command
   .classBuilder<

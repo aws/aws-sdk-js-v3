@@ -27,7 +27,6 @@ export interface StopKeyPhrasesDetectionJobCommandInput extends StopKeyPhrasesDe
 export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a key phrases detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -74,6 +73,7 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StopKeyPhrasesDetectionJobCommand extends $Command
   .classBuilder<

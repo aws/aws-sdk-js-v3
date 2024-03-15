@@ -27,7 +27,6 @@ export interface DeleteInferenceSchedulerCommandInput extends DeleteInferenceSch
 export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an inference scheduler that has been set up. Prior inference results will not be
  *          deleted.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DeleteInferenceSchedulerCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationS
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing configuration set.</p>
  *          <p>A configuration set is a set of rules that you apply to voice and SMS messages that
  *             you send. In a configuration set, you can specify a destination for specific types of
@@ -104,6 +103,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetCommand extends $Command
   .classBuilder<

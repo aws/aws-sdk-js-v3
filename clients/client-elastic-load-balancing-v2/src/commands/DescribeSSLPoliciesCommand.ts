@@ -31,7 +31,6 @@ export interface DescribeSSLPoliciesCommandInput extends DescribeSSLPoliciesInpu
 export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
  *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
@@ -86,6 +85,7 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe a policy used for SSL negotiation
  * ```javascript
  * // This example describes the specified policy used for SSL negotiation.

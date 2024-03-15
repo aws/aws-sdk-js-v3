@@ -32,7 +32,6 @@ export interface DescribeElasticLoadBalancersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a stack's Elastic Load Balancing instances.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -95,6 +94,7 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeElasticLoadBalancersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To update an application
  * ```javascript
  * // The following update-application example updates the name of the specified application.

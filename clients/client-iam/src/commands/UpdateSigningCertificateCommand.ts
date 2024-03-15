@@ -27,7 +27,6 @@ export interface UpdateSigningCertificateCommandInput extends UpdateSigningCerti
 export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the status of the specified user signing certificate from active to disabled,
  *             or vice versa. This operation can be used to disable an IAM user's signing
  *             certificate as part of a certificate rotation work flow.</p>
@@ -74,6 +73,7 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To change the active status of a signing certificate for an IAM user
  * ```javascript
  * // The following command changes the status of a signing certificate for a user named Bob to Inactive.

@@ -27,7 +27,6 @@ export interface DeleteAlarmModelCommandInput extends DeleteAlarmModelRequest {}
 export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an alarm model. Any alarm instances that were created based on this alarm model
  *       are also deleted. This action can't be undone.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteAlarmModelCommandOutput extends DeleteAlarmModelResponse,
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DeleteAlarmModelCommand extends $Command
   .classBuilder<

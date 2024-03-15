@@ -27,7 +27,6 @@ export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest 
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes Amazon Macie membership invitations that were received from specific accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DeleteInvitationsCommand extends $Command
   .classBuilder<

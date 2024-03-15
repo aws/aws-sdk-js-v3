@@ -27,7 +27,6 @@ export interface GetInsightImpactGraphCommandInput extends GetInsightImpactGraph
 export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGraphResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
  *          structural information. For a complete service graph, use this API with the GetServiceGraph API.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGrap
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetInsightImpactGraphCommand extends $Command
   .classBuilder<

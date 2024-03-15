@@ -27,7 +27,6 @@ export interface GetCommentReactionsCommandInput extends GetCommentReactionsInpu
 export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetCommentReactionsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateFileSystemAssociationCommandInput extends UpdateFileSyste
 export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSystemAssociationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a file system association. This operation is only supported in the FSx File
  *          Gateways.</p>
  * @example
@@ -74,6 +73,7 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateFileSystemAssociationCommand extends $Command
   .classBuilder<

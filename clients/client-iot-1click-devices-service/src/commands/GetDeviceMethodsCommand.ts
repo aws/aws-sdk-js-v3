@@ -31,7 +31,6 @@ export interface GetDeviceMethodsCommandInput extends GetDeviceMethodsRequest {}
 export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Given a device ID, returns the invokable methods associated with the device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class GetDeviceMethodsCommand extends $Command
   .classBuilder<

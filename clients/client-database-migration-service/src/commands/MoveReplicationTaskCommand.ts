@@ -31,7 +31,6 @@ export interface MoveReplicationTaskCommandInput extends MoveReplicationTaskMess
 export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Moves a replication task from its current replication instance to a different target
  *          replication instance using the specified parameters. The target replication instance must
  *          be created with the same or later DMS version as the current replication
@@ -111,6 +110,7 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class MoveReplicationTaskCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateSubnetCidrReservationCommandInput extends CreateSubnetCid
 export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCidrReservationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a subnet CIDR reservation. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet CIDR reservations</a>
  *             in the <i>Amazon Virtual Private Cloud User Guide</i> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">Assign prefixes
  *                 to network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -85,6 +84,7 @@ export interface CreateSubnetCidrReservationCommandOutput extends CreateSubnetCi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateSubnetCidrReservationCommand extends $Command
   .classBuilder<

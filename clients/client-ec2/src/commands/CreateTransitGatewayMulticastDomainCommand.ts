@@ -35,7 +35,6 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a multicast domain using the specified transit gateway.</p>
  *          <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
  * @example
@@ -99,6 +98,7 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTransitGatewayMulticastDomainCommand extends $Command
   .classBuilder<

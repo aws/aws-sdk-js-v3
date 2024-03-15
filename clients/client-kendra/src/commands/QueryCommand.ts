@@ -27,7 +27,6 @@ export interface QueryCommandInput extends QueryRequest {}
 export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches an index given an input query.</p>
  *          <note>
  *             <p>If you are working with large language models (LLMs) or implementing retrieval
@@ -483,6 +482,7 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class QueryCommand extends $Command
   .classBuilder<

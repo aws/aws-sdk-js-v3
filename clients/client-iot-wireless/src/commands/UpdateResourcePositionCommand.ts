@@ -34,7 +34,6 @@ export interface UpdateResourcePositionCommandInput extends UpdateResourcePositi
 export interface UpdateResourcePositionCommandOutput extends UpdateResourcePositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the position information of a given wireless device or a wireless gateway
  *             resource. The position coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
  *                 (WGS84)</a>.</p>
@@ -79,6 +78,7 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class UpdateResourcePositionCommand extends $Command
   .classBuilder<

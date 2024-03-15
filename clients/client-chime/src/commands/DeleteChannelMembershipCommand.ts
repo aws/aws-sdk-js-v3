@@ -27,9 +27,6 @@ export interface DeleteChannelMembershipCommandInput extends DeleteChannelMember
 export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteChannelMembership in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Removes a member from a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -91,6 +88,8 @@ export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteChannelMembership in the Amazon Chime SDK Messaging Namespace
  */
 export class DeleteChannelMembershipCommand extends $Command
   .classBuilder<

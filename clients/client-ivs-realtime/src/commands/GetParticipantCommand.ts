@@ -27,7 +27,6 @@ export interface GetParticipantCommandInput extends GetParticipantRequest {}
 export interface GetParticipantCommandOutput extends GetParticipantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified participant token.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetParticipantCommandOutput extends GetParticipantResponse, __M
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class GetParticipantCommand extends $Command
   .classBuilder<

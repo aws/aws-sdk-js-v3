@@ -31,7 +31,6 @@ export interface UpdateUserProfileCommandInput extends UpdateUserProfileInput {}
 export interface UpdateUserProfileCommandOutput extends UpdateUserProfileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified user profile in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateUserProfileCommand extends $Command
   .classBuilder<

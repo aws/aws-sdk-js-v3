@@ -31,7 +31,6 @@ export interface DescribeSchemasCommandInput extends DescribeSchemasMessage {}
 export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the schema for the specified endpoint.</p>
  *          <p></p>
  * @example
@@ -71,6 +70,7 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe schemas
  * ```javascript
  * // Returns information about the schema for the specified endpoint.

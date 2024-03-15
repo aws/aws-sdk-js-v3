@@ -35,7 +35,6 @@ export interface ListReceivedGrantsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the grants received for all accounts in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface ListReceivedGrantsForOrganizationCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListReceivedGrantsForOrganizationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
  *       automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
  *       used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p>
@@ -117,6 +116,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CopySnapshotCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ResetParameterGroupCommandInput extends ResetParameterGroupRequ
 export interface ResetParameterGroupCommandOutput extends ResetParameterGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire parameter group, specify the AllParameters and ParameterGroupName parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class ResetParameterGroupCommand extends $Command
   .classBuilder<

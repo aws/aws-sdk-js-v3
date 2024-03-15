@@ -27,7 +27,6 @@ export interface GetEnrollmentStatusCommandInput extends GetEnrollmentStatusRequ
 export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the enrollment (opt in) status of an account to the Compute Optimizer
  *             service.</p>
  *          <p>If the account is the management account of an organization, this action also confirms
@@ -80,6 +79,7 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetEnrollmentStatusCommand extends $Command
   .classBuilder<

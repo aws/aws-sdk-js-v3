@@ -27,7 +27,6 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a direct-query data source. For more information, see
  *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3-creating.html">Working with Amazon OpenSearch Service data source integrations with Amazon S3</a>.</p>
  * @example
@@ -81,6 +80,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class UpdateDataSourceCommand extends $Command
   .classBuilder<

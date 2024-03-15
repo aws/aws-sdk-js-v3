@@ -6,8 +6,8 @@ import { StreamingBlobTypes } from "@smithy/types";
 import { LexRuntimeV2ServiceException as __BaseException } from "./LexRuntimeV2ServiceException";
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -26,28 +26,27 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The time that a context is active. You can specify the time to live
  *          in seconds or in conversation turns.</p>
+ * @public
  */
 export interface ActiveContextTimeToLive {
   /**
-   * @public
    * <p>The number of seconds that the context is active. You can specify
    *          between 5 and 86400 seconds (24 hours).</p>
+   * @public
    */
   timeToLiveInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The number of turns that the context is active. You can specify up
    *          to 20 turns. Each request and response from the bot is a turn.</p>
+   * @public
    */
   turnsToLive: number | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about the contexts that a user is using in a
  *          session. You can configure Amazon Lex V2 to set a context when an intent is
  *          fulfilled, or you can set a context using the , , or  operations.</p>
@@ -56,50 +55,50 @@ export interface ActiveContextTimeToLive {
  *             <code>order-fulfilled</code>, only intents that have
  *             <code>order-fulfilled</code> configured as a trigger are considered
  *          for follow up.</p>
+ * @public
  */
 export interface ActiveContext {
   /**
-   * @public
    * <p>The name of the context.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Indicates the number of turns or seconds that the context is active.
    *          Once the time to live expires, the context is no longer returned in a
    *          response.</p>
+   * @public
    */
   timeToLive: ActiveContextTimeToLive | undefined;
 
   /**
-   * @public
    * <p>A list of contexts active for the request. A context can be
    *          activated when a previous intent is fulfilled, or by including the
    *          context in the request.</p>
    *          <p>If you don't specify a list of contexts, Amazon Lex V2 will use the current
    *          list of contexts for the session. If you specify an empty list, all
    *          contexts for the session are cleared. </p>
+   * @public
    */
   contextAttributes: Record<string, string> | undefined;
 }
 
 /**
- * @public
  * <p>Represents a chunk of audio sent from the client application to
  *          Amazon Lex V2. The audio is all or part of an utterance from the user.</p>
  *          <p>Amazon Lex V2 accumulates audio chunks until it recognizes a natural pause
  *          in speech before processing the input.</p>
+ * @public
  */
 export interface AudioInputEvent {
   /**
-   * @public
    * <p>An encoded stream of audio.</p>
+   * @public
    */
   audioChunk?: Uint8Array;
 
   /**
-   * @public
    * <p>The encoding used for the audio chunk. You must use 8 KHz PCM 16-bit
    *          mono-channel little-endian format. The value of the field should
    *          be:</p>
@@ -107,57 +106,58 @@ export interface AudioInputEvent {
    *             <code>audio/lpcm; sample-rate=8000; sample-size-bits=16;
    *             channel-count=1; is-big-endian=false</code>
    *          </p>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier that your application assigns to the event. You
    *          can use this to identify events in logs.</p>
+   * @public
    */
   eventId?: string;
 
   /**
-   * @public
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
+   * @public
    */
   clientTimestampMillis?: number;
 }
 
 /**
- * @public
  * <p>An event sent from Amazon Lex V2 to your client application containing audio
  *          to play to the user. </p>
+ * @public
  */
 export interface AudioResponseEvent {
   /**
-   * @public
    * <p>A chunk of the audio to play. </p>
+   * @public
    */
   audioChunk?: Uint8Array;
 
   /**
-   * @public
    * <p>The encoding of the audio chunk. This is the same as the encoding
    *          configure in the <code>contentType</code> field of the
    *             <code>ConfigurationEvent</code>.</p>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
    *          the form <code>RESPONSE-N</code>, where N is a number starting with one
    *          and incremented for each event sent by Amazon Lex V2 in the current
    *          session.</p>
+   * @public
    */
   eventId?: string;
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -180,27 +180,27 @@ export class ConflictException extends __BaseException {
  */
 export interface DeleteSessionRequest {
   /**
-   * @public
    * <p>The identifier of the bot that contains the session data.</p>
+   * @public
    */
   botId: string | undefined;
 
   /**
-   * @public
    * <p>The alias identifier in use for the bot that contains the session
    *          data.</p>
+   * @public
    */
   botAliasId: string | undefined;
 
   /**
-   * @public
    * <p>The locale where the session is in use.</p>
+   * @public
    */
   localeId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session to delete.</p>
+   * @public
    */
   sessionId: string | undefined;
 }
@@ -210,34 +210,34 @@ export interface DeleteSessionRequest {
  */
 export interface DeleteSessionResponse {
   /**
-   * @public
    * <p>The identifier of the bot that contained the session data.</p>
+   * @public
    */
   botId?: string;
 
   /**
-   * @public
    * <p>The alias identifier in use for the bot that contained the session
    *          data.</p>
+   * @public
    */
   botAliasId?: string;
 
   /**
-   * @public
    * <p>The locale where the session was used.</p>
+   * @public
    */
   localeId?: string;
 
   /**
-   * @public
    * <p>The identifier of the deleted session.</p>
+   * @public
    */
   sessionId?: string;
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -256,8 +256,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -276,8 +276,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -296,8 +296,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -320,27 +320,27 @@ export class ValidationException extends __BaseException {
  */
 export interface GetSessionRequest {
   /**
-   * @public
    * <p>The identifier of the bot that contains the session data.</p>
+   * @public
    */
   botId: string | undefined;
 
   /**
-   * @public
    * <p>The alias identifier in use for the bot that contains the session
    *          data.</p>
+   * @public
    */
   botAliasId: string | undefined;
 
   /**
-   * @public
    * <p>The locale where the session is in use.</p>
+   * @public
    */
   localeId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session to return.</p>
+   * @public
    */
   sessionId: string | undefined;
 }
@@ -376,25 +376,25 @@ export const Shape = {
 export type Shape = (typeof Shape)[keyof typeof Shape];
 
 /**
- * @public
  * <p>Information about the value provided for a slot and Amazon Lex V2's interpretation.</p>
+ * @public
  */
 export interface Value {
   /**
-   * @public
    * <p>The part of the user's response to the slot elicitation that Amazon Lex V2 determines is relevant to the slot value.</p>
+   * @public
    */
   originalValue?: string;
 
   /**
-   * @public
    * <p>The value that Amazon Lex V2 determines for the slot, given the user input. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex V2 choose the first value in the <code>resolvedValues</code> list.</p>
+   * @public
    */
   interpretedValue: string | undefined;
 
   /**
-   * @public
    * <p>A list of values that Amazon Lex V2 determines are possible resolutions for the user input. The first value matches the <code>interpretedValue</code>.</p>
+   * @public
    */
   resolvedValues?: string[];
 }
@@ -432,16 +432,16 @@ export const InterpretationSource = {
 export type InterpretationSource = (typeof InterpretationSource)[keyof typeof InterpretationSource];
 
 /**
- * @public
  * <p>Provides a score that indicates the confidence that Amazon Lex V2 has that
  *          an intent is the one that satisfies the user's intent.</p>
+ * @public
  */
 export interface ConfidenceScore {
   /**
-   * @public
    * <p>A score that indicates how confident Amazon Lex V2 is that an intent
    *          satisfies the user's intent. Ranges between 0.00 and 1.00. Higher
    *          scores indicate higher confidence.</p>
+   * @public
    */
   score?: number;
 }
@@ -463,41 +463,40 @@ export const SentimentType = {
 export type SentimentType = (typeof SentimentType)[keyof typeof SentimentType];
 
 /**
- * @public
  * <p>The individual sentiment responses for the utterance.</p>
+ * @public
  */
 export interface SentimentScore {
   /**
-   * @public
    * <p>The level of confidence that Amazon Comprehend has in the accuracy
    *          of its detection of the <code>POSITIVE</code> sentiment.</p>
+   * @public
    */
   positive?: number;
 
   /**
-   * @public
    * <p>The level of confidence that Amazon Comprehend has in the accuracy
    *          of its detection of the <code>NEGATIVE</code> sentiment.</p>
+   * @public
    */
   negative?: number;
 
   /**
-   * @public
    * <p>The level of confidence that Amazon Comprehend has in the accuracy
    *          of its detection of the <code>NEUTRAL</code> sentiment.</p>
+   * @public
    */
   neutral?: number;
 
   /**
-   * @public
    * <p>The level of confidence that Amazon Comprehend has in the accuracy
    *          of its detection of the <code>MIXED</code> sentiment.</p>
+   * @public
    */
   mixed?: number;
 }
 
 /**
- * @public
  * <p>Provides information about the sentiment expressed in a user's
  *          response in a conversation. Sentiments are determined using Amazon
  *          Comprehend. Sentiments are only returned if they are enabled for the
@@ -505,19 +504,20 @@ export interface SentimentScore {
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-sentiment.html">
  *             Determine Sentiment </a> in the <i>Amazon Comprehend
  *             developer guide</i>.</p>
+ * @public
  */
 export interface SentimentResponse {
   /**
-   * @public
    * <p>The overall sentiment expressed in the user's response. This is the
    *          sentiment most likely expressed by the user based on the analysis by
    *          Amazon Comprehend.</p>
+   * @public
    */
   sentiment?: SentimentType;
 
   /**
-   * @public
    * <p>The individual sentiment responses for the utterance.</p>
+   * @public
    */
   sentimentScore?: SentimentScore;
 }
@@ -539,86 +539,86 @@ export const MessageContentType = {
 export type MessageContentType = (typeof MessageContentType)[keyof typeof MessageContentType];
 
 /**
- * @public
  * <p>A button that appears on a response card show to the user.</p>
+ * @public
  */
 export interface Button {
   /**
-   * @public
    * <p>The text that is displayed on the button.</p>
+   * @public
    */
   text: string | undefined;
 
   /**
-   * @public
    * <p>The value returned to Amazon Lex V2 when a user chooses the button.</p>
+   * @public
    */
   value: string | undefined;
 }
 
 /**
- * @public
  * <p>A card that is shown to the user by a messaging platform. You define
  *             the contents of the card, the card is displayed by the platform. </p>
  *          <p>When you use a response card, the response from the user is
  *             constrained to the text associated with a button on the card.</p>
+ * @public
  */
 export interface ImageResponseCard {
   /**
-   * @public
    * <p>The title to display on the response card. The format of the title
    *             is determined by the platform displaying the response card.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The subtitle to display on the response card. The format of the
    *             subtitle is determined by the platform displaying the response
    *             card.</p>
+   * @public
    */
   subtitle?: string;
 
   /**
-   * @public
    * <p>The URL of an image to display on the response card. The image URL
    *             must be publicly available so that the platform displaying the response
    *             card has access to the image.</p>
+   * @public
    */
   imageUrl?: string;
 
   /**
-   * @public
    * <p>A list of buttons that should be displayed on the response card. The
    *             arrangement of the buttons is determined by the platform that displays
    *             the button.</p>
+   * @public
    */
   buttons?: Button[];
 }
 
 /**
- * @public
  * <p>Container for text that is returned to the customer..</p>
+ * @public
  */
 export interface Message {
   /**
-   * @public
    * <p>The text of the message.</p>
+   * @public
    */
   content?: string;
 
   /**
-   * @public
    * <p>Indicates the type of response.</p>
+   * @public
    */
   contentType: MessageContentType | undefined;
 
   /**
-   * @public
    * <p>A card that is shown to the user by a messaging platform. You define
    *             the contents of the card, the card is displayed by the platform. </p>
    *          <p>When you use a response card, the response from the user is
    *             constrained to the text associated with a button on the card.</p>
+   * @public
    */
   imageResponseCard?: ImageResponseCard;
 }
@@ -657,22 +657,22 @@ export const DialogActionType = {
 export type DialogActionType = (typeof DialogActionType)[keyof typeof DialogActionType];
 
 /**
- * @public
  * <p>Provides the phrase that Amazon Lex V2 should look for in the user's input
  *          to the bot.</p>
+ * @public
  */
 export interface RuntimeHintValue {
   /**
-   * @public
    * <p>The phrase that Amazon Lex V2 should look for in the user's input to the
    *          bot.</p>
+   * @public
    */
   phrase: string | undefined;
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class BadGatewayException extends __BaseException {
   readonly name: "BadGatewayException" = "BadGatewayException";
@@ -691,8 +691,8 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class DependencyFailedException extends __BaseException {
   readonly name: "DependencyFailedException" = "DependencyFailedException";
@@ -715,65 +715,65 @@ export class DependencyFailedException extends __BaseException {
  */
 export interface PutSessionResponse {
   /**
-   * @public
    * <p>The type of response. Same as the type specified in the
    *             <code>responseContentType</code> field in the request.</p>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>A list of messages that were last sent to the user. The messages are
    *          ordered based on how you return the messages from you Lambda function
    *          or the order that the messages are defined in the bot.</p>
+   * @public
    */
   messages?: string;
 
   /**
-   * @public
    * <p>A base-64-encoded gzipped field that represents the current state of
    *          the dialog between the user and the bot. Use this to determine the progress
    *          of the conversation and what the next action may be.</p>
+   * @public
    */
   sessionState?: string;
 
   /**
-   * @public
    * <p>A base-64-encoded gzipped field that provides request-specific information
    *          passed between the client application and Amazon Lex V2. These are the same as the
    *          <code>requestAttribute</code> parameter in the call to the
    *          <code>PutSession</code> operation.</p>
+   * @public
    */
   requestAttributes?: string;
 
   /**
-   * @public
    * <p>The identifier of the session that received the data.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>If the requested content type was audio, the audio version of the
    *          message to convey to the user.</p>
+   * @public
    */
   audioStream?: StreamingBlobTypes;
 }
 
 /**
- * @public
  * <p>The bot member that processes the request.</p>
+ * @public
  */
 export interface RecognizedBotMember {
   /**
-   * @public
    * <p>The identifier of the bot member that processes the request.</p>
+   * @public
    */
   botId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the bot member that processes the request.</p>
+   * @public
    */
   botName?: string;
 }
@@ -783,43 +783,42 @@ export interface RecognizedBotMember {
  */
 export interface RecognizeUtteranceRequest {
   /**
-   * @public
    * <p>The identifier of the bot that should receive the request.</p>
+   * @public
    */
   botId: string | undefined;
 
   /**
-   * @public
    * <p>The alias identifier in use for the bot that should receive the
    *          request.</p>
+   * @public
    */
   botAliasId: string | undefined;
 
   /**
-   * @public
    * <p>The locale where the session is in use.</p>
+   * @public
    */
   localeId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session in use.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>Sets the state of the session with the user. You can use this to set
    *          the current intent, attributes, context, and dialog action. Use the
    *          dialog action to determine the next step that Amazon Lex V2 should use in the
    *          conversation with the user.</p>
    *          <p>The <code>sessionState</code> field must be compressed using gzip
    *          and then base64 encoded before sending to Amazon Lex V2.</p>
+   * @public
    */
   sessionState?: string;
 
   /**
-   * @public
    * <p>Request-specific information passed between the client application
    *          and Amazon Lex V2 </p>
    *          <p>The namespace <code>x-amz-lex:</code> is reserved for special
@@ -827,11 +826,11 @@ export interface RecognizeUtteranceRequest {
    *             <code>x-amz-lex:</code>.</p>
    *          <p>The <code>requestAttributes</code> field must be compressed using
    *          gzip and then base64 encoded before sending to Amazon Lex V2.</p>
+   * @public
    */
   requestAttributes?: string;
 
   /**
-   * @public
    * <p>Indicates the format for audio input or that the content is text.
    *          The header must start with one of the following prefixes:</p>
    *          <ul>
@@ -868,11 +867,11 @@ export interface RecognizeUtteranceRequest {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   requestContentType: string | undefined;
 
   /**
-   * @public
    * <p>The message that Amazon Lex V2 returns in the response can be either text or
    *          speech based on the <code>responseContentType</code> value.</p>
    *          <ul>
@@ -914,13 +913,14 @@ export interface RecognizeUtteranceRequest {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   responseContentType?: string;
 
   /**
-   * @public
    * <p>User input in PCM or Opus audio format or text format as described
    *          in the <code>requestContentType</code> parameter.</p>
+   * @public
    */
   inputStream?: StreamingBlobTypes;
 }
@@ -930,21 +930,20 @@ export interface RecognizeUtteranceRequest {
  */
 export interface RecognizeUtteranceResponse {
   /**
-   * @public
    * <p>Indicates whether the input mode to the operation was text, speech, or from a touch-tone keypad.
    *       </p>
+   * @public
    */
   inputMode?: string;
 
   /**
-   * @public
    * <p>Content type as specified in the <code>responseContentType</code> in
    *          the request.</p>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>A list of messages that were last sent to the user. The messages are
    *          ordered based on the order that you returned the messages from your
    *          Lambda function or the order that the messages are defined in the
@@ -953,11 +952,11 @@ export interface RecognizeUtteranceResponse {
    *          base64 encoded. Before you can use the contents of the field, you must
    *          decode and decompress the contents. See the example for a simple
    *          function to decode and decompress the contents.</p>
+   * @public
    */
   messages?: string;
 
   /**
-   * @public
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
    *          utterance.</p>
    *          <p>Each interpretation includes the intent, a score that indicates how
@@ -968,11 +967,11 @@ export interface RecognizeUtteranceResponse {
    *          then base64 encoded. Before you can use the contents of the field, you
    *          must decode and decompress the contents. See the example for a simple
    *          function to decode and decompress the contents.</p>
+   * @public
    */
   interpretations?: string;
 
   /**
-   * @public
    * <p>Represents the current state of the dialog between the user and the
    *          bot.</p>
    *          <p>Use this to determine the progress of the conversation and what the
@@ -981,26 +980,26 @@ export interface RecognizeUtteranceResponse {
    *          base64 encoded. Before you can use the contents of the field, you must
    *          decode and decompress the contents. See the example for a simple
    *          function to decode and decompress the contents.</p>
+   * @public
    */
   sessionState?: string;
 
   /**
-   * @public
    * <p>The attributes sent in the request.</p>
    *          <p>The <code>requestAttributes</code> field is compressed with gzip and
    *          then base64 encoded. Before you can use the contents of the field, you
    *          must decode and decompress the contents.</p>
+   * @public
    */
   requestAttributes?: string;
 
   /**
-   * @public
    * <p>The identifier of the session in use.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>The text used to process the request.</p>
    *          <p>If the input was an audio stream, the <code>inputTranscript</code>
    *          field contains the text extracted from the audio stream. This is the
@@ -1011,11 +1010,11 @@ export interface RecognizeUtteranceResponse {
    *          then base64 encoded. Before you can use the contents of the field, you
    *          must decode and decompress the contents. See the example for a simple
    *          function to decode and decompress the contents.</p>
+   * @public
    */
   inputTranscript?: string;
 
   /**
-   * @public
    * <p>The prompt or statement to send to the user. This is based on the
    *          bot configuration and context. For example, if Amazon Lex V2 did not understand
    *          the user intent, it sends the <code>clarificationPrompt</code>
@@ -1025,12 +1024,13 @@ export interface RecognizeUtteranceResponse {
    *          Lambda function successfully fulfilled the intent, and sent a message
    *          to convey to the user. Then Amazon Lex V2 sends that message in the
    *          response.</p>
+   * @public
    */
   audioStream?: StreamingBlobTypes;
 
   /**
-   * @public
    * <p>The bot member that recognized the utterance.</p>
+   * @public
    */
   recognizedBotMember?: string;
 }
@@ -1050,119 +1050,119 @@ export const ConversationMode = {
 export type ConversationMode = (typeof ConversationMode)[keyof typeof ConversationMode];
 
 /**
- * @public
  * <p>A notification from the client that it is disconnecting from Amazon Lex V2.
  *          Sending a <code>DisconnectionEvent</code> event is optional, but can
  *          help identify a conversation in logs.</p>
+ * @public
  */
 export interface DisconnectionEvent {
   /**
-   * @public
    * <p>A unique identifier that your application assigns to the event. You
    *          can use this to identify events in logs.</p>
+   * @public
    */
   eventId?: string;
 
   /**
-   * @public
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
+   * @public
    */
   clientTimestampMillis?: number;
 }
 
 /**
- * @public
  * <p>A DTMF character sent from the client application. DTMF characters
  *          are typically sent from a phone keypad to represent numbers. For
  *          example, you can have Amazon Lex V2 process a credit card number input from a
  *          phone.</p>
+ * @public
  */
 export interface DTMFInputEvent {
   /**
-   * @public
    * <p>The DTMF character that the user pressed. The allowed characters are
    *          A - D, 0 - 9, # and *.</p>
+   * @public
    */
   inputCharacter: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier that your application assigns to the event. You
    *          can use this to identify events in logs.</p>
+   * @public
    */
   eventId?: string;
 
   /**
-   * @public
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
+   * @public
    */
   clientTimestampMillis?: number;
 }
 
 /**
- * @public
  * <p>Event sent from the client application to Amazon Lex V2 to indicate that
  *          playback of audio is complete and that Amazon Lex V2 should start processing
  *          the user's input.</p>
+ * @public
  */
 export interface PlaybackCompletionEvent {
   /**
-   * @public
    * <p>A unique identifier that your application assigns to the event. You
    *          can use this to identify events in logs.</p>
+   * @public
    */
   eventId?: string;
 
   /**
-   * @public
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
+   * @public
    */
   clientTimestampMillis?: number;
 }
 
 /**
- * @public
  * <p>The event sent from your client application to Amazon Lex V2 with text input
  *          from the user.</p>
+ * @public
  */
 export interface TextInputEvent {
   /**
-   * @public
    * <p>The text from the user. Amazon Lex V2 processes this as a complete
    *          statement.</p>
+   * @public
    */
   text: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier that your application assigns to the event. You
    *          can use this to identify events in logs.</p>
+   * @public
    */
   eventId?: string;
 
   /**
-   * @public
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
+   * @public
    */
   clientTimestampMillis?: number;
 }
 
 /**
- * @public
  * <p>Event that Amazon Lex V2 sends to indicate that the stream is still open
  *          between the client application and Amazon Lex V2 </p>
+ * @public
  */
 export interface HeartbeatEvent {
   /**
-   * @public
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
    *          the form <code>RESPONSE-N</code>, where N is a number starting with one
    *          and incremented for each event sent by Amazon Lex V2 in the current
    *          session.</p>
+   * @public
    */
   eventId?: string;
 }
@@ -1198,109 +1198,108 @@ export const PlaybackInterruptionReason = {
 export type PlaybackInterruptionReason = (typeof PlaybackInterruptionReason)[keyof typeof PlaybackInterruptionReason];
 
 /**
- * @public
  * <p>Event sent from Amazon Lex V2 to indicate to the client application should
  *          stop playback of audio. For example, if the client is playing a prompt
  *          that asks for the user's telephone number, the user might start to say
  *          the phone number before the prompt is complete. Amazon Lex V2 sends this event
  *          to the client application to indicate that the user is responding and
  *          that Amazon Lex V2 is processing their input.</p>
+ * @public
  */
 export interface PlaybackInterruptionEvent {
   /**
-   * @public
    * <p>Indicates the type of user input that Amazon Lex V2 detected.</p>
+   * @public
    */
   eventReason?: PlaybackInterruptionReason;
 
   /**
-   * @public
    * <p>The identifier of the event that contained the audio, DTMF, or text
    *          that caused the interruption.</p>
+   * @public
    */
   causedByEventId?: string;
 
   /**
-   * @public
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
    *          the form <code>RESPONSE-N</code>, where N is a number starting with one
    *          and incremented for each event sent by Amazon Lex V2 in the current
    *          session.</p>
+   * @public
    */
   eventId?: string;
 }
 
 /**
- * @public
  * <p>The event sent from Amazon Lex V2 to your application with text to present
  *          to the user.</p>
+ * @public
  */
 export interface TextResponseEvent {
   /**
-   * @public
    * <p>A list of messages to send to the user. Messages are ordered based
    *          on the order that you returned the messages from your Lambda function
    *          or the order that the messages are defined in the bot.</p>
+   * @public
    */
   messages?: Message[];
 
   /**
-   * @public
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
    *          the form <code>RESPONSE-N</code>, where N is a number starting with one
    *          and incremented for each event sent by Amazon Lex V2 in the current
    *          session.</p>
+   * @public
    */
   eventId?: string;
 }
 
 /**
- * @public
  * <p>Event sent from Amazon Lex V2 to your client application that contains a
  *          transcript of voice audio. </p>
+ * @public
  */
 export interface TranscriptEvent {
   /**
-   * @public
    * <p>The transcript of the voice audio from the user.</p>
+   * @public
    */
   transcript?: string;
 
   /**
-   * @public
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
    *          the form <code>RESPONSE-N</code>, where N is a number starting with one
    *          and incremented for each event sent by Amazon Lex V2 in the current
    *          session.</p>
+   * @public
    */
   eventId?: string;
 }
 
 /**
- * @public
  * <p>The specific constituent sub slot of the composite slot to elicit in dialog action.</p>
+ * @public
  */
 export interface ElicitSubSlot {
   /**
-   * @public
    * <p>The name of the slot that should be elicited from the user.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The field is not supported.</p>
+   * @public
    */
   subSlotToElicit?: ElicitSubSlot;
 }
 
 /**
- * @public
  * <p>The next action that Amazon Lex V2 should take.</p>
+ * @public
  */
 export interface DialogAction {
   /**
-   * @public
    * <p>The next action that the bot should take in its interaction with the
    *          user. The following values are possible:</p>
    *          <ul>
@@ -1332,17 +1331,17 @@ export interface DialogAction {
    *                value from the user.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   type: DialogActionType | undefined;
 
   /**
-   * @public
    * <p>The name of the slot that should be elicited from the user.</p>
+   * @public
    */
   slotToElicit?: string;
 
   /**
-   * @public
    * <p>Configures the slot to use spell-by-letter or spell-by-word style.
    *          When you use a style on a slot, users can spell out their input to make
    *          it clear to your bot.</p>
@@ -1357,43 +1356,43 @@ export interface DialogAction {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/spelling-styles.html">
    *             Using spelling to enter slot values </a>.</p>
+   * @public
    */
   slotElicitationStyle?: StyleType;
 
   /**
-   * @public
    * <p>The name of the constituent sub slot of the composite slot
    *       specified in slotToElicit that should be elicited from the user.</p>
+   * @public
    */
   subSlotToElicit?: ElicitSubSlot;
 }
 
 /**
- * @public
  * <p>Provides an array of phrases that should be given preference when
  *          resolving values for a slot.</p>
+ * @public
  */
 export interface RuntimeHintDetails {
   /**
-   * @public
    * <p>One or more strings that Amazon Lex V2 should look for in the input to the
    *          bot. Each phrase is given preference when deciding on slot
    *          values.</p>
+   * @public
    */
   runtimeHintValues?: RuntimeHintValue[];
 
   /**
-   * @public
    * <p>A map of constituent sub slot names inside a composite slot in the intent and the phrases
    *       that should be added for each sub slot. Inside each composite slot hints, this structure provides
    *       a mechanism to add granular sub slot phrases. Only sub slot hints are supported for composite slots.
    *       The intent name, composite slot name and the constituent sub slot names must exist.</p>
+   * @public
    */
   subSlotHints?: Record<string, RuntimeHintDetails>;
 }
 
 /**
- * @public
  * <p>You can provide Amazon Lex V2 with hints to the phrases that a customer is
  *          likely to use for a slot. When a slot with hints is resolved, the
  *          phrases in the runtime hints are preferred in the resolution. You can
@@ -1403,10 +1402,10 @@ export interface RuntimeHintDetails {
  *          first rebuild the bot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.html">Using runtime hints to
  *             improve recognition of slot values</a>.</p>
+ * @public
  */
 export interface RuntimeHints {
   /**
-   * @public
    * <p>A list of the slots in the intent that should have runtime hints
    *          added, and the phrases that should be added for each slot.</p>
    *          <p>The first level of the <code>slotHints</code> map is the name of the
@@ -1414,66 +1413,66 @@ export interface RuntimeHints {
    *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.html">Using hints to improve
    *             accuracy</a>.</p>
    *          <p>The intent name and slot name must exist.</p>
+   * @public
    */
   slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
 }
 
 /**
- * @public
  * <p>A value that Amazon Lex V2 uses to fulfill an intent. </p>
+ * @public
  */
 export interface Slot {
   /**
-   * @public
    * <p>The current value of the slot.</p>
+   * @public
    */
   value?: Value;
 
   /**
-   * @public
    * <p>When the <code>shape</code> value is <code>List</code>, it indicates
    *          that the <code>values</code> field contains a list of slot values. When
    *          the value is <code>Scalar</code>, it indicates that the
    *             <code>value</code> field contains a single value.</p>
+   * @public
    */
   shape?: Shape;
 
   /**
-   * @public
    * <p>A list of one or more values that the user provided for the slot.
    *          For example, if a for a slot that elicits pizza toppings, the values
    *          might be "pepperoni" and "pineapple." </p>
+   * @public
    */
   values?: Slot[];
 
   /**
-   * @public
    * <p>The constituent sub slots of a composite slot.</p>
+   * @public
    */
   subSlots?: Record<string, Slot>;
 }
 
 /**
- * @public
  * <p>The current intent that Amazon Lex V2 is attempting to fulfill.</p>
+ * @public
  */
 export interface Intent {
   /**
-   * @public
    * <p>The name of the intent.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A map of all of the slots for the intent. The name of the slot maps
    *          to the value of the slot. If a slot has not been filled, the value is
    *          null.</p>
+   * @public
    */
   slots?: Record<string, Slot>;
 
   /**
-   * @public
    * <p>Indicates the fulfillment state for the intent. The meanings of each value are as follows:</p>
    *          <ul>
    *             <li>
@@ -1501,123 +1500,123 @@ export interface Intent {
    *                   <code>Waiting</code> – The bot is waiting for a response from the user (limited to streaming conversations).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   state?: IntentState;
 
   /**
-   * @public
    * <p>Indicates whether the intent has been <code>Confirmed</code>, <code>Denied</code>, or <code>None</code> if the confirmation stage has not yet been reached.</p>
+   * @public
    */
   confirmationState?: ConfirmationState;
 }
 
 /**
- * @public
  * <p>An object containing information about an intent that Amazon Lex V2 determined might satisfy the user's utterance.
  *          The intents are ordered by the confidence score. </p>
+ * @public
  */
 export interface Interpretation {
   /**
-   * @public
    * <p>Determines the threshold where Amazon Lex V2 will insert the
    *             <code>AMAZON.FallbackIntent</code>,
    *             <code>AMAZON.KendraSearchIntent</code>, or both when returning
    *          alternative intents in a response. <code>AMAZON.FallbackIntent</code>
    *          and <code>AMAZON.KendraSearchIntent</code> are only inserted if they
    *          are configured for the bot.</p>
+   * @public
    */
   nluConfidence?: ConfidenceScore;
 
   /**
-   * @public
    * <p>The sentiment expressed in an utterance. </p>
    *          <p>When the bot is configured to send utterances to Amazon Comprehend
    *          for sentiment analysis, this field contains the result of the
    *          analysis.</p>
+   * @public
    */
   sentimentResponse?: SentimentResponse;
 
   /**
-   * @public
    * <p>A list of intents that might satisfy the user's utterance. The
    *          intents are ordered by the confidence score.</p>
+   * @public
    */
   intent?: Intent;
 
   /**
-   * @public
    * <p>Specifies the service that interpreted the input.</p>
+   * @public
    */
   interpretationSource?: InterpretationSource;
 }
 
 /**
- * @public
  * <p>The state of the user's session with Amazon Lex V2.</p>
+ * @public
  */
 export interface SessionState {
   /**
-   * @public
    * <p>The next step that Amazon Lex V2 should take in the conversation with a
    *          user.</p>
+   * @public
    */
   dialogAction?: DialogAction;
 
   /**
-   * @public
    * <p>The active intent that Amazon Lex V2 is processing.</p>
+   * @public
    */
   intent?: Intent;
 
   /**
-   * @public
    * <p>One or more contexts that indicate to Amazon Lex V2 the context of a
    *          request. When a context is active, Amazon Lex V2 considers intents with the
    *          matching context as a trigger as the next intent in a session.</p>
+   * @public
    */
   activeContexts?: ActiveContext[];
 
   /**
-   * @public
    * <p>Map of key/value pairs representing session-specific context
    *          information. It contains application information passed between Amazon Lex V2
    *          and a client application.</p>
+   * @public
    */
   sessionAttributes?: Record<string, string>;
 
   /**
-   * @public
    * <p>A unique identifier for a specific request.</p>
+   * @public
    */
   originatingRequestId?: string;
 
   /**
-   * @public
    * <p>Hints for phrases that a customer is likely to use for a slot. Amazon Lex V2
    *          uses the hints to help determine the correct value of a slot.</p>
+   * @public
    */
   runtimeHints?: RuntimeHints;
 }
 
 /**
- * @public
  * <p>The initial event sent from the application to Amazon Lex V2 to configure
  *          the conversation, including session and request attributes and the
  *          response content type.</p>
+ * @public
  */
 export interface ConfigurationEvent {
   /**
-   * @public
    * <p>Request-specific information passed between the client application
    *          and Amazon Lex V2.</p>
    *          <p>The namespace <code>x-amz-lex:</code> is reserved for special
    *          attributes. Don't create any request attributes for prefix
    *             <code>x-amz-lex:</code>.</p>
+   * @public
    */
   requestAttributes?: Record<string, string>;
 
   /**
-   * @public
    * <p>The message that Amazon Lex V2 returns in the response can be either text or
    *          speech based on the <code>responseContentType</code> value.</p>
    *          <ul>
@@ -1658,17 +1657,17 @@ export interface ConfigurationEvent {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   responseContentType: string | undefined;
 
   /**
-   * @public
    * <p>The state of the user's session with Amazon Lex V2.</p>
+   * @public
    */
   sessionState?: SessionState;
 
   /**
-   * @public
    * <p>A list of messages to send to the user.</p>
    *          <p>If you set the <code>welcomeMessage</code> field, you must also set
    *          the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html">
@@ -1676,11 +1675,11 @@ export interface ConfigurationEvent {
    *             </a> structure's <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_DialogAction.html#lexv2-Type-runtime_DialogAction-type">
    *                <code>type</code>
    *             </a> field.</p>
+   * @public
    */
   welcomeMessages?: Message[];
 
   /**
-   * @public
    * <p>Determines whether Amazon Lex V2 should send audio responses to the client
    *          application.
    *       </p>
@@ -1689,20 +1688,21 @@ export interface ConfigurationEvent {
    *          operating in playback mode, such as a text chat application, set this
    *          to true so that Amazon Lex V2 doesn't wait for the prompt to finish playing on
    *          the client.</p>
+   * @public
    */
   disablePlayback?: boolean;
 
   /**
-   * @public
    * <p>A unique identifier that your application assigns to the event. You
    *          can use this to identify events in logs.</p>
+   * @public
    */
   eventId?: string;
 
   /**
-   * @public
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
+   * @public
    */
   clientTimestampMillis?: number;
 }
@@ -1712,58 +1712,57 @@ export interface ConfigurationEvent {
  */
 export interface PutSessionRequest {
   /**
-   * @public
    * <p>The identifier of the bot that receives the session data.</p>
+   * @public
    */
   botId: string | undefined;
 
   /**
-   * @public
    * <p>The alias identifier of the bot that receives the session
    *          data.</p>
+   * @public
    */
   botAliasId: string | undefined;
 
   /**
-   * @public
    * <p>The locale where the session is in use.</p>
+   * @public
    */
   localeId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session that receives the session data.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>A list of messages to send to the user. Messages are sent in the
    *          order that they are defined in the list.</p>
+   * @public
    */
   messages?: Message[];
 
   /**
-   * @public
    * <p>Sets the state of the session with the user. You can use this to set
    *          the current intent, attributes, context, and dialog action. Use the
    *          dialog action to determine the next step that Amazon Lex V2 should use in the
    *          conversation with the user.</p>
+   * @public
    */
   sessionState: SessionState | undefined;
 
   /**
-   * @public
    * <p>Request-specific information passed between Amazon Lex V2 and the client
    *          application.</p>
    *          <p>The namespace <code>x-amz-lex:</code> is reserved for special
    *          attributes. Don't create any request attributes with the prefix
    *             <code>x-amz-lex:</code>.</p>
+   * @public
    */
   requestAttributes?: Record<string, string>;
 
   /**
-   * @public
    * <p>The message that Amazon Lex V2 returns in the response can be either text or
    *          speech depending on the value of this parameter. </p>
    *          <ul>
@@ -1772,6 +1771,7 @@ export interface PutSessionRequest {
    *                returns text in the response.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   responseContentType?: string;
 }
@@ -1781,58 +1781,58 @@ export interface PutSessionRequest {
  */
 export interface RecognizeTextRequest {
   /**
-   * @public
    * <p>The identifier of the bot that processes the request.</p>
+   * @public
    */
   botId: string | undefined;
 
   /**
-   * @public
    * <p>The alias identifier in use for the bot that processes the
    *          request.</p>
+   * @public
    */
   botAliasId: string | undefined;
 
   /**
-   * @public
    * <p>The locale where the session is in use.</p>
+   * @public
    */
   localeId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the user session that is having the
    *          conversation.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>The text that the user entered. Amazon Lex V2 interprets this text.</p>
+   * @public
    */
   text: string | undefined;
 
   /**
-   * @public
    * <p>The current state of the dialog between the user and the bot.</p>
+   * @public
    */
   sessionState?: SessionState;
 
   /**
-   * @public
    * <p>Request-specific information passed between the client application
    *          and Amazon Lex V2 </p>
    *          <p>The namespace <code>x-amz-lex:</code> is reserved for special
    *          attributes. Don't create any request attributes with the prefix
    *             <code>x-amz-lex:</code>.</p>
+   * @public
    */
   requestAttributes?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Represents a stream of events between your application and
  *          Amazon Lex V2.</p>
+ * @public
  */
 export type StartConversationRequestEventStream =
   | StartConversationRequestEventStream.AudioInputEventMember
@@ -1848,9 +1848,9 @@ export type StartConversationRequestEventStream =
  */
 export namespace StartConversationRequestEventStream {
   /**
-   * @public
    * <p>Configuration information sent from your client application to
    *          Amazon Lex V2</p>
+   * @public
    */
   export interface ConfigurationEventMember {
     ConfigurationEvent: ConfigurationEvent;
@@ -1863,10 +1863,10 @@ export namespace StartConversationRequestEventStream {
   }
 
   /**
-   * @public
    * <p>Speech audio sent from your client application to Amazon Lex V2. Audio
    *          starts accumulating when Amazon Lex V2 identifies a voice and continues until a
    *          natural pause in the speech is found before processing.</p>
+   * @public
    */
   export interface AudioInputEventMember {
     ConfigurationEvent?: never;
@@ -1879,7 +1879,6 @@ export namespace StartConversationRequestEventStream {
   }
 
   /**
-   * @public
    * <p>DTMF information sent to Amazon Lex V2 by your application. Amazon Lex V2
    *          accumulates the DMTF information from when the user sends the first
    *          character and ends</p>
@@ -1897,6 +1896,7 @@ export namespace StartConversationRequestEventStream {
    *                character configuration.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   export interface DTMFInputEventMember {
     ConfigurationEvent?: never;
@@ -1909,9 +1909,9 @@ export namespace StartConversationRequestEventStream {
   }
 
   /**
-   * @public
    * <p>Text sent from your client application to Amazon Lex V2. Each
    *             <code>TextInputEvent</code> is processed individually.</p>
+   * @public
    */
   export interface TextInputEventMember {
     ConfigurationEvent?: never;
@@ -1924,10 +1924,10 @@ export namespace StartConversationRequestEventStream {
   }
 
   /**
-   * @public
    * <p>Event sent from the client application to Amazon Lex V2 to indicate that it
    *          has finished playing audio and that Amazon Lex V2 should start listening for
    *          user input.</p>
+   * @public
    */
   export interface PlaybackCompletionEventMember {
     ConfigurationEvent?: never;
@@ -1940,9 +1940,9 @@ export namespace StartConversationRequestEventStream {
   }
 
   /**
-   * @public
    * <p>Event sent from the client application to indicate to Amazon Lex V2 that the
    *          conversation is over.</p>
+   * @public
    */
   export interface DisconnectionEventMember {
     ConfigurationEvent?: never;
@@ -1994,44 +1994,44 @@ export namespace StartConversationRequestEventStream {
  */
 export interface StartConversationRequest {
   /**
-   * @public
    * <p>The identifier of the bot to process the request.</p>
+   * @public
    */
   botId: string | undefined;
 
   /**
-   * @public
    * <p>The alias identifier in use for the bot that processes the
    *          request.</p>
+   * @public
    */
   botAliasId: string | undefined;
 
   /**
-   * @public
    * <p>The locale where the session is in use.</p>
+   * @public
    */
   localeId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the user session that is having the
    *          conversation.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>The conversation type that you are using the Amazon Lex V2. If the
    *          conversation mode is <code>AUDIO</code> you can send both audio and
    *          DTMF information. If the mode is <code>TEXT</code> you can only send
    *          text.</p>
+   * @public
    */
   conversationMode?: ConversationMode;
 
   /**
-   * @public
    * <p>Represents the stream of events to Amazon Lex V2 from your application. The
    *          events are encoded as HTTP/2 data frames.</p>
+   * @public
    */
   requestEventStream: AsyncIterable<StartConversationRequestEventStream> | undefined;
 }
@@ -2041,94 +2041,94 @@ export interface StartConversationRequest {
  */
 export interface GetSessionResponse {
   /**
-   * @public
    * <p>The identifier of the returned session.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>A list of messages that were last sent to the user. The messages are
    *          ordered based on the order that your returned the messages from your
    *          Lambda function or the order that messages are defined in the bot.
    *       </p>
+   * @public
    */
   messages?: Message[];
 
   /**
-   * @public
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
    *          utterance. </p>
    *          <p>Each interpretation includes the intent, a score that indicates how
    *          confident Amazon Lex V2 is that the interpretation is the correct one, and an
    *          optional sentiment response that indicates the sentiment expressed in
    *          the utterance.</p>
+   * @public
    */
   interpretations?: Interpretation[];
 
   /**
-   * @public
    * <p>Represents the current state of the dialog between the user and the
    *          bot.</p>
    *          <p>You can use this to determine the progress of the conversation and
    *          what the next action might be.</p>
+   * @public
    */
   sessionState?: SessionState;
 }
 
 /**
- * @public
  * <p>Contains the current state of the conversation between the client
  *          application and Amazon Lex V2.</p>
+ * @public
  */
 export interface IntentResultEvent {
   /**
-   * @public
    * <p>Indicates whether the input to the operation was text, speech, or from a touch-tone keypad.</p>
+   * @public
    */
   inputMode?: InputMode;
 
   /**
-   * @public
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
    *          utterance.</p>
    *          <p>Each interpretation includes the intent, a score that indicates how
    *          confident Amazon Lex V2 is that the interpretation is the correct one, and an
    *          optional sentiment response that indicates the sentiment expressed in
    *          the utterance.</p>
+   * @public
    */
   interpretations?: Interpretation[];
 
   /**
-   * @public
    * <p>The state of the user's session with Amazon Lex V2.</p>
+   * @public
    */
   sessionState?: SessionState;
 
   /**
-   * @public
    * <p>The attributes sent in the request.</p>
+   * @public
    */
   requestAttributes?: Record<string, string>;
 
   /**
-   * @public
    * <p>The identifier of the session in use.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
    *          the form <code>RESPONSE-N</code>, where N is a number starting with one
    *          and incremented for each event sent by Amazon Lex V2 in the current
    *          session.</p>
+   * @public
    */
   eventId?: string;
 
   /**
-   * @public
    * <p>The bot member that is processing the intent.</p>
+   * @public
    */
   recognizedBotMember?: RecognizedBotMember;
 }
@@ -2138,56 +2138,56 @@ export interface IntentResultEvent {
  */
 export interface RecognizeTextResponse {
   /**
-   * @public
    * <p>A list of messages last sent to the user. The messages are ordered
    *          based on the order that you returned the messages from your Lambda
    *          function or the order that the messages are defined in the bot.</p>
+   * @public
    */
   messages?: Message[];
 
   /**
-   * @public
    * <p>Represents the current state of the dialog between the user and the
    *          bot. </p>
    *          <p>Use this to determine the progress of the conversation and what the
    *          next action may be.</p>
+   * @public
    */
   sessionState?: SessionState;
 
   /**
-   * @public
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
    *          utterance. </p>
    *          <p>Each interpretation includes the intent, a score that indicates now
    *          confident Amazon Lex V2 is that the interpretation is the correct one, and an
    *          optional sentiment response that indicates the sentiment expressed in
    *          the utterance.</p>
+   * @public
    */
   interpretations?: Interpretation[];
 
   /**
-   * @public
    * <p>The attributes sent in the request.</p>
+   * @public
    */
   requestAttributes?: Record<string, string>;
 
   /**
-   * @public
    * <p>The identifier of the session in use.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>The bot member that recognized the text.</p>
+   * @public
    */
   recognizedBotMember?: RecognizedBotMember;
 }
 
 /**
- * @public
  * <p>Represents a stream of events between Amazon Lex V2 and your
  *          application.</p>
+ * @public
  */
 export type StartConversationResponseEventStream =
   | StartConversationResponseEventStream.AccessDeniedExceptionMember
@@ -2211,13 +2211,13 @@ export type StartConversationResponseEventStream =
  */
 export namespace StartConversationResponseEventStream {
   /**
-   * @public
    * <p>Event sent from Amazon Lex V2 to indicate to the client application should
    *          stop playback of audio. For example, if the client is playing a prompt
    *          that asks for the user's telephone number, the user might start to say
    *          the phone number before the prompt is complete. Amazon Lex V2 sends this event
    *          to the client application to indicate that the user is responding and
    *          that Amazon Lex V2 is processing their input.</p>
+   * @public
    */
   export interface PlaybackInterruptionEventMember {
     PlaybackInterruptionEvent: PlaybackInterruptionEvent;
@@ -2238,9 +2238,9 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Event sent from Amazon Lex V2 to your client application that contains a
    *          transcript of voice audio. </p>
+   * @public
    */
   export interface TranscriptEventMember {
     PlaybackInterruptionEvent?: never;
@@ -2261,9 +2261,9 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Event sent from Amazon Lex V2 to the client application containing the
    *          current state of the conversation between the user and Amazon Lex V2.</p>
+   * @public
    */
   export interface IntentResultEventMember {
     PlaybackInterruptionEvent?: never;
@@ -2284,9 +2284,9 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>The event sent from Amazon Lex V2 to your application with text to present
    *          to the user.</p>
+   * @public
    */
   export interface TextResponseEventMember {
     PlaybackInterruptionEvent?: never;
@@ -2307,9 +2307,9 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>An event sent from Amazon Lex V2 to your client application containing audio
    *          to play to the user. </p>
+   * @public
    */
   export interface AudioResponseEventMember {
     PlaybackInterruptionEvent?: never;
@@ -2330,9 +2330,9 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Event that Amazon Lex V2 sends to indicate that the stream is still open
    *          between the client application and Amazon Lex V2 </p>
+   * @public
    */
   export interface HeartbeatEventMember {
     PlaybackInterruptionEvent?: never;
@@ -2353,11 +2353,11 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Exception thrown when the credentials passed with the request are
    *          invalid or expired. Also thrown when the credentials in the request do
    *          not have permission to access the <code>StartConversation</code>
    *          operation.</p>
+   * @public
    */
   export interface AccessDeniedExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2378,10 +2378,10 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Exception thrown if one of the input parameters points to a resource
    *          that does not exist. For example, if the bot ID specified does not
    *          exist.</p>
+   * @public
    */
   export interface ResourceNotFoundExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2402,10 +2402,10 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Exception thrown when one or more parameters could not be validated.
    *          The <code>message</code> contains the name of the field that isn't
    *          valid.</p>
+   * @public
    */
   export interface ValidationExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2426,9 +2426,9 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Exception thrown when your application exceeds the maximum number of
    *          concurrent requests. </p>
+   * @public
    */
   export interface ThrottlingExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2449,8 +2449,8 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>An error occurred with Amazon Lex V2.</p>
+   * @public
    */
   export interface InternalServerExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2471,9 +2471,9 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p>Exception thrown when two clients are using the same AWS account,
    *          Amazon Lex V2 bot, and session ID.</p>
+   * @public
    */
   export interface ConflictExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2494,8 +2494,8 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p></p>
+   * @public
    */
   export interface DependencyFailedExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2516,8 +2516,8 @@ export namespace StartConversationResponseEventStream {
   }
 
   /**
-   * @public
    * <p></p>
+   * @public
    */
   export interface BadGatewayExceptionMember {
     PlaybackInterruptionEvent?: never;
@@ -2604,9 +2604,9 @@ export namespace StartConversationResponseEventStream {
  */
 export interface StartConversationResponse {
   /**
-   * @public
    * <p>Represents the stream of events from Amazon Lex V2 to your application. The
    *          events are encoded as HTTP/2 data frames.</p>
+   * @public
    */
   responseEventStream?: AsyncIterable<StartConversationResponseEventStream>;
 }

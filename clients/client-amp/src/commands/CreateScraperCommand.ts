@@ -27,7 +27,6 @@ export interface CreateScraperCommandInput extends CreateScraperRequest {}
 export interface CreateScraperCommandOutput extends CreateScraperResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateScraper</code> operation creates a scraper to collect metrics. A
  *             scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
  *             cluster, and sends them to your Amazon Managed Service for Prometheus workspace. You can configure the
@@ -124,6 +123,7 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class CreateScraperCommand extends $Command
   .classBuilder<

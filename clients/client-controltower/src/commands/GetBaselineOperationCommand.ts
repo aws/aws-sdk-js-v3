@@ -27,7 +27,6 @@ export interface GetBaselineOperationCommandInput extends GetBaselineOperationIn
 export interface GetBaselineOperationCommandOutput extends GetBaselineOperationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of an asynchronous baseline operation, as initiated by any of these APIs: <code>EnableBaseline</code>, <code>DisableBaseline</code>, <code>UpdateEnabledBaseline</code>, <code>ResetEnabledBaseline</code>. A status message is displayed in case of operation failure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetBaselineOperationCommandOutput extends GetBaselineOperationO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class GetBaselineOperationCommand extends $Command
   .classBuilder<

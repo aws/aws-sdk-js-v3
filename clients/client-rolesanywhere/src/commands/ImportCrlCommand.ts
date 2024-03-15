@@ -27,7 +27,6 @@ export interface ImportCrlCommandInput extends ImportCrlRequest {}
 export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports the certificate revocation list (CRL). A CRL is a list of certificates that have
  *          been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere
  *          validates against the CRL before issuing credentials. </p>
@@ -85,6 +84,7 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class ImportCrlCommand extends $Command
   .classBuilder<

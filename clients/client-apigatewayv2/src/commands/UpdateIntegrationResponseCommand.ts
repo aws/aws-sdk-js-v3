@@ -27,7 +27,6 @@ export interface UpdateIntegrationResponseCommandInput extends UpdateIntegration
 export interface UpdateIntegrationResponseCommandOutput extends UpdateIntegrationResponseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an IntegrationResponses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpdateIntegrationResponseCommandOutput extends UpdateIntegratio
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class UpdateIntegrationResponseCommand extends $Command
   .classBuilder<

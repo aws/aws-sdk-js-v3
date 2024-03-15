@@ -27,7 +27,6 @@ export interface SetVisibleToAllUsersCommandInput extends SetVisibleToAllUsersIn
 export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <important>
  *             <p>The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be
  *             visible to all users in your account. To restrict cluster access using an IAM policy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-IAM.html">Identity and Access
@@ -72,6 +71,7 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class SetVisibleToAllUsersCommand extends $Command
   .classBuilder<

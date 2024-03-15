@@ -27,7 +27,6 @@ export interface RebuildWorkspacesCommandInput extends RebuildWorkspacesRequest 
 export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rebuilds the specified WorkSpace.</p>
  *          <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,
  *             <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or
@@ -76,6 +75,7 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class RebuildWorkspacesCommand extends $Command
   .classBuilder<

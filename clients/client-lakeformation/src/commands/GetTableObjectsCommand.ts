@@ -27,7 +27,6 @@ export interface GetTableObjectsCommandInput extends GetTableObjectsRequest {}
 export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the set of Amazon S3 objects that make up the specified governed table. A transaction ID or timestamp can be specified for time-travel queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetTableObjectsCommand extends $Command
   .classBuilder<

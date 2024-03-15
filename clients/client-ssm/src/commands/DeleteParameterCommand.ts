@@ -27,7 +27,6 @@ export interface DeleteParameterCommandInput extends DeleteParameterRequest {}
 export interface DeleteParameterCommandOutput extends DeleteParameterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a parameter from the system. After deleting a parameter, wait for at least 30 seconds
  *    to create a parameter with the same name.</p>
  * @example
@@ -60,6 +59,7 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteParameterCommand extends $Command
   .classBuilder<

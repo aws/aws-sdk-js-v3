@@ -27,7 +27,6 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a domain, which is a container for all case data, such as cases, fields, templates
  *       and layouts. Each Amazon Connect instance can be associated with only one Cases
  *       domain.</p>
@@ -89,6 +88,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class CreateDomainCommand extends $Command
   .classBuilder<

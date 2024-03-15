@@ -27,7 +27,6 @@ export interface ModifyCapacityReservationCommandInput extends ModifyCapacityRes
 export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityReservationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a Capacity Reservation's capacity and the conditions under which it is to be released. You
  * 			cannot change a Capacity Reservation's instance type, EBS optimization, instance store settings,
  * 			platform, Availability Zone, or instance eligibility. If you need to modify any of these
@@ -65,6 +64,7 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyCapacityReservationCommand extends $Command
   .classBuilder<

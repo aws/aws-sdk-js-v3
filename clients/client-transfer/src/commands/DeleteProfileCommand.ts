@@ -27,7 +27,6 @@ export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
 export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the profile that's specified in the <code>ProfileId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteProfileCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts an invitation for the member account to contribute data to a behavior graph.
  *          This operation can only be called by an invited member account. </p>
  *          <p>The request provides the ARN of behavior graph.</p>
@@ -72,6 +71,7 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class AcceptInvitationCommand extends $Command
   .classBuilder<

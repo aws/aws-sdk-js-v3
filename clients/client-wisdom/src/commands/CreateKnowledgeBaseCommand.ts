@@ -27,7 +27,6 @@ export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequ
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a knowledge base.</p>
  *          <note>
  *             <p>When using this API, you cannot reuse <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
@@ -139,6 +138,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class CreateKnowledgeBaseCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteVirtualNodeCommandInput extends DeleteVirtualNodeInput {}
 export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing virtual node.</p>
  *          <p>You must delete any virtual services that list a virtual node as a service provider
  *          before you can delete the virtual node itself.</p>
@@ -324,6 +323,7 @@ export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput,
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DeleteVirtualNodeCommand extends $Command
   .classBuilder<

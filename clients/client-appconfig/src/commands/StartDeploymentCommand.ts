@@ -27,7 +27,6 @@ export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
 export interface StartDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To start a configuration deployment
  * ```javascript
  * // The following start-deployment example starts a deployment to the application using the specified environment, deployment strategy, and configuration profile.

@@ -31,7 +31,6 @@ export interface GetDevicePositionHistoryCommandInput extends GetDevicePositionH
 export interface GetDevicePositionHistoryCommandOutput extends GetDevicePositionHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the device position history from a tracker resource within a specified range
  *             of time.</p>
  *          <note>
@@ -100,6 +99,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class GetDevicePositionHistoryCommand extends $Command
   .classBuilder<

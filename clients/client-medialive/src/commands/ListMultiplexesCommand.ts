@@ -27,7 +27,6 @@ export interface ListMultiplexesCommandInput extends ListMultiplexesRequest {}
 export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve a list of the existing multiplexes.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ListMultiplexesCommand extends $Command
   .classBuilder<

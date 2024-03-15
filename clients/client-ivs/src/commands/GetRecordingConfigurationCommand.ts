@@ -27,7 +27,6 @@ export interface GetRecordingConfigurationCommandInput extends GetRecordingConfi
 export interface GetRecordingConfigurationCommandOutput extends GetRecordingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the recording configuration for the specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class GetRecordingConfigurationCommand extends $Command
   .classBuilder<

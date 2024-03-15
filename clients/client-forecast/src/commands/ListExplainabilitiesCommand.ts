@@ -27,7 +27,6 @@ export interface ListExplainabilitiesCommandInput extends ListExplainabilitiesRe
 export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Explainability resources created using the <a>CreateExplainability</a> operation. This operation returns a summary for
  *             each Explainability. You can filter the list using an array of <a>Filter</a>
  *             objects.</p>
@@ -89,6 +88,7 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListExplainabilitiesCommand extends $Command
   .classBuilder<

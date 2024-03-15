@@ -27,7 +27,6 @@ export interface DescribeTrainingJobCommandInput extends DescribeTrainingJobRequ
 export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a training job. </p>
  *          <p>Some of the attributes below only appear if the training job successfully starts.
  *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
@@ -288,6 +287,7 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeTrainingJobCommand extends $Command
   .classBuilder<

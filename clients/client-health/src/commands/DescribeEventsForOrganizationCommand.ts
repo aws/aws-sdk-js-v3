@@ -32,7 +32,6 @@ export interface DescribeEventsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about events across your organization in Organizations. You can use
  *             the<code>filters</code> parameter to specify the events that you want to return. Events
  *          are returned in a summary form and don't include the affected accounts, detailed
@@ -151,6 +150,7 @@ export interface DescribeEventsForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeEventsForOrganizationCommand extends $Command
   .classBuilder<

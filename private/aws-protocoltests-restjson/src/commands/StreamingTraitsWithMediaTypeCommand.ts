@@ -43,7 +43,6 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
 }
 
 /**
- * @public
  * This examples serializes a streaming media-typed blob shape in the request body.
  *
  * This examples uses a `@mediaType` trait on the payload to force a custom
@@ -76,6 +75,7 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class StreamingTraitsWithMediaTypeCommand extends $Command
   .classBuilder<

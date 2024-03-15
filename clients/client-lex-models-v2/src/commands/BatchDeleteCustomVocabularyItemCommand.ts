@@ -32,7 +32,6 @@ export interface BatchDeleteCustomVocabularyItemCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a batch of custom vocabulary items for a given bot locale's
  *          custom vocabulary.</p>
  * @example
@@ -104,6 +103,7 @@ export interface BatchDeleteCustomVocabularyItemCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class BatchDeleteCustomVocabularyItemCommand extends $Command
   .classBuilder<

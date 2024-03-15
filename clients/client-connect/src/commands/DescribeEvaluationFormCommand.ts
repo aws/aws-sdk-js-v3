@@ -28,7 +28,6 @@ export interface DescribeEvaluationFormCommandInput extends DescribeEvaluationFo
 export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an evaluation form in the specified Amazon Connect instance. If the version
  *    property is not provided, the latest version of the evaluation form is described.</p>
  * @example
@@ -211,6 +210,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeEvaluationFormCommand extends $Command
   .classBuilder<

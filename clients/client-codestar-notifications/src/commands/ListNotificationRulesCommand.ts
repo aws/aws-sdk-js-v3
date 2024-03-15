@@ -31,7 +31,6 @@ export interface ListNotificationRulesCommandInput extends ListNotificationRules
 export interface ListNotificationRulesCommandOutput extends ListNotificationRulesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the notification rules for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class ListNotificationRulesCommand extends $Command
   .classBuilder<

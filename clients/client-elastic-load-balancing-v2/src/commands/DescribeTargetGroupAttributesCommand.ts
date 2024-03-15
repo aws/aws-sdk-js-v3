@@ -36,7 +36,6 @@ export interface DescribeTargetGroupAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the attributes for the specified target group.</p>
  *          <p>For more information, see the following:</p>
  *          <ul>
@@ -93,6 +92,7 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe target group attributes
  * ```javascript
  * // This example describes the attributes of the specified target group.

@@ -27,7 +27,6 @@ export interface DescribeDashboardCommandInput extends DescribeDashboardRequest 
 export interface DescribeDashboardCommandOutput extends DescribeDashboardResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a summary for a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDashboardCommand extends $Command
   .classBuilder<

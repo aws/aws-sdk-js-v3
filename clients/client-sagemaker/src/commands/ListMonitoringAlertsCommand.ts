@@ -27,7 +27,6 @@ export interface ListMonitoringAlertsCommandInput extends ListMonitoringAlertsRe
 export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the alerts for a single monitoring schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListMonitoringAlertsCommand extends $Command
   .classBuilder<

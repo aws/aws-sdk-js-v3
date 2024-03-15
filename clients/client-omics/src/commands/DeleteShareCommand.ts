@@ -27,7 +27,6 @@ export interface DeleteShareCommandInput extends DeleteShareRequest {}
 export interface DeleteShareCommandOutput extends DeleteShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a share of an analytics store.
  *     </p>
@@ -78,6 +77,7 @@ export interface DeleteShareCommandOutput extends DeleteShareResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class DeleteShareCommand extends $Command
   .classBuilder<

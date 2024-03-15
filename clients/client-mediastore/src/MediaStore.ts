@@ -452,9 +452,9 @@ export interface MediaStore {
 }
 
 /**
- * @public
  * <p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.
  *          You use a container endpoint to create, read, and delete objects. </p>
+ * @public
  */
 export class MediaStore extends MediaStoreClient implements MediaStore {}
 createAggregatedClient(commands, MediaStore);

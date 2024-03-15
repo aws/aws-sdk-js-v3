@@ -27,7 +27,6 @@ export interface GetPreparedStatementCommandInput extends GetPreparedStatementIn
 export interface GetPreparedStatementCommandOutput extends GetPreparedStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the prepared statement with the specified name from the specified
  *             workgroup.</p>
  * @example
@@ -74,6 +73,7 @@ export interface GetPreparedStatementCommandOutput extends GetPreparedStatementO
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetPreparedStatementCommand extends $Command
   .classBuilder<

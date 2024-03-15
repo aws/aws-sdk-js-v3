@@ -31,7 +31,6 @@ export interface DescribeCustomKeyStoresCommandInput extends DescribeCustomKeySt
 export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyStoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and Region.</p>
  *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
@@ -155,6 +154,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To get detailed information about custom key stores in the account and Region
  * ```javascript
  * // This example gets detailed information about all AWS KMS custom key stores in an AWS account and Region. To get all key stores, do not enter a custom key store name or ID.

@@ -27,7 +27,6 @@ export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMess
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon Web Services Regions. The global cluster contains one primary cluster with read-write capability, and up-to give read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.</p>
  *          <p></p>
  *          <p>You can create a global cluster that is initially empty, and then add a primary and a secondary to it. Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster. </p>
@@ -98,6 +97,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class CreateGlobalClusterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteTemplateShareCommandInput extends DeleteTemplateShareInpu
 export interface DeleteTemplateShareCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a review template share.</p>
  *          <p>After the review template share is deleted, Amazon Web Services accounts, users,
  *             organizations, and organizational units (OUs) that you shared the review template with
@@ -76,6 +75,7 @@ export interface DeleteTemplateShareCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class DeleteTemplateShareCommand extends $Command
   .classBuilder<

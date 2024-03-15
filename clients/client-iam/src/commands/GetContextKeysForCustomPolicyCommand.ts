@@ -30,7 +30,6 @@ export interface GetContextKeysForCustomPolicyCommandInput extends GetContextKey
 export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKeysForPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of all of the context keys referenced in the input policies. The policies
  *             are supplied as a list of one or more strings. To get the context keys from policies
  *             associated with an IAM user, group, or role, use <a>GetContextKeysForPrincipalPolicy</a>.</p>
@@ -75,6 +74,7 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetContextKeysForCustomPolicyCommand extends $Command
   .classBuilder<

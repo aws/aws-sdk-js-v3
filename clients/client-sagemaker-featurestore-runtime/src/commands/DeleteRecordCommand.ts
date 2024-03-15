@@ -31,7 +31,6 @@ export interface DeleteRecordCommandInput extends DeleteRecordRequest {}
 export interface DeleteRecordCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the
  *             <code>OnlineStore</code>. Feature Store supports both <code>SoftDelete</code> and
  *             <code>HardDelete</code>. For <code>SoftDelete</code> (default), feature columns are set
@@ -109,6 +108,7 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * @public
  */
 export class DeleteRecordCommand extends $Command
   .classBuilder<

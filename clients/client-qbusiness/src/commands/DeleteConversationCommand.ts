@@ -27,7 +27,6 @@ export interface DeleteConversationCommandInput extends DeleteConversationReques
 export interface DeleteConversationCommandOutput extends DeleteConversationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Q web experience conversation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteConversationCommandOutput extends DeleteConversationRespo
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class DeleteConversationCommand extends $Command
   .classBuilder<

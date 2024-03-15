@@ -31,9 +31,6 @@ export interface DescribeChannelMembershipCommandInput extends DescribeChannelMe
 export interface DescribeChannelMembershipCommandOutput extends DescribeChannelMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DescribeChannelMembership in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Returns the full details of a user's channel membership.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -109,6 +106,8 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DescribeChannelMembership in the Amazon Chime SDK Messaging Namespace
  */
 export class DescribeChannelMembershipCommand extends $Command
   .classBuilder<

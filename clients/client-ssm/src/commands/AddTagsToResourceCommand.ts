@@ -27,7 +27,6 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest 
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or overwrites one or more tags for the specified resource. <i>Tags</i>
  *    are metadata that you can assign to your automations, documents, managed nodes, maintenance
  *    windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your
@@ -123,6 +122,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListKxChangesetsCommandInput extends ListKxChangesetsRequest {}
 export interface ListKxChangesetsCommandOutput extends ListKxChangesetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the changesets for a database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListKxChangesetsCommandOutput extends ListKxChangesetsResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxChangesetsCommand extends $Command
   .classBuilder<

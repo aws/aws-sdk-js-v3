@@ -31,7 +31,6 @@ export interface DescribePlacementCommandInput extends DescribePlacementRequest 
 export interface DescribePlacementCommandOutput extends DescribePlacementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a placement in a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribePlacementCommandOutput extends DescribePlacementRespons
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class DescribePlacementCommand extends $Command
   .classBuilder<

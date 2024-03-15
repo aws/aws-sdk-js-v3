@@ -27,7 +27,6 @@ export interface UpdateSegmentCommandInput extends UpdateSegmentRequest {}
 export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -365,6 +364,7 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateSegmentCommand extends $Command
   .classBuilder<

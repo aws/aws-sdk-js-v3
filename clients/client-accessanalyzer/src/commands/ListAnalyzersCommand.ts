@@ -27,7 +27,6 @@ export interface ListAnalyzersCommandInput extends ListAnalyzersRequest {}
 export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of analyzers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class ListAnalyzersCommand extends $Command
   .classBuilder<

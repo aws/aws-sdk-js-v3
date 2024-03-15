@@ -27,7 +27,6 @@ export interface DescribeSnapshotCopyGrantsCommandInput extends DescribeSnapshot
 export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGrantMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of snapshot copy grants owned by the Amazon Web Services account in the destination
  *             region.</p>
  *          <p>
@@ -88,6 +87,7 @@ export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGra
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeSnapshotCopyGrantsCommand extends $Command
   .classBuilder<

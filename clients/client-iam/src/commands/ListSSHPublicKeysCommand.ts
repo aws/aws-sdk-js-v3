@@ -27,7 +27,6 @@ export interface ListSSHPublicKeysCommandInput extends ListSSHPublicKeysRequest 
 export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the SSH public keys associated with the specified IAM
  *             user. If none exists, the operation returns an empty list.</p>
  *          <p>The SSH public keys returned by this operation are used only for authenticating the
@@ -77,6 +76,7 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListSSHPublicKeysCommand extends $Command
   .classBuilder<

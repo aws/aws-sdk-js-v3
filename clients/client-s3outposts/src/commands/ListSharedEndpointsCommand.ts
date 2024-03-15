@@ -27,7 +27,6 @@ export interface ListSharedEndpointsCommandInput extends ListSharedEndpointsRequ
 export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>
  *          <p>Related actions include:</p>
  *          <ul>
@@ -108,6 +107,7 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * @throws {@link S3OutpostsServiceException}
  * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ * @public
  */
 export class ListSharedEndpointsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelCapacityReservationCommandInput extends CancelCapacityRes
 export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
  * 			<code>cancelled</code>.</p>
  *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
@@ -61,6 +60,7 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CancelCapacityReservationCommand extends $Command
   .classBuilder<

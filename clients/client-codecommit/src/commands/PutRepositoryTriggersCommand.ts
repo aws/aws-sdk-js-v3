@@ -27,7 +27,6 @@ export interface PutRepositoryTriggersCommandInput extends PutRepositoryTriggers
 export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces all triggers for a repository. Used to create or delete triggers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -140,6 +139,7 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class PutRepositoryTriggersCommand extends $Command
   .classBuilder<

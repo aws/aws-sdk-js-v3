@@ -32,7 +32,6 @@ export interface ExportSourceNetworkCfnTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Export the Source Network CloudFormation template to an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ExportSourceNetworkCfnTemplateCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class ExportSourceNetworkCfnTemplateCommand extends $Command
   .classBuilder<

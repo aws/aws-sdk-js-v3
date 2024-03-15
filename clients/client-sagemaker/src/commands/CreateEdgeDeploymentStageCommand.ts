@@ -27,7 +27,6 @@ export interface CreateEdgeDeploymentStageCommandInput extends CreateEdgeDeploym
 export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new stage in an existing edge deployment plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateEdgeDeploymentStageCommand extends $Command
   .classBuilder<

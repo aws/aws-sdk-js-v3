@@ -27,7 +27,6 @@ export interface CreateSipRuleCommandInput extends CreateSipRuleRequest {}
 export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a SIP rule, which can be used to run a SIP media application as a target for a specific trigger type. For more information about SIP rules, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing SIP media applications
  *            and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
  * @example
@@ -108,6 +107,7 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class CreateSipRuleCommand extends $Command
   .classBuilder<

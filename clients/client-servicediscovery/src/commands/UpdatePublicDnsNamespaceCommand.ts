@@ -27,7 +27,6 @@ export interface UpdatePublicDnsNamespaceCommandInput extends UpdatePublicDnsNam
 export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a public DNS
  *    namespace.</p>
  * @example
@@ -82,6 +81,7 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  */
 export class UpdatePublicDnsNamespaceCommand extends $Command
   .classBuilder<

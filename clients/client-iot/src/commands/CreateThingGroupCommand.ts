@@ -27,7 +27,6 @@ export interface CreateThingGroupCommandInput extends CreateThingGroupRequest {}
 export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a thing group.</p>
  *          <note>
  *             <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
@@ -93,6 +92,7 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateThingGroupCommand extends $Command
   .classBuilder<

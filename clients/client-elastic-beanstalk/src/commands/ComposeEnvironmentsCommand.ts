@@ -27,7 +27,6 @@ export interface ComposeEnvironmentsCommandInput extends ComposeEnvironmentsMess
 export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create or update a group of environments that each run a separate component of a single
  *       application. Takes a list of version labels that specify application source bundles for each
  *       of the environments to create or update. The name of each environment and other required
@@ -116,6 +115,7 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class ComposeEnvironmentsCommand extends $Command
   .classBuilder<

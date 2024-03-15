@@ -31,7 +31,6 @@ export interface DescribeAppInstanceBotCommandInput extends DescribeAppInstanceB
 export interface DescribeAppInstanceBotCommandOutput extends DescribeAppInstanceBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>AppInstanceBot's</code> information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeAppInstanceBotCommandOutput extends DescribeAppInstance
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class DescribeAppInstanceBotCommand extends $Command
   .classBuilder<

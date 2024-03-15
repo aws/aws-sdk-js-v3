@@ -27,7 +27,6 @@ export interface SetVaultNotificationsCommandInput extends SetVaultNotifications
 export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation configures notifications that will be sent when specific events happen
  *          to a vault. By default, you don't get any notifications.</p>
  *
@@ -110,6 +109,7 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To configure a vault to post a message to an Amazon SNS topic when jobs complete
  * ```javascript
  * // The example sets the examplevault notification configuration.

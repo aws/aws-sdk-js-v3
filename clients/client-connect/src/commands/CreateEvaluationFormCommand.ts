@@ -28,7 +28,6 @@ export interface CreateEvaluationFormCommandInput extends CreateEvaluationFormRe
 export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an evaluation form in the specified Amazon Connect instance. The form can be
  *    used to define questions related to agent performance, and create sections to organize such
  *    questions. Question and section identifiers cannot be duplicated within the same evaluation
@@ -206,6 +205,7 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateEvaluationFormCommand extends $Command
   .classBuilder<

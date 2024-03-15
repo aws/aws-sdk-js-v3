@@ -27,7 +27,6 @@ export interface AddPermissionCommandInput extends AddPermissionRequest {}
 export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a permission to a queue for a specific <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>. This allows sharing
  *             access to the queue.</p>
  *          <p>When you create a queue, you have full control access rights for the queue. Only you,
@@ -134,6 +133,7 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class AddPermissionCommand extends $Command
   .classBuilder<

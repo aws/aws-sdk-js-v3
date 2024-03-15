@@ -27,7 +27,6 @@ export interface TransferCertificateCommandInput extends TransferCertificateRequ
 export interface TransferCertificateCommandOutput extends TransferCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transfers the specified certificate to the specified Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a> action.</p>
  *          <p>You can cancel the transfer until it is acknowledged by the recipient.</p>
@@ -90,6 +89,7 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class TransferCertificateCommand extends $Command
   .classBuilder<

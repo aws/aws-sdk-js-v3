@@ -31,7 +31,6 @@ export interface CreateForecastExportJobCommandInput extends CreateForecastExpor
 export interface CreateForecastExportJobCommandOutput extends CreateForecastExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
  *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
  *          <p><ForecastExportJobName>_<ExportTimestamp>_<PartNumber></p>
@@ -104,6 +103,7 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateForecastExportJobCommand extends $Command
   .classBuilder<

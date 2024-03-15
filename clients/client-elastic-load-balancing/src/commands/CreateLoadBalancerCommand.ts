@@ -31,7 +31,6 @@ export interface CreateLoadBalancerCommandInput extends CreateAccessPointInput {
 export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Classic Load Balancer.</p>
  *
  *         <p>You can add listeners, security groups, subnets, and tags when you create your load balancer,
@@ -135,6 +134,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To create an HTTP load balancer in a VPC
  * ```javascript
  * // This example creates a load balancer with an HTTP listener in a VPC.

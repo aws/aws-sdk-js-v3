@@ -27,7 +27,6 @@ export interface DeleteTapePoolCommandInput extends DeleteTapePoolInput {}
 export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
  *          in the pool and if there are no automatic tape creation policies that reference the custom
  *          tape pool.</p>
@@ -65,6 +64,7 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DeleteTapePoolCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateTableCommandInput extends CreateTableRequest {}
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateTable</code> operation adds a new table to the specified keyspace. Within a keyspace, table names
  *          must be unique.</p>
  *          <p>
@@ -183,6 +182,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class CreateTableCommand extends $Command
   .classBuilder<

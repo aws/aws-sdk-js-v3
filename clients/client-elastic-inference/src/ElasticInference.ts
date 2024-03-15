@@ -134,7 +134,6 @@ export interface ElasticInference {
 }
 
 /**
- * @public
  * <p>
  *             Elastic Inference public APIs.
  *         </p>
@@ -143,6 +142,7 @@ export interface ElasticInference {
  *             After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2.
  *             However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
  *         </p>
+ * @public
  */
 export class ElasticInference extends ElasticInferenceClient implements ElasticInference {}
 createAggregatedClient(commands, ElasticInference);

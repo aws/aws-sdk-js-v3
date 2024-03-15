@@ -27,7 +27,6 @@ export interface ExportFormsCommandInput extends ExportFormsRequest {}
 export interface ExportFormsCommandOutput extends ExportFormsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports form configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -222,6 +221,7 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ExportFormsCommand extends $Command
   .classBuilder<

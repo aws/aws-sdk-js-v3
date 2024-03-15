@@ -27,7 +27,6 @@ export interface DescribeContactFlowModuleCommandInput extends DescribeContactFl
 export interface DescribeContactFlowModuleCommandOutput extends DescribeContactFlowModuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeContactFlowModuleCommandOutput extends DescribeContactF
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeContactFlowModuleCommand extends $Command
   .classBuilder<

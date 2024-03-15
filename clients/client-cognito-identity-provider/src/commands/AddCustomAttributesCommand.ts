@@ -31,7 +31,6 @@ export interface AddCustomAttributesCommandInput extends AddCustomAttributesRequ
 export interface AddCustomAttributesCommandOutput extends AddCustomAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds additional user attributes to the user pool schema.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -116,6 +115,7 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AddCustomAttributesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberReques
 export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Releases an existing origination phone number in your account. Once released, a phone
  *             number is no longer available for sending messages.</p>
  *          <p>If the origination phone number has deletion protection enabled or is associated with
@@ -103,6 +102,7 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class ReleasePhoneNumberCommand extends $Command
   .classBuilder<

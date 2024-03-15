@@ -27,7 +27,6 @@ export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParamet
 export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
  *             the list will contain only the description of the specified DB parameter group.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe your DB parameter groups
  * ```javascript
  * // The following example retrieves details about your DB parameter groups.

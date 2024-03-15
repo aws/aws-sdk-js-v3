@@ -27,7 +27,6 @@ export interface GetLabelsCommandInput extends GetLabelsRequest {}
 export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all labels or a specific label if name is provided. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 50 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 10 and 50.
@@ -86,6 +85,7 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetLabelsCommand extends $Command
   .classBuilder<

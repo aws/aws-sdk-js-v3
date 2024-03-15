@@ -27,7 +27,6 @@ export interface TestRenderEmailTemplateCommandInput extends TestRenderEmailTemp
 export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a preview of the MIME content of an email when provided with a template and a
  *             set of replacement data.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -67,6 +66,7 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class TestRenderEmailTemplateCommand extends $Command
   .classBuilder<

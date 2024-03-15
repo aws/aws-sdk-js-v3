@@ -28,7 +28,6 @@ export interface DeleteKeySigningKeyCommandInput extends DeleteKeySigningKeyRequ
 export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it.
  * 			The KSK must be deactivated before you can delete it regardless of whether the hosted
  * 			zone is enabled for DNSSEC signing.</p>
@@ -89,6 +88,7 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteKeySigningKeyCommand extends $Command
   .classBuilder<

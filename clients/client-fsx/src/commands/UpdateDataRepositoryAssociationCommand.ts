@@ -32,7 +32,6 @@ export interface UpdateDataRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing data repository association
  *             on an Amazon FSx for Lustre file system. Data repository associations
  *             are supported on all FSx for Lustre 2.12 and 2.15 file systems,
@@ -142,6 +141,7 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class UpdateDataRepositoryAssociationCommand extends $Command
   .classBuilder<

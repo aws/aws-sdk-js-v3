@@ -31,7 +31,6 @@ export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimits
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current Elastic Load Balancing resource limits for your Amazon Web Services
  *       account.</p>
  *          <p>For more information, see the following:</p>
@@ -88,6 +87,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class DescribeAccountLimitsCommand extends $Command
   .classBuilder<

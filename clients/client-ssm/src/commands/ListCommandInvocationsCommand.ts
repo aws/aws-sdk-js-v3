@@ -27,7 +27,6 @@ export interface ListCommandInvocationsCommandInput extends ListCommandInvocatio
 export interface ListCommandInvocationsCommandOutput extends ListCommandInvocationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
  *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
  *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
@@ -145,6 +144,7 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListCommandInvocationsCommand extends $Command
   .classBuilder<

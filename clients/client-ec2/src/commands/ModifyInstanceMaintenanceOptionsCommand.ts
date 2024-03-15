@@ -32,7 +32,6 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the recovery behavior of your instance to disable simplified automatic
  *             recovery or set the recovery behavior to default. The default configuration will not
  *             enable simplified automatic recovery for an unsupported instance type. For more
@@ -66,6 +65,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyInstanceMaintenanceOptionsCommand extends $Command
   .classBuilder<

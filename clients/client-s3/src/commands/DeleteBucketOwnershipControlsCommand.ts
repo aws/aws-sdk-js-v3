@@ -30,7 +30,6 @@ export interface DeleteBucketOwnershipControlsCommandInput extends DeleteBucketO
 export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -78,6 +77,7 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class DeleteBucketOwnershipControlsCommand extends $Command
   .classBuilder<

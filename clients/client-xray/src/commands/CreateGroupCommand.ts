@@ -27,7 +27,6 @@ export interface CreateGroupCommandInput extends CreateGroupRequest {}
 export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a group resource with a name and a filter expression. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class CreateGroupCommand extends $Command
   .classBuilder<

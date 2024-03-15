@@ -27,7 +27,6 @@ export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +146,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To describe a cluster
  * ```javascript
  * // This example provides a description of the specified cluster in your default region.

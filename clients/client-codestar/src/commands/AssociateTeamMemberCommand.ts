@@ -27,7 +27,6 @@ export interface AssociateTeamMemberCommandInput extends AssociateTeamMemberRequ
 export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class AssociateTeamMemberCommand extends $Command
   .classBuilder<

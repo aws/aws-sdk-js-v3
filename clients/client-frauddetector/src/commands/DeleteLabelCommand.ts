@@ -27,7 +27,6 @@ export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
 export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a label.</p>
  *          <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
  *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
@@ -68,6 +67,7 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteLabelCommand extends $Command
   .classBuilder<

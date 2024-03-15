@@ -35,7 +35,6 @@ export interface CreateUserPoolClientCommandInput extends CreateUserPoolClientRe
 export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the user pool client.</p>
  *          <p>When you create a new user pool client, token revocation is automatically activated.
  *             For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
@@ -215,6 +214,7 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  * @example Example user pool app client with email and username sign-in
  * ```javascript
  * // The following example creates an app client with all configurable properties set to an example value. The resulting user pool client connects to an analytics client, allows sign-in with username and password, and has two external identity providers associated with it.

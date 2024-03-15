@@ -32,7 +32,6 @@ export interface DescribeConfigurationRevisionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of this revision of the configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeConfigurationRevisionCommandOutput
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationRevisionCommand extends $Command
   .classBuilder<

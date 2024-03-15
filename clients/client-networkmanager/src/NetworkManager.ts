@@ -1818,8 +1818,8 @@ export interface NetworkManager {
 }
 
 /**
- * @public
  * <p>Amazon Web Services enables you to centrally manage your Amazon Web Services Cloud WAN core network and your Transit Gateway network across Amazon Web Services accounts, Regions, and on-premises locations.</p>
+ * @public
  */
 export class NetworkManager extends NetworkManagerClient implements NetworkManager {}
 createAggregatedClient(commands, NetworkManager);

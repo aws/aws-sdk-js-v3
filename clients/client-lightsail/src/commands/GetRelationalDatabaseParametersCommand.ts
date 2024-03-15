@@ -32,7 +32,6 @@ export interface GetRelationalDatabaseParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all of the runtime parameters offered by the underlying database software, or
  *       engine, for a specific database in Amazon Lightsail.</p>
  *          <p>In addition to the parameter names and values, this operation returns other information
@@ -107,6 +106,7 @@ export interface GetRelationalDatabaseParametersCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetRelationalDatabaseParametersCommand extends $Command
   .classBuilder<

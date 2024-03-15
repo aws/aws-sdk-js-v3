@@ -27,7 +27,6 @@ export interface GetSdkTypesCommandInput extends GetSdkTypesRequest {}
 export interface GetSdkTypesCommandOutput extends SdkTypes, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets SDK types</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetSdkTypesCommandOutput extends SdkTypes, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetSdkTypesCommand extends $Command
   .classBuilder<

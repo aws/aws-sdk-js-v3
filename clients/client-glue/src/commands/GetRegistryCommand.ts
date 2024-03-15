@@ -27,7 +27,6 @@ export interface GetRegistryCommandInput extends GetRegistryInput {}
 export interface GetRegistryCommandOutput extends GetRegistryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified registry in detail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetRegistryCommand extends $Command
   .classBuilder<

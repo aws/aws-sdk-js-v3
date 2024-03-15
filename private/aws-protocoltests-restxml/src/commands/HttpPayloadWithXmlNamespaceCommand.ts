@@ -27,7 +27,6 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * The following example serializes a payload that uses an XML namespace.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class HttpPayloadWithXmlNamespaceCommand extends $Command
   .classBuilder<

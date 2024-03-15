@@ -27,7 +27,6 @@ export interface DescribeVocabularyCommandInput extends DescribeVocabularyReques
 export interface DescribeVocabularyCommandOutput extends DescribeVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeVocabularyCommand extends $Command
   .classBuilder<

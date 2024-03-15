@@ -27,7 +27,6 @@ export interface TagServerCertificateCommandInput extends TagServerCertificateRe
 export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an IAM server certificate. If a tag with the same key name
  *       already exists, then that tag is overwritten with the new value.</p>
  *          <note>
@@ -126,6 +125,7 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class TagServerCertificateCommand extends $Command
   .classBuilder<

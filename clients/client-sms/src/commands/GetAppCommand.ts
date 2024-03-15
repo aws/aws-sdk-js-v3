@@ -27,7 +27,6 @@ export interface GetAppCommandInput extends GetAppRequest {}
 export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve information about the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class GetAppCommand extends $Command
   .classBuilder<

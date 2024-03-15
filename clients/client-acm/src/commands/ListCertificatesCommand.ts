@@ -27,7 +27,6 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of certificate ARNs and domain names. You can request that only
  *       certificates that match a specific status be listed. You can also filter by specific
  *       attributes of the certificate. Default filtering returns only <code>RSA_2048</code>
@@ -109,6 +108,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class ListCertificatesCommand extends $Command
   .classBuilder<

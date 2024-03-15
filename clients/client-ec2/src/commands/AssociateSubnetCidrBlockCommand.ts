@@ -27,7 +27,6 @@ export interface AssociateSubnetCidrBlockCommandInput extends AssociateSubnetCid
 export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
  *             block with your subnet.</p>
  * @example
@@ -67,6 +66,7 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateSubnetCidrBlockCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateVaultCommandInput extends CreateVaultInput {}
 export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation creates a new vault with the specified name. The name of the vault
  *          must be unique within a region for an AWS account. You can create up to 1,000 vaults per
  *          account. If you need to create more vaults, contact Amazon S3 Glacier.</p>
@@ -91,6 +90,7 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To create a new vault
  * ```javascript
  * // The following example creates a new vault named my-vault.

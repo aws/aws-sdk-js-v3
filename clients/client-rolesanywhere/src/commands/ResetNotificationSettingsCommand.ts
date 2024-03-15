@@ -27,7 +27,6 @@ export interface ResetNotificationSettingsCommandInput extends ResetNotification
 export interface ResetNotificationSettingsCommandOutput extends ResetNotificationSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the <i>custom notification setting</i> to IAM Roles Anywhere default setting.
  *       </p>
  *          <p>
@@ -98,6 +97,7 @@ export interface ResetNotificationSettingsCommandOutput extends ResetNotificatio
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class ResetNotificationSettingsCommand extends $Command
   .classBuilder<

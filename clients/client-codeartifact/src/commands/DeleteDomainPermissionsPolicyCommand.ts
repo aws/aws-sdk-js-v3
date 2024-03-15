@@ -32,7 +32,6 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Deletes the resource policy set on a domain.
  *       </p>
@@ -96,6 +95,7 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DeleteDomainPermissionsPolicyCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetContactInformationCommandInput extends GetContactInformation
 export interface GetContactInformationCommandOutput extends GetContactInformationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the primary contact information of an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
  *                 the primary and alternate contact information</a>.</p>
@@ -92,6 +91,7 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * @public
  */
 export class GetContactInformationCommand extends $Command
   .classBuilder<

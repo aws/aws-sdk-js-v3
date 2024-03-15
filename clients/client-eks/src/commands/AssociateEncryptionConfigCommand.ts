@@ -27,7 +27,6 @@ export interface AssociateEncryptionConfigCommandInput extends AssociateEncrypti
 export interface AssociateEncryptionConfigCommandOutput extends AssociateEncryptionConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an encryption configuration to an existing cluster.</p>
  *          <p>Use this API to enable encryption on existing clusters that don't already have
  *             encryption enabled. This allows you to implement a defense-in-depth security strategy
@@ -113,6 +112,7 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class AssociateEncryptionConfigCommand extends $Command
   .classBuilder<

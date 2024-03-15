@@ -27,7 +27,6 @@ export interface InitiateLayerUploadCommandInput extends InitiateLayerUploadRequ
 export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>
  *          <p>When an image is pushed, the InitiateLayerUpload API is called once for each image layer
  *          that hasn't already been uploaded. Whether an image layer uploads is determined by the
@@ -80,6 +79,7 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class InitiateLayerUploadCommand extends $Command
   .classBuilder<

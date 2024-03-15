@@ -27,7 +27,6 @@ export interface BatchPutMessageCommandInput extends BatchPutMessageRequest {}
 export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a set of messages to the IoT Events system. Each message payload is transformed into
  *       the input you specify (<code>"inputName"</code>) and ingested into any detectors that monitor
  *       that input. If multiple messages are sent, the order in which the messages are processed isn't
@@ -86,6 +85,7 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class BatchPutMessageCommand extends $Command
   .classBuilder<

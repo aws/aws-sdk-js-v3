@@ -27,7 +27,6 @@ export interface SuspendProcessesCommandInput extends ScalingProcessQuery {}
 export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Suspends the specified auto scaling processes, or all processes, for the specified
  *             Auto Scaling group.</p>
  *          <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
@@ -69,6 +68,7 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To suspend Auto Scaling processes
  * ```javascript
  * // This example suspends the specified scaling process for the specified Auto Scaling group.

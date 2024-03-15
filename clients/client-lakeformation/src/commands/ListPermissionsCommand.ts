@@ -27,7 +27,6 @@ export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the principal permissions on the resource, filtered by the permissions of the caller. For example, if you are granted an ALTER permission, you are able to see only the principal permissions for ALTER.</p>
  *          <p>This operation returns only those permissions that have been explicitly granted.</p>
  *          <p>For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security and Access Control to Metadata and Data</a>.</p>
@@ -203,6 +202,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class ListPermissionsCommand extends $Command
   .classBuilder<

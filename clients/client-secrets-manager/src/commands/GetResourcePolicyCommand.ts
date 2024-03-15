@@ -27,7 +27,6 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the JSON text of the resource-based policy document attached to the
  *       secret. For more information about permissions policies attached to a secret, see
  *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html">Permissions
@@ -94,6 +93,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To retrieve the resource-based policy attached to a secret
  * ```javascript
  * // The following example shows how to retrieve the resource-based policy that is attached to a secret.

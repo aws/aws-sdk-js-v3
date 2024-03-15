@@ -31,7 +31,6 @@ export interface DeleteUserPoolDomainCommandInput extends DeleteUserPoolDomainRe
 export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a domain for a user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DeleteUserPoolDomainCommand extends $Command
   .classBuilder<

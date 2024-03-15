@@ -27,7 +27,6 @@ export interface DescribeCacheEngineVersionsCommandInput extends DescribeCacheEn
 export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVersionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the available cache engines and their versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeCacheEngineVersions
  * ```javascript
  * // Lists the details for up to 25 Memcached and Redis cache engine versions.

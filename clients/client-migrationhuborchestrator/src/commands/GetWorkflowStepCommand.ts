@@ -31,7 +31,6 @@ export interface GetWorkflowStepCommandInput extends GetWorkflowStepRequest {}
 export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a step in the migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, _
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class GetWorkflowStepCommand extends $Command
   .classBuilder<

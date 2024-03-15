@@ -27,7 +27,6 @@ export interface ListRunsCommandInput extends ListRunsRequest {}
 export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -167,6 +166,7 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a test run
  * ```javascript
  * // The following example returns information about a specific test run.

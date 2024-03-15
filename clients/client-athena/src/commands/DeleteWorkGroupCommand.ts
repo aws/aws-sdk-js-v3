@@ -27,7 +27,6 @@ export interface DeleteWorkGroupCommandInput extends DeleteWorkGroupInput {}
 export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
  *             deleted.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class DeleteWorkGroupCommand extends $Command
   .classBuilder<

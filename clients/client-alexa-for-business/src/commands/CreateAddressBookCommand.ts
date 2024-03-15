@@ -27,9 +27,6 @@ export interface CreateAddressBookCommandInput extends CreateAddressBookRequest 
 export interface CreateAddressBookCommandOutput extends CreateAddressBookResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Creates an address book with the specified details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +68,8 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class CreateAddressBookCommand extends $Command
   .classBuilder<

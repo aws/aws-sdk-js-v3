@@ -27,7 +27,6 @@ export interface ClaimDeviceCommandInput extends ClaimDeviceRequest {}
 export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Send a request to claim an AWS Elemental device that you have purchased from a third-party vendor. After the request succeeds, you will own the device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ClaimDeviceCommand extends $Command
   .classBuilder<

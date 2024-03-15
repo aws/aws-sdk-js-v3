@@ -31,7 +31,6 @@ export interface DescribeLocationFsxOpenZfsCommandInput extends DescribeLocation
 export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for an Amazon FSx for OpenZFS file system is configured.</p>
  *          <note>
  *             <p>Response elements related to <code>SMB</code> aren't supported with the
@@ -90,6 +89,7 @@ export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocatio
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationFsxOpenZfsCommand extends $Command
   .classBuilder<

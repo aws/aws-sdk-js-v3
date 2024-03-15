@@ -27,7 +27,6 @@ export interface DescribeFileCachesCommandInput extends DescribeFileCachesReques
 export interface DescribeFileCachesCommandOutput extends DescribeFileCachesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of a specific Amazon File Cache resource, if a
  *             <code>FileCacheIds</code> value is provided for that cache. Otherwise, it
  *             returns descriptions of all caches owned by your Amazon Web Services account in the
@@ -135,6 +134,7 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeFileCachesCommand extends $Command
   .classBuilder<

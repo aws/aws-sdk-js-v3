@@ -27,7 +27,6 @@ export interface DescribeTypeCommandInput extends DescribeTypeInput {}
 export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about an extension that has been registered.</p>
  *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information about that specific
  *    extension version. Otherwise, it returns information about the default extension version.</p>
@@ -106,6 +105,7 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeTypeCommand extends $Command
   .classBuilder<

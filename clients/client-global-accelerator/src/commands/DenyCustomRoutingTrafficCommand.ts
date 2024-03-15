@@ -31,7 +31,6 @@ export interface DenyCustomRoutingTrafficCommandInput extends DenyCustomRoutingT
 export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that cannot receive traffic
  * 			for a custom routing accelerator. You can deny traffic to all destinations in the VPC endpoint, or deny traffic to a
  * 			specified list of destination IP addresses and ports. Note that you cannot specify IP addresses
@@ -79,6 +78,7 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DenyCustomRoutingTrafficCommand extends $Command
   .classBuilder<

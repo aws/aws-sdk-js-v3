@@ -31,7 +31,6 @@ export interface GetReportDefinitionCommandInput extends GetReportDefinitionRequ
 export interface GetReportDefinitionCommandOutput extends GetReportDefinitionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the definition of a report already configured in AWS Application Cost Profiler.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * @public
  */
 export class GetReportDefinitionCommand extends $Command
   .classBuilder<

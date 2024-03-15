@@ -27,7 +27,6 @@ export interface ListContactChannelsCommandInput extends ListContactChannelsRequ
 export interface ListContactChannelsCommandOutput extends ListContactChannelsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all contact channels for the specified contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListContactChannelsCommand extends $Command
   .classBuilder<

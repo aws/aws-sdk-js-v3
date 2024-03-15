@@ -31,7 +31,6 @@ export interface DiscoverInputSchemaCommandInput extends DiscoverInputSchemaRequ
 export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating
  *       sample records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose
  *       delivery stream) or Amazon S3 object. In the response, the operation returns the inferred
@@ -131,6 +130,7 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class DiscoverInputSchemaCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateComponentTypeCommandInput extends CreateComponentTypeRequ
 export interface CreateComponentTypeCommandOutput extends CreateComponentTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -178,6 +177,7 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class CreateComponentTypeCommand extends $Command
   .classBuilder<

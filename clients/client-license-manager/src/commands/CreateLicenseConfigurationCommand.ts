@@ -27,7 +27,6 @@ export interface CreateLicenseConfigurationCommandInput extends CreateLicenseCon
 export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a license configuration.</p>
  *          <p>A license configuration is an abstraction of a customer license agreement that can be
  *          consumed and enforced by License Manager. Components include specifications for the license
@@ -107,6 +106,7 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CreateLicenseConfigurationCommand extends $Command
   .classBuilder<

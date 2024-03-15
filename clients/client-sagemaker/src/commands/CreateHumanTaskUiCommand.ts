@@ -27,7 +27,6 @@ export interface CreateHumanTaskUiCommandInput extends CreateHumanTaskUiRequest 
 export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateHumanTaskUiCommand extends $Command
   .classBuilder<

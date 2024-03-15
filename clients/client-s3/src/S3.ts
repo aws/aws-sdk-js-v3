@@ -2020,8 +2020,8 @@ export interface S3 {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class S3 extends S3Client implements S3 {}
 createAggregatedClient(commands, S3);

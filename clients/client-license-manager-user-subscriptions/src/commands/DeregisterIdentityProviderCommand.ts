@@ -31,7 +31,6 @@ export interface DeregisterIdentityProviderCommandInput extends DeregisterIdenti
 export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the identity provider from providing user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class DeregisterIdentityProviderCommand extends $Command
   .classBuilder<

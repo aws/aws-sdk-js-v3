@@ -27,7 +27,6 @@ export interface UpdateFleetMetricCommandInput extends UpdateFleetMetricRequest 
 export interface UpdateFleetMetricCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the data for a fleet metric.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateFleetMetric</a> action.</p>
  * @example
@@ -100,6 +99,7 @@ export interface UpdateFleetMetricCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateFleetMetricCommand extends $Command
   .classBuilder<

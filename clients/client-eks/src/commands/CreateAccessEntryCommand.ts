@@ -27,7 +27,6 @@ export interface CreateAccessEntryCommandInput extends CreateAccessEntryRequest 
 export interface CreateAccessEntryCommandOutput extends CreateAccessEntryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an access entry.</p>
  *          <p>An access entry allows an IAM principal to access your cluster. Access
  *             entries can replace the need to maintain entries in the <code>aws-auth</code>
@@ -113,6 +112,7 @@ export interface CreateAccessEntryCommandOutput extends CreateAccessEntryRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class CreateAccessEntryCommand extends $Command
   .classBuilder<

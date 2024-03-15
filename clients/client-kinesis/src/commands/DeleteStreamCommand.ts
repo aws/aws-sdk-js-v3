@@ -27,7 +27,6 @@ export interface DeleteStreamCommandInput extends DeleteStreamInput {}
 export interface DeleteStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any
  *             applications that are operating on the stream before you delete the stream. If an
  *             application attempts to operate on a deleted stream, it receives the exception
@@ -98,6 +97,7 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DeleteStreamCommand extends $Command
   .classBuilder<

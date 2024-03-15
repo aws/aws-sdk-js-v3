@@ -27,7 +27,6 @@ export interface CountOpenWorkflowExecutionsCommandInput extends CountOpenWorkfl
 export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of open workflow executions within the given domain that meet the
  *       specified filtering criteria.</p>
  *          <note>
@@ -122,6 +121,7 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class CountOpenWorkflowExecutionsCommand extends $Command
   .classBuilder<

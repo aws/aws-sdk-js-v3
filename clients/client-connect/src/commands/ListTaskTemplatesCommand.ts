@@ -27,7 +27,6 @@ export interface ListTaskTemplatesCommandInput extends ListTaskTemplatesRequest 
 export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists task templates for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListTaskTemplatesCommand extends $Command
   .classBuilder<

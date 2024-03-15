@@ -27,7 +27,6 @@ export interface DeleteExperienceCommandInput extends DeleteExperienceRequest {}
 export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes your Amazon Kendra experience such as a search application. For more information on
  *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a search
  *                 experience with no code</a>.</p>
@@ -80,6 +79,7 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DeleteExperienceCommand extends $Command
   .classBuilder<

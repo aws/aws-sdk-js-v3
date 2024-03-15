@@ -31,7 +31,6 @@ export interface PutKeyCommandInput extends PutKeyRequest {}
 export interface PutKeyCommandOutput extends PutKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new key value pair or replaces the value of an existing key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface PutKeyCommandOutput extends PutKeyResponse, __MetadataBearer {}
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ * @public
  */
 export class PutKeyCommand extends $Command
   .classBuilder<

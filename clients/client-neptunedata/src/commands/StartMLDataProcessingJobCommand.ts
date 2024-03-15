@@ -27,7 +27,6 @@ export interface StartMLDataProcessingJobCommandInput extends StartMLDataProcess
 export interface StartMLDataProcessingJobCommandOutput extends StartMLDataProcessingJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Neptune ML data processing job for processing the
  *       graph data exported from Neptune for training. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html">The
  *       <code>dataprocessing</code> command</a>.</p>
@@ -114,6 +113,7 @@ export interface StartMLDataProcessingJobCommandOutput extends StartMLDataProces
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class StartMLDataProcessingJobCommand extends $Command
   .classBuilder<

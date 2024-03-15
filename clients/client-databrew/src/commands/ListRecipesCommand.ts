@@ -27,7 +27,6 @@ export interface ListRecipesCommandInput extends ListRecipesRequest {}
 export interface ListRecipesCommandOutput extends ListRecipesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the DataBrew recipes that are defined.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class ListRecipesCommand extends $Command
   .classBuilder<

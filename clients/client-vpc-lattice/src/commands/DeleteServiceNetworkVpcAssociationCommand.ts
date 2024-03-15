@@ -35,7 +35,6 @@ export interface DeleteServiceNetworkVpcAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the VPC from the service network. You can't disassociate the VPC if there is a
  *    create or update association in progress.</p>
  * @example
@@ -86,6 +85,7 @@ export interface DeleteServiceNetworkVpcAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteServiceNetworkVpcAssociationCommand extends $Command
   .classBuilder<

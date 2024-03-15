@@ -30,7 +30,6 @@ export interface DisassociateQueueQuickConnectsCommandInput extends Disassociate
 export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Disassociates a set of quick connects from a queue.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateQueueQuickConnectsCommand extends $Command
   .classBuilder<

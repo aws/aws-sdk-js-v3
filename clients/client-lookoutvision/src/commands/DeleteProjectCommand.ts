@@ -27,7 +27,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Lookout for Vision project.</p>
  *          <p>To delete a project, you must first delete each version of the model associated with
  *          the project. To delete a model use the <a>DeleteModel</a> operation.</p>
@@ -82,6 +81,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

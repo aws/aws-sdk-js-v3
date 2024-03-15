@@ -27,7 +27,6 @@ export interface CreateDocumentCommandInput extends CreateDocumentRequest {}
 export interface CreateDocumentCommandOutput extends CreateDocumentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
  *    on your managed nodes. For more information about SSM documents, including information about
  *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon Web Services Systems Manager Documents</a> in the
@@ -171,6 +170,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreateDocumentCommand extends $Command
   .classBuilder<

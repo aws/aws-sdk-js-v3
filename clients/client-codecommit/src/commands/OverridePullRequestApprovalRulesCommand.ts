@@ -30,7 +30,6 @@ export interface OverridePullRequestApprovalRulesCommandInput extends OverridePu
 export interface OverridePullRequestApprovalRulesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets aside (overrides) all approval rule requirements for a specified pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface OverridePullRequestApprovalRulesCommandOutput extends __Metadat
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class OverridePullRequestApprovalRulesCommand extends $Command
   .classBuilder<

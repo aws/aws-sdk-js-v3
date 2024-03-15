@@ -30,7 +30,6 @@ export interface DeleteConfigurationAggregatorCommandInput extends DeleteConfigu
 export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified configuration aggregator and the
  * 			aggregated data associated with the aggregator.</p>
  * @example
@@ -60,6 +59,7 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationAggregatorCommand extends $Command
   .classBuilder<

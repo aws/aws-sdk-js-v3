@@ -32,7 +32,6 @@ export interface PutVerificationStateOnViolationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Set a verification state and provide a description of that verification state on a violation (detect alarm).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface PutVerificationStateOnViolationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class PutVerificationStateOnViolationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDedicatedIpCommandInput extends GetDedicatedIpRequest {}
 export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about a dedicated IP address, including the name of the dedicated IP
  *             pool that it's associated with, as well information about the automatic warm-up process
  *             for the address.</p>
@@ -71,6 +70,7 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetDedicatedIpCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ProvideAnomalyFeedbackCommandInput extends ProvideAnomalyFeedba
 export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the feedback property of a given cost anomaly. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class ProvideAnomalyFeedbackCommand extends $Command
   .classBuilder<

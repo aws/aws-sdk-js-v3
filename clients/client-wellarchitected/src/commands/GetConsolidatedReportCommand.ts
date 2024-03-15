@@ -27,7 +27,6 @@ export interface GetConsolidatedReportCommandInput extends GetConsolidatedReport
 export interface GetConsolidatedReportCommandOutput extends GetConsolidatedReportOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a consolidated report of your workloads.</p>
  *          <p>You can optionally choose to include workloads that have been shared with you.</p>
  * @example
@@ -114,6 +113,7 @@ export interface GetConsolidatedReportCommandOutput extends GetConsolidatedRepor
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class GetConsolidatedReportCommand extends $Command
   .classBuilder<

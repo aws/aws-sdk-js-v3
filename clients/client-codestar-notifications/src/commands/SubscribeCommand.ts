@@ -31,7 +31,6 @@ export interface SubscribeCommandInput extends SubscribeRequest {}
 export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between a notification rule and an Chatbot topic or Chatbot client so that the
  *             associated target can receive notifications when the events described in the rule are
  *             triggered.</p>
@@ -75,6 +74,7 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class SubscribeCommand extends $Command
   .classBuilder<

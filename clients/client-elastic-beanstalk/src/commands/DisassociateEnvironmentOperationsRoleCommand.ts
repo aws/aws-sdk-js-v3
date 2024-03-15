@@ -31,7 +31,6 @@ export interface DisassociateEnvironmentOperationsRoleCommandInput
 export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses
  *       the caller's permissions for permissions to downstream services during subsequent calls acting
  *       on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -64,6 +63,7 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class DisassociateEnvironmentOperationsRoleCommand extends $Command
   .classBuilder<

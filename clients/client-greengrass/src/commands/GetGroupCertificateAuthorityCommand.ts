@@ -32,7 +32,6 @@ export interface GetGroupCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Retreives the CA associated with a group. Returns the public key of the CA.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetGroupCertificateAuthorityCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetGroupCertificateAuthorityCommand extends $Command
   .classBuilder<

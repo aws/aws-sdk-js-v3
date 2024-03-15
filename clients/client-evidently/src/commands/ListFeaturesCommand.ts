@@ -27,7 +27,6 @@ export interface ListFeaturesCommandInput extends ListFeaturesRequest {}
 export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns configuration details about all the features in the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class ListFeaturesCommand extends $Command
   .classBuilder<

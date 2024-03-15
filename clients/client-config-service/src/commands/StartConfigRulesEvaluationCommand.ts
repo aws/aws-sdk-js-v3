@@ -27,7 +27,6 @@ export interface StartConfigRulesEvaluationCommandInput extends StartConfigRules
 export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRulesEvaluationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs an on-demand evaluation for the specified Config rules
  * 			against the last known configuration state of the resources. Use
  * 				<code>StartConfigRulesEvaluation</code> when you want to test
@@ -141,6 +140,7 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class StartConfigRulesEvaluationCommand extends $Command
   .classBuilder<

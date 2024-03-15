@@ -27,7 +27,6 @@ export interface SetV2LoggingLevelCommandInput extends SetV2LoggingLevelRequest 
 export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the logging level.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetV2LoggingLevel</a> action.</p>
  * @example
@@ -73,6 +72,7 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class SetV2LoggingLevelCommand extends $Command
   .classBuilder<

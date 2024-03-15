@@ -27,7 +27,6 @@ export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
 export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon EBS volume's name or mount point. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -66,6 +65,7 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class UpdateVolumeCommand extends $Command
   .classBuilder<

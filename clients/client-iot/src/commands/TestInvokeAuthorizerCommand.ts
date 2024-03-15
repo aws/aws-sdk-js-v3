@@ -27,7 +27,6 @@ export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRe
 export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use
  *          this to test and debug the custom authorization behavior of devices that connect to the IoT
  *          device gateway.</p>
@@ -101,6 +100,7 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class TestInvokeAuthorizerCommand extends $Command
   .classBuilder<

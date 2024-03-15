@@ -31,7 +31,6 @@ export interface ListWorkgroupsCommandInput extends ListWorkgroupsRequest {}
 export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a list of specified workgroups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class ListWorkgroupsCommand extends $Command
   .classBuilder<

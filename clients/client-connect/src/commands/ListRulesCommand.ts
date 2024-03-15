@@ -27,7 +27,6 @@ export interface ListRulesCommandInput extends ListRulesRequest {}
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all rules for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListRulesCommand extends $Command
   .classBuilder<

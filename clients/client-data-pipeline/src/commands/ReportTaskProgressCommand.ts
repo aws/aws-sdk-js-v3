@@ -27,7 +27,6 @@ export interface ReportTaskProgressCommandInput extends ReportTaskProgressInput 
 export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not
  *             receive this acknowledgement within 2 minutes, it assigns the task in a subsequent <a>PollForTask</a> call. After this initial acknowledgement,
  *             the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time
@@ -114,6 +113,7 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class ReportTaskProgressCommand extends $Command
   .classBuilder<

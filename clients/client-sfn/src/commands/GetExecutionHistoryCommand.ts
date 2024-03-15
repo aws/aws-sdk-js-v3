@@ -31,7 +31,6 @@ export interface GetExecutionHistoryCommandInput extends GetExecutionHistoryInpu
 export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the history of the specified execution as a list of events. By default, the
  *       results are returned in ascending order of the <code>timeStamp</code> of the events. Use the
  *         <code>reverseOrder</code> parameter to get the latest events first.</p>
@@ -267,6 +266,7 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class GetExecutionHistoryCommand extends $Command
   .classBuilder<

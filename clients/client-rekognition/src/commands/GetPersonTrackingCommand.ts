@@ -27,7 +27,6 @@ export interface GetPersonTrackingCommandInput extends GetPersonTrackingRequest 
 export interface GetPersonTrackingCommandOutput extends GetPersonTrackingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
  *          <p>The person path tracking operation is started by a call to <code>StartPersonTracking</code>
  *      which returns a job identifier (<code>JobId</code>). When the operation finishes, Amazon Rekognition Video publishes a completion status to
@@ -215,6 +214,7 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetPersonTrackingCommand extends $Command
   .classBuilder<

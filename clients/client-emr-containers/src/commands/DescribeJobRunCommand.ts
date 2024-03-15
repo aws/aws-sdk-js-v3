@@ -31,7 +31,6 @@ export interface DescribeJobRunCommandInput extends DescribeJobRunRequest {}
 export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays detailed information about a job run. A job run is a unit of work, such as a
  *          Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
  * @example
@@ -139,6 +138,7 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class DescribeJobRunCommand extends $Command
   .classBuilder<

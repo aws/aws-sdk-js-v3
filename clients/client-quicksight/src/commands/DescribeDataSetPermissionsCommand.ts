@@ -27,7 +27,6 @@ export interface DescribeDataSetPermissionsCommandInput extends DescribeDataSetP
 export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSetPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the permissions on a dataset.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
@@ -86,6 +85,7 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDataSetPermissionsCommand extends $Command
   .classBuilder<

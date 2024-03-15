@@ -36,7 +36,6 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified speaker enrollment job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DescribeSpeakerEnrollmentJobCommand extends $Command
   .classBuilder<

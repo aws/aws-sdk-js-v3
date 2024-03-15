@@ -27,7 +27,6 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of tags for the specified AWS CloudHSM cluster.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the tags. When the response contains only a subset of tags, it includes a
@@ -89,6 +88,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

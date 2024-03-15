@@ -27,7 +27,6 @@ export interface DescribeLocationEfsCommandInput extends DescribeLocationEfsRequ
 export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for an Amazon EFS file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationEfsCommand extends $Command
   .classBuilder<

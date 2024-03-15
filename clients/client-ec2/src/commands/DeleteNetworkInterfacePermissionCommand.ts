@@ -32,7 +32,6 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a permission for a network interface. By default, you cannot delete the
  * 			permission if the account for which you're removing the permission has attached the
  * 			network interface to an instance. However, you can force delete the permission,
@@ -65,6 +64,7 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteNetworkInterfacePermissionCommand extends $Command
   .classBuilder<

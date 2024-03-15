@@ -31,7 +31,6 @@ export interface ModifyClusterMaintenanceCommandInput extends ModifyClusterMaint
 export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMaintenanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the maintenance settings of a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -259,6 +258,7 @@ export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMain
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyClusterMaintenanceCommand extends $Command
   .classBuilder<

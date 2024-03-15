@@ -27,7 +27,6 @@ export interface ListAccessEntriesCommandInput extends ListAccessEntriesRequest 
 export interface ListAccessEntriesCommandOutput extends ListAccessEntriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the access entries for your cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListAccessEntriesCommandOutput extends ListAccessEntriesRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListAccessEntriesCommand extends $Command
   .classBuilder<

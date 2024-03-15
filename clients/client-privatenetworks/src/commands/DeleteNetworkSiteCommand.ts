@@ -27,7 +27,6 @@ export interface DeleteNetworkSiteCommandInput extends DeleteNetworkSiteRequest 
 export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified network site. Return the hardware after you delete the network
  *             site. You are responsible for minimum charges. For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/hardware-maintenance.html">Hardware
  *                 returns</a> in the <i>Amazon Web Services Private 5G User
@@ -121,6 +120,7 @@ export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteRespons
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class DeleteNetworkSiteCommand extends $Command
   .classBuilder<

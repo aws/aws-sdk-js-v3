@@ -27,7 +27,6 @@ export interface UpdateOriginRequestPolicyCommandInput extends UpdateOriginReque
 export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an origin request policy configuration.</p>
  *          <p>When you update an origin request policy configuration, all the fields are updated
  * 			with the values provided in the request. You cannot update some fields independent of
@@ -183,6 +182,7 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateOriginRequestPolicyCommand extends $Command
   .classBuilder<

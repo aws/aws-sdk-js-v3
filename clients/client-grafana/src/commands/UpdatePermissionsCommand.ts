@@ -27,7 +27,6 @@ export interface UpdatePermissionsCommandInput extends UpdatePermissionsRequest 
 export interface UpdatePermissionsCommandOutput extends UpdatePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates which users in a workspace have the Grafana <code>Admin</code> or
  *                 <code>Editor</code> roles.</p>
  * @example
@@ -98,6 +97,7 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class UpdatePermissionsCommand extends $Command
   .classBuilder<

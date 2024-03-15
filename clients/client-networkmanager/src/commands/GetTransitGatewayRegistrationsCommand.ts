@@ -32,7 +32,6 @@ export interface GetTransitGatewayRegistrationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the transit gateway registrations in a specified
  *             global network.</p>
  * @example
@@ -91,6 +90,7 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetTransitGatewayRegistrationsCommand extends $Command
   .classBuilder<

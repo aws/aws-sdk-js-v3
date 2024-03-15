@@ -32,7 +32,6 @@ export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
 export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class UpdateRoomCommand extends $Command
   .classBuilder<

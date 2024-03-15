@@ -27,7 +27,6 @@ export interface DescribeAcceleratorTypesCommandInput extends DescribeAccelerato
 export interface DescribeAcceleratorTypesCommandOutput extends DescribeAcceleratorTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Describes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput.
  *         </p>
@@ -78,6 +77,7 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * @throws {@link ElasticInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
+ * @public
  */
 export class DescribeAcceleratorTypesCommand extends $Command
   .classBuilder<

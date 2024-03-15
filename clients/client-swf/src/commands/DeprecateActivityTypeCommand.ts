@@ -27,7 +27,6 @@ export interface DeprecateActivityTypeCommandInput extends DeprecateActivityType
 export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprecates the specified <i>activity type</i>. After an activity type has
  *       been deprecated, you cannot create new tasks of that activity type. Tasks of this type that
  *       were scheduled before the type was deprecated continue to run.</p>
@@ -108,6 +107,7 @@ export interface DeprecateActivityTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class DeprecateActivityTypeCommand extends $Command
   .classBuilder<

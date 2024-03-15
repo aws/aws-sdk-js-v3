@@ -28,7 +28,6 @@ export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
 export interface DeleteBucketCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a> in the <i>Amazon S3 API Reference</i>. </p>
  *          </note>
@@ -82,6 +81,7 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteBucketCommand extends $Command
   .classBuilder<

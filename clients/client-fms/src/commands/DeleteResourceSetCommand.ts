@@ -27,7 +27,6 @@ export interface DeleteResourceSetCommandInput extends DeleteResourceSetRequest 
 export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified <a>ResourceSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class DeleteResourceSetCommand extends $Command
   .classBuilder<

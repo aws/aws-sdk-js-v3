@@ -27,7 +27,6 @@ export interface GetEmailTemplateCommandInput extends GetEmailTemplateRequest {}
 export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays the template object (which includes the subject line, HTML part and text
  *             part) for the template you specify.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -71,6 +70,7 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetEmailTemplateCommand extends $Command
   .classBuilder<

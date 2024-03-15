@@ -27,7 +27,6 @@ export interface ListDelegatedAdminAccountsCommandInput extends ListDelegatedAdm
 export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAdminAccountsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about the Amazon Inspector delegated administrator of your
  *          organization.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListDelegatedAdminAccountsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RegisterDomainCommandInput extends RegisterDomainInput {}
 export interface RegisterDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a new domain.</p>
  *          <p>
  *             <b>Access Control</b>
@@ -96,6 +95,7 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RegisterDomainCommand extends $Command
   .classBuilder<

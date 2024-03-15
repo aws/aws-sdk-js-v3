@@ -27,7 +27,6 @@ export interface UpdateFilterCommandInput extends UpdateFilterRequest {}
 export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the filter specified by the filter name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class UpdateFilterCommand extends $Command
   .classBuilder<

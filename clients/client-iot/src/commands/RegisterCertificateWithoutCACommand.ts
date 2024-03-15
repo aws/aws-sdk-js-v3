@@ -32,7 +32,6 @@ export interface RegisterCertificateWithoutCACommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Register a certificate that does not have a certificate authority (CA).
  *          For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
  *          Certificate signing algorithms supported by IoT</a>.
@@ -89,6 +88,7 @@ export interface RegisterCertificateWithoutCACommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class RegisterCertificateWithoutCACommand extends $Command
   .classBuilder<

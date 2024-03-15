@@ -31,7 +31,6 @@ export interface SearchGameSessionsCommandInput extends SearchGameSessionsInput 
 export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
  *             into a specified order. </p>
  *          <p>This operation is not designed to continually track game session status because that practice can cause you to exceed your API limit and generate errors. Instead, configure an Amazon Simple Notification Service (Amazon SNS) topic to receive notifications from a matchmaker or game session placement queue.</p>
@@ -197,6 +196,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class SearchGameSessionsCommand extends $Command
   .classBuilder<

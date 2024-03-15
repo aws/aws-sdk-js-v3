@@ -36,7 +36,6 @@ export interface IsAuthorizedCommandInput extends IsAuthorizedInput {}
 export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Makes an authorization decision about a service request described in the parameters.
  *             The information in the parameters can also define additional context that Verified Permissions can
  *             include in the evaluation. The request is evaluated against all matching policies in the
@@ -230,6 +229,7 @@ export interface IsAuthorizedCommandOutput extends IsAuthorizedOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class IsAuthorizedCommand extends $Command
   .classBuilder<

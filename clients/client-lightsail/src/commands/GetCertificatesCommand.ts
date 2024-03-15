@@ -27,7 +27,6 @@ export interface GetCertificatesCommandInput extends GetCertificatesRequest {}
 export interface GetCertificatesCommandOutput extends GetCertificatesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>
  *          <note>
  *             <p>To get a summary of a certificate, omit <code>includeCertificateDetails</code> from your
@@ -164,6 +163,7 @@ export interface GetCertificatesCommandOutput extends GetCertificatesResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetCertificatesCommand extends $Command
   .classBuilder<

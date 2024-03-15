@@ -36,7 +36,6 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller owns the environment resource, and all
  *       Refactor Spaces applications, services, and routes created within the environment. They are referred
  *       to as the <i>environment owner</i>. The environment owner has cross-account
@@ -112,6 +111,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class CreateEnvironmentCommand extends $Command
   .classBuilder<

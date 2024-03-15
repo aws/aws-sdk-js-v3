@@ -36,79 +36,79 @@ export const EventPublisher = {
 export type EventPublisher = (typeof EventPublisher)[keyof typeof EventPublisher];
 
 /**
- * @public
  * <p>Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.</p>
+ * @public
  */
 export interface Channel {
   /**
-   * @public
    * <p>Unique identifier for each <code>Channel</code> in the notification configuration of a Profiling Group. A random UUID for channelId is used when adding a channel to the notification configuration if not specified in the request.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Unique arn of the resource to be used for notifications. We support a valid SNS topic arn as a channel uri.</p>
+   * @public
    */
   uri: string | undefined;
 
   /**
-   * @public
    * <p>List of publishers for different type of events that may be detected in an application from the profile. Anomaly detection is the only event publisher in Profiler.</p>
+   * @public
    */
   eventPublishers: EventPublisher[] | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the AddNotificationChannelsRequest.</p>
+ * @public
  */
 export interface AddNotificationChannelsRequest {
   /**
-   * @public
    * <p>The name of the profiling group that we are setting up notifications for.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>One or 2 channels to report to when anomalies are detected.</p>
+   * @public
    */
   channels: Channel[] | undefined;
 }
 
 /**
- * @public
  * <p>The configuration for notifications stored for each profiling group. This includes up to
  *          to two channels and a list of event publishers associated with each channel.</p>
+ * @public
  */
 export interface NotificationConfiguration {
   /**
-   * @public
    * <p>List of up to two channels to be used for sending notifications for events detected from
    *          the application profile.</p>
+   * @public
    */
   channels?: Channel[];
 }
 
 /**
- * @public
  * <p>The structure representing the AddNotificationChannelsResponse.</p>
+ * @public
  */
 export interface AddNotificationChannelsResponse {
   /**
-   * @public
    * <p>The new notification configuration for this profiling group.</p>
+   * @public
    */
   notificationConfiguration?: NotificationConfiguration;
 }
 
 /**
- * @public
  * <p>The requested operation would cause a conflict with the current state
  *         of a service resource associated with the request. Resolve the conflict
  *         before retrying this request.
  *       </p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -127,8 +127,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The server encountered an internal error and is unable to complete the request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -148,8 +148,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource specified in the request does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -168,11 +168,11 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have exceeded your service quota. To perform the requested action,
  *         remove some of the relevant resources, or use <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a> to request a
  *         service quota increase.
  *       </p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -192,8 +192,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -213,8 +213,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The parameter is not valid.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -265,26 +265,25 @@ export const AgentParameterField = {
 export type AgentParameterField = (typeof AgentParameterField)[keyof typeof AgentParameterField];
 
 /**
- * @public
  * <p>
  *          The response of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html">
  *                <code>ConfigureAgent</code>
  *             </a> that
  *          specifies if an agent profiles or not and for how long to return profiling data.
  *       </p>
+ * @public
  */
 export interface AgentConfiguration {
   /**
-   * @public
    * <p>
    *          A <code>Boolean</code> that specifies whether the profiling agent collects profiling data or not. Set to <code>true</code>
    *         to enable profiling.
    *       </p>
+   * @public
    */
   shouldProfile: boolean | undefined;
 
   /**
-   * @public
    * <p>
    *          How long a profiling agent should send profiling data using
    *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html">
@@ -295,11 +294,11 @@ export interface AgentConfiguration {
    *             </a>
    *          every 5 minutes to submit the profiled data collected during that period.
    *       </p>
+   * @public
    */
   periodInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>
    *          Parameters used by the profiler. The valid parameters are:
    *       </p>
@@ -337,12 +336,12 @@ export interface AgentConfiguration {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   agentParameters?: Partial<Record<AgentParameterField, string>>;
 }
 
 /**
- * @public
  * <p>
  *          Specifies whether profiling is enabled or disabled for a profiling group. It
  *          is used by <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html">
@@ -350,14 +349,15 @@ export interface AgentConfiguration {
  *             </a>
  *          to enable or disable profiling for a profiling group.
  *       </p>
+ * @public
  */
 export interface AgentOrchestrationConfig {
   /**
-   * @public
    * <p>
    *          A <code>Boolean</code> that specifies whether the profiling agent collects profiling data or not. Set to <code>true</code>
    *          to enable profiling.
    *       </p>
+   * @public
    */
   profilingEnabled: boolean | undefined;
 }
@@ -387,17 +387,16 @@ export const AggregationPeriod = {
 export type AggregationPeriod = (typeof AggregationPeriod)[keyof typeof AggregationPeriod];
 
 /**
- * @public
  * <p>
  *          Specifies the aggregation period and aggregation start time for
  *          an aggregated profile. An aggregated profile is used to collect posted agent profiles
  *          during an aggregation period. There are three possible aggregation periods (1 day,
  *          1 hour, or 5 minutes).
  *       </p>
+ * @public
  */
 export interface AggregatedProfileTime {
   /**
-   * @public
    * <p>
    *          The time that aggregation of posted agent profiles for a profiling group starts. The aggregation profile
    *          contains profiles posted by the agent starting at this time for an aggregation period
@@ -408,11 +407,11 @@ export interface AggregatedProfileTime {
    *          Specify <code>start</code> using the ISO 8601 format. For example,
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   start?: Date;
 
   /**
-   * @public
    * <p>
    *          The aggregation period. This indicates the period during which an aggregation profile
    *          collects posted agent profiles for a profiling group. Use one of three valid
@@ -435,6 +434,7 @@ export interface AggregatedProfileTime {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   period?: AggregationPeriod;
 }
@@ -460,57 +460,57 @@ export const FeedbackType = {
 export type FeedbackType = (typeof FeedbackType)[keyof typeof FeedbackType];
 
 /**
- * @public
  * <p>Feedback that can be submitted for each instance of an anomaly by the user.
  *             Feedback is be used for improvements in generating recommendations for the application.</p>
+ * @public
  */
 export interface UserFeedback {
   /**
-   * @public
    * <p>Optional <code>Positive</code> or <code>Negative</code> feedback submitted by
    *             the user about whether the recommendation is useful or not.</p>
+   * @public
    */
   type: FeedbackType | undefined;
 }
 
 /**
- * @public
  * <p>The specific duration in which the metric is flagged as anomalous.</p>
+ * @public
  */
 export interface AnomalyInstance {
   /**
-   * @public
    * <p>
    *             The universally unique identifier (UUID) of an instance of an anomaly in a metric.
    *         </p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The start time of the period during which the metric is flagged as anomalous.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *             The end time of the period during which the metric is flagged as anomalous.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Feedback type on a specific instance of anomaly submitted by the user.</p>
+   * @public
    */
   userFeedback?: UserFeedback;
 }
@@ -532,153 +532,152 @@ export const MetricType = {
 export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
- * @public
  * <p>
  *             Details about the metric that the analysis used when it detected the anomaly.
  *             The metric what is analyzed to create recommendations. It includes the name of the
  *             frame that was analyzed and the type and thread states used to derive the metric
  *             value for that frame.
  *         </p>
+ * @public
  */
 export interface Metric {
   /**
-   * @public
    * <p>
    *             The name of the method that appears as a frame in any stack in a profile.
    *         </p>
+   * @public
    */
   frameName: string | undefined;
 
   /**
-   * @public
    * <p>
    *             A type that specifies how a metric for a frame is analyzed.
    *             The supported value <code>AggregatedRelativeTotalTime</code> is an
    *             aggregation of the metric value for one frame that is calculated across the
    *             occurences of all frames in a profile.</p>
+   * @public
    */
   type: MetricType | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of application runtime thread states that is used to calculate the
    *             metric value for the frame.
    *         </p>
+   * @public
    */
   threadStates: string[] | undefined;
 }
 
 /**
- * @public
  * <p>
  *             Details about an anomaly in a specific metric of application profile. The anomaly is detected using
  *             analysis of the metric data over a period of time.
  *         </p>
+ * @public
  */
 export interface Anomaly {
   /**
-   * @public
    * <p>
    *             Details about the metric that the analysis used when it detected the anomaly.
    *             The metric includes the name of the frame that was analyzed with the type and
    *             thread states used to derive the metric value for that frame.
    *         </p>
+   * @public
    */
   metric: Metric | undefined;
 
   /**
-   * @public
    * <p>The reason for which metric was flagged as anomalous.</p>
+   * @public
    */
   reason: string | undefined;
 
   /**
-   * @public
    * <p>
    *             A list of the instances of the detected anomalies during the requested period.
    *         </p>
+   * @public
    */
   instances: AnomalyInstance[] | undefined;
 }
 
 /**
- * @public
  * <p>
  *          The frame name, metric type, and thread states. These are used
  *          to derive the value of the metric for the frame.</p>
+ * @public
  */
 export interface FrameMetric {
   /**
-   * @public
    * <p> Name of the method common across the multiple occurrences of a frame in an application
    *          profile.</p>
+   * @public
    */
   frameName: string | undefined;
 
   /**
-   * @public
    * <p> A type of aggregation that specifies how a metric for a frame is analyzed. The
    *          supported value <code>AggregatedRelativeTotalTime</code> is an aggregation of the metric
    *          value for one frame that is calculated across the occurrences of all frames in a profile. </p>
+   * @public
    */
   type: MetricType | undefined;
 
   /**
-   * @public
    * <p>List of application runtime thread states used to get the counts for a frame a derive a metric value.</p>
+   * @public
    */
   threadStates: string[] | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the BatchGetFrameMetricDataRequest.</p>
+ * @public
  */
 export interface BatchGetFrameMetricDataRequest {
   /**
-   * @public
    * <p>
    *          The name of the profiling group associated with the
    *          the frame metrics used to return the time series values.
    *       </p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *          The start time of the time period for the frame metrics used to return the time series values.
    *          This is specified
    *          using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *          millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>
    *          The end time of the time period for the returned time series values.
    *          This is specified
    *          using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *          millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>
    *          The duration of the frame metrics used to return the time series values.
    *          Specify using the ISO 8601 format. The maximum period duration
    *          is one day (<code>PT24H</code> or <code>P1D</code>).
    *       </p>
+   * @public
    */
   period?: string;
 
   /**
-   * @public
    * <p>The requested resolution of time steps for the returned time series of values.
    *          If the requested target resolution is not available due to data not being retained we provide a best effort
    *          result by falling back to the most granular available resolution after the target resolution.
@@ -701,92 +700,92 @@ export interface BatchGetFrameMetricDataRequest {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   targetResolution?: AggregationPeriod;
 
   /**
-   * @public
    * <p>
    *          The details of the metrics that are used to request a time series of values. The metric includes
    *          the name of the frame, the aggregation type to calculate the metric value for the
    *          frame, and the thread states to use to get the count for the metric value of the frame.</p>
+   * @public
    */
   frameMetrics?: FrameMetric[];
 }
 
 /**
- * @public
  * <p>
  *          A data type that contains a <code>Timestamp</code> object. This is specified
  *          using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
  *          millisecond past June 1, 2020 1:15:02 PM UTC.
  *       </p>
+ * @public
  */
 export interface TimestampStructure {
   /**
-   * @public
    * <p>
    *          A <code>Timestamp</code>. This is specified
    *          using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *          millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   value: Date | undefined;
 }
 
 /**
- * @public
  * <p>
  *          Information about a frame metric and its values.
  *       </p>
+ * @public
  */
 export interface FrameMetricDatum {
   /**
-   * @public
    * <p>
    *          The frame name, metric type, and thread states. These are used
    *          to derive the value of the metric for the frame.</p>
+   * @public
    */
   frameMetric: FrameMetric | undefined;
 
   /**
-   * @public
    * <p>
    *          A list of values that are associated with a frame metric.
    *       </p>
+   * @public
    */
   values: number[] | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the BatchGetFrameMetricDataResponse.</p>
+ * @public
  */
 export interface BatchGetFrameMetricDataResponse {
   /**
-   * @public
    * <p>
    *          The start time of the time period for the returned time series values.
    *          This is specified
    *          using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *          millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *          The end time of the time period for the returned time series values.
    *          This is specified
    *          using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *          millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   endTime: Date | undefined;
 
   /**
-   * @public
    * <p>Resolution or granularity of the profile data used to generate the time series.
    *          This is the value used to jump through time steps in a time series. There are 3 valid values.
    *       </p>
@@ -807,42 +806,42 @@ export interface BatchGetFrameMetricDataResponse {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   resolution: AggregationPeriod | undefined;
 
   /**
-   * @public
    * <p>
    *          List of instances, or time steps, in the time series. For example, if the
    *          <code>period</code> is one day (<code>PT24H)</code>), and the <code>resolution</code>
    *          is five minutes (<code>PT5M</code>), then there are 288 <code>endTimes</code> in the
    *          list that are each five minutes appart.
    *       </p>
+   * @public
    */
   endTimes: TimestampStructure[] | undefined;
 
   /**
-   * @public
    * <p>List of instances which remained unprocessed. This will create a missing time step in the list of end times.</p>
+   * @public
    */
   unprocessedEndTimes: Record<string, TimestampStructure[]> | undefined;
 
   /**
-   * @public
    * <p>Details of the metrics to request a time series of values. The metric includes
    *          the name of the frame, the aggregation type to calculate the metric value for the frame,
    *          and the thread states to use to get the count for the metric value of the frame.</p>
+   * @public
    */
   frameMetricData: FrameMetricDatum[] | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the GetFindingsReportAccountSummaryRequest.</p>
+ * @public
  */
 export interface GetFindingsReportAccountSummaryRequest {
   /**
-   * @public
    * <p>The <code>nextToken</code> value returned from a previous paginated <code>GetFindingsReportAccountSummary</code>
    *          request where <code>maxResults</code> was used and the results exceeded the value of that parameter.
    *          Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.
@@ -851,96 +850,97 @@ export interface GetFindingsReportAccountSummaryRequest {
    *             <p>This token should be treated as an opaque identifier that is only used to retrieve
    *          the next items in a list and not for other programmatic purposes.</p>
    *          </note>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results returned by <code> GetFindingsReportAccountSummary</code> in paginated output.
    *             When this parameter is used, <code>GetFindingsReportAccountSummary</code> only returns <code>maxResults</code>
    *             results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial
    *             request can be seen by sending another <code>GetFindingsReportAccountSummary</code> request with the returned
    *             <code>nextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A <code>Boolean</code> value indicating whether to only return reports from daily profiles. If set
    *             to <code>True</code>, only analysis data from daily profiles is returned. If set to <code>False</code>,
    *             analysis data is returned from smaller time windows (for example, one hour).</p>
+   * @public
    */
   dailyReportsOnly?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Information about potential recommendations that might be created from the
  *             analysis of profiling data.
  *         </p>
+ * @public
  */
 export interface FindingsReportSummary {
   /**
-   * @public
    * <p>The universally unique identifier (UUID) of the recommendation report.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the profiling group that is associated with the analysis data.</p>
+   * @public
    */
   profilingGroupName?: string;
 
   /**
-   * @public
    * <p>The start time of the profile the analysis data is about.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.</p>
+   * @public
    */
   profileStartTime?: Date;
 
   /**
-   * @public
    * <p>
    *             The end time of the period during which the metric is flagged as anomalous.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   profileEndTime?: Date;
 
   /**
-   * @public
    * <p>The total number of different recommendations that were found by the analysis.</p>
+   * @public
    */
   totalNumberOfFindings?: number;
 }
 
 /**
- * @public
  * <p>The structure representing the GetFindingsReportAccountSummaryResponse.</p>
+ * @public
  */
 export interface GetFindingsReportAccountSummaryResponse {
   /**
-   * @public
    * <p>The return list of
    *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html">
    *                <code>FindingsReportSummary</code>
    *             </a>
    *             objects taht contain summaries of analysis results for all profiling groups in your AWS account.</p>
+   * @public
    */
   reportSummaries: FindingsReportSummary[] | undefined;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value to include in a future <code>GetFindingsReportAccountSummary</code> request.
    *          When the results of a <code>GetFindingsReportAccountSummary</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -950,10 +950,10 @@ export interface GetFindingsReportAccountSummaryResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>
    *          The Amazon Resource Name (ARN) of the resource that contains the tags to return.
    *       </p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -963,11 +963,11 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>
    *          The list of tags assigned to the specified resource. This is the list of tags
    *          returned in the response.
    *       </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1021,28 +1021,27 @@ export const MetadataField = {
 export type MetadataField = (typeof MetadataField)[keyof typeof MetadataField];
 
 /**
- * @public
  * <p>The structure representing the configureAgentRequest.</p>
+ * @public
  */
 export interface ConfigureAgentRequest {
   /**
-   * @public
    * <p>
    *          The name of the profiling group for which the configured agent is collecting profiling data.
    *       </p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p> A universally unique identifier (UUID) for a profiling instance. For example, if the
    *          profiling instance is an Amazon EC2 instance, it is the instance ID. If it is an AWS
    *          Fargate container, it is the container's task ID. </p>
+   * @public
    */
   fleetInstanceId?: string;
 
   /**
-   * @public
    * <p> Metadata captured about the compute platform the agent is running on. It includes
    *          information about sampling and reporting. The valid fields are:</p>
    *          <ul>
@@ -1092,23 +1091,24 @@ export interface ConfigureAgentRequest {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   metadata?: Partial<Record<MetadataField, string>>;
 }
 
 /**
- * @public
  * <p>The structure representing the configureAgentResponse.</p>
+ * @public
  */
 export interface ConfigureAgentResponse {
   /**
-   * @public
    * <p>
    *          An <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AgentConfiguration.html">
    *                <code>AgentConfiguration</code>
    *             </a>
    *          object that specifies if an agent profiles or not and for how long to return profiling data.
    *       </p>
+   * @public
    */
   configuration: AgentConfiguration | undefined;
 }
@@ -1134,139 +1134,138 @@ export const ComputePlatform = {
 export type ComputePlatform = (typeof ComputePlatform)[keyof typeof ComputePlatform];
 
 /**
- * @public
  * <p>The structure representing the createProfiliingGroupRequest.</p>
+ * @public
  */
 export interface CreateProfilingGroupRequest {
   /**
-   * @public
    * <p>The name of the profiling group to create.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *          The compute platform of the profiling group. Use <code>AWSLambda</code> if your application
    *          runs on AWS Lambda. Use <code>Default</code> if your application runs on a compute platform that
    *          is not AWS Lambda, such an Amazon EC2 instance, an on-premises server, or a different platform.
    *          If not specified, <code>Default</code> is used.
    *       </p>
+   * @public
    */
   computePlatform?: ComputePlatform;
 
   /**
-   * @public
    * <p> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent the
    *          accidental creation of duplicate profiling groups if there are failures and retries. </p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>
    *          Specifies whether profiling is enabled or disabled for the created profiling group.
    *       </p>
+   * @public
    */
   agentOrchestrationConfig?: AgentOrchestrationConfig;
 
   /**
-   * @public
    * <p>
    *          A list of tags to add to the created profiling group.
    *       </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>
  *          Profiling status includes information about the last time a profile agent pinged back,
  *          the last time a profile was received, and the aggregation period and start time for the
  *          most recent aggregated profile.
  *       </p>
+ * @public
  */
 export interface ProfilingStatus {
   /**
-   * @public
    * <p>The date and time when the most recent profile was received. Specify using
    *          the ISO 8601 format. For example,
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</p>
+   * @public
    */
   latestAgentProfileReportedAt?: Date;
 
   /**
-   * @public
    * <p>
    *          An <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AggregatedProfileTime.html">
    *                <code>AggregatedProfileTime</code>
    *             </a>
    *          object that contains the aggregation period and start time for an aggregated profile.
    *       </p>
+   * @public
    */
   latestAggregatedProfile?: AggregatedProfileTime;
 
   /**
-   * @public
    * <p>The date and time when the profiling agent most recently pinged back. Specify using
    *          the ISO 8601 format. For example,
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</p>
+   * @public
    */
   latestAgentOrchestratedAt?: Date;
 }
 
 /**
- * @public
  * <p>
  *          Contains information about a profiling group.
  *       </p>
+ * @public
  */
 export interface ProfilingGroupDescription {
   /**
-   * @public
    * <p>The name of the profiling group.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *          An <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AgentOrchestrationConfig.html">
    *                <code>AgentOrchestrationConfig</code>
    *             </a>
    *          object that indicates if the profiling group is enabled for profiled or not.
    *       </p>
+   * @public
    */
   agentOrchestrationConfig?: AgentOrchestrationConfig;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) identifying the profiling group resource.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The time when the profiling group was created. Specify using
    *          the ISO 8601 format. For example,
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>
    *          The date and time when the profiling group was last updated. Specify using
    *          the ISO 8601 format. For example,
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.
    *       </p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>
    *          A <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingStatus.html">
    *                <code>ProfilingStatus</code>
@@ -1275,162 +1274,162 @@ export interface ProfilingGroupDescription {
    *          the last time a profile was received, and the aggregation period and start time for the
    *          most recent aggregated profile.
    *       </p>
+   * @public
    */
   profilingStatus?: ProfilingStatus;
 
   /**
-   * @public
    * <p>
    *          The compute platform of the profiling group. If it is set to <code>AWSLambda</code>, then
    *          the profiled application runs on AWS Lambda. If it is set to <code>Default</code>, then the
    *          profiled application runs on a compute platform that is not AWS Lambda, such an Amazon EC2 instance,
    *          an on-premises server, or a different platform. The default is <code>Default</code>.
    *       </p>
+   * @public
    */
   computePlatform?: ComputePlatform;
 
   /**
-   * @public
    * <p>
    *          A list of the tags that belong to this profiling group.
    *       </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The structure representing the createProfilingGroupResponse.</p>
+ * @public
  */
 export interface CreateProfilingGroupResponse {
   /**
-   * @public
    * <p> The returned <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
    *                <code>ProfilingGroupDescription</code>
    *             </a> object that contains information
    *          about the created profiling group. </p>
+   * @public
    */
   profilingGroup: ProfilingGroupDescription | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the deleteProfilingGroupRequest.</p>
+ * @public
  */
 export interface DeleteProfilingGroupRequest {
   /**
-   * @public
    * <p>The name of the profiling group to delete.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the deleteProfilingGroupResponse.</p>
+ * @public
  */
 export interface DeleteProfilingGroupResponse {}
 
 /**
- * @public
  * <p>The structure representing the describeProfilingGroupRequest.</p>
+ * @public
  */
 export interface DescribeProfilingGroupRequest {
   /**
-   * @public
    * <p>
    *          The name of the profiling group to get information about.
    *       </p>
+   * @public
    */
   profilingGroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the describeProfilingGroupResponse.</p>
+ * @public
  */
 export interface DescribeProfilingGroupResponse {
   /**
-   * @public
    * <p>
    *          The returned <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
    *                <code>ProfilingGroupDescription</code>
    *             </a>
    *          object that contains information about the requested profiling group.
    *       </p>
+   * @public
    */
   profilingGroup: ProfilingGroupDescription | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the GetNotificationConfigurationRequest.</p>
+ * @public
  */
 export interface GetNotificationConfigurationRequest {
   /**
-   * @public
    * <p>The name of the profiling group we want to get the notification configuration for.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the GetNotificationConfigurationResponse.</p>
+ * @public
  */
 export interface GetNotificationConfigurationResponse {
   /**
-   * @public
    * <p>The current notification configuration for this profiling group.</p>
+   * @public
    */
   notificationConfiguration: NotificationConfiguration | undefined;
 }
 
 /**
- * @public
  * <p>
  *             The structure representing the <code>getPolicyRequest</code>.
  *         </p>
+ * @public
  */
 export interface GetPolicyRequest {
   /**
-   * @public
    * <p>The name of the profiling group.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the <code>getPolicyResponse</code>.</p>
+ * @public
  */
 export interface GetPolicyResponse {
   /**
-   * @public
    * <p>The JSON-formatted resource-based policy attached to the <code>ProfilingGroup</code>.</p>
+   * @public
    */
   policy: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier for the current revision of the returned policy.</p>
+   * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the getProfileRequest.</p>
+ * @public
  */
 export interface GetProfileRequest {
   /**
-   * @public
    * <p>The name of the profiling group to get.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>The start time of the profile to get. Specify using
    *          the ISO 8601 format. For example,
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</p>
@@ -1439,11 +1438,11 @@ export interface GetProfileRequest {
    *          If you specify <code>startTime</code>, then you must also specify <code>period</code>
    *          or <code>endTime</code>, but not both.
    *       </p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>
    *          Used with <code>startTime</code> or <code>endTime</code> to specify
    *          the time range for the returned aggregated profile. Specify using
@@ -1453,11 +1452,11 @@ export interface GetProfileRequest {
    *          <p>
    *          To get the latest aggregated profile, specify only <code>period</code>.
    *       </p>
+   * @public
    */
   period?: string;
 
   /**
-   * @public
    * <p>
    *          The end time of the requested profile. Specify using
    *          the ISO 8601 format. For example,
@@ -1467,11 +1466,11 @@ export interface GetProfileRequest {
    *          If you specify <code>endTime</code>, then you must also specify <code>period</code>
    *          or <code>startTime</code>, but not both.
    *       </p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>
    *          The maximum depth of the stacks in the code that is represented in
    *          the aggregated profile. For example, if CodeGuru Profiler finds a method <code>A</code>,
@@ -1480,11 +1479,11 @@ export interface GetProfileRequest {
    *          set to 2, then the aggregated profile contains representations of methods <code>A</code>
    *          and <code>B</code>.
    *       </p>
+   * @public
    */
   maxDepth?: number;
 
   /**
-   * @public
    * <p>
    *          The format of the returned profiling data. The format maps to the
    *          <code>Accept</code> and <code>Content-Type</code> headers of the
@@ -1505,73 +1504,73 @@ export interface GetProfileRequest {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   accept?: string;
 }
 
 /**
- * @public
  * <p>The structure representing the getProfileResponse.</p>
+ * @public
  */
 export interface GetProfileResponse {
   /**
-   * @public
    * <p>Information about the profile.</p>
+   * @public
    */
   profile: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The content type of the profile in the payload. It is
    *         either <code>application/json</code> or the default
    *         <code>application/x-amzn-ion</code>.</p>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The content encoding of the profile.</p>
+   * @public
    */
   contentEncoding?: string;
 }
 
 /**
- * @public
  * <p>The structure representing the GetRecommendationsRequest.</p>
+ * @public
  */
 export interface GetRecommendationsRequest {
   /**
-   * @public
    * <p>
    *             The name of the profiling group to get analysis data about.
    *         </p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The end time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *             The start time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   endTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *             The language used to provide analysis. Specify using a string that is one
    *             of the following <code>BCP 47</code> language codes.
@@ -1633,223 +1632,223 @@ export interface GetRecommendationsRequest {
    *                 </p>
    *             </li>
    *          </ul>
+   * @public
    */
   locale?: string;
 }
 
 /**
- * @public
  * <p>
  *             A set of rules used to make a recommendation during an analysis.
  *         </p>
+ * @public
  */
 export interface Pattern {
   /**
-   * @public
    * <p>The universally unique identifier (UUID) of this pattern.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name for this pattern.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description of the recommendation. This explains a potential
    *             inefficiency in a profiled application.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>
    *             A string that contains the steps recommended to address the potential inefficiency.
    *         </p>
+   * @public
    */
   resolutionSteps?: string;
 
   /**
-   * @public
    * <p>A list of frame names that were searched during the analysis that generated
    *             a recommendation.</p>
+   * @public
    */
   targetFrames?: string[][];
 
   /**
-   * @public
    * <p>
    *             The percentage of time an application spends in one method that triggers
    *             a recommendation. The percentage of time is the same as the percentage of
    *             the total gathered sample counts during analysis.
    *         </p>
+   * @public
    */
   thresholdPercent?: number;
 
   /**
-   * @public
    * <p>
    *             A list of the different counters used to determine if there is a match.
    *         </p>
+   * @public
    */
   countersToAggregate?: string[];
 }
 
 /**
- * @public
  * <p>The part of a profile that contains a recommendation found during analysis.</p>
+ * @public
  */
 export interface Match {
   /**
-   * @public
    * <p>The target frame that triggered a match.</p>
+   * @public
    */
   targetFramesIndex?: number;
 
   /**
-   * @public
    * <p>The location in the profiling graph that contains a recommendation found during analysis.</p>
+   * @public
    */
   frameAddress?: string;
 
   /**
-   * @public
    * <p>The value in the profile data that exceeded the recommendation threshold.</p>
+   * @public
    */
   thresholdBreachValue?: number;
 }
 
 /**
- * @public
  * <p>A potential improvement that was found from analyzing the profiling data.</p>
+ * @public
  */
 export interface Recommendation {
   /**
-   * @public
    * <p>How many different places in the profile graph triggered a match.</p>
+   * @public
    */
   allMatchesCount: number | undefined;
 
   /**
-   * @public
    * <p>How much of the total sample count is potentially affected.</p>
+   * @public
    */
   allMatchesSum: number | undefined;
 
   /**
-   * @public
    * <p>The pattern that analysis recognized in the profile to make this recommendation.</p>
+   * @public
    */
   pattern: Pattern | undefined;
 
   /**
-   * @public
    * <p>List of the matches with most impact. </p>
+   * @public
    */
   topMatches: Match[] | undefined;
 
   /**
-   * @public
    * <p>The start time of the profile that was used by this analysis.
    *         This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>End time of the profile that was used by this analysis.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.</p>
+   * @public
    */
   endTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the GetRecommendationsResponse.</p>
+ * @public
  */
 export interface GetRecommendationsResponse {
   /**
-   * @public
    * <p>The name of the profiling group the analysis data is about.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The start time of the profile the analysis data is about. This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   profileStartTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *             The end time of the profile the analysis data is about. This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   profileEndTime: Date | undefined;
 
   /**
-   * @public
    * <p>The list of recommendations that the analysis found for this profile.</p>
+   * @public
    */
   recommendations: Recommendation[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of anomalies that the analysis has found for this profile.
    *         </p>
+   * @public
    */
   anomalies: Anomaly[] | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the ListFindingsReportsRequest.</p>
+ * @public
  */
 export interface ListFindingsReportsRequest {
   /**
-   * @public
    * <p>The name of the profiling group from which to search for analysis data.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The start time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *             The end time of the profile to get analysis data about. You must specify <code>startTime</code> and <code>endTime</code>.
    *             This is specified
    *             using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1
    *             millisecond past June 1, 2020 1:15:02 PM UTC.
    *         </p>
+   * @public
    */
   endTime: Date | undefined;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value returned from a previous paginated <code>ListFindingsReportsRequest</code>
    *          request where <code>maxResults</code> was used and the results exceeded the value of that parameter.
    *          Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.
@@ -1858,46 +1857,47 @@ export interface ListFindingsReportsRequest {
    *             <p>This token should be treated as an opaque identifier that is only used to retrieve
    *       the next items in a list and not for other programmatic purposes.</p>
    *          </note>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of report results returned by <code>ListFindingsReports</code>
    *          in paginated output. When this parameter is used, <code>ListFindingsReports</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
    *          element. The remaining results of the initial request
    *          can be seen by sending another <code>ListFindingsReports</code> request with the returned
    *          <code>nextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A <code>Boolean</code> value indicating whether to only return reports from daily profiles. If set
    *         to <code>True</code>, only analysis data from daily profiles is returned. If set to <code>False</code>,
    *         analysis data is returned from smaller time windows (for example, one hour).</p>
+   * @public
    */
   dailyReportsOnly?: boolean;
 }
 
 /**
- * @public
  * <p>The structure representing the ListFindingsReportsResponse.</p>
+ * @public
  */
 export interface ListFindingsReportsResponse {
   /**
-   * @public
    * <p>The list of analysis results summaries.</p>
+   * @public
    */
   findingsReportSummaries: FindingsReportSummary[] | undefined;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value to include in a future <code>ListFindingsReports</code> request.
    *          When the results of a <code>ListFindingsReports</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1923,30 +1923,29 @@ export const OrderBy = {
 export type OrderBy = (typeof OrderBy)[keyof typeof OrderBy];
 
 /**
- * @public
  * <p>The structure representing the listProfileTimesRequest.</p>
+ * @public
  */
 export interface ListProfileTimesRequest {
   /**
-   * @public
    * <p>The name of the profiling group.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>The start time of the time range from which to list the profiles.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>The end time of the time range from which to list the profiles.</p>
+   * @public
    */
   endTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *          The aggregation period. This specifies the period during which an aggregation profile
    *          collects posted agent profiles for a profiling group. There are 3 valid values.
@@ -1968,19 +1967,19 @@ export interface ListProfileTimesRequest {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   period: AggregationPeriod | undefined;
 
   /**
-   * @public
    * <p>The order (ascending or descending by start time of the profile) to
    *         use when listing profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>.
    *       </p>
+   * @public
    */
   orderBy?: OrderBy;
 
   /**
-   * @public
    * <p>The maximum number of profile time results returned by <code>ListProfileTimes</code>
    *          in paginated output. When this parameter is used, <code>ListProfileTimes</code> only returns
    *          <code>maxResults</code> results in a single page with a <code>nextToken</code> response
@@ -1988,11 +1987,11 @@ export interface ListProfileTimesRequest {
    *          can be seen by sending another <code>ListProfileTimes</code> request with the returned
    *          <code>nextToken</code> value.
    *       </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *          <code>ListProfileTimes</code> request where <code>maxResults</code> was used and the results
    *          exceeded the value of that parameter. Pagination continues from the end of the previous results
@@ -2002,56 +2001,56 @@ export interface ListProfileTimesRequest {
    *             <p>This token should be treated as an opaque identifier that is only used to retrieve
    *          the next items in a list and not for other programmatic purposes.</p>
    *          </note>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>
  *          Contains the start time of a profile.
  *       </p>
+ * @public
  */
 export interface ProfileTime {
   /**
-   * @public
    * <p>The start time of a profile. It is specified using
    *          the ISO 8601 format. For example,
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</p>
+   * @public
    */
   start?: Date;
 }
 
 /**
- * @public
  * <p>The structure representing the listProfileTimesResponse.</p>
+ * @public
  */
 export interface ListProfileTimesResponse {
   /**
-   * @public
    * <p>The list of start times of the available profiles for the aggregation
    *         period in the specified time range.
    *       </p>
+   * @public
    */
   profileTimes: ProfileTime[] | undefined;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value to include in a future <code>ListProfileTimes</code> request.
    *          When the results of a <code>ListProfileTimes</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The structure representing the listProfilingGroupsRequest.</p>
+ * @public
  */
 export interface ListProfilingGroupsRequest {
   /**
-   * @public
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *          <code>ListProfilingGroups</code> request where <code>maxResults</code> was used and the results
    *          exceeded the value of that parameter. Pagination continues from the end of the previous results
@@ -2061,11 +2060,11 @@ export interface ListProfilingGroupsRequest {
    *             <p>This token should be treated as an opaque identifier that is only used to retrieve
    *          the next items in a list and not for other programmatic purposes.</p>
    *          </note>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of profiling groups results returned by <code>ListProfilingGroups</code>
    *          in paginated output. When this parameter is used, <code>ListProfilingGroups</code> only returns
    *          <code>maxResults</code> results in a single page along with a <code>nextToken</code> response
@@ -2073,11 +2072,11 @@ export interface ListProfilingGroupsRequest {
    *          can be seen by sending another <code>ListProfilingGroups</code> request with the returned
    *          <code>nextToken</code> value.
    *       </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A <code>Boolean</code> value indicating whether to include a description. If <code>true</code>,
    *       then a list of
    *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
@@ -2085,17 +2084,17 @@ export interface ListProfilingGroupsRequest {
    *             </a> objects
    *       that contain detailed information about profiling groups is returned. If <code>false</code>, then
    *       a list of profiling group names is returned.</p>
+   * @public
    */
   includeDescription?: boolean;
 }
 
 /**
- * @public
  * <p>The structure representing the listProfilingGroupsResponse.</p>
+ * @public
  */
 export interface ListProfilingGroupsResponse {
   /**
-   * @public
    * <p>
    *          A returned list of profiling group names. A list of the names is returned only if
    *          <code>includeDescription</code> is <code>false</code>, otherwise a list of
@@ -2104,11 +2103,11 @@ export interface ListProfilingGroupsResponse {
    *             </a> objects
    *          is returned.
    *       </p>
+   * @public
    */
   profilingGroupNames: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *          A returned list
    *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
@@ -2120,50 +2119,50 @@ export interface ListProfilingGroupsResponse {
    *             </a>
    *          objects is returned only if <code>includeDescription</code> is <code>true</code>, otherwise a list of profiling group names is returned.
    *       </p>
+   * @public
    */
   profilingGroups?: ProfilingGroupDescription[];
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value to include in a future <code>ListProfilingGroups</code> request.
    *          When the results of a <code>ListProfilingGroups</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The structure representing the postAgentProfileRequest.</p>
+ * @public
  */
 export interface PostAgentProfileRequest {
   /**
-   * @public
    * <p>
    *          The name of the profiling group with the aggregated profile that receives the
    *          submitted profiling data.
    *       </p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *          The submitted profiling data.
    *       </p>
+   * @public
    */
   agentProfile: Uint8Array | undefined;
 
   /**
-   * @public
    * <p> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent the
    *          accidental submission of duplicate profiling data if there are failures and retries. </p>
+   * @public
    */
   profileToken?: string;
 
   /**
-   * @public
    * <p>
    *          The format of the submitted profiling data. The format maps to the
    *          <code>Accept</code> and <code>Content-Type</code> headers of the
@@ -2184,243 +2183,244 @@ export interface PostAgentProfileRequest {
    *             </p>
    *             </li>
    *          </ul>
+   * @public
    */
   contentType: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the postAgentProfileResponse.</p>
+ * @public
  */
 export interface PostAgentProfileResponse {}
 
 /**
- * @public
  * <p>The structure representing the <code>putPermissionRequest</code>.</p>
+ * @public
  */
 export interface PutPermissionRequest {
   /**
-   * @public
    * <p>The name of the profiling group to grant access to.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *             Specifies an action group that contains permissions to add to
    *             a profiling group resource. One action group is supported, <code>agentPermissions</code>, which
    *             grants permission to perform actions required by the profiling agent, <code>ConfigureAgent</code>
    *             and <code>PostAgentProfile</code> permissions.
    *         </p>
+   * @public
    */
   actionGroup: ActionGroup | undefined;
 
   /**
-   * @public
    * <p>
    *             A list ARNs for the roles and users you want to grant access to the profiling group.
    *             Wildcards are not are supported in the ARNs.
    *         </p>
+   * @public
    */
   principals: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *             A universally unique identifier (UUID) for the revision of the policy you
    *             are adding to the profiling group. Do not specify
    *             this when you add permissions to a profiling group for the first time. If a policy already exists on the
    *             profiling group, you must specify the <code>revisionId</code>.
    *         </p>
+   * @public
    */
   revisionId?: string;
 }
 
 /**
- * @public
  * <p>The structure representing the <code>putPermissionResponse</code>.</p>
+ * @public
  */
 export interface PutPermissionResponse {
   /**
-   * @public
    * <p>
    *             The JSON-formatted resource-based policy on the profiling group that includes the
    *             added permissions.
    *         </p>
+   * @public
    */
   policy: string | undefined;
 
   /**
-   * @public
    * <p> A universally unique identifier (UUID) for the revision of the resource-based policy
    *             that includes the added permissions. The JSON-formatted policy is in the
    *                 <code>policy</code> element of the response. </p>
+   * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the RemoveNotificationChannelRequest.</p>
+ * @public
  */
 export interface RemoveNotificationChannelRequest {
   /**
-   * @public
    * <p>The name of the profiling group we want to change notification configuration for.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>The id of the channel that we want to stop receiving notifications.</p>
+   * @public
    */
   channelId: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the RemoveNotificationChannelResponse.</p>
+ * @public
  */
 export interface RemoveNotificationChannelResponse {
   /**
-   * @public
    * <p>The new notification configuration for this profiling group.</p>
+   * @public
    */
   notificationConfiguration?: NotificationConfiguration;
 }
 
 /**
- * @public
  * <p>
  *
  *             The structure representing the <code>removePermissionRequest</code>.</p>
+ * @public
  */
 export interface RemovePermissionRequest {
   /**
-   * @public
    * <p>The name of the profiling group.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *             Specifies an action group that contains the permissions to remove from
    *             a profiling group's resource-based policy. One action group is supported, <code>agentPermissions</code>, which
    *             grants <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions.
    *         </p>
+   * @public
    */
   actionGroup: ActionGroup | undefined;
 
   /**
-   * @public
    * <p>
    *             A universally unique identifier (UUID) for the revision of the resource-based policy from which
    *             you want to remove permissions.
    *         </p>
+   * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the <code>removePermissionResponse</code>.</p>
+ * @public
  */
 export interface RemovePermissionResponse {
   /**
-   * @public
    * <p>
    *             The JSON-formatted resource-based policy on the profiling group after
    *             the specified permissions were removed.
    *         </p>
+   * @public
    */
   policy: string | undefined;
 
   /**
-   * @public
    * <p> A universally unique identifier (UUID) for the revision of the resource-based policy
    *             after the specified permissions were removed. The updated JSON-formatted policy is in the
    *                 <code>policy</code> element of the response. </p>
+   * @public
    */
   revisionId: string | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the SubmitFeedbackRequest.</p>
+ * @public
  */
 export interface SubmitFeedbackRequest {
   /**
-   * @public
    * <p>The name of the profiling group that is associated with the analysis data.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>The universally unique identifier (UUID) of the
    *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AnomalyInstance.html">
    *                <code>AnomalyInstance</code>
    *             </a> object
    *             that is included in the analysis data.</p>
+   * @public
    */
   anomalyInstanceId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The feedback tpye. Thee are two valid values, <code>Positive</code> and <code>Negative</code>.
    *         </p>
+   * @public
    */
   type: FeedbackType | undefined;
 
   /**
-   * @public
    * <p>Optional feedback about this anomaly.</p>
+   * @public
    */
   comment?: string;
 }
 
 /**
- * @public
  * <p>The structure representing the SubmitFeedbackResponse.</p>
+ * @public
  */
 export interface SubmitFeedbackResponse {}
 
 /**
- * @public
  * <p>The structure representing the updateProfilingGroupRequest.</p>
+ * @public
  */
 export interface UpdateProfilingGroupRequest {
   /**
-   * @public
    * <p>The name of the profiling group to update.</p>
+   * @public
    */
   profilingGroupName: string | undefined;
 
   /**
-   * @public
    * <p>
    *          Specifies whether profiling is enabled or disabled for a profiling group.
    *       </p>
+   * @public
    */
   agentOrchestrationConfig: AgentOrchestrationConfig | undefined;
 }
 
 /**
- * @public
  * <p>The structure representing the updateProfilingGroupResponse.</p>
+ * @public
  */
 export interface UpdateProfilingGroupResponse {
   /**
-   * @public
    * <p>
    *          A <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
    *                <code>ProfilingGroupDescription</code>
    *             </a>
    *          that contains information about the returned updated profiling group.
    *       </p>
+   * @public
    */
   profilingGroup: ProfilingGroupDescription | undefined;
 }
@@ -2430,18 +2430,18 @@ export interface UpdateProfilingGroupResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>
    *          The Amazon Resource Name (ARN) of the resource that the tags are added to.
    *       </p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>
    *          The list of tags that are added to the specified resource.
    *       </p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -2456,19 +2456,19 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>
    *          The Amazon Resource Name (ARN) of the resource that contains the tags to remove.
    *       </p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>
    *          A list of tag keys. Existing tags of resources with keys in this list are removed from
    *          the specified resource.
    *       </p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

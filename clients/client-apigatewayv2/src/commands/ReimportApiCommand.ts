@@ -27,7 +27,6 @@ export interface ReimportApiCommandInput extends ReimportApiRequest {}
 export interface ReimportApiCommandOutput extends ReimportApiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts an Api resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class ReimportApiCommand extends $Command
   .classBuilder<

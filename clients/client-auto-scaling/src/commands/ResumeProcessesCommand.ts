@@ -27,7 +27,6 @@ export interface ResumeProcessesCommandInput extends ScalingProcessQuery {}
 export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resumes the specified suspended auto scaling processes, or all suspended process, for
  *             the specified Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
@@ -66,6 +65,7 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To resume Auto Scaling processes
  * ```javascript
  * // This example resumes the specified suspended scaling process for the specified Auto Scaling group.

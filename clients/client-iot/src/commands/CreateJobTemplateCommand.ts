@@ -27,7 +27,6 @@ export interface CreateJobTemplateCommandInput extends CreateJobTemplateRequest 
 export interface CreateJobTemplateCommandOutput extends CreateJobTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a job template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateJobTemplate</a> action.</p>
  * @example
@@ -130,6 +129,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateJobTemplateCommand extends $Command
   .classBuilder<

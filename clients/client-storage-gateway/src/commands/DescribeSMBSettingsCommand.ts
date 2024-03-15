@@ -27,7 +27,6 @@ export interface DescribeSMBSettingsCommandInput extends DescribeSMBSettingsInpu
 export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a description of a Server Message Block (SMB) file share settings from a file
  *          gateway. This operation is only supported for file gateways.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DescribeSMBSettingsCommand extends $Command
   .classBuilder<

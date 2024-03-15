@@ -27,7 +27,6 @@ export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
 export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
  *       system.</p>
  * @example
@@ -117,6 +116,7 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class UpdateFileSystemCommand extends $Command
   .classBuilder<

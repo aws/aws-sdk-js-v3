@@ -27,7 +27,6 @@ export interface DeleteScalingPlanCommandInput extends DeleteScalingPlanRequest 
 export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified scaling plan.</p>
  *          <p>Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for
  *          all of the scalable resources that are covered by the plan.</p>
@@ -71,6 +70,7 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * @public
  */
 export class DeleteScalingPlanCommand extends $Command
   .classBuilder<

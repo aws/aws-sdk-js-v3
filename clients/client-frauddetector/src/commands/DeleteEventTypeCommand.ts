@@ -27,7 +27,6 @@ export interface DeleteEventTypeCommandInput extends DeleteEventTypeRequest {}
 export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an event type.</p>
  *          <p>You cannot delete an event type that is used in a detector or a model.</p>
  *          <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -70,6 +69,7 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteEventTypeCommand extends $Command
   .classBuilder<

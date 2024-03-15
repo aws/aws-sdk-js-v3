@@ -31,7 +31,6 @@ export interface GetSoftwareSetCommandInput extends GetSoftwareSetRequest {}
 export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information for a software set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __M
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class GetSoftwareSetCommand extends $Command
   .classBuilder<

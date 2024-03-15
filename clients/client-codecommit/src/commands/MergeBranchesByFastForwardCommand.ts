@@ -27,7 +27,6 @@ export interface MergeBranchesByFastForwardCommandInput extends MergeBranchesByF
 export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesByFastForwardOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Merges two branches using the fast-forward merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class MergeBranchesByFastForwardCommand extends $Command
   .classBuilder<

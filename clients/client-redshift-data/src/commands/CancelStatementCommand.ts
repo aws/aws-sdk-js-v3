@@ -27,7 +27,6 @@ export interface CancelStatementCommandInput extends CancelStatementRequest {}
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a running query. To be canceled, a query must be running. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
@@ -70,6 +69,7 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class CancelStatementCommand extends $Command
   .classBuilder<

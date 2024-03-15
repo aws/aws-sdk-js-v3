@@ -27,7 +27,6 @@ export interface ListTagsForDeliveryStreamCommandInput extends ListTagsForDelive
 export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
  *          transactions per second per account. </p>
  * @example
@@ -73,6 +72,7 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class ListTagsForDeliveryStreamCommand extends $Command
   .classBuilder<

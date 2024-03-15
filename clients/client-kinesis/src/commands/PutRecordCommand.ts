@@ -27,7 +27,6 @@ export interface PutRecordCommandInput extends PutRecordInput {}
 export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Writes a single data record into an Amazon Kinesis data stream. Call
  *                 <code>PutRecord</code> to send data into the stream for real-time ingestion and
  *             subsequent processing, one record at a time. Each shard can support writes up to 1,000
@@ -148,6 +147,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class PutRecordCommand extends $Command
   .classBuilder<

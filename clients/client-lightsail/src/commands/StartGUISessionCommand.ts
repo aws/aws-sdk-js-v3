@@ -27,7 +27,6 @@ export interface StartGUISessionCommandInput extends StartGUISessionRequest {}
 export interface StartGUISessionCommandOutput extends StartGUISessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a graphical user interface (GUI) session that’s used to access a virtual
  *       computer’s operating system and application. The session will be active for 1 hour. Use this
  *       action to resume the session after it expires. </p>
@@ -98,6 +97,7 @@ export interface StartGUISessionCommandOutput extends StartGUISessionResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class StartGUISessionCommand extends $Command
   .classBuilder<

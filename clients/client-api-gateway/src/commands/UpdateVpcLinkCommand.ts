@@ -27,7 +27,6 @@ export interface UpdateVpcLinkCommandInput extends UpdateVpcLinkRequest {}
 export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing VpcLink of a specified identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateVpcLinkCommand extends $Command
   .classBuilder<

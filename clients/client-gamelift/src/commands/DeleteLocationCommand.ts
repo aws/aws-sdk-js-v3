@@ -27,7 +27,6 @@ export interface DeleteLocationCommandInput extends DeleteLocationInput {}
 export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom location.</p>
  *          <p>Before deleting a custom location, review any fleets currently using the custom
  *             location and deregister the location if it is in use. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html">DeregisterCompute</a>.</p>
@@ -69,6 +68,7 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteLocationCommand extends $Command
   .classBuilder<

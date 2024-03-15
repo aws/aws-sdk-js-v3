@@ -27,7 +27,6 @@ export interface DescribeDBProxyTargetsCommandInput extends DescribeDBProxyTarge
 export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTarg
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeDBProxyTargetsCommand extends $Command
   .classBuilder<

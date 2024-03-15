@@ -36,7 +36,6 @@ export interface GetAccountLevelServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status of your account's Amazon Web Services service access, and validates the service
  *             linked role required to access the multi-account search feature. Only the management
  *             account or a delegated administrator with service access enabled can invoke this API
@@ -85,6 +84,7 @@ export interface GetAccountLevelServiceConfigurationCommandOutput
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class GetAccountLevelServiceConfigurationCommand extends $Command
   .classBuilder<

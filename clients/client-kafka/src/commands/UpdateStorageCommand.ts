@@ -27,7 +27,6 @@ export interface UpdateStorageCommandInput extends UpdateStorageRequest {}
 export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates cluster broker volume size (or) sets cluster storage mode to TIERED.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateStorageCommand extends $Command
   .classBuilder<

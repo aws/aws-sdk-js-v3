@@ -27,7 +27,6 @@ export interface UpdateQueueStatusCommandInput extends UpdateQueueStatusRequest 
 export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the status of the queue.</p>
  * @example
@@ -71,6 +70,7 @@ export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateQueueStatusCommand extends $Command
   .classBuilder<

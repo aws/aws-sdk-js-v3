@@ -32,7 +32,6 @@ export interface DescribeRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a> object that contains information about the requested
  *          repository association.</p>
  * @example
@@ -101,6 +100,7 @@ export interface DescribeRepositoryAssociationCommandOutput
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class DescribeRepositoryAssociationCommand extends $Command
   .classBuilder<

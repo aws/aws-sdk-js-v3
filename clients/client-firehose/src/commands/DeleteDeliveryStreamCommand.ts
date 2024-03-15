@@ -27,7 +27,6 @@ export interface DeleteDeliveryStreamCommandInput extends DeleteDeliveryStreamIn
 export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a delivery stream and its data.</p>
  *          <p>You can delete a delivery stream only if it is in one of the following states:
  *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
@@ -72,6 +71,7 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class DeleteDeliveryStreamCommand extends $Command
   .classBuilder<

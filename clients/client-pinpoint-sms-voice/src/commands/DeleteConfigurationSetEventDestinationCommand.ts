@@ -36,7 +36,6 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Deletes an event destination in a configuration set.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeSignalingChannelCommandInput extends DescribeSignalingC
 export interface DescribeSignalingChannelCommandOutput extends DescribeSignalingChannelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the most current information about the signaling channel. You must specify
  *             either the name or the Amazon Resource Name (ARN) of the channel that you want to
  *             describe.</p>
@@ -81,6 +80,7 @@ export interface DescribeSignalingChannelCommandOutput extends DescribeSignaling
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DescribeSignalingChannelCommand extends $Command
   .classBuilder<

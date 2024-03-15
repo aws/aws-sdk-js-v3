@@ -27,7 +27,6 @@ export interface RejectClientVpcConnectionCommandInput extends RejectClientVpcCo
 export interface RejectClientVpcConnectionCommandOutput extends RejectClientVpcConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns empty response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface RejectClientVpcConnectionCommandOutput extends RejectClientVpcC
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class RejectClientVpcConnectionCommand extends $Command
   .classBuilder<

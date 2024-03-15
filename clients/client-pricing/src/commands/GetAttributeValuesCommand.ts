@@ -27,7 +27,6 @@ export interface GetAttributeValuesCommandInput extends GetAttributeValuesReques
 export interface GetAttributeValuesCommandOutput extends GetAttributeValuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of attribute values. Attributes are similar to the details
  *           in a Price List API offer file. For a list of available attributes, see
  *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a>
@@ -85,6 +84,7 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ * @public
  */
 export class GetAttributeValuesCommand extends $Command
   .classBuilder<

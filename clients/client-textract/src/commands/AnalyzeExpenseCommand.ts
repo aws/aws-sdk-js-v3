@@ -27,7 +27,6 @@ export interface AnalyzeExpenseCommandInput extends AnalyzeExpenseRequest {}
 export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
  *          related relationships between text.</p>
@@ -283,6 +282,7 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class AnalyzeExpenseCommand extends $Command
   .classBuilder<

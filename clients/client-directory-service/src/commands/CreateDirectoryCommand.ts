@@ -31,7 +31,6 @@ export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
 export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>Directory Service Admin
  *         Guide</i>.</p>
  *          <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
@@ -94,6 +93,7 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateDirectoryCommand extends $Command
   .classBuilder<

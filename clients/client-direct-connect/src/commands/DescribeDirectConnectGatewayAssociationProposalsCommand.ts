@@ -36,7 +36,6 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Command
   .classBuilder<

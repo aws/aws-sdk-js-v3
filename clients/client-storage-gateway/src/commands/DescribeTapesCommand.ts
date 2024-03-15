@@ -27,7 +27,6 @@ export interface DescribeTapesCommandInput extends DescribeTapesInput {}
 export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of virtual tapes that correspond to the specified Amazon Resource
  *          Names (ARNs). If <code>TapeARN</code> is not specified, returns a description of the
  *          virtual tapes associated with the specified gateway. This operation is only supported for
@@ -94,6 +93,7 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe virtual tape(s) associated with gateway
  * ```javascript
  * // Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a TapeARN is not specified, returns a description of all virtual tapes.

@@ -27,7 +27,6 @@ export interface ListVpcConnectorsCommandInput extends ListVpcConnectorsRequest 
 export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of App Runner VPC connectors in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class ListVpcConnectorsCommand extends $Command
   .classBuilder<

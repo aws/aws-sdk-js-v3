@@ -27,7 +27,6 @@ export interface CancelIngestionCommandInput extends CancelIngestionRequest {}
 export interface CancelIngestionCommandOutput extends CancelIngestionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an ongoing ingestion of data into SPICE.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CancelIngestionCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateEndpointGroupCommandInput extends UpdateEndpointGroupRequ
 export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class UpdateEndpointGroupCommand extends $Command
   .classBuilder<

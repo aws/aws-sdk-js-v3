@@ -27,7 +27,6 @@ export interface DeleteWorkforceCommandInput extends DeleteWorkforceRequest {}
 export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to delete a workforce.</p>
  *          <p>If you want to create a new workforce in an Amazon Web Services Region where
  *       a workforce already exists, use this operation to delete the
@@ -64,6 +63,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteWorkforceCommand extends $Command
   .classBuilder<

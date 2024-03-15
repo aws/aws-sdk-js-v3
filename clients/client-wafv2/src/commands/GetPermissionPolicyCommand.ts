@@ -27,7 +27,6 @@ export interface GetPermissionPolicyCommandInput extends GetPermissionPolicyRequ
 export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the IAM policy that is attached to the specified rule group.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
  * @example
@@ -87,6 +86,7 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetPermissionPolicyCommand extends $Command
   .classBuilder<

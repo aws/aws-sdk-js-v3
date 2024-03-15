@@ -27,7 +27,6 @@ export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMess
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify a setting for an Amazon DocumentDB global cluster. You can change one or more configuration parameters (for example: deletion protection), or the global cluster identifier by specifying these parameters and the new values in the request.</p>
  *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
@@ -85,6 +84,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class ModifyGlobalClusterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
 export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified fleet.</p>
  *          <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
  *             the fleet name.</p>
@@ -205,6 +204,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class UpdateFleetCommand extends $Command
   .classBuilder<

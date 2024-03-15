@@ -27,7 +27,6 @@ export interface DeleteTestGridProjectCommandInput extends DeleteTestGridProject
 export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a Selenium testing project and all content generated under it. </p>
  *          <important>
  *             <p>You cannot undo this operation.</p>
@@ -72,6 +71,7 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class DeleteTestGridProjectCommand extends $Command
   .classBuilder<

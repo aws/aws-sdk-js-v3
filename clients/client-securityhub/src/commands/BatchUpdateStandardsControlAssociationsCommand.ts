@@ -36,7 +36,6 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          For a batch of security controls and standards, this operation updates the enablement status of a control in a standard.
  *       </p>
@@ -101,6 +100,7 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update enablement status of a batch of controls
  * ```javascript
  * // The following example disables CloudWatch.12 in CIS AWS Foundations Benchmark v1.2.0. The example returns an error for CloudTrail.1 because an invalid standard ARN is provided.

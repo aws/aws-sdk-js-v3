@@ -27,7 +27,6 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a container for a collection of data being ingested for analysis. The dataset
  *          contains the metadata describing where the data is and what the data actually looks like.
  *          For example, it contains the location of the data source, the data schema, and other
@@ -93,6 +92,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class CreateDatasetCommand extends $Command
   .classBuilder<

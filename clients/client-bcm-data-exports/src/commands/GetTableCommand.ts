@@ -27,7 +27,6 @@ export interface GetTableCommandInput extends GetTableRequest {}
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the metadata for the specified table and table properties. This includes the list
  *       of columns in the table schema, their data types, and column descriptions.</p>
  * @example
@@ -81,6 +80,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class GetTableCommand extends $Command
   .classBuilder<

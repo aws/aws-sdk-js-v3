@@ -27,7 +27,6 @@ export interface UpgradeDomainCommandInput extends UpgradeDomainRequest {}
 export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
  *    eligibility check to a compatible version of OpenSearch or Elasticsearch.</p>
  * @example
@@ -93,6 +92,7 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class UpgradeDomainCommand extends $Command
   .classBuilder<

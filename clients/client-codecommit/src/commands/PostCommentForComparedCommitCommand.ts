@@ -32,7 +32,6 @@ export interface PostCommentForComparedCommitCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Posts a comment on the comparison between two commits.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -174,6 +173,7 @@ export interface PostCommentForComparedCommitCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class PostCommentForComparedCommitCommand extends $Command
   .classBuilder<

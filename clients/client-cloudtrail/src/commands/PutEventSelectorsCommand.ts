@@ -27,7 +27,6 @@ export interface PutEventSelectorsCommandInput extends PutEventSelectorsRequest 
 export interface PutEventSelectorsCommandOutput extends PutEventSelectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures an event selector or advanced event selectors for your trail. Use event
  *          selectors or advanced event selectors to specify management and data event settings for
  *          your trail. If you want your trail to log Insights events, be sure the event selector
@@ -287,6 +286,7 @@ export interface PutEventSelectorsCommandOutput extends PutEventSelectorsRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class PutEventSelectorsCommand extends $Command
   .classBuilder<

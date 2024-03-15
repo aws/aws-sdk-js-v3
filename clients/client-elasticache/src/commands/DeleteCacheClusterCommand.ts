@@ -27,7 +27,6 @@ export interface DeleteCacheClusterCommandInput extends DeleteCacheClusterMessag
 export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously provisioned cluster. <code>DeleteCacheCluster</code> deletes all
  *             associated cache nodes, node endpoints and the cluster itself. When you receive a
  *             successful response from this operation, Amazon ElastiCache immediately begins deleting
@@ -227,6 +226,7 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DeleteCacheCluster
  * ```javascript
  * // Deletes an Amazon ElastiCache cluster.

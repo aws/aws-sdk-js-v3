@@ -27,7 +27,6 @@ export interface BatchGetQueryExecutionCommandInput extends BatchGetQueryExecuti
 export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of a single query execution or a list of up to 50 query
  *             executions, which you provide as an array of query execution ID strings. Requires you to
  *             have access to the workgroup in which the queries ran. To get a list of query execution
@@ -143,6 +142,7 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class BatchGetQueryExecutionCommand extends $Command
   .classBuilder<

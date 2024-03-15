@@ -27,7 +27,6 @@ export interface DeleteStudioMemberCommandInput extends DeleteStudioMemberReques
 export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a user from studio membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class DeleteStudioMemberCommand extends $Command
   .classBuilder<

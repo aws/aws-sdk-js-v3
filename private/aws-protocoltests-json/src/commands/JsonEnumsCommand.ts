@@ -25,7 +25,6 @@ export interface JsonEnumsCommandInput extends JsonEnumsInputOutput {}
 export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes enums as top level properties, in lists, sets, and maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ * @public
  */
 export class JsonEnumsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified application. An application has to be in a stopped or created state
  *          in order to be updated.</p>
  * @example
@@ -246,6 +245,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class UpdateApplicationCommand extends $Command
   .classBuilder<

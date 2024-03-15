@@ -27,7 +27,6 @@ export interface DeleteKeyCommandInput extends DeleteKeyRequest {}
 export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified API key. The API key must have been deactivated more than
  *             90 days previously.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DeleteKeyCommand extends $Command
   .classBuilder<

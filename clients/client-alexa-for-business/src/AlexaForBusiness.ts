@@ -1910,10 +1910,9 @@ export interface AlexaForBusiness {
 }
 
 /**
+ * <p>Alexa for Business has been retired and is no longer supported.</p>
  * @public
  * @deprecated Alexa For Business is no longer supported
- *
- * <p>Alexa for Business has been retired and is no longer supported.</p>
  */
 export class AlexaForBusiness extends AlexaForBusinessClient implements AlexaForBusiness {}
 createAggregatedClient(commands, AlexaForBusiness);

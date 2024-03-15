@@ -32,7 +32,6 @@ export interface RestorePhoneNumberCommandInput extends RestorePhoneNumberReques
 export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a deleted phone number.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class RestorePhoneNumberCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetSpeakerSearchTaskCommandInput extends GetSpeakerSearchTaskRe
 export interface GetSpeakerSearchTaskCommandOutput extends GetSpeakerSearchTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of the specified speaker search task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetSpeakerSearchTaskCommandOutput extends GetSpeakerSearchTaskR
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class GetSpeakerSearchTaskCommand extends $Command
   .classBuilder<

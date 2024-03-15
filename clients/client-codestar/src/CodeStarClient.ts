@@ -309,7 +309,6 @@ export type CodeStarClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface CodeStarClientResolvedConfig extends CodeStarClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>AWS CodeStar</fullname>
  *          <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the
  *       operations and data types for the AWS CodeStar API along with usage examples.</p>
@@ -400,6 +399,7 @@ export interface CodeStarClientResolvedConfig extends CodeStarClientResolvedConf
  *                   <code>UpdateUserProfile</code>, which updates the profile for a user.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CodeStarClient extends __Client<
   __HttpHandlerOptions,

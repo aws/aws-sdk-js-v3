@@ -36,7 +36,6 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the user attributes and metadata for a user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
@@ -118,6 +117,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetUserCommand extends $Command
   .classBuilder<

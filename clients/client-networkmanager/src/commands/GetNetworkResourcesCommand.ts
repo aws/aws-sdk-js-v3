@@ -27,7 +27,6 @@ export interface GetNetworkResourcesCommandInput extends GetNetworkResourcesRequ
 export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the network resources for the specified global network.</p>
  *          <p>The results include information from the corresponding Describe call for the resource, minus any sensitive information such as pre-shared keys.</p>
  * @example
@@ -101,6 +100,7 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetNetworkResourcesCommand extends $Command
   .classBuilder<

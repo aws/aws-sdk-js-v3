@@ -27,7 +27,6 @@ export interface DeleteDeploymentConfigCommandInput extends DeleteDeploymentConf
 export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a deployment configuration.</p>
  *          <note>
  *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
@@ -69,6 +68,7 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class DeleteDeploymentConfigCommand extends $Command
   .classBuilder<

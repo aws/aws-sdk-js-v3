@@ -27,9 +27,6 @@ export interface SearchSystemInstancesCommandInput extends SearchSystemInstances
 export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Searches for system instances in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +85,8 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class SearchSystemInstancesCommand extends $Command
   .classBuilder<

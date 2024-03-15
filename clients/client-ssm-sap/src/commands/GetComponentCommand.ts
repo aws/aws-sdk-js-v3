@@ -27,7 +27,6 @@ export interface GetComponentCommandInput extends GetComponentInput {}
 export interface GetComponentCommandOutput extends GetComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the component of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -124,6 +123,7 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class GetComponentCommand extends $Command
   .classBuilder<

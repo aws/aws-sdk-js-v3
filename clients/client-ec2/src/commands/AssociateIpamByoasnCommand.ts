@@ -27,7 +27,6 @@ export interface AssociateIpamByoasnCommandInput extends AssociateIpamByoasnRequ
 export interface AssociateIpamByoasnCommandOutput extends AssociateIpamByoasnResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates your Autonomous System Number (ASN) with a BYOIP CIDR that you own in the same Amazon Web Services Region.
  *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
  *          <p>After the association succeeds, the ASN is eligible for
@@ -65,6 +64,7 @@ export interface AssociateIpamByoasnCommandOutput extends AssociateIpamByoasnRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateIpamByoasnCommand extends $Command
   .classBuilder<

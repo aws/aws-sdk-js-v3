@@ -27,7 +27,6 @@ export interface GetAccountSettingsCommandInput extends GetAccountSettingsReques
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
  *             account.</p>
  * @example
@@ -84,6 +83,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about account settings
  * ```javascript
  * // The following example returns information about your Device Farm account settings.

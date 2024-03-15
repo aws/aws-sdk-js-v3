@@ -27,7 +27,6 @@ export interface CreateLoggerDefinitionCommandInput extends CreateLoggerDefiniti
 export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a logger definition. You may provide the initial version of the logger definition now or use ''CreateLoggerDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateLoggerDefinitionCommandOutput extends CreateLoggerDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateLoggerDefinitionCommand extends $Command
   .classBuilder<

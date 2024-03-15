@@ -32,7 +32,6 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the bandwidth rate limit schedule for a specified gateway.
  *       By default, gateways do not have bandwidth rate limit schedules, which means
  *       no bandwidth rate limiting is in effect. Use this to get a gateway's
@@ -88,6 +87,7 @@ export interface GetBandwidthRateLimitScheduleCommandOutput
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class GetBandwidthRateLimitScheduleCommand extends $Command
   .classBuilder<

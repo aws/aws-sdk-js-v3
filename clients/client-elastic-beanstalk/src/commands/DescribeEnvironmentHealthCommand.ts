@@ -27,7 +27,6 @@ export interface DescribeEnvironmentHealthCommandInput extends DescribeEnvironme
 export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironmentHealthResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the overall health of the specified environment. The
  *         <b>DescribeEnvironmentHealth</b> operation is only available with
  *       AWS Elastic Beanstalk Enhanced Health.</p>
@@ -105,6 +104,7 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view environment health
  * ```javascript
  * // The following operation retrieves overall health information for an environment named my-env:

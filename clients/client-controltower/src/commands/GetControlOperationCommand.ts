@@ -27,7 +27,6 @@ export interface GetControlOperationCommandInput extends GetControlOperationInpu
 export interface GetControlOperationCommandOutput extends GetControlOperationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the status of a particular <code>EnableControl</code> or
  *          <code>DisableControl</code> operation. Displays a message in case of error. Details for an
  *          operation are available for 90 days. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
@@ -80,6 +79,7 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class GetControlOperationCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListHITsForQualificationTypeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>ListHITsForQualificationType</code> operation returns the HITs that use
  *             the given Qualification type for a Qualification requirement.
@@ -115,6 +114,7 @@ export interface ListHITsForQualificationTypeCommandOutput
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListHITsForQualificationTypeCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface PutPositionConfigurationCommandInput extends PutPositionConfigu
 export interface PutPositionConfigurationCommandOutput extends PutPositionConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is no longer supported.
- *
  * <p>Put position configuration for a given resource.</p>
  *          <important>
  *             <p>This action is no longer supported. Calls to update the position configuration
@@ -82,6 +79,8 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
+ * @deprecated This operation is no longer supported.
  */
 export class PutPositionConfigurationCommand extends $Command
   .classBuilder<

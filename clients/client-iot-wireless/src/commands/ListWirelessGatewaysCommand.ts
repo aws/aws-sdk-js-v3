@@ -27,7 +27,6 @@ export interface ListWirelessGatewaysCommandInput extends ListWirelessGatewaysRe
 export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the wireless gateways registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListWirelessGatewaysCommand extends $Command
   .classBuilder<

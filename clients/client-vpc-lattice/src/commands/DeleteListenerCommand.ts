@@ -27,7 +27,6 @@ export interface DeleteListenerCommandInput extends DeleteListenerRequest {}
 export interface DeleteListenerCommandOutput extends DeleteListenerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified listener.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteListenerCommandOutput extends DeleteListenerResponse, __M
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteListenerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteBuildCommandInput extends DeleteBuildInput {}
 export interface DeleteBuildCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a build. This operation permanently deletes the build resource and any
  *             uploaded build files. Deleting a build does not affect the status of any active fleets
  *             using the build, but you can no longer create new fleets with the deleted build.</p>
@@ -85,6 +84,7 @@ export interface DeleteBuildCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteBuildCommand extends $Command
   .classBuilder<

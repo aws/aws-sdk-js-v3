@@ -27,7 +27,6 @@ export interface ListPortfoliosForProductCommandInput extends ListPortfoliosForP
 export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosForProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all portfolios that the specified product is associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListPortfoliosForProductCommand extends $Command
   .classBuilder<

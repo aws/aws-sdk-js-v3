@@ -27,7 +27,6 @@ export interface DeleteContactFlowModuleCommandInput extends DeleteContactFlowMo
 export interface DeleteContactFlowModuleCommandOutput extends DeleteContactFlowModuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified flow module.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteContactFlowModuleCommandOutput extends DeleteContactFlowM
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteContactFlowModuleCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface PutProfileObjectCommandInput extends PutProfileObjectRequest {}
 export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds additional objects to customer profiles of a given ObjectType.</p>
  *          <p>When adding a specific profile object, like a Contact Record, an inferred profile can
  *          get created if it is not mapped to an existing profile. The resulting profile will only
@@ -85,6 +84,7 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class PutProfileObjectCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the position history of one or more devices from a tracker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class BatchDeleteDevicePositionHistoryCommand extends $Command
   .classBuilder<

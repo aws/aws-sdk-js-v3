@@ -27,7 +27,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectInput {}
 export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a machine learning (ML) project that is created from a template that
  *             sets up an ML pipeline from training to deploying an approved model.</p>
  *          <note>
@@ -82,6 +81,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<

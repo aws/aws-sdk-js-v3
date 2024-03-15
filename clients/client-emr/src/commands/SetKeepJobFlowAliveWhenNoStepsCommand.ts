@@ -30,7 +30,6 @@ export interface SetKeepJobFlowAliveWhenNoStepsCommandInput extends SetKeepJobFl
 export interface SetKeepJobFlowAliveWhenNoStepsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use the <code>SetKeepJobFlowAliveWhenNoSteps</code> to configure a cluster (job flow) to terminate after the step execution, i.e., all your
  *          steps are executed. If you want a transient cluster that shuts down after the last of the current executing steps are completed,
  *          you can configure <code>SetKeepJobFlowAliveWhenNoSteps</code> to false. If you want a long running cluster, configure <code>SetKeepJobFlowAliveWhenNoSteps</code> to true.</p>
@@ -66,6 +65,7 @@ export interface SetKeepJobFlowAliveWhenNoStepsCommandOutput extends __MetadataB
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class SetKeepJobFlowAliveWhenNoStepsCommand extends $Command
   .classBuilder<

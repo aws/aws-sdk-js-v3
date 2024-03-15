@@ -27,7 +27,6 @@ export interface CreateComputeEnvironmentCommandInput extends CreateComputeEnvir
 export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Batch compute environment. You can create <code>MANAGED</code> or
  *         <code>UNMANAGED</code> compute environments. <code>MANAGED</code> compute environments can
  *       use Amazon EC2 or Fargate resources. <code>UNMANAGED</code> compute environments can only use
@@ -208,6 +207,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To create a managed EC2 compute environment
  * ```javascript
  * // This example creates a managed compute environment with specific C4 instance types that are launched on demand. The compute environment is called C4OnDemand.

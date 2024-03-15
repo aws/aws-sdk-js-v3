@@ -27,7 +27,6 @@ export interface PutContainerRecipePolicyCommandInput extends PutContainerRecipe
 export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a policy to a container image. We recommend that you call the RAM API
  * 			CreateResourceShare
  * 			(https://docs.aws.amazon.com//ram/latest/APIReference/API_CreateResourceShare.html) to share
@@ -91,6 +90,7 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class PutContainerRecipePolicyCommand extends $Command
   .classBuilder<

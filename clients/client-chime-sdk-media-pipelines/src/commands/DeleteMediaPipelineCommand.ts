@@ -31,7 +31,6 @@ export interface DeleteMediaPipelineCommandInput extends DeleteMediaPipelineRequ
 export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteMediaPipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class DeleteMediaPipelineCommand extends $Command
   .classBuilder<

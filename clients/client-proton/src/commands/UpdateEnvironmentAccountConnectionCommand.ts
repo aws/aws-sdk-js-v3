@@ -32,7 +32,6 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
  *         connections</a> in the <i>Proton User guide</i>.</p>
@@ -95,6 +94,7 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateEnvironmentAccountConnectionCommand extends $Command
   .classBuilder<

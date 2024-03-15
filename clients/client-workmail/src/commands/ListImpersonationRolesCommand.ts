@@ -27,7 +27,6 @@ export interface ListImpersonationRolesCommandInput extends ListImpersonationRol
 export interface ListImpersonationRolesCommandOutput extends ListImpersonationRolesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the impersonation roles for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListImpersonationRolesCommandOutput extends ListImpersonationRo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListImpersonationRolesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeLDAPSSettingsCommandInput extends DescribeLDAPSSettings
 export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSettingsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of LDAP security for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeLDAPSSettingsCommand extends $Command
   .classBuilder<

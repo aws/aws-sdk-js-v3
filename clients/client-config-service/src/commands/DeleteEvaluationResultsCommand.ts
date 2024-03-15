@@ -27,7 +27,6 @@ export interface DeleteEvaluationResultsCommandInput extends DeleteEvaluationRes
 export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationResultsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the evaluation results for the specified Config
  * 			rule. You can specify one Config rule per request. After you
  * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
@@ -85,6 +84,7 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteEvaluationResultsCommand extends $Command
   .classBuilder<

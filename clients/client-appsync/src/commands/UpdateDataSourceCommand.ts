@@ -27,7 +27,6 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a <code>DataSource</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -174,6 +173,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class UpdateDataSourceCommand extends $Command
   .classBuilder<

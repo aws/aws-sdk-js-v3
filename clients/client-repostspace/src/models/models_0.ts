@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { RepostspaceServiceException as __BaseException } from "./RepostspaceServiceException";
 
 /**
- * @public
  * <p>User does not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -38,21 +38,21 @@ export const ConfigurationStatus = {
 export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof ConfigurationStatus];
 
 /**
- * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -90,44 +90,44 @@ export type TierLevel = (typeof TierLevel)[keyof typeof TierLevel];
  */
 export interface CreateSpaceInput {
   /**
-   * @public
    * <p>The name for the private re:Post. This must be unique in your account.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The subdomain that you use to access your AWS re:Post Private private re:Post. All custom subdomains must be approved by AWS before use. In addition to your custom subdomain, all private re:Posts are issued an AWS generated subdomain for immediate use.</p>
+   * @public
    */
   subdomain: string | undefined;
 
   /**
-   * @public
    * <p>The pricing tier for the private re:Post.</p>
+   * @public
    */
   tier: TierLevel | undefined;
 
   /**
-   * @public
    * <p>A description for the private re:Post. This is used only to help you identify this private re:Post.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The AWS KMS key ARN that’s used for the AWS KMS encryption. If you don't provide a key, your data is encrypted by default with a key that AWS owns and manages for you.</p>
+   * @public
    */
   userKMSKey?: string;
 
   /**
-   * @public
    * <p>The list of tags associated with the private re:Post.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
+   * @public
    */
   roleArn?: string;
 }
@@ -137,23 +137,23 @@ export interface CreateSpaceInput {
  */
 export interface CreateSpaceOutput {
   /**
-   * @public
    * <p>The unique ID of the private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 }
 
 /**
- * @public
  * <p>Unexpected error during processing of request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -172,21 +172,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request references a resource which does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -206,33 +206,33 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request would cause a service quota to be exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The id of the resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>The code to identify the service.</p>
+   * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * @public
    * <p>The code to identify the quota.</p>
+   * @public
    */
   quotaCode: string | undefined;
 
@@ -254,8 +254,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -264,20 +264,20 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>The code to identify the service.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The code to identify the quota.</p>
+   * @public
    */
   quotaCode?: string;
 
   /**
-   * @public
    * <p> Advice to clients on when the call can be safely retried.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -298,19 +298,19 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Stores information about a field that’s passed inside a request that resulted in an exception.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>Message describing why the field failed validation.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the field.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -332,21 +332,21 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The reason why the request failed validation.</p>
+   * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * @public
    * <p>The field that caused the error, if applicable.</p>
+   * @public
    */
   fieldList?: ValidationExceptionField[];
 
@@ -370,8 +370,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteSpaceInput {
   /**
-   * @public
    * <p>The unique ID of the private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 }
@@ -381,14 +381,14 @@ export interface DeleteSpaceInput {
  */
 export interface DeregisterAdminInput {
   /**
-   * @public
    * <p>The ID of the private re:Post to remove the admin from.</p>
+   * @public
    */
   spaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the admin to remove.</p>
+   * @public
    */
   adminId: string | undefined;
 }
@@ -398,8 +398,8 @@ export interface DeregisterAdminInput {
  */
 export interface GetSpaceInput {
   /**
-   * @public
    * <p>The ID of the private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 }
@@ -424,122 +424,122 @@ export type VanityDomainStatus = (typeof VanityDomainStatus)[keyof typeof Vanity
  */
 export interface GetSpaceOutput {
   /**
-   * @public
    * <p>The unique ID of the private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the private re:Post.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the private re:Post.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The creation or deletion status of the private re:Post.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>The configuration status of the private re:Post.</p>
+   * @public
    */
   configurationStatus: ConfigurationStatus | undefined;
 
   /**
-   * @public
    * <p>The Identity Center identifier for the Application Instance.</p>
+   * @public
    */
   clientId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the private re:Post.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The approval status of the custom subdomain.</p>
+   * @public
    */
   vanityDomainStatus: VanityDomainStatus | undefined;
 
   /**
-   * @public
    * <p>The custom subdomain that you use to access your private re:Post. All custom subdomains must be approved by AWS before use.</p>
+   * @public
    */
   vanityDomain: string | undefined;
 
   /**
-   * @public
    * <p>The AWS generated subdomain of the private re:Post</p>
+   * @public
    */
   randomDomain: string | undefined;
 
   /**
-   * @public
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
+   * @public
    */
   customerRoleArn?: string;
 
   /**
-   * @public
    * <p>The date when the private re:Post was created.</p>
+   * @public
    */
   createDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date when the private re:Post was deleted.</p>
+   * @public
    */
   deleteDateTime?: Date;
 
   /**
-   * @public
    * <p>The pricing tier of the private re:Post.</p>
+   * @public
    */
   tier: TierLevel | undefined;
 
   /**
-   * @public
    * <p>The storage limit of the private re:Post.</p>
+   * @public
    */
   storageLimit: number | undefined;
 
   /**
-   * @public
    * <p>The list of users that are administrators of the private re:Post.</p>
+   * @public
    */
   userAdmins?: string[];
 
   /**
-   * @public
    * <p>The list of groups that are administrators of the private re:Post.</p>
+   * @public
    */
   groupAdmins?: string[];
 
   /**
-   * @public
    * <p>The custom AWS KMS key ARN that’s used for the AWS KMS encryption.</p>
+   * @public
    */
   userKMSKey?: string;
 
   /**
-   * @public
    * <p>The number of users that have onboarded to the private re:Post.</p>
+   * @public
    */
   userCount?: number;
 
   /**
-   * @public
    * <p>The content size of the private re:Post.</p>
+   * @public
    */
   contentSize?: number;
 }
@@ -549,116 +549,116 @@ export interface GetSpaceOutput {
  */
 export interface ListSpacesInput {
   /**
-   * @public
    * <p>The token for the next set of private re:Posts to return. You receive this token from a previous ListSpaces operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of private re:Posts to include in the results.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>A structure that contains some information about a private re:Post in the account.</p>
+ * @public
  */
 export interface SpaceData {
   /**
-   * @public
    * <p>The unique ID of the private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the private re:Post.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name for the private re:Post.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description for the private re:Post. This is used only to help you identify this private re:Post.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The creation/deletion status of the private re:Post.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>The configuration status of the private re:Post.</p>
+   * @public
    */
   configurationStatus: ConfigurationStatus | undefined;
 
   /**
-   * @public
    * <p>This approval status of the custom subdomain.</p>
+   * @public
    */
   vanityDomainStatus: VanityDomainStatus | undefined;
 
   /**
-   * @public
    * <p>This custom subdomain that you use to access your private re:Post. All custom subdomains must be approved by AWS before use.</p>
+   * @public
    */
   vanityDomain: string | undefined;
 
   /**
-   * @public
    * <p>The AWS generated subdomain of the private re:Post.</p>
+   * @public
    */
   randomDomain: string | undefined;
 
   /**
-   * @public
    * <p>The pricing tier of the private re:Post.</p>
+   * @public
    */
   tier: TierLevel | undefined;
 
   /**
-   * @public
    * <p>The storage limit of the private re:Post.</p>
+   * @public
    */
   storageLimit: number | undefined;
 
   /**
-   * @public
    * <p>The date when the private re:Post was created.</p>
+   * @public
    */
   createDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date when the private re:Post was deleted.</p>
+   * @public
    */
   deleteDateTime?: Date;
 
   /**
-   * @public
    * <p>The custom AWS KMS key ARN that’s used for the AWS KMS encryption.</p>
+   * @public
    */
   userKMSKey?: string;
 
   /**
-   * @public
    * <p>The number of onboarded users to the private re:Post.</p>
+   * @public
    */
   userCount?: number;
 
   /**
-   * @public
    * <p>The content size of the private re:Post.</p>
+   * @public
    */
   contentSize?: number;
 }
@@ -668,14 +668,14 @@ export interface SpaceData {
  */
 export interface ListSpacesOutput {
   /**
-   * @public
    * <p>An array of structures that contain some information about the private re:Posts in the account.</p>
+   * @public
    */
   spaces: SpaceData[] | undefined;
 
   /**
-   * @public
    * <p>The token that you use when you request the next set of private re:Posts.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -685,8 +685,8 @@ export interface ListSpacesOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource that the tags are associated with.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -696,8 +696,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The list of tags that are associated with the resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -707,14 +707,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface RegisterAdminInput {
   /**
-   * @public
    * <p>The ID of the private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the administrator.</p>
+   * @public
    */
   adminId: string | undefined;
 }
@@ -724,26 +724,26 @@ export interface RegisterAdminInput {
  */
 export interface SendInvitesInput {
   /**
-   * @public
    * <p>The ID of the private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 
   /**
-   * @public
    * <p>The array of identifiers for the users and groups.</p>
+   * @public
    */
   accessorIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The title of the invite.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The body of the invite.</p>
+   * @public
    */
   body: string | undefined;
 }
@@ -753,14 +753,14 @@ export interface SendInvitesInput {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource that the tag is associated with.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of tag keys and values that must be associated with the resource. You can associate tag keys only, tags (key and values) only, or a combination of tag keys and tags.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -775,14 +775,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The key values of the tag.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -797,26 +797,26 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateSpaceInput {
   /**
-   * @public
    * <p>The unique ID of this private re:Post.</p>
+   * @public
    */
   spaceId: string | undefined;
 
   /**
-   * @public
    * <p>A description for the private re:Post. This is used only to help you identify this private re:Post.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The pricing tier of this private re:Post.</p>
+   * @public
    */
   tier?: TierLevel;
 
   /**
-   * @public
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
+   * @public
    */
   roleArn?: string;
 }

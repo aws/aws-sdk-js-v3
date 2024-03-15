@@ -31,7 +31,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all the tags on the specified Application Auto Scaling scalable target.</p>
  *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
  *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -66,6 +65,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To list tags for a scalable target
  * ```javascript
  * // This example lists the tag key names and values that are attached to the scalable target specified by its ARN.

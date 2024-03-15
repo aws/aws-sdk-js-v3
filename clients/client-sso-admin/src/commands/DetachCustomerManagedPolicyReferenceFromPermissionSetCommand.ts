@@ -36,7 +36,6 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches the specified customer managed policy from the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOut
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DetachCustomerManagedPolicyReferenceFromPermissionSetCommand extends $Command
   .classBuilder<

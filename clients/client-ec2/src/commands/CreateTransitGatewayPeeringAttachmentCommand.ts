@@ -36,7 +36,6 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a transit gateway peering attachment between the specified transit gateway
  *             (requester) and a peer transit gateway (accepter). The peer transit gateway can be in
  *             your account or a different Amazon Web Services account.</p>
@@ -116,6 +115,7 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTransitGatewayPeeringAttachmentCommand extends $Command
   .classBuilder<

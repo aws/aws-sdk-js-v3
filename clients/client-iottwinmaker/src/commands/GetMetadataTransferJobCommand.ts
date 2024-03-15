@@ -27,7 +27,6 @@ export interface GetMetadataTransferJobCommandInput extends GetMetadataTransferJ
 export interface GetMetadataTransferJobCommandOutput extends GetMetadataTransferJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a nmetadata transfer job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface GetMetadataTransferJobCommandOutput extends GetMetadataTransfer
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetMetadataTransferJobCommand extends $Command
   .classBuilder<

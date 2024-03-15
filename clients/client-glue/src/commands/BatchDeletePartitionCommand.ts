@@ -27,7 +27,6 @@ export interface BatchDeletePartitionCommandInput extends BatchDeletePartitionRe
 export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more partitions in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchDeletePartitionCommand extends $Command
   .classBuilder<

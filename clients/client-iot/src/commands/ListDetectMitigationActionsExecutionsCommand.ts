@@ -36,7 +36,6 @@ export interface ListDetectMitigationActionsExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
  *     </p>
@@ -95,6 +94,7 @@ export interface ListDetectMitigationActionsExecutionsCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListDetectMitigationActionsExecutionsCommand extends $Command
   .classBuilder<

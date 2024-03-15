@@ -27,7 +27,6 @@ export interface CreateCertificateAuthorityCommandInput extends CreateCertificat
 export interface CreateCertificateAuthorityCommandOutput extends CreateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a root or subordinate private certificate authority (CA). You must specify the
  * 			CA configuration, an optional configuration for Online Certificate Status Protocol
  * 			(OCSP) and/or a certificate revocation list (CRL), the CA type, and an optional
@@ -199,6 +198,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class CreateCertificateAuthorityCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeExecutionCommandInput extends DescribeExecutionInput {}
 export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks the status of a remote task running on one or more target devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class DescribeExecutionCommand extends $Command
   .classBuilder<

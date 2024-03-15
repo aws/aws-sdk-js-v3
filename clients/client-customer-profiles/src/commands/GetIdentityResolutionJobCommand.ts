@@ -27,7 +27,6 @@ export interface GetIdentityResolutionJobCommandInput extends GetIdentityResolut
 export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolutionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an Identity Resolution Job in a specific domain. </p>
  *          <p>Identity Resolution Jobs are set up using the Amazon Connect admin console. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/use-identity-resolution.html">Use
  *             Identity Resolution to consolidate similar profiles</a>.</p>
@@ -106,6 +105,7 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetIdentityResolutionJobCommand extends $Command
   .classBuilder<

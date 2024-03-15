@@ -27,7 +27,6 @@ export interface StopResourceCommandInput extends StopResourceRequest {}
 export interface StopResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a resource.</p>
  *          <p>The resource undergoes the following states: <code>CREATE_STOPPING</code> and
  *             <code>CREATE_STOPPED</code>. You cannot resume a resource once it has been
@@ -92,6 +91,7 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class StopResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteAnalysisSchemeCommandInput extends DeleteAnalysisSchemeRe
 export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an analysis scheme. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html" target="_blank">Configuring Analysis Schemes</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DeleteAnalysisSchemeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisableImageCommandInput extends DisableImageRequest {}
 export interface DisableImageCommandOutput extends DisableImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the AMI state to <code>disabled</code> and removes all launch permissions from the
  *       AMI. A disabled AMI can't be used for instance launches.</p>
  *          <p>A disabled AMI can't be shared. If an AMI was public or previously shared, it is made
@@ -66,6 +65,7 @@ export interface DisableImageCommandOutput extends DisableImageResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableImageCommand extends $Command
   .classBuilder<

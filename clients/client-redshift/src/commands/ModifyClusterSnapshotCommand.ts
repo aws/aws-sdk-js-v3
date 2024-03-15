@@ -27,7 +27,6 @@ export interface ModifyClusterSnapshotCommandInput extends ModifyClusterSnapshot
 export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for a snapshot.</p>
  *          <p>This exanmple modifies the manual retention period setting for a cluster snapshot.</p>
  * @example
@@ -118,6 +117,7 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyClusterSnapshotCommand extends $Command
   .classBuilder<

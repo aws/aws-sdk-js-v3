@@ -32,7 +32,6 @@ export interface ListRestoreJobsByProtectedResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This returns restore jobs that contain the specified protected resource.</p>
  *          <p>You must include <code>ResourceArn</code>. You can optionally include
  *             <code>NextToken</code>, <code>ByStatus</code>, <code>MaxResults</code>,
@@ -107,6 +106,7 @@ export interface ListRestoreJobsByProtectedResourceCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListRestoreJobsByProtectedResourceCommand extends $Command
   .classBuilder<

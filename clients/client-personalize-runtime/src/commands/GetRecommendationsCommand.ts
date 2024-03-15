@@ -35,7 +35,6 @@ export interface GetRecommendationsCommandInput extends GetRecommendationsReques
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
  *       create the solution backing the campaign as follows:</p>
  *          <ul>
@@ -122,6 +121,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link PersonalizeRuntimeServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ * @public
  */
 export class GetRecommendationsCommand extends $Command
   .classBuilder<

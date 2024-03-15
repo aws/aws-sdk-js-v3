@@ -27,7 +27,6 @@ export interface DeleteProjectVersionCommandInput extends DeleteProjectVersionRe
 export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Rekognition project model or project version, like a Amazon Rekognition Custom Labels model or a custom
  *          adapter.</p>
  *          <p>You can't delete a project version if it is running or if it is training. To check
@@ -84,6 +83,7 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To delete an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Deletes a version of an Amazon Rekognition Custom Labels model.

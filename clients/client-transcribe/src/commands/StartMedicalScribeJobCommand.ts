@@ -27,7 +27,6 @@ export interface StartMedicalScribeJobCommandInput extends StartMedicalScribeJob
 export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transcribes patient-clinician conversations and generates clinical notes. </p>
  *          <p>Amazon Web Services HealthScribe automatically provides rich conversation transcripts, identifies speaker roles,
  *             classifies dialogues, extracts medical terms, and generates preliminary clinical notes.
@@ -185,6 +184,7 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class StartMedicalScribeJobCommand extends $Command
   .classBuilder<

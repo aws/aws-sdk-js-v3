@@ -27,7 +27,6 @@ export interface SendEventCommandInput extends SendEventRequest {}
 export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends an event to a room. Use this within your application’s business logic to send
  *          events to clients of a room; e.g., to notify clients to change the way the chat UI is
  *          rendered.</p>
@@ -76,6 +75,7 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class SendEventCommand extends $Command
   .classBuilder<

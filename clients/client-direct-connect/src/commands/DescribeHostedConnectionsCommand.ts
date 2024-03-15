@@ -27,7 +27,6 @@ export interface DescribeHostedConnectionsCommandInput extends DescribeHostedCon
 export interface DescribeHostedConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the hosted connections that have been provisioned on the specified
  *       interconnect or link aggregation group (LAG).</p>
  *          <note>
@@ -102,6 +101,7 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeHostedConnectionsCommand extends $Command
   .classBuilder<

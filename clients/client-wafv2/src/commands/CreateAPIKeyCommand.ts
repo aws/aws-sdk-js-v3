@@ -27,7 +27,6 @@ export interface CreateAPIKeyCommandInput extends CreateAPIKeyRequest {}
 export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an API key that contains a set of token domains.</p>
  *          <p>API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
  *            The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
@@ -97,6 +96,7 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class CreateAPIKeyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RespondActivityTaskCanceledCommandInput extends RespondActivity
 export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> was successfully canceled. Additional <code>details</code> can
  *       be provided using the <code>details</code> argument.</p>
@@ -97,6 +96,7 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RespondActivityTaskCanceledCommand extends $Command
   .classBuilder<

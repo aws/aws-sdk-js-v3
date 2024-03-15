@@ -27,7 +27,6 @@ export interface GetGroupCommandInput extends GetGroupRequest {}
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetGroupCommand extends $Command
   .classBuilder<

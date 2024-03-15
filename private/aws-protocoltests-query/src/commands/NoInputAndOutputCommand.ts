@@ -25,7 +25,6 @@ export interface NoInputAndOutputCommandInput extends NoInputAndOutputInput {}
 export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, __MetadataBearer {}
 
 /**
- * @public
  * The example tests how requests and responses are serialized when there's
  * no request payload or response members.
  *
@@ -52,6 +51,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class NoInputAndOutputCommand extends $Command
   .classBuilder<

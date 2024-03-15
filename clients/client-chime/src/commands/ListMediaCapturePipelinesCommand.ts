@@ -31,9 +31,6 @@ export interface ListMediaCapturePipelinesCommandInput extends ListMediaCaptureP
 export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapturePipelinesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListMediaCapturePipelines in the Amazon Chime SDK Media Pipelines Namespace
- *
  * <p>Returns a list of media capture pipelines.</p>
  *          <important>
  *             <p>
@@ -124,6 +121,8 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListMediaCapturePipelines in the Amazon Chime SDK Media Pipelines Namespace
  */
 export class ListMediaCapturePipelinesCommand extends $Command
   .classBuilder<

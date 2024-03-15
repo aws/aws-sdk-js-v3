@@ -27,7 +27,6 @@ export interface UpdateUserSecurityProfilesCommandInput extends UpdateUserSecuri
 export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns the specified security profiles to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateUserSecurityProfilesCommand extends $Command
   .classBuilder<

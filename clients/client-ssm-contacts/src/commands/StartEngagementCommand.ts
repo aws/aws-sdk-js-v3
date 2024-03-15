@@ -27,7 +27,6 @@ export interface StartEngagementCommandInput extends StartEngagementRequest {}
 export interface StartEngagementCommandOutput extends StartEngagementResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an engagement to a contact or escalation plan. The engagement engages each
  *          contact specified in the incident.</p>
  * @example
@@ -82,6 +81,7 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class StartEngagementCommand extends $Command
   .classBuilder<

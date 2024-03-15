@@ -27,7 +27,6 @@ export interface GetGroupMembershipIdCommandInput extends GetGroupMembershipIdRe
 export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the <code>MembershipId</code> in an identity store.</p>
  *          <note>
  *             <p>If you have administrator access to a member account, you can use this API from the member account.
@@ -80,6 +79,7 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class GetGroupMembershipIdCommand extends $Command
   .classBuilder<

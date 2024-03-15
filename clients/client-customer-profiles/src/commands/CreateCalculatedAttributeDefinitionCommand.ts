@@ -37,7 +37,6 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new calculated attribute definition. After creation, new object data ingested
  *          into Customer Profiles will be included in the calculated attribute, which can be retrieved
  *          for a profile using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html">GetCalculatedAttributeForProfile</a> API.
@@ -138,6 +137,7 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class CreateCalculatedAttributeDefinitionCommand extends $Command
   .classBuilder<

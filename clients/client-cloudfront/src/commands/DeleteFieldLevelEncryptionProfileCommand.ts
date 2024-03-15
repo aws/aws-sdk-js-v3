@@ -30,7 +30,6 @@ export interface DeleteFieldLevelEncryptionProfileCommandInput extends DeleteFie
 export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove a field-level encryption profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteFieldLevelEncryptionProfileCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResou
 export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a resource type and returns a list of resource
  * 			identifiers for the resources of that type. A resource identifier
  * 			includes the resource type, ID, and (if available) the custom
@@ -104,6 +103,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class ListDiscoveredResourcesCommand extends $Command
   .classBuilder<

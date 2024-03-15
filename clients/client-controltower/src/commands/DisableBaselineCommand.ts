@@ -27,7 +27,6 @@ export interface DisableBaselineCommandInput extends DisableBaselineInput {}
 export interface DisableBaselineCommandOutput extends DisableBaselineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disable an <code>EnabledBaseline</code> resource on the specified Target. This API starts an asynchronous operation to remove all resources deployed as part of the baseline enablement. The resource will vary depending on the enabled baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DisableBaselineCommandOutput extends DisableBaselineOutput, __M
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class DisableBaselineCommand extends $Command
   .classBuilder<

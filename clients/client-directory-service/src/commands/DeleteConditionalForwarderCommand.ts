@@ -27,7 +27,6 @@ export interface DeleteConditionalForwarderCommandInput extends DeleteConditiona
 export interface DeleteConditionalForwarderCommandOutput extends DeleteConditionalForwarderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a conditional forwarder that has been set up for your Amazon Web Services
  *       directory.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DeleteConditionalForwarderCommand extends $Command
   .classBuilder<

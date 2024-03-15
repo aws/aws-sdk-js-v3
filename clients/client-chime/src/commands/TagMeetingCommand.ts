@@ -27,9 +27,6 @@ export interface TagMeetingCommandInput extends TagMeetingRequest {}
 export interface TagMeetingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Use TagResource in the Amazon Chime SDK Meetings Namespace.
- *
  * <p>Applies the specified tags to the specified Amazon Chime SDK meeting.</p>
  *          <important>
  *             <p>
@@ -92,6 +89,8 @@ export interface TagMeetingCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Use TagResource in the Amazon Chime SDK Meetings Namespace.
  */
 export class TagMeetingCommand extends $Command
   .classBuilder<

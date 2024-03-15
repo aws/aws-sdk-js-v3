@@ -27,7 +27,6 @@ export interface PutGeofenceCommandInput extends PutGeofenceRequest {}
 export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stores a geofence geometry in a given geofence collection, or updates the geometry of
  *             an existing geofence if a geofence ID is included in the request. </p>
  * @example
@@ -96,6 +95,7 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class PutGeofenceCommand extends $Command
   .classBuilder<

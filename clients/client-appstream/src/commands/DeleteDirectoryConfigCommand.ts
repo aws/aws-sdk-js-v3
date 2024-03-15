@@ -27,7 +27,6 @@ export interface DeleteDirectoryConfigCommandInput extends DeleteDirectoryConfig
 export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteDirectoryConfigCommand extends $Command
   .classBuilder<

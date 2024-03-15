@@ -27,7 +27,6 @@ export interface AddLFTagsToResourceCommandInput extends AddLFTagsToResourceRequ
 export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches one or more LF-tags to an existing resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -151,6 +150,7 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class AddLFTagsToResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateScheduleGroupCommandInput extends CreateScheduleGroupInpu
 export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified schedule group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * @public
  */
 export class CreateScheduleGroupCommand extends $Command
   .classBuilder<

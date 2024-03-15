@@ -32,7 +32,6 @@ export interface SendContactMethodVerificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a verification request to an email contact method to ensure it's owned by the
  *       requester. SMS contact methods don't need to be verified.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
@@ -116,6 +115,7 @@ export interface SendContactMethodVerificationCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class SendContactMethodVerificationCommand extends $Command
   .classBuilder<

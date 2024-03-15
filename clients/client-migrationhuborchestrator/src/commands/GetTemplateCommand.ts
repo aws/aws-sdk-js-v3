@@ -31,7 +31,6 @@ export interface GetTemplateCommandInput extends GetMigrationWorkflowTemplateReq
 export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the template you want to use for creating a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class GetTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddThingToThingGroupCommandInput extends AddThingToThingGroupRe
 export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a thing to a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AddThingToThingGroup</a> action.</p>
  * @example
@@ -70,6 +69,7 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class AddThingToThingGroupCommand extends $Command
   .classBuilder<

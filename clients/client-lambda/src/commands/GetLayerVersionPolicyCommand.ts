@@ -27,7 +27,6 @@ export interface GetLayerVersionPolicyCommandInput extends GetLayerVersionPolicy
 export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  * @example
@@ -70,6 +69,7 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetLayerVersionPolicyCommand extends $Command
   .classBuilder<

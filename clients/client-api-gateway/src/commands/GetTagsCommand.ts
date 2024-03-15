@@ -27,7 +27,6 @@ export interface GetTagsCommandInput extends GetTagsRequest {}
 export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the Tags collection for a given resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetTagsCommand extends $Command
   .classBuilder<

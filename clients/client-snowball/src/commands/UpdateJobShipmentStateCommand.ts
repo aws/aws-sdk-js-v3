@@ -27,7 +27,6 @@ export interface UpdateJobShipmentStateCommandInput extends UpdateJobShipmentSta
 export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentStateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the state when a shipment state changes to a different state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  */
 export class UpdateJobShipmentStateCommand extends $Command
   .classBuilder<

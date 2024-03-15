@@ -27,7 +27,6 @@ export interface ListNodesCommandInput extends ListNodesRequest {}
 export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the broker nodes in the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class ListNodesCommand extends $Command
   .classBuilder<

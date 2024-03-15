@@ -27,7 +27,6 @@ export interface SendEmailCommandInput extends SendEmailRequest {}
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends an email message. You can use the Amazon Pinpoint Email API to send two types of
  *             messages:</p>
  *         <ul>
@@ -145,6 +144,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class SendEmailCommand extends $Command
   .classBuilder<

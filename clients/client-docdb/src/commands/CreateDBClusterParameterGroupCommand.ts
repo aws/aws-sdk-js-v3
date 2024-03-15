@@ -32,7 +32,6 @@ export interface CreateDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new cluster parameter group.</p>
  *          <p>Parameters in a cluster parameter group apply to all of the
  *             instances in a cluster.</p>
@@ -97,6 +96,7 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class CreateDBClusterParameterGroupCommand extends $Command
   .classBuilder<

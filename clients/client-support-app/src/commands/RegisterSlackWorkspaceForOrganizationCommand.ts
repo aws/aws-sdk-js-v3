@@ -36,7 +36,6 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a Slack workspace for your Amazon Web Services account. To call this API, your account must be
  *       part of an organization in Organizations.</p>
  *          <p>If you're the <i>management account</i> and you want to register Slack
@@ -137,6 +136,7 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * @public
  */
 export class RegisterSlackWorkspaceForOrganizationCommand extends $Command
   .classBuilder<

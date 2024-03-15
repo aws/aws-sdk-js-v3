@@ -27,7 +27,6 @@ export interface UpdatePartitionCommandInput extends UpdatePartitionRequest {}
 export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdatePartitionCommand extends $Command
   .classBuilder<

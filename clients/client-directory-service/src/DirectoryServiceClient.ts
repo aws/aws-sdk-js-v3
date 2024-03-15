@@ -537,7 +537,6 @@ export type DirectoryServiceClientResolvedConfigType = __SmithyResolvedConfigura
 export interface DirectoryServiceClientResolvedConfig extends DirectoryServiceClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Directory Service</fullname>
  *          <p>Directory Service is a web service that makes it easy for you to setup and run directories in the
  *          Amazon Web Services cloud, or connect your Amazon Web Services resources with an existing self-managed Microsoft Active
@@ -552,6 +551,7 @@ export interface DirectoryServiceClientResolvedConfig extends DirectoryServiceCl
  *             install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
  *                Services</a>.</p>
  *          </note>
+ * @public
  */
 export class DirectoryServiceClient extends __Client<
   __HttpHandlerOptions,

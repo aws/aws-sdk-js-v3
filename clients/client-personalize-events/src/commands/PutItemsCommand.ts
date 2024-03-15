@@ -31,7 +31,6 @@ export interface PutItemsCommandInput extends PutItemsRequest {}
 export interface PutItemsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more items to an Items dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing items individually</a>.
  *      </p>
@@ -74,6 +73,7 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ * @public
  */
 export class PutItemsCommand extends $Command
   .classBuilder<

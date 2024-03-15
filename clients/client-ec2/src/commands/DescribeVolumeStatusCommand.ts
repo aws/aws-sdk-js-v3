@@ -27,7 +27,6 @@ export interface DescribeVolumeStatusCommandInput extends DescribeVolumeStatusRe
 export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of the specified volumes. Volume status provides the result of the
  *       checks performed on your volumes to determine events that can impair the performance of your
  *       volumes. The performance of a volume can be affected if an issue occurs on the volume's
@@ -145,6 +144,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the status of a single volume
  * ```javascript
  * // This example describes the status for the volume ``vol-1234567890abcdef0``.

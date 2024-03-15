@@ -27,7 +27,6 @@ export interface DeleteRegistryPolicyCommandInput extends DeleteRegistryPolicyRe
 export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the registry permissions policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DeleteRegistryPolicyCommand extends $Command
   .classBuilder<

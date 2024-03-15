@@ -35,7 +35,6 @@ export interface UpdateDataLakeExceptionSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified notification subscription in Amazon Security Lake for the organization
  *          you specify.</p>
  * @example
@@ -89,6 +88,7 @@ export interface UpdateDataLakeExceptionSubscriptionCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class UpdateDataLakeExceptionSubscriptionCommand extends $Command
   .classBuilder<

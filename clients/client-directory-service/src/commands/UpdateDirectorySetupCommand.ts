@@ -27,7 +27,6 @@ export interface UpdateDirectorySetupCommandInput extends UpdateDirectorySetupRe
 export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Updates the directory for a particular update type.
  *     </p>
@@ -91,6 +90,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class UpdateDirectorySetupCommand extends $Command
   .classBuilder<

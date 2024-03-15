@@ -35,7 +35,6 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateTransitGatewayRouteTableCommand extends $Command
   .classBuilder<

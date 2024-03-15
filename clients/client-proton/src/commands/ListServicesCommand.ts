@@ -27,7 +27,6 @@ export interface ListServicesCommandInput extends ListServicesInput {}
 export interface ListServicesCommandOutput extends ListServicesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List services with summaries of detail data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListServicesCommand extends $Command
   .classBuilder<

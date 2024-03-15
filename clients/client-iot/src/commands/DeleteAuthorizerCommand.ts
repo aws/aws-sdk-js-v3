@@ -27,7 +27,6 @@ export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
 export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuthorizer</a> action.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteAuthorizerCommand extends $Command
   .classBuilder<

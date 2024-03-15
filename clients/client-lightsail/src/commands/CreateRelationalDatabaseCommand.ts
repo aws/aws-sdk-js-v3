@@ -31,7 +31,6 @@ export interface CreateRelationalDatabaseCommandInput extends CreateRelationalDa
 export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new database in Amazon Lightsail.</p>
  *          <p>The <code>create relational database</code> operation supports tag-based access control
  *       via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -124,6 +123,7 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateRelationalDatabaseCommand extends $Command
   .classBuilder<

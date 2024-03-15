@@ -27,9 +27,6 @@ export interface DescribeJobFlowsCommandInput extends DescribeJobFlowsInput {}
 export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>This API is no longer supported and will eventually be removed. We recommend you use
  *             <a>ListClusters</a>, <a>DescribeCluster</a>, <a>ListSteps</a>, <a>ListInstanceGroups</a> and <a>ListBootstrapActions</a> instead.</p>
  *          <p>DescribeJobFlows returns a list of job flows that match all of the supplied parameters.
@@ -192,6 +189,8 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class DescribeJobFlowsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListSipRulesCommandInput extends ListSipRulesRequest {}
 export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the SIP rules under the administrator's AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class ListSipRulesCommand extends $Command
   .classBuilder<

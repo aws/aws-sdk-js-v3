@@ -27,7 +27,6 @@ export interface ListDashboardsCommandInput extends ListDashboardsRequest {}
 export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists dashboards in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListDashboardsCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetGraphqlApiEnvironmentVariablesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of environmental variable key-value pairs associated with an API by its ID value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetGraphqlApiEnvironmentVariablesCommandOutput
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetGraphqlApiEnvironmentVariablesCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
  *             specify a link, it must be associated with the specified device. </p>
  *          <p>You can only associate transit gateway Connect peers that have been created on a
@@ -98,6 +97,7 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class AssociateTransitGatewayConnectPeerCommand extends $Command
   .classBuilder<

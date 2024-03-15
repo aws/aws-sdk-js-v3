@@ -27,7 +27,6 @@ export interface StopStreamingSessionCommandInput extends StopStreamingSessionRe
 export interface StopStreamingSessionCommandOutput extends StopStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transitions sessions from the <code>READY</code> state into the <code>STOPPED</code>
  *             state. The <code>STOP_IN_PROGRESS</code> state is the intermediate state between the
  *                 <code>READY</code> and <code>STOPPED</code> states.</p>
@@ -118,6 +117,7 @@ export interface StopStreamingSessionCommandOutput extends StopStreamingSessionR
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class StopStreamingSessionCommand extends $Command
   .classBuilder<

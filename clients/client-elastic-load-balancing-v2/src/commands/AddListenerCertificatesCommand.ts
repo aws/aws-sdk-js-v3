@@ -31,7 +31,6 @@ export interface AddListenerCertificatesCommandInput extends AddListenerCertific
 export interface AddListenerCertificatesCommandOutput extends AddListenerCertificatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS
  *       or TLS listener.</p>
  *          <p>If the certificate in already in the certificate list, the call is successful but the
@@ -85,6 +84,7 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class AddListenerCertificatesCommand extends $Command
   .classBuilder<

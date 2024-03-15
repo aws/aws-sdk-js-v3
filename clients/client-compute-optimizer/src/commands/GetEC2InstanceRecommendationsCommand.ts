@@ -32,7 +32,6 @@ export interface GetEC2InstanceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns Amazon EC2 instance recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a specific set of requirements. For more
  *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
@@ -244,6 +243,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetEC2InstanceRecommendationsCommand extends $Command
   .classBuilder<

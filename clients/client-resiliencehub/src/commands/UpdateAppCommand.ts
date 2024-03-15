@@ -27,7 +27,6 @@ export interface UpdateAppCommandInput extends UpdateAppRequest {}
 export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class UpdateAppCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListSessionsCommandInput extends ListSessionsRequest {}
 export interface ListSessionsCommandOutput extends ListSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the sessions in a workgroup that are in an active state like
  *                 <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>, or
  *             <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
@@ -91,6 +90,7 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListSessionsCommand extends $Command
   .classBuilder<

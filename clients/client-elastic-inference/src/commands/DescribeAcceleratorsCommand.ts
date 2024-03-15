@@ -27,7 +27,6 @@ export interface DescribeAcceleratorsCommandInput extends DescribeAcceleratorsRe
 export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Describes information over a provided set of accelerators belonging to an account.
  *         </p>
@@ -100,6 +99,7 @@ export interface DescribeAcceleratorsCommandOutput extends DescribeAcceleratorsR
  * @throws {@link ElasticInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
+ * @public
  */
 export class DescribeAcceleratorsCommand extends $Command
   .classBuilder<

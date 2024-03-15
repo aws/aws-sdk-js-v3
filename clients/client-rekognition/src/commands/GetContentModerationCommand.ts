@@ -27,7 +27,6 @@ export interface GetContentModerationCommandInput extends GetContentModerationRe
 export interface GetContentModerationCommandOutput extends GetContentModerationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by
  *        <a>StartContentModeration</a>. For a list of moderation labels in Amazon Rekognition, see
  *        <a href="https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api">Using the image and video moderation APIs</a>.</p>
@@ -147,6 +146,7 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetContentModerationCommand extends $Command
   .classBuilder<

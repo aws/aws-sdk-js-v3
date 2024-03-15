@@ -31,7 +31,6 @@ export interface BatchDeleteImportDataCommandInput extends BatchDeleteImportData
 export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has
  *       a number of records that can identify servers or applications. </p>
  *          <p>Amazon Web Services Application Discovery Service has built-in matching logic that will identify when
@@ -91,6 +90,7 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class BatchDeleteImportDataCommand extends $Command
   .classBuilder<

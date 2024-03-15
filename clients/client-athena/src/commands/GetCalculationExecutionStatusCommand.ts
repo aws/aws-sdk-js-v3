@@ -32,7 +32,6 @@ export interface GetCalculationExecutionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of a current calculation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetCalculationExecutionStatusCommandOutput
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetCalculationExecutionStatusCommand extends $Command
   .classBuilder<

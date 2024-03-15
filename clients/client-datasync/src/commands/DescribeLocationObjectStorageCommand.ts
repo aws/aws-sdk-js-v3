@@ -32,7 +32,6 @@ export interface DescribeLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for an object
  *       storage system is configured.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DescribeLocationObjectStorageCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationObjectStorageCommand extends $Command
   .classBuilder<

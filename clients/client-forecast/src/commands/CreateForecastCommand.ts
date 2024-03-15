@@ -31,7 +31,6 @@ export interface CreateForecastCommandInput extends CreateForecastRequest {}
 export interface CreateForecastCommandOutput extends CreateForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was
  *       used to train the predictor. This is known as inference. To retrieve the forecast for a single
  *       item at low latency, use the  operation. To
@@ -126,6 +125,7 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateForecastCommand extends $Command
   .classBuilder<

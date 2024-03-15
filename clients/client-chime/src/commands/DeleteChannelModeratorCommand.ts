@@ -27,9 +27,6 @@ export interface DeleteChannelModeratorCommandInput extends DeleteChannelModerat
 export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteChannelModerator in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Deletes a channel moderator.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -87,6 +84,8 @@ export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteChannelModerator in the Amazon Chime SDK Messaging Namespace
  */
 export class DeleteChannelModeratorCommand extends $Command
   .classBuilder<

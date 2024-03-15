@@ -27,7 +27,6 @@ export interface GetBucketCorsCommandInput extends GetBucketCorsRequest {}
 export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -100,6 +99,7 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To get cors configuration set on a bucket
  * ```javascript
  * // The following example returns cross-origin resource sharing (CORS) configuration set on a bucket.

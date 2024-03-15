@@ -46,8 +46,8 @@ export interface BedrockRuntime {
 }
 
 /**
- * @public
  * <p>Describes the API operations for running inference using Bedrock models.</p>
+ * @public
  */
 export class BedrockRuntime extends BedrockRuntimeClient implements BedrockRuntime {}
 createAggregatedClient(commands, BedrockRuntime);

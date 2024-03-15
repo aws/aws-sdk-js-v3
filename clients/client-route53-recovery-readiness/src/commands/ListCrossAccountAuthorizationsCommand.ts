@@ -36,7 +36,6 @@ export interface ListCrossAccountAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the cross-account readiness authorizations that are in place for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListCrossAccountAuthorizationsCommandOutput
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class ListCrossAccountAuthorizationsCommand extends $Command
   .classBuilder<

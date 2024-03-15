@@ -27,7 +27,6 @@ export interface ListEffectiveDeploymentsCommandInput extends ListEffectiveDeplo
 export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDeploymentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of deployment jobs that IoT Greengrass sends to Greengrass core devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class ListEffectiveDeploymentsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetInstancesHealthStatusCommandInput extends GetInstancesHealth
 export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealthStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or
  *     <code>Unknown</code>) of one or more instances that are associated with a specified
  *    service.</p>
@@ -81,6 +80,7 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example GetInstancesHealthStatus example
  * ```javascript
  * // This example gets the current health status of one or more instances that are associate with a specified service.

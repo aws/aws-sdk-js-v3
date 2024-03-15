@@ -35,7 +35,6 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the credit option for CPU usage of the specified burstable performance
  *             instances. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
@@ -101,6 +100,7 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeInstanceCreditSpecificationsCommand extends $Command
   .classBuilder<

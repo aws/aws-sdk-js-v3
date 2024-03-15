@@ -27,7 +27,6 @@ export interface DescribeMonitoringScheduleCommandInput extends DescribeMonitori
 export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the schedule for a monitoring job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -186,6 +185,7 @@ export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitor
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeMonitoringScheduleCommand extends $Command
   .classBuilder<

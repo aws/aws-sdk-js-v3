@@ -36,7 +36,6 @@ export interface StopSourceNetworkReplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops replication for a Source Network. This action would make the Source Network unprotected.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface StopSourceNetworkReplicationCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StopSourceNetworkReplicationCommand extends $Command
   .classBuilder<

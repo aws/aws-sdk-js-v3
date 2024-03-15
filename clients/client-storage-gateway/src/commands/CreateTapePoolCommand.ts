@@ -27,7 +27,6 @@ export interface CreateTapePoolCommandInput extends CreateTapePoolInput {}
 export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom tape pool. You can use custom tape pool to enable tape retention
  *          lock on tapes that are archived in the custom pool.</p>
  * @example
@@ -73,6 +72,7 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class CreateTapePoolCommand extends $Command
   .classBuilder<

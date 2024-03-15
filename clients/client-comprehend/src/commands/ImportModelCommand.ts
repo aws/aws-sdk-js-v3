@@ -27,7 +27,6 @@ export interface ImportModelCommandInput extends ImportModelRequest {}
 export interface ImportModelCommandOutput extends ImportModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom model that replicates a source custom model that you import. The
  *       source model can be in your Amazon Web Services account or another one.</p>
  *          <p>If the source model is in another Amazon Web Services account, then it must have a resource-based policy
@@ -103,6 +102,7 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ImportModelCommand extends $Command
   .classBuilder<

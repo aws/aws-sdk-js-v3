@@ -27,7 +27,6 @@ export interface DescribeAccessCommandInput extends DescribeAccessRequest {}
 export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
  *       server, as identified by its <code>ServerId</code> property and its
  *       <code>ExternalId</code>.</p>
@@ -94,6 +93,7 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeAccessCommand extends $Command
   .classBuilder<

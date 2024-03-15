@@ -35,7 +35,6 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies lifecycle settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class UpdateApplicationResourceLifecycleCommand extends $Command
   .classBuilder<

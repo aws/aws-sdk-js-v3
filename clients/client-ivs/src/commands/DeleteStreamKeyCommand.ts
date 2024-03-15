@@ -27,7 +27,6 @@ export interface DeleteStreamKeyCommandInput extends DeleteStreamKeyRequest {}
 export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the stream key for the specified ARN, so it can no longer be used to
  *       stream.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class DeleteStreamKeyCommand extends $Command
   .classBuilder<

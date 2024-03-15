@@ -31,7 +31,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateHostKeyCommandInput extends UpdateHostKeyRequest {}
 export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description for the host key that's specified by the <code>ServerId</code> and
  *         <code>HostKeyId</code> parameters.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UpdateHostKeyCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteOptedOutNumberCommandInput extends DeleteOptedOutNumberRe
 export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing opted out destination phone number from the specified opt-out
  *             list.</p>
  *          <p>Each destination phone number can only be deleted once every 30 days.</p>
@@ -92,6 +91,7 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteOptedOutNumberCommand extends $Command
   .classBuilder<

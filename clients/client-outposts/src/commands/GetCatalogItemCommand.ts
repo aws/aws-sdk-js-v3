@@ -27,7 +27,6 @@ export interface GetCatalogItemCommandInput extends GetCatalogItemInput {}
 export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified catalog item.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class GetCatalogItemCommand extends $Command
   .classBuilder<

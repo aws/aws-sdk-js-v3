@@ -32,7 +32,6 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your network insights analyses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -792,6 +791,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeNetworkInsightsAnalysesCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an App Runner service. You can update the source configuration and instance configuration of the service. You can also update the ARN of the auto
  *       scaling configuration resource that's associated with the service. However, you can't change the name or the encryption configuration of the service.
  *       These can be set only when you create the service.</p>
@@ -242,6 +241,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class UpdateServiceCommand extends $Command
   .classBuilder<

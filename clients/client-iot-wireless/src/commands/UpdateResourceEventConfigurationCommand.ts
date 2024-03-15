@@ -32,7 +32,6 @@ export interface UpdateResourceEventConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the event configuration for a particular resource identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class UpdateResourceEventConfigurationCommand extends $Command
   .classBuilder<

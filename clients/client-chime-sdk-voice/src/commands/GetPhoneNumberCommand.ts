@@ -32,7 +32,6 @@ export interface GetPhoneNumberCommandInput extends GetPhoneNumberRequest {}
 export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details for the specified phone number ID, such as associations,
  *          capabilities, and product type.</p>
  * @example
@@ -111,6 +110,7 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetPhoneNumberCommand extends $Command
   .classBuilder<

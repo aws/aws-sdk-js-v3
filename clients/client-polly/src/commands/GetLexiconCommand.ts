@@ -27,7 +27,6 @@ export interface GetLexiconCommandInput extends GetLexiconInput {}
 export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the content of the specified pronunciation lexicon stored
  *       in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  * @example To retrieve a lexicon
  * ```javascript
  * // Returns the content of the specified pronunciation lexicon stored in an AWS Region.

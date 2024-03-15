@@ -32,7 +32,6 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a URI template from a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class RemoveKnowledgeBaseTemplateUriCommand extends $Command
   .classBuilder<

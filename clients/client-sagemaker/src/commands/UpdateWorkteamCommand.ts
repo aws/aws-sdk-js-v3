@@ -27,7 +27,6 @@ export interface UpdateWorkteamCommandInput extends UpdateWorkteamRequest {}
 export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing work team with new member definitions or description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateWorkteamCommand extends $Command
   .classBuilder<

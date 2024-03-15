@@ -27,7 +27,6 @@ export interface CreateMedicalVocabularyCommandInput extends CreateMedicalVocabu
 export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom medical vocabulary.</p>
  *          <p>Before creating a new custom medical vocabulary, you must first upload a text file
  *             that contains your vocabulary table into an Amazon S3 bucket.
@@ -97,6 +96,7 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class CreateMedicalVocabularyCommand extends $Command
   .classBuilder<

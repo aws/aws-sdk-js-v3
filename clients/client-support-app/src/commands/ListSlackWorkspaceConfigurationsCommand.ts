@@ -32,7 +32,6 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * @public
  */
 export class ListSlackWorkspaceConfigurationsCommand extends $Command
   .classBuilder<

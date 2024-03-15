@@ -31,7 +31,6 @@ export interface CreateMicrosoftADCommandInput extends CreateMicrosoftADRequest 
 export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Microsoft AD directory in the Amazon Web Services Cloud. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">Managed Microsoft AD</a> in the <i>Directory Service Admin Guide</i>.</p>
  *          <p>Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required
  *       permissions have been explicitly granted through a policy. For details about what permissions
@@ -95,6 +94,7 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateMicrosoftADCommand extends $Command
   .classBuilder<

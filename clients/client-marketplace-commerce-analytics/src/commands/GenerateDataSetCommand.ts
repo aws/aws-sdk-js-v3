@@ -31,7 +31,6 @@ export interface GenerateDataSetCommandInput extends GenerateDataSetRequest {}
 export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __MetadataBearer {}
 
 /**
- * @public
  * Given a data set type and data set publication date, asynchronously publishes the requested data set to the specified
  *         S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request identifier that
  *         can be used to correlate requests with notifications from the SNS topic.
@@ -77,6 +76,7 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * @throws {@link MarketplaceCommerceAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
+ * @public
  */
 export class GenerateDataSetCommand extends $Command
   .classBuilder<

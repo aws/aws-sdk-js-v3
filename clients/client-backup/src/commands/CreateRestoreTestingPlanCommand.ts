@@ -31,7 +31,6 @@ export interface CreateRestoreTestingPlanCommandInput extends CreateRestoreTesti
 export interface CreateRestoreTestingPlanCommandOutput extends CreateRestoreTestingPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This is the first of two steps to create a restore testing
  *          plan; once this request is successful, finish the procedure with
  *          request CreateRestoreTestingSelection.</p>
@@ -108,6 +107,7 @@ export interface CreateRestoreTestingPlanCommandOutput extends CreateRestoreTest
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateRestoreTestingPlanCommand extends $Command
   .classBuilder<

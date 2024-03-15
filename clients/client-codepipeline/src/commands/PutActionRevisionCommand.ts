@@ -27,7 +27,6 @@ export interface PutActionRevisionCommandInput extends PutActionRevisionInput {}
 export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information to CodePipeline about new revisions to a
  *             source.</p>
  * @example
@@ -76,6 +75,7 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class PutActionRevisionCommand extends $Command
   .classBuilder<

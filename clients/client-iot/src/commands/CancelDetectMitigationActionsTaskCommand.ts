@@ -35,7 +35,6 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Cancels a Device Defender ML Detect mitigation action.
  *       </p>
@@ -76,6 +75,7 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CancelDetectMitigationActionsTaskCommand extends $Command
   .classBuilder<

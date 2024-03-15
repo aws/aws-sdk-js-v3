@@ -27,7 +27,6 @@ export interface GetTopicRuleCommandInput extends GetTopicRuleRequest {}
 export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the rule.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetTopicRule</a> action.</p>
  * @example
@@ -490,6 +489,7 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetTopicRuleCommand extends $Command
   .classBuilder<

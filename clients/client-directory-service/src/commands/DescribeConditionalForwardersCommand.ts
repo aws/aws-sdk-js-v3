@@ -32,7 +32,6 @@ export interface DescribeConditionalForwardersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains information about the conditional forwarders for this account.</p>
  *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all
  *       conditional forwarders for the specified directory ID.</p>
@@ -91,6 +90,7 @@ export interface DescribeConditionalForwardersCommandOutput
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeConditionalForwardersCommand extends $Command
   .classBuilder<

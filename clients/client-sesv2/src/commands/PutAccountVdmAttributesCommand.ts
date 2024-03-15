@@ -27,7 +27,6 @@ export interface PutAccountVdmAttributesCommandInput extends PutAccountVdmAttrib
 export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update your Amazon SES account VDM attributes.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -68,6 +67,7 @@ export interface PutAccountVdmAttributesCommandOutput extends PutAccountVdmAttri
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutAccountVdmAttributesCommand extends $Command
   .classBuilder<

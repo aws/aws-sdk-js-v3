@@ -30,7 +30,6 @@ export interface RemoveTagsFromOnPremisesInstancesCommandInput extends RemoveTag
 export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more tags from one or more on-premises instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class RemoveTagsFromOnPremisesInstancesCommand extends $Command
   .classBuilder<

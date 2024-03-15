@@ -27,7 +27,6 @@ export interface StopDataSourceSyncJobCommandInput extends StopDataSourceSyncJob
 export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a synchronization job that is currently running. You can't stop a scheduled
  *       synchronization job.</p>
  * @example
@@ -75,6 +74,7 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class StopDataSourceSyncJobCommand extends $Command
   .classBuilder<

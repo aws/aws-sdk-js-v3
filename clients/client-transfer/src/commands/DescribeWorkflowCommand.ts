@@ -27,7 +27,6 @@ export interface DescribeWorkflowCommandInput extends DescribeWorkflowRequest {}
 export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -190,6 +189,7 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeWorkflowCommand extends $Command
   .classBuilder<

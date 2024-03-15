@@ -27,7 +27,6 @@ export interface StopSessionCommandInput extends StopSessionRequest {}
 export interface StopSessionCommandOutput extends StopSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StopSessionCommand extends $Command
   .classBuilder<

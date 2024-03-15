@@ -27,7 +27,6 @@ export interface CreateVpcConnectionCommandInput extends CreateVpcConnectionRequ
 export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new MSK VPC connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class CreateVpcConnectionCommand extends $Command
   .classBuilder<

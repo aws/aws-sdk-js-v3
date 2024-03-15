@@ -27,7 +27,6 @@ export interface CreateServerCommandInput extends CreateServerRequest {}
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Instantiates an auto-scaling virtual server based on the selected file transfer protocol
  *       in Amazon Web Services. When you make updates to your file transfer protocol-enabled server or when you work
  *       with users, use the service-generated <code>ServerId</code> property that is assigned to the
@@ -145,6 +144,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class CreateServerCommand extends $Command
   .classBuilder<

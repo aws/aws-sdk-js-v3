@@ -27,7 +27,6 @@ export interface DisassociateConnectionAliasCommandInput extends DisassociateCon
 export interface DisassociateConnectionAliasCommandOutput extends DisassociateConnectionAliasResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a connection alias from a directory. Disassociating a connection alias
  *          disables cross-Region redirection between two directories in different Regions. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -76,6 +75,7 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DisassociateConnectionAliasCommand extends $Command
   .classBuilder<

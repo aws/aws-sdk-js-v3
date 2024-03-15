@@ -441,7 +441,6 @@ export type TransferClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface TransferClientResolvedConfig extends TransferClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
  *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
  *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3) or Amazon EFS.
@@ -452,6 +451,7 @@ export interface TransferClientResolvedConfig extends TransferClientResolvedConf
  *       Amazon S3, you can use it with Amazon Web Services for processing, analytics, machine learning, and
  *       archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
  *       set up.</p>
+ * @public
  */
 export class TransferClient extends __Client<
   __HttpHandlerOptions,

@@ -25,7 +25,6 @@ export interface QueryIdempotencyTokenAutoFillCommandInput extends QueryIdempote
 export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Automatically adds idempotency tokens.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +50,7 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ * @public
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the active learning workflow for your machine learning transform to improve the
  *       transform's quality by generating label sets and adding labels.</p>
  *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
@@ -89,6 +88,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateMultipartReadSetUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Begins a multipart read set upload.
  *     </p>
@@ -111,6 +110,7 @@ export interface CreateMultipartReadSetUploadCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CreateMultipartReadSetUploadCommand extends $Command
   .classBuilder<

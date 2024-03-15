@@ -27,7 +27,6 @@ export interface RevokeIpRulesCommandInput extends RevokeIpRulesRequest {}
 export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more rules from the specified IP access control group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class RevokeIpRulesCommand extends $Command
   .classBuilder<

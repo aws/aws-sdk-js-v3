@@ -27,7 +27,6 @@ export interface GetSegmentDetectionCommandInput extends GetSegmentDetectionRequ
 export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p>
  *          <p>Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by
  *       calling <a>StartSegmentDetection</a> which returns a job identifier (<code>JobId</code>).
@@ -159,6 +158,7 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetSegmentDetectionCommand extends $Command
   .classBuilder<

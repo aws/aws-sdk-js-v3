@@ -32,7 +32,6 @@ export interface CreateMeetingWithAttendeesCommandInput extends CreateMeetingWit
 export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWithAttendeesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *            Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
@@ -185,6 +184,7 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * @public
  */
 export class CreateMeetingWithAttendeesCommand extends $Command
   .classBuilder<

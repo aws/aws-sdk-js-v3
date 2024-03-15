@@ -27,7 +27,6 @@ export interface MergeShardsCommandInput extends MergeShardsInput {}
 export interface MergeShardsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single
  *             shard to reduce the stream's capacity to ingest and transport data. This API is only
  *             supported for the data streams with the provisioned capacity mode. Two shards are
@@ -122,6 +121,7 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class MergeShardsCommand extends $Command
   .classBuilder<

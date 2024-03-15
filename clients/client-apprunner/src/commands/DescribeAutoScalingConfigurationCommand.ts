@@ -32,7 +32,6 @@ export interface DescribeAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DescribeAutoScalingConfigurationCommand extends $Command
   .classBuilder<

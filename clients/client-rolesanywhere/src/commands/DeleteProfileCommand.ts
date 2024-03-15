@@ -27,7 +27,6 @@ export interface DeleteProfileCommandInput extends ScalarProfileRequest {}
 export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a profile.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -82,6 +81,7 @@ export interface DeleteProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class DeleteProfileCommand extends $Command
   .classBuilder<

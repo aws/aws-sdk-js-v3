@@ -27,7 +27,6 @@ export interface StopInferenceExperimentCommandInput extends StopInferenceExperi
 export interface StopInferenceExperimentCommandOutput extends StopInferenceExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an inference experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface StopInferenceExperimentCommandOutput extends StopInferenceExper
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopInferenceExperimentCommand extends $Command
   .classBuilder<

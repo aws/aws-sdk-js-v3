@@ -32,7 +32,6 @@ export interface CreateTokenWithIAMCommandInput extends CreateTokenWithIAMReques
 export interface CreateTokenWithIAMCommandOutput extends CreateTokenWithIAMResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and returns access and refresh tokens for clients and applications that are
  *       authenticated using IAM entities. The access token can be used to fetch short-term credentials
  *       for the assigned AWS accounts or to access application APIs using <code>bearer</code>
@@ -127,6 +126,7 @@ export interface CreateTokenWithIAMCommandOutput extends CreateTokenWithIAMRespo
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @public
  * @example Call OAuth/OIDC /token endpoint for Authorization Code grant with IAM authentication
  * ```javascript
  * //

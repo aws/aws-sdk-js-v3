@@ -35,7 +35,6 @@ export interface UpdateChannelFlowCommandInput extends UpdateChannelFlowRequest 
 export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates channel flow attributes. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class UpdateChannelFlowCommand extends $Command
   .classBuilder<

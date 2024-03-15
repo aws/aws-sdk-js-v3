@@ -27,7 +27,6 @@ export interface DeleteTopicRuleDestinationCommandInput extends DeleteTopicRuleD
 export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a topic rule destination.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteTopicRuleDestination</a> action.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteTopicRuleDestinationCommand extends $Command
   .classBuilder<

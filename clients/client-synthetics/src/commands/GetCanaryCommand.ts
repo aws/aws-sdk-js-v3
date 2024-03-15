@@ -27,7 +27,6 @@ export interface GetCanaryCommandInput extends GetCanaryRequest {}
 export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves complete information about one canary. You must specify
  *       the name of the canary that you want. To get a list of canaries
  *       and their names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</p>
@@ -125,6 +124,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class GetCanaryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifySnapshotAttributeCommandInput extends ModifySnapshotAttri
 export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or removes permission settings for the specified snapshot. You may add or remove
  *       specified Amazon Web Services account IDs from a snapshot's list of create volume permissions, but you cannot
  *       do both in a single operation. If you need to both add and remove account IDs for a snapshot,
@@ -83,6 +82,7 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To modify a snapshot attribute
  * ```javascript
  * // This example modifies snapshot ``snap-1234567890abcdef0`` to remove the create volume permission for a user with the account ID ``123456789012``. If the command succeeds, no output is returned.

@@ -36,7 +36,6 @@ export interface GetArchitectureRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets recommendations about architecture designs for improving resiliency for an application, based on a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetArchitectureRecommendationsCommandOutput
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class GetArchitectureRecommendationsCommand extends $Command
   .classBuilder<

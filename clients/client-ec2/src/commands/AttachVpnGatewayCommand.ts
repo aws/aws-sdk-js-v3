@@ -27,7 +27,6 @@ export interface AttachVpnGatewayCommandInput extends AttachVpnGatewayRequest {}
 export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private
  *             gateway to one VPC at a time.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
@@ -63,6 +62,7 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AttachVpnGatewayCommand extends $Command
   .classBuilder<

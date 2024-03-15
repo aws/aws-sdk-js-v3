@@ -27,7 +27,6 @@ export interface DisconnectParticipantCommandInput extends DisconnectParticipant
 export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disconnects a specified participant and revokes the participant permanently from a
  *          specified stage.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class DisconnectParticipantCommand extends $Command
   .classBuilder<

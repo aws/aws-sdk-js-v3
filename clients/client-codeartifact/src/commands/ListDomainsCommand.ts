@@ -27,7 +27,6 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a> objects for all domains owned by the Amazon Web Services account that makes
  *       this call. Each returned <code>DomainSummary</code> object contains information about a
  *       domain. </p>
@@ -86,6 +85,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataB
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class ListDomainsCommand extends $Command
   .classBuilder<

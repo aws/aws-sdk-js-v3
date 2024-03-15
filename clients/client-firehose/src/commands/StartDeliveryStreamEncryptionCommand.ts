@@ -32,7 +32,6 @@ export interface StartDeliveryStreamEncryptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables server-side encryption (SSE) for the delivery stream. </p>
  *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Firehose first sets the encryption status of the stream to <code>ENABLING</code>, and then
  *          to <code>ENABLED</code>. The encryption status of a delivery stream is the
@@ -116,6 +115,7 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class StartDeliveryStreamEncryptionCommand extends $Command
   .classBuilder<

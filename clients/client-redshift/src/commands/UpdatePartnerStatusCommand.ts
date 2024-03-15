@@ -28,7 +28,6 @@ export interface UpdatePartnerStatusCommandInput extends UpdatePartnerStatusInpu
 export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status of a partner integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class UpdatePartnerStatusCommand extends $Command
   .classBuilder<

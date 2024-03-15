@@ -27,7 +27,6 @@ export interface ListEventPredictionsCommandInput extends ListEventPredictionsRe
 export interface ListEventPredictionsCommandOutput extends ListEventPredictionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
  *     If filter is not specified, the most recent prediction is returned.</p>
  *          <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -
@@ -105,6 +104,7 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class ListEventPredictionsCommand extends $Command
   .classBuilder<

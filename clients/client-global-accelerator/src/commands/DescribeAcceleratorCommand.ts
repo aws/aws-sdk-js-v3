@@ -31,7 +31,6 @@ export interface DescribeAcceleratorCommandInput extends DescribeAcceleratorRequ
 export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe an accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorRes
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DescribeAcceleratorCommand extends $Command
   .classBuilder<

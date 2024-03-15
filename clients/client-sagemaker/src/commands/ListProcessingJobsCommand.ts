@@ -27,7 +27,6 @@ export interface ListProcessingJobsCommandInput extends ListProcessingJobsReques
 export interface ListProcessingJobsCommandOutput extends ListProcessingJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists processing jobs that satisfy various filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListProcessingJobsCommandOutput extends ListProcessingJobsRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListProcessingJobsCommand extends $Command
   .classBuilder<

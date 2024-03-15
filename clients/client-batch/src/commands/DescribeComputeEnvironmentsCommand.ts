@@ -32,7 +32,6 @@ export interface DescribeComputeEnvironmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your compute environments.</p>
  *          <p>If you're using an unmanaged compute environment, you can use the
  *         <code>DescribeComputeEnvironment</code> operation to determine the
@@ -138,6 +137,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To describe a compute environment
  * ```javascript
  * // This example describes the P2OnDemand compute environment.

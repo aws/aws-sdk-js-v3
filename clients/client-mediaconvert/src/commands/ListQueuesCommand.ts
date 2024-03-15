@@ -27,7 +27,6 @@ export interface ListQueuesCommandInput extends ListQueuesRequest {}
 export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class ListQueuesCommand extends $Command
   .classBuilder<

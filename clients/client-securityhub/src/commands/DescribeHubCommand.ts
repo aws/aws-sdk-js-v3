@@ -27,7 +27,6 @@ export interface DescribeHubCommandInput extends DescribeHubRequest {}
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about the Hub resource in your account, including the
  *          <code>HubArn</code> and the time when you enabled Security Hub.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To return details about Hub resource
  * ```javascript
  * // The following example returns details about the Hub resource in the calling account. The Hub resource represents the implementation of  the AWS Security Hub service in the calling account.

@@ -27,7 +27,6 @@ export interface ListWavesCommandInput extends ListWavesRequest {}
 export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all waves or multiple waves by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class ListWavesCommand extends $Command
   .classBuilder<

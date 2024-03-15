@@ -27,7 +27,6 @@ export interface ListRootsCommandInput extends ListRootsRequest {}
 export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the roots that are defined in the current organization.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -210,6 +209,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of roots in the organization
  * ```javascript
  * // The following example shows how to get the list of the roots in the current organization:/n/n

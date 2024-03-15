@@ -27,7 +27,6 @@ export interface ListTrafficPoliciesCommandInput extends ListTrafficPoliciesRequ
 export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the latest version for every traffic policy that is associated
  * 			with the current Amazon Web Services account. Policies are listed in the order that they
  * 			were created in. </p>
@@ -74,6 +73,7 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListTrafficPoliciesCommand extends $Command
   .classBuilder<

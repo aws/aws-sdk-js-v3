@@ -27,7 +27,6 @@ export interface StartMeetingTranscriptionCommandInput extends StartMeetingTrans
 export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts transcription for the specified <code>meetingId</code>. For more information, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
  *             Using Amazon Chime SDK live transcription
  *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
@@ -122,6 +121,7 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * @public
  */
 export class StartMeetingTranscriptionCommand extends $Command
   .classBuilder<

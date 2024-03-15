@@ -32,7 +32,6 @@ export interface DescribeAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Application Component in the Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DescribeAppVersionAppComponentCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DescribeAppVersionAppComponentCommand extends $Command
   .classBuilder<

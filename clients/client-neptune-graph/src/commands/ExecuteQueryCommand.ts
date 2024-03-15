@@ -29,7 +29,6 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
 }
 
 /**
- * @public
  * <p>Execute an openCypher query. Currently, the SDK does not support parameterized queries. If you want to make a
  *       parameterized query call, you can use an HTTP request. </p>
  *          <p>
@@ -106,6 +105,7 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class ExecuteQueryCommand extends $Command
   .classBuilder<

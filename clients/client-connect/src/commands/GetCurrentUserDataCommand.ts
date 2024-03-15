@@ -27,7 +27,6 @@ export interface GetCurrentUserDataCommandInput extends GetCurrentUserDataReques
 export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the real-time active user data from the specified Amazon Connect instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -155,6 +154,7 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetCurrentUserDataCommand extends $Command
   .classBuilder<

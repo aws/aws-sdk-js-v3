@@ -32,7 +32,6 @@ export interface GetResourcesCommandInput extends GetResourcesRequest {}
 export interface GetResourcesCommandOutput extends GetResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a collection of resources, including folders and documents. The only
  *             <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>
  * @example
@@ -131,6 +130,7 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class GetResourcesCommand extends $Command
   .classBuilder<

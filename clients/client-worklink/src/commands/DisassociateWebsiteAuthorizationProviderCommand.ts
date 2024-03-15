@@ -36,9 +36,6 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Disassociates a website authorization provider from a specified fleet. After the
  *             disassociation, users can't load any associated websites that require this authorization
  *             provider.</p>
@@ -85,6 +82,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DisassociateWebsiteAuthorizationProviderCommand extends $Command
   .classBuilder<

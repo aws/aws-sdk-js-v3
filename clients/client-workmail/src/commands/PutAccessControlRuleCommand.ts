@@ -27,7 +27,6 @@ export interface PutAccessControlRuleCommandInput extends PutAccessControlRuleRe
 export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new access control rule for the specified organization. The rule allows or
  *          denies access to the organization for the specified IPv4 addresses, access protocol
  *          actions, user IDs and impersonation IDs. Adding a new rule with the same name as an existing rule replaces
@@ -104,6 +103,7 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class PutAccessControlRuleCommand extends $Command
   .classBuilder<

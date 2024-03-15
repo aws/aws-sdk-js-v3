@@ -29,7 +29,6 @@ export interface GetColumnStatisticsTaskRunsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about all runs associated with the specified table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetColumnStatisticsTaskRunsCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetColumnStatisticsTaskRunsCommand extends $Command
   .classBuilder<

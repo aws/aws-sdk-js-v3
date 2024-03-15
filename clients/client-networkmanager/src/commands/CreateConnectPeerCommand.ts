@@ -27,7 +27,6 @@ export interface CreateConnectPeerCommandInput extends CreateConnectPeerRequest 
 export interface CreateConnectPeerCommandOutput extends CreateConnectPeerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a core network Connect peer for a specified core network connect attachment between a core network and an appliance.
  *          The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
  * @example
@@ -121,6 +120,7 @@ export interface CreateConnectPeerCommandOutput extends CreateConnectPeerRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateConnectPeerCommand extends $Command
   .classBuilder<

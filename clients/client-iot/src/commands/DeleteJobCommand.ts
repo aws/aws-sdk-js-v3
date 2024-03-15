@@ -27,7 +27,6 @@ export interface DeleteJobCommandInput extends DeleteJobRequest {}
 export interface DeleteJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a job and its related job executions.</p>
  *          <p>Deleting a job may take time, depending on the number of job
  *         executions created for the job and various other factors. While the job
@@ -83,6 +82,7 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteJobCommand extends $Command
   .classBuilder<

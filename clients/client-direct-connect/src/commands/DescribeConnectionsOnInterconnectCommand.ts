@@ -30,9 +30,6 @@ export interface DescribeConnectionsOnInterconnectCommandInput extends DescribeC
 export interface DescribeConnectionsOnInterconnectCommandOutput extends Connections, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
@@ -107,6 +104,8 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class DescribeConnectionsOnInterconnectCommand extends $Command
   .classBuilder<

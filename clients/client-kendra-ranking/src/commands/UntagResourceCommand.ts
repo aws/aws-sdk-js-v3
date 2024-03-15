@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a tag from a rescore execution plan. A rescore
  *             execution plan is an Amazon Kendra Intelligent
  *             Ranking resource used for provisioning the
@@ -85,6 +84,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

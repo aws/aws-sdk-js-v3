@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { CodeStarConnectionsServiceException as __BaseException } from "./CodeStarConnectionsServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -70,20 +70,20 @@ export const ProviderType = {
 export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
 
 /**
- * @public
  * <p>A tag is a key-value pair that is used to manage the resource.</p>
  *          <p>This tag is available for use by Amazon Web Services services that support tags.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The tag's key.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The tag's value.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -93,27 +93,27 @@ export interface Tag {
  */
 export interface CreateConnectionInput {
   /**
-   * @public
    * <p>The name of the external provider where your third-party code repository is
    *       configured.</p>
+   * @public
    */
   ProviderType?: ProviderType;
 
   /**
-   * @public
    * <p>The name of the connection to be created.</p>
+   * @public
    */
   ConnectionName: string | undefined;
 
   /**
-   * @public
    * <p>The key-value pair to use when tagging the resource.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>
+   * @public
    */
   HostArn?: string;
 }
@@ -123,25 +123,25 @@ export interface CreateConnectionInput {
  */
 export interface CreateConnectionOutput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the
    *       connection reference when the connection is shared between Amazon Web Services services.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>
+   * @public
    */
   ConnectionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the tags applied to the resource.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Exceeded the maximum limit for connections.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -162,8 +162,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -184,8 +184,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ * @public
  */
 export class ResourceUnavailableException extends __BaseException {
   readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
@@ -206,34 +206,34 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The VPC configuration provisioned for the host.</p>
+ * @public
  */
 export interface VpcConfiguration {
   /**
-   * @public
    * <p>The ID of the Amazon VPC connected to the infrastructure where your provider type is
    *       installed.</p>
+   * @public
    */
   VpcId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subnet or subnets associated with the Amazon VPC connected to the
    *       infrastructure where your provider type is installed.</p>
+   * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The ID of the security group or security groups associated with the Amazon VPC connected
    *       to the infrastructure where your provider type is installed.</p>
+   * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.</p>
+   * @public
    */
   TlsCertificate?: string;
 }
@@ -243,36 +243,36 @@ export interface VpcConfiguration {
  */
 export interface CreateHostInput {
   /**
-   * @public
    * <p>The name of the host to be created.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the installed provider to be associated with your connection. The host
    *       resource represents the infrastructure where your provider type is installed. The valid
    *       provider type is GitHub Enterprise Server.</p>
+   * @public
    */
   ProviderType: ProviderType | undefined;
 
   /**
-   * @public
    * <p>The endpoint of the infrastructure to be represented by the host after it is
    *       created.</p>
+   * @public
    */
   ProviderEndpoint: string | undefined;
 
   /**
-   * @public
    * <p>The VPC configuration to be provisioned for the host. A VPC must be configured and the
    *       infrastructure to be represented by the host must already be connected to the VPC.</p>
+   * @public
    */
   VpcConfiguration?: VpcConfiguration;
 
   /**
-   * @public
    * <p>Tags for the host to be created.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -282,21 +282,21 @@ export interface CreateHostInput {
  */
 export interface CreateHostOutput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the host to be created.</p>
+   * @public
    */
   HostArn?: string;
 
   /**
-   * @public
    * <p>Tags for the created host.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+ * @public
  */
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
@@ -321,82 +321,82 @@ export class ConcurrentModificationException extends __BaseException {
  */
 export interface CreateRepositoryLinkInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the connection to be associated with the repository link.</p>
+   * @public
    */
   ConnectionArn: string | undefined;
 
   /**
-   * @public
    * <p>The owner ID for the repository associated with a specific sync configuration, such as
    *       the owner ID in GitHub.</p>
+   * @public
    */
   OwnerId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository to be associated with the repository link.</p>
+   * @public
    */
   RepositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) encryption key for the repository to be associated with the repository link.</p>
+   * @public
    */
   EncryptionKeyArn?: string;
 
   /**
-   * @public
    * <p>The tags for the repository to be associated with the repository link.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Information about the repository link resource, such as the repository link ARN, the associated connection ARN, encryption key ARN, and owner ID.</p>
+ * @public
  */
 export interface RepositoryLinkInfo {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the connection associated with the repository link.</p>
+   * @public
    */
   ConnectionArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the encryption key for the repository associated with the repository link.</p>
+   * @public
    */
   EncryptionKeyArn?: string;
 
   /**
-   * @public
    * <p>The owner ID for the repository associated with the repository link, such as the owner
    *       ID in GitHub.</p>
+   * @public
    */
   OwnerId: string | undefined;
 
   /**
-   * @public
    * <p>The provider type for the connection, such as GitHub, associated with the repository link.</p>
+   * @public
    */
   ProviderType: ProviderType | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the repository link.</p>
+   * @public
    */
   RepositoryLinkArn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the repository link.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository associated with the repository link.</p>
+   * @public
    */
   RepositoryName: string | undefined;
 }
@@ -406,15 +406,15 @@ export interface RepositoryLinkInfo {
  */
 export interface CreateRepositoryLinkOutput {
   /**
-   * @public
    * <p>The returned information about the created repository link.</p>
+   * @public
    */
   RepositoryLinkInfo: RepositoryLinkInfo | undefined;
 }
 
 /**
- * @public
  * <p>Received an internal server exception. Try again later.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -435,8 +435,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input is not valid. Verify that the action is typed correctly.</p>
+ * @public
  */
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
@@ -457,8 +457,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Unable to create resource. Resource already exists.</p>
+ * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
@@ -479,8 +479,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -546,127 +546,127 @@ export type TriggerResourceUpdateOn = (typeof TriggerResourceUpdateOn)[keyof typ
  */
 export interface CreateSyncConfigurationInput {
   /**
-   * @public
    * <p>The branch in the repository from which changes will be synced.</p>
+   * @public
    */
   Branch: string | undefined;
 
   /**
-   * @public
    * <p>The file name of the configuration file that manages syncing between the connection and the repository. This configuration file is stored in the repository.</p>
+   * @public
    */
   ConfigFile: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the repository link created for the connection. A repository link allows Git
    *       sync to monitor and sync changes to files in a specified Git repository.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services resource (for example, a CloudFormation stack in the
    *       case of CFN_STACK_SYNC) that will be synchronized from the linked repository.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IAM role that grants permission for Amazon Web Services to use Git sync to
    *       update a given Amazon Web Services resource on your behalf.</p>
+   * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of sync configuration.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 
   /**
-   * @public
    * <p>Whether to enable or disable publishing of deployment status to source providers.</p>
+   * @public
    */
   PublishDeploymentStatus?: PublishDeploymentStatus;
 
   /**
-   * @public
    * <p>When to trigger Git sync to begin the stack update.</p>
+   * @public
    */
   TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
 }
 
 /**
- * @public
  * <p>Information, such as repository, branch, provider, and resource names for a specific sync configuration.</p>
+ * @public
  */
 export interface SyncConfiguration {
   /**
-   * @public
    * <p>The branch associated with a specific sync configuration.</p>
+   * @public
    */
   Branch: string | undefined;
 
   /**
-   * @public
    * <p>The file path to the configuration file associated with a specific sync configuration. The path should point to an actual file in the sync configurations linked repository.</p>
+   * @public
    */
   ConfigFile?: string;
 
   /**
-   * @public
    * <p>The owner ID for the repository associated with a specific sync configuration, such as
    *       the owner ID in GitHub.</p>
+   * @public
    */
   OwnerId: string | undefined;
 
   /**
-   * @public
    * <p>The connection provider type associated with a specific sync configuration, such as
    *       GitHub.</p>
+   * @public
    */
   ProviderType: ProviderType | undefined;
 
   /**
-   * @public
    * <p>The ID of the repository link associated with a specific sync configuration.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository associated with a specific sync configuration.</p>
+   * @public
    */
   RepositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the connection resource associated with a specific sync configuration.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role associated with a specific sync configuration.</p>
+   * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of sync for a specific sync configuration.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 
   /**
-   * @public
    * <p>Whether to enable or disable publishing of deployment status to source providers.</p>
+   * @public
    */
   PublishDeploymentStatus?: PublishDeploymentStatus;
 
   /**
-   * @public
    * <p>When to trigger Git sync to begin the stack update.</p>
+   * @public
    */
   TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
 }
@@ -676,9 +676,9 @@ export interface SyncConfiguration {
  */
 export interface CreateSyncConfigurationOutput {
   /**
-   * @public
    * <p>The created sync configuration for the connection. A sync configuration allows Amazon Web Services to sync content from a Git repository to update a specified Amazon Web Services
    *       resource. </p>
+   * @public
    */
   SyncConfiguration: SyncConfiguration | undefined;
 }
@@ -688,11 +688,11 @@ export interface CreateSyncConfigurationOutput {
  */
 export interface DeleteConnectionInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the connection to be deleted.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>
+   * @public
    */
   ConnectionArn: string | undefined;
 }
@@ -707,8 +707,8 @@ export interface DeleteConnectionOutput {}
  */
 export interface DeleteHostInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the host to be deleted.</p>
+   * @public
    */
   HostArn: string | undefined;
 }
@@ -723,8 +723,8 @@ export interface DeleteHostOutput {}
  */
 export interface DeleteRepositoryLinkInput {
   /**
-   * @public
    * <p>The ID of the repository link to be deleted.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 }
@@ -735,8 +735,8 @@ export interface DeleteRepositoryLinkInput {
 export interface DeleteRepositoryLinkOutput {}
 
 /**
- * @public
  * <p>Unable to continue. The sync blocker still exists.</p>
+ * @public
  */
 export class SyncConfigurationStillExistsException extends __BaseException {
   readonly name: "SyncConfigurationStillExistsException" = "SyncConfigurationStillExistsException";
@@ -757,8 +757,8 @@ export class SyncConfigurationStillExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified provider type is not supported for connections.</p>
+ * @public
  */
 export class UnsupportedProviderTypeException extends __BaseException {
   readonly name: "UnsupportedProviderTypeException" = "UnsupportedProviderTypeException";
@@ -783,15 +783,15 @@ export class UnsupportedProviderTypeException extends __BaseException {
  */
 export interface DeleteSyncConfigurationInput {
   /**
-   * @public
    * <p>The type of sync configuration to be deleted.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services resource associated with the sync configuration to be
    *       deleted.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -806,8 +806,8 @@ export interface DeleteSyncConfigurationOutput {}
  */
 export interface GetConnectionInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of a connection.</p>
+   * @public
    */
   ConnectionArn: string | undefined;
 }
@@ -828,51 +828,51 @@ export const ConnectionStatus = {
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 /**
- * @public
  * <p>A resource that is used to connect third-party source providers with services like CodePipeline.</p>
  *          <p>Note: A connection created through CloudFormation, the CLI, or the SDK is in `PENDING` status by default. You can make its status `AVAILABLE` by updating the
  *       connection in the console.</p>
+ * @public
  */
 export interface Connection {
   /**
-   * @public
    * <p>The name of the connection. Connection names must be unique in an Amazon Web Services account.</p>
+   * @public
    */
   ConnectionName?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the connection. The ARN is used as the connection
    *       reference when the connection is shared between Amazon Web Services.</p>
    *          <note>
    *             <p>The ARN is never reused if the connection is deleted.</p>
    *          </note>
+   * @public
    */
   ConnectionArn?: string;
 
   /**
-   * @public
    * <p>The name of the external provider where your third-party code repository is
    *       configured.</p>
+   * @public
    */
   ProviderType?: ProviderType;
 
   /**
-   * @public
    * <p>The identifier of the external provider where your third-party code repository is configured.
    *       For Bitbucket, this is the account ID of the owner of the Bitbucket repository.</p>
+   * @public
    */
   OwnerAccountId?: string;
 
   /**
-   * @public
    * <p>The current status of the connection. </p>
+   * @public
    */
   ConnectionStatus?: ConnectionStatus;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the host associated with the connection.</p>
+   * @public
    */
   HostArn?: string;
 }
@@ -882,8 +882,8 @@ export interface Connection {
  */
 export interface GetConnectionOutput {
   /**
-   * @public
    * <p>The connection details, such as status, owner, and provider type.</p>
+   * @public
    */
   Connection?: Connection;
 }
@@ -893,8 +893,8 @@ export interface GetConnectionOutput {
  */
 export interface GetHostInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the requested host.</p>
+   * @public
    */
   HostArn: string | undefined;
 }
@@ -904,32 +904,32 @@ export interface GetHostInput {
  */
 export interface GetHostOutput {
   /**
-   * @public
    * <p>The name of the requested host.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The status of the requested host.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The provider type of the requested host, such as GitHub Enterprise Server.</p>
+   * @public
    */
   ProviderType?: ProviderType;
 
   /**
-   * @public
    * <p>The endpoint of the infrastructure represented by the requested host.</p>
+   * @public
    */
   ProviderEndpoint?: string;
 
   /**
-   * @public
    * <p>The VPC configuration of the requested host.</p>
+   * @public
    */
   VpcConfiguration?: VpcConfiguration;
 }
@@ -939,8 +939,8 @@ export interface GetHostOutput {
  */
 export interface GetRepositoryLinkInput {
   /**
-   * @public
    * <p>The ID of the repository link to get.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 }
@@ -950,8 +950,8 @@ export interface GetRepositoryLinkInput {
  */
 export interface GetRepositoryLinkOutput {
   /**
-   * @public
    * <p>The information returned for a specified repository link.</p>
+   * @public
    */
   RepositoryLinkInfo: RepositoryLinkInfo | undefined;
 }
@@ -961,50 +961,50 @@ export interface GetRepositoryLinkOutput {
  */
 export interface GetRepositorySyncStatusInput {
   /**
-   * @public
    * <p>The branch of the repository link for the requested repository sync status.</p>
+   * @public
    */
   Branch: string | undefined;
 
   /**
-   * @public
    * <p>The repository link ID for the requested repository sync status.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 
   /**
-   * @public
    * <p>The sync type of the requested sync status.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 }
 
 /**
- * @public
  * <p>Information about a repository sync event.</p>
+ * @public
  */
 export interface RepositorySyncEvent {
   /**
-   * @public
    * <p>A description of a repository sync event.</p>
+   * @public
    */
   Event: string | undefined;
 
   /**
-   * @public
    * <p>The ID for a repository sync event.</p>
+   * @public
    */
   ExternalId?: string;
 
   /**
-   * @public
    * <p>The time that a repository sync event occurred.</p>
+   * @public
    */
   Time: Date | undefined;
 
   /**
-   * @public
    * <p>The event type for a repository sync event.</p>
+   * @public
    */
   Type: string | undefined;
 }
@@ -1027,18 +1027,17 @@ export const RepositorySyncStatus = {
 export type RepositorySyncStatus = (typeof RepositorySyncStatus)[keyof typeof RepositorySyncStatus];
 
 /**
- * @public
  * <p>Information about a repository sync attempt for a repository with a sync configuration.</p>
+ * @public
  */
 export interface RepositorySyncAttempt {
   /**
-   * @public
    * <p>The start time of a specific sync attempt.</p>
+   * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The status of a specific sync attempt. The following are valid statuses:</p>
    *          <ul>
    *             <li>
@@ -1058,12 +1057,13 @@ export interface RepositorySyncAttempt {
    *                <p>QUEUED - The repository sync attempt didn't execute and was queued.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status: RepositorySyncStatus | undefined;
 
   /**
-   * @public
    * <p>The events associated with a specific sync attempt.</p>
+   * @public
    */
   Events: RepositorySyncEvent[] | undefined;
 }
@@ -1073,8 +1073,8 @@ export interface RepositorySyncAttempt {
  */
 export interface GetRepositorySyncStatusOutput {
   /**
-   * @public
    * <p>The status of the latest sync returned for a specified repository and branch.</p>
+   * @public
    */
   LatestSync: RepositorySyncAttempt | undefined;
 }
@@ -1084,87 +1084,87 @@ export interface GetRepositorySyncStatusOutput {
  */
 export interface GetResourceSyncStatusInput {
   /**
-   * @public
    * <p>The name of the Amazon Web Services resource for the sync status with the Git
    *       repository.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The sync type for the sync status with the Git repository.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 }
 
 /**
- * @public
  * <p>Information about the revision for a specific sync event, such as the branch, owner ID, and name of the repository.</p>
+ * @public
  */
 export interface Revision {
   /**
-   * @public
    * <p>The branch name for a specific revision.</p>
+   * @public
    */
   Branch: string | undefined;
 
   /**
-   * @public
    * <p>The directory, if any, for a specific revision.</p>
+   * @public
    */
   Directory: string | undefined;
 
   /**
-   * @public
    * <p>The owner ID for a specific revision, such as the GitHub owner ID for a GitHub repository.</p>
+   * @public
    */
   OwnerId: string | undefined;
 
   /**
-   * @public
    * <p>The repository name for a specific revision.</p>
+   * @public
    */
   RepositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The provider type for a revision, such as GitHub.</p>
+   * @public
    */
   ProviderType: ProviderType | undefined;
 
   /**
-   * @public
    * <p>The SHA, such as the commit ID, for a specific revision.</p>
+   * @public
    */
   Sha: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about a resource sync event for the resource associated with a sync configuration.</p>
+ * @public
  */
 export interface ResourceSyncEvent {
   /**
-   * @public
    * <p>The event for a resource sync event.</p>
+   * @public
    */
   Event: string | undefined;
 
   /**
-   * @public
    * <p>The ID for a resource sync event.</p>
+   * @public
    */
   ExternalId?: string;
 
   /**
-   * @public
    * <p>The time that a resource sync event occurred.</p>
+   * @public
    */
   Time: Date | undefined;
 
   /**
-   * @public
    * <p>The type of resource sync event.</p>
+   * @public
    */
   Type: string | undefined;
 }
@@ -1186,31 +1186,30 @@ export const ResourceSyncStatus = {
 export type ResourceSyncStatus = (typeof ResourceSyncStatus)[keyof typeof ResourceSyncStatus];
 
 /**
- * @public
  * <p>Information about a resource sync attempt.</p>
+ * @public
  */
 export interface ResourceSyncAttempt {
   /**
-   * @public
    * <p>The events related to a resource sync attempt.</p>
+   * @public
    */
   Events: ResourceSyncEvent[] | undefined;
 
   /**
-   * @public
    * <p>The current state of the resource as defined in the resource's <code>config-file</code>
    *       in the linked repository.</p>
+   * @public
    */
   InitialRevision: Revision | undefined;
 
   /**
-   * @public
    * <p>The start time for a resource sync attempt.</p>
+   * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The status for a resource sync attempt. The follow are valid statuses:</p>
    *          <ul>
    *             <li>
@@ -1226,19 +1225,20 @@ export interface ResourceSyncAttempt {
    *                <p>SYNC_FAILED - A resource sync attempt has failed.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status: ResourceSyncStatus | undefined;
 
   /**
-   * @public
    * <p>The desired state of the resource as defined in the resource's <code>config-file</code>
    *       in the linked repository. Git sync attempts to update the resource to this state.</p>
+   * @public
    */
   TargetRevision: Revision | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services resource that is attempted to be synchronized.</p>
+   * @public
    */
   Target: string | undefined;
 }
@@ -1248,21 +1248,21 @@ export interface ResourceSyncAttempt {
  */
 export interface GetResourceSyncStatusOutput {
   /**
-   * @public
    * <p>The desired state of the Amazon Web Services resource for the sync status with the Git
    *       repository.</p>
+   * @public
    */
   DesiredState?: Revision;
 
   /**
-   * @public
    * <p>The latest successful sync for the sync status with the Git repository.</p>
+   * @public
    */
   LatestSuccessfulSync?: ResourceSyncAttempt;
 
   /**
-   * @public
    * <p>The latest sync for the sync status with the Git repository, whether successful or not.</p>
+   * @public
    */
   LatestSync: ResourceSyncAttempt | undefined;
 }
@@ -1272,110 +1272,110 @@ export interface GetResourceSyncStatusOutput {
  */
 export interface GetSyncBlockerSummaryInput {
   /**
-   * @public
    * <p>The sync type for the sync blocker summary.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services resource currently blocked from automatically being synced from a Git repository.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
 
 /**
- * @public
  * <p>The context for a specific sync blocker.</p>
+ * @public
  */
 export interface SyncBlockerContext {
   /**
-   * @public
    * <p>The key provided for a context key-value pair for a specific sync blocker.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value provided for a context key-value pair for a specific sync blocker.</p>
+   * @public
    */
   Value: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about a blocker for a sync event.</p>
+ * @public
  */
 export interface SyncBlocker {
   /**
-   * @public
    * <p>The ID for a specific sync blocker.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The sync blocker type.</p>
+   * @public
    */
   Type: BlockerType | undefined;
 
   /**
-   * @public
    * <p>The status for a specific sync blocker.</p>
+   * @public
    */
   Status: BlockerStatus | undefined;
 
   /**
-   * @public
    * <p>The provided reason for a specific sync blocker.</p>
+   * @public
    */
   CreatedReason: string | undefined;
 
   /**
-   * @public
    * <p>The creation time for a specific sync blocker.</p>
+   * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The contexts for a specific sync blocker.</p>
+   * @public
    */
   Contexts?: SyncBlockerContext[];
 
   /**
-   * @public
    * <p>The resolved reason for a specific sync blocker.</p>
+   * @public
    */
   ResolvedReason?: string;
 
   /**
-   * @public
    * <p>The time that a specific sync blocker was resolved.</p>
+   * @public
    */
   ResolvedAt?: Date;
 }
 
 /**
- * @public
  * <p>A summary for sync blockers.</p>
+ * @public
  */
 export interface SyncBlockerSummary {
   /**
-   * @public
    * <p>The resource name for sync blocker summary.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The parent resource name for a sync blocker summary.</p>
+   * @public
    */
   ParentResourceName?: string;
 
   /**
-   * @public
    * <p>The latest events for a sync blocker summary.</p>
+   * @public
    */
   LatestBlockers?: SyncBlocker[];
 }
@@ -1385,8 +1385,8 @@ export interface SyncBlockerSummary {
  */
 export interface GetSyncBlockerSummaryOutput {
   /**
-   * @public
    * <p>The list of sync blockers for a specified resource.</p>
+   * @public
    */
   SyncBlockerSummary: SyncBlockerSummary | undefined;
 }
@@ -1396,15 +1396,15 @@ export interface GetSyncBlockerSummaryOutput {
  */
 export interface GetSyncConfigurationInput {
   /**
-   * @public
    * <p>The sync type for the sync configuration for which you want to retrieve information.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services resource for the sync configuration for which you
    *       want to retrieve information.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1414,8 +1414,8 @@ export interface GetSyncConfigurationInput {
  */
 export interface GetSyncConfigurationOutput {
   /**
-   * @public
    * <p>The details about the sync configuration for which you want to retrieve information.</p>
+   * @public
    */
   SyncConfiguration: SyncConfiguration | undefined;
 }
@@ -1425,29 +1425,29 @@ export interface GetSyncConfigurationOutput {
  */
 export interface ListConnectionsInput {
   /**
-   * @public
    * <p>Filters the list of connections to those associated with a specified provider, such as
    *       Bitbucket.</p>
+   * @public
    */
   ProviderTypeFilter?: ProviderType;
 
   /**
-   * @public
    * <p>Filters the list of connections to those associated with a specified host.</p>
+   * @public
    */
   HostArnFilter?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token that was returned from the previous <code>ListConnections</code> call, which
    *       can be used to return the next set of connections in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1457,17 +1457,17 @@ export interface ListConnectionsInput {
  */
 export interface ListConnectionsOutput {
   /**
-   * @public
    * <p>A list of connections and the details for each connection, such as status, owner, and
    *       provider type.</p>
+   * @public
    */
   Connections?: Connection[];
 
   /**
-   * @public
    * <p>A token that can be used in the next <code>ListConnections</code> call. To view all
    *       items in the list, continue to call this operation with each subsequent token until no more
    *       <code>nextToken</code> values are returned.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1477,22 +1477,21 @@ export interface ListConnectionsOutput {
  */
 export interface ListHostsInput {
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token that was returned from the previous <code>ListHosts</code> call, which can be
    *       used to return the next set of hosts in the list.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>A resource that represents the infrastructure where a third-party provider is installed.
  *       The host is used when you create connections to an installed third-party provider type, such
  *       as GitHub Enterprise Server. You create one host for all connections to that provider.</p>
@@ -1500,49 +1499,50 @@ export interface ListHostsInput {
  *             <p>A host created through the CLI or the SDK is in `PENDING` status by
  *         default. You can make its status `AVAILABLE` by setting up the host in the console.</p>
  *          </note>
+ * @public
  */
 export interface Host {
   /**
-   * @public
    * <p>The name of the host.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the host.</p>
+   * @public
    */
   HostArn?: string;
 
   /**
-   * @public
    * <p>The name of the installed provider to be associated with your connection. The host
    *       resource represents the infrastructure where your provider type is installed. The valid
    *       provider type is GitHub Enterprise Server.</p>
+   * @public
    */
   ProviderType?: ProviderType;
 
   /**
-   * @public
    * <p>The endpoint of the infrastructure where your provider type is installed.</p>
+   * @public
    */
   ProviderEndpoint?: string;
 
   /**
-   * @public
    * <p>The VPC configuration provisioned for the host.</p>
+   * @public
    */
   VpcConfiguration?: VpcConfiguration;
 
   /**
-   * @public
    * <p>The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING, VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The status description for the host.</p>
+   * @public
    */
   StatusMessage?: string;
 }
@@ -1552,17 +1552,17 @@ export interface Host {
  */
 export interface ListHostsOutput {
   /**
-   * @public
    * <p>A list of hosts and the details for each host, such as status, endpoint, and provider
    *       type.</p>
+   * @public
    */
   Hosts?: Host[];
 
   /**
-   * @public
    * <p>A token that can be used in the next <code>ListHosts</code> call. To view all items in the
    *       list, continue to call this operation with each subsequent token until no more
    *       <code>nextToken</code> values are returned.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1572,16 +1572,16 @@ export interface ListHostsOutput {
  */
 export interface ListRepositoryLinksInput {
   /**
-   * @public
    * <p>
    * A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>
    * An enumeration token that, when provided in a request, returns the next batch of the results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1591,14 +1591,14 @@ export interface ListRepositoryLinksInput {
  */
 export interface ListRepositoryLinksOutput {
   /**
-   * @public
    * <p>Lists the repository links called by the list repository links operation.</p>
+   * @public
    */
   RepositoryLinks: RepositoryLinkInfo[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that allows the operation to batch the results of the operation. </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1608,45 +1608,45 @@ export interface ListRepositoryLinksOutput {
  */
 export interface ListRepositorySyncDefinitionsInput {
   /**
-   * @public
    * <p>The ID of the repository link for the sync definition for which you want to retrieve information.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 
   /**
-   * @public
    * <p>The sync type of the repository link for the the sync definition for which you want to retrieve information.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 }
 
 /**
- * @public
  * <p>The definition for a repository with a sync configuration.</p>
+ * @public
  */
 export interface RepositorySyncDefinition {
   /**
-   * @public
    * <p>The branch specified for a repository sync definition.</p>
+   * @public
    */
   Branch: string | undefined;
 
   /**
-   * @public
    * <p>The configuration file for a repository sync definition. This value comes from creating
    *       or updating the <code>config-file</code> field of a <code>sync-configuration</code>.</p>
+   * @public
    */
   Directory: string | undefined;
 
   /**
-   * @public
    * <p>The parent resource specified for a repository sync definition.</p>
+   * @public
    */
   Parent: string | undefined;
 
   /**
-   * @public
    * <p>The target resource specified for a repository sync definition. In some cases, such as CFN_STACK_SYNC, the parent and target resource are the same.</p>
+   * @public
    */
   Target: string | undefined;
 }
@@ -1656,17 +1656,17 @@ export interface RepositorySyncDefinition {
  */
 export interface ListRepositorySyncDefinitionsOutput {
   /**
-   * @public
    * <p>The list of repository sync definitions returned by the request. A
    *         <code>RepositorySyncDefinition</code> is a mapping from a repository branch to all the
    *         Amazon Web Services resources that are being synced from that branch.</p>
+   * @public
    */
   RepositorySyncDefinitions: RepositorySyncDefinition[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *       results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1676,26 +1676,26 @@ export interface ListRepositorySyncDefinitionsOutput {
  */
 export interface ListSyncConfigurationsInput {
   /**
-   * @public
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>An enumeration token that allows the operation to batch the results of the operation.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the repository link for the requested list of sync configurations.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 
   /**
-   * @public
    * <p>The sync type for the requested list of sync configurations.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 }
@@ -1705,14 +1705,14 @@ export interface ListSyncConfigurationsInput {
  */
 export interface ListSyncConfigurationsOutput {
   /**
-   * @public
    * <p>The list of repository sync definitions returned by the request.</p>
+   * @public
    */
   SyncConfigurations: SyncConfiguration[] | undefined;
 
   /**
-   * @public
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1722,8 +1722,8 @@ export interface ListSyncConfigurationsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -1733,8 +1733,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * @public
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1744,14 +1744,14 @@ export interface ListTagsForResourceOutput {
  */
 export interface TagResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to add or update tags.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags you want to modify or add to the resource.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -1766,14 +1766,14 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of keys for the tags to be removed from the resource.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -1784,8 +1784,8 @@ export interface UntagResourceInput {
 export interface UntagResourceOutput {}
 
 /**
- * @public
  * <p>Two conflicting operations have been made on the same resource.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1806,8 +1806,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation is not supported. Check the connection status and try again.</p>
+ * @public
  */
 export class UnsupportedOperationException extends __BaseException {
   readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
@@ -1832,21 +1832,21 @@ export class UnsupportedOperationException extends __BaseException {
  */
 export interface UpdateHostInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the host to be updated.</p>
+   * @public
    */
   HostArn: string | undefined;
 
   /**
-   * @public
    * <p>The URL or endpoint of the host to be updated.</p>
+   * @public
    */
   ProviderEndpoint?: string;
 
   /**
-   * @public
    * <p>The VPC configuration of the host to be updated. A VPC must be configured and the
    *       infrastructure to be represented by the host must already be connected to the VPC.</p>
+   * @public
    */
   VpcConfiguration?: VpcConfiguration;
 }
@@ -1857,8 +1857,8 @@ export interface UpdateHostInput {
 export interface UpdateHostOutput {}
 
 /**
- * @public
  * <p>The conditional check failed. Try again later.</p>
+ * @public
  */
 export class ConditionalCheckFailedException extends __BaseException {
   readonly name: "ConditionalCheckFailedException" = "ConditionalCheckFailedException";
@@ -1879,8 +1879,8 @@ export class ConditionalCheckFailedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The update is out of sync. Try syncing again.</p>
+ * @public
  */
 export class UpdateOutOfSyncException extends __BaseException {
   readonly name: "UpdateOutOfSyncException" = "UpdateOutOfSyncException";
@@ -1905,20 +1905,20 @@ export class UpdateOutOfSyncException extends __BaseException {
  */
 export interface UpdateRepositoryLinkInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the connection for the repository link to be updated. The updated connection ARN must have the same providerType (such as GitHub) as the original connection ARN for the repo link.</p>
+   * @public
    */
   ConnectionArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the encryption key for the repository link to be updated.</p>
+   * @public
    */
   EncryptionKeyArn?: string;
 
   /**
-   * @public
    * <p>The ID of the repository link to be updated.</p>
+   * @public
    */
   RepositoryLinkId: string | undefined;
 }
@@ -1928,15 +1928,15 @@ export interface UpdateRepositoryLinkInput {
  */
 export interface UpdateRepositoryLinkOutput {
   /**
-   * @public
    * <p>Information about the repository link to be updated.</p>
+   * @public
    */
   RepositoryLinkInfo: RepositoryLinkInfo | undefined;
 }
 
 /**
- * @public
  * <p>Retrying the latest commit failed. Try again later.</p>
+ * @public
  */
 export class RetryLatestCommitFailedException extends __BaseException {
   readonly name: "RetryLatestCommitFailedException" = "RetryLatestCommitFailedException";
@@ -1957,8 +1957,8 @@ export class RetryLatestCommitFailedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Unable to continue. The sync blocker does not exist.</p>
+ * @public
  */
 export class SyncBlockerDoesNotExistException extends __BaseException {
   readonly name: "SyncBlockerDoesNotExistException" = "SyncBlockerDoesNotExistException";
@@ -1983,26 +1983,26 @@ export class SyncBlockerDoesNotExistException extends __BaseException {
  */
 export interface UpdateSyncBlockerInput {
   /**
-   * @public
    * <p>The ID of the sync blocker to be updated.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The sync type of the sync blocker to be updated.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 
   /**
-   * @public
    * <p>The name of the resource for the sync blocker to be updated.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The reason for resolving the sync blocker.</p>
+   * @public
    */
   ResolvedReason: string | undefined;
 }
@@ -2012,20 +2012,20 @@ export interface UpdateSyncBlockerInput {
  */
 export interface UpdateSyncBlockerOutput {
   /**
-   * @public
    * <p>The resource name for the sync blocker.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The parent resource name for the sync blocker.</p>
+   * @public
    */
   ParentResourceName?: string;
 
   /**
-   * @public
    * <p>Information about the sync blocker to be updated.</p>
+   * @public
    */
   SyncBlocker: SyncBlocker | undefined;
 }
@@ -2035,51 +2035,51 @@ export interface UpdateSyncBlockerOutput {
  */
 export interface UpdateSyncConfigurationInput {
   /**
-   * @public
    * <p>The branch for the sync configuration to be updated.</p>
+   * @public
    */
   Branch?: string;
 
   /**
-   * @public
    * <p>The configuration file for the sync configuration to be updated.</p>
+   * @public
    */
   ConfigFile?: string;
 
   /**
-   * @public
    * <p>The ID of the repository link for the sync configuration to be updated.</p>
+   * @public
    */
   RepositoryLinkId?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services resource for the sync configuration to be
    *       updated.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IAM role for the sync configuration to be updated.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>The sync type for the sync configuration to be updated.</p>
+   * @public
    */
   SyncType: SyncConfigurationType | undefined;
 
   /**
-   * @public
    * <p>Whether to enable or disable publishing of deployment status to source providers.</p>
+   * @public
    */
   PublishDeploymentStatus?: PublishDeploymentStatus;
 
   /**
-   * @public
    * <p>When to trigger Git sync to begin the stack update.</p>
+   * @public
    */
   TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
 }
@@ -2089,8 +2089,8 @@ export interface UpdateSyncConfigurationInput {
  */
 export interface UpdateSyncConfigurationOutput {
   /**
-   * @public
    * <p>The information returned for the sync configuration to be updated.</p>
+   * @public
    */
   SyncConfiguration: SyncConfiguration | undefined;
 }

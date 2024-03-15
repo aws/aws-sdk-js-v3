@@ -27,7 +27,6 @@ export interface DeleteDestinationCommandInput extends DeleteDestinationRequest 
 export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified destination, and eventually disables all the
  *       subscription filters that publish to it. This operation does not delete the
  *       physical resource encapsulated by the destination.</p>
@@ -67,6 +66,7 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteDestinationCommand extends $Command
   .classBuilder<

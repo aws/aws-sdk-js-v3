@@ -31,9 +31,6 @@ export interface GetPermissionGroupCommandInput extends GetPermissionGroupReques
 export interface GetPermissionGroupCommandOutput extends GetPermissionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Retrieves the details of a specific permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +84,8 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class GetPermissionGroupCommand extends $Command
   .classBuilder<

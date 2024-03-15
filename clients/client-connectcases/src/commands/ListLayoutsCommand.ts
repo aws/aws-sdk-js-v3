@@ -27,7 +27,6 @@ export interface ListLayoutsCommandInput extends ListLayoutsRequest {}
 export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all layouts in the given cases domain. Each list item is a condensed summary object
  *       of the layout.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class ListLayoutsCommand extends $Command
   .classBuilder<

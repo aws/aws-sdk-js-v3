@@ -27,7 +27,6 @@ export interface ListDatasetEntriesCommandInput extends ListDatasetEntriesReques
 export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains the anomaly
  *       information for a single image, including the image location and the assigned label.</p>
  *          <p>This operation requires permissions to perform the
@@ -88,6 +87,7 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class ListDatasetEntriesCommand extends $Command
   .classBuilder<

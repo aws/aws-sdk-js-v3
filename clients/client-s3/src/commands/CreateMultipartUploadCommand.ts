@@ -33,7 +33,6 @@ export interface CreateMultipartUploadCommandInput extends CreateMultipartUpload
 export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploadOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action initiates a multipart upload and returns an upload ID. This upload ID is
  *          used to associate all of the parts in the specific multipart upload. You specify this
  *          upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this
@@ -320,6 +319,7 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To initiate a multipart upload
  * ```javascript
  * // The following example initiates a multipart upload.

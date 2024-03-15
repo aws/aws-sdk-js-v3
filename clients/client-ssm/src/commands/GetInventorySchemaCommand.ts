@@ -27,7 +27,6 @@ export interface GetInventorySchemaCommandInput extends GetInventorySchemaReques
 export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return a list of inventory type names for the account, or return a list of attribute names
  *    for a specific Inventory item type.</p>
  * @example
@@ -82,6 +81,7 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetInventorySchemaCommand extends $Command
   .classBuilder<

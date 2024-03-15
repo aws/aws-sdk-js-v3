@@ -27,7 +27,6 @@ export interface DetachRolePolicyCommandInput extends DetachRolePolicyRequest {}
 export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified managed policy from the specified role.</p>
  *          <p>A role can also have inline policies embedded with it. To delete an inline policy, use
  *                 <a>DeleteRolePolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -80,6 +79,7 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DetachRolePolicyCommand extends $Command
   .classBuilder<

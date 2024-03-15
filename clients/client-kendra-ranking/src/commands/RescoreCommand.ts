@@ -27,7 +27,6 @@ export interface RescoreCommandInput extends RescoreRequest {}
 export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rescores or re-ranks search results from a search service
  *             such as OpenSearch (self managed). You use the semantic search
  *             capabilities of Amazon Kendra Intelligent Ranking to
@@ -110,6 +109,7 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * @public
  */
 export class RescoreCommand extends $Command
   .classBuilder<

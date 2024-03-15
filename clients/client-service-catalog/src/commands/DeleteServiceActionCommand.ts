@@ -27,7 +27,6 @@ export interface DeleteServiceActionCommandInput extends DeleteServiceActionInpu
 export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a self-service action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeleteServiceActionCommand extends $Command
   .classBuilder<

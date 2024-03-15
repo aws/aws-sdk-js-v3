@@ -32,7 +32,6 @@ export interface PutProfileObjectTypeCommandInput extends PutProfileObjectTypeRe
 export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines a ProfileObjectType.</p>
  *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
  *          TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
@@ -136,6 +135,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class PutProfileObjectTypeCommand extends $Command
   .classBuilder<

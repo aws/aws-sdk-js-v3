@@ -39,7 +39,6 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an account-level monthly spending limit override for sending text messages.
  *             Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the
  *                 <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
@@ -84,6 +83,7 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
   .classBuilder<

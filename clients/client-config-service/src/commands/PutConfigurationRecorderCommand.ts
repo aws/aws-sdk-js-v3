@@ -27,7 +27,6 @@ export interface PutConfigurationRecorderCommandInput extends PutConfigurationRe
 export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new configuration recorder to record configuration changes for specified resource types.</p>
  *          <p>You can also use this action to change the <code>roleARN</code>
  * 			or the <code>recordingGroup</code> of an existing recorder.
@@ -137,6 +136,7 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutConfigurationRecorderCommand extends $Command
   .classBuilder<

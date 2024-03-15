@@ -32,7 +32,6 @@ export interface GetContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and
  * 			the date and time when the policy was last modified).</p>
  * @example
@@ -94,6 +93,7 @@ export interface GetContinuousDeploymentPolicyCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetContinuousDeploymentPolicyCommand extends $Command
   .classBuilder<

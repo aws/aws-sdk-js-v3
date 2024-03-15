@@ -32,7 +32,6 @@ export interface ExecuteProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ExecuteProvisionedProductPlanCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ExecuteProvisionedProductPlanCommand extends $Command
   .classBuilder<

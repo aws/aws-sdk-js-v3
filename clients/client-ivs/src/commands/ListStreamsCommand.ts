@@ -27,7 +27,6 @@ export interface ListStreamsCommandInput extends ListStreamsRequest {}
 export interface ListStreamsCommandOutput extends ListStreamsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about live streams in your account, in the Amazon Web Services
  *       region where the API request is processed.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class ListStreamsCommand extends $Command
   .classBuilder<

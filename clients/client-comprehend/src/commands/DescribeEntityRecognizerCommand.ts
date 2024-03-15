@@ -31,7 +31,6 @@ export interface DescribeEntityRecognizerCommandInput extends DescribeEntityReco
 export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRecognizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about an entity recognizer including status, S3 buckets containing
  *       training data, recognizer metadata, metrics, and so on.</p>
  * @example
@@ -150,6 +149,7 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeEntityRecognizerCommand extends $Command
   .classBuilder<

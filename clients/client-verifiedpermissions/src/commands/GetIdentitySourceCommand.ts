@@ -35,7 +35,6 @@ export interface GetIdentitySourceCommandInput extends GetIdentitySourceInput {}
 export interface GetIdentitySourceCommandOutput extends GetIdentitySourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details about the specified identity source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -181,6 +180,7 @@ export interface GetIdentitySourceCommandOutput extends GetIdentitySourceOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class GetIdentitySourceCommand extends $Command
   .classBuilder<

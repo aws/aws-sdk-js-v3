@@ -27,7 +27,6 @@ export interface GetFindingsCommandInput extends GetFindingsRequest {}
 export interface GetFindingsCommandOutput extends GetFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes Amazon GuardDuty findings specified by finding IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -807,6 +806,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetFindingsCommand extends $Command
   .classBuilder<

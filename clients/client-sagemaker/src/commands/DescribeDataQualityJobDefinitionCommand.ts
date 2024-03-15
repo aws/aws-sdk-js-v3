@@ -32,7 +32,6 @@ export interface DescribeDataQualityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a data quality monitoring job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -161,6 +160,7 @@ export interface DescribeDataQualityJobDefinitionCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeDataQualityJobDefinitionCommand extends $Command
   .classBuilder<

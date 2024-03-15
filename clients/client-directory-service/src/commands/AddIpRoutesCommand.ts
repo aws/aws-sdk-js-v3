@@ -27,7 +27,6 @@ export interface AddIpRoutesCommandInput extends AddIpRoutesRequest {}
 export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>If the DNS server for your self-managed domain uses a publicly addressable IP address,
  *          you must add a CIDR address block to correctly route traffic to and from your Microsoft AD
  *          on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can
@@ -89,6 +88,7 @@ export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class AddIpRoutesCommand extends $Command
   .classBuilder<

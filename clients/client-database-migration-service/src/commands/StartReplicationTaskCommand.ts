@@ -31,7 +31,6 @@ export interface StartReplicationTaskCommandInput extends StartReplicationTaskMe
 export interface StartReplicationTaskCommandOutput extends StartReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the replication task.</p>
  *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
  *             <i>Database Migration Service User Guide.</i>
@@ -108,6 +107,7 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Start replication task
  * ```javascript
  * // Starts the replication task.

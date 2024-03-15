@@ -27,7 +27,6 @@ export interface UpdateVirtualRouterCommandInput extends UpdateVirtualRouterInpu
 export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing virtual router in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class UpdateVirtualRouterCommand extends $Command
   .classBuilder<

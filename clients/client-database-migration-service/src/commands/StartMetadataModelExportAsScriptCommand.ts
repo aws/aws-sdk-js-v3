@@ -36,7 +36,6 @@ export interface StartMetadataModelExportAsScriptCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Saves your converted code to a file as a SQL script, and stores this file on your Amazon S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface StartMetadataModelExportAsScriptCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Start Metadata Model Export As Script
  * ```javascript
  * // Saves your converted code to a file as a SQL script, and stores this file on your S3 bucket.

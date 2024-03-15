@@ -32,7 +32,6 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -95,6 +94,7 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeLocalGatewayRouteTablesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicy
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an OpenSearch Serverless lifecycle policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete">Deleting data lifecycle policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class DeleteLifecyclePolicyCommand extends $Command
   .classBuilder<

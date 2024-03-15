@@ -27,7 +27,6 @@ export interface DeleteStreamCommandInput extends DeleteStreamInput {}
 export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>
  *          <p>This method marks the stream for deletion, and makes the data in the stream
  *             inaccessible immediately.</p>
@@ -101,6 +100,7 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DeleteStreamCommand extends $Command
   .classBuilder<

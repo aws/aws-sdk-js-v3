@@ -250,9 +250,9 @@ export type EKSAuthClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface EKSAuthClientResolvedConfig extends EKSAuthClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only
  *             used by the EKS Pod Identity Agent.</p>
+ * @public
  */
 export class EKSAuthClient extends __Client<
   __HttpHandlerOptions,

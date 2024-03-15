@@ -27,7 +27,6 @@ export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsRe
 export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists in-progress multipart uploads in a bucket. An in-progress multipart upload is a
  *          multipart upload that has been initiated by the <code>CreateMultipartUpload</code> request, but
  *          has not yet been completed or aborted.</p>
@@ -208,6 +207,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To list in-progress multipart uploads on a bucket
  * ```javascript
  * // The following example lists in-progress multipart uploads on a specific bucket.

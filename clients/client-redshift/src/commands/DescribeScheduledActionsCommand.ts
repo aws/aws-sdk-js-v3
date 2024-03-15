@@ -27,7 +27,6 @@ export interface DescribeScheduledActionsCommandInput extends DescribeScheduledA
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes properties of scheduled actions.
  *              </p>
  * @example
@@ -107,6 +106,7 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeScheduledActionsCommand extends $Command
   .classBuilder<

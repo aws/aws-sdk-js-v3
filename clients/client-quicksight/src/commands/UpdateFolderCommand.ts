@@ -27,7 +27,6 @@ export interface UpdateFolderCommandInput extends UpdateFolderRequest {}
 export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name of a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateFolderCommand extends $Command
   .classBuilder<

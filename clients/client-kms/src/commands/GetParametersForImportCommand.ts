@@ -31,7 +31,6 @@ export interface GetParametersForImportCommandInput extends GetParametersForImpo
 export interface GetParametersForImportCommandOutput extends GetParametersForImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the public key and an import token you need to import or reimport key material for
  *       a KMS key. </p>
  *          <p>By default, KMS keys are created with key material that KMS generates. This operation
@@ -180,6 +179,7 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To download the public key and import token for a symmetric encryption KMS key
  * ```javascript
  * // The following example downloads a public key and import token to import symmetric encryption key material. It uses the default wrapping key spec and the RSAES_OAEP_SHA_256 wrapping algorithm.

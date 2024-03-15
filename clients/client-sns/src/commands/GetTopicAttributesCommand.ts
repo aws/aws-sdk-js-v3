@@ -27,7 +27,6 @@ export interface GetTopicAttributesCommandInput extends GetTopicAttributesInput 
 export interface GetTopicAttributesCommandOutput extends GetTopicAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all of the properties of a topic. Topic properties returned might differ based
  *             on the authorization of the user.</p>
  * @example
@@ -75,6 +74,7 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class GetTopicAttributesCommand extends $Command
   .classBuilder<

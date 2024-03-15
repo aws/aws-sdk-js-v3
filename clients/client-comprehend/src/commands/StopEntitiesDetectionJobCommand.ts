@@ -27,7 +27,6 @@ export interface StopEntitiesDetectionJobCommandInput extends StopEntitiesDetect
 export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an entities detection job in progress.</p>
  *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
  *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -74,6 +73,7 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StopEntitiesDetectionJobCommand extends $Command
   .classBuilder<

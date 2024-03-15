@@ -27,7 +27,6 @@ export interface DeleteAppCommandInput extends DeleteAppRequest {}
 export interface DeleteAppCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified app.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -64,6 +63,7 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeleteAppCommand extends $Command
   .classBuilder<

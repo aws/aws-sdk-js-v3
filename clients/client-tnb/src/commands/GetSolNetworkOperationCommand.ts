@@ -31,7 +31,6 @@ export interface GetSolNetworkOperationCommandInput extends GetSolNetworkOperati
 export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a network operation, including the tasks involved in the network operation and the status of the tasks.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @example
@@ -105,6 +104,7 @@ export interface GetSolNetworkOperationCommandOutput extends GetSolNetworkOperat
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class GetSolNetworkOperationCommand extends $Command
   .classBuilder<

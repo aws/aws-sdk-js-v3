@@ -27,7 +27,6 @@ export interface GetAnomalyMonitorsCommandInput extends GetAnomalyMonitorsReques
 export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a
  *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
  * @example
@@ -148,6 +147,7 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetAnomalyMonitorsCommand extends $Command
   .classBuilder<

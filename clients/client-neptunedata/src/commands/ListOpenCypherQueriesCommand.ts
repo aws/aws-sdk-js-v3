@@ -27,7 +27,6 @@ export interface ListOpenCypherQueriesCommandInput extends ListOpenCypherQueries
 export interface ListOpenCypherQueriesCommandOutput extends ListOpenCypherQueriesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists active openCypher queries. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html">Neptune
  *       openCypher status endpoint</a> for more information.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -129,6 +128,7 @@ export interface ListOpenCypherQueriesCommandOutput extends ListOpenCypherQuerie
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ListOpenCypherQueriesCommand extends $Command
   .classBuilder<

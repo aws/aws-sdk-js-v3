@@ -27,7 +27,6 @@ export interface DescribeDataIngestionJobCommandInput extends DescribeDataIngest
 export interface DescribeDataIngestionJobCommandOutput extends DescribeDataIngestionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information on a specific data ingestion job such as creation time, dataset
  *          ARN, and status.</p>
  * @example
@@ -126,6 +125,7 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeDataIngestionJobCommand extends $Command
   .classBuilder<

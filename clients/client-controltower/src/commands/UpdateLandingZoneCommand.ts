@@ -27,7 +27,6 @@ export interface UpdateLandingZoneCommandInput extends UpdateLandingZoneInput {}
 export interface UpdateLandingZoneCommandOutput extends UpdateLandingZoneOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API call updates the landing zone. It starts an asynchronous operation that updates the
  *          landing zone based on the new landing zone version, or on the changed parameters specified in the
  *          updated manifest file. </p>
@@ -77,6 +76,7 @@ export interface UpdateLandingZoneCommandOutput extends UpdateLandingZoneOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class UpdateLandingZoneCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface BatchCreateCustomVocabularyItemCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a batch of custom vocabulary items for a given bot locale's
  *          custom vocabulary.</p>
  * @example
@@ -106,6 +105,7 @@ export interface BatchCreateCustomVocabularyItemCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class BatchCreateCustomVocabularyItemCommand extends $Command
   .classBuilder<

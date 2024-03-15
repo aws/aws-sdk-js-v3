@@ -27,7 +27,6 @@ export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest 
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops advertising an address range that is provisioned as an address pool.</p>
  *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
  *          address ranges each time.</p>
@@ -74,6 +73,7 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class WithdrawByoipCidrCommand extends $Command
   .classBuilder<

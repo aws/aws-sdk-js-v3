@@ -32,7 +32,6 @@ export interface DetachCertificateFromDistributionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After the certificate is detached, your distribution stops accepting traffic for all of
@@ -105,6 +104,7 @@ export interface DetachCertificateFromDistributionCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DetachCertificateFromDistributionCommand extends $Command
   .classBuilder<

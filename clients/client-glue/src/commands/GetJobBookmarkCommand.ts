@@ -27,7 +27,6 @@ export interface GetJobBookmarkCommandInput extends GetJobBookmarkRequest {}
 export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information on a job bookmark entry.</p>
  *          <p>For more information about enabling and using job bookmarks, see:</p>
  *          <ul>
@@ -97,6 +96,7 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetJobBookmarkCommand extends $Command
   .classBuilder<

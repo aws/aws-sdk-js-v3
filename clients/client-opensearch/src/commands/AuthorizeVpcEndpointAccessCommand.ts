@@ -27,7 +27,6 @@ export interface AuthorizeVpcEndpointAccessCommandInput extends AuthorizeVpcEndp
 export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides access to an Amazon OpenSearch Service domain through the use of an interface VPC
  *    endpoint.</p>
  * @example
@@ -78,6 +77,7 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class AuthorizeVpcEndpointAccessCommand extends $Command
   .classBuilder<

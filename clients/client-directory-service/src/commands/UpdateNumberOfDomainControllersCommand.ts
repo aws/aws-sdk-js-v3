@@ -32,7 +32,6 @@ export interface UpdateNumberOfDomainControllersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or removes domain controllers to or from the directory. Based on the difference
  *       between current value and new value (provided through this API call), domain controllers will
  *       be added or removed. It may take up to 45 minutes for any new domain controllers to become
@@ -85,6 +84,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class UpdateNumberOfDomainControllersCommand extends $Command
   .classBuilder<

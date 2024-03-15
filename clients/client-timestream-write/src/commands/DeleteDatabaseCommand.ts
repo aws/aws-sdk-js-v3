@@ -28,7 +28,6 @@ export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
 export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a given Timestream database. <i>This is an irreversible
  *             operation. After a database is deleted, the time-series data from its tables cannot be
  *             recovered.</i>
@@ -87,6 +86,7 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class DeleteDatabaseCommand extends $Command
   .classBuilder<

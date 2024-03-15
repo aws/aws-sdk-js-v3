@@ -27,7 +27,6 @@ export interface CreateSecurityProfileCommandInput extends CreateSecurityProfile
 export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a security profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateSecurityProfileCommand extends $Command
   .classBuilder<

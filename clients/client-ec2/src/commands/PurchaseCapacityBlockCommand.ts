@@ -27,7 +27,6 @@ export interface PurchaseCapacityBlockCommandInput extends PurchaseCapacityBlock
 export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBlockResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Purchase the Capacity Block for use with your account.
  * 		 With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>
  * @example
@@ -104,6 +103,7 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class PurchaseCapacityBlockCommand extends $Command
   .classBuilder<

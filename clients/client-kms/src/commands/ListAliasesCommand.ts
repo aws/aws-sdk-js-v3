@@ -27,7 +27,6 @@ export interface ListAliasesCommandInput extends ListAliasesRequest {}
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of aliases in the caller's Amazon Web Services account and region. For more information
  *       about aliases, see <a>CreateAlias</a>.</p>
  *          <p>By default, the <code>ListAliases</code> operation returns all aliases in the account and
@@ -130,6 +129,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To list aliases
  * ```javascript
  * // The following example lists aliases.

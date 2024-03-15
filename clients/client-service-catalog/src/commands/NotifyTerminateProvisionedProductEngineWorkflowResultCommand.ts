@@ -36,7 +36,6 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Notifies the result
  *          of the terminate engine execution.
@@ -75,6 +74,7 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultCommandOut
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class NotifyTerminateProvisionedProductEngineWorkflowResultCommand extends $Command
   .classBuilder<

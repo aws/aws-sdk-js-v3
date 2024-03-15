@@ -27,7 +27,6 @@ export interface DeleteConnectorProfileCommandInput extends DeleteConnectorProfi
 export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Enables you to delete an existing connector profile. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class DeleteConnectorProfileCommand extends $Command
   .classBuilder<

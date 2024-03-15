@@ -40,7 +40,6 @@ export type TestPayloadBlobCommandOutputType = Omit<TestPayloadBlobInputOutput, 
 export interface TestPayloadBlobCommandOutput extends TestPayloadBlobCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * This example operation serializes a payload targeting a blob.
  *
  * The Blob shape is not structured content and we cannot
@@ -77,6 +76,7 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobCommandOutp
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class TestPayloadBlobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateModelCommandInput extends UpdateModelRequest {}
 export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates model description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateModelCommand extends $Command
   .classBuilder<

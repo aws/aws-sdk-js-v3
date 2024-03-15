@@ -27,7 +27,6 @@ export interface DescribeProductCommandInput extends DescribeProductInput {}
 export interface DescribeProductCommandOutput extends DescribeProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified product.</p>
  *          <note>
  *             <p>
@@ -104,6 +103,7 @@ export interface DescribeProductCommandOutput extends DescribeProductOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeProductCommand extends $Command
   .classBuilder<

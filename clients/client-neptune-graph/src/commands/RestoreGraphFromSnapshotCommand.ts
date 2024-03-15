@@ -27,7 +27,6 @@ export interface RestoreGraphFromSnapshotCommandInput extends RestoreGraphFromSn
 export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a graph from a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromS
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class RestoreGraphFromSnapshotCommand extends $Command
   .classBuilder<

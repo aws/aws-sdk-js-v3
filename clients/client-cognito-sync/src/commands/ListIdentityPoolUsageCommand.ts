@@ -27,7 +27,6 @@ export interface ListIdentityPoolUsageCommandInput extends ListIdentityPoolUsage
 export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of identity pools registered with Cognito.</p>
  *       <p>ListIdentityPoolUsage can only be called with developer credentials. You
  *          cannot make this API call with the temporary user credentials provided by Cognito
@@ -140,6 +139,7 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class ListIdentityPoolUsageCommand extends $Command
   .classBuilder<

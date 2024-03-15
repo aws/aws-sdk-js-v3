@@ -29,7 +29,6 @@ export interface SetIdentityNotificationTopicCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use
  *             this operation, you specify a verified identity, such as an email address or domain.
  *             When you send an email that uses the chosen identity in the Source field, Amazon SES sends
@@ -65,6 +64,7 @@ export interface SetIdentityNotificationTopicCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SetIdentityNotificationTopic
  * ```javascript
  * // The following example sets the Amazon SNS topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with the specified identity as the Source:

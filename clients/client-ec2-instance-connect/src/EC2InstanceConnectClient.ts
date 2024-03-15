@@ -251,7 +251,6 @@ export type EC2InstanceConnectClientResolvedConfigType = __SmithyResolvedConfigu
 export interface EC2InstanceConnectClientResolvedConfig extends EC2InstanceConnectClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This is the <i> Amazon EC2 Instance Connect API Reference</i>. It
  *             provides descriptions, syntax, and usage examples for each of the actions for Amazon EC2
  *             Instance Connect. Amazon EC2 Instance Connect enables system administrators to publish
@@ -262,6 +261,7 @@ export interface EC2InstanceConnectClientResolvedConfig extends EC2InstanceConne
  *                 your Linux instance using EC2 Instance Connect</a>.</p>
  *         <p>For Amazon EC2 APIs, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html">Amazon EC2 API
  *                 Reference</a>.</p>
+ * @public
  */
 export class EC2InstanceConnectClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the deployments for an environment in descending deployment number order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list the available deployments
  * ```javascript
  * // The following list-deployments example lists the available deployments in your AWS account for the specified application and environment.

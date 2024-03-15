@@ -27,7 +27,6 @@ export interface DeliverConfigSnapshotCommandInput extends DeliverConfigSnapshot
 export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Schedules delivery of a configuration snapshot to the Amazon S3
  * 			bucket in the specified delivery channel. After the delivery has
  * 			started, Config sends the following notifications using an
@@ -83,6 +82,7 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeliverConfigSnapshotCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the configuration for the organization behavior graph.
  *          Currently indicates whether to automatically enable new organization accounts as member
  *          accounts.</p>
@@ -80,6 +79,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConfigurationCommand extends $Command
   .classBuilder<

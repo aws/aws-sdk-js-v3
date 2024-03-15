@@ -31,7 +31,6 @@ export interface ListDeviceIdentifiersCommandInput extends ListDeviceIdentifiers
 export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifiersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists device identifiers. Add filters to your request to return a more specific list
  *             of results. Use filters to match the Amazon Resource Name (ARN) of an order, the status
  *             of device identifiers, or the ARN of the traffic group.</p>
@@ -92,6 +91,7 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ListDeviceIdentifiersCommand extends $Command
   .classBuilder<

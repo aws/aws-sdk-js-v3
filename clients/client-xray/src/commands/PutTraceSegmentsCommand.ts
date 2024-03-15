@@ -27,7 +27,6 @@ export interface PutTraceSegmentsCommandInput extends PutTraceSegmentsRequest {}
 export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads segment documents to Amazon Web Services X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
  *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
  *       subsegments.</p>
@@ -131,6 +130,7 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class PutTraceSegmentsCommand extends $Command
   .classBuilder<

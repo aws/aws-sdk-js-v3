@@ -31,7 +31,6 @@ export interface UpdateRoutingControlStateCommandInput extends UpdateRoutingCont
 export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingControlStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Set the state of the routing control to reroute traffic. You can set the value to ON or
  * 			OFF. When the state is ON, traffic flows to a cell. When the state is OFF, traffic does not
  * 			flow.</p>
@@ -115,6 +114,7 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * @throws {@link Route53RecoveryClusterServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
+ * @public
  */
 export class UpdateRoutingControlStateCommand extends $Command
   .classBuilder<

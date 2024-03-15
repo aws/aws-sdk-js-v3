@@ -27,7 +27,6 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>DataSource</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -174,6 +173,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class CreateDataSourceCommand extends $Command
   .classBuilder<

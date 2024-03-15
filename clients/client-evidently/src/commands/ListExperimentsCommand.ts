@@ -27,7 +27,6 @@ export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns configuration details about all the experiments in the specified project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class ListExperimentsCommand extends $Command
   .classBuilder<

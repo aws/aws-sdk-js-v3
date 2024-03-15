@@ -33,7 +33,6 @@ export interface ListRecommendationSummariesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a concise representation of savings estimates for resources. Also returns de-duped
  *       savings across different types of recommendations.</p>
  *          <note>
@@ -126,6 +125,7 @@ export interface ListRecommendationSummariesCommandOutput
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * @public
  */
 export class ListRecommendationSummariesCommand extends $Command
   .classBuilder<

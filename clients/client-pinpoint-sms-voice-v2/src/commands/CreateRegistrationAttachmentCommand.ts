@@ -36,7 +36,6 @@ export interface CreateRegistrationAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new registration attachment to use for uploading a file or a URL to a file. The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG. For example, many sender ID registrations require a signed “letter of authorization” (LOA) to be submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface CreateRegistrationAttachmentCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateRegistrationAttachmentCommand extends $Command
   .classBuilder<

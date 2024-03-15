@@ -170,9 +170,9 @@ export interface CloudControl {
 }
 
 /**
- * @public
  * <p>For more information about Amazon Web Services Cloud Control API, see the <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html">Amazon Web Services Cloud Control API User
  *         Guide</a>.</p>
+ * @public
  */
 export class CloudControl extends CloudControlClient implements CloudControl {}
 createAggregatedClient(commands, CloudControl);

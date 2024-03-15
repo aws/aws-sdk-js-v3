@@ -31,7 +31,6 @@ export interface GetPortfolioSummaryCommandInput extends GetPortfolioSummaryRequ
 export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves overall summary including the number of servers to rehost and the overall
  *       number of anti-patterns. </p>
  * @example
@@ -118,6 +117,7 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetPortfolioSummaryCommand extends $Command
   .classBuilder<

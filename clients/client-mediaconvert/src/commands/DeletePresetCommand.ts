@@ -27,7 +27,6 @@ export interface DeletePresetCommandInput extends DeletePresetRequest {}
 export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**
- * @public
  * Permanently delete a preset you have created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class DeletePresetCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface GetOrganizationRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a specific recommendation within an AWS Organizations organization. This API supports only prioritized
  *             recommendations.
  *         </p>
@@ -116,6 +115,7 @@ export interface GetOrganizationRecommendationCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class GetOrganizationRecommendationCommand extends $Command
   .classBuilder<

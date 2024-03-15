@@ -31,7 +31,6 @@ export interface CreateCustomLineItemCommandInput extends CreateCustomLineItemIn
 export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom line item that can be used to create a one-time fixed charge that can be
  *       applied to a single billing group for the current or previous billing period. The one-time
  *       fixed charge is either a fee or discount. </p>
@@ -116,6 +115,7 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class CreateCustomLineItemCommand extends $Command
   .classBuilder<

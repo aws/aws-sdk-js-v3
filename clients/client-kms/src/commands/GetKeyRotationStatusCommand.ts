@@ -27,7 +27,6 @@ export interface GetKeyRotationStatusCommandInput extends GetKeyRotationStatusRe
 export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
  *       enabled for the specified KMS key.</p>
  *          <p>When you enable automatic rotation for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS keys</a>, KMS
@@ -150,6 +149,7 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To retrieve the rotation status for a KMS key
  * ```javascript
  * // The following example retrieves the status of automatic annual rotation of the key material for the specified KMS key.

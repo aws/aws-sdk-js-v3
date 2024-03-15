@@ -32,7 +32,6 @@ export interface UpdateQuickResponseCommandInput extends UpdateQuickResponseRequ
 export interface UpdateQuickResponseCommandOutput extends UpdateQuickResponseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Wisdom quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface UpdateQuickResponseCommandOutput extends UpdateQuickResponseRes
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class UpdateQuickResponseCommand extends $Command
   .classBuilder<

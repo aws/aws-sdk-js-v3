@@ -36,7 +36,6 @@ export interface DescribeTrustStoreAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes all resources associated with the specified trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeTrustStoreAssociationsCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class DescribeTrustStoreAssociationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface VerifyTrustCommandInput extends VerifyTrustRequest {}
 export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Directory Service for Microsoft Active Directory allows you to configure and verify trust
  *       relationships.</p>
  *          <p>This action verifies a trust relationship between your Managed Microsoft AD directory and an
@@ -73,6 +72,7 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class VerifyTrustCommand extends $Command
   .classBuilder<

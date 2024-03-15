@@ -35,7 +35,6 @@ export interface DeleteInfrastructureConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an infrastructure configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class DeleteInfrastructureConfigurationCommand extends $Command
   .classBuilder<

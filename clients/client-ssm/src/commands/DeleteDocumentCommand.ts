@@ -27,7 +27,6 @@ export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
  *    document.</p>
  *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all managed nodes that are associated with the document.</p>
@@ -71,6 +70,7 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteDocumentCommand extends $Command
   .classBuilder<

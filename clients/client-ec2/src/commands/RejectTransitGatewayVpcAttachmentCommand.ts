@@ -32,7 +32,6 @@ export interface RejectTransitGatewayVpcAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects a request to attach a VPC to a transit gateway.</p>
  *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
  *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
@@ -86,6 +85,7 @@ export interface RejectTransitGatewayVpcAttachmentCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RejectTransitGatewayVpcAttachmentCommand extends $Command
   .classBuilder<

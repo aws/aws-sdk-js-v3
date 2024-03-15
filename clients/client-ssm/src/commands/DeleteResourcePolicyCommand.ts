@@ -27,7 +27,6 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRe
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. The following
  *    resources support Systems Manager resource policies.</p>
  *          <ul>
@@ -92,6 +91,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

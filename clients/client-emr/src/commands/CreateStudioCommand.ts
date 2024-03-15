@@ -27,7 +27,6 @@ export interface CreateStudioCommandInput extends CreateStudioInput {}
 export interface CreateStudioCommandOutput extends CreateStudioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class CreateStudioCommand extends $Command
   .classBuilder<

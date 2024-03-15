@@ -32,7 +32,6 @@ export interface CompleteMultipartReadSetUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Concludes a multipart upload once you have uploaded all the components.
  *     </p>
@@ -96,6 +95,7 @@ export interface CompleteMultipartReadSetUploadCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CompleteMultipartReadSetUploadCommand extends $Command
   .classBuilder<

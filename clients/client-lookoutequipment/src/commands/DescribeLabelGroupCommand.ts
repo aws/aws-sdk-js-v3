@@ -27,7 +27,6 @@ export interface DescribeLabelGroupCommandInput extends DescribeLabelGroupReques
 export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns information about the label group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeLabelGroupCommandOutput extends DescribeLabelGroupRespo
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeLabelGroupCommand extends $Command
   .classBuilder<

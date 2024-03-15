@@ -27,7 +27,6 @@ export interface DeleteLogStreamCommandInput extends DeleteLogStreamRequest {}
 export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified log stream and permanently deletes all the archived log events associated
  *       with the log stream.</p>
  * @example
@@ -67,6 +66,7 @@ export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteLogStreamCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RecordHandlerProgressCommandInput extends RecordHandlerProgress
 export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgressOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reports progress of a resource handler to CloudFormation.</p>
  *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Don't use this API
  *    in your code.</p>
@@ -69,6 +68,7 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class RecordHandlerProgressCommand extends $Command
   .classBuilder<

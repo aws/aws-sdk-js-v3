@@ -32,7 +32,6 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a customer profile. You can have up to five customer profiles, each representing a distinct private network. A profile is the mechanism used to create the concept of
  *    a private network.</p>
  * @example
@@ -101,6 +100,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample CreateProfile call
  * ```javascript
  * //

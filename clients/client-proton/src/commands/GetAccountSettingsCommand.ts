@@ -27,7 +27,6 @@ export interface GetAccountSettingsCommandInput extends GetAccountSettingsInput 
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detail data for Proton account-wide settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetAccountSettingsCommand extends $Command
   .classBuilder<

@@ -87,14 +87,14 @@ import { ArchitectureType, AttributeBooleanValue } from "./models_4";
  */
 export interface DescribeSubnetsResult {
   /**
-   * @public
    * <p>Information about one or more subnets.</p>
+   * @public
    */
   Subnets?: Subnet[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -104,15 +104,14 @@ export interface DescribeSubnetsResult {
  */
 export interface DescribeTagsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -138,51 +137,52 @@ export interface DescribeTagsRequest {
    *                   <code>value</code> - The tag value.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. This value can be between 5 and 1000.
    *          To get the next page of items, make another request with the token returned in the output.
    *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request.
    *          Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Describes a tag.</p>
+ * @public
  */
 export interface TagDescription {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   ResourceType?: ResourceType;
 
   /**
-   * @public
    * <p>The tag value.</p>
+   * @public
    */
   Value?: string;
 }
@@ -192,15 +192,15 @@ export interface TagDescription {
  */
 export interface DescribeTagsResult {
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items.
    *          This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The tags.</p>
+   * @public
    */
   Tags?: TagDescription[];
 }
@@ -210,21 +210,20 @@ export interface DescribeTagsResult {
  */
 export interface DescribeTrafficMirrorFiltersRequest {
   /**
-   * @public
    * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
    */
   TrafficMirrorFilterIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -236,19 +235,20 @@ export interface DescribeTrafficMirrorFiltersRequest {
    *                   <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -258,14 +258,14 @@ export interface DescribeTrafficMirrorFiltersRequest {
  */
 export interface DescribeTrafficMirrorFiltersResult {
   /**
-   * @public
    * <p>Information about one or more Traffic Mirror filters.</p>
+   * @public
    */
   TrafficMirrorFilters?: TrafficMirrorFilter[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -275,21 +275,20 @@ export interface DescribeTrafficMirrorFiltersResult {
  */
 export interface DescribeTrafficMirrorSessionsRequest {
   /**
-   * @public
    * <p>The ID of the Traffic Mirror session.</p>
+   * @public
    */
   TrafficMirrorSessionIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -329,19 +328,20 @@ export interface DescribeTrafficMirrorSessionsRequest {
    *                   <code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -351,14 +351,14 @@ export interface DescribeTrafficMirrorSessionsRequest {
  */
 export interface DescribeTrafficMirrorSessionsResult {
   /**
-   * @public
    * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+   * @public
    */
   TrafficMirrorSessions?: TrafficMirrorSession[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -368,21 +368,20 @@ export interface DescribeTrafficMirrorSessionsResult {
  */
 export interface DescribeTrafficMirrorTargetsRequest {
   /**
-   * @public
    * <p>The ID of the Traffic Mirror targets.</p>
+   * @public
    */
   TrafficMirrorTargetIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -406,19 +405,20 @@ export interface DescribeTrafficMirrorTargetsRequest {
    *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -428,14 +428,14 @@ export interface DescribeTrafficMirrorTargetsRequest {
  */
 export interface DescribeTrafficMirrorTargetsResult {
   /**
-   * @public
    * <p>Information about one or more Traffic Mirror targets.</p>
+   * @public
    */
   TrafficMirrorTargets?: TrafficMirrorTarget[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -445,13 +445,12 @@ export interface DescribeTrafficMirrorTargetsResult {
  */
 export interface DescribeTransitGatewayAttachmentsRequest {
   /**
-   * @public
    * <p>The IDs of the attachments.</p>
+   * @public
    */
   TransitGatewayAttachmentIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -494,111 +493,112 @@ export interface DescribeTransitGatewayAttachmentsRequest {
    *                   <code>transit-gateway-owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes an association.</p>
+ * @public
  */
 export interface TransitGatewayAttachmentAssociation {
   /**
-   * @public
    * <p>The ID of the route table for the transit gateway.</p>
+   * @public
    */
   TransitGatewayRouteTableId?: string;
 
   /**
-   * @public
    * <p>The state of the association.</p>
+   * @public
    */
   State?: TransitGatewayAssociationState;
 }
 
 /**
- * @public
  * <p>Describes an attachment between a resource and a transit gateway.</p>
+ * @public
  */
 export interface TransitGatewayAttachment {
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>The ID of the transit gateway.</p>
+   * @public
    */
   TransitGatewayId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   * @public
    */
   TransitGatewayOwnerId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the resource.</p>
+   * @public
    */
   ResourceOwnerId?: string;
 
   /**
-   * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
    */
   ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
+   * @public
    */
   State?: TransitGatewayAttachmentState;
 
   /**
-   * @public
    * <p>The association.</p>
+   * @public
    */
   Association?: TransitGatewayAttachmentAssociation;
 
   /**
-   * @public
    * <p>The creation time.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The tags for the attachment.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -608,14 +608,14 @@ export interface TransitGatewayAttachment {
  */
 export interface DescribeTransitGatewayAttachmentsResult {
   /**
-   * @public
    * <p>Information about the attachments.</p>
+   * @public
    */
   TransitGatewayAttachments?: TransitGatewayAttachment[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -625,13 +625,12 @@ export interface DescribeTransitGatewayAttachmentsResult {
  */
 export interface DescribeTransitGatewayConnectPeersRequest {
   /**
-   * @public
    * <p>The IDs of the Connect peers.</p>
+   * @public
    */
   TransitGatewayConnectPeerIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -649,27 +648,28 @@ export interface DescribeTransitGatewayConnectPeersRequest {
    *                   <code>transit-gateway-connect-peer-id</code> - The ID of the Connect peer.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -679,14 +679,14 @@ export interface DescribeTransitGatewayConnectPeersRequest {
  */
 export interface DescribeTransitGatewayConnectPeersResult {
   /**
-   * @public
    * <p>Information about the Connect peers.</p>
+   * @public
    */
   TransitGatewayConnectPeers?: TransitGatewayConnectPeer[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -696,13 +696,12 @@ export interface DescribeTransitGatewayConnectPeersResult {
  */
 export interface DescribeTransitGatewayConnectsRequest {
   /**
-   * @public
    * <p>The IDs of the attachments.</p>
+   * @public
    */
   TransitGatewayAttachmentIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -732,27 +731,28 @@ export interface DescribeTransitGatewayConnectsRequest {
    *                   <code>transport-transit-gateway-attachment-id</code> - The ID of the transit gateway attachment from which the Connect attachment was created.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -762,14 +762,14 @@ export interface DescribeTransitGatewayConnectsRequest {
  */
 export interface DescribeTransitGatewayConnectsResult {
   /**
-   * @public
    * <p>Information about the Connect attachments.</p>
+   * @public
    */
   TransitGatewayConnects?: TransitGatewayConnect[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -779,13 +779,12 @@ export interface DescribeTransitGatewayConnectsResult {
  */
 export interface DescribeTransitGatewayMulticastDomainsRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
    */
   TransitGatewayMulticastDomainIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -801,27 +800,28 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
    *                   <code>transit-gateway-multicast-domain-id</code> - The ID of the transit gateway multicast domain.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -831,14 +831,14 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
  */
 export interface DescribeTransitGatewayMulticastDomainsResult {
   /**
-   * @public
    * <p>Information about the transit gateway multicast domains.</p>
+   * @public
    */
   TransitGatewayMulticastDomains?: TransitGatewayMulticastDomain[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -848,13 +848,12 @@ export interface DescribeTransitGatewayMulticastDomainsResult {
  */
 export interface DescribeTransitGatewayPeeringAttachmentsRequest {
   /**
-   * @public
    * <p>One or more IDs of the transit gateway peering attachments.</p>
+   * @public
    */
   TransitGatewayAttachmentIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -887,27 +886,28 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
    *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -917,14 +917,14 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
  */
 export interface DescribeTransitGatewayPeeringAttachmentsResult {
   /**
-   * @public
    * <p>The transit gateway peering attachments.</p>
+   * @public
    */
   TransitGatewayPeeringAttachments?: TransitGatewayPeeringAttachment[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -934,35 +934,35 @@ export interface DescribeTransitGatewayPeeringAttachmentsResult {
  */
 export interface DescribeTransitGatewayPolicyTablesRequest {
   /**
-   * @public
    * <p>The IDs of the transit gateway policy tables.</p>
+   * @public
    */
   TransitGatewayPolicyTableIds?: string[];
 
   /**
-   * @public
    * <p>The filters associated with the transit gateway policy table.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -972,14 +972,14 @@ export interface DescribeTransitGatewayPolicyTablesRequest {
  */
 export interface DescribeTransitGatewayPolicyTablesResult {
   /**
-   * @public
    * <p>Describes the transit gateway policy tables.</p>
+   * @public
    */
   TransitGatewayPolicyTables?: TransitGatewayPolicyTable[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -989,35 +989,35 @@ export interface DescribeTransitGatewayPolicyTablesResult {
  */
 export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
   /**
-   * @public
    * <p>The IDs of the transit gateway route tables that are being advertised.</p>
+   * @public
    */
   TransitGatewayRouteTableAnnouncementIds?: string[];
 
   /**
-   * @public
    * <p>The filters associated with the transit gateway policy table.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1027,14 +1027,14 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsRequest {
  */
 export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
   /**
-   * @public
    * <p>Describes the transit gateway route table announcement.</p>
+   * @public
    */
   TransitGatewayRouteTableAnnouncements?: TransitGatewayRouteTableAnnouncement[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1044,13 +1044,12 @@ export interface DescribeTransitGatewayRouteTableAnnouncementsResult {
  */
 export interface DescribeTransitGatewayRouteTablesRequest {
   /**
-   * @public
    * <p>The IDs of the transit gateway route tables.</p>
+   * @public
    */
   TransitGatewayRouteTableIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1076,27 +1075,28 @@ export interface DescribeTransitGatewayRouteTablesRequest {
    *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1106,14 +1106,14 @@ export interface DescribeTransitGatewayRouteTablesRequest {
  */
 export interface DescribeTransitGatewayRouteTablesResult {
   /**
-   * @public
    * <p>Information about the transit gateway route tables.</p>
+   * @public
    */
   TransitGatewayRouteTables?: TransitGatewayRouteTable[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1123,13 +1123,12 @@ export interface DescribeTransitGatewayRouteTablesResult {
  */
 export interface DescribeTransitGatewaysRequest {
   /**
-   * @public
    * <p>The IDs of the transit gateways.</p>
+   * @public
    */
   TransitGatewayIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1179,27 +1178,28 @@ export interface DescribeTransitGatewaysRequest {
    *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1209,14 +1209,14 @@ export interface DescribeTransitGatewaysRequest {
  */
 export interface DescribeTransitGatewaysResult {
   /**
-   * @public
    * <p>Information about the transit gateways.</p>
+   * @public
    */
   TransitGateways?: TransitGateway[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1226,13 +1226,12 @@ export interface DescribeTransitGatewaysResult {
  */
 export interface DescribeTransitGatewayVpcAttachmentsRequest {
   /**
-   * @public
    * <p>The IDs of the attachments.</p>
+   * @public
    */
   TransitGatewayAttachmentIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -1252,27 +1251,28 @@ export interface DescribeTransitGatewayVpcAttachmentsRequest {
    *                   <code>vpc-id</code> - The ID of the VPC.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1282,14 +1282,14 @@ export interface DescribeTransitGatewayVpcAttachmentsRequest {
  */
 export interface DescribeTransitGatewayVpcAttachmentsResult {
   /**
-   * @public
    * <p>Information about the VPC attachments.</p>
+   * @public
    */
   TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1299,21 +1299,20 @@ export interface DescribeTransitGatewayVpcAttachmentsResult {
  */
 export interface DescribeTrunkInterfaceAssociationsRequest {
   /**
-   * @public
    * <p>The IDs of the associations.</p>
+   * @public
    */
   AssociationIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -1325,19 +1324,20 @@ export interface DescribeTrunkInterfaceAssociationsRequest {
    *                   <code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    *             To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1347,14 +1347,14 @@ export interface DescribeTrunkInterfaceAssociationsRequest {
  */
 export interface DescribeTrunkInterfaceAssociationsResult {
   /**
-   * @public
    * <p>Information about the trunk associations.</p>
+   * @public
    */
   InterfaceAssociations?: TrunkInterfaceAssociation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1364,47 +1364,47 @@ export interface DescribeTrunkInterfaceAssociationsResult {
  */
 export interface DescribeVerifiedAccessEndpointsRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access endpoint.</p>
+   * @public
    */
   VerifiedAccessEndpointIds?: string[];
 
   /**
-   * @public
    * <p>The ID of the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * @public
    * <p>The ID of the Verified Access group.</p>
+   * @public
    */
   VerifiedAccessGroupId?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1414,14 +1414,14 @@ export interface DescribeVerifiedAccessEndpointsRequest {
  */
 export interface DescribeVerifiedAccessEndpointsResult {
   /**
-   * @public
    * <p>Details about the Verified Access endpoints.</p>
+   * @public
    */
   VerifiedAccessEndpoints?: VerifiedAccessEndpoint[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1431,41 +1431,41 @@ export interface DescribeVerifiedAccessEndpointsResult {
  */
 export interface DescribeVerifiedAccessGroupsRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access groups.</p>
+   * @public
    */
   VerifiedAccessGroupIds?: string[];
 
   /**
-   * @public
    * <p>The ID of the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1475,14 +1475,14 @@ export interface DescribeVerifiedAccessGroupsRequest {
  */
 export interface DescribeVerifiedAccessGroupsResult {
   /**
-   * @public
    * <p>Details about the Verified Access groups.</p>
+   * @public
    */
   VerifiedAccessGroups?: VerifiedAccessGroup[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1492,35 +1492,35 @@ export interface DescribeVerifiedAccessGroupsResult {
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
   /**
-   * @public
    * <p>The IDs of the Verified Access instances.</p>
+   * @public
    */
   VerifiedAccessInstanceIds?: string[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1541,157 +1541,157 @@ export type VerifiedAccessLogDeliveryStatusCode =
   (typeof VerifiedAccessLogDeliveryStatusCode)[keyof typeof VerifiedAccessLogDeliveryStatusCode];
 
 /**
- * @public
  * <p>Describes a log delivery status.</p>
+ * @public
  */
 export interface VerifiedAccessLogDeliveryStatus {
   /**
-   * @public
    * <p>The status code.</p>
+   * @public
    */
   Code?: VerifiedAccessLogDeliveryStatusCode;
 
   /**
-   * @public
    * <p>The status message.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>Options for CloudWatch Logs as a logging destination.</p>
+ * @public
  */
 export interface VerifiedAccessLogCloudWatchLogsDestination {
   /**
-   * @public
    * <p>Indicates whether logging is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The delivery status for access logs.</p>
+   * @public
    */
   DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
 
   /**
-   * @public
    * <p>The ID of the CloudWatch Logs log group.</p>
+   * @public
    */
   LogGroup?: string;
 }
 
 /**
- * @public
  * <p>Options for Kinesis as a logging destination.</p>
+ * @public
  */
 export interface VerifiedAccessLogKinesisDataFirehoseDestination {
   /**
-   * @public
    * <p>Indicates whether logging is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The delivery status.</p>
+   * @public
    */
   DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
 
   /**
-   * @public
    * <p>The ID of the delivery stream.</p>
+   * @public
    */
   DeliveryStream?: string;
 }
 
 /**
- * @public
  * <p>Options for Amazon S3 as a logging destination.</p>
+ * @public
  */
 export interface VerifiedAccessLogS3Destination {
   /**
-   * @public
    * <p>Indicates whether logging is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>The delivery status.</p>
+   * @public
    */
   DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
 
   /**
-   * @public
    * <p>The bucket name.</p>
+   * @public
    */
   BucketName?: string;
 
   /**
-   * @public
    * <p>The bucket prefix.</p>
+   * @public
    */
   Prefix?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account number that owns the bucket.</p>
+   * @public
    */
   BucketOwner?: string;
 }
 
 /**
- * @public
  * <p>Describes the options for Verified Access logs.</p>
+ * @public
  */
 export interface VerifiedAccessLogs {
   /**
-   * @public
    * <p>Amazon S3 logging options.</p>
+   * @public
    */
   S3?: VerifiedAccessLogS3Destination;
 
   /**
-   * @public
    * <p>CloudWatch Logs logging destination.</p>
+   * @public
    */
   CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestination;
 
   /**
-   * @public
    * <p>Kinesis logging destination.</p>
+   * @public
    */
   KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestination;
 
   /**
-   * @public
    * <p>The log version.</p>
+   * @public
    */
   LogVersion?: string;
 
   /**
-   * @public
    * <p>Indicates whether trust data is included in the logs.</p>
+   * @public
    */
   IncludeTrustContext?: boolean;
 }
 
 /**
- * @public
  * <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
+ * @public
  */
 export interface VerifiedAccessInstanceLoggingConfiguration {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * @public
    * <p>Details about the logging options.</p>
+   * @public
    */
   AccessLogs?: VerifiedAccessLogs;
 }
@@ -1701,14 +1701,14 @@ export interface VerifiedAccessInstanceLoggingConfiguration {
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
   /**
-   * @public
    * <p>The logging configuration for the Verified Access instances.</p>
+   * @public
    */
   LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1718,35 +1718,35 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
  */
 export interface DescribeVerifiedAccessInstancesRequest {
   /**
-   * @public
    * <p>The IDs of the Verified Access instances.</p>
+   * @public
    */
   VerifiedAccessInstanceIds?: string[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1756,14 +1756,14 @@ export interface DescribeVerifiedAccessInstancesRequest {
  */
 export interface DescribeVerifiedAccessInstancesResult {
   /**
-   * @public
    * <p>Details about the Verified Access instances.</p>
+   * @public
    */
   VerifiedAccessInstances?: VerifiedAccessInstance[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1773,35 +1773,35 @@ export interface DescribeVerifiedAccessInstancesResult {
  */
 export interface DescribeVerifiedAccessTrustProvidersRequest {
   /**
-   * @public
    * <p>The IDs of the Verified Access trust providers.</p>
+   * @public
    */
   VerifiedAccessTrustProviderIds?: string[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1811,14 +1811,14 @@ export interface DescribeVerifiedAccessTrustProvidersRequest {
  */
 export interface DescribeVerifiedAccessTrustProvidersResult {
   /**
-   * @public
    * <p>Details about the Verified Access trust providers.</p>
+   * @public
    */
   VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1842,22 +1842,22 @@ export type VolumeAttributeName = (typeof VolumeAttributeName)[keyof typeof Volu
  */
 export interface DescribeVolumeAttributeRequest {
   /**
-   * @public
    * <p>The attribute of the volume. This parameter is required.</p>
+   * @public
    */
   Attribute: VolumeAttributeName | undefined;
 
   /**
-   * @public
    * <p>The ID of the volume.</p>
+   * @public
    */
   VolumeId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -1867,20 +1867,20 @@ export interface DescribeVolumeAttributeRequest {
  */
 export interface DescribeVolumeAttributeResult {
   /**
-   * @public
    * <p>The state of <code>autoEnableIO</code> attribute.</p>
+   * @public
    */
   AutoEnableIO?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>A list of product codes.</p>
+   * @public
    */
   ProductCodes?: ProductCode[];
 
   /**
-   * @public
    * <p>The ID of the volume.</p>
+   * @public
    */
   VolumeId?: string;
 }
@@ -1890,7 +1890,6 @@ export interface DescribeVolumeAttributeResult {
  */
 export interface DescribeVolumesRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -1976,36 +1975,37 @@ export interface DescribeVolumesRequest {
    *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The volume IDs.</p>
+   * @public
    */
   VolumeIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The maximum number of volumes to return for this request.
    *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
    *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
    *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request.
    *       Pagination continues from the end of the items returned from the previous request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2015,15 +2015,15 @@ export interface DescribeVolumesRequest {
  */
 export interface DescribeVolumesResult {
   /**
-   * @public
    * <p>Information about the volumes.</p>
+   * @public
    */
   Volumes?: Volume[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items.
    *       This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2033,21 +2033,20 @@ export interface DescribeVolumesResult {
  */
 export interface DescribeVolumesModificationsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The IDs of the volumes.</p>
+   * @public
    */
   VolumeIds?: string[];
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -2098,20 +2097,21 @@ export interface DescribeVolumesModificationsRequest {
    *                   <code>volume-id</code> - The ID of the volume.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The token returned by a previous paginated request.
    *       Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
    *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -2133,105 +2133,105 @@ export const VolumeModificationState = {
 export type VolumeModificationState = (typeof VolumeModificationState)[keyof typeof VolumeModificationState];
 
 /**
- * @public
  * <p>Describes the modification status of an EBS volume.</p>
  *          <p>If the volume has never been modified, some element values will be null.</p>
+ * @public
  */
 export interface VolumeModification {
   /**
-   * @public
    * <p>The ID of the volume.</p>
+   * @public
    */
   VolumeId?: string;
 
   /**
-   * @public
    * <p>The current modification state. The modification state is null for unmodified
    *       volumes.</p>
+   * @public
    */
   ModificationState?: VolumeModificationState;
 
   /**
-   * @public
    * <p>A status message about the modification progress or failure.</p>
+   * @public
    */
   StatusMessage?: string;
 
   /**
-   * @public
    * <p>The target size of the volume, in GiB.</p>
+   * @public
    */
   TargetSize?: number;
 
   /**
-   * @public
    * <p>The target IOPS rate of the volume.</p>
+   * @public
    */
   TargetIops?: number;
 
   /**
-   * @public
    * <p>The target EBS volume type of the volume.</p>
+   * @public
    */
   TargetVolumeType?: VolumeType;
 
   /**
-   * @public
    * <p>The target throughput of the volume, in MiB/s.</p>
+   * @public
    */
   TargetThroughput?: number;
 
   /**
-   * @public
    * <p>The target setting for Amazon EBS Multi-Attach.</p>
+   * @public
    */
   TargetMultiAttachEnabled?: boolean;
 
   /**
-   * @public
    * <p>The original size of the volume, in GiB.</p>
+   * @public
    */
   OriginalSize?: number;
 
   /**
-   * @public
    * <p>The original IOPS rate of the volume.</p>
+   * @public
    */
   OriginalIops?: number;
 
   /**
-   * @public
    * <p>The original EBS volume type of the volume.</p>
+   * @public
    */
   OriginalVolumeType?: VolumeType;
 
   /**
-   * @public
    * <p>The original throughput of the volume, in MiB/s.</p>
+   * @public
    */
   OriginalThroughput?: number;
 
   /**
-   * @public
    * <p>The original setting for Amazon EBS Multi-Attach.</p>
+   * @public
    */
   OriginalMultiAttachEnabled?: boolean;
 
   /**
-   * @public
    * <p>The modification progress, from 0 to 100 percent complete.</p>
+   * @public
    */
   Progress?: number;
 
   /**
-   * @public
    * <p>The modification start time.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The modification completion or failure time.</p>
+   * @public
    */
   EndTime?: Date;
 }
@@ -2241,15 +2241,15 @@ export interface VolumeModification {
  */
 export interface DescribeVolumesModificationsResult {
   /**
-   * @public
    * <p>Information about the volume modifications.</p>
+   * @public
    */
   VolumesModifications?: VolumeModification[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items.
    *       This value is <code>null</code> if there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2259,7 +2259,6 @@ export interface DescribeVolumesModificationsResult {
  */
 export interface DescribeVolumeStatusRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -2322,128 +2321,129 @@ export interface DescribeVolumeStatusRequest {
    *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. To get the next page of items,
    *       make another request with the token returned in the output. This value can be between 5 and 1,000;
    *       if the value is larger than 1,000, only 1,000 results are returned. If this parameter is not used,
    *       then all items are returned. You cannot specify this parameter and the volume IDs parameter in the
    *       same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request.
    *       Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The IDs of the volumes.</p>
    *          <p>Default: Describes all your volumes.</p>
+   * @public
    */
   VolumeIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a volume status operation code.</p>
+ * @public
  */
 export interface VolumeStatusAction {
   /**
-   * @public
    * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>A description of the operation.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ID of the event associated with this operation.</p>
+   * @public
    */
   EventId?: string;
 
   /**
-   * @public
    * <p>The event type associated with this operation.</p>
+   * @public
    */
   EventType?: string;
 }
 
 /**
- * @public
  * <p>Information about the instances to which the volume is attached.</p>
+ * @public
  */
 export interface VolumeStatusAttachmentStatus {
   /**
-   * @public
    * <p>The maximum IOPS supported by the attached instance.</p>
+   * @public
    */
   IoPerformance?: string;
 
   /**
-   * @public
    * <p>The ID of the attached instance.</p>
+   * @public
    */
   InstanceId?: string;
 }
 
 /**
- * @public
  * <p>Describes a volume status event.</p>
+ * @public
  */
 export interface VolumeStatusEvent {
   /**
-   * @public
    * <p>A description of the event.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ID of this event.</p>
+   * @public
    */
   EventId?: string;
 
   /**
-   * @public
    * <p>The type of this event.</p>
+   * @public
    */
   EventType?: string;
 
   /**
-   * @public
    * <p>The latest end time of the event.</p>
+   * @public
    */
   NotAfter?: Date;
 
   /**
-   * @public
    * <p>The earliest start time of the event.</p>
+   * @public
    */
   NotBefore?: Date;
 
   /**
-   * @public
    * <p>The ID of the instance associated with the event.</p>
+   * @public
    */
   InstanceId?: string;
 }
@@ -2463,19 +2463,19 @@ export const VolumeStatusName = {
 export type VolumeStatusName = (typeof VolumeStatusName)[keyof typeof VolumeStatusName];
 
 /**
- * @public
  * <p>Describes a volume status.</p>
+ * @public
  */
 export interface VolumeStatusDetails {
   /**
-   * @public
    * <p>The name of the volume status.</p>
+   * @public
    */
   Name?: VolumeStatusName;
 
   /**
-   * @public
    * <p>The intended status of the volume status.</p>
+   * @public
    */
   Status?: string;
 }
@@ -2496,67 +2496,67 @@ export const VolumeStatusInfoStatus = {
 export type VolumeStatusInfoStatus = (typeof VolumeStatusInfoStatus)[keyof typeof VolumeStatusInfoStatus];
 
 /**
- * @public
  * <p>Describes the status of a volume.</p>
+ * @public
  */
 export interface VolumeStatusInfo {
   /**
-   * @public
    * <p>The details of the volume status.</p>
+   * @public
    */
   Details?: VolumeStatusDetails[];
 
   /**
-   * @public
    * <p>The status of the volume.</p>
+   * @public
    */
   Status?: VolumeStatusInfoStatus;
 }
 
 /**
- * @public
  * <p>Describes the volume status.</p>
+ * @public
  */
 export interface VolumeStatusItem {
   /**
-   * @public
    * <p>The details of the operation.</p>
+   * @public
    */
   Actions?: VolumeStatusAction[];
 
   /**
-   * @public
    * <p>The Availability Zone of the volume.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
    */
   OutpostArn?: string;
 
   /**
-   * @public
    * <p>A list of events associated with the volume.</p>
+   * @public
    */
   Events?: VolumeStatusEvent[];
 
   /**
-   * @public
    * <p>The volume ID.</p>
+   * @public
    */
   VolumeId?: string;
 
   /**
-   * @public
    * <p>The volume status.</p>
+   * @public
    */
   VolumeStatus?: VolumeStatusInfo;
 
   /**
-   * @public
    * <p>Information about the instances to which the volume is attached.</p>
+   * @public
    */
   AttachmentStatuses?: VolumeStatusAttachmentStatus[];
 }
@@ -2566,15 +2566,15 @@ export interface VolumeStatusItem {
  */
 export interface DescribeVolumeStatusResult {
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items.
    *       This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Information about the status of the volumes.</p>
+   * @public
    */
   VolumeStatuses?: VolumeStatusItem[];
 }
@@ -2599,22 +2599,22 @@ export type VpcAttributeName = (typeof VpcAttributeName)[keyof typeof VpcAttribu
  */
 export interface DescribeVpcAttributeRequest {
   /**
-   * @public
    * <p>The VPC attribute.</p>
+   * @public
    */
   Attribute: VpcAttributeName | undefined;
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -2624,31 +2624,31 @@ export interface DescribeVpcAttributeRequest {
  */
 export interface DescribeVpcAttributeResult {
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
    * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
    * 				otherwise, they do not.</p>
+   * @public
    */
   EnableDnsHostnames?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Indicates whether DNS resolution is enabled for
    * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
    * 				resolves DNS hostnames for your instances to their corresponding
    * 				IP addresses; otherwise, it does not.</p>
+   * @public
    */
   EnableDnsSupport?: AttributeBooleanValue;
 
   /**
-   * @public
    * <p>Indicates whether Network Address Usage metrics are enabled for your VPC.</p>
+   * @public
    */
   EnableNetworkAddressUsageMetrics?: AttributeBooleanValue;
 }
@@ -2658,7 +2658,6 @@ export interface DescribeVpcAttributeResult {
  */
 export interface DescribeVpcClassicLinkRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -2676,47 +2675,48 @@ export interface DescribeVpcClassicLinkRequest {
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The VPCs for which you want to describe the ClassicLink status.</p>
+   * @public
    */
   VpcIds?: string[];
 }
 
 /**
- * @public
  * <note>
  *             <p>Deprecated.</p>
  *          </note>
  *          <p>Describes whether a VPC is enabled for ClassicLink.</p>
+ * @public
  */
 export interface VpcClassicLink {
   /**
-   * @public
    * <p>Indicates whether the VPC is enabled for ClassicLink.</p>
+   * @public
    */
   ClassicLinkEnabled?: boolean;
 
   /**
-   * @public
    * <p>Any tags assigned to the VPC.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId?: string;
 }
@@ -2726,8 +2726,8 @@ export interface VpcClassicLink {
  */
 export interface DescribeVpcClassicLinkResult {
   /**
-   * @public
    * <p>The ClassicLink status of the VPCs.</p>
+   * @public
    */
   Vpcs?: VpcClassicLink[];
 }
@@ -2737,43 +2737,43 @@ export interface DescribeVpcClassicLinkResult {
  */
 export interface DescribeVpcClassicLinkDnsSupportRequest {
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    * 	To get the next page of items, make another request with the token returned in the output.
    * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The IDs of the VPCs.</p>
+   * @public
    */
   VpcIds?: string[];
 }
 
 /**
- * @public
  * <note>
  *             <p>Deprecated.</p>
  *          </note>
  *          <p>Describes the ClassicLink DNS support status of a VPC.</p>
+ * @public
  */
 export interface ClassicLinkDnsSupport {
   /**
-   * @public
    * <p>Indicates whether ClassicLink DNS support is enabled for the VPC.</p>
+   * @public
    */
   ClassicLinkDnsSupported?: boolean;
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId?: string;
 }
@@ -2783,14 +2783,14 @@ export interface ClassicLinkDnsSupport {
  */
 export interface DescribeVpcClassicLinkDnsSupportResult {
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
+   * @public
    */
   Vpcs?: ClassicLinkDnsSupport[];
 }
@@ -2800,21 +2800,20 @@ export interface DescribeVpcClassicLinkDnsSupportResult {
  */
 export interface DescribeVpcEndpointConnectionNotificationsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the notification.</p>
+   * @public
    */
   ConnectionNotificationId?: string;
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -2846,19 +2845,20 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
    *                   <code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *             results, make another request with the returned <code>NextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to request the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2868,15 +2868,15 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
  */
 export interface DescribeVpcEndpointConnectionNotificationsResult {
   /**
-   * @public
    * <p>The notifications.</p>
+   * @public
    */
   ConnectionNotificationSet?: ConnectionNotification[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is
    *             <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2886,15 +2886,14 @@ export interface DescribeVpcEndpointConnectionNotificationsResult {
  */
 export interface DescribeVpcEndpointConnectionsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -2922,94 +2921,95 @@ export interface DescribeVpcEndpointConnectionsRequest {
    *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return for the request in a single page. The remaining
    *             results of the initial request can be seen by sending another request with the returned
    *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
    *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
    *             returned.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Describes a VPC endpoint connection to a service.</p>
+ * @public
  */
 export interface VpcEndpointConnection {
   /**
-   * @public
    * <p>The ID of the service to which the endpoint is connected.</p>
+   * @public
    */
   ServiceId?: string;
 
   /**
-   * @public
    * <p>The ID of the VPC endpoint.</p>
+   * @public
    */
   VpcEndpointId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
+   * @public
    */
   VpcEndpointOwner?: string;
 
   /**
-   * @public
    * <p>The state of the VPC endpoint.</p>
+   * @public
    */
   VpcEndpointState?: State;
 
   /**
-   * @public
    * <p>The date and time that the VPC endpoint was created.</p>
+   * @public
    */
   CreationTimestamp?: Date;
 
   /**
-   * @public
    * <p>The DNS entries for the VPC endpoint.</p>
+   * @public
    */
   DnsEntries?: DnsEntry[];
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
+   * @public
    */
   NetworkLoadBalancerArns?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   * @public
    */
   GatewayLoadBalancerArns?: string[];
 
   /**
-   * @public
    * <p>The IP address type for the endpoint.</p>
+   * @public
    */
   IpAddressType?: IpAddressType;
 
   /**
-   * @public
    * <p>The ID of the VPC endpoint connection.</p>
+   * @public
    */
   VpcEndpointConnectionId?: string;
 
   /**
-   * @public
    * <p>The tags.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -3019,14 +3019,14 @@ export interface VpcEndpointConnection {
  */
 export interface DescribeVpcEndpointConnectionsResult {
   /**
-   * @public
    * <p>Information about the VPC endpoint connections.</p>
+   * @public
    */
   VpcEndpointConnections?: VpcEndpointConnection[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3036,21 +3036,20 @@ export interface DescribeVpcEndpointConnectionsResult {
  */
 export interface DescribeVpcEndpointsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The IDs of the VPC endpoints.</p>
+   * @public
    */
   VpcEndpointIds?: string[];
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3089,19 +3088,20 @@ export interface DescribeVpcEndpointsRequest {
    *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
    *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3111,14 +3111,14 @@ export interface DescribeVpcEndpointsRequest {
  */
 export interface DescribeVpcEndpointsResult {
   /**
-   * @public
    * <p>Information about the endpoints.</p>
+   * @public
    */
   VpcEndpoints?: VpcEndpoint[];
 
   /**
-   * @public
    * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3128,21 +3128,20 @@ export interface DescribeVpcEndpointsResult {
  */
 export interface DescribeVpcEndpointServiceConfigurationsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The IDs of the endpoint services.</p>
+   * @public
    */
   ServiceIds?: string[];
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3172,22 +3171,23 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return for the request in a single page. The remaining
    *             results of the initial request can be seen by sending another request with the returned
    *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
    *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
    *             returned.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3197,14 +3197,14 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
  */
 export interface DescribeVpcEndpointServiceConfigurationsResult {
   /**
-   * @public
    * <p>Information about the services.</p>
+   * @public
    */
   ServiceConfigurations?: ServiceConfiguration[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3214,21 +3214,20 @@ export interface DescribeVpcEndpointServiceConfigurationsResult {
  */
 export interface DescribeVpcEndpointServicePermissionsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the service.</p>
+   * @public
    */
   ServiceId: string | undefined;
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3242,22 +3241,23 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
    * 					| <code>User</code> | <code>Role</code>).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return for the request in a single page. The remaining
    *             results of the initial request can be seen by sending another request with the returned
    *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
    *                 <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are
    *             returned.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3267,14 +3267,14 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
  */
 export interface DescribeVpcEndpointServicePermissionsResult {
   /**
-   * @public
    * <p>Information about the allowed principals.</p>
+   * @public
    */
   AllowedPrincipals?: AllowedPrincipal[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3284,21 +3284,20 @@ export interface DescribeVpcEndpointServicePermissionsResult {
  */
 export interface DescribeVpcEndpointServicesRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The service names.</p>
+   * @public
    */
   ServiceNames?: string[];
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3328,129 +3327,130 @@ export interface DescribeVpcEndpointServicesRequest {
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
    *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Information about the Private DNS name for interface endpoints.</p>
+ * @public
  */
 export interface PrivateDnsDetails {
   /**
-   * @public
    * <p>The private DNS name assigned to the VPC endpoint service.</p>
+   * @public
    */
   PrivateDnsName?: string;
 }
 
 /**
- * @public
  * <p>Describes a VPC endpoint service.</p>
+ * @public
  */
 export interface ServiceDetail {
   /**
-   * @public
    * <p>The name of the service.</p>
+   * @public
    */
   ServiceName?: string;
 
   /**
-   * @public
    * <p>The ID of the endpoint service.</p>
+   * @public
    */
   ServiceId?: string;
 
   /**
-   * @public
    * <p>The type of service.</p>
+   * @public
    */
   ServiceType?: ServiceTypeDetail[];
 
   /**
-   * @public
    * <p>The Availability Zones in which the service is available.</p>
+   * @public
    */
   AvailabilityZones?: string[];
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the service owner.</p>
+   * @public
    */
   Owner?: string;
 
   /**
-   * @public
    * <p>The DNS names for the service.</p>
+   * @public
    */
   BaseEndpointDnsNames?: string[];
 
   /**
-   * @public
    * <p>The private DNS name for the service.</p>
+   * @public
    */
   PrivateDnsName?: string;
 
   /**
-   * @public
    * <p>The private DNS names assigned to the VPC endpoint service.</p>
+   * @public
    */
   PrivateDnsNames?: PrivateDnsDetails[];
 
   /**
-   * @public
    * <p>Indicates whether the service supports endpoint policies.</p>
+   * @public
    */
   VpcEndpointPolicySupported?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.</p>
+   * @public
    */
   AcceptanceRequired?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
    *             endpoints using the VPC endpoint API is restricted.</p>
+   * @public
    */
   ManagesVpcEndpoints?: boolean;
 
   /**
-   * @public
    * <p>The payer responsibility.</p>
+   * @public
    */
   PayerResponsibility?: PayerResponsibility;
 
   /**
-   * @public
    * <p>The tags assigned to the service.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The verification state of the VPC endpoint service.</p>
    *          <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
+   * @public
    */
   PrivateDnsNameVerificationState?: DnsNameState;
 
   /**
-   * @public
    * <p>The supported IP address types.</p>
+   * @public
    */
   SupportedIpAddressTypes?: ServiceConnectivityType[];
 }
@@ -3460,20 +3460,20 @@ export interface ServiceDetail {
  */
 export interface DescribeVpcEndpointServicesResult {
   /**
-   * @public
    * <p>The supported services.</p>
+   * @public
    */
   ServiceNames?: string[];
 
   /**
-   * @public
    * <p>Information about the service.</p>
+   * @public
    */
   ServiceDetails?: ServiceDetail[];
 
   /**
-   * @public
    * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3483,7 +3483,6 @@ export interface DescribeVpcEndpointServicesResult {
  */
 export interface DescribeVpcPeeringConnectionsRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3546,35 +3545,36 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *                   <code>vpc-peering-connection-id</code> - The ID of the VPC peering connection.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The IDs of the VPC peering connections.</p>
    *          <p>Default: Describes all your VPC peering connections.</p>
+   * @public
    */
   VpcPeeringConnectionIds?: string[];
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    * 	To get the next page of items, make another request with the token returned in the output.
    * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3584,14 +3584,14 @@ export interface DescribeVpcPeeringConnectionsRequest {
  */
 export interface DescribeVpcPeeringConnectionsResult {
   /**
-   * @public
    * <p>Information about the VPC peering connections.</p>
+   * @public
    */
   VpcPeeringConnections?: VpcPeeringConnection[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3601,7 +3601,6 @@ export interface DescribeVpcPeeringConnectionsResult {
  */
 export interface DescribeVpcsRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -3675,35 +3674,36 @@ export interface DescribeVpcsRequest {
    *                   <code>vpc-id</code> - The ID of the VPC.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The IDs of the VPCs.</p>
    *          <p>Default: Describes all your VPCs.</p>
+   * @public
    */
   VpcIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    * 	To get the next page of items, make another request with the token returned in the output.
    * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3713,25 +3713,24 @@ export interface DescribeVpcsRequest {
  */
 export interface DescribeVpcsResult {
   /**
-   * @public
    * <p>Information about one or more VPCs.</p>
+   * @public
    */
   Vpcs?: Vpc[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Contains the parameters for DescribeVpnConnections.</p>
+ * @public
  */
 export interface DescribeVpnConnectionsRequest {
   /**
-   * @public
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -3795,45 +3794,45 @@ export interface DescribeVpnConnectionsRequest {
    *                     the VPN connection.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>One or more VPN connection IDs.</p>
    *          <p>Default: Describes your VPN connections.</p>
+   * @public
    */
   VpnConnectionIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the output of DescribeVpnConnections.</p>
+ * @public
  */
 export interface DescribeVpnConnectionsResult {
   /**
-   * @public
    * <p>Information about one or more VPN connections.</p>
+   * @public
    */
   VpnConnections?: VpnConnection[];
 }
 
 /**
- * @public
  * <p>Contains the parameters for DescribeVpnGateways.</p>
+ * @public
  */
 export interface DescribeVpnGatewaysRequest {
   /**
-   * @public
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -3881,34 +3880,35 @@ export interface DescribeVpnGatewaysRequest {
    *                   <code>vpn-gateway-id</code> - The ID of the virtual private gateway.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>One or more virtual private gateway IDs.</p>
    *          <p>Default: Describes all your virtual private gateways.</p>
+   * @public
    */
   VpnGatewayIds?: string[];
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the output of DescribeVpnGateways.</p>
+ * @public
  */
 export interface DescribeVpnGatewaysResult {
   /**
-   * @public
    * <p>Information about one or more virtual private gateways.</p>
+   * @public
    */
   VpnGateways?: VpnGateway[];
 }
@@ -3918,22 +3918,22 @@ export interface DescribeVpnGatewaysResult {
  */
 export interface DetachClassicLinkVpcRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the instance to unlink from the VPC.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the VPC to which the instance is linked.</p>
+   * @public
    */
   VpcId: string | undefined;
 }
@@ -3943,8 +3943,8 @@ export interface DetachClassicLinkVpcRequest {
  */
 export interface DetachClassicLinkVpcResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -3954,47 +3954,46 @@ export interface DetachClassicLinkVpcResult {
  */
 export interface DetachInternetGatewayRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the internet gateway.</p>
+   * @public
    */
   InternetGatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the parameters for DetachNetworkInterface.</p>
+ * @public
  */
 export interface DetachNetworkInterfaceRequest {
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   AttachmentId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether to force a detachment.</p>
    *          <note>
    *             <ul>
@@ -4013,6 +4012,7 @@ export interface DetachNetworkInterfaceRequest {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   Force?: boolean;
 }
@@ -4022,29 +4022,29 @@ export interface DetachNetworkInterfaceRequest {
  */
 export interface DetachVerifiedAccessTrustProviderRequest {
   /**
-   * @public
    * <p>The ID of the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Verified Access trust provider.</p>
+   * @public
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
    *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4054,14 +4054,14 @@ export interface DetachVerifiedAccessTrustProviderRequest {
  */
 export interface DetachVerifiedAccessTrustProviderResult {
   /**
-   * @public
    * <p>Details about the Verified Access trust provider.</p>
+   * @public
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
-   * @public
    * <p>Details about the Verified Access instance.</p>
+   * @public
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -4071,66 +4071,66 @@ export interface DetachVerifiedAccessTrustProviderResult {
  */
 export interface DetachVolumeRequest {
   /**
-   * @public
    * <p>The device name.</p>
+   * @public
    */
   Device?: string;
 
   /**
-   * @public
    * <p>Forces detachment if the previous detachment attempt did not occur cleanly (for example,
    *       logging into an instance, unmounting the volume, and detaching normally). This option can lead
    *       to data loss or a corrupted file system. Use this option only as a last resort to detach a
    *       volume from a failed instance. The instance won't have an opportunity to flush file system
    *       caches or file system metadata. If you use this option, you must perform file system check and
    *       repair procedures.</p>
+   * @public
    */
   Force?: boolean;
 
   /**
-   * @public
    * <p>The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>The ID of the volume.</p>
+   * @public
    */
   VolumeId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Contains the parameters for DetachVpnGateway.</p>
+ * @public
  */
 export interface DetachVpnGatewayRequest {
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the virtual private gateway.</p>
+   * @public
    */
   VpnGatewayId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4140,16 +4140,16 @@ export interface DetachVpnGatewayRequest {
  */
 export interface DisableAddressTransferRequest {
   /**
-   * @public
    * <p>The allocation ID of an Elastic IP address.</p>
+   * @public
    */
   AllocationId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4159,8 +4159,8 @@ export interface DisableAddressTransferRequest {
  */
 export interface DisableAddressTransferResult {
   /**
-   * @public
    * <p>An Elastic IP address transfer.</p>
+   * @public
    */
   AddressTransfer?: AddressTransfer;
 }
@@ -4170,34 +4170,34 @@ export interface DisableAddressTransferResult {
  */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
-   * @public
    * <p>The source Region or Availability Zone that the metric subscription is disabled for. For example, <code>us-east-1</code>.</p>
+   * @public
    */
   Source?: string;
 
   /**
-   * @public
    * <p>The target Region or Availability Zone that the metric subscription is disabled for. For example, <code>eu-north-1</code>.</p>
+   * @public
    */
   Destination?: string;
 
   /**
-   * @public
    * <p>The metric used for the disabled subscription.</p>
+   * @public
    */
   Metric?: MetricType;
 
   /**
-   * @public
    * <p>The statistic used for the disabled subscription. </p>
+   * @public
    */
   Statistic?: StatisticType;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4207,8 +4207,8 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
  */
 export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
   /**
-   * @public
    * <p>Indicates whether the unsubscribe action was successful.</p>
+   * @public
    */
   Output?: boolean;
 }
@@ -4218,10 +4218,10 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
  */
 export interface DisableEbsEncryptionByDefaultRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4231,8 +4231,8 @@ export interface DisableEbsEncryptionByDefaultRequest {
  */
 export interface DisableEbsEncryptionByDefaultResult {
   /**
-   * @public
    * <p>The updated status of encryption by default.</p>
+   * @public
    */
   EbsEncryptionByDefault?: boolean;
 }
@@ -4242,23 +4242,23 @@ export interface DisableEbsEncryptionByDefaultResult {
  */
 export interface DisableFastLaunchRequest {
   /**
-   * @public
    * <p>Specify the ID of the image for which to disable Windows fast launch.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This parameter overrides
    * 			any errors that are encountered while cleaning up resources in your account.</p>
+   * @public
    */
   Force?: boolean;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4268,59 +4268,59 @@ export interface DisableFastLaunchRequest {
  */
 export interface DisableFastLaunchResult {
   /**
-   * @public
    * <p>The ID of the image for which Windows fast launch was disabled.</p>
+   * @public
    */
   ImageId?: string;
 
   /**
-   * @public
    * <p>The pre-provisioning resource type that must be cleaned after turning off Windows fast launch
    * 			for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
+   * @public
    */
   ResourceType?: FastLaunchResourceType;
 
   /**
-   * @public
    * <p>Parameters that were used for Windows fast launch for the Windows AMI before
    * 			Windows fast launch was disabled. This informs the clean-up process.</p>
+   * @public
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
 
   /**
-   * @public
    * <p>The launch template that was used to launch Windows instances from pre-provisioned snapshots.</p>
+   * @public
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
-   * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
    * 			create pre-provisioned snapshots for Windows fast launch.</p>
+   * @public
    */
   MaxParallelLaunches?: number;
 
   /**
-   * @public
    * <p>The owner of the Windows AMI for which Windows fast launch was disabled.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>The current state of Windows fast launch for the specified Windows AMI.</p>
+   * @public
    */
   State?: FastLaunchStateCode;
 
   /**
-   * @public
    * <p>The reason that the state changed for Windows fast launch for the Windows AMI.</p>
+   * @public
    */
   StateTransitionReason?: string;
 
   /**
-   * @public
    * <p>The time that the state changed for Windows fast launch for the Windows AMI.</p>
+   * @public
    */
   StateTransitionTime?: Date;
 }
@@ -4330,51 +4330,50 @@ export interface DisableFastLaunchResult {
  */
 export interface DisableFastSnapshotRestoresRequest {
   /**
-   * @public
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
+   * @public
    */
   AvailabilityZones: string[] | undefined;
 
   /**
-   * @public
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
+   * @public
    */
   SourceSnapshotIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes fast snapshot restores that were successfully disabled.</p>
+ * @public
  */
 export interface DisableFastSnapshotRestoreSuccessItem {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The Availability Zone.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The state of fast snapshot restores for the snapshot.</p>
+   * @public
    */
   State?: FastSnapshotRestoreStateCode;
 
   /**
-   * @public
    * <p>The reason for the state transition. The possible values are as follows:</p>
    *          <ul>
    *             <li>
@@ -4388,102 +4387,103 @@ export interface DisableFastSnapshotRestoreSuccessItem {
    *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   StateTransitionReason?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   * @public
    */
   OwnerAlias?: string;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   * @public
    */
   EnablingTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
+   * @public
    */
   OptimizingTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   * @public
    */
   EnabledTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
+   * @public
    */
   DisablingTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
+   * @public
    */
   DisabledTime?: Date;
 }
 
 /**
- * @public
  * <p>Describes an error that occurred when disabling fast snapshot restores.</p>
+ * @public
  */
 export interface DisableFastSnapshotRestoreStateError {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an error that occurred when disabling fast snapshot restores.</p>
+ * @public
  */
 export interface DisableFastSnapshotRestoreStateErrorItem {
   /**
-   * @public
    * <p>The Availability Zone.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The error.</p>
+   * @public
    */
   Error?: DisableFastSnapshotRestoreStateError;
 }
 
 /**
- * @public
  * <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
+ * @public
  */
 export interface DisableFastSnapshotRestoreErrorItem {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The errors.</p>
+   * @public
    */
   FastSnapshotRestoreStateErrors?: DisableFastSnapshotRestoreStateErrorItem[];
 }
@@ -4493,14 +4493,14 @@ export interface DisableFastSnapshotRestoreErrorItem {
  */
 export interface DisableFastSnapshotRestoresResult {
   /**
-   * @public
    * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
+   * @public
    */
   Successful?: DisableFastSnapshotRestoreSuccessItem[];
 
   /**
-   * @public
    * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
+   * @public
    */
   Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
 }
@@ -4510,16 +4510,16 @@ export interface DisableFastSnapshotRestoresResult {
  */
 export interface DisableImageRequest {
   /**
-   * @public
    * <p>The ID of the AMI.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4529,8 +4529,8 @@ export interface DisableImageRequest {
  */
 export interface DisableImageResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -4540,10 +4540,10 @@ export interface DisableImageResult {
  */
 export interface DisableImageBlockPublicAccessRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4567,9 +4567,9 @@ export type ImageBlockPublicAccessDisabledState =
  */
 export interface DisableImageBlockPublicAccessResult {
   /**
-   * @public
    * <p>Returns <code>unblocked</code> if the request succeeds; otherwise, it returns an
    *       error.</p>
+   * @public
    */
   ImageBlockPublicAccessState?: ImageBlockPublicAccessDisabledState;
 }
@@ -4579,16 +4579,16 @@ export interface DisableImageBlockPublicAccessResult {
  */
 export interface DisableImageDeprecationRequest {
   /**
-   * @public
    * <p>The ID of the AMI.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4598,8 +4598,8 @@ export interface DisableImageDeprecationRequest {
  */
 export interface DisableImageDeprecationResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -4609,16 +4609,16 @@ export interface DisableImageDeprecationResult {
  */
 export interface DisableIpamOrganizationAdminAccountRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The Organizations member account ID that you want to disable as IPAM account.</p>
+   * @public
    */
   DelegatedAdminAccountId: string | undefined;
 }
@@ -4628,8 +4628,8 @@ export interface DisableIpamOrganizationAdminAccountRequest {
  */
 export interface DisableIpamOrganizationAdminAccountResult {
   /**
-   * @public
    * <p>The result of disabling the IPAM account.</p>
+   * @public
    */
   Success?: boolean;
 }
@@ -4639,8 +4639,8 @@ export interface DisableIpamOrganizationAdminAccountResult {
  */
 export interface DisableSerialConsoleAccessRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4650,10 +4650,10 @@ export interface DisableSerialConsoleAccessRequest {
  */
 export interface DisableSerialConsoleAccessResult {
   /**
-   * @public
    * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
    * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
    * 			is disabled for your account.</p>
+   * @public
    */
   SerialConsoleAccessEnabled?: boolean;
 }
@@ -4663,10 +4663,10 @@ export interface DisableSerialConsoleAccessResult {
  */
 export interface DisableSnapshotBlockPublicAccessRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4692,8 +4692,8 @@ export type SnapshotBlockPublicAccessState =
  */
 export interface DisableSnapshotBlockPublicAccessResult {
   /**
-   * @public
    * <p>Returns <code>unblocked</code> if the request succeeds.</p>
+   * @public
    */
   State?: SnapshotBlockPublicAccessState;
 }
@@ -4703,28 +4703,28 @@ export interface DisableSnapshotBlockPublicAccessResult {
  */
 export interface DisableTransitGatewayRouteTablePropagationRequest {
   /**
-   * @public
    * <p>The ID of the propagation route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the route table announcement.</p>
+   * @public
    */
   TransitGatewayRouteTableAnnouncementId?: string;
 }
@@ -4747,43 +4747,43 @@ export type TransitGatewayPropagationState =
   (typeof TransitGatewayPropagationState)[keyof typeof TransitGatewayPropagationState];
 
 /**
- * @public
  * <p>Describes route propagation.</p>
+ * @public
  */
 export interface TransitGatewayPropagation {
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
    */
   ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
-   * @public
    * <p>The ID of the transit gateway route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId?: string;
 
   /**
-   * @public
    * <p>The state.</p>
+   * @public
    */
   State?: TransitGatewayPropagationState;
 
   /**
-   * @public
    * <p>The ID of the transit gateway route table announcement.</p>
+   * @public
    */
   TransitGatewayRouteTableAnnouncementId?: string;
 }
@@ -4793,35 +4793,35 @@ export interface TransitGatewayPropagation {
  */
 export interface DisableTransitGatewayRouteTablePropagationResult {
   /**
-   * @public
    * <p>Information about route propagation.</p>
+   * @public
    */
   Propagation?: TransitGatewayPropagation;
 }
 
 /**
- * @public
  * <p>Contains the parameters for DisableVgwRoutePropagation.</p>
+ * @public
  */
 export interface DisableVgwRoutePropagationRequest {
   /**
-   * @public
    * <p>The ID of the virtual private gateway.</p>
+   * @public
    */
   GatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the route table.</p>
+   * @public
    */
   RouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4831,16 +4831,16 @@ export interface DisableVgwRoutePropagationRequest {
  */
 export interface DisableVpcClassicLinkRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId: string | undefined;
 }
@@ -4850,8 +4850,8 @@ export interface DisableVpcClassicLinkRequest {
  */
 export interface DisableVpcClassicLinkResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -4861,8 +4861,8 @@ export interface DisableVpcClassicLinkResult {
  */
 export interface DisableVpcClassicLinkDnsSupportRequest {
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId?: string;
 }
@@ -4872,8 +4872,8 @@ export interface DisableVpcClassicLinkDnsSupportRequest {
  */
 export interface DisableVpcClassicLinkDnsSupportResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -4883,22 +4883,22 @@ export interface DisableVpcClassicLinkDnsSupportResult {
  */
 export interface DisassociateAddressRequest {
   /**
-   * @public
    * <p>The association ID. This parameter is required.</p>
+   * @public
    */
   AssociationId?: string;
 
   /**
-   * @public
    * <p>Deprecated.</p>
+   * @public
    */
   PublicIp?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4908,20 +4908,20 @@ export interface DisassociateAddressRequest {
  */
 export interface DisassociateClientVpnTargetNetworkRequest {
   /**
-   * @public
    * <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
+   * @public
    */
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the target network association.</p>
+   * @public
    */
   AssociationId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4931,14 +4931,14 @@ export interface DisassociateClientVpnTargetNetworkRequest {
  */
 export interface DisassociateClientVpnTargetNetworkResult {
   /**
-   * @public
    * <p>The ID of the target network association.</p>
+   * @public
    */
   AssociationId?: string;
 
   /**
-   * @public
    * <p>The current state of the target network association.</p>
+   * @public
    */
   Status?: AssociationStatus;
 }
@@ -4948,20 +4948,20 @@ export interface DisassociateClientVpnTargetNetworkResult {
  */
 export interface DisassociateEnclaveCertificateIamRoleRequest {
   /**
-   * @public
    * <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
+   * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IAM role to disassociate.</p>
+   * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -4971,8 +4971,8 @@ export interface DisassociateEnclaveCertificateIamRoleRequest {
  */
 export interface DisassociateEnclaveCertificateIamRoleResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -4982,8 +4982,8 @@ export interface DisassociateEnclaveCertificateIamRoleResult {
  */
 export interface DisassociateIamInstanceProfileRequest {
   /**
-   * @public
    * <p>The ID of the IAM instance profile association.</p>
+   * @public
    */
   AssociationId: string | undefined;
 }
@@ -4993,33 +4993,33 @@ export interface DisassociateIamInstanceProfileRequest {
  */
 export interface DisassociateIamInstanceProfileResult {
   /**
-   * @public
    * <p>Information about the IAM instance profile association.</p>
+   * @public
    */
   IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
 }
 
 /**
- * @public
  * <p>The targets to disassociate from the specified event window.</p>
+ * @public
  */
 export interface InstanceEventWindowDisassociationRequest {
   /**
-   * @public
    * <p>The IDs of the instances to disassociate from the event window.</p>
+   * @public
    */
   InstanceIds?: string[];
 
   /**
-   * @public
    * <p>The instance tags to disassociate from the event window. Any instances associated with
    *          the tags will be disassociated from the event window.</p>
+   * @public
    */
   InstanceTags?: Tag[];
 
   /**
-   * @public
    * <p>The IDs of the Dedicated Hosts to disassociate from the event window.</p>
+   * @public
    */
   DedicatedHostIds?: string[];
 }
@@ -5029,22 +5029,22 @@ export interface InstanceEventWindowDisassociationRequest {
  */
 export interface DisassociateInstanceEventWindowRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the event window.</p>
+   * @public
    */
   InstanceEventWindowId: string | undefined;
 
   /**
-   * @public
    * <p>One or more targets to disassociate from the specified event window.</p>
+   * @public
    */
   AssociationTarget: InstanceEventWindowDisassociationRequest | undefined;
 }
@@ -5054,8 +5054,8 @@ export interface DisassociateInstanceEventWindowRequest {
  */
 export interface DisassociateInstanceEventWindowResult {
   /**
-   * @public
    * <p>Information about the event window.</p>
+   * @public
    */
   InstanceEventWindow?: InstanceEventWindow;
 }
@@ -5065,22 +5065,22 @@ export interface DisassociateInstanceEventWindowResult {
  */
 export interface DisassociateIpamByoasnRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A public 2-byte or 4-byte ASN.</p>
+   * @public
    */
   Asn: string | undefined;
 
   /**
-   * @public
    * <p>A BYOIP CIDR.</p>
+   * @public
    */
   Cidr: string | undefined;
 }
@@ -5090,8 +5090,8 @@ export interface DisassociateIpamByoasnRequest {
  */
 export interface DisassociateIpamByoasnResult {
   /**
-   * @public
    * <p>An ASN and BYOIP CIDR association.</p>
+   * @public
    */
   AsnAssociation?: AsnAssociation;
 }
@@ -5101,16 +5101,16 @@ export interface DisassociateIpamByoasnResult {
  */
 export interface DisassociateIpamResourceDiscoveryRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A resource discovery association ID.</p>
+   * @public
    */
   IpamResourceDiscoveryAssociationId: string | undefined;
 }
@@ -5120,8 +5120,8 @@ export interface DisassociateIpamResourceDiscoveryRequest {
  */
 export interface DisassociateIpamResourceDiscoveryResult {
   /**
-   * @public
    * <p>A resource discovery association.</p>
+   * @public
    */
   IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation;
 }
@@ -5131,28 +5131,28 @@ export interface DisassociateIpamResourceDiscoveryResult {
  */
 export interface DisassociateNatGatewayAddressRequest {
   /**
-   * @public
    * <p>The ID of the NAT gateway.</p>
+   * @public
    */
   NatGatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The association IDs of EIPs that have been associated with the NAT gateway.</p>
+   * @public
    */
   AssociationIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
+   * @public
    */
   MaxDrainDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5162,14 +5162,14 @@ export interface DisassociateNatGatewayAddressRequest {
  */
 export interface DisassociateNatGatewayAddressResult {
   /**
-   * @public
    * <p>The ID of the NAT gateway.</p>
+   * @public
    */
   NatGatewayId?: string;
 
   /**
-   * @public
    * <p>Information about the NAT gateway IP addresses.</p>
+   * @public
    */
   NatGatewayAddresses?: NatGatewayAddress[];
 }
@@ -5179,16 +5179,16 @@ export interface DisassociateNatGatewayAddressResult {
  */
 export interface DisassociateRouteTableRequest {
   /**
-   * @public
    * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
+   * @public
    */
   AssociationId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5198,8 +5198,8 @@ export interface DisassociateRouteTableRequest {
  */
 export interface DisassociateSubnetCidrBlockRequest {
   /**
-   * @public
    * <p>The association ID for the CIDR block.</p>
+   * @public
    */
   AssociationId: string | undefined;
 }
@@ -5209,14 +5209,14 @@ export interface DisassociateSubnetCidrBlockRequest {
  */
 export interface DisassociateSubnetCidrBlockResult {
   /**
-   * @public
    * <p>Information about the IPv6 CIDR block association.</p>
+   * @public
    */
   Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
 
   /**
-   * @public
    * <p>The ID of the subnet.</p>
+   * @public
    */
   SubnetId?: string;
 }
@@ -5226,28 +5226,28 @@ export interface DisassociateSubnetCidrBlockResult {
  */
 export interface DisassociateTransitGatewayMulticastDomainRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
    */
   TransitGatewayMulticastDomainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId: string | undefined;
 
   /**
-   * @public
    * <p>The IDs of the subnets;</p>
+   * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5257,8 +5257,8 @@ export interface DisassociateTransitGatewayMulticastDomainRequest {
  */
 export interface DisassociateTransitGatewayMulticastDomainResult {
   /**
-   * @public
    * <p>Information about the association.</p>
+   * @public
    */
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
@@ -5268,22 +5268,22 @@ export interface DisassociateTransitGatewayMulticastDomainResult {
  */
 export interface DisassociateTransitGatewayPolicyTableRequest {
   /**
-   * @public
    * <p>The ID of the disassociated policy table.</p>
+   * @public
    */
   TransitGatewayPolicyTableId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
+   * @public
    */
   TransitGatewayAttachmentId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5293,8 +5293,8 @@ export interface DisassociateTransitGatewayPolicyTableRequest {
  */
 export interface DisassociateTransitGatewayPolicyTableResult {
   /**
-   * @public
    * <p>Returns details about the transit gateway policy table disassociation.</p>
+   * @public
    */
   Association?: TransitGatewayPolicyTableAssociation;
 }
@@ -5304,22 +5304,22 @@ export interface DisassociateTransitGatewayPolicyTableResult {
  */
 export interface DisassociateTransitGatewayRouteTableRequest {
   /**
-   * @public
    * <p>The ID of the transit gateway route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5329,8 +5329,8 @@ export interface DisassociateTransitGatewayRouteTableRequest {
  */
 export interface DisassociateTransitGatewayRouteTableResult {
   /**
-   * @public
    * <p>Information about the association.</p>
+   * @public
    */
   Association?: TransitGatewayAssociation;
 }
@@ -5340,24 +5340,24 @@ export interface DisassociateTransitGatewayRouteTableResult {
  */
 export interface DisassociateTrunkInterfaceRequest {
   /**
-   * @public
    * <p>The ID of the association</p>
+   * @public
    */
   AssociationId: string | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
    *                 Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5367,16 +5367,16 @@ export interface DisassociateTrunkInterfaceRequest {
  */
 export interface DisassociateTrunkInterfaceResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
    *                 Idempotency</a>.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -5386,8 +5386,8 @@ export interface DisassociateTrunkInterfaceResult {
  */
 export interface DisassociateVpcCidrBlockRequest {
   /**
-   * @public
    * <p>The association ID for the CIDR block.</p>
+   * @public
    */
   AssociationId: string | undefined;
 }
@@ -5397,20 +5397,20 @@ export interface DisassociateVpcCidrBlockRequest {
  */
 export interface DisassociateVpcCidrBlockResult {
   /**
-   * @public
    * <p>Information about the IPv6 CIDR block association.</p>
+   * @public
    */
   Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
 
   /**
-   * @public
    * <p>Information about the IPv4 CIDR block association.</p>
+   * @public
    */
   CidrBlockAssociation?: VpcCidrBlockAssociation;
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId?: string;
 }
@@ -5420,22 +5420,22 @@ export interface DisassociateVpcCidrBlockResult {
  */
 export interface EnableAddressTransferRequest {
   /**
-   * @public
    * <p>The allocation ID of an Elastic IP address.</p>
+   * @public
    */
   AllocationId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the account that you want to transfer the Elastic IP address to.</p>
+   * @public
    */
   TransferAccountId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5445,8 +5445,8 @@ export interface EnableAddressTransferRequest {
  */
 export interface EnableAddressTransferResult {
   /**
-   * @public
    * <p>An Elastic IP address transfer.</p>
+   * @public
    */
   AddressTransfer?: AddressTransfer;
 }
@@ -5456,34 +5456,34 @@ export interface EnableAddressTransferResult {
  */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
-   * @public
    * <p>The source Region (like <code>us-east-1</code>) or Availability Zone ID (like <code>use1-az1</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
+   * @public
    */
   Source?: string;
 
   /**
-   * @public
    * <p>The target Region (like <code>us-east-2</code>) or Availability Zone ID (like <code>use2-az2</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
+   * @public
    */
   Destination?: string;
 
   /**
-   * @public
    * <p>The metric used for the enabled subscription.</p>
+   * @public
    */
   Metric?: MetricType;
 
   /**
-   * @public
    * <p>The statistic used for the enabled subscription.</p>
+   * @public
    */
   Statistic?: StatisticType;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5493,8 +5493,8 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
  */
 export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
   /**
-   * @public
    * <p>Indicates whether the subscribe action was successful.</p>
+   * @public
    */
   Output?: boolean;
 }
@@ -5504,10 +5504,10 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
  */
 export interface EnableEbsEncryptionByDefaultRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5517,50 +5517,50 @@ export interface EnableEbsEncryptionByDefaultRequest {
  */
 export interface EnableEbsEncryptionByDefaultResult {
   /**
-   * @public
    * <p>The updated status of encryption by default.</p>
+   * @public
    */
   EbsEncryptionByDefault?: boolean;
 }
 
 /**
- * @public
  * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
  *          <note>
  *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
  * 				<code>LaunchTemplateId</code>, but not both.</p>
  *          </note>
+ * @public
  */
 export interface FastLaunchLaunchTemplateSpecificationRequest {
   /**
-   * @public
    * <p>Specify the ID of the launch template that the AMI should use for Windows fast launch.</p>
+   * @public
    */
   LaunchTemplateId?: string;
 
   /**
-   * @public
    * <p>Specify the name of the launch template that the AMI should use for Windows fast launch.</p>
+   * @public
    */
   LaunchTemplateName?: string;
 
   /**
-   * @public
    * <p>Specify the version of the launch template that the AMI should use for Windows fast launch.</p>
+   * @public
    */
   Version: string | undefined;
 }
 
 /**
- * @public
  * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch
  * 			enabled AMI.</p>
+ * @public
  */
 export interface FastLaunchSnapshotConfigurationRequest {
   /**
-   * @public
    * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch
    * 			enabled AMI.</p>
+   * @public
    */
   TargetResourceCount?: number;
 }
@@ -5570,47 +5570,47 @@ export interface FastLaunchSnapshotConfigurationRequest {
  */
 export interface EnableFastLaunchRequest {
   /**
-   * @public
    * <p>Specify the ID of the image for which to enable Windows fast launch.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
    * 			Supported values include: <code>snapshot</code>, which is the default value.</p>
+   * @public
    */
   ResourceType?: string;
 
   /**
-   * @public
    * <p>Configuration settings for creating and managing the snapshots that are used for
    * 			pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
    * 			must be <code>snapshot</code>.</p>
+   * @public
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest;
 
   /**
-   * @public
    * <p>The launch template to use when launching Windows instances from pre-provisioned
    * 			snapshots. Launch template parameters can include either the name or ID of the launch
    * 			template, but not both.</p>
+   * @public
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest;
 
   /**
-   * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
    * 			pre-provisioned snapshots for Windows fast launch. Value must be
    * 			<code>6</code> or greater.</p>
+   * @public
    */
   MaxParallelLaunches?: number;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5620,59 +5620,59 @@ export interface EnableFastLaunchRequest {
  */
 export interface EnableFastLaunchResult {
   /**
-   * @public
    * <p>The image ID that identifies the AMI for which Windows fast launch was enabled.</p>
+   * @public
    */
   ImageId?: string;
 
   /**
-   * @public
    * <p>The type of resource that was defined for pre-provisioning the AMI for Windows fast launch.</p>
+   * @public
    */
   ResourceType?: FastLaunchResourceType;
 
   /**
-   * @public
    * <p>Settings to create and manage the pre-provisioned snapshots that Amazon EC2 uses for faster
    * 			launches from the Windows AMI. This property is returned when the associated
    * 			<code>resourceType</code> is <code>snapshot</code>.</p>
+   * @public
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
 
   /**
-   * @public
    * <p>The launch template that is used when launching Windows instances from pre-provisioned snapshots.</p>
+   * @public
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
-   * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
    * 			create pre-provisioned snapshots for Windows fast launch.</p>
+   * @public
    */
   MaxParallelLaunches?: number;
 
   /**
-   * @public
    * <p>The owner ID for the AMI for which Windows fast launch was enabled.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>The current state of Windows fast launch for the specified AMI.</p>
+   * @public
    */
   State?: FastLaunchStateCode;
 
   /**
-   * @public
    * <p>The reason that the state changed for Windows fast launch for the AMI.</p>
+   * @public
    */
   StateTransitionReason?: string;
 
   /**
-   * @public
    * <p>The time that the state changed for Windows fast launch for the AMI.</p>
+   * @public
    */
   StateTransitionTime?: Date;
 }
@@ -5682,52 +5682,51 @@ export interface EnableFastLaunchResult {
  */
 export interface EnableFastSnapshotRestoresRequest {
   /**
-   * @public
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
+   * @public
    */
   AvailabilityZones: string[] | undefined;
 
   /**
-   * @public
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
    *       a snapshot that was shared with you from another Amazon Web Services account.</p>
+   * @public
    */
   SourceSnapshotIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes fast snapshot restores that were successfully enabled.</p>
+ * @public
  */
 export interface EnableFastSnapshotRestoreSuccessItem {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The Availability Zone.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The state of fast snapshot restores.</p>
+   * @public
    */
   State?: FastSnapshotRestoreStateCode;
 
   /**
-   * @public
    * <p>The reason for the state transition. The possible values are as follows:</p>
    *          <ul>
    *             <li>
@@ -5741,102 +5740,103 @@ export interface EnableFastSnapshotRestoreSuccessItem {
    *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   StateTransitionReason?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that enabled fast snapshot restores on the snapshot.</p>
+   * @public
    */
   OwnerId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   * @public
    */
   OwnerAlias?: string;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   * @public
    */
   EnablingTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
+   * @public
    */
   OptimizingTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   * @public
    */
   EnabledTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
+   * @public
    */
   DisablingTime?: Date;
 
   /**
-   * @public
    * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
+   * @public
    */
   DisabledTime?: Date;
 }
 
 /**
- * @public
  * <p>Describes an error that occurred when enabling fast snapshot restores.</p>
+ * @public
  */
 export interface EnableFastSnapshotRestoreStateError {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an error that occurred when enabling fast snapshot restores.</p>
+ * @public
  */
 export interface EnableFastSnapshotRestoreStateErrorItem {
   /**
-   * @public
    * <p>The Availability Zone.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The error.</p>
+   * @public
    */
   Error?: EnableFastSnapshotRestoreStateError;
 }
 
 /**
- * @public
  * <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
+ * @public
  */
 export interface EnableFastSnapshotRestoreErrorItem {
   /**
-   * @public
    * <p>The ID of the snapshot.</p>
+   * @public
    */
   SnapshotId?: string;
 
   /**
-   * @public
    * <p>The errors.</p>
+   * @public
    */
   FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
 }
@@ -5846,14 +5846,14 @@ export interface EnableFastSnapshotRestoreErrorItem {
  */
 export interface EnableFastSnapshotRestoresResult {
   /**
-   * @public
    * <p>Information about the snapshots for which fast snapshot restores were successfully enabled.</p>
+   * @public
    */
   Successful?: EnableFastSnapshotRestoreSuccessItem[];
 
   /**
-   * @public
    * <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
+   * @public
    */
   Unsuccessful?: EnableFastSnapshotRestoreErrorItem[];
 }
@@ -5863,16 +5863,16 @@ export interface EnableFastSnapshotRestoresResult {
  */
 export interface EnableImageRequest {
   /**
-   * @public
    * <p>The ID of the AMI.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5882,8 +5882,8 @@ export interface EnableImageRequest {
  */
 export interface EnableImageResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -5907,18 +5907,18 @@ export type ImageBlockPublicAccessEnabledState =
  */
 export interface EnableImageBlockPublicAccessRequest {
   /**
-   * @public
    * <p>Specify <code>block-new-sharing</code> to enable block public access for AMIs at the
    *       account level in the specified Region. This will block any attempt to publicly share your AMIs
    *       in the specified Region.</p>
+   * @public
    */
   ImageBlockPublicAccessState: ImageBlockPublicAccessEnabledState | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5928,9 +5928,9 @@ export interface EnableImageBlockPublicAccessRequest {
  */
 export interface EnableImageBlockPublicAccessResult {
   /**
-   * @public
    * <p>Returns <code>block-new-sharing</code> if the request succeeds; otherwise, it returns an
    *       error.</p>
+   * @public
    */
   ImageBlockPublicAccessState?: ImageBlockPublicAccessEnabledState;
 }
@@ -5940,27 +5940,27 @@ export interface EnableImageBlockPublicAccessResult {
  */
 export interface EnableImageDeprecationRequest {
   /**
-   * @public
    * <p>The ID of the AMI.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time to deprecate the AMI, in UTC, in the following format:
    *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
    *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the
    *       nearest minute.</p>
    *          <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10
    *       years from now, except for public AMIs, where the upper limit is 2 years from the creation date.</p>
+   * @public
    */
   DeprecateAt: Date | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -5970,8 +5970,8 @@ export interface EnableImageDeprecationRequest {
  */
 export interface EnableImageDeprecationResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -5981,16 +5981,16 @@ export interface EnableImageDeprecationResult {
  */
 export interface EnableIpamOrganizationAdminAccountRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The Organizations member account ID that you want to enable as the IPAM account.</p>
+   * @public
    */
   DelegatedAdminAccountId: string | undefined;
 }
@@ -6000,8 +6000,8 @@ export interface EnableIpamOrganizationAdminAccountRequest {
  */
 export interface EnableIpamOrganizationAdminAccountResult {
   /**
-   * @public
    * <p>The result of enabling the IPAM account.</p>
+   * @public
    */
   Success?: boolean;
 }
@@ -6011,10 +6011,10 @@ export interface EnableIpamOrganizationAdminAccountResult {
  */
 export interface EnableReachabilityAnalyzerOrganizationSharingRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6024,8 +6024,8 @@ export interface EnableReachabilityAnalyzerOrganizationSharingRequest {
  */
 export interface EnableReachabilityAnalyzerOrganizationSharingResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   * @public
    */
   ReturnValue?: boolean;
 }
@@ -6035,8 +6035,8 @@ export interface EnableReachabilityAnalyzerOrganizationSharingResult {
  */
 export interface EnableSerialConsoleAccessRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6046,10 +6046,10 @@ export interface EnableSerialConsoleAccessRequest {
  */
 export interface EnableSerialConsoleAccessResult {
   /**
-   * @public
    * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
    * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
    * 			is disabled for your account.</p>
+   * @public
    */
   SerialConsoleAccessEnabled?: boolean;
 }
@@ -6059,7 +6059,6 @@ export interface EnableSerialConsoleAccessResult {
  */
 export interface EnableSnapshotBlockPublicAccessRequest {
   /**
-   * @public
    * <p>The mode in which to enable block public access for snapshots for the Region.
    *       Specify one of the following values:</p>
    *          <ul>
@@ -6087,14 +6086,15 @@ export interface EnableSnapshotBlockPublicAccessRequest {
    *          </ul>
    *          <p>
    *             <code>unblocked</code> is not a valid value for <b>EnableSnapshotBlockPublicAccess</b>.</p>
+   * @public
    */
   State: SnapshotBlockPublicAccessState | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6104,10 +6104,10 @@ export interface EnableSnapshotBlockPublicAccessRequest {
  */
 export interface EnableSnapshotBlockPublicAccessResult {
   /**
-   * @public
    * <p>The state of block public access for snapshots for the account and Region. Returns
    *       either <code>block-all-sharing</code> or <code>block-new-sharing</code> if the request
    *       succeeds.</p>
+   * @public
    */
   State?: SnapshotBlockPublicAccessState;
 }
@@ -6117,28 +6117,28 @@ export interface EnableSnapshotBlockPublicAccessResult {
  */
 export interface EnableTransitGatewayRouteTablePropagationRequest {
   /**
-   * @public
    * <p>The ID of the propagation route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the attachment.</p>
+   * @public
    */
   TransitGatewayAttachmentId?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the transit gateway route table announcement.</p>
+   * @public
    */
   TransitGatewayRouteTableAnnouncementId?: string;
 }
@@ -6148,38 +6148,38 @@ export interface EnableTransitGatewayRouteTablePropagationRequest {
  */
 export interface EnableTransitGatewayRouteTablePropagationResult {
   /**
-   * @public
    * <p>Information about route propagation.</p>
+   * @public
    */
   Propagation?: TransitGatewayPropagation;
 }
 
 /**
- * @public
  * <p>Contains the parameters for EnableVgwRoutePropagation.</p>
+ * @public
  */
 export interface EnableVgwRoutePropagationRequest {
   /**
-   * @public
    * <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private
    *             gateway must be attached to the same VPC that the routing tables are associated with.
    *         </p>
+   * @public
    */
   GatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the route table. The routing table must be associated with the same VPC that
    *             the virtual private gateway is attached to. </p>
+   * @public
    */
   RouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
    *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6189,16 +6189,16 @@ export interface EnableVgwRoutePropagationRequest {
  */
 export interface EnableVolumeIORequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the volume.</p>
+   * @public
    */
   VolumeId: string | undefined;
 }
@@ -6208,16 +6208,16 @@ export interface EnableVolumeIORequest {
  */
 export interface EnableVpcClassicLinkRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId: string | undefined;
 }
@@ -6227,8 +6227,8 @@ export interface EnableVpcClassicLinkRequest {
  */
 export interface EnableVpcClassicLinkResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -6238,8 +6238,8 @@ export interface EnableVpcClassicLinkResult {
  */
 export interface EnableVpcClassicLinkDnsSupportRequest {
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   VpcId?: string;
 }
@@ -6249,8 +6249,8 @@ export interface EnableVpcClassicLinkDnsSupportRequest {
  */
 export interface EnableVpcClassicLinkDnsSupportResult {
   /**
-   * @public
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
    */
   Return?: boolean;
 }
@@ -6260,14 +6260,14 @@ export interface EnableVpcClassicLinkDnsSupportResult {
  */
 export interface ExportClientVpnClientCertificateRevocationListRequest {
   /**
-   * @public
    * <p>The ID of the Client VPN endpoint.</p>
+   * @public
    */
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6288,19 +6288,19 @@ export type ClientCertificateRevocationListStatusCode =
   (typeof ClientCertificateRevocationListStatusCode)[keyof typeof ClientCertificateRevocationListStatusCode];
 
 /**
- * @public
  * <p>Describes the state of a client certificate revocation list.</p>
+ * @public
  */
 export interface ClientCertificateRevocationListStatus {
   /**
-   * @public
    * <p>The state of the client certificate revocation list.</p>
+   * @public
    */
   Code?: ClientCertificateRevocationListStatusCode;
 
   /**
-   * @public
    * <p>A message about the status of the client certificate revocation list, if applicable.</p>
+   * @public
    */
   Message?: string;
 }
@@ -6310,14 +6310,14 @@ export interface ClientCertificateRevocationListStatus {
  */
 export interface ExportClientVpnClientCertificateRevocationListResult {
   /**
-   * @public
    * <p>Information about the client certificate revocation list.</p>
+   * @public
    */
   CertificateRevocationList?: string;
 
   /**
-   * @public
    * <p>The current state of the client certificate revocation list.</p>
+   * @public
    */
   Status?: ClientCertificateRevocationListStatus;
 }
@@ -6327,14 +6327,14 @@ export interface ExportClientVpnClientCertificateRevocationListResult {
  */
 export interface ExportClientVpnClientConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the Client VPN endpoint.</p>
+   * @public
    */
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6344,26 +6344,26 @@ export interface ExportClientVpnClientConfigurationRequest {
  */
 export interface ExportClientVpnClientConfigurationResult {
   /**
-   * @public
    * <p>The contents of the Client VPN endpoint configuration file.</p>
+   * @public
    */
   ClientConfiguration?: string;
 }
 
 /**
- * @public
  * <p>Describes the destination for an export image task.</p>
+ * @public
  */
 export interface ExportTaskS3LocationRequest {
   /**
-   * @public
    * <p>The destination Amazon S3 bucket.</p>
+   * @public
    */
   S3Bucket: string | undefined;
 
   /**
-   * @public
    * <p>The prefix (logical hierarchy) in the bucket.</p>
+   * @public
    */
   S3Prefix?: string;
 }
@@ -6373,53 +6373,53 @@ export interface ExportTaskS3LocationRequest {
  */
 export interface ExportImageRequest {
   /**
-   * @public
    * <p>Token to enable idempotency for export image requests.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>A description of the image being exported. The maximum length is 255 characters.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The disk image format.</p>
+   * @public
    */
   DiskImageFormat: DiskImageFormat | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the image.</p>
+   * @public
    */
   ImageId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist.</p>
+   * @public
    */
   S3ExportLocation: ExportTaskS3LocationRequest | undefined;
 
   /**
-   * @public
    * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
    *    S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>The tags to apply to the export image task during creation.</p>
+   * @public
    */
   TagSpecifications?: TagSpecification[];
 }
@@ -6429,64 +6429,64 @@ export interface ExportImageRequest {
  */
 export interface ExportImageResult {
   /**
-   * @public
    * <p>A description of the image being exported.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The disk image format for the exported image.</p>
+   * @public
    */
   DiskImageFormat?: DiskImageFormat;
 
   /**
-   * @public
    * <p>The ID of the export image task.</p>
+   * @public
    */
   ExportImageTaskId?: string;
 
   /**
-   * @public
    * <p>The ID of the image.</p>
+   * @public
    */
   ImageId?: string;
 
   /**
-   * @public
    * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
    *    S3 bucket.</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>The percent complete of the export image task.</p>
+   * @public
    */
   Progress?: string;
 
   /**
-   * @public
    * <p>Information about the destination Amazon S3 bucket.</p>
+   * @public
    */
   S3ExportLocation?: ExportTaskS3Location;
 
   /**
-   * @public
    * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
    *     <code>deleting</code>, and <code>deleted</code>.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The status message for the export image task.</p>
+   * @public
    */
   StatusMessage?: string;
 
   /**
-   * @public
    * <p>Any tags assigned to the export image task.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -6496,13 +6496,12 @@ export interface ExportImageResult {
  */
 export interface ExportTransitGatewayRoutesRequest {
   /**
-   * @public
    * <p>The ID of the route table.</p>
+   * @public
    */
   TransitGatewayRouteTableId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -6543,20 +6542,21 @@ export interface ExportTransitGatewayRoutesRequest {
    *                <code>static</code>).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The name of the S3 bucket.</p>
+   * @public
    */
   S3Bucket: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -6566,9 +6566,9 @@ export interface ExportTransitGatewayRoutesRequest {
  */
 export interface ExportTransitGatewayRoutesResult {
   /**
-   * @public
    * <p>The URL of the exported file in Amazon S3. For example,
    *          s3://<i>bucket_name</i>/VPCTransitGateway/TransitGatewayRouteTables/<i>file_name</i>.</p>
+   * @public
    */
   S3Location?: string;
 }
@@ -6578,47 +6578,47 @@ export interface ExportTransitGatewayRoutesResult {
  */
 export interface GetAssociatedEnclaveCertificateIamRolesRequest {
   /**
-   * @public
    * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
    * 			S3 object information.</p>
+   * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Information about the associated IAM roles.</p>
+ * @public
  */
 export interface AssociatedRole {
   /**
-   * @public
    * <p>The ARN of the associated IAM role.</p>
+   * @public
    */
   AssociatedRoleArn?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket in which the Amazon S3 object is stored.</p>
+   * @public
    */
   CertificateS3BucketName?: string;
 
   /**
-   * @public
    * <p>The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle
    * 			is stored. The object key is formated as follows:  <code>role_arn</code>/<code>certificate_arn</code>.
    * 		</p>
+   * @public
    */
   CertificateS3ObjectKey?: string;
 
   /**
-   * @public
    * <p>The ID of the KMS customer master key (CMK) used to encrypt the private key.</p>
+   * @public
    */
   EncryptionKmsKeyId?: string;
 }
@@ -6628,8 +6628,8 @@ export interface AssociatedRole {
  */
 export interface GetAssociatedEnclaveCertificateIamRolesResult {
   /**
-   * @public
    * <p>Information about the associated IAM roles.</p>
+   * @public
    */
   AssociatedRoles?: AssociatedRole[];
 }
@@ -6639,47 +6639,47 @@ export interface GetAssociatedEnclaveCertificateIamRolesResult {
  */
 export interface GetAssociatedIpv6PoolCidrsRequest {
   /**
-   * @public
    * <p>The ID of the IPv6 address pool.</p>
+   * @public
    */
   PoolId: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes an IPv6 CIDR block association.</p>
+ * @public
  */
 export interface Ipv6CidrAssociation {
   /**
-   * @public
    * <p>The IPv6 CIDR block.</p>
+   * @public
    */
   Ipv6Cidr?: string;
 
   /**
-   * @public
    * <p>The resource that's associated with the IPv6 CIDR block.</p>
+   * @public
    */
   AssociatedResource?: string;
 }
@@ -6689,56 +6689,56 @@ export interface Ipv6CidrAssociation {
  */
 export interface GetAssociatedIpv6PoolCidrsResult {
   /**
-   * @public
    * <p>Information about the IPv6 CIDR block associations.</p>
+   * @public
    */
   Ipv6CidrAssociations?: Ipv6CidrAssociation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>A query used for retrieving network health data. </p>
+ * @public
  */
 export interface DataQuery {
   /**
-   * @public
    * <p>A user-defined ID associated with a data query that's returned in the <code>dataResponse</code> identifying the query. For example, if you set the Id to <code>MyQuery01</code>in the query, the <code>dataResponse</code> identifies the query as <code>MyQuery01</code>.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
+   * @public
    */
   Source?: string;
 
   /**
-   * @public
    * <p>The Region or Availability Zone that's the target for the data query. For example, <code>eu-north-1</code>.</p>
+   * @public
    */
   Destination?: string;
 
   /**
-   * @public
    * <p>The metric, <code>aggregation-latency</code>, indicating that network latency is aggregated for the query. This is the only supported metric.</p>
+   * @public
    */
   Metric?: MetricType;
 
   /**
-   * @public
    * <p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code> and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>
+   * @public
    */
   Statistic?: StatisticType;
 
   /**
-   * @public
    * <p>The aggregation period used for the data query.</p>
+   * @public
    */
   Period?: PeriodType;
 }
@@ -6748,116 +6748,116 @@ export interface DataQuery {
  */
 export interface GetAwsNetworkPerformanceDataRequest {
   /**
-   * @public
    * <p>A list of network performance data queries.</p>
+   * @public
    */
   DataQueries?: DataQuery[];
 
   /**
-   * @public
    * <p>The starting time for the performance data request. The starting time must be formatted
    *          as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-10T12:00:00.000Z</code>.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The ending time for the performance data request. The end time must be formatted as <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2022-06-12T12:00:00.000Z</code>.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Indicates whether the network was healthy or degraded at a particular point. The value is aggregated from the <code>startDate</code> to the <code>endDate</code>. Currently only <code>five_minutes</code> is supported.</p>
+ * @public
  */
 export interface MetricPoint {
   /**
-   * @public
    * <p>The start date for the metric point. The starting date for the metric point. The starting time must be formatted
    *          as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-10T12:00:00.000Z</code>.</p>
+   * @public
    */
   StartDate?: Date;
 
   /**
-   * @public
    * <p>The end date for the metric point. The ending time must be formatted as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-12T12:00:00.000Z</code>.</p>
+   * @public
    */
   EndDate?: Date;
 
   Value?: number;
   /**
-   * @public
    * <p>The status of the metric point.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The response to a <code>DataQuery</code>.</p>
+ * @public
  */
 export interface DataResponse {
   /**
-   * @public
    * <p>The ID passed in the <code>DataQuery</code>.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
+   * @public
    */
   Source?: string;
 
   /**
-   * @public
    * <p>The Region or Availability Zone that's the destination for the data query. For example, <code>eu-west-1</code>.</p>
+   * @public
    */
   Destination?: string;
 
   /**
-   * @public
    * <p>The metric used for the network performance request. Only <code>aggregate-latency</code> is supported, which shows network latency during a specified period. </p>
+   * @public
    */
   Metric?: MetricType;
 
   /**
-   * @public
    * <p>The statistic used for the network performance request.</p>
+   * @public
    */
   Statistic?: StatisticType;
 
   /**
-   * @public
    * <p>The period used for the network performance request.</p>
+   * @public
    */
   Period?: PeriodType;
 
   /**
-   * @public
    * <p>A list of <code>MetricPoint</code> objects.</p>
+   * @public
    */
   MetricPoints?: MetricPoint[];
 }
@@ -6867,14 +6867,14 @@ export interface DataResponse {
  */
 export interface GetAwsNetworkPerformanceDataResult {
   /**
-   * @public
    * <p>The list of data responses.</p>
+   * @public
    */
   DataResponses?: DataResponse[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -6884,45 +6884,45 @@ export interface GetAwsNetworkPerformanceDataResult {
  */
 export interface GetCapacityReservationUsageRequest {
   /**
-   * @public
    * <p>The ID of the Capacity Reservation.</p>
+   * @public
    */
   CapacityReservationId: string | undefined;
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
    *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Information about the Capacity Reservation usage.</p>
+ * @public
  */
 export interface InstanceUsage {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that is making use of the Capacity Reservation.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The number of instances the Amazon Web Services account currently has in the Capacity Reservation.</p>
+   * @public
    */
   UsedInstanceCount?: number;
 }
@@ -6932,37 +6932,36 @@ export interface InstanceUsage {
  */
 export interface GetCapacityReservationUsageResult {
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the Capacity Reservation.</p>
+   * @public
    */
   CapacityReservationId?: string;
 
   /**
-   * @public
    * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
+   * @public
    */
   TotalInstanceCount?: number;
 
   /**
-   * @public
    * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+   * @public
    */
   AvailableInstanceCount?: number;
 
   /**
-   * @public
    * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -6991,12 +6990,13 @@ export interface GetCapacityReservationUsageResult {
    * 					Failed requests are retained for 60 minutes.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   State?: CapacityReservationState;
 
   /**
-   * @public
    * <p>Information about the Capacity Reservation usage.</p>
+   * @public
    */
   InstanceUsages?: InstanceUsage[];
 }
@@ -7006,13 +7006,12 @@ export interface GetCapacityReservationUsageResult {
  */
 export interface GetCoipPoolUsageRequest {
   /**
-   * @public
    * <p>The ID of the address pool.</p>
+   * @public
    */
   PoolId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -7032,57 +7031,58 @@ export interface GetCoipPoolUsageRequest {
    *                   <code>coip-address-usage.co-ip</code> - The customer-owned IP address.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes address usage for a customer-owned address pool.</p>
+ * @public
  */
 export interface CoipAddressUsage {
   /**
-   * @public
    * <p>The allocation ID of the address.</p>
+   * @public
    */
   AllocationId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID.</p>
+   * @public
    */
   AwsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services service.</p>
+   * @public
    */
   AwsService?: string;
 
   /**
-   * @public
    * <p>The customer-owned IP address.</p>
+   * @public
    */
   CoIp?: string;
 }
@@ -7092,26 +7092,26 @@ export interface CoipAddressUsage {
  */
 export interface GetCoipPoolUsageResult {
   /**
-   * @public
    * <p>The ID of the customer-owned address pool.</p>
+   * @public
    */
   CoipPoolId?: string;
 
   /**
-   * @public
    * <p>Information about the address usage.</p>
+   * @public
    */
   CoipAddressUsages?: CoipAddressUsage[];
 
   /**
-   * @public
    * <p>The ID of the local gateway route table.</p>
+   * @public
    */
   LocalGatewayRouteTableId?: string;
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -7121,23 +7121,23 @@ export interface GetCoipPoolUsageResult {
  */
 export interface GetConsoleOutputRequest {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>When enabled, retrieves the latest console output for the instance.</p>
    *          <p>Default: disabled (<code>false</code>)</p>
+   * @public
    */
   Latest?: boolean;
 }
@@ -7147,21 +7147,21 @@ export interface GetConsoleOutputRequest {
  */
 export interface GetConsoleOutputResult {
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>The console output, base64-encoded. If you are using a command line tool, the tool
    *             decodes the output for you.</p>
+   * @public
    */
   Output?: string;
 
   /**
-   * @public
    * <p>The time at which the output was last updated.</p>
+   * @public
    */
   Timestamp?: Date;
 }
@@ -7171,23 +7171,23 @@ export interface GetConsoleOutputResult {
  */
 export interface GetConsoleScreenshotRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's
    *             in standby or "sleep" mode.</p>
+   * @public
    */
   WakeUp?: boolean;
 }
@@ -7197,14 +7197,14 @@ export interface GetConsoleScreenshotRequest {
  */
 export interface GetConsoleScreenshotResult {
   /**
-   * @public
    * <p>The data that comprises the image.</p>
+   * @public
    */
   ImageData?: string;
 
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   InstanceId?: string;
 }
@@ -7231,36 +7231,36 @@ export type UnlimitedSupportedInstanceFamily =
  */
 export interface GetDefaultCreditSpecificationRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The instance family.</p>
+   * @public
    */
   InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
 }
 
 /**
- * @public
  * <p>Describes the default credit option for CPU usage of a burstable performance instance
  *             family.</p>
+ * @public
  */
 export interface InstanceFamilyCreditSpecification {
   /**
-   * @public
    * <p>The instance family.</p>
+   * @public
    */
   InstanceFamily?: UnlimitedSupportedInstanceFamily;
 
   /**
-   * @public
    * <p>The default credit option for CPU usage of the instance family. Valid values are
    *                 <code>standard</code> and <code>unlimited</code>.</p>
+   * @public
    */
   CpuCredits?: string;
 }
@@ -7270,8 +7270,8 @@ export interface InstanceFamilyCreditSpecification {
  */
 export interface GetDefaultCreditSpecificationResult {
   /**
-   * @public
    * <p>The default credit option for CPU usage of the instance family.</p>
+   * @public
    */
   InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification;
 }
@@ -7281,10 +7281,10 @@ export interface GetDefaultCreditSpecificationResult {
  */
 export interface GetEbsDefaultKmsKeyIdRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -7294,8 +7294,8 @@ export interface GetEbsDefaultKmsKeyIdRequest {
  */
 export interface GetEbsDefaultKmsKeyIdResult {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
+   * @public
    */
   KmsKeyId?: string;
 }
@@ -7305,10 +7305,10 @@ export interface GetEbsDefaultKmsKeyIdResult {
  */
 export interface GetEbsEncryptionByDefaultRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -7318,14 +7318,14 @@ export interface GetEbsEncryptionByDefaultRequest {
  */
 export interface GetEbsEncryptionByDefaultResult {
   /**
-   * @public
    * <p>Indicates whether encryption by default is enabled.</p>
+   * @public
    */
   EbsEncryptionByDefault?: boolean;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   SseType?: SSEType;
 }
@@ -7347,43 +7347,43 @@ export const PartitionLoadFrequency = {
 export type PartitionLoadFrequency = (typeof PartitionLoadFrequency)[keyof typeof PartitionLoadFrequency];
 
 /**
- * @public
  * <p>Describes integration options for Amazon Athena.</p>
+ * @public
  */
 export interface AthenaIntegration {
   /**
-   * @public
    * <p>The location in Amazon S3 to store the generated CloudFormation template.</p>
+   * @public
    */
   IntegrationResultS3DestinationArn: string | undefined;
 
   /**
-   * @public
    * <p>The schedule for adding new partitions to the table.</p>
+   * @public
    */
   PartitionLoadFrequency: PartitionLoadFrequency | undefined;
 
   /**
-   * @public
    * <p>The start date for the partition.</p>
+   * @public
    */
   PartitionStartDate?: Date;
 
   /**
-   * @public
    * <p>The end date for the partition.</p>
+   * @public
    */
   PartitionEndDate?: Date;
 }
 
 /**
- * @public
  * <p>Describes service integrations with VPC Flow logs.</p>
+ * @public
  */
 export interface IntegrateServices {
   /**
-   * @public
    * <p>Information about the integration with Amazon Athena.</p>
+   * @public
    */
   AthenaIntegrations?: AthenaIntegration[];
 }
@@ -7393,28 +7393,28 @@ export interface IntegrateServices {
  */
 export interface GetFlowLogsIntegrationTemplateRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the flow log.</p>
+   * @public
    */
   FlowLogId: string | undefined;
 
   /**
-   * @public
    * <p>To store the CloudFormation template in Amazon S3, specify the location in Amazon S3.</p>
+   * @public
    */
   ConfigDeliveryS3DestinationArn: string | undefined;
 
   /**
-   * @public
    * <p>Information about the service integration.</p>
+   * @public
    */
   IntegrateServices: IntegrateServices | undefined;
 }
@@ -7424,8 +7424,8 @@ export interface GetFlowLogsIntegrationTemplateRequest {
  */
 export interface GetFlowLogsIntegrationTemplateResult {
   /**
-   * @public
    * <p>The generated CloudFormation template.</p>
+   * @public
    */
   Result?: string;
 }
@@ -7435,46 +7435,46 @@ export interface GetFlowLogsIntegrationTemplateResult {
  */
 export interface GetGroupsForCapacityReservationRequest {
   /**
-   * @public
    * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared
    * 			with you, the operation returns only Capacity Reservation groups that you own.</p>
+   * @public
    */
   CapacityReservationId: string | undefined;
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
    *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
+ * @public
  */
 export interface CapacityReservationGroup {
   /**
-   * @public
    * <p>The ARN of the resource group.</p>
+   * @public
    */
   GroupArn?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the resource group.</p>
+   * @public
    */
   OwnerId?: string;
 }
@@ -7484,14 +7484,14 @@ export interface CapacityReservationGroup {
  */
 export interface GetGroupsForCapacityReservationResult {
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
+   * @public
    */
   CapacityReservationGroups?: CapacityReservationGroup[];
 }
@@ -7501,71 +7501,71 @@ export interface GetGroupsForCapacityReservationResult {
  */
 export interface GetHostReservationPurchasePreviewRequest {
   /**
-   * @public
    * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
+   * @public
    */
   HostIdSet: string[] | undefined;
 
   /**
-   * @public
    * <p>The offering ID of the reservation.</p>
+   * @public
    */
   OfferingId: string | undefined;
 }
 
 /**
- * @public
  * <p>Describes the result of the purchase.</p>
+ * @public
  */
 export interface Purchase {
   /**
-   * @public
    * <p>The currency in which the <code>UpfrontPrice</code> and <code>HourlyPrice</code>
    *             amounts are specified. At this time, the only supported currency is
    *             <code>USD</code>.</p>
+   * @public
    */
   CurrencyCode?: CurrencyCodeValues;
 
   /**
-   * @public
    * <p>The duration of the reservation's term in seconds.</p>
+   * @public
    */
   Duration?: number;
 
   /**
-   * @public
    * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
+   * @public
    */
   HostIdSet?: string[];
 
   /**
-   * @public
    * <p>The ID of the reservation.</p>
+   * @public
    */
   HostReservationId?: string;
 
   /**
-   * @public
    * <p>The hourly price of the reservation per hour.</p>
+   * @public
    */
   HourlyPrice?: string;
 
   /**
-   * @public
    * <p>The instance family on the Dedicated Host that the reservation can be associated
    *             with.</p>
+   * @public
    */
   InstanceFamily?: string;
 
   /**
-   * @public
    * <p>The payment option for the reservation.</p>
+   * @public
    */
   PaymentOption?: PaymentOption;
 
   /**
-   * @public
    * <p>The upfront price of the reservation.</p>
+   * @public
    */
   UpfrontPrice?: string;
 }
@@ -7575,29 +7575,29 @@ export interface Purchase {
  */
 export interface GetHostReservationPurchasePreviewResult {
   /**
-   * @public
    * <p>The currency in which the <code>totalUpfrontPrice</code> and
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
+   * @public
    */
   CurrencyCode?: CurrencyCodeValues;
 
   /**
-   * @public
    * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
    *             associated with it.</p>
+   * @public
    */
   Purchase?: Purchase[];
 
   /**
-   * @public
    * <p>The potential total hourly price of the reservation per hour.</p>
+   * @public
    */
   TotalHourlyPrice?: string;
 
   /**
-   * @public
    * <p>The potential total upfront price. This is billed immediately.</p>
+   * @public
    */
   TotalUpfrontPrice?: string;
 }
@@ -7607,10 +7607,10 @@ export interface GetHostReservationPurchasePreviewResult {
  */
 export interface GetImageBlockPublicAccessStateRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    * 			and provides an error response. If you have the required permissions, the error response is
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -7620,7 +7620,6 @@ export interface GetImageBlockPublicAccessStateRequest {
  */
 export interface GetImageBlockPublicAccessStateResult {
   /**
-   * @public
    * <p>The current state of block public access for AMIs at the account level in the specified
    *       Amazon Web Services Region.</p>
    *          <p>Possible values:</p>
@@ -7636,6 +7635,7 @@ export interface GetImageBlockPublicAccessStateResult {
    *           shared.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ImageBlockPublicAccessState?: string;
 }
@@ -7645,54 +7645,54 @@ export interface GetImageBlockPublicAccessStateResult {
  */
 export interface GetInstanceTypesFromInstanceRequirementsRequest {
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The processor architecture type.</p>
+   * @public
    */
   ArchitectureTypes: ArchitectureType[] | undefined;
 
   /**
-   * @public
    * <p>The virtualization type.</p>
+   * @public
    */
   VirtualizationTypes: VirtualizationType[] | undefined;
 
   /**
-   * @public
    * <p>The attributes required for the instance types.</p>
+   * @public
    */
   InstanceRequirements: InstanceRequirementsRequest | undefined;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request.
    *          To get the next page of items, make another request with the token returned in the output.
    * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The list of instance types with the specified instance attributes.</p>
+ * @public
  */
 export interface InstanceTypeInfoFromInstanceRequirements {
   /**
-   * @public
    * <p>The matching instance type.</p>
+   * @public
    */
   InstanceType?: string;
 }
@@ -7702,15 +7702,15 @@ export interface InstanceTypeInfoFromInstanceRequirements {
  */
 export interface GetInstanceTypesFromInstanceRequirementsResult {
   /**
-   * @public
    * <p>The instance types with the specified instance attributes.</p>
+   * @public
    */
   InstanceTypes?: InstanceTypeInfoFromInstanceRequirements[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
    *          are no more items to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -7720,16 +7720,16 @@ export interface GetInstanceTypesFromInstanceRequirementsResult {
  */
 export interface GetInstanceUefiDataRequest {
   /**
-   * @public
    * <p>The ID of the instance from which to retrieve the UEFI data.</p>
+   * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 }
@@ -7739,14 +7739,14 @@ export interface GetInstanceUefiDataRequest {
  */
 export interface GetInstanceUefiDataResult {
   /**
-   * @public
    * <p>The ID of the instance from which to retrieve the UEFI data.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>Base64 representation of the non-volatile UEFI variable store.</p>
+   * @public
    */
   UefiData?: string;
 }
@@ -7756,53 +7756,53 @@ export interface GetInstanceUefiDataResult {
  */
 export interface GetIpamAddressHistoryRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP address range.
    *          If you enter a /16 IPv4 CIDR, you will get records that match it exactly. You will not get records for any subnets within the /16 CIDR.</p>
+   * @public
    */
   Cidr: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the IPAM scope that the CIDR is in.</p>
+   * @public
    */
   IpamScopeId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the VPC you want your history records filtered by.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The start of the time period for which you are looking for history. If you omit this option, it will default to the value of EndTime.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The end of the time period for which you are looking for history. If you omit this option, it will default to the current time.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The maximum number of historical results you would like returned per page. Defaults to 100.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -7857,74 +7857,74 @@ export type IpamAddressHistoryResourceType =
   (typeof IpamAddressHistoryResourceType)[keyof typeof IpamAddressHistoryResourceType];
 
 /**
- * @public
  * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
+ * @public
  */
 export interface IpamAddressHistoryRecord {
   /**
-   * @public
    * <p>The ID of the resource owner.</p>
+   * @public
    */
   ResourceOwnerId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region of the resource.</p>
+   * @public
    */
   ResourceRegion?: string;
 
   /**
-   * @public
    * <p>The type of the resource.</p>
+   * @public
    */
   ResourceType?: IpamAddressHistoryResourceType;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The CIDR of the resource.</p>
+   * @public
    */
   ResourceCidr?: string;
 
   /**
-   * @public
    * <p>The name of the resource.</p>
+   * @public
    */
   ResourceName?: string;
 
   /**
-   * @public
    * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
    */
   ResourceComplianceStatus?: IpamComplianceStatus;
 
   /**
-   * @public
    * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
    */
   ResourceOverlapStatus?: IpamOverlapStatus;
 
   /**
-   * @public
    * <p>The VPC ID of the resource.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>Sampled start time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the start time may have occurred before this specific time.</p>
+   * @public
    */
   SampledStartTime?: Date;
 
   /**
-   * @public
    * <p>Sampled end time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the end time may have occurred before this specific time.</p>
+   * @public
    */
   SampledEndTime?: Date;
 }
@@ -7934,14 +7934,14 @@ export interface IpamAddressHistoryRecord {
  */
 export interface GetIpamAddressHistoryResult {
   /**
-   * @public
    * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
+   * @public
    */
   HistoryRecords?: IpamAddressHistoryRecord[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -7951,40 +7951,40 @@ export interface GetIpamAddressHistoryResult {
  */
 export interface GetIpamDiscoveredAccountsRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A resource discovery ID.</p>
+   * @public
    */
   IpamResourceDiscoveryId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region that the account information is returned from.</p>
+   * @public
    */
   DiscoveryRegion: string | undefined;
 
   /**
-   * @public
    * <p>Discovered account filters.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of discovered accounts to return in one page of results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -8005,12 +8005,11 @@ export const IpamDiscoveryFailureCode = {
 export type IpamDiscoveryFailureCode = (typeof IpamDiscoveryFailureCode)[keyof typeof IpamDiscoveryFailureCode];
 
 /**
- * @public
  * <p>The discovery failure reason.</p>
+ * @public
  */
 export interface IpamDiscoveryFailureReason {
   /**
-   * @public
    * <p>The discovery failure code.</p>
    *          <ul>
    *             <li>
@@ -8037,49 +8036,50 @@ export interface IpamDiscoveryFailureReason {
    *                   <code>unauthorized-failure</code> - Amazon Web Services account making the request is not authorized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">AuthFailure</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Code?: IpamDiscoveryFailureCode;
 
   /**
-   * @public
    * <p>The discovery failure message.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
+ * @public
  */
 export interface IpamDiscoveredAccount {
   /**
-   * @public
    * <p>The account ID.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region that the account information is returned from.
    *          An account can be discovered in multiple regions and will have a separate discovered account for each Region.</p>
+   * @public
    */
   DiscoveryRegion?: string;
 
   /**
-   * @public
    * <p>The resource discovery failure reason.</p>
+   * @public
    */
   FailureReason?: IpamDiscoveryFailureReason;
 
   /**
-   * @public
    * <p>The last attempted resource discovery time.</p>
+   * @public
    */
   LastAttemptedDiscoveryTime?: Date;
 
   /**
-   * @public
    * <p>The last successful resource discovery time.</p>
+   * @public
    */
   LastSuccessfulDiscoveryTime?: Date;
 }
@@ -8089,14 +8089,14 @@ export interface IpamDiscoveredAccount {
  */
 export interface GetIpamDiscoveredAccountsResult {
   /**
-   * @public
    * <p>Discovered accounts.</p>
+   * @public
    */
   IpamDiscoveredAccounts?: IpamDiscoveredAccount[];
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8106,40 +8106,40 @@ export interface GetIpamDiscoveredAccountsResult {
  */
 export interface GetIpamDiscoveredPublicAddressesRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>An IPAM resource discovery ID.</p>
+   * @public
    */
   IpamResourceDiscoveryId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region for the IP address.</p>
+   * @public
    */
   AddressRegion: string | undefined;
 
   /**
-   * @public
    * <p>Filters.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of IPAM discovered public addresses to return in one page of results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -8177,19 +8177,19 @@ export type IpamPublicAddressAssociationStatus =
   (typeof IpamPublicAddressAssociationStatus)[keyof typeof IpamPublicAddressAssociationStatus];
 
 /**
- * @public
  * <p>The security group that the resource with the public IP address is in.</p>
+ * @public
  */
 export interface IpamPublicAddressSecurityGroup {
   /**
-   * @public
    * <p>The security group's name.</p>
+   * @public
    */
   GroupName?: string;
 
   /**
-   * @public
    * <p>The security group's ID.</p>
+   * @public
    */
   GroupId?: string;
 }
@@ -8217,151 +8217,151 @@ export type IpamPublicAddressAwsService =
   (typeof IpamPublicAddressAwsService)[keyof typeof IpamPublicAddressAwsService];
 
 /**
- * @public
  * <p>A tag for a public IP address discovered by IPAM.</p>
+ * @public
  */
 export interface IpamPublicAddressTag {
   /**
-   * @public
    * <p>The tag's key.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The tag's value.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>Tags for a public IP address discovered by IPAM.</p>
+ * @public
  */
 export interface IpamPublicAddressTags {
   /**
-   * @public
    * <p>Tags for an Elastic IP address.</p>
+   * @public
    */
   EipTags?: IpamPublicAddressTag[];
 }
 
 /**
- * @public
  * <p>A public IP Address discovered by IPAM.</p>
+ * @public
  */
 export interface IpamDiscoveredPublicAddress {
   /**
-   * @public
    * <p>The resource discovery ID.</p>
+   * @public
    */
   IpamResourceDiscoveryId?: string;
 
   /**
-   * @public
    * <p>The Region of the resource the IP address is assigned to.</p>
+   * @public
    */
   AddressRegion?: string;
 
   /**
-   * @public
    * <p>The IP address.</p>
+   * @public
    */
   Address?: string;
 
   /**
-   * @public
    * <p>The ID of the owner of the resource the IP address is assigned to.</p>
+   * @public
    */
   AddressOwnerId?: string;
 
   /**
-   * @public
    * <p>The allocation ID of the resource the IP address is assigned to.</p>
+   * @public
    */
   AddressAllocationId?: string;
 
   /**
-   * @public
    * <p>The association status.</p>
+   * @public
    */
   AssociationStatus?: IpamPublicAddressAssociationStatus;
 
   /**
-   * @public
    * <p>The IP address type.</p>
+   * @public
    */
   AddressType?: IpamPublicAddressType;
 
   /**
-   * @public
    * <p>The Amazon Web Services service associated with the IP address.</p>
+   * @public
    */
   Service?: IpamPublicAddressAwsService;
 
   /**
-   * @public
    * <p>The resource ARN or ID.</p>
+   * @public
    */
   ServiceResource?: string;
 
   /**
-   * @public
    * <p>The ID of the VPC that the resource with the assigned IP address is in.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The ID of the subnet that the resource with the assigned IP address is in.</p>
+   * @public
    */
   SubnetId?: string;
 
   /**
-   * @public
    * <p>The ID of the public IPv4 pool that the resource with the assigned IP address is from.</p>
+   * @public
    */
   PublicIpv4PoolId?: string;
 
   /**
-   * @public
    * <p>The network interface ID of the resource with the assigned IP address.</p>
+   * @public
    */
   NetworkInterfaceId?: string;
 
   /**
-   * @public
    * <p>The description of the network interface that IP address is assigned to.</p>
+   * @public
    */
   NetworkInterfaceDescription?: string;
 
   /**
-   * @public
    * <p>The instance ID of the instance the assigned IP address is assigned to.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>Tags associated with the IP address.</p>
+   * @public
    */
   Tags?: IpamPublicAddressTags;
 
   /**
-   * @public
    * <p>The network border group that the resource that the IP address is assigned to is in.</p>
+   * @public
    */
   NetworkBorderGroup?: string;
 
   /**
-   * @public
    * <p>Security groups associated with the resource that the IP address is assigned to.</p>
+   * @public
    */
   SecurityGroups?: IpamPublicAddressSecurityGroup[];
 
   /**
-   * @public
    * <p>The last successful resource discovery time.</p>
+   * @public
    */
   SampleTime?: Date;
 }
@@ -8371,20 +8371,20 @@ export interface IpamDiscoveredPublicAddress {
  */
 export interface GetIpamDiscoveredPublicAddressesResult {
   /**
-   * @public
    * <p>IPAM discovered public addresses.</p>
+   * @public
    */
   IpamDiscoveredPublicAddresses?: IpamDiscoveredPublicAddress[];
 
   /**
-   * @public
    * <p>The oldest successful resource discovery time.</p>
+   * @public
    */
   OldestSampleTime?: Date;
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8394,40 +8394,40 @@ export interface GetIpamDiscoveredPublicAddressesResult {
  */
 export interface GetIpamDiscoveredResourceCidrsRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>A resource discovery ID.</p>
+   * @public
    */
   IpamResourceDiscoveryId: string | undefined;
 
   /**
-   * @public
    * <p>A resource Region.</p>
+   * @public
    */
   ResourceRegion: string | undefined;
 
   /**
-   * @public
    * <p>Filters.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -8451,54 +8451,53 @@ export const IpamResourceType = {
 export type IpamResourceType = (typeof IpamResourceType)[keyof typeof IpamResourceType];
 
 /**
- * @public
  * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
+ * @public
  */
 export interface IpamDiscoveredResourceCidr {
   /**
-   * @public
    * <p>The resource discovery ID.</p>
+   * @public
    */
   IpamResourceDiscoveryId?: string;
 
   /**
-   * @public
    * <p>The resource Region.</p>
+   * @public
    */
   ResourceRegion?: string;
 
   /**
-   * @public
    * <p>The resource ID.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The resource owner ID.</p>
+   * @public
    */
   ResourceOwnerId?: string;
 
   /**
-   * @public
    * <p>The resource CIDR.</p>
+   * @public
    */
   ResourceCidr?: string;
 
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   ResourceType?: IpamResourceType;
 
   /**
-   * @public
    * <p>The resource tags.</p>
+   * @public
    */
   ResourceTags?: IpamResourceTag[];
 
   /**
-   * @public
    * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
    *          <ul>
    *             <li>
@@ -8514,18 +8513,19 @@ export interface IpamDiscoveredResourceCidr {
    *          </p>
    *             </li>
    *          </ul>
+   * @public
    */
   IpUsage?: number;
 
   /**
-   * @public
    * <p>The VPC ID.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The last successful resource discovery time.</p>
+   * @public
    */
   SampleTime?: Date;
 }
@@ -8535,14 +8535,14 @@ export interface IpamDiscoveredResourceCidr {
  */
 export interface GetIpamDiscoveredResourceCidrsResult {
   /**
-   * @public
    * <p>Discovered resource CIDRs.</p>
+   * @public
    */
   IpamDiscoveredResourceCidrs?: IpamDiscoveredResourceCidr[];
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8552,40 +8552,40 @@ export interface GetIpamDiscoveredResourceCidrsResult {
  */
 export interface GetIpamPoolAllocationsRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the IPAM pool you want to see the allocations for.</p>
+   * @public
    */
   IpamPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the allocation.</p>
+   * @public
    */
   IpamPoolAllocationId?: string;
 
   /**
-   * @public
    * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results you would like returned per page.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8595,14 +8595,14 @@ export interface GetIpamPoolAllocationsRequest {
  */
 export interface GetIpamPoolAllocationsResult {
   /**
-   * @public
    * <p>The IPAM pool allocations you want information on.</p>
+   * @public
    */
   IpamPoolAllocations?: IpamPoolAllocation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -8612,34 +8612,34 @@ export interface GetIpamPoolAllocationsResult {
  */
 export interface GetIpamPoolCidrsRequest {
   /**
-   * @public
    * <p>A check for whether you have the required permissions for the action without actually making the request
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   DryRun?: boolean;
 
   /**
-   * @public
    * <p>The ID of the IPAM pool you want the CIDR for.</p>
+   * @public
    */
   IpamPoolId: string | undefined;
 
   /**
-   * @public
    * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
    */
   Filters?: Filter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return in the request.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }

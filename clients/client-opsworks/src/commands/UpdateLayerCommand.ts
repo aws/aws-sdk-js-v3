@@ -27,7 +27,6 @@ export interface UpdateLayerCommandInput extends UpdateLayerRequest {}
 export interface UpdateLayerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified layer.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -130,6 +129,7 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class UpdateLayerCommand extends $Command
   .classBuilder<

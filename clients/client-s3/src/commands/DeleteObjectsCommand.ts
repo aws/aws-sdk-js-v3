@@ -28,7 +28,6 @@ export interface DeleteObjectsCommandInput extends DeleteObjectsRequest {}
 export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation enables you to delete multiple objects from a bucket using a single HTTP
  *          request. If you know the object keys that you want to delete, then this operation provides a
  *          suitable alternative to sending individual delete requests, reducing per-request
@@ -211,6 +210,7 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To delete multiple objects from a versioned bucket
  * ```javascript
  * // The following example deletes objects from a bucket. The bucket is versioned, and the request does not specify the object version to delete. In this case, all versions remain in the bucket and S3 adds a delete marker.

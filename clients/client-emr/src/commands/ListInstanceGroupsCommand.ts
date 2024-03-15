@@ -27,7 +27,6 @@ export interface ListInstanceGroupsCommandInput extends ListInstanceGroupsInput 
 export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides all available details about the instance groups in a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -177,6 +176,7 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListInstanceGroupsCommand extends $Command
   .classBuilder<

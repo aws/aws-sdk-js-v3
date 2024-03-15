@@ -27,7 +27,6 @@ export interface ListFunctionUrlConfigsCommandInput extends ListFunctionUrlConfi
 export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Lambda function URLs for the specified function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConf
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListFunctionUrlConfigsCommand extends $Command
   .classBuilder<

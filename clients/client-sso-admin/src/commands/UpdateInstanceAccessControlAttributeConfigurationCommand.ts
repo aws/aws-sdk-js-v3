@@ -36,7 +36,6 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the IAM Identity Center identity store attributes that you can use with the IAM Identity Center instance
  *             for attributes-based access control (ABAC). When using an external identity provider as
  *             an identity source, you can pass attributes through the SAML assertion as an alternative
@@ -102,6 +101,7 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $Command
   .classBuilder<

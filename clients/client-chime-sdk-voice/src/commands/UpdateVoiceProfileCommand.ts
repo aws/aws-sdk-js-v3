@@ -31,7 +31,6 @@ export interface UpdateVoiceProfileCommandInput extends UpdateVoiceProfileReques
 export interface UpdateVoiceProfileCommandOutput extends UpdateVoiceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified voice profile’s voice print and refreshes its expiration timestamp.</p>
  *          <important>
  *             <p>As a condition of using this feature, you acknowledge that the collection, use, storage, and retention of
@@ -106,6 +105,7 @@ export interface UpdateVoiceProfileCommandOutput extends UpdateVoiceProfileRespo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class UpdateVoiceProfileCommand extends $Command
   .classBuilder<

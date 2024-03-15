@@ -27,7 +27,6 @@ export interface ListInputsCommandInput extends ListInputsRequest {}
 export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the inputs you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class ListInputsCommand extends $Command
   .classBuilder<

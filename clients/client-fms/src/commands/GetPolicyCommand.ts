@@ -27,7 +27,6 @@ export interface GetPolicyCommandInput extends GetPolicyRequest {}
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified Firewall Manager policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetPolicyCommand extends $Command
   .classBuilder<

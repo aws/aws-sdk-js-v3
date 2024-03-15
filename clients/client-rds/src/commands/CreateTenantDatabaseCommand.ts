@@ -32,7 +32,6 @@ export interface CreateTenantDatabaseCommandInput extends CreateTenantDatabaseMe
 export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a tenant database in a DB instance that uses the multi-tenant configuration.
  *             Only RDS for Oracle container database (CDB) instances are supported.</p>
  * @example
@@ -109,6 +108,7 @@ export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class CreateTenantDatabaseCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetReservationPurchaseRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets recommendations for reservation purchases. These recommendations might help you to
  *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
  *       On-Demand pricing.</p>
@@ -262,6 +261,7 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetReservationPurchaseRecommendationCommand extends $Command
   .classBuilder<

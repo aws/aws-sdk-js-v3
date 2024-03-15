@@ -27,7 +27,6 @@ export interface CreateGrantVersionCommandInput extends CreateGrantVersionReques
 export interface CreateGrantVersionCommandOutput extends CreateGrantVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of the specified grant. For more information, see
  *          <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
  * @example
@@ -91,6 +90,7 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CreateGrantVersionCommand extends $Command
   .classBuilder<

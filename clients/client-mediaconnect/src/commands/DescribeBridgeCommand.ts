@@ -27,7 +27,6 @@ export interface DescribeBridgeCommandInput extends DescribeBridgeRequest {}
 export interface DescribeBridgeCommandOutput extends DescribeBridgeResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays the details of a bridge.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface DescribeBridgeCommandOutput extends DescribeBridgeResponse, __M
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DescribeBridgeCommand extends $Command
   .classBuilder<

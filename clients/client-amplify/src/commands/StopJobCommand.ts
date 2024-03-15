@@ -27,7 +27,6 @@ export interface StopJobCommandInput extends StopJobRequest {}
 export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Stops a job that is in progress for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class StopJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface MoveByoipCidrToIpamCommandInput extends MoveByoipCidrToIpamRequ
 export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.</p>
  *          <p>If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
  * @example
@@ -73,6 +72,7 @@ export interface MoveByoipCidrToIpamCommandOutput extends MoveByoipCidrToIpamRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class MoveByoipCidrToIpamCommand extends $Command
   .classBuilder<

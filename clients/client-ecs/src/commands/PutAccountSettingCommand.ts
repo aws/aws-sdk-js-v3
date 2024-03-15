@@ -27,7 +27,6 @@ export interface PutAccountSettingCommandInput extends PutAccountSettingRequest 
 export interface PutAccountSettingCommandOutput extends PutAccountSettingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>
  *          <p>If you change the root user account setting, the default settings are reset for users and
  * 			roles that do not have specified individual account settings. For more information, see
@@ -78,6 +77,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To modify your account settings
  * ```javascript
  * // This example modifies your account settings to opt in to the new ARN and resource ID format for Amazon ECS services. If you’re using this command as the root user, then changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.

@@ -32,7 +32,6 @@ export interface DescribeLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns complete information about the current logging configuration of the
  *             workspace.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DescribeLoggingConfigurationCommandOutput
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DescribeLoggingConfigurationCommand extends $Command
   .classBuilder<

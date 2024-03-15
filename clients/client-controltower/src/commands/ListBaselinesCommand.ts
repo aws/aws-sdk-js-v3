@@ -27,7 +27,6 @@ export interface ListBaselinesCommandInput extends ListBaselinesInput {}
 export interface ListBaselinesCommandOutput extends ListBaselinesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a summary list of all available baselines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListBaselinesCommandOutput extends ListBaselinesOutput, __Metad
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class ListBaselinesCommand extends $Command
   .classBuilder<

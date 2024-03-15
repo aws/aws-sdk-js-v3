@@ -50,8 +50,8 @@ export interface Forecastquery {
 }
 
 /**
- * @public
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
+ * @public
  */
 export class Forecastquery extends ForecastqueryClient implements Forecastquery {}
 createAggregatedClient(commands, Forecastquery);

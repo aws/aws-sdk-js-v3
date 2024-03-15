@@ -27,7 +27,6 @@ export interface CreateInstanceProfileCommandInput extends CreateInstanceProfile
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a profile that can be applied to one or more private fleet device
  *             instances.</p>
  * @example
@@ -83,6 +82,7 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class CreateInstanceProfileCommand extends $Command
   .classBuilder<

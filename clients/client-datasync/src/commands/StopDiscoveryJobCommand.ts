@@ -27,7 +27,6 @@ export interface StopDiscoveryJobCommandInput extends StopDiscoveryJobRequest {}
 export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a running DataSync discovery job.</p>
  *          <p>You can stop a discovery job anytime. A job that's stopped before it's scheduled to end
  *       likely will provide you some information about your on-premises storage system resources. To
@@ -63,6 +62,7 @@ export interface StopDiscoveryJobCommandOutput extends StopDiscoveryJobResponse,
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class StopDiscoveryJobCommand extends $Command
   .classBuilder<

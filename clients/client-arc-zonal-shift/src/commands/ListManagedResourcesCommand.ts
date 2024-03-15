@@ -27,7 +27,6 @@ export interface ListManagedResourcesCommandInput extends ListManagedResourcesRe
 export interface ListManagedResourcesCommandOutput extends ListManagedResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the resources in your Amazon Web Services account in this Amazon Web Services Region that are managed for
  *    		zonal shifts in Amazon Route 53 Application Recovery Controller, and information about them. The information includes the zonal autoshift status for the resource,
  *    		as well as the Amazon Resource Name (ARN), the Availability Zones that each resource is deployed in, and
@@ -104,6 +103,7 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class ListManagedResourcesCommand extends $Command
   .classBuilder<

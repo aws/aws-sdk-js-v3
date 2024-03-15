@@ -27,7 +27,6 @@ export interface ListServicesByNamespaceCommandInput extends ListServicesByNames
 export interface ListServicesByNamespaceCommandOutput extends ListServicesByNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists all of the services that are associated with a Cloud Map
  * 			namespace. This list might include services in different clusters. In contrast,
  * 				<code>ListServices</code> can only list services in one cluster at a time. If you
@@ -79,6 +78,7 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class ListServicesByNamespaceCommand extends $Command
   .classBuilder<

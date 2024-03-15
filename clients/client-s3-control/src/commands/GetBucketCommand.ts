@@ -28,7 +28,6 @@ export interface GetBucketCommandInput extends GetBucketRequest {}
 export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html"> Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -89,6 +88,7 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetBucketCommand extends $Command
   .classBuilder<

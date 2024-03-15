@@ -27,7 +27,6 @@ export interface UpdateKxUserCommandInput extends UpdateKxUserRequest {}
 export interface UpdateKxUserCommandOutput extends UpdateKxUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the user details. You can only update the IAM role associated with a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateKxUserCommandOutput extends UpdateKxUserResponse, __Metad
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxUserCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteCodeSigningConfigCommandInput extends DeleteCodeSigningCo
 export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is
  *       using it. </p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteCodeSigningConfigCommand extends $Command
   .classBuilder<

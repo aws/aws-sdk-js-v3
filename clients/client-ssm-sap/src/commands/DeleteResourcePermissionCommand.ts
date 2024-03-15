@@ -27,7 +27,6 @@ export interface DeleteResourcePermissionCommandInput extends DeleteResourcePerm
 export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePermissionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes permissions associated with the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteResourcePermissionCommandOutput extends DeleteResourcePer
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class DeleteResourcePermissionCommand extends $Command
   .classBuilder<

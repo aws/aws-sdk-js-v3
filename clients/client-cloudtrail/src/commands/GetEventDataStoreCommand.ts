@@ -27,7 +27,6 @@ export interface GetEventDataStoreCommandInput extends GetEventDataStoreRequest 
 export interface GetEventDataStoreCommandOutput extends GetEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an event data store specified as either an ARN or the ID
  *          portion of the ARN.</p>
  * @example
@@ -114,6 +113,7 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetEventDataStoreCommand extends $Command
   .classBuilder<

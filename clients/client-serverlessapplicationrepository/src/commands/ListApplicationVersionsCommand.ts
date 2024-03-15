@@ -31,7 +31,6 @@ export interface ListApplicationVersionsCommandInput extends ListApplicationVers
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists versions for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class ListApplicationVersionsCommand extends $Command
   .classBuilder<

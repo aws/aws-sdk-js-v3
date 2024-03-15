@@ -31,7 +31,6 @@ export interface UpdateAnalysisTemplateCommandInput extends UpdateAnalysisTempla
 export interface UpdateAnalysisTemplateCommandOutput extends UpdateAnalysisTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the analysis template metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface UpdateAnalysisTemplateCommandOutput extends UpdateAnalysisTempl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class UpdateAnalysisTemplateCommand extends $Command
   .classBuilder<

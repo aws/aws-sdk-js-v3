@@ -27,7 +27,6 @@ export interface StartInstanceCommandInput extends StartInstanceRequest {}
 export interface StartInstanceCommandOutput extends StartInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
  *       use the <code>reboot instance</code> operation.</p>
  *          <note>
@@ -112,6 +111,7 @@ export interface StartInstanceCommandOutput extends StartInstanceResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class StartInstanceCommand extends $Command
   .classBuilder<

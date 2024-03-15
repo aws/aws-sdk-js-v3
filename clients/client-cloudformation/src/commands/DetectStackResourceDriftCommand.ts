@@ -27,7 +27,6 @@ export interface DetectStackResourceDriftCommandInput extends DetectStackResourc
 export interface DetectStackResourceDriftCommandOutput extends DetectStackResourceDriftOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about whether a resource's actual configuration differs, or has
  *    <i>drifted</i>, from its expected configuration, as defined in the stack template and any values
  *    specified as template parameters. This information includes actual and expected property values for resources in
@@ -92,6 +91,7 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DetectStackResourceDriftCommand extends $Command
   .classBuilder<

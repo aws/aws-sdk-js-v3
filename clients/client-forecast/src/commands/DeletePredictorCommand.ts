@@ -27,7 +27,6 @@ export interface DeletePredictorCommandInput extends DeletePredictorRequest {}
 export interface DeletePredictorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a predictor created using the <a>DescribePredictor</a> or <a>CreatePredictor</a> operations. You can delete only predictor that have a status of
  *         <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribePredictor</a> operation.</p>
  * @example
@@ -65,6 +64,7 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeletePredictorCommand extends $Command
   .classBuilder<

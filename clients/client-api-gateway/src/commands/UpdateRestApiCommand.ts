@@ -27,7 +27,6 @@ export interface UpdateRestApiCommandInput extends UpdateRestApiRequest {}
 export interface UpdateRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes information about the specified API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface UpdateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateRestApiCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a project, which is the logical object in Evidently that can contain features, launches, and
  *       experiments. Use projects to group similar features together.</p>
  *          <p>To update an existing project, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UpdateProject.html">UpdateProject</a>.</p>
@@ -115,6 +114,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

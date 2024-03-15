@@ -31,7 +31,6 @@ export interface CreatePricingPlanCommandInput extends CreatePricingPlanInput {}
 export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a pricing plan that is used for computing Amazon Web Services charges for billing groups.
  *     </p>
  * @example
@@ -95,6 +94,7 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class CreatePricingPlanCommand extends $Command
   .classBuilder<

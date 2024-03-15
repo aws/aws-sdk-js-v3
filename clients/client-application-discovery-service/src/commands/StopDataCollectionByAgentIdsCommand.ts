@@ -36,7 +36,6 @@ export interface StopDataCollectionByAgentIdsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Instructs the specified agents to stop collecting data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class StopDataCollectionByAgentIdsCommand extends $Command
   .classBuilder<

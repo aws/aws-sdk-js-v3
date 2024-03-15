@@ -27,7 +27,6 @@ export interface CreateRobotApplicationCommandInput extends CreateRobotApplicati
 export interface CreateRobotApplicationCommandOutput extends CreateRobotApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a robot application. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface CreateRobotApplicationCommandOutput extends CreateRobotApplicat
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class CreateRobotApplicationCommand extends $Command
   .classBuilder<

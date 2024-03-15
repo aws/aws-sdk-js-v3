@@ -27,7 +27,6 @@ export interface CancelCertificateTransferCommandInput extends CancelCertificate
 export interface CancelCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a pending transfer for the specified certificate.</p>
  *          <p>
  *             <b>Note</b> Only the transfer source account can use this
@@ -83,6 +82,7 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CancelCertificateTransferCommand extends $Command
   .classBuilder<

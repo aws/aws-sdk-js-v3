@@ -27,7 +27,6 @@ export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyInpu
 export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and
  *             Amazon GameLift removes all record of it. To delete a scaling policy, specify both the scaling
  *             policy name and the fleet ID it is associated with.</p>
@@ -72,6 +71,7 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteScalingPolicyCommand extends $Command
   .classBuilder<

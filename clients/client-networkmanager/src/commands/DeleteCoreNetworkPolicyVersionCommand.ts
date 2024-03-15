@@ -32,7 +32,6 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a policy version from a core network. You can't delete the current LIVE policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteCoreNetworkPolicyVersionCommand extends $Command
   .classBuilder<

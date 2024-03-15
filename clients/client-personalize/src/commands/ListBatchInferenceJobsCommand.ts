@@ -27,7 +27,6 @@ export interface ListBatchInferenceJobsCommandInput extends ListBatchInferenceJo
 export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the batch inference jobs that have been performed off of a solution
  *       version.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListBatchInferenceJobsCommand extends $Command
   .classBuilder<

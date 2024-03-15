@@ -36,7 +36,6 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>
  *         <p>This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>,
  *             except that the lifetime of the special Elastic Load Balancing cookie, <code>AWSELB</code>,
@@ -84,6 +83,7 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To generate a stickiness policy for your load balancer
  * ```javascript
  * // This example generates a stickiness policy that follows the sticky session lifetimes of the application-generated cookie.

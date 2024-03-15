@@ -27,7 +27,6 @@ export interface UpdateSpaceCommandInput extends UpdateSpaceInput {}
 export interface UpdateSpaceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing AWS re:Post Private private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateSpaceCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class UpdateSpaceCommand extends $Command
   .classBuilder<

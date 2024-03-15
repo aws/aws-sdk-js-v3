@@ -36,7 +36,6 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a wireless gateway from its currently associated certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DisassociateWirelessGatewayFromCertificateCommand extends $Command
   .classBuilder<

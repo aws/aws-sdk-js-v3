@@ -27,7 +27,6 @@ export interface CreateBatchImportJobCommandInput extends CreateBatchImportJobRe
 export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a batch import job. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class CreateBatchImportJobCommand extends $Command
   .classBuilder<

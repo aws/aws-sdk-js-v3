@@ -27,7 +27,6 @@ export interface ModifyVpcEndpointCommandInput extends ModifyVpcEndpointRequest 
 export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify
  *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information,
  *             see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
@@ -92,6 +91,7 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVpcEndpointCommand extends $Command
   .classBuilder<

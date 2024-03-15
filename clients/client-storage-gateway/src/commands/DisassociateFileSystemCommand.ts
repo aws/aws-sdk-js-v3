@@ -27,7 +27,6 @@ export interface DisassociateFileSystemCommandInput extends DisassociateFileSyst
 export interface DisassociateFileSystemCommandOutput extends DisassociateFileSystemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an Amazon FSx file system from the specified gateway. After the
  *          disassociation process finishes, the gateway can no longer access the Amazon FSx
  *          file system. This operation is only supported in the FSx File Gateway type.</p>
@@ -66,6 +65,7 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DisassociateFileSystemCommand extends $Command
   .classBuilder<

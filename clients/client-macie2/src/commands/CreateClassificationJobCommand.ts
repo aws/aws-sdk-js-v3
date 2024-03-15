@@ -27,7 +27,6 @@ export interface CreateClassificationJobCommandInput extends CreateClassificatio
 export interface CreateClassificationJobCommandOutput extends CreateClassificationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and defines the settings for a classification job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -204,6 +203,7 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class CreateClassificationJobCommand extends $Command
   .classBuilder<

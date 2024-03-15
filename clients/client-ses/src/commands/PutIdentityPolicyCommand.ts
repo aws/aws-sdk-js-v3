@@ -27,7 +27,6 @@ export interface PutIdentityPolicyCommandInput extends PutIdentityPolicyRequest 
 export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates a sending authorization policy for the specified identity (an email
  *             address or a domain).</p>
  *          <note>
@@ -69,6 +68,7 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example PutIdentityPolicy
  * ```javascript
  * // The following example adds a sending authorization policy to an identity:

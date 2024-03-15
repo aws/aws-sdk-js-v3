@@ -32,7 +32,6 @@ export interface SearchGroupProfilesCommandInput extends SearchGroupProfilesInpu
 export interface SearchGroupProfilesCommandOutput extends SearchGroupProfilesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches group profiles in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface SearchGroupProfilesCommandOutput extends SearchGroupProfilesOut
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class SearchGroupProfilesCommand extends $Command
   .classBuilder<

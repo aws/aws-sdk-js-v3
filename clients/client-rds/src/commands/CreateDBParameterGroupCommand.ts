@@ -27,7 +27,6 @@ export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGro
 export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB parameter group.</p>
  *          <p>A DB parameter group is initially created with the default parameters for the
  *             database engine used by the DB instance. To provide custom values for any of the
@@ -94,6 +93,7 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a DB parameter group
  * ```javascript
  * // The following example creates a DB parameter group.

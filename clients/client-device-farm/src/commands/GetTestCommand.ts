@@ -27,7 +27,6 @@ export interface GetTestCommandInput extends GetTestRequest {}
 export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a specific test
  * ```javascript
  * // The following example gets information about a specific test.

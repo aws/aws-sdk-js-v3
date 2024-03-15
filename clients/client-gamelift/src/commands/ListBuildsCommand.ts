@@ -27,7 +27,6 @@ export interface ListBuildsCommandInput extends ListBuildsInput {}
 export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves build resources for all builds associated with the Amazon Web Services account in use. You
  *             can limit results to builds that are in a specific status by using the
  *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
@@ -97,6 +96,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ListBuildsCommand extends $Command
   .classBuilder<

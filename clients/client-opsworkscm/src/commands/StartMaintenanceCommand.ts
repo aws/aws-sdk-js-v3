@@ -32,7 +32,6 @@ export interface StartMaintenanceCommandInput extends StartMaintenanceRequest {}
 export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Manually starts server maintenance. This command can be useful if an earlier maintenance attempt failed, and the underlying
  *       cause of maintenance failure has been resolved. The server is in an <code>UNDER_MAINTENANCE</code> state while maintenance is in progress.
@@ -119,6 +118,7 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class StartMaintenanceCommand extends $Command
   .classBuilder<

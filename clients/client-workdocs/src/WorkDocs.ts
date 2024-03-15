@@ -890,7 +890,6 @@ export interface WorkDocs {
 }
 
 /**
- * @public
  * <p>The Amazon WorkDocs API is designed for the following use cases:</p>
  *          <ul>
  *             <li>
@@ -950,6 +949,7 @@ export interface WorkDocs {
  *             </ul>
  *             <p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
  *          </note>
+ * @public
  */
 export class WorkDocs extends WorkDocsClient implements WorkDocs {}
 createAggregatedClient(commands, WorkDocs);

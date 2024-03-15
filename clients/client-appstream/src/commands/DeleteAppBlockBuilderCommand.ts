@@ -27,7 +27,6 @@ export interface DeleteAppBlockBuilderCommandInput extends DeleteAppBlockBuilder
 export interface DeleteAppBlockBuilderCommandOutput extends DeleteAppBlockBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an app block builder.</p>
  *          <p>An app block builder can only be deleted when it has no association with an app
  *             block.</p>
@@ -67,6 +66,7 @@ export interface DeleteAppBlockBuilderCommandOutput extends DeleteAppBlockBuilde
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteAppBlockBuilderCommand extends $Command
   .classBuilder<

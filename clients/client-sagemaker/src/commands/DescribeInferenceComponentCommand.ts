@@ -27,7 +27,6 @@ export interface DescribeInferenceComponentCommandInput extends DescribeInferenc
 export interface DescribeInferenceComponentCommandOutput extends DescribeInferenceComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an inference component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeInferenceComponentCommand extends $Command
   .classBuilder<

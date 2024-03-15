@@ -36,7 +36,6 @@ export interface DescribeMetadataModelAssessmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of metadata model assessments for your account in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeMetadataModelAssessmentsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe Metadata Model Assessments
  * ```javascript
  * // Returns a paginated list of metadata model assessments for your account in the current region.

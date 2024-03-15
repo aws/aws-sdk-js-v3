@@ -28,7 +28,6 @@ export interface DescribeContactEvaluationCommandInput extends DescribeContactEv
 export interface DescribeContactEvaluationCommandOutput extends DescribeContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a contact evaluation in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -246,6 +245,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeContactEvaluationCommand extends $Command
   .classBuilder<

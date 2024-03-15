@@ -27,7 +27,6 @@ export interface UpdateActionTargetCommandInput extends UpdateActionTargetReques
 export interface UpdateActionTargetCommandOutput extends UpdateActionTargetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name and description of a custom action target in Security Hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update the name and description of a custom action target
  * ```javascript
  * // The following example updates the name and description of a custom action target in Security Hub. You can create custom actions to automatically respond to Security Hub findings using Amazon EventBridge.

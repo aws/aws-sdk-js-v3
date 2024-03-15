@@ -27,7 +27,6 @@ export interface StartQueryCommandInput extends StartQueryInput {}
 export interface StartQueryCommandOutput extends StartQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period
  * 			for the data that you want returned by using <code>StartTime</code> and <code>EndTime</code>. You filter the query
  * 			results to return by providing parameters that you specify with <code>FilterParameters</code>.</p>
@@ -87,6 +86,7 @@ export interface StartQueryCommandOutput extends StartQueryOutput, __MetadataBea
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class StartQueryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteBlueGreenDeploymentCommandInput extends DeleteBlueGreenDe
 export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a blue/green deployment.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
  *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
@@ -97,6 +96,7 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete resources in green environment for an RDS for MySQL DB instance
  * ```javascript
  * // The following example deletes the resources in a green environment for an RDS for MySQL DB instance.

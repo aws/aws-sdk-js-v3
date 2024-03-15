@@ -31,7 +31,6 @@ export interface UpdateRecoveryGroupCommandInput extends UpdateRecoveryGroupRequ
 export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateRecoveryGroupCommandOutput extends UpdateRecoveryGroupRes
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class UpdateRecoveryGroupCommand extends $Command
   .classBuilder<

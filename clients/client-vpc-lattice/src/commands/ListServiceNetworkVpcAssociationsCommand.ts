@@ -35,7 +35,6 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the service network and VPC associations. You can filter the list either by VPC or
  *    service network. You must provide either the service network identifier or the VPC
  *    identifier.</p>
@@ -95,6 +94,7 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class ListServiceNetworkVpcAssociationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteSiteCommandInput extends DeleteSiteRequest {}
 export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteSiteCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetOperationCommandInput extends GetOperationRequest {}
 export interface GetOperationCommandOutput extends GetOperationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific operation. Operations include events such as when you
  *       create an instance, allocate a static IP, attach a static IP, and so on.</p>
  * @example
@@ -102,6 +101,7 @@ export interface GetOperationCommandOutput extends GetOperationResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetOperationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
 export interface CreatePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
  * 			principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
  * 			renew ACM certificates that reside in the same Amazon Web Services account as the CA.</p>
@@ -105,6 +104,7 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class CreatePermissionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetPipelineCommandInput extends GetPipelineInput {}
 export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the metadata, structure, stages, and actions of a pipeline. Can be used to
  *             return the entire structure of a pipeline in JSON format, which can then be modified and
  *             used to update the pipeline structure with <a>UpdatePipeline</a>.</p>
@@ -204,6 +203,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class GetPipelineCommand extends $Command
   .classBuilder<

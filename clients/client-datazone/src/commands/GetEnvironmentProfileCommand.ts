@@ -31,7 +31,6 @@ export interface GetEnvironmentProfileCommandInput extends GetEnvironmentProfile
 export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an evinronment profile in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfil
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetEnvironmentProfileCommand extends $Command
   .classBuilder<

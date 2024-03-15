@@ -27,7 +27,6 @@ export interface ListDocumentsCommandInput extends ListDocumentsRequest {}
 export interface ListDocumentsCommandOutput extends ListDocumentsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all Systems Manager (SSM) documents in the current Amazon Web Services account and Amazon Web Services Region. You can
  *    limit the results of this request by using a filter.</p>
  * @example
@@ -113,6 +112,7 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListDocumentsCommand extends $Command
   .classBuilder<

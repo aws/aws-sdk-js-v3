@@ -27,7 +27,6 @@ export interface GetCertificateAuthorityCsrCommandInput extends GetCertificateAu
 export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateAuthorityCsrResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the certificate signing request (CSR) for your private certificate authority
  * 			(CA). The CSR is created when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. Sign the CSR with your Amazon Web Services Private CA-hosted
  * 			or on-premises root or subordinate CA. Then import the signed certificate back into
@@ -76,6 +75,7 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class GetCertificateAuthorityCsrCommand extends $Command
   .classBuilder<

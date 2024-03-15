@@ -1030,7 +1030,6 @@ export interface QBusiness {
 }
 
 /**
- * @public
  * <note>
  *             <p>Amazon Q is in preview release and is subject to change.</p>
  *          </note>
@@ -1114,6 +1113,7 @@ export interface QBusiness {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class QBusiness extends QBusinessClient implements QBusiness {}
 createAggregatedClient(commands, QBusiness);

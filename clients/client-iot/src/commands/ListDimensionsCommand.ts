@@ -27,7 +27,6 @@ export interface ListDimensionsCommandInput extends ListDimensionsRequest {}
 export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the set of dimensions that are defined for your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDimensions</a> action.</p>
  * @example
@@ -69,6 +68,7 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListDimensionsCommand extends $Command
   .classBuilder<

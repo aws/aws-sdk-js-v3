@@ -27,7 +27,6 @@ export interface ListSecurityConfigurationsCommandInput extends ListSecurityConf
 export interface ListSecurityConfigurationsCommandOutput extends ListSecurityConfigurationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the security configurations visible to this account, providing their creation
  *          dates and times, and their names. This call returns a maximum of 50 clusters per call, but
  *          returns a marker to track the paging of the cluster list across multiple
@@ -71,6 +70,7 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListSecurityConfigurationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeSlotTypeCommandInput extends DescribeSlotTypeRequest {}
 export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets metadata information about a slot type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeSlotTypeCommand extends $Command
   .classBuilder<

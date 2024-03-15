@@ -31,7 +31,6 @@ export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
 export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of change sets owned by the account being used to make the call. You
  *             can filter this list by providing any combination of <code>entityId</code>,
  *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
@@ -108,6 +107,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class ListChangeSetsCommand extends $Command
   .classBuilder<

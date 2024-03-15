@@ -27,7 +27,6 @@ export interface CreateArtifactCommandInput extends CreateArtifactRequest {}
 export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that
  *         represents a URI addressable object or data. Some examples are the S3 URI of a dataset and
  *         the ECR registry path of an image. For more information, see
@@ -88,6 +87,7 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateArtifactCommand extends $Command
   .classBuilder<

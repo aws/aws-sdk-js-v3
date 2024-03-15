@@ -27,7 +27,6 @@ export interface DescribeWorkspacesCommandInput extends DescribeWorkspacesReques
 export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified WorkSpaces.</p>
  *          <p>You can filter the results by using the bundle identifier, directory identifier, or
  *          owner, but you can specify only one filter at a time.</p>
@@ -125,6 +124,7 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeWorkspacesCommand extends $Command
   .classBuilder<

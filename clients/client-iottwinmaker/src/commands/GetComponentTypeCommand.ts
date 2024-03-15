@@ -27,7 +27,6 @@ export interface GetComponentTypeCommandInput extends GetComponentTypeRequest {}
 export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -190,6 +189,7 @@ export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse,
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetComponentTypeCommand extends $Command
   .classBuilder<

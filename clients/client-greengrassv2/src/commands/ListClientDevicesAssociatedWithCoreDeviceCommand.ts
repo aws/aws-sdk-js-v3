@@ -36,7 +36,6 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of client devices that are associated with a core
  *       device.</p>
  * @example
@@ -90,6 +89,7 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListMultiplexProgramsCommandInput extends ListMultiplexPrograms
 export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgramsResponse, __MetadataBearer {}
 
 /**
- * @public
  * List the programs that currently exist for a specific multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ListMultiplexProgramsCommand extends $Command
   .classBuilder<

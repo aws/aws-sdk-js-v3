@@ -32,7 +32,6 @@ export interface UpdateDataSourcePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the permissions to a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateDataSourcePermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDataSourcePermissionsCommand extends $Command
   .classBuilder<

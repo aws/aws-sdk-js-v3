@@ -25,7 +25,6 @@ export interface XmlListsCommandInput extends XmlListsRequest {}
 export interface XmlListsCommandOutput extends XmlListsResponse, __MetadataBearer {}
 
 /**
- * @public
  * This test case serializes XML lists for the following cases for both
  * input and output:
  *
@@ -168,6 +167,7 @@ export interface XmlListsCommandOutput extends XmlListsResponse, __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlListsCommand extends $Command
   .classBuilder<

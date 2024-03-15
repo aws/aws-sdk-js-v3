@@ -27,7 +27,6 @@ export interface GetRunCommandInput extends GetRunRequest {}
 export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a workflow run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetRunCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeAnalysisDefinitionCommandInput extends DescribeAnalysis
 export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysisDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a detailed description of the definition of an analysis.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of an Analysis, for instance if you
@@ -4668,6 +4667,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeAnalysisDefinitionCommand extends $Command
   .classBuilder<

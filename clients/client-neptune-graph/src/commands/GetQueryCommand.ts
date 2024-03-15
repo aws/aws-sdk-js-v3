@@ -27,7 +27,6 @@ export interface GetQueryCommandInput extends GetQueryInput {}
 export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status of a specified query.</p>
  *          <note>
  *             <p>
@@ -81,6 +80,7 @@ export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer 
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class GetQueryCommand extends $Command
   .classBuilder<

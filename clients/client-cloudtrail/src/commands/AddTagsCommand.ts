@@ -27,7 +27,6 @@ export interface AddTagsCommandInput extends AddTagsRequest {}
 export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to a trail, event data store, or channel, up to a limit of 50. Overwrites an
  *          existing tag's value when a new value is specified for an existing tag key. Tag key names
  *          must be unique; you cannot have two keys with the same name but different
@@ -151,6 +150,7 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<

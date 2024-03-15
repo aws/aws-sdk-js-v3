@@ -27,7 +27,6 @@ export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified cluster. The cluster transitions to the <code>INACTIVE</code>
  * 			state. Clusters with an <code>INACTIVE</code> status might remain discoverable in your
  * 			account for a period of time. However, this behavior is subject to change in the future.
@@ -161,6 +160,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To delete an empty cluster
  * ```javascript
  * // This example deletes an empty cluster in your default region.

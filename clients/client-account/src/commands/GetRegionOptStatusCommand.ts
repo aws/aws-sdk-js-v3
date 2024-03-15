@@ -27,7 +27,6 @@ export interface GetRegionOptStatusCommandInput extends GetRegionOptStatusReques
 export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the opt-in status of a particular Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * @public
  */
 export class GetRegionOptStatusCommand extends $Command
   .classBuilder<

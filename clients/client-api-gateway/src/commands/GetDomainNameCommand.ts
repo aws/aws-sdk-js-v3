@@ -27,7 +27,6 @@ export interface GetDomainNameCommandInput extends GetDomainNameRequest {}
 export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer {}
 
 /**
- * @public
  * <p>Represents a domain name that is contained in a simpler, more intuitive URL that can be called.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetDomainNameCommand extends $Command
   .classBuilder<

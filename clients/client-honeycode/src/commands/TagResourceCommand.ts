@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The TagResource API allows you to add tags to an ARN-able resource. Resource includes workbook, table,
  *             screen and screen-automation.
@@ -85,6 +84,7 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

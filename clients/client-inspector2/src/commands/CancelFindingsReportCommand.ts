@@ -27,7 +27,6 @@ export interface CancelFindingsReportCommandInput extends CancelFindingsReportRe
 export interface CancelFindingsReportCommandOutput extends CancelFindingsReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the given findings report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface CancelFindingsReportCommandOutput extends CancelFindingsReportR
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class CancelFindingsReportCommand extends $Command
   .classBuilder<

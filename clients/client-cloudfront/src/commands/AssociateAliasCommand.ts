@@ -27,7 +27,6 @@ export interface AssociateAliasCommandInput extends AssociateAliasRequest {}
 export interface AssociateAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an alias (also known as a CNAME or an alternate domain name) with a CloudFront
  * 			distribution.</p>
  *          <p>With this operation you can move an alias that's already in use on a CloudFront distribution
@@ -79,6 +78,7 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class AssociateAliasCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest 
 export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a user profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -222,6 +221,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateUserProfileCommand extends $Command
   .classBuilder<

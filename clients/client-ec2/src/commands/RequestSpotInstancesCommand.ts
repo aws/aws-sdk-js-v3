@@ -32,7 +32,6 @@ export interface RequestSpotInstancesCommandInput extends RequestSpotInstancesRe
 export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Spot Instance request.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in
  *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
@@ -327,6 +326,7 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a one-time Spot Instance request
  * ```javascript
  * // This example creates a one-time Spot Instance request for five instances in the specified Availability Zone. If your account supports EC2-VPC only, Amazon EC2 launches the instances in the default subnet of the specified Availability Zone.

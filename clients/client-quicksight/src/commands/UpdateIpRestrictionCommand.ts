@@ -27,7 +27,6 @@ export interface UpdateIpRestrictionCommandInput extends UpdateIpRestrictionRequ
 export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the content and status of IP rules. To use this operation, you
  * 			must
  * 			provide the entire map of rules. You can use the <code>DescribeIpRestriction</code>
@@ -85,6 +84,7 @@ export interface UpdateIpRestrictionCommandOutput extends UpdateIpRestrictionRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateIpRestrictionCommand extends $Command
   .classBuilder<

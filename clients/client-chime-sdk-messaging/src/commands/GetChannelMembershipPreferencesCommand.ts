@@ -40,7 +40,6 @@ export interface GetChannelMembershipPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
  *          for the specified channel. A user or a bot must be a member of the channel and own the membership in order to retrieve membership preferences.
  *          Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't
@@ -107,6 +106,7 @@ export interface GetChannelMembershipPreferencesCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class GetChannelMembershipPreferencesCommand extends $Command
   .classBuilder<

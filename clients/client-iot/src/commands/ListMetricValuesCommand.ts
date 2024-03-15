@@ -27,7 +27,6 @@ export interface ListMetricValuesCommandInput extends ListMetricValuesRequest {}
 export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the values reported for an IoT Device Defender metric (device-side metric, cloud-side metric, or custom metric)
  *       by the given thing during the specified time period.</p>
  * @example
@@ -96,6 +95,7 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListMetricValuesCommand extends $Command
   .classBuilder<

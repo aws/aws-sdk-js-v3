@@ -31,7 +31,6 @@ export interface ListSupportedResourceTypesCommandInput extends ListSupportedRes
 export interface ListSupportedResourceTypesCommandOutput extends ListSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all resource types currently supported by Amazon Web Services Resource Explorer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListSupportedResourceTypesCommandOutput extends ListSupportedRe
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class ListSupportedResourceTypesCommand extends $Command
   .classBuilder<

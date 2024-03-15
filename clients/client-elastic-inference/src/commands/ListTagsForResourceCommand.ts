@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Returns all tags of an Elastic Inference Accelerator.
  *         </p>
@@ -79,6 +78,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ElasticInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

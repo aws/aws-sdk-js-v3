@@ -27,7 +27,6 @@ export interface SendOTPMessageCommandInput extends SendOTPMessageRequest {}
 export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Send an OTP message</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class SendOTPMessageCommand extends $Command
   .classBuilder<

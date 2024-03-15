@@ -27,7 +27,6 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to delete a domain. If you onboarded with IAM mode, you will need to delete your
  *       domain to onboard again using IAM Identity Center. Use with caution. All of the members of the
  *       domain will lose access to their EFS volume, including data, notebooks, and other artifacts.
@@ -65,6 +64,7 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteDomainCommand extends $Command
   .classBuilder<

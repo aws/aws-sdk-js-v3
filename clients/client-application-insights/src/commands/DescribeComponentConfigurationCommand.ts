@@ -36,7 +36,6 @@ export interface DescribeComponentConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the monitoring configuration of the component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeComponentConfigurationCommandOutput
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeComponentConfigurationCommand extends $Command
   .classBuilder<

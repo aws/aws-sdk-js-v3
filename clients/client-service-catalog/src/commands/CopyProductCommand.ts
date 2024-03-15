@@ -27,7 +27,6 @@ export interface CopyProductCommandInput extends CopyProductInput {}
 export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified source product to the specified target product or a new
  *          product.</p>
  *          <p>You can copy a product to the same account or another account. You can copy a product
@@ -79,6 +78,7 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CopyProductCommand extends $Command
   .classBuilder<

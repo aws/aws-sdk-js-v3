@@ -27,7 +27,6 @@ export interface DeleteCallAnalyticsJobCommandInput extends DeleteCallAnalyticsJ
 export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Call Analytics job. To use this operation, specify the name of the job you
  *             want to delete using <code>CallAnalyticsJobName</code>. Job names are case
  *             sensitive.</p>
@@ -69,6 +68,7 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DeleteCallAnalyticsJobCommand extends $Command
   .classBuilder<

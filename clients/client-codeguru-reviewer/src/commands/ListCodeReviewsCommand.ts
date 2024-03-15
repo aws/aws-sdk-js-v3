@@ -27,7 +27,6 @@ export interface ListCodeReviewsCommandInput extends ListCodeReviewsRequest {}
 export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the code reviews that the customer has created in the past 90 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class ListCodeReviewsCommand extends $Command
   .classBuilder<

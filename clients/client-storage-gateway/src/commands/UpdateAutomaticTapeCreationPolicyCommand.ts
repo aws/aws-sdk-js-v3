@@ -32,7 +32,6 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy
  *          with a new set of automatic tape creation rules. This is only supported for tape
  *          gateways.</p>
@@ -83,6 +82,7 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateAutomaticTapeCreationPolicyCommand extends $Command
   .classBuilder<

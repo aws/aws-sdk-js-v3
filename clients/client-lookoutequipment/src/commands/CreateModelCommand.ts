@@ -27,7 +27,6 @@ export interface CreateModelCommandInput extends CreateModelRequest {}
 export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a machine learning model for data inference. </p>
  *          <p>A machine-learning (ML) model is a mathematical model that finds patterns in your data.
  *          In Amazon Lookout for Equipment, the model learns the patterns of normal behavior and detects abnormal
@@ -125,6 +124,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class CreateModelCommand extends $Command
   .classBuilder<

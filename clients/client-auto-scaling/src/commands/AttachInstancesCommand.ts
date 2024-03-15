@@ -27,7 +27,6 @@ export interface AttachInstancesCommandInput extends AttachInstancesQuery {}
 export interface AttachInstancesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p>
  *          <p>When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the
  *             number of instances being attached. If the number of instances being attached plus the
@@ -72,6 +71,7 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To attach an instance to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified instance to the specified Auto Scaling group.

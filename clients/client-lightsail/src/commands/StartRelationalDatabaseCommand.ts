@@ -27,7 +27,6 @@ export interface StartRelationalDatabaseCommandInput extends StartRelationalData
 export interface StartRelationalDatabaseCommandOutput extends StartRelationalDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a database,
  *       use the <code>reboot relational database</code> operation.</p>
  *          <p>The <code>start relational database</code> operation supports tag-based access control via
@@ -107,6 +106,7 @@ export interface StartRelationalDatabaseCommandOutput extends StartRelationalDat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class StartRelationalDatabaseCommand extends $Command
   .classBuilder<

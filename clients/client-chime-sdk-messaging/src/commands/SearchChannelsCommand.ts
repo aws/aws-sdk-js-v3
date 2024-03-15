@@ -36,7 +36,6 @@ export interface SearchChannelsCommandInput extends SearchChannelsRequest {}
 export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search
  *          across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across
  *          all channels.</p>
@@ -108,6 +107,7 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class SearchChannelsCommand extends $Command
   .classBuilder<

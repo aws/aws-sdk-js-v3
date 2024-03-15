@@ -27,7 +27,6 @@ export interface ListSpeechSynthesisTasksCommandInput extends ListSpeechSynthesi
 export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthesisTasksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of SpeechSynthesisTask objects ordered by their
  *       creation date. This operation can filter the tasks by their status, for
  *       example, allowing users to list only tasks that are completed.</p>
@@ -89,6 +88,7 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  */
 export class ListSpeechSynthesisTasksCommand extends $Command
   .classBuilder<

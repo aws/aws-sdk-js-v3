@@ -27,7 +27,6 @@ export interface DeleteKnowledgeBaseCommandInput extends DeleteKnowledgeBaseRequ
 export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the knowledge base.</p>
  *          <note>
  *             <p>When you use this API to delete an external knowledge base such as Salesforce or
@@ -76,6 +75,7 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class DeleteKnowledgeBaseCommand extends $Command
   .classBuilder<

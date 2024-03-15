@@ -32,7 +32,6 @@ export interface ReplacePermissionAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates all resource shares that use a managed permission to a different managed
  *             permission. This operation always applies the default version of the target managed
  *             permission. You can optionally specify that the update applies to only resource shares that
@@ -116,6 +115,7 @@ export interface ReplacePermissionAssociationsCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ReplacePermissionAssociationsCommand extends $Command
   .classBuilder<

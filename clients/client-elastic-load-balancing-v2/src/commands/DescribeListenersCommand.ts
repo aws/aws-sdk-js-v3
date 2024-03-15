@@ -31,7 +31,6 @@ export interface DescribeListenersCommandInput extends DescribeListenersInput {}
 export interface DescribeListenersCommandOutput extends DescribeListenersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified listeners or the listeners for the specified Application Load
  *       Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
  *       balancer or one or more listeners.</p>
@@ -158,6 +157,7 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe a listener
  * ```javascript
  * // This example describes the specified listener.

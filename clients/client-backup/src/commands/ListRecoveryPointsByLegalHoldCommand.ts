@@ -32,7 +32,6 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This action returns recovery point ARNs (Amazon Resource Names) of the
  *          specified legal hold.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListRecoveryPointsByLegalHoldCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListRecoveryPointsByLegalHoldCommand extends $Command
   .classBuilder<

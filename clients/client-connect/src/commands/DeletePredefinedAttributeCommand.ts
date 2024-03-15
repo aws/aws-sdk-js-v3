@@ -27,7 +27,6 @@ export interface DeletePredefinedAttributeCommandInput extends DeletePredefinedA
 export interface DeletePredefinedAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a predefined attribute from the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeletePredefinedAttributeCommandOutput extends __MetadataBearer
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeletePredefinedAttributeCommand extends $Command
   .classBuilder<

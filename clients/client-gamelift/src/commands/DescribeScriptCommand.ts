@@ -27,7 +27,6 @@ export interface DescribeScriptCommandInput extends DescribeScriptInput {}
 export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves properties for a Realtime script. </p>
  *          <p>To request a script record, specify the script ID. If successful, an object containing
  *             the script properties is returned.</p>
@@ -96,6 +95,7 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeScriptCommand extends $Command
   .classBuilder<

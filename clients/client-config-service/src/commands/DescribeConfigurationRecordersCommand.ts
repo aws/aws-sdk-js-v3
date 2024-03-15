@@ -32,7 +32,6 @@ export interface DescribeConfigurationRecordersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details for the specified configuration recorders.
  * 			If the configuration recorder is not specified, this action returns
  * 			the details for all configuration recorders associated with the
@@ -104,6 +103,7 @@ export interface DescribeConfigurationRecordersCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationRecordersCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export type GetThingShadowCommandOutputType = Omit<GetThingShadowResponse, "payl
 export interface GetThingShadowCommandOutput extends GetThingShadowCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the shadow for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the
@@ -91,6 +90,7 @@ export interface GetThingShadowCommandOutput extends GetThingShadowCommandOutput
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * @public
  */
 export class GetThingShadowCommand extends $Command
   .classBuilder<

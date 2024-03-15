@@ -28,7 +28,6 @@ export interface OmitsNullSerializesEmptyStringCommandInput extends OmitsNullSer
 export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Omits null, but serializes empty string value.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +54,7 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class OmitsNullSerializesEmptyStringCommand extends $Command
   .classBuilder<

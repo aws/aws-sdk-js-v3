@@ -27,7 +27,6 @@ export interface DisassociateLensesCommandInput extends DisassociateLensesInput 
 export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociate a lens from a workload.</p>
  *          <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
  *          <note>
@@ -79,6 +78,7 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class DisassociateLensesCommand extends $Command
   .classBuilder<

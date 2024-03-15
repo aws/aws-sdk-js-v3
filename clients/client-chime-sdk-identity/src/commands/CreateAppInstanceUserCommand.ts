@@ -31,7 +31,6 @@ export interface CreateAppInstanceUserCommandInput extends CreateAppInstanceUser
 export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a
  *          unique <code>appInstanceUserId</code> and <code>Name</code> for that user.</p>
  * @example
@@ -99,6 +98,7 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class CreateAppInstanceUserCommand extends $Command
   .classBuilder<

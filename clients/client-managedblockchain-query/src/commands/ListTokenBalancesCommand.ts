@@ -31,7 +31,6 @@ export interface ListTokenBalancesCommandInput extends ListTokenBalancesInput {}
 export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action returns the following for a given blockchain network:</p>
  *          <ul>
  *             <li>
@@ -121,6 +120,7 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class ListTokenBalancesCommand extends $Command
   .classBuilder<

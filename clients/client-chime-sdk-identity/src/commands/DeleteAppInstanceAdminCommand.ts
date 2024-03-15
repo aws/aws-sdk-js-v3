@@ -27,7 +27,6 @@ export interface DeleteAppInstanceAdminCommandInput extends DeleteAppInstanceAdm
 export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code> or
  *          <code>AppInstanceBot</code>. This action
  *          does not delete the user.</p>
@@ -81,6 +80,7 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class DeleteAppInstanceAdminCommand extends $Command
   .classBuilder<

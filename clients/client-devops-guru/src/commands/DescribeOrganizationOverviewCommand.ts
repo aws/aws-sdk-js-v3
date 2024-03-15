@@ -32,7 +32,6 @@ export interface DescribeOrganizationOverviewCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an overview of your organization's history based on the specified time range.
  * 			The overview includes the total reactive and proactive insights.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeOrganizationOverviewCommandOutput
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationOverviewCommand extends $Command
   .classBuilder<

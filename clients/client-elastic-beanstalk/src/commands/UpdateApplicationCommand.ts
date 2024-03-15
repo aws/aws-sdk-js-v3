@@ -27,7 +27,6 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationMessage 
 export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified application to have the specified properties.</p>
  *          <note>
  *             <p>If a property (for example, <code>description</code>) is not provided, the value
@@ -87,6 +86,7 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To change an application's description
  * ```javascript
  * // The following operation updates the description of an application named my-app:

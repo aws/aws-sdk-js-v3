@@ -27,7 +27,6 @@ export interface GetSupportedResourceTypesCommandInput {}
 export interface GetSupportedResourceTypesCommandOutput extends GetSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the Amazon Web Services resource types supported by Backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetSupportedResourceTypesCommand extends $Command
   .classBuilder<

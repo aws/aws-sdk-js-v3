@@ -31,7 +31,6 @@ export interface DeleteRegistrationCommandInput extends DeleteRegistrationReques
 export interface DeleteRegistrationCommandOutput extends DeleteRegistrationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently delete an existing registration from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DeleteRegistrationCommandOutput extends DeleteRegistrationResul
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteRegistrationCommand extends $Command
   .classBuilder<

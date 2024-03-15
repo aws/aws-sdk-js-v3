@@ -27,7 +27,6 @@ export interface DeleteNotificationCommandInput extends DeleteNotificationReques
 export interface DeleteNotificationCommandOutput extends DeleteNotificationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a notification.</p>
  *          <important>
  *             <p>Deleting a notification also deletes the subscribers that are associated with the notification.</p>
@@ -80,6 +79,7 @@ export interface DeleteNotificationCommandOutput extends DeleteNotificationRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DeleteNotificationCommand extends $Command
   .classBuilder<

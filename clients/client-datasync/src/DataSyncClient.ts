@@ -513,7 +513,6 @@ export type DataSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface DataSyncClientResolvedConfig extends DataSyncClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>DataSync</fullname>
  *          <p>DataSync is an online data movement and discovery service that simplifies data migration
  *       and helps you quickly, easily, and securely transfer your file or object data to, from, and
@@ -523,6 +522,7 @@ export interface DataSyncClientResolvedConfig extends DataSyncClientResolvedConf
  *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
  *           Guide</a>
  *             </i>.</p>
+ * @public
  */
 export class DataSyncClient extends __Client<
   __HttpHandlerOptions,

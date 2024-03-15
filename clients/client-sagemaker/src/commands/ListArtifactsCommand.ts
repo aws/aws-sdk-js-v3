@@ -27,7 +27,6 @@ export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
 export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the artifacts in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListArtifactsCommand extends $Command
   .classBuilder<

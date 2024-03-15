@@ -27,7 +27,6 @@ export interface CreateEventStreamCommandInput extends CreateEventStreamRequest 
 export interface CreateEventStreamCommandOutput extends CreateEventStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an event stream, which is a subscription to real-time events, such as when profiles are created and
  *          updated through Amazon Connect Customer Profiles.</p>
  *          <p>Each event stream can be associated with only one Kinesis Data Stream destination in the same region and
@@ -81,6 +80,7 @@ export interface CreateEventStreamCommandOutput extends CreateEventStreamRespons
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class CreateEventStreamCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDomainStatisticsReportCommandInput extends GetDomainStatisti
 export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatisticsReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
  *             email.</p>
  * @example
@@ -104,6 +103,7 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetDomainStatisticsReportCommand extends $Command
   .classBuilder<

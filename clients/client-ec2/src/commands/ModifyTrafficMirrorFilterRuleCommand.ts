@@ -29,7 +29,6 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified Traffic Mirror rule.</p>
  *          <p>
  *             <code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4
@@ -97,6 +96,7 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyTrafficMirrorFilterRuleCommand extends $Command
   .classBuilder<

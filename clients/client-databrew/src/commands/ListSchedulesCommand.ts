@@ -27,7 +27,6 @@ export interface ListSchedulesCommandInput extends ListSchedulesRequest {}
 export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the DataBrew schedules that are defined.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class ListSchedulesCommand extends $Command
   .classBuilder<

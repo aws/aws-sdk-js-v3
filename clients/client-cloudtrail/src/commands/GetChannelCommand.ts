@@ -27,7 +27,6 @@ export interface GetChannelCommandInput extends GetChannelRequest {}
 export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns information about a specific channel.
  *       </p>
  * @example
@@ -113,6 +112,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetChannelCommand extends $Command
   .classBuilder<

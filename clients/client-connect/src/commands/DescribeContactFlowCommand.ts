@@ -27,7 +27,6 @@ export interface DescribeContactFlowCommandInput extends DescribeContactFlowRequ
 export interface DescribeContactFlowCommandOutput extends DescribeContactFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -87,6 +86,7 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeContactFlowCommand extends $Command
   .classBuilder<

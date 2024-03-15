@@ -27,9 +27,6 @@ export interface StopMeetingTranscriptionCommandInput extends StopMeetingTranscr
 export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTranscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace
- *
  * <p>Stops transcription for the specified <code>meetingId</code>.</p>
  *          <important>
  *             <p>
@@ -86,6 +83,8 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace
  */
 export class StopMeetingTranscriptionCommand extends $Command
   .classBuilder<

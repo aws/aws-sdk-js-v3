@@ -27,7 +27,6 @@ export interface UpdateProvisionedProductCommandInput extends UpdateProvisionedP
 export interface UpdateProvisionedProductCommandOutput extends UpdateProvisionedProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests updates to the configuration of the specified provisioned product.</p>
  *          <p>If there are tags associated with the object, they cannot be updated or added.
  *          Depending on the specific updates requested, this operation can update with no
@@ -125,6 +124,7 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class UpdateProvisionedProductCommand extends $Command
   .classBuilder<

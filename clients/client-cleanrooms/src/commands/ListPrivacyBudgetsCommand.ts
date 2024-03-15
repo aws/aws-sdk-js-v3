@@ -27,7 +27,6 @@ export interface ListPrivacyBudgetsCommandInput extends ListPrivacyBudgetsInput 
 export interface ListPrivacyBudgetsCommandOutput extends ListPrivacyBudgetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about the privacy budgets in a specified membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListPrivacyBudgetsCommandOutput extends ListPrivacyBudgetsOutpu
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListPrivacyBudgetsCommand extends $Command
   .classBuilder<

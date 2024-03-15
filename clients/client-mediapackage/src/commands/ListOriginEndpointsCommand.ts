@@ -27,7 +27,6 @@ export interface ListOriginEndpointsCommandInput extends ListOriginEndpointsRequ
 export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns a collection of OriginEndpoint records.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -245,6 +244,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class ListOriginEndpointsCommand extends $Command
   .classBuilder<

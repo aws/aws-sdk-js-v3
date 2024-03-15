@@ -27,7 +27,6 @@ export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest 
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports or reimports key material into an existing KMS key that was created without key
  *       material. <code>ImportKeyMaterial</code> also sets the expiration model and expiration date of
  *       the imported key material.</p>
@@ -221,6 +220,7 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To import key material into a KMS key
  * ```javascript
  * // The following example imports key material into the specified KMS key.

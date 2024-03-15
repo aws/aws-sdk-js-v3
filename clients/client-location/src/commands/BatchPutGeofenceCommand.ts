@@ -31,7 +31,6 @@ export interface BatchPutGeofenceCommandInput extends BatchPutGeofenceRequest {}
 export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A batch request for storing geofence geometries into a given geofence collection, or
  *             updates the geometry of an existing geofence if a geofence ID is included in the request.</p>
  * @example
@@ -114,6 +113,7 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class BatchPutGeofenceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateRoleMembershipCommandInput extends CreateRoleMembershipRe
 export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use <code>CreateRoleMembership</code> to add an existing Amazon QuickSight group to an existing role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface CreateRoleMembershipCommandOutput extends CreateRoleMembershipR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateRoleMembershipCommand extends $Command
   .classBuilder<

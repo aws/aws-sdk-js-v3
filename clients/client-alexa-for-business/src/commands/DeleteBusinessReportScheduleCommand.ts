@@ -32,9 +32,6 @@ export interface DeleteBusinessReportScheduleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Deletes the recurring report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example
@@ -67,6 +64,8 @@ export interface DeleteBusinessReportScheduleCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteBusinessReportScheduleCommand extends $Command
   .classBuilder<

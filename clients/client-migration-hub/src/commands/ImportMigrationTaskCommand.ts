@@ -27,7 +27,6 @@ export interface ImportMigrationTaskCommandInput extends ImportMigrationTaskRequ
 export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a new migration task which represents a server, database, etc., being migrated
  *          to AWS by a migration tool.</p>
  *          <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as
@@ -92,6 +91,7 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class ImportMigrationTaskCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateStageCommandInput extends UpdateStageRequest {}
 export interface UpdateStageCommandOutput extends UpdateStageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a stage’s configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class UpdateStageCommand extends $Command
   .classBuilder<

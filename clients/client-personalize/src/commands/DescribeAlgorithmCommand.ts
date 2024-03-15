@@ -27,7 +27,6 @@ export interface DescribeAlgorithmCommandInput extends DescribeAlgorithmRequest 
 export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the given algorithm.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeAlgorithmCommand extends $Command
   .classBuilder<

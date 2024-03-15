@@ -27,7 +27,6 @@ export interface SearchProductsCommandInput extends SearchProductsInput {}
 export interface SearchProductsCommandOutput extends SearchProductsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the products to which the caller has access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class SearchProductsCommand extends $Command
   .classBuilder<

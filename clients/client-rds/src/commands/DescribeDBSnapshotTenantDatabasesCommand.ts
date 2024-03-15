@@ -32,7 +32,6 @@ export interface DescribeDBSnapshotTenantDatabasesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the tenant databases that exist in a DB snapshot. This command only applies
  *             to RDS for Oracle DB instances in the multi-tenant configuration.</p>
  *          <p>You can use this command to inspect the tenant databases within a snapshot before
@@ -104,6 +103,7 @@ export interface DescribeDBSnapshotTenantDatabasesCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeDBSnapshotTenantDatabasesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListBuiltInSlotTypesCommandInput extends ListBuiltInSlotTypesRe
 export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of built-in slot types that meet the specified
  *          criteria.</p>
  * @example
@@ -84,6 +83,7 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBuiltInSlotTypesCommand extends $Command
   .classBuilder<

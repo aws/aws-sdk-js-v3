@@ -27,7 +27,6 @@ export interface RemoveFlowMediaStreamCommandInput extends RemoveFlowMediaStream
 export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * Removes a media stream from a flow. This action is only available if the media stream is not associated with a source or output.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface RemoveFlowMediaStreamCommandOutput extends RemoveFlowMediaStrea
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class RemoveFlowMediaStreamCommand extends $Command
   .classBuilder<

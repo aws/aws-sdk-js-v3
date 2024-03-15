@@ -27,7 +27,6 @@ export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Evidently experiment. The feature used for the experiment is not deleted.</p>
  *          <p>To stop an experiment without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopExperiment.html">StopExperiment</a>. </p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class DeleteExperimentCommand extends $Command
   .classBuilder<

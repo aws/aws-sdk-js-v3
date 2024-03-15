@@ -27,7 +27,6 @@ export interface DescribeManagedPrefixListsCommandInput extends DescribeManagedP
 export interface DescribeManagedPrefixListsCommandOutput extends DescribeManagedPrefixListsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
  *          <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
  * @example
@@ -88,6 +87,7 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeManagedPrefixListsCommand extends $Command
   .classBuilder<

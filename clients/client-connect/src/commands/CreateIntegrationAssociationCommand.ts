@@ -32,7 +32,6 @@ export interface CreateIntegrationAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services resource association with an Amazon Connect
  *    instance.</p>
  * @example
@@ -85,6 +84,7 @@ export interface CreateIntegrationAssociationCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateIntegrationAssociationCommand extends $Command
   .classBuilder<

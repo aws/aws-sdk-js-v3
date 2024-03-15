@@ -27,7 +27,6 @@ export interface ListAnomalyDetectorsCommandInput extends ListAnomalyDetectorsRe
 export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the detectors in the current AWS Region.</p>
  *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
  *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
@@ -87,6 +86,7 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class ListAnomalyDetectorsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListAssociationVersionsCommandInput extends ListAssociationVers
 export interface ListAssociationVersionsCommandOutput extends ListAssociationVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all versions of an association for a specific association ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListAssociationVersionsCommand extends $Command
   .classBuilder<

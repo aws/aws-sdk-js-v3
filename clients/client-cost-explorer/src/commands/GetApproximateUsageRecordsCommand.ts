@@ -27,7 +27,6 @@ export interface GetApproximateUsageRecordsCommandInput extends GetApproximateUs
 export interface GetApproximateUsageRecordsCommandOutput extends GetApproximateUsageRecordsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves estimated usage records for hourly granularity or resource-level data at daily
  *       granularity.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetApproximateUsageRecordsCommandOutput extends GetApproximateU
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetApproximateUsageRecordsCommand extends $Command
   .classBuilder<

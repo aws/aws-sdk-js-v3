@@ -27,7 +27,6 @@ export interface GetJobDetailsCommandInput extends GetJobDetailsInput {}
 export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a job. Used for custom actions only.</p>
  *          <important>
  *             <p>When this API is called, CodePipeline returns temporary credentials for
@@ -131,6 +130,7 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class GetJobDetailsCommand extends $Command
   .classBuilder<

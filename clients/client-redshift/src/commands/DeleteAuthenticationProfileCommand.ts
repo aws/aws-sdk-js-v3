@@ -27,7 +27,6 @@ export interface DeleteAuthenticationProfileCommandInput extends DeleteAuthentic
 export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenticationProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an authentication profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteAuthenticationProfileCommandOutput extends DeleteAuthenti
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteAuthenticationProfileCommand extends $Command
   .classBuilder<

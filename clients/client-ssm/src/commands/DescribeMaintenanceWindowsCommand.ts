@@ -31,7 +31,6 @@ export interface DescribeMaintenanceWindowsCommandInput extends DescribeMaintena
 export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMaintenanceWindowsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the maintenance windows in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeMaintenanceWindowsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAccessPointsCommandInput extends DescribeAccessPointsRe
 export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of a specific Amazon EFS access point if the
  *         <code>AccessPointId</code> is provided. If you provide an EFS
  *         <code>FileSystemId</code>, it returns descriptions of all access points for that file
@@ -110,6 +109,7 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DescribeAccessPointsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
 export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Evidently <i>experiment</i>. Before you create an experiment,
  *       you must create the feature to use for the experiment.</p>
  *          <p>An experiment helps you make feature design
@@ -163,6 +162,7 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class CreateExperimentCommand extends $Command
   .classBuilder<

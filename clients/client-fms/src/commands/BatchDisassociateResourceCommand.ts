@@ -27,7 +27,6 @@ export interface BatchDisassociateResourceCommandInput extends BatchDisassociate
 export interface BatchDisassociateResourceCommandOutput extends BatchDisassociateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates resources from a Firewall Manager resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface BatchDisassociateResourceCommandOutput extends BatchDisassociat
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class BatchDisassociateResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListServiceQuotasCommandInput extends ListServiceQuotasRequest 
 export interface ListServiceQuotasCommandOutput extends ListServiceQuotasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the applied quota values for the specified Amazon Web Service. For some quotas, only
  *             the default values are available. If the applied quota value is not available for a
  *             quota, the quota is not retrieved.</p>
@@ -115,6 +114,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class ListServiceQuotasCommand extends $Command
   .classBuilder<

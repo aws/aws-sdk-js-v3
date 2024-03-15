@@ -28,7 +28,6 @@ export interface RejectDataShareCommandInput extends RejectDataShareMessage {}
 export interface RejectDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * @public
  * <p>From a datashare consumer account, rejects the specified datashare.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class RejectDataShareCommand extends $Command
   .classBuilder<

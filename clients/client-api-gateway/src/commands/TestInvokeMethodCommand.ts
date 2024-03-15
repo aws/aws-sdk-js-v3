@@ -27,7 +27,6 @@ export interface TestInvokeMethodCommandInput extends TestInvokeMethodRequest {}
 export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Simulate the invocation of a Method in your RestApi with headers, parameters, and an incoming request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class TestInvokeMethodCommand extends $Command
   .classBuilder<

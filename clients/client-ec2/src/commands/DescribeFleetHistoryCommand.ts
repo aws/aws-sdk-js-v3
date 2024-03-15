@@ -27,7 +27,6 @@ export interface DescribeFleetHistoryCommandInput extends DescribeFleetHistoryRe
 export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the events for the specified EC2 Fleet during the specified time.</p>
  *          <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
  *          that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
@@ -79,6 +78,7 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeFleetHistoryCommand extends $Command
   .classBuilder<

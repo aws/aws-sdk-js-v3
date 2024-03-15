@@ -31,7 +31,6 @@ export interface DescribeReportDefinitionsCommandInput extends DescribeReportDef
 export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Web Services Cost and Usage Report available to this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * @public
  * @example To list the AWS Cost and Usage reports for the account.
  * ```javascript
  * // The following example lists the AWS Cost and Usage reports for the account.

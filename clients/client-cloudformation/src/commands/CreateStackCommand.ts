@@ -27,7 +27,6 @@ export interface CreateStackCommandInput extends CreateStackInput {}
 export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a stack as specified in the template. After the call completes successfully, the stack creation starts.
  *    You can check the status of the stack through the <a>DescribeStacks</a> operation.</p>
  * @example
@@ -113,6 +112,7 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class CreateStackCommand extends $Command
   .classBuilder<

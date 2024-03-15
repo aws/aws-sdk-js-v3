@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceMess
 export interface ListTagsForResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all tags on an Amazon RDS resource.</p>
  *          <p>For an overview on tagging an Amazon RDS resource,
  *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
@@ -102,6 +101,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To list tags on an Amazon RDS resource
  * ```javascript
  * // The following example lists all tags on a DB instance.

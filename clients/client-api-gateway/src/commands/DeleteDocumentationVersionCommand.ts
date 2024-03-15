@@ -27,7 +27,6 @@ export interface DeleteDocumentationVersionCommandInput extends DeleteDocumentat
 export interface DeleteDocumentationVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a documentation version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteDocumentationVersionCommandOutput extends __MetadataBeare
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class DeleteDocumentationVersionCommand extends $Command
   .classBuilder<

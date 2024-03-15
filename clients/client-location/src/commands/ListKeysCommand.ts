@@ -27,7 +27,6 @@ export interface ListKeysCommandInput extends ListKeysRequest {}
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists API key resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class ListKeysCommand extends $Command
   .classBuilder<

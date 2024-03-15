@@ -27,7 +27,6 @@ export interface ListSequenceStoresCommandInput extends ListSequenceStoresReques
 export interface ListSequenceStoresCommandOutput extends ListSequenceStoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of sequence stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListSequenceStoresCommand extends $Command
   .classBuilder<

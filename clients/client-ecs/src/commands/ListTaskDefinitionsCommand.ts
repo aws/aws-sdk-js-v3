@@ -27,7 +27,6 @@ export interface ListTaskDefinitionsCommandInput extends ListTaskDefinitionsRequ
 export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of task definitions that are registered to your account. You can filter
  * 			the results by family name with the <code>familyPrefix</code> parameter or by status
  * 			with the <code>status</code> parameter.</p>
@@ -76,6 +75,7 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To list your registered task definitions
  * ```javascript
  * // This example lists all of your registered task definitions.

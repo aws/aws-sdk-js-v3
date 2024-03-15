@@ -32,7 +32,6 @@ export interface QueryTableRowsCommandInput extends QueryTableRowsRequest {}
 export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The QueryTableRows API allows you to use a filter formula to query for specific rows in a table.
  *         </p>
@@ -115,6 +114,7 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class QueryTableRowsCommand extends $Command
   .classBuilder<

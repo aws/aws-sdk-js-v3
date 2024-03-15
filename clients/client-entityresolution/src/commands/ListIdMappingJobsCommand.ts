@@ -27,7 +27,6 @@ export interface ListIdMappingJobsCommandInput extends ListIdMappingJobsInput {}
 export interface ListIdMappingJobsCommandOutput extends ListIdMappingJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all ID mapping jobs for a given workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListIdMappingJobsCommandOutput extends ListIdMappingJobsOutput,
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class ListIdMappingJobsCommand extends $Command
   .classBuilder<

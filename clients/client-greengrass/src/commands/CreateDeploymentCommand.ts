@@ -27,7 +27,6 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateDeploymentCommand extends $Command
   .classBuilder<

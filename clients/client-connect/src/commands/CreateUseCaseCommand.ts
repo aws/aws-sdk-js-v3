@@ -27,7 +27,6 @@ export interface CreateUseCaseCommandInput extends CreateUseCaseRequest {}
 export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a use case for an integration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateUseCaseCommand extends $Command
   .classBuilder<

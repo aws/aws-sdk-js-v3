@@ -27,7 +27,6 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Fleet Hub for AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -69,6 +68,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link IoTFleetHubServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
+ * @public
  */
 export class DeleteApplicationCommand extends $Command
   .classBuilder<

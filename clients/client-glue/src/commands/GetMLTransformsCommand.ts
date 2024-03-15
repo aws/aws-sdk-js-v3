@@ -27,7 +27,6 @@ export interface GetMLTransformsCommandInput extends GetMLTransformsRequest {}
 export interface GetMLTransformsCommandOutput extends GetMLTransformsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a sortable, filterable list of existing Glue machine learning transforms. Machine
  *       learning transforms are a special type of transform that use machine learning to learn the
  *       details of the transformation to be performed by learning from examples provided by humans.
@@ -164,6 +163,7 @@ export interface GetMLTransformsCommandOutput extends GetMLTransformsResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetMLTransformsCommand extends $Command
   .classBuilder<

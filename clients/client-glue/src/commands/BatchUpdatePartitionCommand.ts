@@ -27,7 +27,6 @@ export interface BatchUpdatePartitionCommandInput extends BatchUpdatePartitionRe
 export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates one or more partitions in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -155,6 +154,7 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchUpdatePartitionCommand extends $Command
   .classBuilder<

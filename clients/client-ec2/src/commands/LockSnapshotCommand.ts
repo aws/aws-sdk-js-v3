@@ -27,7 +27,6 @@ export interface LockSnapshotCommandInput extends LockSnapshotRequest {}
 export interface LockSnapshotCommandOutput extends LockSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Locks an Amazon EBS snapshot in either <i>governance</i> or <i>compliance</i>
  *       mode to protect it against accidental or malicious deletions for a specific duration. A locked snapshot
  *       can't be deleted.</p>
@@ -85,6 +84,7 @@ export interface LockSnapshotCommandOutput extends LockSnapshotResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class LockSnapshotCommand extends $Command
   .classBuilder<

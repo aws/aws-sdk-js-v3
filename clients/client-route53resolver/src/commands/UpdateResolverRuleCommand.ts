@@ -27,7 +27,6 @@ export interface UpdateResolverRuleCommandInput extends UpdateResolverRuleReques
 export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.
  * 			If you don't specify a parameter, it retains its current value.</p>
  * @example
@@ -114,6 +113,7 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class UpdateResolverRuleCommand extends $Command
   .classBuilder<

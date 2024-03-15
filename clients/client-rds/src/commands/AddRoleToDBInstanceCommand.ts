@@ -27,7 +27,6 @@ export interface AddRoleToDBInstanceCommandInput extends AddRoleToDBInstanceMess
 export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p>
  *          <note>
  *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
@@ -72,6 +71,7 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB instance
  * ```javascript
  * // The following example adds the role to a DB instance named test-instance.

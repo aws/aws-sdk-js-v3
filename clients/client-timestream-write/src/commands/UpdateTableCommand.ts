@@ -28,7 +28,6 @@ export interface UpdateTableCommandInput extends UpdateTableRequest {}
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the retention duration of the memory store and magnetic store for your Timestream table. Note that the change in retention duration takes effect immediately.
  *          For example, if the retention period of the memory store was initially set to 2 hours and
  *          then changed to 24 hours, the memory store will be capable of holding 24 hours of data, but
@@ -139,6 +138,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class UpdateTableCommand extends $Command
   .classBuilder<

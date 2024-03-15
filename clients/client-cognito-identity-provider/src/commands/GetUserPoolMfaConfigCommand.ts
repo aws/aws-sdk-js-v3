@@ -31,7 +31,6 @@ export interface GetUserPoolMfaConfigCommandInput extends GetUserPoolMfaConfigRe
 export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetUserPoolMfaConfigCommand extends $Command
   .classBuilder<

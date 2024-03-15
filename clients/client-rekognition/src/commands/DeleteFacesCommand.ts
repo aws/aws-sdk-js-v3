@@ -27,7 +27,6 @@ export interface DeleteFacesCommandInput extends DeleteFacesRequest {}
 export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes faces from a collection. You specify a collection ID and an array of face IDs
  *       to remove from the collection.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DeleteFaces</code>
@@ -92,6 +91,7 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To delete a face
  * ```javascript
  * // This operation deletes one or more faces from a Rekognition collection.

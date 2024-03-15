@@ -31,7 +31,6 @@ export interface CreateConnectionCommandInput extends CreateConnectionInput {}
 export interface CreateConnectionCommandOutput extends CreateConnectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a connection that can then be given to other Amazon Web Services services like CodePipeline so
  *       that it can access third-party code repositories. The connection is in pending status until
  *       the third-party connection handshake is completed from the console.</p>
@@ -84,6 +83,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class CreateConnectionCommand extends $Command
   .classBuilder<

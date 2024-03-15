@@ -27,7 +27,6 @@ export interface DeleteStudioSessionMappingCommandInput extends DeleteStudioSess
 export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a user or group from an Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DeleteStudioSessionMappingCommand extends $Command
   .classBuilder<

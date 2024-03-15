@@ -27,7 +27,6 @@ export interface AssociateFirewallPolicyCommandInput extends AssociateFirewallPo
 export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a <a>FirewallPolicy</a> to a <a>Firewall</a>. </p>
  *          <p>A firewall policy defines how to monitor and manage your VPC network traffic, using a
  *          collection of inspection rule groups and other settings. Each firewall requires one
@@ -98,6 +97,7 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class AssociateFirewallPolicyCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface AddWorkloadCommandInput extends AddWorkloadRequest {}
 export interface AddWorkloadCommandOutput extends AddWorkloadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a workload to a component. Each component can have at most five workloads.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface AddWorkloadCommandOutput extends AddWorkloadResponse, __Metadat
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class AddWorkloadCommand extends $Command
   .classBuilder<

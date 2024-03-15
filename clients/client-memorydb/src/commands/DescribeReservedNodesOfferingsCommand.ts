@@ -32,7 +32,6 @@ export interface DescribeReservedNodesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists available reserved node offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeReservedNodesOfferingsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListOrganizationAdminAccountsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the accounts designated as GuardDuty delegated administrators.
  *     Only the organization's management account can run this
  *       API operation.</p>
@@ -75,6 +74,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListOrganizationAdminAccountsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequ
 export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all the metadata from an object without returning the object itself. This
  *          operation is useful if you're interested only in an object's metadata. </p>
  *          <p>
@@ -290,6 +289,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class GetObjectAttributesCommand extends $Command
   .classBuilder<

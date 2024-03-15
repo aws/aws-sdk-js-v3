@@ -31,7 +31,6 @@ export interface GetProposalCommandInput extends GetProposalInput {}
 export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -107,6 +106,7 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class GetProposalCommand extends $Command
   .classBuilder<

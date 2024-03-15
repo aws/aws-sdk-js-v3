@@ -27,9 +27,6 @@ export interface ListPositionConfigurationsCommandInput extends ListPositionConf
 export interface ListPositionConfigurationsCommandOutput extends ListPositionConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is no longer supported.
- *
  * <p>List position configurations for a given resource, such as positioning solvers.</p>
  *          <important>
  *             <p>This action is no longer supported. Calls to retrieve position information should
@@ -90,6 +87,8 @@ export interface ListPositionConfigurationsCommandOutput extends ListPositionCon
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
+ * @deprecated This operation is no longer supported.
  */
 export class ListPositionConfigurationsCommand extends $Command
   .classBuilder<

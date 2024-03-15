@@ -26,7 +26,6 @@ export interface DeleteAccountPasswordPolicyCommandInput {}
 export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the password policy for the Amazon Web Services account. There are no parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete the current account password policy
  * ```javascript
  * // The following command removes the password policy from the current AWS account:

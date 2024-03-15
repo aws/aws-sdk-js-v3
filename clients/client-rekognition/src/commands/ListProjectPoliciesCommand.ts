@@ -27,7 +27,6 @@ export interface ListProjectPoliciesCommandInput extends ListProjectPoliciesRequ
 export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -95,6 +94,7 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example ListProjectPolicies
  * ```javascript
  * // This operation lists the project policies that are attached to an Amazon Rekognition Custom Labels project.

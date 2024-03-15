@@ -27,7 +27,6 @@ export interface ListEndpointsCommandInput extends ListEndpointsInput {}
 export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListEndpointsCommand extends $Command
   .classBuilder<

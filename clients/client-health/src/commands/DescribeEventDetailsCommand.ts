@@ -27,7 +27,6 @@ export interface DescribeEventDetailsCommandInput extends DescribeEventDetailsRe
 export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about one or more specified events. Information includes
  *          standard event data (Amazon Web Services Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a detailed event description, and possible additional metadata
  *          that depends upon the nature of the event. Affected entities are not included. To retrieve
@@ -99,6 +98,7 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeEventDetailsCommand extends $Command
   .classBuilder<

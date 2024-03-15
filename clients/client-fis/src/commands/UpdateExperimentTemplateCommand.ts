@@ -27,7 +27,6 @@ export interface UpdateExperimentTemplateCommandInput extends UpdateExperimentTe
 export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -192,6 +191,7 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class UpdateExperimentTemplateCommand extends $Command
   .classBuilder<

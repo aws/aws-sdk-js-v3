@@ -27,7 +27,6 @@ export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
 export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>
  *          <note>
  *             <p>We do not recommend using this action to register instances. The complete registration
@@ -88,6 +87,7 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, _
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class RegisterInstanceCommand extends $Command
   .classBuilder<

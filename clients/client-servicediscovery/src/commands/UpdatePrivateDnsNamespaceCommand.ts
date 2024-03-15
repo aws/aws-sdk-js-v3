@@ -27,7 +27,6 @@ export interface UpdatePrivateDnsNamespaceCommandInput extends UpdatePrivateDnsN
 export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a private DNS
  *    namespace.</p>
  * @example
@@ -82,6 +81,7 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  */
 export class UpdatePrivateDnsNamespaceCommand extends $Command
   .classBuilder<

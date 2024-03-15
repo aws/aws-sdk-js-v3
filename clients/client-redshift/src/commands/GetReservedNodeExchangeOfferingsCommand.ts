@@ -35,7 +35,6 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
  *             and usage price of the given DC1 reserved node.</p>
  * @example
@@ -103,6 +102,7 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class GetReservedNodeExchangeOfferingsCommand extends $Command
   .classBuilder<

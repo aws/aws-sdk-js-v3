@@ -27,7 +27,6 @@ export interface DeleteRoutingProfileCommandInput extends DeleteRoutingProfileRe
 export interface DeleteRoutingProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a routing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteRoutingProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteRoutingProfileCommand extends $Command
   .classBuilder<

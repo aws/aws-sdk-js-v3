@@ -27,7 +27,6 @@ export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
 export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a given schema. Schemas in a development and published state can only be deleted. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class DeleteSchemaCommand extends $Command
   .classBuilder<

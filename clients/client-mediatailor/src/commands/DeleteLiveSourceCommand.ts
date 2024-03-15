@@ -27,7 +27,6 @@ export interface DeleteLiveSourceCommandInput extends DeleteLiveSourceRequest {}
 export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The live source to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +53,7 @@ export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse,
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class DeleteLiveSourceCommand extends $Command
   .classBuilder<

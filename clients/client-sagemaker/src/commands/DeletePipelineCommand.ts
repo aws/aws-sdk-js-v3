@@ -27,7 +27,6 @@ export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a pipeline if there are no running instances of the pipeline. To delete a
  *         pipeline, you must stop all running instances of the pipeline using the
  *         <code>StopPipelineExecution</code> API. When you delete a pipeline, all instances of the
@@ -66,6 +65,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeletePipelineCommand extends $Command
   .classBuilder<

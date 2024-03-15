@@ -27,7 +27,6 @@ export interface AttachClassicLinkVpcCommandInput extends AttachClassicLinkVpcRe
 export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
@@ -69,6 +68,7 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AttachClassicLinkVpcCommand extends $Command
   .classBuilder<

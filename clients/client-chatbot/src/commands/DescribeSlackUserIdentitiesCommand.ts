@@ -30,7 +30,6 @@ export interface DescribeSlackUserIdentitiesCommandInput extends DescribeSlackUs
 export interface DescribeSlackUserIdentitiesCommandOutput extends DescribeSlackUserIdentitiesResult, __MetadataBearer {}
 
 /**
- * @public
  * Lists all Slack user identities with a mapped role.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeSlackUserIdentitiesCommandOutput extends DescribeSlackU
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class DescribeSlackUserIdentitiesCommand extends $Command
   .classBuilder<

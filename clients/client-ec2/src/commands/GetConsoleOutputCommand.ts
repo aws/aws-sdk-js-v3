@@ -27,7 +27,6 @@ export interface GetConsoleOutputCommandInput extends GetConsoleOutputRequest {}
 export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the console output for the specified instance. For Linux instances, the instance
  *             console output displays the exact console output that would normally be displayed on a
  *             physical monitor attached to a computer. For Windows instances, the instance console
@@ -71,6 +70,7 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To get the console output
  * ```javascript
  * // This example gets the console output for the specified instance.

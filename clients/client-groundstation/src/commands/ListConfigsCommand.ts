@@ -27,7 +27,6 @@ export interface ListConfigsCommandInput extends ListConfigsRequest {}
 export interface ListConfigsCommandOutput extends ListConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>Config</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ListConfigsCommand extends $Command
   .classBuilder<

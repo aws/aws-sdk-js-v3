@@ -36,7 +36,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces application. The account that owns the environment also owns the
  *       applications created inside the environment, regardless of the account that creates the
  *       application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and
@@ -122,6 +121,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<

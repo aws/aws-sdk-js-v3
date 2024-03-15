@@ -32,7 +32,6 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes
  *       the major engine version of a database.</p>
  *          <p>You can use a blueprint ID to create a new database that runs a specific database
@@ -103,6 +102,7 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetRelationalDatabaseBlueprintsCommand extends $Command
   .classBuilder<

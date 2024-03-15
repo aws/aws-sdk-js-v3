@@ -27,9 +27,6 @@ export interface SearchAddressBooksCommandInput extends SearchAddressBooksReques
 export interface SearchAddressBooksCommandOutput extends SearchAddressBooksResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Searches address books and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -81,6 +78,8 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class SearchAddressBooksCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateContactCommandInput extends UpdateContactRequest {}
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a contact's preferences for a list.</p>
  *          <note>
  *             <p>You must specify all existing topic preferences in the
@@ -79,6 +78,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class UpdateContactCommand extends $Command
   .classBuilder<

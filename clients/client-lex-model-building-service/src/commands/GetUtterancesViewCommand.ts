@@ -31,7 +31,6 @@ export interface GetUtterancesViewCommandInput extends GetUtterancesViewRequest 
 export interface GetUtterancesViewCommandOutput extends GetUtterancesViewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use the <code>GetUtterancesView</code> operation to get information
  *       about the utterances that your users have made to your bot. You can use
  *       this list to tune the utterances that your bot responds to.</p>
@@ -111,6 +110,7 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetUtterancesViewCommand extends $Command
   .classBuilder<

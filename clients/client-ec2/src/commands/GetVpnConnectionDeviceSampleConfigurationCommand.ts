@@ -37,7 +37,6 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
  *             gateway device specified for your Site-to-Site VPN connection.</p>
  * @example
@@ -69,6 +68,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
   .classBuilder<

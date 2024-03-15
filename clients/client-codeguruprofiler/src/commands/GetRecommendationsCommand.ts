@@ -27,7 +27,6 @@ export interface GetRecommendationsCommandInput extends GetRecommendationsReques
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Returns a list of
  *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_Recommendation.html">
@@ -135,6 +134,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class GetRecommendationsCommand extends $Command
   .classBuilder<

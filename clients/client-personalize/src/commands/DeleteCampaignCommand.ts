@@ -27,7 +27,6 @@ export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
 export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a campaign by deleting the solution deployment. The solution that
  *       the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no
  *       longer be specified in a
@@ -67,6 +66,7 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteCampaignCommand extends $Command
   .classBuilder<

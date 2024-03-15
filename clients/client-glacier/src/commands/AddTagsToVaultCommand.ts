@@ -27,7 +27,6 @@ export interface AddTagsToVaultCommandInput extends AddTagsToVaultInput {}
 export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation adds the specified tags to a vault. Each tag is composed of a key and
  *          a value. Each vault can have up to 10 tags. If your request would cause the tag limit for
  *          the vault to be exceeded, the operation throws the <code>LimitExceededException</code>
@@ -78,6 +77,7 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To add tags to a vault
  * ```javascript
  * // The example adds two tags to a my-vault.

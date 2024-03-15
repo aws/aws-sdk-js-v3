@@ -27,7 +27,6 @@ export interface CreateAppCommandInput extends CreateAppRequest {}
 export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a running app for the specified UserProfile. This operation is automatically
  *        invoked by Amazon SageMaker upon access to the associated Domain, and when new kernel
  *       configurations are selected by the user. A user may have multiple Apps active simultaneously.</p>
@@ -81,6 +80,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateAppCommand extends $Command
   .classBuilder<

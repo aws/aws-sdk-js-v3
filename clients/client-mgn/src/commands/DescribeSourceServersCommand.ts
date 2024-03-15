@@ -31,7 +31,6 @@ export interface DescribeSourceServersCommandInput extends DescribeSourceServers
 export interface DescribeSourceServersCommandOutput extends DescribeSourceServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all SourceServers or multiple SourceServers by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -202,6 +201,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DescribeSourceServersCommand extends $Command
   .classBuilder<

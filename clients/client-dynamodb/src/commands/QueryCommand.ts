@@ -27,7 +27,6 @@ export interface QueryCommandInput extends QueryInput {}
 export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>You must provide the name of the partition key attribute and a single value for that
  *             attribute. <code>Query</code> returns all items with that partition key value.
  *             Optionally, you can provide a sort key attribute and use a comparison operator to refine
@@ -281,6 +280,7 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To query an item
  * ```javascript
  * // This example queries items in the Music table. The table has a partition key and sort key (Artist and SongTitle), but this query only specifies the partition key value. It returns song titles by the artist named "No One You Know".

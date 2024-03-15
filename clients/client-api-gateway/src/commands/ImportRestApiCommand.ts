@@ -34,7 +34,6 @@ export interface ImportRestApiCommandInput extends ImportRestApiCommandInputType
 export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
- * @public
  * <p>A feature of the API Gateway control service for creating a new API from an external API definition file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class ImportRestApiCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a tag for an EFS resource. You can create tags for EFS file
  *       systems and access points using this API operation.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:TagResource</code> action.</p>
@@ -76,6 +75,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -25,7 +25,6 @@ export interface TimestampFormatHeadersCommandInput extends TimestampFormatHeade
 export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHeadersIO, __MetadataBearer {}
 
 /**
- * @public
  * This example tests how timestamp request and response headers are serialized.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class TimestampFormatHeadersCommand extends $Command
   .classBuilder<

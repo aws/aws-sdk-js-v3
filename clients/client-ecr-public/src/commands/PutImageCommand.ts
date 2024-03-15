@@ -27,7 +27,6 @@ export interface PutImageCommandInput extends PutImageRequest {}
 export interface PutImageCommandOutput extends PutImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the image manifest and tags that are associated with an image.</p>
  *          <p>When an image is pushed and all new image layers have been uploaded, the PutImage API is
  *          called once to create or update the image manifest and the tags that are associated with
@@ -116,6 +115,7 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class PutImageCommand extends $Command
   .classBuilder<

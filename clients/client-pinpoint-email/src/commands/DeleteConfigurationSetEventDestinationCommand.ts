@@ -36,7 +36,6 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an event destination.</p>
  *         <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
  *             clicks, bounces, and complaints. <i>Event destinations</i> are places that
@@ -77,6 +76,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

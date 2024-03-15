@@ -31,7 +31,6 @@ export interface DescribeDeviceCommandInput extends DescribeDeviceRequest {}
 export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Given a device ID, returns a DescribeDeviceResponse object describing the
  *  details of the device.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class DescribeDeviceCommand extends $Command
   .classBuilder<

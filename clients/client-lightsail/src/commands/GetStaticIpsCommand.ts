@@ -27,7 +27,6 @@ export interface GetStaticIpsCommandInput extends GetStaticIpsRequest {}
 export interface GetStaticIpsCommandOutput extends GetStaticIpsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all static IPs in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetStaticIpsCommandOutput extends GetStaticIpsResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetStaticIpsCommand extends $Command
   .classBuilder<

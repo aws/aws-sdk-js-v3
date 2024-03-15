@@ -27,7 +27,6 @@ export interface GetPropertyValueHistoryCommandInput extends GetPropertyValueHis
 export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the history of a time series property value for a component,
  *          component type, entity, or workspace.</p>
  *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries,
@@ -193,6 +192,7 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetPropertyValueHistoryCommand extends $Command
   .classBuilder<

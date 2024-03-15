@@ -27,7 +27,6 @@ export interface GetPipelineCommandInput extends GetPipelineRequest {}
 export interface GetPipelineCommandOutput extends GetPipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an OpenSearch Ingestion pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface GetPipelineCommandOutput extends GetPipelineResponse, __Metadat
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class GetPipelineCommand extends $Command
   .classBuilder<

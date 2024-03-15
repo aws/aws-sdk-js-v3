@@ -27,7 +27,6 @@ export interface UpdateFirewallDescriptionCommandInput extends UpdateFirewallDes
 export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDescriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the description for the specified firewall. Use the description to help you
  *          identify the firewall when you're working with it. </p>
  * @example
@@ -91,6 +90,7 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateFirewallDescriptionCommand extends $Command
   .classBuilder<

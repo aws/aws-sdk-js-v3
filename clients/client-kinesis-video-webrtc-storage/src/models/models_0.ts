@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { KinesisVideoWebRTCStorageServiceException as __BaseException } from "./KinesisVideoWebRTCStorageServiceException";
 
 /**
- * @public
  * <p>You do not have required permissions to perform this operation.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,10 +24,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *       Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *     </p>
+ * @public
  */
 export class ClientLimitExceededException extends __BaseException {
   readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
@@ -46,8 +46,8 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The value for this input parameter is invalid.</p>
+ * @public
  */
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
@@ -70,17 +70,17 @@ export class InvalidArgumentException extends __BaseException {
  */
 export interface JoinStorageSessionInput {
   /**
-   * @public
    * <p>
    *       The Amazon Resource Name (ARN) of the signaling channel.
    *     </p>
+   * @public
    */
   channelArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The specified resource is not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";

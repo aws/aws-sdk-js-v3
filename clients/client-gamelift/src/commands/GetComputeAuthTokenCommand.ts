@@ -27,7 +27,6 @@ export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInpu
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests an authentication token from Amazon GameLift for a registered compute in an Anywhere
  *             fleet. The game servers that are running on the compute use this token to authenticate
  *             with the Amazon GameLift service. Each server process must provide a valid authentication token
@@ -102,6 +101,7 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class GetComputeAuthTokenCommand extends $Command
   .classBuilder<

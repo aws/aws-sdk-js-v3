@@ -32,7 +32,6 @@ export interface UpdateParticipantRoleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents
  *    are automatically disconnected from a chat due to idleness. You can set four timers:</p>
  *          <ul>
@@ -108,6 +107,7 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateParticipantRoleConfigCommand extends $Command
   .classBuilder<

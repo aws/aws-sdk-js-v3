@@ -27,7 +27,6 @@ export interface UpdateBucketBundleCommandInput extends UpdateBucketBundleReques
 export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
  *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
  *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
@@ -109,6 +108,7 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateBucketBundleCommand extends $Command
   .classBuilder<

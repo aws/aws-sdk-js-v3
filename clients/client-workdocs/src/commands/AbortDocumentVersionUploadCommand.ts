@@ -30,7 +30,6 @@ export interface AbortDocumentVersionUploadCommandInput extends AbortDocumentVer
 export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Aborts the upload of the specified document version that was previously initiated
  *             by <a>InitiateDocumentVersionUpload</a>. The client should make this call
  *             only when it no longer intends to upload the document version, or fails to do
@@ -84,6 +83,7 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class AbortDocumentVersionUploadCommand extends $Command
   .classBuilder<

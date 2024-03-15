@@ -27,7 +27,6 @@ export interface ListGatewayRoutesCommandInput extends ListGatewayRoutesInput {}
 export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of existing gateway routes that are associated to a virtual
  *          gateway.</p>
  * @example
@@ -94,6 +93,7 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class ListGatewayRoutesCommand extends $Command
   .classBuilder<

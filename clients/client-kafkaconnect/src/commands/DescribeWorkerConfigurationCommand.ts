@@ -36,7 +36,6 @@ export interface DescribeWorkerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a worker configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeWorkerConfigurationCommandOutput
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class DescribeWorkerConfigurationCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface DeleteAlertManagerDefinitionCommandInput extends DeleteAlertMan
 export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the alert manager definition from a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteAlertManagerDefinitionCommandOutput extends __MetadataBea
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DeleteAlertManagerDefinitionCommand extends $Command
   .classBuilder<

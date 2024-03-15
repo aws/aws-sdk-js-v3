@@ -27,7 +27,6 @@ export interface EnableBaselineCommandInput extends EnableBaselineInput {}
 export interface EnableBaselineCommandOutput extends EnableBaselineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable (apply) a <code>Baseline</code> to a Target. This API starts an asynchronous operation to deploy resources specified by the <code>Baseline</code> to the specified Target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface EnableBaselineCommandOutput extends EnableBaselineOutput, __Met
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class EnableBaselineCommand extends $Command
   .classBuilder<

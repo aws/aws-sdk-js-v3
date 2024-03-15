@@ -27,7 +27,6 @@ export interface CreatePromptCommandInput extends CreatePromptRequest {}
 export interface CreatePromptCommandOutput extends CreatePromptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a prompt. For more information about prompts, such as supported file types and
  *    maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create prompts</a> in the <i>Amazon Connect Administrator's
  *    Guide</i>.</p>
@@ -82,6 +81,7 @@ export interface CreatePromptCommandOutput extends CreatePromptResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreatePromptCommand extends $Command
   .classBuilder<

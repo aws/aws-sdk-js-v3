@@ -27,7 +27,6 @@ export interface CreateDataSetCommandInput extends CreateDataSetRequest {}
 export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation creates a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class CreateDataSetCommand extends $Command
   .classBuilder<

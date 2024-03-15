@@ -27,7 +27,6 @@ export interface DeleteImageCommandInput extends DeleteImageRequest {}
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container
  * 			images that are created during the image build process. You must clean those up
  * 			separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI
@@ -102,6 +101,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class DeleteImageCommand extends $Command
   .classBuilder<

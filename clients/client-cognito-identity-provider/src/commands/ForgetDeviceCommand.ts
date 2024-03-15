@@ -31,7 +31,6 @@ export interface ForgetDeviceCommandInput extends ForgetDeviceRequest {}
 export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Forgets the specified device. For more information about device authentication, see
  *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
@@ -100,6 +99,7 @@ export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ForgetDeviceCommand extends $Command
   .classBuilder<

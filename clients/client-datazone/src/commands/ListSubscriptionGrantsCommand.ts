@@ -27,7 +27,6 @@ export interface ListSubscriptionGrantsCommandInput extends ListSubscriptionGran
 export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGrantsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists subscription grants.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface ListSubscriptionGrantsCommandOutput extends ListSubscriptionGra
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class ListSubscriptionGrantsCommand extends $Command
   .classBuilder<

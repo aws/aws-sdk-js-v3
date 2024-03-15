@@ -31,7 +31,6 @@ export interface DescribeLogPatternCommandInput extends DescribeLogPatternReques
 export interface DescribeLogPatternCommandOutput extends DescribeLogPatternResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeLogPatternCommand extends $Command
   .classBuilder<

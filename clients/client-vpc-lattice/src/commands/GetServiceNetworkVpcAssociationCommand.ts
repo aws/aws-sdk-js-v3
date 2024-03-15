@@ -32,7 +32,6 @@ export interface GetServiceNetworkVpcAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the association between a service network and a VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetServiceNetworkVpcAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class GetServiceNetworkVpcAssociationCommand extends $Command
   .classBuilder<

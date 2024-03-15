@@ -27,7 +27,6 @@ export interface GetBulkDeploymentStatusCommandInput extends GetBulkDeploymentSt
 export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns the status of a bulk deployment.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetBulkDeploymentStatusCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Recycle Bin retention rule. You can update a retention rule's description,
  *       resource tags, and retention period at any time after creation. You can't update a retention rule's
  *       resource type after creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
@@ -101,6 +100,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * @public
  */
 export class UpdateRuleCommand extends $Command
   .classBuilder<

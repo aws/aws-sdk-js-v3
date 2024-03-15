@@ -8,8 +8,8 @@ import { ProtonServiceException as __BaseException } from "./ProtonServiceExcept
  */
 export interface AcceptEnvironmentAccountConnectionInput {
   /**
-   * @public
    * <p>The ID of the environment account connection.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -31,66 +31,65 @@ export type EnvironmentAccountConnectionStatus =
   (typeof EnvironmentAccountConnectionStatus)[keyof typeof EnvironmentAccountConnectionStatus];
 
 /**
- * @public
  * <p>Detailed data of an Proton environment account connection resource.</p>
+ * @public
  */
 export interface EnvironmentAccountConnection {
   /**
-   * @public
    * <p>The ID of the environment account connection.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the environment account connection.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the management account that's connected to the environment account connection.</p>
+   * @public
    */
   managementAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The environment account that's connected to the environment account connection.</p>
+   * @public
    */
   environmentAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The IAM service role that's associated with the environment account connection.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the environment that's associated with the environment account connection.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The time when the environment account connection request was made.</p>
+   * @public
    */
   requestedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the environment account connection was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The status of the environment account connection.</p>
+   * @public
    */
   status: EnvironmentAccountConnectionStatus | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
    *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
    *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
@@ -98,13 +97,14 @@ export interface EnvironmentAccountConnection {
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
    *       using CodeBuild-based provisioning in the associated environment account.</p>
+   * @public
    */
   codebuildRoleArn?: string;
 }
@@ -114,15 +114,15 @@ export interface EnvironmentAccountConnection {
  */
 export interface AcceptEnvironmentAccountConnectionOutput {
   /**
-   * @public
    * <p>The environment account connection data that's returned by Proton.</p>
+   * @public
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
 
 /**
- * @public
  * <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -141,8 +141,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -161,8 +161,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request failed to register with the service.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -182,8 +182,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested resource <i>wasn't</i> found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -202,8 +202,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -225,8 +225,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -260,58 +260,58 @@ export const RepositoryProvider = {
 export type RepositoryProvider = (typeof RepositoryProvider)[keyof typeof RepositoryProvider];
 
 /**
- * @public
  * <p>Detail data for a linked repository branch.</p>
+ * @public
  */
 export interface RepositoryBranch {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the linked repository.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   provider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch.</p>
+   * @public
    */
   branch: string | undefined;
 }
 
 /**
- * @public
  * <p>Proton settings that are used for multiple services in the Amazon Web Services account.</p>
+ * @public
  */
 export interface AccountSettings {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
    *       customer-owned automation for self-managed provisioning.</p>
+   * @public
    */
   pipelineServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>The linked repository for pipeline provisioning. Required if you have environments configured for self-managed provisioning with services that include
    *       pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+   * @public
    */
   pipelineProvisioningRepository?: RepositoryBranch;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service role that Proton uses for provisioning pipelines. Proton assumes this role for CodeBuild-based
    *       provisioning.</p>
+   * @public
    */
   pipelineCodebuildRoleArn?: string;
 }
@@ -326,32 +326,32 @@ export interface GetAccountSettingsInput {}
  */
 export interface GetAccountSettingsOutput {
   /**
-   * @public
    * <p>The Proton pipeline service role detail data that's returned by Proton.</p>
+   * @public
    */
   accountSettings?: AccountSettings;
 }
 
 /**
- * @public
  * <p>Detail input data for a linked repository branch.</p>
+ * @public
  */
 export interface RepositoryBranchInput {
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   provider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch.</p>
+   * @public
    */
   branch: string | undefined;
 }
@@ -361,33 +361,33 @@ export interface RepositoryBranchInput {
  */
 export interface UpdateAccountSettingsInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed
    *    provisioning, and by customer-owned automation for self-managed provisioning.</p>
    *          <p>To remove a previously configured ARN, specify an empty string.</p>
+   * @public
    */
   pipelineServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>A linked repository for pipeline provisioning. Specify it if you have environments configured for self-managed provisioning with services that
    *    include pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    *          <p>To remove a previously configured repository, set <code>deletePipelineProvisioningRepository</code> to <code>true</code>, and don't set
    *     <code>pipelineProvisioningRepository</code>.</p>
+   * @public
    */
   pipelineProvisioningRepository?: RepositoryBranchInput;
 
   /**
-   * @public
    * <p>Set to <code>true</code> to remove a configured pipeline repository from the account settings. Don't set this field if you are updating the
    *    configured pipeline repository.</p>
+   * @public
    */
   deletePipelineProvisioningRepository?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based
    *    provisioning.</p>
+   * @public
    */
   pipelineCodebuildRoleArn?: string;
 }
@@ -397,8 +397,8 @@ export interface UpdateAccountSettingsInput {
  */
 export interface UpdateAccountSettingsOutput {
   /**
-   * @public
    * <p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>
+   * @public
    */
   accountSettings: AccountSettings | undefined;
 }
@@ -408,8 +408,8 @@ export interface UpdateAccountSettingsOutput {
  */
 export interface CancelComponentDeploymentInput {
   /**
-   * @public
    * <p>The name of the component with the deployment to cancel.</p>
+   * @public
    */
   componentName: string | undefined;
 }
@@ -435,106 +435,106 @@ export const DeploymentStatus = {
 export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof DeploymentStatus];
 
 /**
- * @public
  * <p>Detailed data of an Proton component resource.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>
+ * @public
  */
 export interface Component {
   /**
-   * @public
    * <p>The name of the component.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the component.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the component.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Proton environment that this component is associated with.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the service instance that this component is attached to. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The time when the component was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the component was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when a deployment of the component was last attempted.</p>
+   * @public
    */
   lastDeploymentAttemptedAt?: Date;
 
   /**
-   * @public
    * <p>The time when the component was last deployed successfully.</p>
+   * @public
    */
   lastDeploymentSucceededAt?: Date;
 
   /**
-   * @public
    * <p>The component deployment status.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>The message associated with the component deployment status.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The service spec that the component uses to access service inputs. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceSpec?: string;
 
   /**
-   * @public
    * <p>The last token the client requested.</p>
+   * @public
    */
   lastClientRequestToken?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment of this component.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment of this component.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 }
@@ -544,8 +544,8 @@ export interface Component {
  */
 export interface CancelComponentDeploymentOutput {
   /**
-   * @public
    * <p>The detailed data of the component with the deployment that is being canceled.</p>
+   * @public
    */
   component: Component | undefined;
 }
@@ -555,8 +555,8 @@ export interface CancelComponentDeploymentOutput {
  */
 export interface CancelEnvironmentDeploymentInput {
   /**
-   * @public
    * <p>The name of the environment with the deployment to cancel.</p>
+   * @public
    */
   environmentName: string | undefined;
 }
@@ -575,141 +575,141 @@ export const Provisioning = {
 export type Provisioning = (typeof Provisioning)[keyof typeof Provisioning];
 
 /**
- * @public
  * <p>Detailed data of an Proton environment resource. An Proton environment is a set of resources shared across Proton services.</p>
+ * @public
  */
 export interface Environment {
   /**
-   * @public
    * <p>The name of the environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The time when the environment was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when a deployment of the environment was last attempted.</p>
+   * @public
    */
   lastDeploymentAttemptedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the environment was last deployed successfully.</p>
+   * @public
    */
   lastDeploymentSucceededAt: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the environment template.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the environment template.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The environment deployment status.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>An environment deployment status message.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
+   * @public
    */
   protonServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>The ID of the environment account connection that's used to provision infrastructure resources in an environment account.</p>
+   * @public
    */
   environmentAccountConnectionId?: string;
 
   /**
-   * @public
    * <p>The ID of the environment account that the environment infrastructure resources are provisioned in.</p>
+   * @public
    */
   environmentAccountId?: string;
 
   /**
-   * @public
    * <p>The environment spec.</p>
+   * @public
    */
   spec?: string;
 
   /**
-   * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
+   * @public
    */
   provisioning?: Provisioning;
 
   /**
-   * @public
    * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed
    *    provisioning. A linked repository is a repository that has been registered with Proton. For more information, see
    *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html">CreateRepository</a>.</p>
+   * @public
    */
   provisioningRepository?: RepositoryBranch;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
    *       behalf.</p>
+   * @public
    */
   codebuildRoleArn?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment of this environment.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment of this environment.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 }
@@ -719,8 +719,8 @@ export interface Environment {
  */
 export interface CancelEnvironmentDeploymentOutput {
   /**
-   * @public
    * <p>The environment summary data that's returned by Proton.</p>
+   * @public
    */
   environment: Environment | undefined;
 }
@@ -730,118 +730,118 @@ export interface CancelEnvironmentDeploymentOutput {
  */
 export interface CancelServiceInstanceDeploymentInput {
   /**
-   * @public
    * <p>The name of the service instance with the deployment to cancel.</p>
+   * @public
    */
   serviceInstanceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service with the service instance deployment to cancel.</p>
+   * @public
    */
   serviceName: string | undefined;
 }
 
 /**
- * @public
  * <p>Detailed data of an Proton service instance resource.</p>
+ * @public
  */
 export interface ServiceInstance {
   /**
-   * @public
    * <p>The name of the service instance.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service instance.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the service instance was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when a deployment of the service instance was last attempted.</p>
+   * @public
    */
   lastDeploymentAttemptedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the service instance was last deployed successfully.</p>
+   * @public
    */
   lastDeploymentSucceededAt: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the service that the service instance belongs to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the environment that the service instance was deployed into.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service template that was used to create the service instance.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the service template that was used to create the service
    *       instance.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the service template that was used to create the service
    *       instance.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The service instance deployment status.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>The message associated with the service instance deployment status.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The service spec that was used to create the service instance.</p>
+   * @public
    */
   spec?: string;
 
   /**
-   * @public
    * <p>The last client request token received.</p>
+   * @public
    */
   lastClientRequestToken?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment of this service instance.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment of this service instance.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 }
@@ -851,8 +851,8 @@ export interface ServiceInstance {
  */
 export interface CancelServiceInstanceDeploymentOutput {
   /**
-   * @public
    * <p>The service instance summary data that's returned by Proton.</p>
+   * @public
    */
   serviceInstance: ServiceInstance | undefined;
 }
@@ -862,88 +862,88 @@ export interface CancelServiceInstanceDeploymentOutput {
  */
 export interface CancelServicePipelineDeploymentInput {
   /**
-   * @public
    * <p>The name of the service with the service pipeline deployment to cancel.</p>
+   * @public
    */
   serviceName: string | undefined;
 }
 
 /**
- * @public
  * <p>Detailed data of an Proton service instance pipeline resource.</p>
+ * @public
  */
 export interface ServicePipeline {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service pipeline.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the service pipeline was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when a deployment of the service pipeline was last attempted.</p>
+   * @public
    */
   lastDeploymentAttemptedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the service pipeline was last deployed successfully.</p>
+   * @public
    */
   lastDeploymentSucceededAt: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the service template that was used to create the service pipeline.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the service template that was used to create the service
    *       pipeline.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the service template that was used to create the service
    *       pipeline.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The deployment status of the service pipeline.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>A service pipeline deployment status message.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The service spec that was used to create the service pipeline.</p>
+   * @public
    */
   spec?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment of this service pipeline.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment of this service pipeline.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 }
@@ -953,8 +953,8 @@ export interface ServicePipeline {
  */
 export interface CancelServicePipelineDeploymentOutput {
   /**
-   * @public
    * <p>The service pipeline detail data that's returned by Proton.</p>
+   * @public
    */
   pipeline: ServicePipeline | undefined;
 }
@@ -964,38 +964,38 @@ export interface CancelServicePipelineDeploymentOutput {
  */
 export interface ListComponentOutputsInput {
   /**
-   * @public
    * <p>The name of the component whose outputs you want.</p>
+   * @public
    */
   componentName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the deployment whose outputs you want.</p>
+   * @public
    */
   deploymentId?: string;
 }
 
 /**
- * @public
  * <p>An infrastructure as code defined resource output.</p>
+ * @public
  */
 export interface Output {
   /**
-   * @public
    * <p>The output key.</p>
+   * @public
    */
   key?: string;
 
   /**
-   * @public
    * <p>The output value.</p>
+   * @public
    */
   valueString?: string;
 }
@@ -1005,14 +1005,14 @@ export interface Output {
  */
 export interface ListComponentOutputsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of component Infrastructure as Code (IaC) outputs.</p>
+   * @public
    */
   outputs: Output[] | undefined;
 }
@@ -1022,15 +1022,15 @@ export interface ListComponentOutputsOutput {
  */
 export interface ListComponentProvisionedResourcesInput {
   /**
-   * @public
    * <p>The name of the component whose provisioned resources you want.</p>
+   * @public
    */
   componentName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the list of provisioned resources
    *       that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1050,27 +1050,27 @@ export const ProvisionedResourceEngine = {
 export type ProvisionedResourceEngine = (typeof ProvisionedResourceEngine)[keyof typeof ProvisionedResourceEngine];
 
 /**
- * @public
  * <p>Detail data for a provisioned resource.</p>
+ * @public
  */
 export interface ProvisionedResource {
   /**
-   * @public
    * <p>The provisioned resource name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The provisioned resource identifier.</p>
+   * @public
    */
   identifier?: string;
 
   /**
-   * @public
    * <p>The resource provisioning engine. At this time, <code>CLOUDFORMATION</code> can be used for Amazon Web Services-managed provisioning, and <code>TERRAFORM</code> can
    *       be used for self-managed provisioning.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
+   * @public
    */
   provisioningEngine?: ProvisionedResourceEngine;
 }
@@ -1080,33 +1080,33 @@ export interface ProvisionedResource {
  */
 export interface ListComponentProvisionedResourcesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
    *       provisioned resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of provisioned resources for a component.</p>
+   * @public
    */
   provisionedResources: ProvisionedResource[] | undefined;
 }
 
 /**
- * @public
  * <p>A description of a resource tag.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key of the resource tag.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The value of the resource tag.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -1116,72 +1116,72 @@ export interface Tag {
  */
 export interface CreateComponentInput {
   /**
-   * @public
    * <p>The customer-provided name of the component.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>An optional customer-provided description of the component.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The name of the service that <code>serviceInstanceName</code> is associated with. If you don't specify this, the component isn't attached to any
    *       service instance. Specify both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the service instance that you want to attach this component to. If you don't specify this, the component isn't attached to any service
    *       instance. Specify both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The name of the Proton environment that you want to associate this component with. You must specify this when you don't specify
    *         <code>serviceInstanceName</code> and <code>serviceName</code>.</p>
+   * @public
    */
   environmentName?: string;
 
   /**
-   * @public
    * <p>A path to the Infrastructure as Code (IaC) file describing infrastructure that a custom component provisions.</p>
    *          <note>
    *             <p>Components support a single IaC file, even if you use Terraform as your template language.</p>
    *          </note>
+   * @public
    */
   templateFile: string | undefined;
 
   /**
-   * @public
    * <p>A path to a manifest file that lists the Infrastructure as Code (IaC) file, template language, and rendering engine for infrastructure that a custom
    *       component provisions.</p>
+   * @public
    */
   manifest: string | undefined;
 
   /**
-   * @public
    * <p>The service spec that you want the component to use to access service inputs. Set this only when you attach the component to a service
    *       instance.</p>
+   * @public
    */
   serviceSpec?: string;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton component. A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The client token for the created component.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1191,16 +1191,16 @@ export interface CreateComponentInput {
  */
 export interface CreateComponentOutput {
   /**
-   * @public
    * <p>The detailed data of the created component.</p>
+   * @public
    */
   component: Component | undefined;
 }
 
 /**
- * @public
  * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
  *       the <i>Proton User Guide</i>.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -1223,8 +1223,8 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface DeleteComponentInput {
   /**
-   * @public
    * <p>The name of the component to delete.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -1234,8 +1234,8 @@ export interface DeleteComponentInput {
  */
 export interface DeleteComponentOutput {
   /**
-   * @public
    * <p>The detailed data of the component being deleted.</p>
+   * @public
    */
   component?: Component;
 }
@@ -1245,8 +1245,8 @@ export interface DeleteComponentOutput {
  */
 export interface GetComponentInput {
   /**
-   * @public
    * <p>The name of the component that you want to get the detailed data for.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -1256,8 +1256,8 @@ export interface GetComponentInput {
  */
 export interface GetComponentOutput {
   /**
-   * @public
    * <p>The detailed data of the requested component.</p>
+   * @public
    */
   component?: Component;
 }
@@ -1267,121 +1267,121 @@ export interface GetComponentOutput {
  */
 export interface ListComponentsInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next component in the array of components, after the list of components that was previously
    *       requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The name of an environment for result list filtering. Proton returns components associated with the environment or attached to service instances
    *       running in it.</p>
+   * @public
    */
   environmentName?: string;
 
   /**
-   * @public
    * <p>The name of a service for result list filtering. Proton returns components attached to service instances of the service.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of a service instance for result list filtering. Proton returns the component attached to the service instance, if any.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The maximum number of components to list.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary data of an Proton component resource.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
  *   <i>Proton User Guide</i>.</p>
+ * @public
  */
 export interface ComponentSummary {
   /**
-   * @public
    * <p>The name of the component.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the component.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Proton environment that this component is associated with.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the service instance that this component is attached to. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The time when the component was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the component was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when a deployment of the component was last attempted.</p>
+   * @public
    */
   lastDeploymentAttemptedAt?: Date;
 
   /**
-   * @public
    * <p>The time when the component was last deployed successfully.</p>
+   * @public
    */
   lastDeploymentSucceededAt?: Date;
 
   /**
-   * @public
    * <p>The component deployment status.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>The message associated with the component deployment status.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment of this component.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment of this component.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 }
@@ -1391,14 +1391,14 @@ export interface ComponentSummary {
  */
 export interface ListComponentsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next component in the array of components, after the current requested list of components.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of components with summary data.</p>
+   * @public
    */
   components: ComponentSummary[] | undefined;
 }
@@ -1423,13 +1423,12 @@ export type ComponentDeploymentUpdateType =
  */
 export interface UpdateComponentInput {
   /**
-   * @public
    * <p>The name of the component to update.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The deployment type. It defines the mode for updating a component, as follows:</p>
    *          <dl>
    *             <dt/>
@@ -1449,50 +1448,51 @@ export interface UpdateComponentInput {
    *             that you provide. Only requested parameters are updated.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   deploymentType: ComponentDeploymentUpdateType | undefined;
 
   /**
-   * @public
    * <p>An optional customer-provided description of the component.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Don't specify to keep the component's current service instance
    *       attachment. Specify an empty string to detach the component from the service instance it's attached to. Specify non-empty values for both
    *         <code>serviceInstanceName</code> and <code>serviceName</code> or for neither of them.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the service instance that you want to attach this component to. Don't specify to keep the component's current service instance attachment.
    *       Specify an empty string to detach the component from the service instance it's attached to. Specify non-empty values for both
    *         <code>serviceInstanceName</code> and <code>serviceName</code> or for neither of them.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The service spec that you want the component to use to access service inputs. Set this only when the component is attached to a service
    *       instance.</p>
+   * @public
    */
   serviceSpec?: string;
 
   /**
-   * @public
    * <p>A path to the Infrastructure as Code (IaC) file describing infrastructure that a custom component provisions.</p>
    *          <note>
    *             <p>Components support a single IaC file, even if you use Terraform as your template language.</p>
    *          </note>
+   * @public
    */
   templateFile?: string;
 
   /**
-   * @public
    * <p>The client token for the updated component.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1502,8 +1502,8 @@ export interface UpdateComponentInput {
  */
 export interface UpdateComponentOutput {
   /**
-   * @public
    * <p>The detailed data of the updated component.</p>
+   * @public
    */
   component: Component | undefined;
 }
@@ -1513,157 +1513,157 @@ export interface UpdateComponentOutput {
  */
 export interface DeleteDeploymentInput {
   /**
-   * @public
    * <p>The ID of the deployment to delete.</p>
+   * @public
    */
   id: string | undefined;
 }
 
 /**
- * @public
  * <p>The detailed data about the current state of the component.</p>
+ * @public
  */
 export interface ComponentState {
   /**
-   * @public
    * <p>The name of the service that <code>serviceInstanceName</code> is associated with. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the service instance that this component is attached to. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The service spec that the component uses to access service inputs. Provided when a component is attached to a service instance.</p>
+   * @public
    */
   serviceSpec?: string;
 
   /**
-   * @public
    * <p>The template file used.</p>
+   * @public
    */
   templateFile?: string;
 }
 
 /**
- * @public
  * <p>The detailed data about the current state of the environment.</p>
+ * @public
  */
 export interface EnvironmentState {
   /**
-   * @public
    * <p>The environment spec that was used to create the environment.</p>
+   * @public
    */
   spec?: string;
 
   /**
-   * @public
    * <p>The name of the environment template that was used to create the environment.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the environment template that was used to create the environment.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the environment template that was used to create the environment.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 }
 
 /**
- * @public
  * <p>The detailed data about the current state of this service instance.</p>
+ * @public
  */
 export interface ServiceInstanceState {
   /**
-   * @public
    * <p>The service spec that was used to create the service instance.</p>
+   * @public
    */
   spec: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service template that was used to create the service instance.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the service template that was used to create the service
    *       pipeline.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the service template that was used to create the service
    *       pipeline.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The IDs for the last successful components deployed for this service instance.</p>
+   * @public
    */
   lastSuccessfulComponentDeploymentIds?: string[];
 
   /**
-   * @public
    * <p>The ID for the last successful environment deployed for this service instance.</p>
+   * @public
    */
   lastSuccessfulEnvironmentDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID for the last successful service pipeline deployed for this service instance.</p>
+   * @public
    */
   lastSuccessfulServicePipelineDeploymentId?: string;
 }
 
 /**
- * @public
  * <p>The detailed data about the current state of the service pipeline.</p>
+ * @public
  */
 export interface ServicePipelineState {
   /**
-   * @public
    * <p>The service spec that was used to create the service pipeline.</p>
+   * @public
    */
   spec?: string;
 
   /**
-   * @public
    * <p>The name of the service template that was used to create the service pipeline.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the service template that was used to create the service
    *       pipeline.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the service template that was used to create the service
    *       pipeline.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 }
 
 /**
- * @public
  * <p>The detailed data about the current state of the deployment.</p>
+ * @public
  */
 export type DeploymentState =
   | DeploymentState.ComponentMember
@@ -1677,8 +1677,8 @@ export type DeploymentState =
  */
 export namespace DeploymentState {
   /**
-   * @public
    * <p>The state of the service instance associated with the deployment.</p>
+   * @public
    */
   export interface ServiceInstanceMember {
     serviceInstance: ServiceInstanceState;
@@ -1689,8 +1689,8 @@ export namespace DeploymentState {
   }
 
   /**
-   * @public
    * <p>The state of the environment associated with the deployment.</p>
+   * @public
    */
   export interface EnvironmentMember {
     serviceInstance?: never;
@@ -1701,8 +1701,8 @@ export namespace DeploymentState {
   }
 
   /**
-   * @public
    * <p>The state of the service pipeline associated with the deployment.</p>
+   * @public
    */
   export interface ServicePipelineMember {
     serviceInstance?: never;
@@ -1713,8 +1713,8 @@ export namespace DeploymentState {
   }
 
   /**
-   * @public
    * <p>The state of the component associated with the deployment.</p>
+   * @public
    */
   export interface ComponentMember {
     serviceInstance?: never;
@@ -1770,115 +1770,115 @@ export type DeploymentTargetResourceType =
   (typeof DeploymentTargetResourceType)[keyof typeof DeploymentTargetResourceType];
 
 /**
- * @public
  * <p>The detailed information about a deployment.</p>
+ * @public
  */
 export interface Deployment {
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the target of the deployment.</p>
+   * @public
    */
   targetArn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time the depoyment target was created.</p>
+   * @public
    */
   targetResourceCreatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The resource type of the deployment target. It can be an environment, service, service instance, or component.</p>
+   * @public
    */
   targetResourceType: DeploymentTargetResourceType | undefined;
 
   /**
-   * @public
    * <p>The name of the environment associated with this deployment.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service in this deployment.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the deployment's service instance.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The name of the component associated with this deployment.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>The status of the deployment.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>The deployment status message.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The date and time the deployment was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the deployment was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the deployment was completed.</p>
+   * @public
    */
   completedAt?: Date;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 
   /**
-   * @public
    * <p>The initial state of the target resource at the time of the deployment.</p>
+   * @public
    */
   initialState?: DeploymentState;
 
   /**
-   * @public
    * <p>The target state of the target resource at the time of the deployment.</p>
+   * @public
    */
   targetState?: DeploymentState;
 }
@@ -1888,8 +1888,8 @@ export interface Deployment {
  */
 export interface DeleteDeploymentOutput {
   /**
-   * @public
    * <p>The detailed data of the deployment being deleted.</p>
+   * @public
    */
   deployment?: Deployment;
 }
@@ -1899,33 +1899,33 @@ export interface DeleteDeploymentOutput {
  */
 export interface GetDeploymentInput {
   /**
-   * @public
    * <p>The ID of the deployment that you want to get the detailed data for.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of a environment that you want to get the detailed data for.</p>
+   * @public
    */
   environmentName?: string;
 
   /**
-   * @public
    * <p>The name of the service associated with the given deployment ID.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the service instance associated with the given deployment ID. <code>serviceName</code> must be specified to identify the service
    *    instance.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The name of a component that you want to get the detailed data for.</p>
+   * @public
    */
   componentName?: string;
 }
@@ -1935,8 +1935,8 @@ export interface GetDeploymentInput {
  */
 export interface GetDeploymentOutput {
   /**
-   * @public
    * <p>The detailed data of the requested deployment.</p>
+   * @public
    */
   deployment?: Deployment;
 }
@@ -1946,135 +1946,135 @@ export interface GetDeploymentOutput {
  */
 export interface ListDeploymentsInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next deployment in the array of deployment, after the list of deployment that was previously
    *    requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The name of an environment for result list filtering. Proton returns deployments associated with the environment.</p>
+   * @public
    */
   environmentName?: string;
 
   /**
-   * @public
    * <p>The name of a service for result list filtering. Proton returns deployments associated with service instances of the service.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of a service instance for result list filtering. Proton returns the deployments associated with the service instance.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The name of a component for result list filtering. Proton returns deployments associated with that component.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>The maximum number of deployments to list.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary data of the deployment.</p>
+ * @public
  */
 export interface DeploymentSummary {
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the target of the deployment.</p>
+   * @public
    */
   targetArn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time the target resource was created.</p>
+   * @public
    */
   targetResourceCreatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The resource type of the deployment target. It can be an environment, service, service instance, or component.</p>
+   * @public
    */
   targetResourceType: DeploymentTargetResourceType | undefined;
 
   /**
-   * @public
    * <p>The date and time the deployment was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the deployment was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the deployment was completed.</p>
+   * @public
    */
   completedAt?: Date;
 
   /**
-   * @public
    * <p>The name of the environment associated with the deployment.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service associated with the deployment.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>The name of the service instance associated with the deployment.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The name of the component associated with the deployment.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 
   /**
-   * @public
    * <p>The current status of the deployment.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 }
@@ -2084,14 +2084,14 @@ export interface DeploymentSummary {
  */
 export interface ListDeploymentsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next deployment in the array of deployment, after the current requested list of deployment.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of deployment with summary data.</p>
+   * @public
    */
   deployments: DeploymentSummary[] | undefined;
 }
@@ -2101,43 +2101,42 @@ export interface ListDeploymentsOutput {
  */
 export interface CreateEnvironmentAccountConnectionInput {
   /**
-   * @public
    * <p>When included, if two identical requests are made with the same client token, Proton returns the environment account connection that the first
    *       request created.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The ID of the management account that accepts or rejects the environment account connection. You create and manage the Proton environment in this
    *       account. If the management account accepts the environment account connection, Proton can use the associated IAM role to provision environment
    *       infrastructure resources in the associated environment account.</p>
+   * @public
    */
   managementAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure
    *       resources in the associated environment account.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The name of the Proton environment that's created in the associated management account.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
    *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
    *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with any environments running in this
@@ -2145,13 +2144,14 @@ export interface CreateEnvironmentAccountConnectionInput {
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
    *       using CodeBuild-based provisioning in the associated environment account.</p>
+   * @public
    */
   codebuildRoleArn?: string;
 }
@@ -2161,8 +2161,8 @@ export interface CreateEnvironmentAccountConnectionInput {
  */
 export interface CreateEnvironmentAccountConnectionOutput {
   /**
-   * @public
    * <p>The environment account connection detail data that's returned by Proton.</p>
+   * @public
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
@@ -2172,8 +2172,8 @@ export interface CreateEnvironmentAccountConnectionOutput {
  */
 export interface DeleteEnvironmentAccountConnectionInput {
   /**
-   * @public
    * <p>The ID of the environment account connection to delete.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -2183,8 +2183,8 @@ export interface DeleteEnvironmentAccountConnectionInput {
  */
 export interface DeleteEnvironmentAccountConnectionOutput {
   /**
-   * @public
    * <p>The detailed data of the environment account connection being deleted.</p>
+   * @public
    */
   environmentAccountConnection?: EnvironmentAccountConnection;
 }
@@ -2194,8 +2194,8 @@ export interface DeleteEnvironmentAccountConnectionOutput {
  */
 export interface GetEnvironmentAccountConnectionInput {
   /**
-   * @public
    * <p>The ID of the environment account connection that you want to get the detailed data for.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -2205,8 +2205,8 @@ export interface GetEnvironmentAccountConnectionInput {
  */
 export interface GetEnvironmentAccountConnectionOutput {
   /**
-   * @public
    * <p>The detailed data of the requested environment account connection.</p>
+   * @public
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
@@ -2231,98 +2231,97 @@ export type EnvironmentAccountConnectionRequesterAccountType =
  */
 export interface ListEnvironmentAccountConnectionsInput {
   /**
-   * @public
    * <p>The type of account making the <code>ListEnvironmentAccountConnections</code> request.</p>
+   * @public
    */
   requestedBy: EnvironmentAccountConnectionRequesterAccountType | undefined;
 
   /**
-   * @public
    * <p>The environment name that's associated with each listed environment account connection.</p>
+   * @public
    */
   environmentName?: string;
 
   /**
-   * @public
    * <p>The status details for each listed environment account connection.</p>
+   * @public
    */
   statuses?: EnvironmentAccountConnectionStatus[];
 
   /**
-   * @public
    * <p>A token that indicates the location of the next environment account connection in the array of environment account connections, after the list of
    *       environment account connections that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of environment account connections to list.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary data of an Proton environment account connection resource.</p>
+ * @public
  */
 export interface EnvironmentAccountConnectionSummary {
   /**
-   * @public
    * <p>The ID of the environment account connection.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the environment account connection.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the management account that's connected to the environment account connection.</p>
+   * @public
    */
   managementAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment account that's connected to the environment account connection.</p>
+   * @public
    */
   environmentAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The IAM service role that's associated with the environment account connection.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the environment that's associated with the environment account connection.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The time when the environment account connection request was made.</p>
+   * @public
    */
   requestedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the environment account connection was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The status of the environment account connection.</p>
+   * @public
    */
   status: EnvironmentAccountConnectionStatus | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
    *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
    *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
@@ -2330,6 +2329,7 @@ export interface EnvironmentAccountConnectionSummary {
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 }
@@ -2339,15 +2339,15 @@ export interface EnvironmentAccountConnectionSummary {
  */
 export interface ListEnvironmentAccountConnectionsOutput {
   /**
-   * @public
    * <p>An array of environment account connections with details that's returned by Proton. </p>
+   * @public
    */
   environmentAccountConnections: EnvironmentAccountConnectionSummary[] | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next environment account connection in the array of environment account connections, after the current
    *       requested list of environment account connections.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2357,8 +2357,8 @@ export interface ListEnvironmentAccountConnectionsOutput {
  */
 export interface RejectEnvironmentAccountConnectionInput {
   /**
-   * @public
    * <p>The ID of the environment account connection to reject.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -2368,8 +2368,8 @@ export interface RejectEnvironmentAccountConnectionInput {
  */
 export interface RejectEnvironmentAccountConnectionOutput {
   /**
-   * @public
    * <p>The environment connection account detail data that's returned by Proton.</p>
+   * @public
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
@@ -2379,19 +2379,18 @@ export interface RejectEnvironmentAccountConnectionOutput {
  */
 export interface UpdateEnvironmentAccountConnectionInput {
   /**
-   * @public
    * <p>The ID of the environment account connection to update.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that's associated with the environment account connection to update.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
    *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
    *          <p>The environment account connection must have a <code>componentRoleArn</code> to allow directly defined components to be associated with any
@@ -2399,13 +2398,14 @@ export interface UpdateEnvironmentAccountConnectionInput {
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
    *       using CodeBuild-based provisioning in the associated environment account.</p>
+   * @public
    */
   codebuildRoleArn?: string;
 }
@@ -2415,8 +2415,8 @@ export interface UpdateEnvironmentAccountConnectionInput {
  */
 export interface UpdateEnvironmentAccountConnectionOutput {
   /**
-   * @public
    * <p>The environment account connection detail data that's returned by Proton.</p>
+   * @public
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
 }
@@ -2426,21 +2426,21 @@ export interface UpdateEnvironmentAccountConnectionOutput {
  */
 export interface ListEnvironmentOutputsInput {
   /**
-   * @public
    * <p>The environment name.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next environment output in the array of environment outputs, after the list of environment outputs that was
    *       previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the deployment whose outputs you want.</p>
+   * @public
    */
   deploymentId?: string;
 }
@@ -2450,15 +2450,15 @@ export interface ListEnvironmentOutputsInput {
  */
 export interface ListEnvironmentOutputsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next environment output in the array of environment outputs, after the current requested list of
    *       environment outputs.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of environment outputs with detail data.</p>
+   * @public
    */
   outputs: Output[] | undefined;
 }
@@ -2468,15 +2468,15 @@ export interface ListEnvironmentOutputsOutput {
  */
 export interface ListEnvironmentProvisionedResourcesInput {
   /**
-   * @public
    * <p>The environment name.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next environment provisioned resource in the array of environment provisioned resources, after the list of
    *       environment provisioned resources that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2486,15 +2486,15 @@ export interface ListEnvironmentProvisionedResourcesInput {
  */
 export interface ListEnvironmentProvisionedResourcesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next environment provisioned resource in the array of provisioned resources, after the current requested
    *       list of environment provisioned resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of environment provisioned resources.</p>
+   * @public
    */
   provisionedResources: ProvisionedResource[] | undefined;
 }
@@ -2504,94 +2504,94 @@ export interface ListEnvironmentProvisionedResourcesOutput {
  */
 export interface CreateEnvironmentInput {
   /**
-   * @public
    * <p>The name of the environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the environment template.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the environment template.</p>
+   * @public
    */
   templateMinorVersion?: string;
 
   /**
-   * @public
    * <p>A description of the environment that's being created and deployed.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A YAML formatted string that provides inputs as defined in the environment template bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> in the <i>Proton User
    *       Guide</i>.</p>
+   * @public
    */
   spec: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
    *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
    *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
+   * @public
    */
   protonServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an environment
    *       account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
    *         connections</a> in the <i>Proton User guide</i>.</p>
    *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
    *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
+   * @public
    */
   environmentAccountConnectionId?: string;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton environment. A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
    *       that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    *          <p>To use self-managed provisioning for the environment, specify this parameter and omit the <code>environmentAccountConnectionId</code> and
    *         <code>protonServiceRoleArn</code> parameters.</p>
+   * @public
    */
   provisioningRepository?: RepositoryBranchInput;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with this environment.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
    *       behalf.</p>
    *          <p>To use CodeBuild-based provisioning for the environment or for any service instance running in the environment, specify either the
    *       <code>environmentAccountConnectionId</code> or <code>codebuildRoleArn</code> parameter.</p>
+   * @public
    */
   codebuildRoleArn?: string;
 }
@@ -2601,8 +2601,8 @@ export interface CreateEnvironmentInput {
  */
 export interface CreateEnvironmentOutput {
   /**
-   * @public
    * <p>The environment detail data that's returned by Proton.</p>
+   * @public
    */
   environment: Environment | undefined;
 }
@@ -2612,8 +2612,8 @@ export interface CreateEnvironmentOutput {
  */
 export interface DeleteEnvironmentInput {
   /**
-   * @public
    * <p>The name of the environment to delete.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -2623,8 +2623,8 @@ export interface DeleteEnvironmentInput {
  */
 export interface DeleteEnvironmentOutput {
   /**
-   * @public
    * <p>The detailed data of the environment being deleted.</p>
+   * @public
    */
   environment?: Environment;
 }
@@ -2634,8 +2634,8 @@ export interface DeleteEnvironmentOutput {
  */
 export interface GetEnvironmentInput {
   /**
-   * @public
    * <p>The name of the environment that you want to get the detailed data for.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -2645,26 +2645,26 @@ export interface GetEnvironmentInput {
  */
 export interface GetEnvironmentOutput {
   /**
-   * @public
    * <p>The detailed data of the requested environment.</p>
+   * @public
    */
   environment: Environment | undefined;
 }
 
 /**
- * @public
  * <p>A search filter for environment templates.</p>
+ * @public
  */
 export interface EnvironmentTemplateFilter {
   /**
-   * @public
    * <p>Include <code>templateName</code> to filter search for a template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>Include <code>majorVersion</code> to filter search for a major version.</p>
+   * @public
    */
   majorVersion: string | undefined;
 }
@@ -2674,140 +2674,140 @@ export interface EnvironmentTemplateFilter {
  */
 export interface ListEnvironmentsInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next environment in the array of environments, after the list of environments that was previously
    *       requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of environments to list.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>An array of the versions of the environment template.</p>
+   * @public
    */
   environmentTemplates?: EnvironmentTemplateFilter[];
 }
 
 /**
- * @public
  * <p>Summary data of an Proton environment resource. An Proton environment is a set of resources shared across Proton services.</p>
+ * @public
  */
 export interface EnvironmentSummary {
   /**
-   * @public
    * <p>The name of the environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The time when the environment was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when a deployment of the environment was last attempted.</p>
+   * @public
    */
   lastDeploymentAttemptedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the environment was last deployed successfully.</p>
+   * @public
    */
   lastDeploymentSucceededAt: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the environment template.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the environment template.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The environment deployment status.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>An environment deployment status message.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
+   * @public
    */
   protonServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>The ID of the environment account connection that the environment is associated with.</p>
+   * @public
    */
   environmentAccountConnectionId?: string;
 
   /**
-   * @public
    * <p>The ID of the environment account that the environment infrastructure resources are provisioned in.</p>
+   * @public
    */
   environmentAccountId?: string;
 
   /**
-   * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
+   * @public
    */
   provisioning?: Provisioning;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment of this environment.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment of this environment.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 }
@@ -2817,14 +2817,14 @@ export interface EnvironmentSummary {
  */
 export interface ListEnvironmentsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next environment in the array of environments, after the current requested list of environments.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of environment detail data summaries.</p>
+   * @public
    */
   environments: EnvironmentSummary[] | undefined;
 }
@@ -2850,43 +2850,42 @@ export type DeploymentUpdateType = (typeof DeploymentUpdateType)[keyof typeof De
  */
 export interface UpdateEnvironmentInput {
   /**
-   * @public
    * <p>The name of the environment to update.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the environment update.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The formatted specification that defines the update.</p>
+   * @public
    */
   spec?: string;
 
   /**
-   * @public
    * <p>The major version of the environment to update.</p>
+   * @public
    */
   templateMajorVersion?: string;
 
   /**
-   * @public
    * <p>The minor version of the environment to update.</p>
+   * @public
    */
   templateMinorVersion?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make API calls to other services your behalf.</p>
+   * @public
    */
   protonServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>
    *          <dl>
    *             <dt/>
@@ -2921,39 +2920,40 @@ export interface UpdateEnvironmentInput {
    *             by default. You can also specify a different major version that is higher than the major version in use and a minor version (optional).</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   deploymentType: DeploymentUpdateType | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment account connection.</p>
    *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment account
    *       connection was created in and is associated with the current environment.</p>
+   * @public
    */
   environmentAccountConnectionId?: string;
 
   /**
-   * @public
    * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
    *       that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
+   * @public
    */
   provisioningRepository?: RepositoryBranchInput;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
    *       determines the scope of infrastructure that a component can provision.</p>
    *          <p>The environment must have a <code>componentRoleArn</code> to allow directly defined components to be associated with the environment.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   componentRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
    *       behalf.</p>
+   * @public
    */
   codebuildRoleArn?: string;
 }
@@ -2963,8 +2963,8 @@ export interface UpdateEnvironmentInput {
  */
 export interface UpdateEnvironmentOutput {
   /**
-   * @public
    * <p>The environment detail data that's returned by Proton.</p>
+   * @public
    */
   environment: Environment | undefined;
 }
@@ -2974,100 +2974,100 @@ export interface UpdateEnvironmentOutput {
  */
 export interface CreateEnvironmentTemplateInput {
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The environment template name as displayed in the developer interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the environment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A customer provided encryption key that Proton uses to encrypt data.</p>
+   * @public
    */
   encryptionKey?: string;
 
   /**
-   * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
+   * @public
    */
   provisioning?: Provisioning;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 }
 
 /**
- * @public
  * <p>The environment template data.</p>
+ * @public
  */
 export interface EnvironmentTemplate {
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the environment template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the environment template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the environment template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the environment template as displayed in the developer interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the environment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the recommended version of the environment template.</p>
+   * @public
    */
   recommendedVersion?: string;
 
   /**
-   * @public
    * <p>The customer provided encryption key for the environment template.</p>
+   * @public
    */
   encryptionKey?: string;
 
   /**
-   * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
+   * @public
    */
   provisioning?: Provisioning;
 }
@@ -3077,8 +3077,8 @@ export interface EnvironmentTemplate {
  */
 export interface CreateEnvironmentTemplateOutput {
   /**
-   * @public
    * <p>The environment template detail data that's returned by Proton.</p>
+   * @public
    */
   environmentTemplate: EnvironmentTemplate | undefined;
 }
@@ -3088,8 +3088,8 @@ export interface CreateEnvironmentTemplateOutput {
  */
 export interface DeleteEnvironmentTemplateInput {
   /**
-   * @public
    * <p>The name of the environment template to delete.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -3099,8 +3099,8 @@ export interface DeleteEnvironmentTemplateInput {
  */
 export interface DeleteEnvironmentTemplateOutput {
   /**
-   * @public
    * <p>The detailed data of the environment template being deleted.</p>
+   * @public
    */
   environmentTemplate?: EnvironmentTemplate;
 }
@@ -3110,8 +3110,8 @@ export interface DeleteEnvironmentTemplateOutput {
  */
 export interface GetEnvironmentTemplateInput {
   /**
-   * @public
    * <p>The name of the environment template that you want to get the detailed data for.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -3121,8 +3121,8 @@ export interface GetEnvironmentTemplateInput {
  */
 export interface GetEnvironmentTemplateOutput {
   /**
-   * @public
    * <p>The detailed data of the requested environment template.</p>
+   * @public
    */
   environmentTemplate: EnvironmentTemplate | undefined;
 }
@@ -3132,69 +3132,69 @@ export interface GetEnvironmentTemplateOutput {
  */
 export interface ListEnvironmentTemplatesInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next environment template in the array of environment templates, after the list of environment templates
    *       that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of environment templates to list.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The environment template data.</p>
+ * @public
  */
 export interface EnvironmentTemplateSummary {
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the environment template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the environment template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the environment template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the environment template as displayed in the developer interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the environment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The recommended version of the environment template.</p>
+   * @public
    */
   recommendedVersion?: string;
 
   /**
-   * @public
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
+   * @public
    */
   provisioning?: Provisioning;
 }
@@ -3204,15 +3204,15 @@ export interface EnvironmentTemplateSummary {
  */
 export interface ListEnvironmentTemplatesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next environment template in the array of environment templates, after the current requested list of
    *       environment templates.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of environment templates with detail data.</p>
+   * @public
    */
   templates: EnvironmentTemplateSummary[] | undefined;
 }
@@ -3222,20 +3222,20 @@ export interface ListEnvironmentTemplatesOutput {
  */
 export interface UpdateEnvironmentTemplateInput {
   /**
-   * @public
    * <p>The name of the environment template to update.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the environment template to update as displayed in the developer interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the environment template update.</p>
+   * @public
    */
   description?: string;
 }
@@ -3245,33 +3245,33 @@ export interface UpdateEnvironmentTemplateInput {
  */
 export interface UpdateEnvironmentTemplateOutput {
   /**
-   * @public
    * <p>The environment template detail data that's returned by Proton.</p>
+   * @public
    */
   environmentTemplate: EnvironmentTemplate | undefined;
 }
 
 /**
- * @public
  * <p>Template bundle S3 bucket data.</p>
+ * @public
  */
 export interface S3ObjectSource {
   /**
-   * @public
    * <p>The name of the S3 bucket that contains a template bundle.</p>
+   * @public
    */
   bucket: string | undefined;
 
   /**
-   * @public
    * <p>The path to the S3 bucket that contains a template bundle.</p>
+   * @public
    */
   key: string | undefined;
 }
 
 /**
- * @public
  * <p>Template version source data.</p>
+ * @public
  */
 export type TemplateVersionSourceInput =
   | TemplateVersionSourceInput.S3Member
@@ -3282,8 +3282,8 @@ export type TemplateVersionSourceInput =
  */
 export namespace TemplateVersionSourceInput {
   /**
-   * @public
    * <p>An S3 source object that includes the template bundle S3 path and name for a template minor version.</p>
+   * @public
    */
   export interface S3Member {
     s3: S3ObjectSource;
@@ -3314,42 +3314,42 @@ export namespace TemplateVersionSourceInput {
  */
 export interface CreateEnvironmentTemplateVersionInput {
   /**
-   * @public
    * <p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first
    *       request created.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>A description of the new version of an environment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>To create a new minor version of the environment template, include <code>major Version</code>.</p>
    *          <p>To create a new major and minor version of the environment template, exclude <code>major Version</code>.</p>
+   * @public
    */
   majorVersion?: string;
 
   /**
-   * @public
    * <p>An object that includes the template bundle S3 bucket path and name for the new version of an template.</p>
+   * @public
    */
   source: TemplateVersionSourceInput | undefined;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton environment template version. A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -3371,73 +3371,73 @@ export const TemplateVersionStatus = {
 export type TemplateVersionStatus = (typeof TemplateVersionStatus)[keyof typeof TemplateVersionStatus];
 
 /**
- * @public
  * <p>The environment template version data.</p>
+ * @public
  */
 export interface EnvironmentTemplateVersion {
   /**
-   * @public
    * <p>The name of the version of an environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The latest major version that's associated with the version of an environment template.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of an environment template.</p>
+   * @public
    */
   minorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The recommended minor version of the environment template.</p>
+   * @public
    */
   recommendedMinorVersion?: string;
 
   /**
-   * @public
    * <p>The status of the version of an environment template.</p>
+   * @public
    */
   status: TemplateVersionStatus | undefined;
 
   /**
-   * @public
    * <p>The status message of the version of an environment template.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>A description of the minor version of an environment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the version of an environment template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the version of an environment template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the version of an environment template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The schema of the version of an environment template.</p>
+   * @public
    */
   schema?: string;
 }
@@ -3447,8 +3447,8 @@ export interface EnvironmentTemplateVersion {
  */
 export interface CreateEnvironmentTemplateVersionOutput {
   /**
-   * @public
    * <p>The environment template detail data that's returned by Proton.</p>
+   * @public
    */
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
 }
@@ -3458,20 +3458,20 @@ export interface CreateEnvironmentTemplateVersionOutput {
  */
 export interface DeleteEnvironmentTemplateVersionInput {
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The environment template major version to delete.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The environment template minor version to delete.</p>
+   * @public
    */
   minorVersion: string | undefined;
 }
@@ -3481,8 +3481,8 @@ export interface DeleteEnvironmentTemplateVersionInput {
  */
 export interface DeleteEnvironmentTemplateVersionOutput {
   /**
-   * @public
    * <p>The detailed data of the environment template version being deleted.</p>
+   * @public
    */
   environmentTemplateVersion?: EnvironmentTemplateVersion;
 }
@@ -3492,20 +3492,20 @@ export interface DeleteEnvironmentTemplateVersionOutput {
  */
 export interface GetEnvironmentTemplateVersionInput {
   /**
-   * @public
    * <p>The name of the environment template a version of which you want to get detailed data for.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>To get environment template major version detail data, include <code>major Version</code>.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>To get environment template minor version detail data, include <code>minorVersion</code>.</p>
+   * @public
    */
   minorVersion: string | undefined;
 }
@@ -3515,8 +3515,8 @@ export interface GetEnvironmentTemplateVersionInput {
  */
 export interface GetEnvironmentTemplateVersionOutput {
   /**
-   * @public
    * <p>The detailed data of the requested environment template version.</p>
+   * @public
    */
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
 }
@@ -3526,95 +3526,95 @@ export interface GetEnvironmentTemplateVersionOutput {
  */
 export interface ListEnvironmentTemplateVersionsInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of an environment template, after the
    *       list of major or minor versions that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of major or minor versions of an environment template to list.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>To view a list of minor of versions under a major version of an environment template, include <code>major Version</code>.</p>
    *          <p>To view a list of major versions of an environment template, <i>exclude</i>
    *             <code>major Version</code>.</p>
+   * @public
    */
   majorVersion?: string;
 }
 
 /**
- * @public
  * <p>A summary of the version of an environment template detail data.</p>
+ * @public
  */
 export interface EnvironmentTemplateVersionSummary {
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The latest major version that's associated with the version of an environment template.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The version of an environment template.</p>
+   * @public
    */
   minorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The recommended minor version of the environment template.</p>
+   * @public
    */
   recommendedMinorVersion?: string;
 
   /**
-   * @public
    * <p>The status of the version of an environment template.</p>
+   * @public
    */
   status: TemplateVersionStatus | undefined;
 
   /**
-   * @public
    * <p>The status message of the version of an environment template.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>A description of the version of an environment template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the version of an environment template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the version of an environment template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the version of an environment template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 }
@@ -3624,15 +3624,15 @@ export interface EnvironmentTemplateVersionSummary {
  */
 export interface ListEnvironmentTemplateVersionsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of an environment template, after the
    *       list of major or minor versions that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of major or minor versions of an environment template detail data.</p>
+   * @public
    */
   templateVersions: EnvironmentTemplateVersionSummary[] | undefined;
 }
@@ -3642,32 +3642,32 @@ export interface ListEnvironmentTemplateVersionsOutput {
  */
 export interface UpdateEnvironmentTemplateVersionInput {
   /**
-   * @public
    * <p>The name of the environment template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>To update a major version of an environment template, include <code>major Version</code>.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>To update a minor version of an environment template, include <code>minorVersion</code>.</p>
+   * @public
    */
   minorVersion: string | undefined;
 
   /**
-   * @public
    * <p>A description of environment template version to update.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the environment template minor version to update.</p>
+   * @public
    */
   status?: TemplateVersionStatus;
 }
@@ -3677,8 +3677,8 @@ export interface UpdateEnvironmentTemplateVersionInput {
  */
 export interface UpdateEnvironmentTemplateVersionOutput {
   /**
-   * @public
    * <p>The environment template version detail data that's returned by Proton.</p>
+   * @public
    */
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
 }
@@ -3710,56 +3710,56 @@ export type SyncType = (typeof SyncType)[keyof typeof SyncType];
  */
 export interface GetRepositorySyncStatusInput {
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository branch.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>The repository sync type.</p>
+   * @public
    */
   syncType: SyncType | undefined;
 }
 
 /**
- * @public
  * <p>Repository sync event detail data for a sync attempt.</p>
+ * @public
  */
 export interface RepositorySyncEvent {
   /**
-   * @public
    * <p>The type of event.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The external ID of the sync event.</p>
+   * @public
    */
   externalId?: string;
 
   /**
-   * @public
    * <p>The time that the sync event occurred.</p>
+   * @public
    */
   time: Date | undefined;
 
   /**
-   * @public
    * <p>Event detail for a repository sync attempt.</p>
+   * @public
    */
   event: string | undefined;
 }
@@ -3802,25 +3802,25 @@ export const RepositorySyncStatus = {
 export type RepositorySyncStatus = (typeof RepositorySyncStatus)[keyof typeof RepositorySyncStatus];
 
 /**
- * @public
  * <p>Detail data for a repository sync attempt activated by a push to a repository.</p>
+ * @public
  */
 export interface RepositorySyncAttempt {
   /**
-   * @public
    * <p>The time when the sync attempt started.</p>
+   * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The sync attempt status.</p>
+   * @public
    */
   status: RepositorySyncStatus | undefined;
 
   /**
-   * @public
    * <p>Detail data for sync attempt events.</p>
+   * @public
    */
   events: RepositorySyncEvent[] | undefined;
 }
@@ -3830,8 +3830,8 @@ export interface RepositorySyncAttempt {
  */
 export interface GetRepositorySyncStatusOutput {
   /**
-   * @public
    * <p>The repository sync status detail data that's returned by Proton.</p>
+   * @public
    */
   latestSync?: RepositorySyncAttempt;
 }
@@ -3842,92 +3842,92 @@ export interface GetRepositorySyncStatusOutput {
 export interface GetResourcesSummaryInput {}
 
 /**
- * @public
  * <p>Summary counts of each Proton resource types.</p>
+ * @public
  */
 export interface ResourceCountsSummary {
   /**
-   * @public
    * <p>The total number of resources of this type in the Amazon Web Services account.</p>
+   * @public
    */
   total: number | undefined;
 
   /**
-   * @public
    * <p>The number of resources of this type in the Amazon Web Services account that failed to deploy.</p>
+   * @public
    */
   failed?: number;
 
   /**
-   * @public
    * <p>The number of resources of this type in the Amazon Web Services account that are up-to-date with their template.</p>
+   * @public
    */
   upToDate?: number;
 
   /**
-   * @public
    * <p>The number of resources of this type in the Amazon Web Services account that need a major template version update.</p>
+   * @public
    */
   behindMajor?: number;
 
   /**
-   * @public
    * <p>The number of resources of this type in the Amazon Web Services account that need a minor template version update.</p>
+   * @public
    */
   behindMinor?: number;
 }
 
 /**
- * @public
  * <p>Summary counts of each Proton resource type.</p>
+ * @public
  */
 export interface CountsSummary {
   /**
-   * @public
    * <p>The total number of components in the Amazon Web Services account.</p>
    *          <p>The semantics of the <code>components</code> field are different from the semantics of results for other
    *    infrastructure-provisioning resources. That's because at this time components don't have associated templates,
    *    therefore they don't have the concept of staleness. The <code>components</code> object will only contain
    *     <code>total</code> and <code>failed</code> members.</p>
+   * @public
    */
   components?: ResourceCountsSummary;
 
   /**
-   * @public
    * <p>The staleness counts for Proton environments in the Amazon Web Services account. The <code>environments</code> object will only
    *    contain <code>total</code> members.</p>
+   * @public
    */
   environments?: ResourceCountsSummary;
 
   /**
-   * @public
    * <p>The total number of environment templates in the Amazon Web Services account. The <code>environmentTemplates</code> object
    *    will only contain <code>total</code> members.</p>
+   * @public
    */
   environmentTemplates?: ResourceCountsSummary;
 
   /**
-   * @public
    * <p>The staleness counts for Proton service instances in the Amazon Web Services account.</p>
+   * @public
    */
   serviceInstances?: ResourceCountsSummary;
 
   /**
-   * @public
    * <p>The staleness counts for Proton services in the Amazon Web Services account.</p>
+   * @public
    */
   services?: ResourceCountsSummary;
 
   /**
-   * @public
    * <p>The total number of service templates in the Amazon Web Services account. The <code>serviceTemplates</code> object will only
    *    contain <code>total</code> members.</p>
+   * @public
    */
   serviceTemplates?: ResourceCountsSummary;
 
   /**
-   * @public
    * <p>The staleness counts for Proton pipelines in the Amazon Web Services account.</p>
+   * @public
    */
   pipelines?: ResourceCountsSummary;
 }
@@ -3937,8 +3937,8 @@ export interface CountsSummary {
  */
 export interface GetResourcesSummaryOutput {
   /**
-   * @public
    * <p>Summary counts of each Proton resource type.</p>
+   * @public
    */
   counts: CountsSummary | undefined;
 }
@@ -3948,80 +3948,80 @@ export interface GetResourcesSummaryOutput {
  */
 export interface GetServiceInstanceSyncStatusInput {
   /**
-   * @public
    * <p>The name of the service that the service instance belongs to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service instance that you want the sync status input for.</p>
+   * @public
    */
   serviceInstanceName: string | undefined;
 }
 
 /**
- * @public
  * <p>Revision detail data for a commit and push that activates a sync attempt</p>
+ * @public
  */
 export interface Revision {
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The secure hash algorithm (SHA) hash for the revision.</p>
+   * @public
    */
   sha: string | undefined;
 
   /**
-   * @public
    * <p>The repository directory changed by a commit and push that activated the sync attempt.</p>
+   * @public
    */
   directory: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch.</p>
+   * @public
    */
   branch: string | undefined;
 }
 
 /**
- * @public
  * <p>Detail data for a resource sync event.</p>
+ * @public
  */
 export interface ResourceSyncEvent {
   /**
-   * @public
    * <p>The type of event.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The external ID for the event.</p>
+   * @public
    */
   externalId?: string;
 
   /**
-   * @public
    * <p>The time when the event occurred.</p>
+   * @public
    */
   time: Date | undefined;
 
   /**
-   * @public
    * <p>A resource sync event.</p>
+   * @public
    */
   event: string | undefined;
 }
@@ -4059,43 +4059,43 @@ export const ResourceSyncStatus = {
 export type ResourceSyncStatus = (typeof ResourceSyncStatus)[keyof typeof ResourceSyncStatus];
 
 /**
- * @public
  * <p>Detail data for a resource sync attempt activated by a push to a repository.</p>
+ * @public
  */
 export interface ResourceSyncAttempt {
   /**
-   * @public
    * <p>Detail data for the initial repository commit, path and push.</p>
+   * @public
    */
   initialRevision: Revision | undefined;
 
   /**
-   * @public
    * <p>Detail data for the target revision.</p>
+   * @public
    */
   targetRevision: Revision | undefined;
 
   /**
-   * @public
    * <p>The resource that is synced to.</p>
+   * @public
    */
   target: string | undefined;
 
   /**
-   * @public
    * <p>The time when the sync attempt started.</p>
+   * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The status of the sync attempt.</p>
+   * @public
    */
   status: ResourceSyncStatus | undefined;
 
   /**
-   * @public
    * <p>An array of events with detail data.</p>
+   * @public
    */
   events: ResourceSyncEvent[] | undefined;
 }
@@ -4105,20 +4105,20 @@ export interface ResourceSyncAttempt {
  */
 export interface GetServiceInstanceSyncStatusOutput {
   /**
-   * @public
    * <p>The detailed data of the latest sync with the service instance.</p>
+   * @public
    */
   latestSync?: ResourceSyncAttempt;
 
   /**
-   * @public
    * <p>The detailed data of the latest successful sync with the service instance.</p>
+   * @public
    */
   latestSuccessfulSync?: ResourceSyncAttempt;
 
   /**
-   * @public
    * <p>The service instance sync desired state that's returned by Proton</p>
+   * @public
    */
   desiredState?: Revision;
 }
@@ -4142,20 +4142,20 @@ export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType];
  */
 export interface GetTemplateSyncStatusInput {
   /**
-   * @public
    * <p>The template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The template type.</p>
+   * @public
    */
   templateType: TemplateType | undefined;
 
   /**
-   * @public
    * <p>The template major version.</p>
+   * @public
    */
   templateVersion: string | undefined;
 }
@@ -4165,20 +4165,20 @@ export interface GetTemplateSyncStatusInput {
  */
 export interface GetTemplateSyncStatusOutput {
   /**
-   * @public
    * <p>The details of the last sync that's returned by Proton.</p>
+   * @public
    */
   latestSync?: ResourceSyncAttempt;
 
   /**
-   * @public
    * <p>The details of the last successful sync that's returned by Proton.</p>
+   * @public
    */
   latestSuccessfulSync?: ResourceSyncAttempt;
 
   /**
-   * @public
    * <p>The template sync desired state that's returned by Proton.</p>
+   * @public
    */
   desiredState?: Revision;
 }
@@ -4188,57 +4188,57 @@ export interface GetTemplateSyncStatusOutput {
  */
 export interface ListRepositorySyncDefinitionsInput {
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The sync type. The only supported value is <code>TEMPLATE_SYNC</code>.</p>
+   * @public
    */
   syncType: SyncType | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next repository sync definition in the array of repository sync definitions, after the list of repository
    *       sync definitions previously requested.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A repository sync definition.</p>
+ * @public
  */
 export interface RepositorySyncDefinition {
   /**
-   * @public
    * <p>The resource that is synced to.</p>
+   * @public
    */
   target: string | undefined;
 
   /**
-   * @public
    * <p>The resource that is synced from.</p>
+   * @public
    */
   parent: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>The directory in the repository.</p>
+   * @public
    */
   directory: string | undefined;
 }
@@ -4248,15 +4248,15 @@ export interface RepositorySyncDefinition {
  */
 export interface ListRepositorySyncDefinitionsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next repository sync definition in the array of repository sync definitions, after the current requested
    *       list of repository sync definitions.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of repository sync definitions.</p>
+   * @public
    */
   syncDefinitions: RepositorySyncDefinition[] | undefined;
 }
@@ -4266,21 +4266,21 @@ export interface ListRepositorySyncDefinitionsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource for the listed tags.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the list of resource tags that was
    *    previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of tags to list.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4290,15 +4290,15 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * @public
    * <p>A list of resource tags with detail data.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the current requested list of resource
    *    tags.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4323,32 +4323,32 @@ export type ResourceDeploymentStatus = (typeof ResourceDeploymentStatus)[keyof t
  */
 export interface NotifyResourceDeploymentStatusChangeInput {
   /**
-   * @public
    * <p>The provisioned resource Amazon Resource Name (ARN).</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of your provisioned resource.</p>
+   * @public
    */
   status?: ResourceDeploymentStatus;
 
   /**
-   * @public
    * <p>The provisioned resource state change detail data that's returned by Proton.</p>
+   * @public
    */
   outputs?: Output[];
 
   /**
-   * @public
    * <p>The deployment ID for your provisioned resource.</p>
+   * @public
    */
   deploymentId?: string;
 
   /**
-   * @public
    * <p>The deployment status message for your provisioned resource.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -4363,71 +4363,71 @@ export interface NotifyResourceDeploymentStatusChangeOutput {}
  */
 export interface CreateRepositoryInput {
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   provider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of your AWS CodeStar connection that connects Proton to your repository provider account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html">Setting up for Proton</a> in the <i>Proton User
    *         Guide</i>.</p>
+   * @public
    */
   connectionArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of your customer Amazon Web Services Key Management Service (Amazon Web Services KMS) key.</p>
+   * @public
    */
   encryptionKey?: string;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton repository. A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Detailed data of a linked repository—a repository that has been registered with Proton.</p>
+ * @public
  */
 export interface Repository {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the linked repository.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   provider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of your AWS CodeStar connection that connects Proton to your repository provider account.</p>
+   * @public
    */
   connectionArn: string | undefined;
 
   /**
-   * @public
    * <p>Your customer Amazon Web Services KMS encryption key.</p>
+   * @public
    */
   encryptionKey?: string;
 }
@@ -4437,8 +4437,8 @@ export interface Repository {
  */
 export interface CreateRepositoryOutput {
   /**
-   * @public
    * <p>The repository link's detail data that's returned by Proton.</p>
+   * @public
    */
   repository: Repository | undefined;
 }
@@ -4448,14 +4448,14 @@ export interface CreateRepositoryOutput {
  */
 export interface DeleteRepositoryInput {
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   provider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -4465,8 +4465,8 @@ export interface DeleteRepositoryInput {
  */
 export interface DeleteRepositoryOutput {
   /**
-   * @public
    * <p>The deleted repository link's detail data that's returned by Proton.</p>
+   * @public
    */
   repository?: Repository;
 }
@@ -4476,14 +4476,14 @@ export interface DeleteRepositoryOutput {
  */
 export interface GetRepositoryInput {
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   provider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name, for example <code>myrepos/myrepo</code>.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -4493,8 +4493,8 @@ export interface GetRepositoryInput {
  */
 export interface GetRepositoryOutput {
   /**
-   * @public
    * <p>The repository link's detail data that's returned by Proton.</p>
+   * @public
    */
   repository: Repository | undefined;
 }
@@ -4504,44 +4504,44 @@ export interface GetRepositoryOutput {
  */
 export interface ListRepositoriesInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next repository in the array of repositories, after the list of repositories previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of repositories to list.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary data of a linked repository—a repository that has been registered with Proton.</p>
+ * @public
  */
 export interface RepositorySummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the linked repository.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   provider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the of your connection that connects Proton to your repository.</p>
+   * @public
    */
   connectionArn: string | undefined;
 }
@@ -4551,14 +4551,14 @@ export interface RepositorySummary {
  */
 export interface ListRepositoriesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next repository in the array of repositories, after the current requested list of repositories. </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of repository links.</p>
+   * @public
    */
   repositories: RepositorySummary[] | undefined;
 }
@@ -4568,27 +4568,27 @@ export interface ListRepositoriesOutput {
  */
 export interface ListServiceInstanceOutputsInput {
   /**
-   * @public
    * <p>The name of the service instance whose outputs you want.</p>
+   * @public
    */
   serviceInstanceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service that <code>serviceInstanceName</code> is associated to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next output in the array of outputs, after the
    *       list of outputs that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the deployment whose outputs you want.</p>
+   * @public
    */
   deploymentId?: string;
 }
@@ -4598,15 +4598,15 @@ export interface ListServiceInstanceOutputsInput {
  */
 export interface ListServiceInstanceOutputsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next output in the array of outputs, after the
    *       current requested list of outputs.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of service instance Infrastructure as Code (IaC) outputs.</p>
+   * @public
    */
   outputs: Output[] | undefined;
 }
@@ -4616,22 +4616,22 @@ export interface ListServiceInstanceOutputsOutput {
  */
 export interface ListServiceInstanceProvisionedResourcesInput {
   /**
-   * @public
    * <p>The name of the service that <code>serviceInstanceName</code> is associated to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service instance whose provisioned resources you want.</p>
+   * @public
    */
   serviceInstanceName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next provisioned resource in the array of
    *       provisioned resources, after the list of provisioned resources that was previously
    *       requested.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4641,15 +4641,15 @@ export interface ListServiceInstanceProvisionedResourcesInput {
  */
 export interface ListServiceInstanceProvisionedResourcesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next provisioned resource in the array of
    *       provisioned resources, after the current requested list of provisioned resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of provisioned resources for a service instance.</p>
+   * @public
    */
   provisionedResources: ProvisionedResource[] | undefined;
 }
@@ -4659,50 +4659,50 @@ export interface ListServiceInstanceProvisionedResourcesOutput {
  */
 export interface CreateServiceInstanceInput {
   /**
-   * @public
    * <p>The name of the service instance to create.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service the service instance is added to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The spec for the service instance you want to create.</p>
+   * @public
    */
   spec: string | undefined;
 
   /**
-   * @public
    * <p>To create a new major and minor version of the service template,
    *         <i>exclude</i>
    *             <code>major Version</code>.</p>
+   * @public
    */
   templateMajorVersion?: string;
 
   /**
-   * @public
    * <p>To create a new minor version of the service template, include a <code>major
    *         Version</code>.</p>
+   * @public
    */
   templateMinorVersion?: string;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton service instance.
    *       A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The client token of the service instance to create.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4712,8 +4712,8 @@ export interface CreateServiceInstanceInput {
  */
 export interface CreateServiceInstanceOutput {
   /**
-   * @public
    * <p>The detailed data of the service instance being created.</p>
+   * @public
    */
   serviceInstance: ServiceInstance | undefined;
 }
@@ -4723,14 +4723,14 @@ export interface CreateServiceInstanceOutput {
  */
 export interface GetServiceInstanceInput {
   /**
-   * @public
    * <p>The name of a service instance that you want to get the detailed data for.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service that you want the service instance input for.</p>
+   * @public
    */
   serviceName: string | undefined;
 }
@@ -4740,8 +4740,8 @@ export interface GetServiceInstanceInput {
  */
 export interface GetServiceInstanceOutput {
   /**
-   * @public
    * <p>The detailed data of the requested service instance.</p>
+   * @public
    */
   serviceInstance: ServiceInstance | undefined;
 }
@@ -4770,22 +4770,22 @@ export type ListServiceInstancesFilterBy =
   (typeof ListServiceInstancesFilterBy)[keyof typeof ListServiceInstancesFilterBy];
 
 /**
- * @public
  * <p>A filtering criterion to scope down the result list of the <a>ListServiceInstances</a> action.</p>
+ * @public
  */
 export interface ListServiceInstancesFilter {
   /**
-   * @public
    * <p>The name of a filtering criterion.</p>
+   * @public
    */
   key?: ListServiceInstancesFilterBy;
 
   /**
-   * @public
    * <p>A value to filter by.</p>
    *          <p>With the date/time keys (<code>*At\{Before,After\}</code>), the value is a valid <a href="https://datatracker.ietf.org/doc/html/rfc3339.html">RFC 3339</a> string with no UTC
    *       offset and with an optional fractional precision (for example,
    *         <code>1985-04-12T23:20:50.52Z</code>).</p>
+   * @public
    */
   value?: string;
 }
@@ -4828,136 +4828,136 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListServiceInstancesInput {
   /**
-   * @public
    * <p>The name of the service that the service instance belongs to.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next service in the array of service instances,
    *       after the list of service instances that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of service instances to list.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>An array of filtering criteria that scope down the result list. By default, all service
    *       instances in the Amazon Web Services account are returned.</p>
+   * @public
    */
   filters?: ListServiceInstancesFilter[];
 
   /**
-   * @public
    * <p>The field that the result list is sorted by.</p>
    *          <p>When you choose to sort by <code>serviceName</code>, service instances within each service
    *       are sorted by service instance name.</p>
    *          <p>Default: <code>serviceName</code>
    *          </p>
+   * @public
    */
   sortBy?: ListServiceInstancesSortBy;
 
   /**
-   * @public
    * <p>Result list sort order.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
+   * @public
    */
   sortOrder?: SortOrder;
 }
 
 /**
- * @public
  * <p>Summary data of an Proton service instance resource.</p>
+ * @public
  */
 export interface ServiceInstanceSummary {
   /**
-   * @public
    * <p>The name of the service instance.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service instance.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the service instance was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when a deployment of the service was last attempted.</p>
+   * @public
    */
   lastDeploymentAttemptedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the service was last deployed successfully.</p>
+   * @public
    */
   lastDeploymentSucceededAt: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the service that the service instance belongs to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the environment that the service instance was deployed into.</p>
+   * @public
    */
   environmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The service instance template major version.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The service instance template minor version.</p>
+   * @public
    */
   templateMinorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The service instance deployment status.</p>
+   * @public
    */
   deploymentStatus: DeploymentStatus | undefined;
 
   /**
-   * @public
    * <p>A service instance deployment status message.</p>
+   * @public
    */
   deploymentStatusMessage?: string;
 
   /**
-   * @public
    * <p>The ID of the last attempted deployment of this service instance.</p>
+   * @public
    */
   lastAttemptedDeploymentId?: string;
 
   /**
-   * @public
    * <p>The ID of the last successful deployment of this service instance.</p>
+   * @public
    */
   lastSucceededDeploymentId?: string;
 }
@@ -4967,15 +4967,15 @@ export interface ServiceInstanceSummary {
  */
 export interface ListServiceInstancesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next service instance in the array of service
    *       instances, after the current requested list of service instances.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of service instances with summary data.</p>
+   * @public
    */
   serviceInstances: ServiceInstanceSummary[] | undefined;
 }
@@ -4985,19 +4985,18 @@ export interface ListServiceInstancesOutput {
  */
 export interface UpdateServiceInstanceInput {
   /**
-   * @public
    * <p>The name of the service instance to update.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service that the service instance belongs to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The deployment type. It defines the mode for updating a service instance, as
    *       follows:</p>
    *          <dl>
@@ -5038,30 +5037,31 @@ export interface UpdateServiceInstanceInput {
    *             minor version.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   deploymentType: DeploymentUpdateType | undefined;
 
   /**
-   * @public
    * <p>The formatted specification that defines the service instance update.</p>
+   * @public
    */
   spec?: string;
 
   /**
-   * @public
    * <p>The major version of the service template to update.</p>
+   * @public
    */
   templateMajorVersion?: string;
 
   /**
-   * @public
    * <p>The minor version of the service template to update.</p>
+   * @public
    */
   templateMinorVersion?: string;
 
   /**
-   * @public
    * <p>The client token of the service instance to update.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -5071,8 +5071,8 @@ export interface UpdateServiceInstanceInput {
  */
 export interface UpdateServiceInstanceOutput {
   /**
-   * @public
    * <p>The service instance summary data that's returned by Proton.</p>
+   * @public
    */
   serviceInstance: ServiceInstance | undefined;
 }
@@ -5082,21 +5082,21 @@ export interface UpdateServiceInstanceOutput {
  */
 export interface ListServicePipelineOutputsInput {
   /**
-   * @public
    * <p>The name of the service whose pipeline's outputs you want.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next output in the array of outputs, after the
    *       list of outputs that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The ID of the deployment you want the outputs for.</p>
+   * @public
    */
   deploymentId?: string;
 }
@@ -5106,15 +5106,15 @@ export interface ListServicePipelineOutputsInput {
  */
 export interface ListServicePipelineOutputsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next output in the array of outputs, after the
    *       current requested list of outputs.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of service pipeline Infrastructure as Code (IaC) outputs.</p>
+   * @public
    */
   outputs: Output[] | undefined;
 }
@@ -5124,16 +5124,16 @@ export interface ListServicePipelineOutputsOutput {
  */
 export interface ListServicePipelineProvisionedResourcesInput {
   /**
-   * @public
    * <p>The name of the service whose pipeline's provisioned resources you want.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>A token that indicates the location of the next provisioned resource in the array of
    *       provisioned resources, after the list of provisioned resources that was previously
    *       requested.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -5143,15 +5143,15 @@ export interface ListServicePipelineProvisionedResourcesInput {
  */
 export interface ListServicePipelineProvisionedResourcesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next provisioned resource in the array of
    *       provisioned resources, after the current requested list of provisioned resources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of provisioned resources for a service and pipeline.</p>
+   * @public
    */
   provisionedResources: ProvisionedResource[] | undefined;
 }
@@ -5161,19 +5161,18 @@ export interface ListServicePipelineProvisionedResourcesOutput {
  */
 export interface UpdateServicePipelineInput {
   /**
-   * @public
    * <p>The name of the service to that the pipeline is associated with.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The spec for the service pipeline to update.</p>
+   * @public
    */
   spec: string | undefined;
 
   /**
-   * @public
    * <p>The deployment type.</p>
    *          <p>There are four modes for updating a service pipeline. The <code>deploymentType</code>
    *       field defines the mode.</p>
@@ -5215,20 +5214,21 @@ export interface UpdateServicePipelineInput {
    *             minor version.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   deploymentType: DeploymentUpdateType | undefined;
 
   /**
-   * @public
    * <p>The major version of the service template that was used to create the service that the
    *       pipeline is associated with.</p>
+   * @public
    */
   templateMajorVersion?: string;
 
   /**
-   * @public
    * <p>The minor version of the service template that was used to create the service that the
    *       pipeline is associated with.</p>
+   * @public
    */
   templateMinorVersion?: string;
 }
@@ -5238,8 +5238,8 @@ export interface UpdateServicePipelineInput {
  */
 export interface UpdateServicePipelineOutput {
   /**
-   * @public
    * <p>The pipeline details that are returned by Proton.</p>
+   * @public
    */
   pipeline: ServicePipeline | undefined;
 }
@@ -5249,76 +5249,76 @@ export interface UpdateServicePipelineOutput {
  */
 export interface CreateServiceInput {
   /**
-   * @public
    * <p>The service name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the Proton service.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The name of the service template that's used to create the service.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the service template that was used to create the service.</p>
+   * @public
    */
   templateMajorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of the service template that was used to create the service.</p>
+   * @public
    */
   templateMinorVersion?: string;
 
   /**
-   * @public
    * <p>A link to a spec file that provides inputs as defined in the service template bundle
    *       schema file. The spec file is in YAML format. <i>Don’t</i> include pipeline
    *       inputs in the spec if your service template <i>doesn’t</i> include a service
    *       pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-create-svc.html">Create a service</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   spec: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see
    *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol">Setting up an
    *         AWS CodeStar connection</a> in the <i>Proton User Guide</i>.
    *         <i>Don't</i> include this parameter if your service template
    *         <i>doesn't</i> include a service pipeline.</p>
+   * @public
    */
   repositoryConnectionArn?: string;
 
   /**
-   * @public
    * <p>The ID of the code repository. <i>Don't</i> include this parameter if your
    *       service template <i>doesn't</i> include a service pipeline.</p>
+   * @public
    */
   repositoryId?: string;
 
   /**
-   * @public
    * <p>The name of the code repository branch that holds the code that's deployed in Proton.
    *         <i>Don't</i> include this parameter if your service template
    *         <i>doesn't</i> include a service pipeline.</p>
+   * @public
    */
   branchName?: string;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton service. A tag is
    *       a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -5350,88 +5350,88 @@ export const ServiceStatus = {
 export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus];
 
 /**
- * @public
  * <p>Detailed data of an Proton service resource.</p>
+ * @public
  */
 export interface Service {
   /**
-   * @public
    * <p>The name of the service.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the service.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The time when the service was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the service was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The status of the service.</p>
+   * @public
    */
   status: ServiceStatus | undefined;
 
   /**
-   * @public
    * <p>A service status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The formatted specification that defines the service.</p>
+   * @public
    */
   spec: string | undefined;
 
   /**
-   * @public
    * <p>The service pipeline detail data.</p>
+   * @public
    */
   pipeline?: ServicePipeline;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the repository connection. For more information, see
    *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol">Setting up an
    *         AWS CodeStar connection</a> in the <i>Proton User Guide</i>.</p>
+   * @public
    */
   repositoryConnectionArn?: string;
 
   /**
-   * @public
    * <p>The ID of the source code repository.</p>
+   * @public
    */
   repositoryId?: string;
 
   /**
-   * @public
    * <p>The name of the code repository branch that holds the code that's deployed in
    *       Proton.</p>
+   * @public
    */
   branchName?: string;
 }
@@ -5441,8 +5441,8 @@ export interface Service {
  */
 export interface CreateServiceOutput {
   /**
-   * @public
    * <p>The service detail data that's returned by Proton.</p>
+   * @public
    */
   service: Service | undefined;
 }
@@ -5452,8 +5452,8 @@ export interface CreateServiceOutput {
  */
 export interface DeleteServiceInput {
   /**
-   * @public
    * <p>The name of the service to delete.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -5463,8 +5463,8 @@ export interface DeleteServiceInput {
  */
 export interface DeleteServiceOutput {
   /**
-   * @public
    * <p>The detailed data of the service being deleted.</p>
+   * @public
    */
   service?: Service;
 }
@@ -5474,8 +5474,8 @@ export interface DeleteServiceOutput {
  */
 export interface GetServiceInput {
   /**
-   * @public
    * <p>The name of the service that you want to get the detailed data for.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -5485,8 +5485,8 @@ export interface GetServiceInput {
  */
 export interface GetServiceOutput {
   /**
-   * @public
    * <p>The detailed data of the requested service.</p>
+   * @public
    */
   service?: Service;
 }
@@ -5496,69 +5496,69 @@ export interface GetServiceOutput {
  */
 export interface ListServicesInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next service in the array of services, after
    *       the list of services that was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of services to list.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary data of an Proton service resource.</p>
+ * @public
  */
 export interface ServiceSummary {
   /**
-   * @public
    * <p>The name of the service.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the service.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The time when the service was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the service was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The status of the service.</p>
+   * @public
    */
   status: ServiceStatus | undefined;
 
   /**
-   * @public
    * <p>A service status message.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -5568,15 +5568,15 @@ export interface ServiceSummary {
  */
 export interface ListServicesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next service in the array of services, after
    *       the current requested list of services.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of services with summaries of detail data.</p>
+   * @public
    */
   services: ServiceSummary[] | undefined;
 }
@@ -5586,23 +5586,23 @@ export interface ListServicesOutput {
  */
 export interface UpdateServiceInput {
   /**
-   * @public
    * <p>The name of the service to edit.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The edited service description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Lists the service instances to add and the existing service instances to remain. Omit the
    *       existing service instances to delete from the list. <i>Don't</i> include edits
    *       to the existing service instances or pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-update.html">Edit a service</a>
    *       in the <i>Proton User Guide</i>.</p>
+   * @public
    */
   spec?: string;
 }
@@ -5612,8 +5612,8 @@ export interface UpdateServiceInput {
  */
 export interface UpdateServiceOutput {
   /**
-   * @public
    * <p>The service detail data that's returned by Proton.</p>
+   * @public
    */
   service: Service | undefined;
 }
@@ -5623,35 +5623,35 @@ export interface UpdateServiceOutput {
  */
 export interface GetServiceSyncBlockerSummaryInput {
   /**
-   * @public
    * <p>The name of the service that you want to get the service sync blocker summary for. If
    *       given only the service name, all instances are blocked.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service instance that you want to get the service sync blocker summary
    *       for. If given bothe the instance name and the service name, only the instance is
    *       blocked.</p>
+   * @public
    */
   serviceInstanceName?: string;
 }
 
 /**
- * @public
  * <p>Detailed data of the context of the sync blocker.</p>
+ * @public
  */
 export interface SyncBlockerContext {
   /**
-   * @public
    * <p>The key for the sync blocker context.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The value of the sync blocker context.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -5684,69 +5684,68 @@ export const BlockerType = {
 export type BlockerType = (typeof BlockerType)[keyof typeof BlockerType];
 
 /**
- * @public
  * <p>Detailed data of the sync blocker.</p>
+ * @public
  */
 export interface SyncBlocker {
   /**
-   * @public
    * <p>The ID of the sync blocker.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The type of the sync blocker.</p>
+   * @public
    */
   type: BlockerType | undefined;
 
   /**
-   * @public
    * <p>The status of the sync blocker.</p>
+   * @public
    */
   status: BlockerStatus | undefined;
 
   /**
-   * @public
    * <p>The reason why the sync blocker was created.</p>
+   * @public
    */
   createdReason: string | undefined;
 
   /**
-   * @public
    * <p>The time when the sync blocker was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The contexts for the sync blocker.</p>
+   * @public
    */
   contexts?: SyncBlockerContext[];
 
   /**
-   * @public
    * <p>The reason the sync blocker was resolved.</p>
+   * @public
    */
   resolvedReason?: string;
 
   /**
-   * @public
    * <p>The time the sync blocker was resolved.</p>
+   * @public
    */
   resolvedAt?: Date;
 }
 
 /**
- * @public
  * <p>If a service instance is manually updated, Proton wants to prevent accidentally overriding
  *       a manual change.</p>
  *          <p>A blocker is created because of the manual update or deletion of a service instance. The
  *       summary describes the blocker as being active or resolved.</p>
+ * @public
  */
 export interface ServiceSyncBlockerSummary {
   /**
-   * @public
    * <p>The name of the service that you want to get the sync blocker summary for. If given a
    *       service instance name and a service name, it will return the blockers only applying to the
    *       instance that is blocked.</p>
@@ -5754,19 +5753,20 @@ export interface ServiceSyncBlockerSummary {
    *       instances. In order to get the blockers for a single instance, you will need to make two
    *       distinct calls, one to get the sync blocker summary for the service and the other to get the
    *       sync blocker for the service instance.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service instance that you want sync your service configuration
    *       with.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The latest active blockers for the synced service.</p>
+   * @public
    */
   latestBlockers?: SyncBlocker[];
 }
@@ -5776,8 +5776,8 @@ export interface ServiceSyncBlockerSummary {
  */
 export interface GetServiceSyncBlockerSummaryOutput {
   /**
-   * @public
    * <p>The detailed data of the requested service sync blocker summary.</p>
+   * @public
    */
   serviceSyncBlockerSummary?: ServiceSyncBlockerSummary;
 }
@@ -5787,14 +5787,14 @@ export interface GetServiceSyncBlockerSummaryOutput {
  */
 export interface UpdateServiceSyncBlockerInput {
   /**
-   * @public
    * <p>The ID of the service sync blocker.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The reason the service sync blocker was resolved.</p>
+   * @public
    */
   resolvedReason: string | undefined;
 }
@@ -5804,21 +5804,21 @@ export interface UpdateServiceSyncBlockerInput {
  */
 export interface UpdateServiceSyncBlockerOutput {
   /**
-   * @public
    * <p>The name of the service that you want to update the service sync blocker for.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service instance that you want to update the service sync blocker
    *       for.</p>
+   * @public
    */
   serviceInstanceName?: string;
 
   /**
-   * @public
    * <p>The detailed data on the service sync blocker that was updated.</p>
+   * @public
    */
   serviceSyncBlocker: SyncBlocker | undefined;
 }
@@ -5828,71 +5828,71 @@ export interface UpdateServiceSyncBlockerOutput {
  */
 export interface CreateServiceSyncConfigInput {
   /**
-   * @public
    * <p>The name of the service the Proton Ops file is for.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The provider type for your repository.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch for your Proton Ops file.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>The path to the Proton Ops file.</p>
+   * @public
    */
   filePath: string | undefined;
 }
 
 /**
- * @public
  * <p>Detailed data of the service sync configuration.</p>
+ * @public
  */
 export interface ServiceSyncConfig {
   /**
-   * @public
    * <p>The name of the service that the service instance is added to.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository provider that holds the repository Proton will sync
    *       with.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The name of the code repository that holds the service code Proton will sync
    *       with.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the code repository branch that holds the service code Proton will sync
    *       with.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>The file path to the service sync configuration file.</p>
+   * @public
    */
   filePath: string | undefined;
 }
@@ -5902,8 +5902,8 @@ export interface ServiceSyncConfig {
  */
 export interface CreateServiceSyncConfigOutput {
   /**
-   * @public
    * <p>The detailed data of the Proton Ops file.</p>
+   * @public
    */
   serviceSyncConfig?: ServiceSyncConfig;
 }
@@ -5913,8 +5913,8 @@ export interface CreateServiceSyncConfigOutput {
  */
 export interface DeleteServiceSyncConfigInput {
   /**
-   * @public
    * <p>The name of the service that you want to delete the service sync configuration for.</p>
+   * @public
    */
   serviceName: string | undefined;
 }
@@ -5924,8 +5924,8 @@ export interface DeleteServiceSyncConfigInput {
  */
 export interface DeleteServiceSyncConfigOutput {
   /**
-   * @public
    * <p>The detailed data for the service sync config.</p>
+   * @public
    */
   serviceSyncConfig?: ServiceSyncConfig;
 }
@@ -5935,8 +5935,8 @@ export interface DeleteServiceSyncConfigOutput {
  */
 export interface GetServiceSyncConfigInput {
   /**
-   * @public
    * <p>The name of the service that you want to get the service sync configuration for.</p>
+   * @public
    */
   serviceName: string | undefined;
 }
@@ -5946,8 +5946,8 @@ export interface GetServiceSyncConfigInput {
  */
 export interface GetServiceSyncConfigOutput {
   /**
-   * @public
    * <p>The detailed data of the requested service sync configuration.</p>
+   * @public
    */
   serviceSyncConfig?: ServiceSyncConfig;
 }
@@ -5957,32 +5957,32 @@ export interface GetServiceSyncConfigOutput {
  */
 export interface UpdateServiceSyncConfigInput {
   /**
-   * @public
    * <p>The name of the service the Proton Ops file is for.</p>
+   * @public
    */
   serviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the repository provider where the Proton Ops file is found.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The name of the repository where the Proton Ops file is found.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the code repository branch where the Proton Ops file is found.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>The path to the Proton Ops file.</p>
+   * @public
    */
   filePath: string | undefined;
 }
@@ -5992,8 +5992,8 @@ export interface UpdateServiceSyncConfigInput {
  */
 export interface UpdateServiceSyncConfigOutput {
   /**
-   * @public
    * <p>The detailed data of the Proton Ops file.</p>
+   * @public
    */
   serviceSyncConfig?: ServiceSyncConfig;
 }
@@ -6003,107 +6003,107 @@ export interface UpdateServiceSyncConfigOutput {
  */
 export interface CreateServiceTemplateInput {
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service template as displayed in the developer interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the service template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A customer provided encryption key that's used to encrypt data.</p>
+   * @public
    */
   encryptionKey?: string;
 
   /**
-   * @public
    * <p>By default, Proton provides a service pipeline for your service. When this parameter is
    *       included, it indicates that an Proton service pipeline <i>isn't</i> provided
    *       for your service. After it's included, it <i>can't</i> be changed. For more
    *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template
    *         bundles</a> in the <i>Proton User Guide</i>.</p>
+   * @public
    */
   pipelineProvisioning?: Provisioning;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton service template.
    *       A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Detailed data of an Proton service template resource.</p>
+ * @public
  */
 export interface ServiceTemplate {
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the service template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the service template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The service template name as displayed in the developer interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the service template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The recommended version of the service template.</p>
+   * @public
    */
   recommendedVersion?: string;
 
   /**
-   * @public
    * <p>The customer provided service template encryption key that's used to encrypt data.</p>
+   * @public
    */
   encryptionKey?: string;
 
   /**
-   * @public
    * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included
    *       in the service template. Otherwise, a service pipeline <i>isn't</i> included in
    *       the service template.</p>
+   * @public
    */
   pipelineProvisioning?: Provisioning;
 }
@@ -6113,8 +6113,8 @@ export interface ServiceTemplate {
  */
 export interface CreateServiceTemplateOutput {
   /**
-   * @public
    * <p>The service template detail data that's returned by Proton.</p>
+   * @public
    */
   serviceTemplate: ServiceTemplate | undefined;
 }
@@ -6124,8 +6124,8 @@ export interface CreateServiceTemplateOutput {
  */
 export interface DeleteServiceTemplateInput {
   /**
-   * @public
    * <p>The name of the service template to delete.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -6135,8 +6135,8 @@ export interface DeleteServiceTemplateInput {
  */
 export interface DeleteServiceTemplateOutput {
   /**
-   * @public
    * <p>The detailed data of the service template being deleted.</p>
+   * @public
    */
   serviceTemplate?: ServiceTemplate;
 }
@@ -6146,8 +6146,8 @@ export interface DeleteServiceTemplateOutput {
  */
 export interface GetServiceTemplateInput {
   /**
-   * @public
    * <p>The name of the service template that you want to get detailed data for.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -6157,8 +6157,8 @@ export interface GetServiceTemplateInput {
  */
 export interface GetServiceTemplateOutput {
   /**
-   * @public
    * <p>The detailed data of the requested service template.</p>
+   * @public
    */
   serviceTemplate: ServiceTemplate | undefined;
 }
@@ -6168,71 +6168,71 @@ export interface GetServiceTemplateOutput {
  */
 export interface ListServiceTemplatesInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next service template in the array of service
    *       templates, after the list of service templates previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of service templates to list.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary data of an Proton service template resource.</p>
+ * @public
  */
 export interface ServiceTemplateSummary {
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the service template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the service template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the service template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The service template name as displayed in the developer interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the service template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The recommended version of the service template.</p>
+   * @public
    */
   recommendedVersion?: string;
 
   /**
-   * @public
    * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included
    *       in the service template, otherwise a service pipeline <i>isn't</i> included in
    *       the service template.</p>
+   * @public
    */
   pipelineProvisioning?: Provisioning;
 }
@@ -6242,15 +6242,15 @@ export interface ServiceTemplateSummary {
  */
 export interface ListServiceTemplatesOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next service template in the array of service
    *       templates, after the current requested list of service templates.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of service templates with detail data.</p>
+   * @public
    */
   templates: ServiceTemplateSummary[] | undefined;
 }
@@ -6260,21 +6260,21 @@ export interface ListServiceTemplatesOutput {
  */
 export interface UpdateServiceTemplateInput {
   /**
-   * @public
    * <p>The name of the service template to update.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The name of the service template to update that's displayed in the developer
    *       interface.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>A description of the service template update.</p>
+   * @public
    */
   description?: string;
 }
@@ -6284,26 +6284,26 @@ export interface UpdateServiceTemplateInput {
  */
 export interface UpdateServiceTemplateOutput {
   /**
-   * @public
    * <p>The service template detail data that's returned by Proton.</p>
+   * @public
    */
   serviceTemplate: ServiceTemplate | undefined;
 }
 
 /**
- * @public
  * <p>Compatible environment template data.</p>
+ * @public
  */
 export interface CompatibleEnvironmentTemplateInput {
   /**
-   * @public
    * <p>The compatible environment template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the compatible environment template.</p>
+   * @public
    */
   majorVersion: string | undefined;
 }
@@ -6327,172 +6327,172 @@ export type ServiceTemplateSupportedComponentSourceType =
  */
 export interface CreateServiceTemplateVersionInput {
   /**
-   * @public
    * <p>When included, if two identical requests are made with the same client token, Proton
    *       returns the service template version that the first request created.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>A description of the new version of a service template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>To create a new minor version of the service template, include a <code>major
    *         Version</code>.</p>
    *          <p>To create a new major and minor version of the service template,
    *         <i>exclude</i>
    *             <code>major Version</code>.</p>
+   * @public
    */
   majorVersion?: string;
 
   /**
-   * @public
    * <p>An object that includes the template bundle S3 bucket path and name for the new version of
    *       a service template.</p>
+   * @public
    */
   source: TemplateVersionSourceInput | undefined;
 
   /**
-   * @public
    * <p>An array of environment template objects that are compatible with the new service template
    *       version. A service instance based on this service template version can run in environments
    *       based on compatible templates.</p>
+   * @public
    */
   compatibleEnvironmentTemplates: CompatibleEnvironmentTemplateInput[] | undefined;
 
   /**
-   * @public
    * <p>An optional list of metadata items that you can associate with the Proton service template
    *       version. A tag is a key-value pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
    *         <i>Proton User Guide</i>.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>An array of supported component sources. Components with supported sources can be attached
    *       to service instances based on this service template version.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   supportedComponentSources?: ServiceTemplateSupportedComponentSourceType[];
 }
 
 /**
- * @public
  * <p>Compatible environment template data.</p>
+ * @public
  */
 export interface CompatibleEnvironmentTemplate {
   /**
-   * @public
    * <p>The compatible environment template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The major version of the compatible environment template.</p>
+   * @public
    */
   majorVersion: string | undefined;
 }
 
 /**
- * @public
  * <p>Detailed data of an Proton service template version resource.</p>
+ * @public
  */
 export interface ServiceTemplateVersion {
   /**
-   * @public
    * <p>The name of the version of a service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The latest major version that's associated with the version of a service template.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of a service template.</p>
+   * @public
    */
   minorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The recommended minor version of the service template.</p>
+   * @public
    */
   recommendedMinorVersion?: string;
 
   /**
-   * @public
    * <p>The service template version status.</p>
+   * @public
    */
   status: TemplateVersionStatus | undefined;
 
   /**
-   * @public
    * <p>A service template version status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>A description of the version of a service template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the version of a service template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the version of a service template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the version of a service template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 
   /**
-   * @public
    * <p>An array of compatible environment template names for the major version of a service
    *       template.</p>
+   * @public
    */
   compatibleEnvironmentTemplates: CompatibleEnvironmentTemplate[] | undefined;
 
   /**
-   * @public
    * <p>The schema of the version of a service template.</p>
+   * @public
    */
   schema?: string;
 
   /**
-   * @public
    * <p>An array of supported component sources. Components with supported sources can be attached
    *       to service instances based on this service template version.</p>
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   supportedComponentSources?: ServiceTemplateSupportedComponentSourceType[];
 }
@@ -6502,8 +6502,8 @@ export interface ServiceTemplateVersion {
  */
 export interface CreateServiceTemplateVersionOutput {
   /**
-   * @public
    * <p>The service template version summary of detail data that's returned by Proton.</p>
+   * @public
    */
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
 }
@@ -6513,20 +6513,20 @@ export interface CreateServiceTemplateVersionOutput {
  */
 export interface DeleteServiceTemplateVersionInput {
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The service template major version to delete.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The service template minor version to delete.</p>
+   * @public
    */
   minorVersion: string | undefined;
 }
@@ -6536,8 +6536,8 @@ export interface DeleteServiceTemplateVersionInput {
  */
 export interface DeleteServiceTemplateVersionOutput {
   /**
-   * @public
    * <p>The detailed data of the service template version being deleted.</p>
+   * @public
    */
   serviceTemplateVersion?: ServiceTemplateVersion;
 }
@@ -6547,23 +6547,23 @@ export interface DeleteServiceTemplateVersionOutput {
  */
 export interface GetServiceTemplateVersionInput {
   /**
-   * @public
    * <p>The name of the service template a version of which you want to get detailed data
    *       for.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>To get service template major version detail data, include <code>major
    *       Version</code>.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>To get service template minor version detail data, include
    *       <code>minorVersion</code>.</p>
+   * @public
    */
   minorVersion: string | undefined;
 }
@@ -6573,8 +6573,8 @@ export interface GetServiceTemplateVersionInput {
  */
 export interface GetServiceTemplateVersionOutput {
   /**
-   * @public
    * <p>The detailed data of the requested service template version.</p>
+   * @public
    */
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
 }
@@ -6584,97 +6584,97 @@ export interface GetServiceTemplateVersionOutput {
  */
 export interface ListServiceTemplateVersionsInput {
   /**
-   * @public
    * <p>A token that indicates the location of the next major or minor version in the array of
    *       major or minor versions of a service template, after the list of major or minor versions that
    *       was previously requested.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of major or minor versions of a service template to list.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>To view a list of minor of versions under a major version of a service template, include
    *         <code>major Version</code>.</p>
    *          <p>To view a list of major versions of a service template, <i>exclude</i>
    *             <code>major Version</code>.</p>
+   * @public
    */
   majorVersion?: string;
 }
 
 /**
- * @public
  * <p>Summary data of an Proton service template version resource.</p>
+ * @public
  */
 export interface ServiceTemplateVersionSummary {
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The latest major version that's associated with the version of a service template.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The minor version of a service template.</p>
+   * @public
    */
   minorVersion: string | undefined;
 
   /**
-   * @public
    * <p>The recommended minor version of the service template.</p>
+   * @public
    */
   recommendedMinorVersion?: string;
 
   /**
-   * @public
    * <p>The service template minor version status.</p>
+   * @public
    */
   status: TemplateVersionStatus | undefined;
 
   /**
-   * @public
    * <p>A service template minor version status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>A description of the version of a service template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the version of a service template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the version of a service template was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when the version of a service template was last modified.</p>
+   * @public
    */
   lastModifiedAt: Date | undefined;
 }
@@ -6684,16 +6684,16 @@ export interface ServiceTemplateVersionSummary {
  */
 export interface ListServiceTemplateVersionsOutput {
   /**
-   * @public
    * <p>A token that indicates the location of the next major or minor version in the array of
    *       major or minor versions of a service template, after the current requested list of service
    *       major or minor versions.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>An array of major or minor versions of a service template with detail data.</p>
+   * @public
    */
   templateVersions: ServiceTemplateVersionSummary[] | undefined;
 }
@@ -6703,46 +6703,45 @@ export interface ListServiceTemplateVersionsOutput {
  */
 export interface UpdateServiceTemplateVersionInput {
   /**
-   * @public
    * <p>The name of the service template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>To update a major version of a service template, include <code>major
    *       Version</code>.</p>
+   * @public
    */
   majorVersion: string | undefined;
 
   /**
-   * @public
    * <p>To update a minor version of a service template, include <code>minorVersion</code>.</p>
+   * @public
    */
   minorVersion: string | undefined;
 
   /**
-   * @public
    * <p>A description of a service template version to update.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the service template minor version to update.</p>
+   * @public
    */
   status?: TemplateVersionStatus;
 
   /**
-   * @public
    * <p>An array of environment template objects that are compatible with this service template
    *       version. A service instance based on this service template version can run in environments
    *       based on compatible templates.</p>
+   * @public
    */
   compatibleEnvironmentTemplates?: CompatibleEnvironmentTemplateInput[];
 
   /**
-   * @public
    * <p>An array of supported component sources. Components with supported sources can be attached
    *       to service instances based on this service template version.</p>
    *          <note>
@@ -6753,6 +6752,7 @@ export interface UpdateServiceTemplateVersionInput {
    *          <p>For more information about components, see
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
+   * @public
    */
   supportedComponentSources?: ServiceTemplateSupportedComponentSourceType[];
 }
@@ -6762,8 +6762,8 @@ export interface UpdateServiceTemplateVersionInput {
  */
 export interface UpdateServiceTemplateVersionOutput {
   /**
-   * @public
    * <p>The service template version detail data that's returned by Proton.</p>
+   * @public
    */
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
 }
@@ -6773,14 +6773,14 @@ export interface UpdateServiceTemplateVersionOutput {
  */
 export interface TagResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Proton resource to apply customer tags to.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of customer tags to apply to the Proton resource.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 }
@@ -6795,81 +6795,81 @@ export interface TagResourceOutput {}
  */
 export interface CreateTemplateSyncConfigInput {
   /**
-   * @public
    * <p>The name of your registered template.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The type of the registered template.</p>
+   * @public
    */
   templateType: TemplateType | undefined;
 
   /**
-   * @public
    * <p>The provider type for your repository.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch for your template.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>A repository subdirectory path to your template bundle directory. When included, Proton limits the template bundle search to this
    *    repository directory.</p>
+   * @public
    */
   subdirectory?: string;
 }
 
 /**
- * @public
  * <p>The detail data for a template sync configuration.</p>
+ * @public
  */
 export interface TemplateSyncConfig {
   /**
-   * @public
    * <p>The template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The template type.</p>
+   * @public
    */
   templateType: TemplateType | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>A subdirectory path to your template bundle version.</p>
+   * @public
    */
   subdirectory?: string;
 }
@@ -6879,8 +6879,8 @@ export interface TemplateSyncConfig {
  */
 export interface CreateTemplateSyncConfigOutput {
   /**
-   * @public
    * <p>The template sync configuration detail data that's returned by Proton.</p>
+   * @public
    */
   templateSyncConfig?: TemplateSyncConfig;
 }
@@ -6890,14 +6890,14 @@ export interface CreateTemplateSyncConfigOutput {
  */
 export interface DeleteTemplateSyncConfigInput {
   /**
-   * @public
    * <p>The template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The template type.</p>
+   * @public
    */
   templateType: TemplateType | undefined;
 }
@@ -6907,8 +6907,8 @@ export interface DeleteTemplateSyncConfigInput {
  */
 export interface DeleteTemplateSyncConfigOutput {
   /**
-   * @public
    * <p>The template sync configuration detail data that's returned by Proton.</p>
+   * @public
    */
   templateSyncConfig?: TemplateSyncConfig;
 }
@@ -6918,14 +6918,14 @@ export interface DeleteTemplateSyncConfigOutput {
  */
 export interface GetTemplateSyncConfigInput {
   /**
-   * @public
    * <p>The template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The template type.</p>
+   * @public
    */
   templateType: TemplateType | undefined;
 }
@@ -6935,8 +6935,8 @@ export interface GetTemplateSyncConfigInput {
  */
 export interface GetTemplateSyncConfigOutput {
   /**
-   * @public
    * <p>The template sync configuration detail data that's returned by Proton.</p>
+   * @public
    */
   templateSyncConfig?: TemplateSyncConfig;
 }
@@ -6946,38 +6946,38 @@ export interface GetTemplateSyncConfigOutput {
  */
 export interface UpdateTemplateSyncConfigInput {
   /**
-   * @public
    * <p>The synced template name.</p>
+   * @public
    */
   templateName: string | undefined;
 
   /**
-   * @public
    * <p>The synced template type.</p>
+   * @public
    */
   templateType: TemplateType | undefined;
 
   /**
-   * @public
    * <p>The repository provider.</p>
+   * @public
    */
   repositoryProvider: RepositoryProvider | undefined;
 
   /**
-   * @public
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The repository branch for your template.</p>
+   * @public
    */
   branch: string | undefined;
 
   /**
-   * @public
    * <p>A subdirectory path to your template bundle version. When included, limits the template bundle search to this repository directory.</p>
+   * @public
    */
   subdirectory?: string;
 }
@@ -6987,8 +6987,8 @@ export interface UpdateTemplateSyncConfigInput {
  */
 export interface UpdateTemplateSyncConfigOutput {
   /**
-   * @public
    * <p>The template sync configuration detail data that's returned by Proton.</p>
+   * @public
    */
   templateSyncConfig?: TemplateSyncConfig;
 }
@@ -6998,14 +6998,14 @@ export interface UpdateTemplateSyncConfigOutput {
  */
 export interface UntagResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to remove customer tags from.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of customer tag keys that indicate the customer tags to be removed from the resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

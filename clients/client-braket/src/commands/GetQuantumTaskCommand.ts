@@ -27,7 +27,6 @@ export interface GetQuantumTaskCommandInput extends GetQuantumTaskRequest {}
 export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified quantum task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class GetQuantumTaskCommand extends $Command
   .classBuilder<

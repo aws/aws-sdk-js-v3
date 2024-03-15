@@ -38,9 +38,6 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace
- *
  * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for
  *     the Amazon Chime Voice Connector before emergency calling can be configured.</p>
  *          <important>
@@ -114,6 +111,8 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace
  */
 export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Command
   .classBuilder<

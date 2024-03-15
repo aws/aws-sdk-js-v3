@@ -27,7 +27,6 @@ export interface SearchSecurityProfilesCommandInput extends SearchSecurityProfil
 export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches security profiles in an Amazon Connect instance, with optional
  *    filtering.</p>
  * @example
@@ -130,6 +129,7 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchSecurityProfilesCommand extends $Command
   .classBuilder<

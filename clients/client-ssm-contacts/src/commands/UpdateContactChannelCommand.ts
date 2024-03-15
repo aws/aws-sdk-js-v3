@@ -27,7 +27,6 @@ export interface UpdateContactChannelCommandInput extends UpdateContactChannelRe
 export interface UpdateContactChannelCommandOutput extends UpdateContactChannelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a contact's contact channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateContactChannelCommandOutput extends UpdateContactChannelR
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class UpdateContactChannelCommand extends $Command
   .classBuilder<

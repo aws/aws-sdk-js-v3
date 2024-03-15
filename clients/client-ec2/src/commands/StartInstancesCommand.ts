@@ -27,7 +27,6 @@ export interface StartInstancesCommandInput extends StartInstancesRequest {}
 export interface StartInstancesCommandOutput extends StartInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>
  *          <p>Instances that use Amazon EBS volumes as their root devices can be quickly stopped and
  *             started. When an instance is stopped, the compute resources are released and you are not
@@ -89,6 +88,7 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To start a stopped EC2 instance
  * ```javascript
  * // This example starts the specified EC2 instance.

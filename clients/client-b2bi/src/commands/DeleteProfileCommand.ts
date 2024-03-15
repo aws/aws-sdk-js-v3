@@ -27,7 +27,6 @@ export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
 export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified profile. A profile is the mechanism used to create the concept of
  *    a private network.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample DeleteProfile call
  * ```javascript
  * //

@@ -27,7 +27,6 @@ export interface ListObjectsCommandInput extends ListObjectsInput {}
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
- * @public
  * List all Objects in a given Backup.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class ListObjectsCommand extends $Command
   .classBuilder<

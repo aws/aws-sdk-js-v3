@@ -27,7 +27,6 @@ export interface UpdateCommentCommandInput extends UpdateCommentInput {}
 export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the contents of a comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdateCommentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteGameSessionQueueCommandInput extends DeleteGameSessionQue
 export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQueueOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> requests that reference the queue will fail. To
  *             delete a queue, specify the queue name.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteGameSessionQueueCommand extends $Command
   .classBuilder<

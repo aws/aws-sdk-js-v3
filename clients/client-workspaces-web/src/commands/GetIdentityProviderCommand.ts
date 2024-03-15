@@ -31,7 +31,6 @@ export interface GetIdentityProviderCommandInput extends GetIdentityProviderRequ
 export interface GetIdentityProviderCommandOutput extends GetIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetIdentityProviderCommandOutput extends GetIdentityProviderRes
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class GetIdentityProviderCommand extends $Command
   .classBuilder<

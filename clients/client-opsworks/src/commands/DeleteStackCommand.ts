@@ -27,7 +27,6 @@ export interface DeleteStackCommandInput extends DeleteStackRequest {}
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified stack. You must first delete all instances, layers, and apps or
  *       deregister registered instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html">Shut Down a
  *         Stack</a>.</p>
@@ -66,6 +65,7 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeleteStackCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateListCommandInput extends CreateListRequest {}
 export interface CreateListCommandOutput extends CreateListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Creates a list.
  *         </p>
@@ -80,6 +79,7 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class CreateListCommand extends $Command
   .classBuilder<

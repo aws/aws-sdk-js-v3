@@ -27,7 +27,6 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a cluster. All nodes in the cluster run the same protocol-compliant engine software.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -202,6 +201,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<

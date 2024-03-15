@@ -27,7 +27,6 @@ export interface ListClustersCommandInput extends ListClustersRequest {}
 export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon EKS clusters in your Amazon Web Services account in the
  *             specified Amazon Web Services Region.</p>
  * @example
@@ -78,6 +77,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  * @example To list your available clusters
  * ```javascript
  * // This example command lists all of your available clusters in your default region.

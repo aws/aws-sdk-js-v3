@@ -27,7 +27,6 @@ export interface UpdateOutpostResolverCommandInput extends UpdateOutpostResolver
 export interface UpdateOutpostResolverCommandOutput extends UpdateOutpostResolverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use <code>UpdateOutpostResolver</code> to  update the instance count, type, or  name of a Resolver on an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface UpdateOutpostResolverCommandOutput extends UpdateOutpostResolve
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class UpdateOutpostResolverCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RetryStageExecutionCommandInput extends RetryStageExecutionInpu
 export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can retry a stage that has failed without having to run a pipeline again from
  *             the beginning. You do this by either retrying the failed actions in a stage or by
  *             retrying all actions in the stage starting from the first action in the stage. When you
@@ -88,6 +87,7 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class RetryStageExecutionCommand extends $Command
   .classBuilder<

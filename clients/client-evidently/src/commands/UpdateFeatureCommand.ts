@@ -27,7 +27,6 @@ export interface UpdateFeatureCommandInput extends UpdateFeatureRequest {}
 export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing feature.</p>
  *          <p>You can't use this operation to update the tags of an existing feature. Instead, use
  *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -127,6 +126,7 @@ export interface UpdateFeatureCommandOutput extends UpdateFeatureResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class UpdateFeatureCommand extends $Command
   .classBuilder<

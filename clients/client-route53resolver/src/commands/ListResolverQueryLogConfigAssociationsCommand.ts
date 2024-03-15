@@ -36,7 +36,6 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListResolverQueryLogConfigAssociationsCommand extends $Command
   .classBuilder<

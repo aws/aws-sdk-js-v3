@@ -27,7 +27,6 @@ export interface DeleteIpGroupCommandInput extends DeleteIpGroupRequest {}
 export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified IP access control group.</p>
  *          <p>You cannot delete an IP access control group that is associated with a directory.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DeleteIpGroupCommand extends $Command
   .classBuilder<

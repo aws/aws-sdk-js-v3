@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns events related to clusters, cache security groups, and cache parameter groups.
  *             You can obtain events specific to a particular cluster, cache security group, or cache
  *             parameter group by providing the name as a parameter.</p>
@@ -79,6 +78,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeEvents
  * ```javascript
  * // Describes all the cache-cluster events for the past 120 minutes.

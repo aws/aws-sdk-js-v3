@@ -27,7 +27,6 @@ export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsReques
 export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) quotas and aggregated usage data for one or more accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetUsageStatisticsCommand extends $Command
   .classBuilder<

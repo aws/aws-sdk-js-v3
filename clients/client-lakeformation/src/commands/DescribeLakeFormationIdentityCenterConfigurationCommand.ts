@@ -36,7 +36,6 @@ export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the instance ARN and application ARN for the connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeLakeFormationIdentityCenterConfigurationCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DescribeLakeFormationIdentityCenterConfigurationCommand extends $Command
   .classBuilder<

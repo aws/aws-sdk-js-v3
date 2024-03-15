@@ -27,7 +27,6 @@ export interface DeleteRobotApplicationCommandInput extends DeleteRobotApplicati
 export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a robot application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class DeleteRobotApplicationCommand extends $Command
   .classBuilder<

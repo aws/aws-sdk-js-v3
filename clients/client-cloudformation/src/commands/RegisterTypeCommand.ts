@@ -27,7 +27,6 @@ export interface RegisterTypeCommandInput extends RegisterTypeInput {}
 export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an extension with the CloudFormation service. Registering an extension makes it available for use in
  *    CloudFormation templates in your Amazon Web Services account, and includes:</p>
  *          <ul>
@@ -90,6 +89,7 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class RegisterTypeCommand extends $Command
   .classBuilder<

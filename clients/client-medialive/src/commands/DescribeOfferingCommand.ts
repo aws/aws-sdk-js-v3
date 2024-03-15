@@ -27,7 +27,6 @@ export interface DescribeOfferingCommandInput extends DescribeOfferingRequest {}
 export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse, __MetadataBearer {}
 
 /**
- * @public
  * Get details for an offering.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DescribeOfferingCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisableInsightRulesCommandInput extends DisableInsightRulesInpu
 export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
  * 		not incur costs.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DisableInsightRulesCommand extends $Command
   .classBuilder<

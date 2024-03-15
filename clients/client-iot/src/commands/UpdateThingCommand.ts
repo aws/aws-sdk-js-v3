@@ -27,7 +27,6 @@ export interface UpdateThingCommandInput extends UpdateThingRequest {}
 export interface UpdateThingCommandOutput extends UpdateThingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the data for a thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThing</a> action.</p>
  * @example
@@ -86,6 +85,7 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateThingCommand extends $Command
   .classBuilder<

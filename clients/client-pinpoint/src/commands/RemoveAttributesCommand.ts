@@ -27,7 +27,6 @@ export interface RemoveAttributesCommandInput extends RemoveAttributesRequest {}
 export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more custom attributes, of the same attribute type, from the application. Existing endpoints still have the attributes but Amazon Pinpoint will stop capturing new or changed values for these attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class RemoveAttributesCommand extends $Command
   .classBuilder<

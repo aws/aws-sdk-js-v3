@@ -27,7 +27,6 @@ export interface UpdateExportCommandInput extends UpdateExportRequest {}
 export interface UpdateExportCommandOutput extends UpdateExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing data export by overwriting all export parameters. All export
  *       parameters must be provided in the UpdateExport request.</p>
  * @example
@@ -99,6 +98,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class UpdateExportCommand extends $Command
   .classBuilder<

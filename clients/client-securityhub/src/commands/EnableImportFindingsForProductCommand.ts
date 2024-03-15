@@ -32,7 +32,6 @@ export interface EnableImportFindingsForProductCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the integration of a partner product with Security Hub. Integrated products send
  *          findings to Security Hub.</p>
  *          <p>When you enable a product integration, a permissions policy that grants permission for
@@ -80,6 +79,7 @@ export interface EnableImportFindingsForProductCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To activate an integration
  * ```javascript
  * // The following example activates an integration between Security Hub and a third party partner product that sends findings to Security Hub.

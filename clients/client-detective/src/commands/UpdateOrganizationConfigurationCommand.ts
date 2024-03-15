@@ -30,7 +30,6 @@ export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrgan
 export interface UpdateOrganizationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration for the Organizations integration in the current Region.
  *          Can only be called by the Detective administrator account for the
  *          organization.</p>
@@ -73,6 +72,7 @@ export interface UpdateOrganizationConfigurationCommandOutput extends __Metadata
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class UpdateOrganizationConfigurationCommand extends $Command
   .classBuilder<

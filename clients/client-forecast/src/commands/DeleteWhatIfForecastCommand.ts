@@ -27,7 +27,6 @@ export interface DeleteWhatIfForecastCommandInput extends DeleteWhatIfForecastRe
 export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a what-if forecast created using the <a>CreateWhatIfForecast</a>
  *       operation. You can delete only what-if forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeWhatIfForecast</a> operation. </p>
  *          <p>You can't delete a what-if forecast while it is being exported. After a what-if forecast is deleted, you can no longer query the what-if analysis.</p>
@@ -66,6 +65,7 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteWhatIfForecastCommand extends $Command
   .classBuilder<

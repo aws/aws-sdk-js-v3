@@ -27,9 +27,6 @@ export interface PutInvitationConfigurationCommandInput extends PutInvitationCon
 export interface PutInvitationConfigurationCommandOutput extends PutInvitationConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Configures the email template for the user enrollment invitation with the specified
  *          attributes.</p>
  * @example
@@ -66,6 +63,8 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class PutInvitationConfigurationCommand extends $Command
   .classBuilder<

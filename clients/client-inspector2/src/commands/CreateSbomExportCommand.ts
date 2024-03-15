@@ -27,7 +27,6 @@ export interface CreateSbomExportCommandInput extends CreateSbomExportRequest {}
 export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a software bill of materials (SBOM) report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse,
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class CreateSbomExportCommand extends $Command
   .classBuilder<

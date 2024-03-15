@@ -31,7 +31,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all applications or multiple applications by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

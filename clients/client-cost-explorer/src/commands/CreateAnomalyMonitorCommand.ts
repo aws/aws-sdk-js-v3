@@ -27,7 +27,6 @@ export interface CreateAnomalyMonitorCommandInput extends CreateAnomalyMonitorRe
 export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
  *       specification. </p>
  * @example
@@ -141,6 +140,7 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class CreateAnomalyMonitorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeDBSubnetGroupsCommandInput extends DescribeDBSubnetGrou
 export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the
  *       list will contain only the descriptions of the specified DBSubnetGroup.</p>
  *          <p>For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.</p>
@@ -90,6 +89,7 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBSubnetGroupsCommand extends $Command
   .classBuilder<

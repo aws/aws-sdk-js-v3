@@ -27,7 +27,6 @@ export interface DeleteGroupPolicyCommandInput extends DeleteGroupPolicyRequest 
 export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified inline policy that is embedded in the specified IAM
  *             group.</p>
  *          <p>A group can also have managed policies attached to it. To detach a managed policy from
@@ -71,6 +70,7 @@ export interface DeleteGroupPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete a policy from an IAM group
  * ```javascript
  * // The following command deletes the policy named ExamplePolicy from the group named Admins:

@@ -27,7 +27,6 @@ export interface RejectAssignmentCommandInput extends RejectAssignmentRequest {}
 export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>RejectAssignment</code> operation rejects the results of a completed assignment.
  *         </p>
@@ -72,6 +71,7 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class RejectAssignmentCommand extends $Command
   .classBuilder<

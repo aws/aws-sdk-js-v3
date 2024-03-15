@@ -27,7 +27,6 @@ export interface UpdateMatchingWorkflowCommandInput extends UpdateMatchingWorkfl
 export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing <code>MatchingWorkflow</code>. This method is identical to
  *             <code>CreateMatchingWorkflow</code>, except it uses an HTTP <code>PUT</code> request
  *          instead of a <code>POST</code> request, and the <code>MatchingWorkflow</code> must already
@@ -174,6 +173,7 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class UpdateMatchingWorkflowCommand extends $Command
   .classBuilder<

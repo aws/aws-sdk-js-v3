@@ -27,7 +27,6 @@ export interface GetRegionsCommandInput extends GetRegionsRequest {}
 export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include
  *         availability zones</code> parameter to also return the Availability Zones in a
  *       region.</p>
@@ -107,6 +106,7 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetRegionsCommand extends $Command
   .classBuilder<

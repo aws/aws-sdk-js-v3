@@ -36,7 +36,6 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a source identifier from an existing RDS event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To remove a source identifier from a subscription
  * ```javascript
  * // The following example removes the specified source identifier from an existing subscription.

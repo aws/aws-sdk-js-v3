@@ -27,7 +27,6 @@ export interface CreateCodeRepositoryCommandInput extends CreateCodeRepositoryIn
 export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Git repository as a resource in your SageMaker account. You can associate the
  *          repository with notebook instances so that you can use Git source control for the
  *          notebooks you create. The Git repository is a resource in your SageMaker account, so it can
@@ -72,6 +71,7 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateCodeRepositoryCommand extends $Command
   .classBuilder<

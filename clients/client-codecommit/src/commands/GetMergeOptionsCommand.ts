@@ -27,7 +27,6 @@ export interface GetMergeOptionsCommandInput extends GetMergeOptionsInput {}
 export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the merge options available for merging two specified
  *             branches. For details about why a merge option is not available, use GetMergeConflicts
  *             or DescribeMergeConflicts.</p>
@@ -120,6 +119,7 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetMergeOptionsCommand extends $Command
   .classBuilder<

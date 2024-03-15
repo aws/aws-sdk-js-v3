@@ -98,8 +98,8 @@ export interface CloudFrontKeyValueStore {
 }
 
 /**
- * @public
  * <p>Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource</p>
+ * @public
  */
 export class CloudFrontKeyValueStore extends CloudFrontKeyValueStoreClient implements CloudFrontKeyValueStore {}
 createAggregatedClient(commands, CloudFrontKeyValueStore);

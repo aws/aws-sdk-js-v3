@@ -27,7 +27,6 @@ export interface BatchPutMessageCommandInput extends BatchPutMessageRequest {}
 export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends messages to a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class BatchPutMessageCommand extends $Command
   .classBuilder<

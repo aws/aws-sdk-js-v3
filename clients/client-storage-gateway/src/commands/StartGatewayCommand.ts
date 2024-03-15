@@ -27,7 +27,6 @@ export interface StartGatewayCommandInput extends StartGatewayInput {}
 export interface StartGatewayCommandOutput extends StartGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>).
  *          After the gateway starts, you can then make other API calls, your applications can read
  *          from or write to the gateway's storage volumes and you will be able to take snapshot
@@ -73,6 +72,7 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To start a gateway service
  * ```javascript
  * // Starts a gateway service that was previously shut down.

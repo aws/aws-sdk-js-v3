@@ -31,7 +31,6 @@ export interface GetDomainDetailCommandInput extends GetDomainDetailRequest {}
 export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns detailed information about a specified domain that is
  * 			associated with the current Amazon Web Services account. Contact information for the
  * 			domain is also returned as part of the output.</p>
@@ -192,6 +191,7 @@ export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, _
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class GetDomainDetailCommand extends $Command
   .classBuilder<

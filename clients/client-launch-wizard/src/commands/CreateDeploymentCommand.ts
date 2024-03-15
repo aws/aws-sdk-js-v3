@@ -31,7 +31,6 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentInput {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a deployment for the given workload. Deployments created by this operation are
  *          not available in the Launch Wizard console to use the <code>Clone deployment</code> action
  *          on.</p>
@@ -81,6 +80,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * @public
  */
 export class CreateDeploymentCommand extends $Command
   .classBuilder<

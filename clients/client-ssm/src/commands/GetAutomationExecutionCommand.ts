@@ -27,7 +27,6 @@ export interface GetAutomationExecutionCommandInput extends GetAutomationExecuti
 export interface GetAutomationExecutionCommandOutput extends GetAutomationExecutionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed information about a particular Automation execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -256,6 +255,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetAutomationExecutionCommand extends $Command
   .classBuilder<

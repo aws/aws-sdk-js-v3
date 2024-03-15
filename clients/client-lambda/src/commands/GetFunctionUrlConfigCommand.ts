@@ -27,7 +27,6 @@ export interface GetFunctionUrlConfigCommandInput extends GetFunctionUrlConfigRe
 export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a Lambda function URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetFunctionUrlConfigCommandOutput extends GetFunctionUrlConfigR
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetFunctionUrlConfigCommand extends $Command
   .classBuilder<

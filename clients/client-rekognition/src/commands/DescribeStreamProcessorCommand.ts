@@ -27,7 +27,6 @@ export interface DescribeStreamProcessorCommandInput extends DescribeStreamProce
 export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,
  *             and the current status of the stream processor.</p>
  * @example
@@ -131,6 +130,7 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class DescribeStreamProcessorCommand extends $Command
   .classBuilder<

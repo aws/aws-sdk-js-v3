@@ -31,7 +31,6 @@ export interface GetExportCommandInput extends GetExportRequest {}
 export interface GetExportCommandOutput extends GetExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports the contents of a Amazon Lex resource in a specified format.
  *     </p>
  * @example
@@ -84,6 +83,7 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetExportCommand extends $Command
   .classBuilder<

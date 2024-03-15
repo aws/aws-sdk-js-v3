@@ -27,7 +27,6 @@ export interface GetHostnameSuggestionCommandInput extends GetHostnameSuggestion
 export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -67,6 +66,7 @@ export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestio
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class GetHostnameSuggestionCommand extends $Command
   .classBuilder<

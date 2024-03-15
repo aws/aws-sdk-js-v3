@@ -27,7 +27,6 @@ export interface GetAppsListCommandInput extends GetAppsListRequest {}
 export interface GetAppsListCommandOutput extends GetAppsListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetAppsListCommand extends $Command
   .classBuilder<

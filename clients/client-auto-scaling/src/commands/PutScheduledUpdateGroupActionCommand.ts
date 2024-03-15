@@ -30,7 +30,6 @@ export interface PutScheduledUpdateGroupActionCommandInput extends PutScheduledU
 export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -84,6 +83,7 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To add a scheduled action to an Auto Scaling group
  * ```javascript
  * // This example adds the specified scheduled action to the specified Auto Scaling group.

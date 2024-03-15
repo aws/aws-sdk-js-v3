@@ -27,7 +27,6 @@ export interface CreateProvisioningTemplateCommandInput extends CreateProvisioni
 export interface CreateProvisioningTemplateCommandOutput extends CreateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateProvisioningTemplate</a> action.</p>
  * @example
@@ -91,6 +90,7 @@ export interface CreateProvisioningTemplateCommandOutput extends CreateProvision
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateProvisioningTemplateCommand extends $Command
   .classBuilder<

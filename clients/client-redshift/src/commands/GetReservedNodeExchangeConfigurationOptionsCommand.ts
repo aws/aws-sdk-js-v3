@@ -36,7 +36,6 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the configuration options for the reserved-node exchange. These options
  *             include information about the source reserved node and target reserved node offering.
  *             Details include the node type, the price, the node count, and the offering type.</p>
@@ -137,6 +136,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
   .classBuilder<

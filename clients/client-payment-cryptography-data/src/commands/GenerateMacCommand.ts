@@ -31,7 +31,6 @@ export interface GenerateMacCommandInput extends GenerateMacInput {}
 export interface GenerateMacCommandOutput extends GenerateMacOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a Message Authentication Code (MAC) cryptogram within Amazon Web Services Payment Cryptography. </p>
  *          <p>You can use this operation to authenticate card-related data by using known data values to generate MAC for data validation between the sending and receiving parties. This operation uses message data, a secret encryption key and MAC algorithm to generate a unique MAC value for transmission. The receiving party of the MAC must use the same message data, secret encryption key and MAC algorithm to reproduce another MAC value for comparision.</p>
  *          <p>You can use this operation to generate a DUPKT, CMAC, HMAC or EMV MAC by setting generation attributes and algorithm to the associated values. The MAC generation encryption key must have valid values for <code>KeyUsage</code> such as <code>TR31_M7_HMAC_KEY</code> for HMAC generation, and they key must have <code>KeyModesOfUse</code> set to <code>Generate</code> and <code>Verify</code>.</p>
@@ -121,6 +120,7 @@ export interface GenerateMacCommandOutput extends GenerateMacOutput, __MetadataB
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ * @public
  */
 export class GenerateMacCommand extends $Command
   .classBuilder<

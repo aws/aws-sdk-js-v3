@@ -27,7 +27,6 @@ export interface ArchiveFindingsCommandInput extends ArchiveFindingsRequest {}
 export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>
  *          <note>
  *             <p>Only the administrator account can archive findings. Member accounts don't have
@@ -66,6 +65,7 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ArchiveFindingsCommand extends $Command
   .classBuilder<

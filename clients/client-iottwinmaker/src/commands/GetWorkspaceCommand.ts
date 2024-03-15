@@ -27,7 +27,6 @@ export interface GetWorkspaceCommandInput extends GetWorkspaceRequest {}
 export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetWorkspaceCommandOutput extends GetWorkspaceResponse, __Metad
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetWorkspaceCommand extends $Command
   .classBuilder<

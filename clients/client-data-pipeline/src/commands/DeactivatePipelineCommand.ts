@@ -27,7 +27,6 @@ export interface DeactivatePipelineCommandInput extends DeactivatePipelineInput 
 export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code>
  *           state until the deactivation process completes.</p>
  *         <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution.
@@ -69,6 +68,7 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class DeactivatePipelineCommand extends $Command
   .classBuilder<

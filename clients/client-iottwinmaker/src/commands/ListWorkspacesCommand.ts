@@ -27,7 +27,6 @@ export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
 export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about workspaces in the current account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class ListWorkspacesCommand extends $Command
   .classBuilder<

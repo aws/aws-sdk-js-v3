@@ -35,7 +35,6 @@ export interface DisassociateFromAdministratorAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
  *          <p>When you
  *       disassociate an invited member from a GuardDuty delegated administrator, the member account details
@@ -76,6 +75,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateJobForDevicesCommandInput extends CreateJobForDevicesRequ
 export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a job to run on a device. A job can update a device's software or reboot it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class CreateJobForDevicesCommand extends $Command
   .classBuilder<

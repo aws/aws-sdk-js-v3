@@ -27,7 +27,6 @@ export interface CreateTrialCommandInput extends CreateTrialRequest {}
 export interface CreateTrialCommandOutput extends CreateTrialResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an SageMaker <i>trial</i>. A trial is a set of steps called
  *         <i>trial components</i> that produce a machine learning model. A trial is part
  *       of a single SageMaker <i>experiment</i>.</p>
@@ -86,6 +85,7 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateTrialCommand extends $Command
   .classBuilder<

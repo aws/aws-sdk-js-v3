@@ -35,7 +35,6 @@ export interface DeleteEndpointCommandInput extends DeleteEndpointMessage {}
 export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified endpoint.</p>
  *          <note>
  *             <p>All tasks associated with the endpoint must be deleted before you can delete the
@@ -424,6 +423,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Endpoint
  * ```javascript
  * // Deletes the specified endpoint. All tasks associated with the endpoint must be deleted before you can delete the endpoint.

@@ -27,7 +27,6 @@ export interface CreateRealtimeLogConfigCommandInput extends CreateRealtimeLogCo
 export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a real-time log configuration.</p>
  *          <p>After you create a real-time log configuration, you can attach it to one or more cache
  * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
@@ -104,6 +103,7 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateRealtimeLogConfigCommand extends $Command
   .classBuilder<

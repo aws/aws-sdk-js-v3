@@ -32,7 +32,6 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the security configuration for a specified catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetDataCatalogEncryptionSettingsCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetDataCatalogEncryptionSettingsCommand extends $Command
   .classBuilder<

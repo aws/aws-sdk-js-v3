@@ -27,7 +27,6 @@ export interface GetHypervisorCommandInput extends GetHypervisorInput {}
 export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action requests information about the specified hypervisor to which the gateway will connect.
  *       A hypervisor is hardware, software, or firmware that creates and manages virtual machines,
  *       and allocates resources to them.</p>
@@ -80,6 +79,7 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class GetHypervisorCommand extends $Command
   .classBuilder<

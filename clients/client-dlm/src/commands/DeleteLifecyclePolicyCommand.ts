@@ -27,7 +27,6 @@ export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicy
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified lifecycle policy and halts the automated operations that the
  * 			policy specified.</p>
  *          <p>For more information about deleting a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete">Delete lifecycle
@@ -65,6 +64,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * @public
  */
 export class DeleteLifecyclePolicyCommand extends $Command
   .classBuilder<

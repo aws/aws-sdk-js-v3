@@ -31,7 +31,6 @@ export interface DescribeScalableTargetsCommandInput extends DescribeScalableTar
 export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the scalable targets in the specified namespace.</p>
  *          <p>You can filter the results using <code>ResourceIds</code> and
  *             <code>ScalableDimension</code>.</p>
@@ -98,6 +97,7 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To describe scalable targets
  * ```javascript
  * // This example describes the scalable targets for the ECS service namespace.

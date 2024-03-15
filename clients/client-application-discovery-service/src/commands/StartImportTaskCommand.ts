@@ -31,7 +31,6 @@ export interface StartImportTaskCommandInput extends StartImportTaskRequest {}
 export interface StartImportTaskCommandOutput extends StartImportTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an import task, which allows you to import details of your on-premises environment
  *       directly into Amazon Web Services Migration Hub without having to use the Amazon Web Services Application Discovery
  *       Service (Application Discovery Service) tools such as the Amazon Web Services Application Discovery Service Agentless Collector
@@ -131,6 +130,7 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class StartImportTaskCommand extends $Command
   .classBuilder<

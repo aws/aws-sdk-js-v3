@@ -27,7 +27,6 @@ export interface StartIngestionCommandInput extends StartIngestionRequest {}
 export interface StartIngestionCommandOutput extends StartIngestionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts (enables) an ingestion, which collects data from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface StartIngestionCommandOutput extends StartIngestionResponse, __M
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class StartIngestionCommand extends $Command
   .classBuilder<

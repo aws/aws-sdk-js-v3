@@ -27,7 +27,6 @@ export interface GetRoomCommandInput extends GetRoomRequest {}
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetRoomCommand extends $Command
   .classBuilder<

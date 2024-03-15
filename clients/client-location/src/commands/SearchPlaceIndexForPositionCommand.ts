@@ -37,7 +37,6 @@ export interface SearchPlaceIndexForPositionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to
  *             search for Places or points of interest near a given position.</p>
  * @example
@@ -131,6 +130,7 @@ export interface SearchPlaceIndexForPositionCommandOutput
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class SearchPlaceIndexForPositionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteApnsSandboxChannelCommandInput extends DeleteApnsSandboxC
 export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandboxChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandbox
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteApnsSandboxChannelCommand extends $Command
   .classBuilder<

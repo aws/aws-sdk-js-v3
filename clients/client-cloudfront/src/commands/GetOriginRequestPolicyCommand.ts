@@ -27,7 +27,6 @@ export interface GetOriginRequestPolicyCommandInput extends GetOriginRequestPoli
 export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an origin request policy, including the following metadata:</p>
  *          <ul>
  *             <li>
@@ -110,6 +109,7 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetOriginRequestPolicyCommand extends $Command
   .classBuilder<

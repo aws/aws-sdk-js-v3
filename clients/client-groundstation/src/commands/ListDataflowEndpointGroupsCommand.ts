@@ -27,7 +27,6 @@ export interface ListDataflowEndpointGroupsCommandInput extends ListDataflowEndp
 export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEndpointGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DataflowEndpoint</code> groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ListDataflowEndpointGroupsCommand extends $Command
   .classBuilder<

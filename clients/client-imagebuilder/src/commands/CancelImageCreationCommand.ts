@@ -27,7 +27,6 @@ export interface CancelImageCreationCommandInput extends CancelImageCreationRequ
 export interface CancelImageCreationCommandOutput extends CancelImageCreationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
  * 			images in a non-terminal state.</p>
  * @example
@@ -88,6 +87,7 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CancelImageCreationCommand extends $Command
   .classBuilder<

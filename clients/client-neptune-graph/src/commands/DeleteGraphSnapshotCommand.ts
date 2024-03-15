@@ -27,7 +27,6 @@ export interface DeleteGraphSnapshotCommandInput extends DeleteGraphSnapshotInpu
 export interface DeleteGraphSnapshotCommandOutput extends DeleteGraphSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specifed graph snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteGraphSnapshotCommandOutput extends DeleteGraphSnapshotOut
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class DeleteGraphSnapshotCommand extends $Command
   .classBuilder<

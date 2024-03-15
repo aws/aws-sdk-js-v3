@@ -27,7 +27,6 @@ export interface DescribeCustomerMetadataCommandInput {}
 export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get and view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeCustomerMetadataCommand extends $Command
   .classBuilder<

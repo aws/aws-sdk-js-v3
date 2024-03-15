@@ -27,7 +27,6 @@ export interface CheckoutBorrowLicenseCommandInput extends CheckoutBorrowLicense
 export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks out the specified license for offline use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CheckoutBorrowLicenseCommand extends $Command
   .classBuilder<

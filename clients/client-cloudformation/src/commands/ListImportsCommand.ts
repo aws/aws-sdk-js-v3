@@ -27,7 +27,6 @@ export interface ListImportsCommandInput extends ListImportsInput {}
 export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all stacks that are importing an exported output value. To modify or remove an exported output value,
  *    first use this action to see which stacks are using it. To see the exported output values in your account, see <a>ListExports</a>.</p>
  *          <p>For more information about importing an exported output value, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">Fn::ImportValue</a>
@@ -62,6 +61,7 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListImportsCommand extends $Command
   .classBuilder<

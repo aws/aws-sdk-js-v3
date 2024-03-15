@@ -27,7 +27,6 @@ export interface SubscribeCommandInput extends SubscribeInput {}
 export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
  *             if the endpoint and the topic are not in the same Amazon Web Services account, the endpoint owner must
  *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
@@ -95,6 +94,7 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class SubscribeCommand extends $Command
   .classBuilder<

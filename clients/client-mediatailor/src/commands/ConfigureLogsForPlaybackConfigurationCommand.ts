@@ -36,7 +36,6 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Amazon CloudWatch log settings for a playback configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class ConfigureLogsForPlaybackConfigurationCommand extends $Command
   .classBuilder<

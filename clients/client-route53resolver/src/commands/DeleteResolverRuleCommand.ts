@@ -27,7 +27,6 @@ export interface DeleteResolverRuleCommandInput extends DeleteResolverRuleReques
 export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you
  * 			associated the Resolver rule with. For more information, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>.</p>
@@ -94,6 +93,7 @@ export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DeleteResolverRuleCommand extends $Command
   .classBuilder<

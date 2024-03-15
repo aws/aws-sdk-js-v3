@@ -27,7 +27,6 @@ export interface DescribePackagesCommandInput extends DescribePackagesRequest {}
 export interface DescribePackagesCommandOutput extends DescribePackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes all packages available to OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
  *     packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -104,6 +103,7 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribePackagesCommand extends $Command
   .classBuilder<

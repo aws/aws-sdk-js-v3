@@ -27,7 +27,6 @@ export interface DescribeDimensionKeysCommandInput extends DescribeDimensionKeys
 export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a metric.
  *       </p>
  *          <note>
@@ -119,6 +118,7 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class DescribeDimensionKeysCommand extends $Command
   .classBuilder<

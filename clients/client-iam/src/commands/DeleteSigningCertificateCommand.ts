@@ -27,7 +27,6 @@ export interface DeleteSigningCertificateCommandInput extends DeleteSigningCerti
 export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a signing certificate associated with the specified IAM user.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -74,6 +73,7 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete a signing certificate for an IAM user
  * ```javascript
  * // The following command deletes the specified signing certificate for the IAM user named Anika.

@@ -31,7 +31,6 @@ export interface StartChangeSetCommandInput extends StartChangeSetRequest {}
 export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to request changes for your entities. Within a single
  *                 <code>ChangeSet</code>, you can't start the same change type against the same entity
  *             multiple times. Additionally, when a <code>ChangeSet</code> is running, all the entities
@@ -125,6 +124,7 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class StartChangeSetCommand extends $Command
   .classBuilder<

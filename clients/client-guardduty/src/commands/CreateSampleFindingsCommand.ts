@@ -27,7 +27,6 @@ export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRe
 export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates sample findings of types specified by the list of finding types. If 'NULL' is
  *       specified for <code>findingTypes</code>, the API generates sample findings of all supported
  *       finding types.</p>
@@ -64,6 +63,7 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class CreateSampleFindingsCommand extends $Command
   .classBuilder<

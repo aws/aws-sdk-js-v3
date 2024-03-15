@@ -36,7 +36,6 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified subnets and transit gateway attachments with the specified transit gateway multicast domain.</p>
  *          <p>The transit gateway attachment must be in the available state before you can add a resource. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html">DescribeTransitGatewayAttachments</a>
  *             to see the state of the attachment.</p>
@@ -83,6 +82,7 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateTransitGatewayMulticastDomainCommand extends $Command
   .classBuilder<

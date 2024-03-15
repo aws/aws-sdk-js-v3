@@ -27,7 +27,6 @@ export interface ListBackupPlansCommandInput extends ListBackupPlansInput {}
 export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all active backup plans for an authenticated account. The list
  *          contains information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
  *          dates, version IDs, plan names, and creator request IDs.</p>
@@ -92,6 +91,7 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListBackupPlansCommand extends $Command
   .classBuilder<

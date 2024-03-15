@@ -32,7 +32,6 @@ export interface UpdateServiceCommandInput extends UpdateServiceInput {}
 export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Edit a service description or use a spec to add and delete service instances.</p>
  *          <note>
  *             <p>Existing service instances and the service pipeline <i>can't</i> be edited
@@ -124,6 +123,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateServiceCommand extends $Command
   .classBuilder<

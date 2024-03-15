@@ -27,7 +27,6 @@ export interface StopAutomationExecutionCommandInput extends StopAutomationExecu
 export interface StopAutomationExecutionCommandOutput extends StopAutomationExecutionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stop an Automation that is currently running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class StopAutomationExecutionCommand extends $Command
   .classBuilder<

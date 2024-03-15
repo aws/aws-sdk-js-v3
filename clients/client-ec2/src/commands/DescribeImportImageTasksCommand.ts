@@ -31,7 +31,6 @@ export interface DescribeImportImageTasksCommandInput extends DescribeImportImag
 export interface DescribeImportImageTasksCommandOutput extends DescribeImportImageTasksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeImportImageTasksCommand extends $Command
   .classBuilder<

@@ -31,9 +31,6 @@ export interface UpdateChannelMessageCommandInput extends UpdateChannelMessageRe
 export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateChannelMessage in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Updates the content of a message.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -100,6 +97,8 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateChannelMessage in the Amazon Chime SDK Messaging Namespace
  */
 export class UpdateChannelMessageCommand extends $Command
   .classBuilder<

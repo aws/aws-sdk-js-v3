@@ -32,7 +32,6 @@ export interface DisassociateWorkspaceApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified application from a WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DisassociateWorkspaceApplicationCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DisassociateWorkspaceApplicationCommand extends $Command
   .classBuilder<

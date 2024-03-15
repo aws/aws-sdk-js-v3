@@ -27,7 +27,6 @@ export interface GetTagsCommandInput extends GetTagsRequest {}
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of tags associated with a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetTagsCommand extends $Command
   .classBuilder<

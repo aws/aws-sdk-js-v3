@@ -27,7 +27,6 @@ export interface ListModelsCommandInput extends ListModelsRequest {}
 export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a list of all models in the account, including model name and ARN, dataset,
  *          and status. </p>
  * @example
@@ -100,6 +99,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ListModelsCommand extends $Command
   .classBuilder<

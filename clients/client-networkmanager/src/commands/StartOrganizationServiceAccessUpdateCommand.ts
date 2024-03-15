@@ -35,7 +35,6 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface StartOrganizationServiceAccessUpdateCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class StartOrganizationServiceAccessUpdateCommand extends $Command
   .classBuilder<

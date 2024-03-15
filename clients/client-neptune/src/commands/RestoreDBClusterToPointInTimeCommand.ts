@@ -32,7 +32,6 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point in
  *       time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
  *       days. The target DB cluster is created from the source DB cluster with the same configuration
@@ -256,6 +255,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command
   .classBuilder<

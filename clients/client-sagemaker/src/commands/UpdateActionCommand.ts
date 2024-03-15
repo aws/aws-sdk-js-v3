@@ -27,7 +27,6 @@ export interface UpdateActionCommandInput extends UpdateActionRequest {}
 export interface UpdateActionCommandOutput extends UpdateActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateActionCommand extends $Command
   .classBuilder<

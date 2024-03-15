@@ -27,7 +27,6 @@ export interface DescribeAnomalyCommandInput extends DescribeAnomalyRequest {}
 export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns details about an anomaly that you specify using its ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -324,6 +323,7 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeAnomalyCommand extends $Command
   .classBuilder<

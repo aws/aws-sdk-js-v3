@@ -27,7 +27,6 @@ export interface UpdateSqlInjectionMatchSetCommandInput extends UpdateSqlInjecti
 export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -215,6 +214,7 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To update a SQL injection match set
  * ```javascript
  * // The following example deletes a SqlInjectionMatchTuple object (filters) in a SQL injection match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

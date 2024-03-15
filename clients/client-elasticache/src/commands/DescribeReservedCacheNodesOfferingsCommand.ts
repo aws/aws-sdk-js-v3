@@ -32,7 +32,6 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists available reserved cache node offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeReseredCacheNodeOfferings
  * ```javascript
  * // Lists available reserved cache node offerings.

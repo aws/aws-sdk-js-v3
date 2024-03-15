@@ -32,7 +32,6 @@ export interface UpdateTableStorageOptimizerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of the storage optimizers for a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class UpdateTableStorageOptimizerCommand extends $Command
   .classBuilder<

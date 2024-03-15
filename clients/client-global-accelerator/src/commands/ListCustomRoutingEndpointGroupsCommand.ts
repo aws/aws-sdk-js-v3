@@ -36,7 +36,6 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List the endpoint groups that are associated with a listener for a custom routing accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListCustomRoutingEndpointGroupsCommand extends $Command
   .classBuilder<

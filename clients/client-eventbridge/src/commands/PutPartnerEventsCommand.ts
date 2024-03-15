@@ -27,7 +27,6 @@ export interface PutPartnerEventsCommandInput extends PutPartnerEventsRequest {}
 export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services
  *       customers do not use this operation.</p>
  *          <p>For information on calculating event batch size, see
@@ -82,6 +81,7 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class PutPartnerEventsCommand extends $Command
   .classBuilder<

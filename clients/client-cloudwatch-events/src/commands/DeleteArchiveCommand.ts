@@ -27,7 +27,6 @@ export interface DeleteArchiveCommandInput extends DeleteArchiveRequest {}
 export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class DeleteArchiveCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfi
 export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the risk configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DescribeRiskConfigurationCommand extends $Command
   .classBuilder<

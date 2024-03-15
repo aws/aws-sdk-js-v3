@@ -27,7 +27,6 @@ export interface RebootBrokerCommandInput extends RebootBrokerRequest {}
 export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reboots a broker. Note: This API is asynchronous.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class RebootBrokerCommand extends $Command
   .classBuilder<

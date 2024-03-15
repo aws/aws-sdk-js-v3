@@ -27,9 +27,6 @@ export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Use UntagResource.
- *
  * <note>
  *             <p>DEPRECATED - <code>DeleteTags</code> is deprecated and not maintained. To remove tags from EFS
  *         resources, use the  API action.</p>
@@ -78,6 +75,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
+ * @deprecated Use UntagResource.
  * @example To delete tags for an EFS file system
  * ```javascript
  * // This operation deletes tags for an EFS file system.

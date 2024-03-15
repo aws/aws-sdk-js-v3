@@ -27,7 +27,6 @@ export interface DescribeTrustedTokenIssuerCommandInput extends DescribeTrustedT
 export interface DescribeTrustedTokenIssuerCommandOutput extends DescribeTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about a trusted token issuer configuration stored in an instance of IAM Identity Center. Details include the  name of the trusted token issuer, the issuer URL, and the path of the source attribute and the destination attribute for a trusted token issuer configuration.
  *         </p>
  * @example
@@ -83,6 +82,7 @@ export interface DescribeTrustedTokenIssuerCommandOutput extends DescribeTrusted
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribeTrustedTokenIssuerCommand extends $Command
   .classBuilder<

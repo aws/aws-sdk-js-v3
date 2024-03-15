@@ -27,7 +27,6 @@ export interface CreateProbeCommandInput extends CreateProbeInput {}
 export interface CreateProbeCommandOutput extends CreateProbeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a probe within a monitor. Once you create a probe, and it begins monitoring your network traffic, you'll incur billing charges for that probe. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreateProbeCommandOutput extends CreateProbeOutput, __MetadataB
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class CreateProbeCommand extends $Command
   .classBuilder<

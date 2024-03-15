@@ -27,7 +27,6 @@ export interface DisassociateConnectorCommandInput extends DisassociateConnector
 export interface DisassociateConnectorCommandOutput extends DisassociateConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified connector from Server Migration Service.</p>
  *          <p>After you disassociate a connector, it is no longer available to support
  *             replication jobs.</p>
@@ -68,6 +67,7 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class DisassociateConnectorCommand extends $Command
   .classBuilder<

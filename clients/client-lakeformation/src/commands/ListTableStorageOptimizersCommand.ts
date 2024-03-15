@@ -27,7 +27,6 @@ export interface ListTableStorageOptimizersCommandInput extends ListTableStorage
 export interface ListTableStorageOptimizersCommandOutput extends ListTableStorageOptimizersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the configuration of all storage optimizers associated with a specified table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class ListTableStorageOptimizersCommand extends $Command
   .classBuilder<

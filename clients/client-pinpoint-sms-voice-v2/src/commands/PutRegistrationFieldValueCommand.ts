@@ -31,7 +31,6 @@ export interface PutRegistrationFieldValueCommandInput extends PutRegistrationFi
 export interface PutRegistrationFieldValueCommandOutput extends PutRegistrationFieldValueResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a field value for a registration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface PutRegistrationFieldValueCommandOutput extends PutRegistrationF
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class PutRegistrationFieldValueCommand extends $Command
   .classBuilder<

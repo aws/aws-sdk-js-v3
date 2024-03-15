@@ -27,7 +27,6 @@ export interface StopTransformJobCommandInput extends StopTransformJobRequest {}
 export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a batch transform job.</p>
  *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
  *             changes to <code>Stopping</code>. After Amazon SageMaker
@@ -61,6 +60,7 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopTransformJobCommand extends $Command
   .classBuilder<

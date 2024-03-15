@@ -27,7 +27,6 @@ export interface StartAssociationsOnceCommandInput extends StartAssociationsOnce
 export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs an association immediately and only one time. This operation can be helpful when
  *    troubleshooting associations.</p>
  * @example
@@ -62,6 +61,7 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class StartAssociationsOnceCommand extends $Command
   .classBuilder<

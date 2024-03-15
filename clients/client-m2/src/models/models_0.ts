@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { M2ServiceException as __BaseException } from "./M2ServiceException";
 
 /**
- * @public
  * <p>The account or role doesn't have the right permissions to make the request.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,35 +24,35 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Defines an alternate key. This value is optional. A legacy data set might not have any
  *          alternate key defined but if those alternate keys definitions exist, provide them, as some
  *          applications will make use of them.</p>
+ * @public
  */
 export interface AlternateKey {
   /**
-   * @public
    * <p>The name of the alternate key.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A positive integer value representing the offset to mark the start of the alternate key
    *          part in the record byte array.</p>
+   * @public
    */
   offset: number | undefined;
 
   /**
-   * @public
    * <p>A strictly positive integer value representing the length of the alternate key.</p>
+   * @public
    */
   length: number | undefined;
 
   /**
-   * @public
    * <p>Indicates whether the alternate key values are supposed to be unique for the given data
    *          set.</p>
+   * @public
    */
   allowDuplicates?: boolean;
 }
@@ -62,14 +62,14 @@ export interface AlternateKey {
  */
 export interface CancelBatchJobExecutionRequest {
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the batch job execution.</p>
+   * @public
    */
   executionId: string | undefined;
 }
@@ -80,21 +80,21 @@ export interface CancelBatchJobExecutionRequest {
 export interface CancelBatchJobExecutionResponse {}
 
 /**
- * @public
  * <p>The parameters provided in the request conflict with existing resources.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the conflicting resource.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The type of the conflicting resource.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -114,16 +114,16 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An unexpected error occurred during the processing of the request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>The number of seconds to wait before retrying the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -142,21 +142,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the missing resource.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The type of the missing resource.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -176,8 +176,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of requests made exceeds the limit.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -186,20 +186,20 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>The identifier of the service that the throttled request was made to.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The identifier of the throttled request.</p>
+   * @public
    */
   quotaCode?: string;
 
   /**
-   * @public
    * <p>The number of seconds to wait before retrying the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -220,19 +220,19 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information about a validation exception field.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The name of the exception field.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The message of the exception field.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -254,21 +254,21 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>One or more parameters provided in the request is not valid.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The reason why it failed service validation.</p>
+   * @public
    */
   reason?: ValidationExceptionReason;
 
   /**
-   * @public
    * <p>The list of fields that failed service validation.</p>
+   * @public
    */
   fieldList?: ValidationExceptionField[];
 
@@ -288,8 +288,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The application definition for a particular application. </p>
+ * @public
  */
 export type Definition = Definition.ContentMember | Definition.S3LocationMember | Definition.$UnknownMember;
 
@@ -298,8 +298,8 @@ export type Definition = Definition.ContentMember | Definition.S3LocationMember 
  */
 export namespace Definition {
   /**
-   * @public
    * <p>The S3 bucket that contains the application definition.</p>
+   * @public
    */
   export interface S3LocationMember {
     s3Location: string;
@@ -308,9 +308,9 @@ export namespace Definition {
   }
 
   /**
-   * @public
    * <p>The content of the application definition. This is a JSON object that contains the
    *          resource configuration/definitions that identify an application.</p>
+   * @public
    */
   export interface ContentMember {
     s3Location?: never;
@@ -359,56 +359,56 @@ export type EngineType = (typeof EngineType)[keyof typeof EngineType];
  */
 export interface CreateApplicationRequest {
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the application.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The type of the target platform for this application.</p>
+   * @public
    */
   engineType: EngineType | undefined;
 
   /**
-   * @public
    * <p>The application definition for this application. You can specify either inline JSON or
    *          an S3 bucket location.</p>
+   * @public
    */
   definition: Definition | undefined;
 
   /**
-   * @public
    * <p>A list of tags to apply to the application.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier the service generates to ensure the idempotency of the
    *          request to create an application. The service generates the clientToken when the API call
    *          is triggered. The token expires after one hour, so if you retry the API within this
    *          timeframe with the same clientToken, you will get the same response. The service also
    *          handles deleting the clientToken after it expires. </p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The identifier of a customer managed key.</p>
+   * @public
    */
   kmsKeyId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that identifies a role that the application uses to access Amazon Web Services resources
    *          that are not part of the application or are in a different Amazon Web Services account.</p>
+   * @public
    */
   roleArn?: string;
 }
@@ -418,52 +418,52 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique application identifier.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The version number of the application.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 }
 
 /**
- * @public
  * <p>One or more quotas for Amazon Web Services Mainframe Modernization exceeds the limit.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the resource that is exceeding the quota limit.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The type of resource that is exceeding the quota limit for Amazon Web Services Mainframe Modernization.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>A code that identifies the service that the exceeded quota belongs to.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The identifier of the exceeded quota.</p>
+   * @public
    */
   quotaCode?: string;
 
@@ -485,139 +485,139 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The required attributes for a generation data group data set. A generation data set is
  *          one of a collection of successive, historically related, catalogued data sets that together
  *          are known as a generation data group (GDG). Use this structure when you want to import a
  *          GDG. For more information on GDG, see <a href="https://www.ibm.com/docs/en/zos/2.3.0?topic=guide-generation-data-sets">Generation
  *             data sets</a>.</p>
+ * @public
  */
 export interface GdgAttributes {
   /**
-   * @public
    * <p>The maximum number of generation data sets, up to 255, in a GDG.</p>
+   * @public
    */
   limit?: number;
 
   /**
-   * @public
    * <p>The disposition of the data set in the catalog.</p>
+   * @public
    */
   rollDisposition?: string;
 }
 
 /**
- * @public
  * <p>The supported properties for a PO type data set.</p>
+ * @public
  */
 export interface PoAttributes {
   /**
-   * @public
    * <p>The format of the data set records.</p>
+   * @public
    */
   format: string | undefined;
 
   /**
-   * @public
    * <p>The character set encoding of the data set.</p>
+   * @public
    */
   encoding?: string;
 
   /**
-   * @public
    * <p>An array containing one or more filename extensions, allowing you to specify which files
    *          to be included as PDS member.</p>
+   * @public
    */
   memberFileExtensions: string[] | undefined;
 }
 
 /**
- * @public
  * <p>The supported properties for a PS type data set.</p>
+ * @public
  */
 export interface PsAttributes {
   /**
-   * @public
    * <p>The format of the data set records.</p>
+   * @public
    */
   format: string | undefined;
 
   /**
-   * @public
    * <p>The character set encoding of the data set.</p>
+   * @public
    */
   encoding?: string;
 }
 
 /**
- * @public
  * <p>The primary key for a KSDS data set.</p>
+ * @public
  */
 export interface PrimaryKey {
   /**
-   * @public
    * <p>A name for the Primary Key.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A positive integer value representing the offset to mark the start of the primary key in
    *          the record byte array.</p>
+   * @public
    */
   offset: number | undefined;
 
   /**
-   * @public
    * <p>A strictly positive integer value representing the length of the primary key. </p>
+   * @public
    */
   length: number | undefined;
 }
 
 /**
- * @public
  * <p>The attributes of a VSAM type data set.</p>
+ * @public
  */
 export interface VsamAttributes {
   /**
-   * @public
    * <p>The record format of the data set.</p>
+   * @public
    */
   format: string | undefined;
 
   /**
-   * @public
    * <p>The character set used by the data set. Can be ASCII, EBCDIC, or unknown.</p>
+   * @public
    */
   encoding?: string;
 
   /**
-   * @public
    * <p>Indicates whether indexes for this dataset are stored as compressed values. If you have
    *          a large data set (typically &gt; 100 Mb), consider setting this flag to True.</p>
+   * @public
    */
   compressed?: boolean;
 
   /**
-   * @public
    * <p>The primary key of the data set.</p>
+   * @public
    */
   primaryKey?: PrimaryKey;
 
   /**
-   * @public
    * <p>The alternate key definitions, if any. A legacy dataset might not have any alternate key
    *          defined, but if those alternate keys definitions exist, provide them as some applications
    *          will make use of them.</p>
+   * @public
    */
   alternateKeys?: AlternateKey[];
 }
 
 /**
- * @public
  * <p>Additional details about the data set. Different attributes correspond to different data
  *          set organizations. The values are populated based on datasetOrg, storageType and backend
  *          (Blu Age or Micro Focus).</p>
+ * @public
  */
 export type DatasetOrgAttributes =
   | DatasetOrgAttributes.GdgMember
@@ -631,8 +631,8 @@ export type DatasetOrgAttributes =
  */
 export namespace DatasetOrgAttributes {
   /**
-   * @public
    * <p>The details of a VSAM data set.</p>
+   * @public
    */
   export interface VsamMember {
     vsam: VsamAttributes;
@@ -643,8 +643,8 @@ export namespace DatasetOrgAttributes {
   }
 
   /**
-   * @public
    * <p>The generation data group of the data set.</p>
+   * @public
    */
   export interface GdgMember {
     vsam?: never;
@@ -655,8 +655,8 @@ export namespace DatasetOrgAttributes {
   }
 
   /**
-   * @public
    * <p>The details of a PO type data set.</p>
+   * @public
    */
   export interface PoMember {
     vsam?: never;
@@ -667,8 +667,8 @@ export namespace DatasetOrgAttributes {
   }
 
   /**
-   * @public
    * <p>The details of a PS type data set.</p>
+   * @public
    */
   export interface PsMember {
     vsam?: never;
@@ -707,65 +707,65 @@ export namespace DatasetOrgAttributes {
 }
 
 /**
- * @public
  * <p>The length of the records in the data set.</p>
+ * @public
  */
 export interface RecordLength {
   /**
-   * @public
    * <p>The minimum record length of a record.</p>
+   * @public
    */
   min: number | undefined;
 
   /**
-   * @public
    * <p>The maximum record length. In case of fixed, both minimum and maximum are the
    *          same.</p>
+   * @public
    */
   max: number | undefined;
 }
 
 /**
- * @public
  * <p>Defines a data set.</p>
+ * @public
  */
 export interface DataSet {
   /**
-   * @public
    * <p>The storage type of the data set: database or file system. For Micro Focus, database
    *          corresponds to datastore and file system corresponds to EFS/FSX. For Blu Age, there is no
    *          support of file system and database corresponds to Blusam. </p>
+   * @public
    */
   storageType?: string;
 
   /**
-   * @public
    * <p>The logical identifier for a specific data set (in mainframe format).</p>
+   * @public
    */
   datasetName: string | undefined;
 
   /**
-   * @public
    * <p>The type of dataset. The only supported value is VSAM.</p>
+   * @public
    */
   datasetOrg: DatasetOrgAttributes | undefined;
 
   /**
-   * @public
    * <p>The relative location of the data set in the database or file system. </p>
+   * @public
    */
   relativePath?: string;
 
   /**
-   * @public
    * <p>The length of a record.</p>
+   * @public
    */
   recordLength: RecordLength | undefined;
 }
 
 /**
- * @public
  * <p>Defines an external storage location.</p>
+ * @public
  */
 export type ExternalLocation = ExternalLocation.S3LocationMember | ExternalLocation.$UnknownMember;
 
@@ -774,8 +774,8 @@ export type ExternalLocation = ExternalLocation.S3LocationMember | ExternalLocat
  */
 export namespace ExternalLocation {
   /**
-   * @public
    * <p>The URI of the Amazon S3 bucket.</p>
+   * @public
    */
   export interface S3LocationMember {
     s3Location: string;
@@ -802,26 +802,26 @@ export namespace ExternalLocation {
 }
 
 /**
- * @public
  * <p>Identifies a specific data set to import from an external location.</p>
+ * @public
  */
 export interface DataSetImportItem {
   /**
-   * @public
    * <p>The data set.</p>
+   * @public
    */
   dataSet: DataSet | undefined;
 
   /**
-   * @public
    * <p>The location of the data set.</p>
+   * @public
    */
   externalLocation: ExternalLocation | undefined;
 }
 
 /**
- * @public
  * <p>Identifies one or more data sets you want to import with the <a>CreateDataSetImportTask</a> operation.</p>
+ * @public
  */
 export type DataSetImportConfig =
   | DataSetImportConfig.DataSetsMember
@@ -833,8 +833,8 @@ export type DataSetImportConfig =
  */
 export namespace DataSetImportConfig {
   /**
-   * @public
    * <p>The Amazon S3 location of the data sets.</p>
+   * @public
    */
   export interface S3LocationMember {
     s3Location: string;
@@ -843,8 +843,8 @@ export namespace DataSetImportConfig {
   }
 
   /**
-   * @public
    * <p>The data sets.</p>
+   * @public
    */
   export interface DataSetsMember {
     s3Location?: never;
@@ -879,24 +879,24 @@ export namespace DataSetImportConfig {
  */
 export interface CreateDataSetImportTaskRequest {
   /**
-   * @public
    * <p>The unique identifier of the application for which you want to import data sets.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The data set import task configuration.</p>
+   * @public
    */
   importConfig: DataSetImportConfig | undefined;
 
   /**
-   * @public
    * <p> Unique, case-sensitive identifier you provide to ensure the idempotency of the request
    *          to create a data set import. The service generates the clientToken when the API call is
    *          triggered. The token expires after one hour, so if you retry the API within this timeframe
    *          with the same clientToken, you will get the same response. The service also handles
    *          deleting the clientToken after it expires. </p>
+   * @public
    */
   clientToken?: string;
 }
@@ -906,8 +906,8 @@ export interface CreateDataSetImportTaskRequest {
  */
 export interface CreateDataSetImportTaskResponse {
   /**
-   * @public
    * <p>The task identifier. This operation is asynchronous. Use this identifier with the <a>GetDataSetImportTask</a> operation to obtain the status of this task.</p>
+   * @public
    */
   taskId: string | undefined;
 }
@@ -917,31 +917,31 @@ export interface CreateDataSetImportTaskResponse {
  */
 export interface CreateDeploymentRequest {
   /**
-   * @public
    * <p>The identifier of the runtime environment where you want to deploy this
    *          application.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The application identifier.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application to deploy.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request
    *          to create a deployment. The service generates the clientToken when the API call is
    *          triggered. The token expires after one hour, so if you retry the API within this timeframe
    *          with the same clientToken, you will get the same response. The service also handles
    *          deleting the clientToken after it expires. </p>
+   * @public
    */
   clientToken?: string;
 }
@@ -951,8 +951,8 @@ export interface CreateDeploymentRequest {
  */
 export interface CreateDeploymentResponse {
   /**
-   * @public
    * <p>The unique identifier of the deployment.</p>
+   * @public
    */
   deploymentId: string | undefined;
 }
@@ -962,8 +962,8 @@ export interface CreateDeploymentResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * @public
    * <p>The unique identifier of the application you want to delete.</p>
+   * @public
    */
   applicationId: string | undefined;
 }
@@ -978,15 +978,15 @@ export interface DeleteApplicationResponse {}
  */
 export interface DeleteApplicationFromEnvironmentRequest {
   /**
-   * @public
    * <p>The unique identifier of the application you want to delete.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the runtime environment where the application was previously
    *          deployed.</p>
+   * @public
    */
   environmentId: string | undefined;
 }
@@ -1001,8 +1001,8 @@ export interface DeleteApplicationFromEnvironmentResponse {}
  */
 export interface GetApplicationRequest {
   /**
-   * @public
    * <p>The identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 }
@@ -1024,25 +1024,25 @@ export const DeploymentLifecycle = {
 export type DeploymentLifecycle = (typeof DeploymentLifecycle)[keyof typeof DeploymentLifecycle];
 
 /**
- * @public
  * <p>Contains a summary of a deployed application.</p>
+ * @public
  */
 export interface DeployedVersionSummary {
   /**
-   * @public
    * <p>The version of the deployed application.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>The status of the deployment.</p>
+   * @public
    */
   status: DeploymentLifecycle | undefined;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 }
@@ -1064,50 +1064,50 @@ export type ApplicationVersionLifecycle =
   (typeof ApplicationVersionLifecycle)[keyof typeof ApplicationVersionLifecycle];
 
 /**
- * @public
  * <p>Defines an application version summary.</p>
+ * @public
  */
 export interface ApplicationVersionSummary {
   /**
-   * @public
    * <p>The application version.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>The status of the application.</p>
+   * @public
    */
   status: ApplicationVersionLifecycle | undefined;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The timestamp when the application version was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>A subset of the attributes that describe a log group. In CloudWatch a log group is a group of
  *          log streams that share the same retention, monitoring, and access control settings.</p>
+ * @public
  */
 export interface LogGroupSummary {
   /**
-   * @public
    * <p>The type of log.</p>
+   * @public
    */
   logType: string | undefined;
 
   /**
-   * @public
    * <p>The name of the log group.</p>
+   * @public
    */
   logGroupName: string | undefined;
 }
@@ -1140,130 +1140,130 @@ export type ApplicationLifecycle = (typeof ApplicationLifecycle)[keyof typeof Ap
  */
 export interface GetApplicationResponse {
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the application.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the application.</p>
+   * @public
    */
   status: ApplicationLifecycle | undefined;
 
   /**
-   * @public
    * <p>The latest version of the application.</p>
+   * @public
    */
   latestVersion: ApplicationVersionSummary | undefined;
 
   /**
-   * @public
    * <p>The version of the application that is deployed.</p>
+   * @public
    */
   deployedVersion?: DeployedVersionSummary;
 
   /**
-   * @public
    * <p>The type of the target platform for the application.</p>
+   * @public
    */
   engineType: EngineType | undefined;
 
   /**
-   * @public
    * <p>The list of log summaries. Each log summary includes the log type as well as the log
    *          group identifier. These are CloudWatch logs. Amazon Web Services Mainframe Modernization pushes the application log to CloudWatch under
    *          the customer's account.</p>
+   * @public
    */
   logGroups?: LogGroupSummary[];
 
   /**
-   * @public
    * <p>The timestamp when this application was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when you last started the application. Null until the application runs for
    *          the first time.</p>
+   * @public
    */
   lastStartTime?: Date;
 
   /**
-   * @public
    * <p>A list of tags associated with the application.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The identifier of the runtime environment where you want to deploy the
    *          application.</p>
+   * @public
    */
   environmentId?: string;
 
   /**
-   * @public
    * <p>Returns the Amazon Resource Names (ARNs) of the target groups that are attached to the
    *          network load balancer.</p>
+   * @public
    */
   targetGroupArns?: string[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the network load balancer listener created in your
    *          Amazon Web Services account. Amazon Web Services Mainframe Modernization creates this listener for you the first time you deploy an
    *          application.</p>
+   * @public
    */
   listenerArns?: string[];
 
   /**
-   * @public
    * <p>The port associated with the network load balancer listener created in your Amazon Web Services
    *          account.</p>
+   * @public
    */
   listenerPorts?: number[];
 
   /**
-   * @public
    * <p>The public DNS name of the load balancer created in your Amazon Web Services account.</p>
+   * @public
    */
   loadBalancerDnsName?: string;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The identifier of a customer managed key.</p>
+   * @public
    */
   kmsKeyId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the role associated with the application.</p>
+   * @public
    */
   roleArn?: string;
 }
@@ -1273,14 +1273,14 @@ export interface GetApplicationResponse {
  */
 export interface GetApplicationVersionRequest {
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The specific version of the application.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 }
@@ -1290,45 +1290,45 @@ export interface GetApplicationVersionRequest {
  */
 export interface GetApplicationVersionResponse {
   /**
-   * @public
    * <p>The name of the application version.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The specific version of the application.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>The application description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The content of the application definition. This is a JSON object that contains the
    *          resource configuration and definitions that identify an application.</p>
+   * @public
    */
   definitionContent: string | undefined;
 
   /**
-   * @public
    * <p>The status of the application version.</p>
+   * @public
    */
   status: ApplicationVersionLifecycle | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the application version was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 }
@@ -1338,40 +1338,40 @@ export interface GetApplicationVersionResponse {
  */
 export interface GetBatchJobExecutionRequest {
   /**
-   * @public
    * <p>The identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the batch job execution.</p>
+   * @public
    */
   executionId: string | undefined;
 }
 
 /**
- * @public
  * <p>A batch job identifier in which the batch job to run is identified by the file name and
  *          the relative path to the file name.</p>
+ * @public
  */
 export interface FileBatchJobIdentifier {
   /**
-   * @public
    * <p>The file name for the batch job identifier.</p>
+   * @public
    */
   fileName: string | undefined;
 
   /**
-   * @public
    * <p>The relative path to the file name for the batch job identifier.</p>
+   * @public
    */
   folderPath?: string;
 }
 
 /**
- * @public
  * <p>Identifies a specific batch job.</p>
+ * @public
  */
 export type JobIdentifier =
   | JobIdentifier.FileNameMember
@@ -1383,8 +1383,8 @@ export type JobIdentifier =
  */
 export namespace JobIdentifier {
   /**
-   * @public
    * <p>The name of the file that contains the batch job definition.</p>
+   * @public
    */
   export interface FileNameMember {
     fileName: string;
@@ -1393,8 +1393,8 @@ export namespace JobIdentifier {
   }
 
   /**
-   * @public
    * <p>The name of the script that contains the batch job definition.</p>
+   * @public
    */
   export interface ScriptNameMember {
     fileName?: never;
@@ -1425,45 +1425,45 @@ export namespace JobIdentifier {
 }
 
 /**
- * @public
  * <p>A batch job identifier in which the batch jobs to run are identified by an Amazon S3 location.</p>
+ * @public
  */
 export interface S3BatchJobIdentifier {
   /**
-   * @public
    * <p>The Amazon S3 bucket that contains the batch job definitions.</p>
+   * @public
    */
   bucket: string | undefined;
 
   /**
-   * @public
    * <p>The key prefix that specifies the path to the folder in the S3 bucket that has the batch job definitions.</p>
+   * @public
    */
   keyPrefix?: string;
 
   /**
-   * @public
    * <p>Identifies the batch job definition. This identifier can also point to any batch job definition that already exists in the application or to one of the batch job definitions within the directory that is specified in <code>keyPrefix</code>.</p>
+   * @public
    */
   identifier: JobIdentifier | undefined;
 }
 
 /**
- * @public
  * <p>A batch job identifier in which the batch job to run is identified by the script
  *          name.</p>
+ * @public
  */
 export interface ScriptBatchJobIdentifier {
   /**
-   * @public
    * <p>The name of the script containing the batch job definition.</p>
+   * @public
    */
   scriptName: string | undefined;
 }
 
 /**
- * @public
  * <p>Identifies a specific batch job.</p>
+ * @public
  */
 export type BatchJobIdentifier =
   | BatchJobIdentifier.FileBatchJobIdentifierMember
@@ -1476,8 +1476,8 @@ export type BatchJobIdentifier =
  */
 export namespace BatchJobIdentifier {
   /**
-   * @public
    * <p>Specifies a file associated with a specific batch job.</p>
+   * @public
    */
   export interface FileBatchJobIdentifierMember {
     fileBatchJobIdentifier: FileBatchJobIdentifier;
@@ -1487,9 +1487,9 @@ export namespace BatchJobIdentifier {
   }
 
   /**
-   * @public
    * <p>A batch job identifier in which the batch job to run is identified by the script
    *          name.</p>
+   * @public
    */
   export interface ScriptBatchJobIdentifierMember {
     fileBatchJobIdentifier?: never;
@@ -1499,8 +1499,8 @@ export namespace BatchJobIdentifier {
   }
 
   /**
-   * @public
    * <p>Specifies an Amazon S3 location that identifies the batch jobs that you want to run. Use this identifier to run ad hoc batch jobs.</p>
+   * @public
    */
   export interface S3BatchJobIdentifierMember {
     fileBatchJobIdentifier?: never;
@@ -1576,84 +1576,84 @@ export type BatchJobExecutionStatus = (typeof BatchJobExecutionStatus)[keyof typ
  */
 export interface GetBatchJobExecutionResponse {
   /**
-   * @public
    * <p>The unique identifier for this batch job execution.</p>
+   * @public
    */
   executionId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for this batch job.</p>
+   * @public
    */
   jobId?: string;
 
   /**
-   * @public
    * <p>The name of this batch job.</p>
+   * @public
    */
   jobName?: string;
 
   /**
-   * @public
    * <p>The user for the job.</p>
+   * @public
    */
   jobUser?: string;
 
   /**
-   * @public
    * <p>The type of job.</p>
+   * @public
    */
   jobType?: BatchJobType;
 
   /**
-   * @public
    * <p>The status of the batch job execution.</p>
+   * @public
    */
   status: BatchJobExecutionStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the batch job execution started.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the batch job execution ended.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The batch job return code from either the Blu Age or Micro Focus runtime engines. For more
    *          information, see <a href="https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes">Batch return
    *             codes</a> in the <i>IBM WebSphere Application Server</i>
    *          documentation.</p>
+   * @public
    */
   returnCode?: string;
 
   /**
-   * @public
    * <p>The unique identifier of this batch job.</p>
+   * @public
    */
   batchJobIdentifier?: BatchJobIdentifier;
 }
 
 /**
- * @public
  * <p> Failed to connect to server, or didn’t receive response within expected time period.</p>
+ * @public
  */
 export class ExecutionTimeoutException extends __BaseException {
   readonly name: "ExecutionTimeoutException" = "ExecutionTimeoutException";
@@ -1677,127 +1677,127 @@ export class ExecutionTimeoutException extends __BaseException {
  */
 export interface GetDataSetDetailsRequest {
   /**
-   * @public
    * <p>The unique identifier of the application that this data set is associated with.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the data set.</p>
+   * @public
    */
   dataSetName: string | undefined;
 }
 
 /**
- * @public
  * <p>The required attributes for a generation data group data set. A generation data set is
  *          one of a collection of successive, historically related, catalogued data sets that together
  *          are known as a generation data group (GDG). Use this structure when you want to import a
  *          GDG. For more information on GDG, see <a href="https://www.ibm.com/docs/en/zos/2.3.0?topic=guide-generation-data-sets">Generation
  *             data sets</a>.</p>
+ * @public
  */
 export interface GdgDetailAttributes {
   /**
-   * @public
    * <p>The maximum number of generation data sets, up to 255, in a GDG.</p>
+   * @public
    */
   limit?: number;
 
   /**
-   * @public
    * <p>The disposition of the data set in the catalog.</p>
+   * @public
    */
   rollDisposition?: string;
 }
 
 /**
- * @public
  * <p>The supported properties for a PO type data set.</p>
+ * @public
  */
 export interface PoDetailAttributes {
   /**
-   * @public
    * <p>The format of the data set records.</p>
+   * @public
    */
   format: string | undefined;
 
   /**
-   * @public
    * <p>The character set encoding of the data set.</p>
+   * @public
    */
   encoding: string | undefined;
 }
 
 /**
- * @public
  * <p>The supported properties for a PS type data set.</p>
+ * @public
  */
 export interface PsDetailAttributes {
   /**
-   * @public
    * <p>The format of the data set records.</p>
+   * @public
    */
   format: string | undefined;
 
   /**
-   * @public
    * <p>The character set encoding of the data set.</p>
+   * @public
    */
   encoding: string | undefined;
 }
 
 /**
- * @public
  * <p>The attributes of a VSAM type data set.</p>
+ * @public
  */
 export interface VsamDetailAttributes {
   /**
-   * @public
    * <p>The character set used by the data set. Can be ASCII, EBCDIC, or unknown.</p>
+   * @public
    */
   encoding?: string;
 
   /**
-   * @public
    * <p>The record format of the data set.</p>
+   * @public
    */
   recordFormat?: string;
 
   /**
-   * @public
    * <p>Indicates whether indexes for this dataset are stored as compressed values. If you have
    *          a large data set (typically &gt; 100 Mb), consider setting this flag to True.</p>
+   * @public
    */
   compressed?: boolean;
 
   /**
-   * @public
    * <p>If set to True, enforces loading the data set into cache before it’s used by the
    *          application.</p>
+   * @public
    */
   cacheAtStartup?: boolean;
 
   /**
-   * @public
    * <p>The primary key of the data set.</p>
+   * @public
    */
   primaryKey?: PrimaryKey;
 
   /**
-   * @public
    * <p>The alternate key definitions, if any. A legacy dataset might not have any alternate key
    *          defined, but if those alternate keys definitions exist, provide them as some applications
    *          will make use of them.</p>
+   * @public
    */
   alternateKeys?: AlternateKey[];
 }
 
 /**
- * @public
  * <p>Additional details about the data set. Different attributes correspond to different data
  *          set organizations. The values are populated based on datasetOrg, storageType and backend
  *          (Blu Age or Micro Focus).</p>
+ * @public
  */
 export type DatasetDetailOrgAttributes =
   | DatasetDetailOrgAttributes.GdgMember
@@ -1811,8 +1811,8 @@ export type DatasetDetailOrgAttributes =
  */
 export namespace DatasetDetailOrgAttributes {
   /**
-   * @public
    * <p>The details of a VSAM data set.</p>
+   * @public
    */
   export interface VsamMember {
     vsam: VsamDetailAttributes;
@@ -1823,8 +1823,8 @@ export namespace DatasetDetailOrgAttributes {
   }
 
   /**
-   * @public
    * <p>The generation data group of the data set.</p>
+   * @public
    */
   export interface GdgMember {
     vsam?: never;
@@ -1835,8 +1835,8 @@ export namespace DatasetDetailOrgAttributes {
   }
 
   /**
-   * @public
    * <p>The details of a PO type data set.</p>
+   * @public
    */
   export interface PoMember {
     vsam?: never;
@@ -1847,8 +1847,8 @@ export namespace DatasetDetailOrgAttributes {
   }
 
   /**
-   * @public
    * <p>The details of a PS type data set.</p>
+   * @public
    */
   export interface PsMember {
     vsam?: never;
@@ -1891,63 +1891,63 @@ export namespace DatasetDetailOrgAttributes {
  */
 export interface GetDataSetDetailsResponse {
   /**
-   * @public
    * <p>The name of the data set.</p>
+   * @public
    */
   dataSetName: string | undefined;
 
   /**
-   * @public
    * <p>The type of data set. The only supported value is VSAM.</p>
+   * @public
    */
   dataSetOrg?: DatasetDetailOrgAttributes;
 
   /**
-   * @public
    * <p>The length of records in the data set.</p>
+   * @public
    */
   recordLength?: number;
 
   /**
-   * @public
    * <p>The location where the data set is stored.</p>
+   * @public
    */
   location?: string;
 
   /**
-   * @public
    * <p>The size of the block on disk. </p>
+   * @public
    */
   blocksize?: number;
 
   /**
-   * @public
    * <p>The timestamp when the data set was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The last time the data set was updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>The last time the data set was referenced.</p>
+   * @public
    */
   lastReferencedTime?: Date;
 
   /**
-   * @public
    * <p>File size of the dataset.</p>
+   * @public
    */
   fileSize?: number;
 }
 
 /**
- * @public
  * <p>Server cannot process the request at the moment.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -1971,15 +1971,15 @@ export class ServiceUnavailableException extends __BaseException {
  */
 export interface GetDataSetImportTaskRequest {
   /**
-   * @public
    * <p>The application identifier.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The task identifier returned by the <a>CreateDataSetImportTask</a> operation.
    *       </p>
+   * @public
    */
   taskId: string | undefined;
 }
@@ -2001,37 +2001,37 @@ export const DataSetTaskLifecycle = {
 export type DataSetTaskLifecycle = (typeof DataSetTaskLifecycle)[keyof typeof DataSetTaskLifecycle];
 
 /**
- * @public
  * <p>Represents a summary of data set imports.</p>
+ * @public
  */
 export interface DataSetImportSummary {
   /**
-   * @public
    * <p>The total number of data set imports.</p>
+   * @public
    */
   total: number | undefined;
 
   /**
-   * @public
    * <p>The number of data set imports that have succeeded.</p>
+   * @public
    */
   succeeded: number | undefined;
 
   /**
-   * @public
    * <p>The number of data set imports that have failed.</p>
+   * @public
    */
   failed: number | undefined;
 
   /**
-   * @public
    * <p>The number of data set imports that are pending.</p>
+   * @public
    */
   pending: number | undefined;
 
   /**
-   * @public
    * <p>The number of data set imports that are in progress.</p>
+   * @public
    */
   inProgress: number | undefined;
 }
@@ -2041,20 +2041,20 @@ export interface DataSetImportSummary {
  */
 export interface GetDataSetImportTaskResponse {
   /**
-   * @public
    * <p>The task identifier.</p>
+   * @public
    */
   taskId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the task.</p>
+   * @public
    */
   status: DataSetTaskLifecycle | undefined;
 
   /**
-   * @public
    * <p>A summary of the status of the task.</p>
+   * @public
    */
   summary?: DataSetImportSummary;
 }
@@ -2064,14 +2064,14 @@ export interface GetDataSetImportTaskResponse {
  */
 export interface GetDeploymentRequest {
   /**
-   * @public
    * <p>The unique identifier for the deployment.</p>
+   * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 }
@@ -2081,44 +2081,44 @@ export interface GetDeploymentRequest {
  */
 export interface GetDeploymentResponse {
   /**
-   * @public
    * <p>The unique identifier of the deployment.</p>
+   * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the runtime environment.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The application version.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>The status of the deployment.</p>
+   * @public
    */
   status: DeploymentLifecycle | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the deployment was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 }
@@ -2128,27 +2128,27 @@ export interface GetDeploymentResponse {
  */
 export interface ListApplicationsRequest {
   /**
-   * @public
    * <p>A pagination token to control the number of applications displayed in the list.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of applications to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The names of the applications.</p>
+   * @public
    */
   names?: string[];
 
   /**
-   * @public
    * <p>The unique identifier of the runtime environment where the applications are
    *          deployed.</p>
+   * @public
    */
   environmentId?: string;
 }
@@ -2169,87 +2169,87 @@ export type ApplicationDeploymentLifecycle =
   (typeof ApplicationDeploymentLifecycle)[keyof typeof ApplicationDeploymentLifecycle];
 
 /**
- * @public
  * <p>A subset of the possible application attributes. Used in the application list.</p>
+ * @public
  */
 export interface ApplicationSummary {
   /**
-   * @public
    * <p>The name of the application.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the application.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>The status of the application.</p>
+   * @public
    */
   status: ApplicationLifecycle | undefined;
 
   /**
-   * @public
    * <p>The type of the target platform for this application.</p>
+   * @public
    */
   engineType: EngineType | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the application was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the runtime environment that hosts this application.</p>
+   * @public
    */
   environmentId?: string;
 
   /**
-   * @public
    * <p>The timestamp when you last started the application. Null until the application runs for
    *          the first time.</p>
+   * @public
    */
   lastStartTime?: Date;
 
   /**
-   * @public
    * <p>Indicates the status of the latest version of the application.</p>
+   * @public
    */
   versionStatus?: ApplicationVersionLifecycle;
 
   /**
-   * @public
    * <p>Indicates either an ongoing deployment or if the application has ever deployed
    *          successfully.</p>
+   * @public
    */
   deploymentStatus?: ApplicationDeploymentLifecycle;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the role associated with the application.</p>
+   * @public
    */
   roleArn?: string;
 }
@@ -2259,16 +2259,16 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * @public
    * <p>Returns a list of summary details for all the applications in a runtime
    *          environment.</p>
+   * @public
    */
   applications: ApplicationSummary[] | undefined;
 
   /**
-   * @public
    * <p>A pagination token that's returned when the response doesn't contain all
    *          applications.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2278,22 +2278,22 @@ export interface ListApplicationsResponse {
  */
 export interface ListApplicationVersionsRequest {
   /**
-   * @public
    * <p>A pagination token returned from a previous call to
    *   this operation. This specifies the next item to return. To return to the beginning of the
    *   list, exclude this parameter.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of application versions to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 }
@@ -2303,15 +2303,15 @@ export interface ListApplicationVersionsRequest {
  */
 export interface ListApplicationVersionsResponse {
   /**
-   * @public
    * <p>The list of application versions.</p>
+   * @public
    */
   applicationVersions: ApplicationVersionSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more items to return, this contains a token
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2321,66 +2321,66 @@ export interface ListApplicationVersionsResponse {
  */
 export interface ListBatchJobDefinitionsRequest {
   /**
-   * @public
    * <p>A pagination token returned from a previous call to
    *   this operation. This specifies the next item to return. To return to the beginning of the
    *   list, exclude this parameter.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of batch job definitions to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>If the batch job definition is a FileBatchJobDefinition, the prefix allows you to search
    *          on the file names of FileBatchJobDefinitions.</p>
+   * @public
    */
   prefix?: string;
 }
 
 /**
- * @public
  * <p>A file containing a batch job definition.</p>
+ * @public
  */
 export interface FileBatchJobDefinition {
   /**
-   * @public
    * <p>The name of the file containing the batch job definition.</p>
+   * @public
    */
   fileName: string | undefined;
 
   /**
-   * @public
    * <p>The path to the file containing the batch job definition.</p>
+   * @public
    */
   folderPath?: string;
 }
 
 /**
- * @public
  * <p>A batch job definition contained in a script.</p>
+ * @public
  */
 export interface ScriptBatchJobDefinition {
   /**
-   * @public
    * <p>The name of the script containing the batch job definition.</p>
+   * @public
    */
   scriptName: string | undefined;
 }
 
 /**
- * @public
  * <p>Defines the details of a batch job.</p>
+ * @public
  */
 export type BatchJobDefinition =
   | BatchJobDefinition.FileBatchJobDefinitionMember
@@ -2392,8 +2392,8 @@ export type BatchJobDefinition =
  */
 export namespace BatchJobDefinition {
   /**
-   * @public
    * <p>Specifies a file containing a batch job definition.</p>
+   * @public
    */
   export interface FileBatchJobDefinitionMember {
     fileBatchJobDefinition: FileBatchJobDefinition;
@@ -2402,8 +2402,8 @@ export namespace BatchJobDefinition {
   }
 
   /**
-   * @public
    * <p>A script containing a batch job definition.</p>
+   * @public
    */
   export interface ScriptBatchJobDefinitionMember {
     fileBatchJobDefinition?: never;
@@ -2439,15 +2439,15 @@ export namespace BatchJobDefinition {
  */
 export interface ListBatchJobDefinitionsResponse {
   /**
-   * @public
    * <p>The list of batch job definitions.</p>
+   * @public
    */
   batchJobDefinitions: BatchJobDefinition[] | undefined;
 
   /**
-   * @public
    * <p>If there are more items to return, this contains a token
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2457,120 +2457,120 @@ export interface ListBatchJobDefinitionsResponse {
  */
 export interface ListBatchJobExecutionsRequest {
   /**
-   * @public
    * <p>A pagination token to control the number of batch job executions displayed in the
    *          list.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of batch job executions to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of each batch job execution.</p>
+   * @public
    */
   executionIds?: string[];
 
   /**
-   * @public
    * <p>The name of each batch job execution.</p>
+   * @public
    */
   jobName?: string;
 
   /**
-   * @public
    * <p>The status of the batch job executions.</p>
+   * @public
    */
   status?: BatchJobExecutionStatus;
 
   /**
-   * @public
    * <p>The time after which the batch job executions started.</p>
+   * @public
    */
   startedAfter?: Date;
 
   /**
-   * @public
    * <p>The time before the batch job executions started.</p>
+   * @public
    */
   startedBefore?: Date;
 }
 
 /**
- * @public
  * <p>A subset of the possible batch job attributes. Used in the batch job list.</p>
+ * @public
  */
 export interface BatchJobExecutionSummary {
   /**
-   * @public
    * <p>The unique identifier of this execution of the batch job.</p>
+   * @public
    */
   executionId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the application that hosts this batch job.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of a particular batch job.</p>
+   * @public
    */
   jobId?: string;
 
   /**
-   * @public
    * <p>The name of a particular batch job.</p>
+   * @public
    */
   jobName?: string;
 
   /**
-   * @public
    * <p>The type of a particular batch job execution.</p>
+   * @public
    */
   jobType?: BatchJobType;
 
   /**
-   * @public
    * <p>The status of a particular batch job execution.</p>
+   * @public
    */
   status: BatchJobExecutionStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp when a particular batch job execution started.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when this batch job execution ended.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>The batch job return code from either the Blu Age or Micro Focus runtime engines. For more
    *          information, see <a href="https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes">Batch return
    *             codes</a> in the <i>IBM WebSphere Application Server</i>
    *          documentation.</p>
+   * @public
    */
   returnCode?: string;
 
   /**
-   * @public
    * <p>The unique identifier of this batch job.</p>
+   * @public
    */
   batchJobIdentifier?: BatchJobIdentifier;
 }
@@ -2580,15 +2580,15 @@ export interface BatchJobExecutionSummary {
  */
 export interface ListBatchJobExecutionsResponse {
   /**
-   * @public
    * <p>Returns a list of batch job executions for an application.</p>
+   * @public
    */
   batchJobExecutions: BatchJobExecutionSummary[] | undefined;
 
   /**
-   * @public
    * <p>A pagination token that's returned when the response doesn't contain all batch job
    *          executions.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2598,52 +2598,52 @@ export interface ListBatchJobExecutionsResponse {
  */
 export interface ListDataSetImportHistoryRequest {
   /**
-   * @public
    * <p>A pagination token returned from a previous call to
    *   this operation. This specifies the next item to return. To return to the beginning of the
    *   list, exclude this parameter.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of objects to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about a data set import task.</p>
+ * @public
  */
 export interface DataSetImportTask {
   /**
-   * @public
    * <p>The identifier of the data set import task.</p>
+   * @public
    */
   taskId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data set import task.</p>
+   * @public
    */
   status: DataSetTaskLifecycle | undefined;
 
   /**
-   * @public
    * <p>A summary of the data set import task.</p>
+   * @public
    */
   summary: DataSetImportSummary | undefined;
 
   /**
-   * @public
    * <p>If dataset import failed, the failure reason will show here.</p>
+   * @public
    */
   statusReason?: string;
 }
@@ -2653,15 +2653,15 @@ export interface DataSetImportTask {
  */
 export interface ListDataSetImportHistoryResponse {
   /**
-   * @public
    * <p>The data set import tasks.</p>
+   * @public
    */
   dataSetImportTasks: DataSetImportTask[] | undefined;
 
   /**
-   * @public
    * <p>If there are more items to return, this contains a token
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2671,78 +2671,78 @@ export interface ListDataSetImportHistoryResponse {
  */
 export interface ListDataSetsRequest {
   /**
-   * @public
    * <p>The unique identifier of the application for which you want to list the associated data
    *          sets.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>A pagination token returned from a previous call to
    *   this operation. This specifies the next item to return. To return to the beginning of the
    *   list, exclude this parameter.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of objects to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The prefix of the data set name, which you can use to filter the list of data
    *          sets.</p>
+   * @public
    */
   prefix?: string;
 
   /**
-   * @public
    * <p>Filter dataset name matching the specified pattern. Can use * and % as wild cards.</p>
+   * @public
    */
   nameFilter?: string;
 }
 
 /**
- * @public
  * <p>A subset of the possible data set attributes.</p>
+ * @public
  */
 export interface DataSetSummary {
   /**
-   * @public
    * <p>The name of the data set.</p>
+   * @public
    */
   dataSetName: string | undefined;
 
   /**
-   * @public
    * <p>The type of data set. The only supported value is VSAM.</p>
+   * @public
    */
   dataSetOrg?: string;
 
   /**
-   * @public
    * <p>The format of the data set. </p>
+   * @public
    */
   format?: string;
 
   /**
-   * @public
    * <p>The timestamp when the data set was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The last time the data set was updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>The last time the data set was referenced.</p>
+   * @public
    */
   lastReferencedTime?: Date;
 }
@@ -2752,17 +2752,17 @@ export interface DataSetSummary {
  */
 export interface ListDataSetsResponse {
   /**
-   * @public
    * <p>The list of data sets, containing information including the creation time, the data set
    *          name, the data set organization, the data set format, and the last time the data set was
    *          referenced or updated.</p>
+   * @public
    */
   dataSets: DataSetSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more items to return, this contains a token
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2772,70 +2772,70 @@ export interface ListDataSetsResponse {
  */
 export interface ListDeploymentsRequest {
   /**
-   * @public
    * <p>A pagination token returned from a previous call to
    *   this operation. This specifies the next item to return. To return to the beginning of the
    *   list, exclude this parameter.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of objects to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The application identifier.</p>
+   * @public
    */
   applicationId: string | undefined;
 }
 
 /**
- * @public
  * <p>A subset of information about a specific deployment.</p>
+ * @public
  */
 export interface DeploymentSummary {
   /**
-   * @public
    * <p>The unique identifier of the deployment.</p>
+   * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the application.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the runtime environment.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>The current status of the deployment.</p>
+   * @public
    */
   status: DeploymentLifecycle | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the deployment was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 }
@@ -2845,15 +2845,15 @@ export interface DeploymentSummary {
  */
 export interface ListDeploymentsResponse {
   /**
-   * @public
    * <p>The list of deployments that is returned.</p>
+   * @public
    */
   deployments: DeploymentSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more items to return, this contains a token
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2863,8 +2863,8 @@ export interface ListDeploymentsResponse {
  */
 export interface StartApplicationRequest {
   /**
-   * @public
    * <p>The unique identifier of the application you want to start.</p>
+   * @public
    */
   applicationId: string | undefined;
 }
@@ -2879,21 +2879,21 @@ export interface StartApplicationResponse {}
  */
 export interface StartBatchJobRequest {
   /**
-   * @public
    * <p>The unique identifier of the application associated with this batch job.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the batch job.</p>
+   * @public
    */
   batchJobIdentifier: BatchJobIdentifier | undefined;
 
   /**
-   * @public
    * <p>The collection of batch job parameters. For details about limits for keys and values,
    *          see <a href="https://www.ibm.com/docs/en/workload-automation/9.3.0?topic=zos-coding-variables-in-jcl">Coding variables in JCL</a>.</p>
+   * @public
    */
   jobParams?: Record<string, string>;
 }
@@ -2903,8 +2903,8 @@ export interface StartBatchJobRequest {
  */
 export interface StartBatchJobResponse {
   /**
-   * @public
    * <p>The unique identifier of this execution of the batch job.</p>
+   * @public
    */
   executionId: string | undefined;
 }
@@ -2914,16 +2914,16 @@ export interface StartBatchJobResponse {
  */
 export interface StopApplicationRequest {
   /**
-   * @public
    * <p>The unique identifier of the application you want to stop.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>Stopping an application process can take a long time. Setting this parameter to true
    *          lets you force stop the application so you don't need to wait until the process finishes to
    *          apply another action on the application. The default value is false.</p>
+   * @public
    */
   forceStop?: boolean;
 }
@@ -2938,27 +2938,27 @@ export interface StopApplicationResponse {}
  */
 export interface UpdateApplicationRequest {
   /**
-   * @public
    * <p>The unique identifier of the application you want to update.</p>
+   * @public
    */
   applicationId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the application to update.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The current version of the application to update.</p>
+   * @public
    */
   currentApplicationVersion: number | undefined;
 
   /**
-   * @public
    * <p>The application definition for this application. You can specify either inline JSON or
    *          an S3 bucket location.</p>
+   * @public
    */
   definition?: Definition;
 }
@@ -2968,63 +2968,63 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
-   * @public
    * <p>The new version of the application.</p>
+   * @public
    */
   applicationVersion: number | undefined;
 }
 
 /**
- * @public
  * <p>Defines the details of a high availability configuration.</p>
+ * @public
  */
 export interface HighAvailabilityConfig {
   /**
-   * @public
    * <p>The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.</p>
+   * @public
    */
   desiredCapacity: number | undefined;
 }
 
 /**
- * @public
  * <p>Defines the storage configuration for an Amazon EFS file system.</p>
+ * @public
  */
 export interface EfsStorageConfiguration {
   /**
-   * @public
    * <p>The file system identifier.</p>
+   * @public
    */
   fileSystemId: string | undefined;
 
   /**
-   * @public
    * <p>The mount point for the file system.</p>
+   * @public
    */
   mountPoint: string | undefined;
 }
 
 /**
- * @public
  * <p>Defines the storage configuration for an Amazon FSx file system.</p>
+ * @public
  */
 export interface FsxStorageConfiguration {
   /**
-   * @public
    * <p>The file system identifier.</p>
+   * @public
    */
   fileSystemId: string | undefined;
 
   /**
-   * @public
    * <p>The mount point for the file system.</p>
+   * @public
    */
   mountPoint: string | undefined;
 }
 
 /**
- * @public
  * <p>Defines the storage configuration for a runtime environment.</p>
+ * @public
  */
 export type StorageConfiguration =
   | StorageConfiguration.EfsMember
@@ -3036,8 +3036,8 @@ export type StorageConfiguration =
  */
 export namespace StorageConfiguration {
   /**
-   * @public
    * <p>Defines the storage configuration for an Amazon EFS file system.</p>
+   * @public
    */
   export interface EfsMember {
     efs: EfsStorageConfiguration;
@@ -3046,8 +3046,8 @@ export namespace StorageConfiguration {
   }
 
   /**
-   * @public
    * <p>Defines the storage configuration for an Amazon FSx file system.</p>
+   * @public
    */
   export interface FsxMember {
     efs?: never;
@@ -3082,91 +3082,91 @@ export namespace StorageConfiguration {
  */
 export interface CreateEnvironmentRequest {
   /**
-   * @public
    * <p>The name of the runtime environment. Must be unique within the account.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of instance for the runtime environment.</p>
+   * @public
    */
   instanceType: string | undefined;
 
   /**
-   * @public
    * <p>The description of the runtime environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The engine type for the runtime environment.</p>
+   * @public
    */
   engineType: EngineType | undefined;
 
   /**
-   * @public
    * <p>The version of the engine type for the runtime environment.</p>
+   * @public
    */
   engineVersion?: string;
 
   /**
-   * @public
    * <p>The list of subnets associated with the VPC for this runtime environment.</p>
+   * @public
    */
   subnetIds?: string[];
 
   /**
-   * @public
    * <p>The list of security groups for the VPC associated with this runtime environment.</p>
+   * @public
    */
   securityGroupIds?: string[];
 
   /**
-   * @public
    * <p>Optional. The storage configurations for this runtime environment.</p>
+   * @public
    */
   storageConfigurations?: StorageConfiguration[];
 
   /**
-   * @public
    * <p>Specifies whether the runtime environment is publicly accessible.</p>
+   * @public
    */
   publiclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>The details of a high availability configuration for this runtime environment.</p>
+   * @public
    */
   highAvailabilityConfig?: HighAvailabilityConfig;
 
   /**
-   * @public
    * <p>The tags for the runtime environment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format <code>ddd:hh24:mi-ddd:hh24:mi</code> and must be less than 24 hours. The following two examples are valid maintenance windows: <code>sun:23:45-mon:00:15</code> or <code>sat:01:00-sat:03:00</code>. </p>
    *          <p>If you do not provide a value, a random system-generated value will be assigned.</p>
+   * @public
    */
   preferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request
    *          to create an environment. The service generates the clientToken when the API call is
    *          triggered. The token expires after one hour, so if you retry the API within this timeframe
    *          with the same clientToken, you will get the same response. The service also handles
    *          deleting the clientToken after it expires. </p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The identifier of a customer managed key.</p>
+   * @public
    */
   kmsKeyId?: string;
 }
@@ -3176,8 +3176,8 @@ export interface CreateEnvironmentRequest {
  */
 export interface CreateEnvironmentResponse {
   /**
-   * @public
    * <p>The unique identifier of the runtime environment.</p>
+   * @public
    */
   environmentId: string | undefined;
 }
@@ -3187,8 +3187,8 @@ export interface CreateEnvironmentResponse {
  */
 export interface DeleteEnvironmentRequest {
   /**
-   * @public
    * <p>The unique identifier of the runtime environment you want to delete.</p>
+   * @public
    */
   environmentId: string | undefined;
 }
@@ -3203,44 +3203,44 @@ export interface DeleteEnvironmentResponse {}
  */
 export interface GetEnvironmentRequest {
   /**
-   * @public
    * <p>The unique identifier of the runtime environment.</p>
+   * @public
    */
   environmentId: string | undefined;
 }
 
 /**
- * @public
  * <p>The information about the maintenance schedule.</p>
+ * @public
  */
 export interface MaintenanceSchedule {
   /**
-   * @public
    * <p>The time the scheduled maintenance is to start.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The time the scheduled maintenance is to end.</p>
+   * @public
    */
   endTime?: Date;
 }
 
 /**
- * @public
  * <p>The scheduled maintenance for a runtime engine.</p>
+ * @public
  */
 export interface PendingMaintenance {
   /**
-   * @public
    * <p>The maintenance schedule for the runtime engine version.</p>
+   * @public
    */
   schedule?: MaintenanceSchedule;
 
   /**
-   * @public
    * <p>The specific runtime engine that the maintenance schedule applies to.</p>
+   * @public
    */
   engineVersion?: string;
 }
@@ -3267,141 +3267,141 @@ export type EnvironmentLifecycle = (typeof EnvironmentLifecycle)[keyof typeof En
  */
 export interface GetEnvironmentResponse {
   /**
-   * @public
    * <p>The name of the runtime environment. Must be unique within the account.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the runtime environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the runtime environment.</p>
+   * @public
    */
   environmentArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the runtime environment.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The type of instance underlying the runtime environment.</p>
+   * @public
    */
   instanceType: string | undefined;
 
   /**
-   * @public
    * <p>The status of the runtime environment.</p>
+   * @public
    */
   status: EnvironmentLifecycle | undefined;
 
   /**
-   * @public
    * <p>The target platform for the runtime environment.</p>
+   * @public
    */
   engineType: EngineType | undefined;
 
   /**
-   * @public
    * <p>The version of the runtime engine.</p>
+   * @public
    */
   engineVersion: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the VPC used with this runtime environment.</p>
+   * @public
    */
   vpcId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifiers of the subnets assigned to this runtime environment.</p>
+   * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The unique identifiers of the security groups assigned to this runtime
    *          environment.</p>
+   * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the runtime environment was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The storage configurations defined for the runtime environment.</p>
+   * @public
    */
   storageConfigurations?: StorageConfiguration[];
 
   /**
-   * @public
    * <p>The tags defined for this runtime environment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The desired capacity of the high availability configuration for the runtime
    *          environment.</p>
+   * @public
    */
   highAvailabilityConfig?: HighAvailabilityConfig;
 
   /**
-   * @public
    * <p>Whether applications running in this runtime environment are publicly accessible.
    *       </p>
+   * @public
    */
   publiclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>The number of instances included in the runtime environment. A standalone runtime
    *          environment has a maximum of one instance. Currently, a high availability runtime
    *          environment has a maximum of two instances. </p>
+   * @public
    */
   actualCapacity?: number;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the load balancer used with the runtime
    *          environment.</p>
+   * @public
    */
   loadBalancerArn?: string;
 
   /**
-   * @public
    * <p>The reason for the reported status.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The maintenance window for the runtime environment. If you don't
    *          provide a value for the maintenance window, the service assigns a random value.</p>
+   * @public
    */
   preferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>Indicates the pending maintenance scheduled on this environment.</p>
+   * @public
    */
   pendingMaintenance?: PendingMaintenance;
 
   /**
-   * @public
    * <p>The identifier of a customer managed key.</p>
+   * @public
    */
   kmsKeyId?: string;
 }
@@ -3411,82 +3411,82 @@ export interface GetEnvironmentResponse {
  */
 export interface ListEnvironmentsRequest {
   /**
-   * @public
    * <p>A pagination token to control the number of runtime environments displayed in the
    *          list.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of runtime environments to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The names of the runtime environments. Must be unique within the account.</p>
+   * @public
    */
   names?: string[];
 
   /**
-   * @public
    * <p>The engine type for the runtime environment.</p>
+   * @public
    */
   engineType?: EngineType;
 }
 
 /**
- * @public
  * <p>Contains a subset of the possible runtime environment attributes. Used in the
  *          environment list.</p>
+ * @public
  */
 export interface EnvironmentSummary {
   /**
-   * @public
    * <p>The name of the runtime environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of a particular runtime environment.</p>
+   * @public
    */
   environmentArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of a particular runtime environment.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The instance type of the runtime environment.</p>
+   * @public
    */
   instanceType: string | undefined;
 
   /**
-   * @public
    * <p>The status of the runtime environment</p>
+   * @public
    */
   status: EnvironmentLifecycle | undefined;
 
   /**
-   * @public
    * <p>The target platform for the runtime environment.</p>
+   * @public
    */
   engineType: EngineType | undefined;
 
   /**
-   * @public
    * <p>The version of the runtime engine.</p>
+   * @public
    */
   engineVersion: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the runtime environment was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -3496,16 +3496,16 @@ export interface EnvironmentSummary {
  */
 export interface ListEnvironmentsResponse {
   /**
-   * @public
    * <p>Returns a list of summary details for all the runtime environments in your account.
    *       </p>
+   * @public
    */
   environments: EnvironmentSummary[] | undefined;
 
   /**
-   * @public
    * <p>A pagination token that's returned when the response doesn't contain all the runtime
    *          environments.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3515,51 +3515,51 @@ export interface ListEnvironmentsResponse {
  */
 export interface UpdateEnvironmentRequest {
   /**
-   * @public
    * <p>The unique identifier of the runtime environment that you want to update.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The desired capacity for the runtime environment to update. The minimum possible value is 0 and the maximum is 100.</p>
+   * @public
    */
   desiredCapacity?: number;
 
   /**
-   * @public
    * <p>The instance type for the runtime environment to update.</p>
+   * @public
    */
   instanceType?: string;
 
   /**
-   * @public
    * <p>The version of the runtime engine for the runtime environment.</p>
+   * @public
    */
   engineVersion?: string;
 
   /**
-   * @public
    * <p>Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format <code>ddd:hh24:mi-ddd:hh24:mi</code> and must be less than 24 hours. The following two examples are valid maintenance windows: <code>sun:23:45-mon:00:15</code> or <code>sat:01:00-sat:03:00</code>. </p>
    *          <p>If you do not provide a value, a random system-generated value will be assigned.</p>
+   * @public
    */
   preferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>Indicates whether to update the runtime environment during the maintenance window. The
    *          default is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code> parameter
    *          only if <code>applyDuringMaintenanceWindow</code> is true. If any parameter other than
    *             <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>, it will
    *          fail if <code>applyDuringMaintenanceWindow</code> is set to true.</p>
+   * @public
    */
   applyDuringMaintenanceWindow?: boolean;
 
   /**
-   * @public
    * <p>Forces the updates on the environment. This option is needed if the applications in the environment are not stopped or if there are ongoing application-related activities in the environment.</p>
    *          <p>If you use this option, be aware that it could lead to data corruption in the applications, and that you might need to perform repair and recovery procedures for the applications.</p>
    *          <p>This option is not needed if the attribute being updated is <code>preferredMaintenanceWindow</code>.</p>
+   * @public
    */
   forceUpdate?: boolean;
 }
@@ -3569,8 +3569,8 @@ export interface UpdateEnvironmentRequest {
  */
 export interface UpdateEnvironmentResponse {
   /**
-   * @public
    * <p>The unique identifier of the runtime environment that was updated.</p>
+   * @public
    */
   environmentId: string | undefined;
 }
@@ -3580,8 +3580,8 @@ export interface UpdateEnvironmentResponse {
  */
 export interface GetSignedBluinsightsUrlResponse {
   /**
-   * @public
    * <p>Single sign-on AWS Blu Insights URL.</p>
+   * @public
    */
   signedBiUrl: string | undefined;
 }
@@ -3591,40 +3591,40 @@ export interface GetSignedBluinsightsUrlResponse {
  */
 export interface ListEngineVersionsRequest {
   /**
-   * @public
    * <p>The type of target platform.</p>
+   * @public
    */
   engineType?: EngineType;
 
   /**
-   * @public
    * <p>A pagination token returned from a previous call to
    *   this operation. This specifies the next item to return. To return to the beginning of the
    *   list, exclude this parameter.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of objects to return.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>A subset of information about the engine version for a specific application.</p>
+ * @public
  */
 export interface EngineVersionsSummary {
   /**
-   * @public
    * <p>The type of target platform for the application.</p>
+   * @public
    */
   engineType: string | undefined;
 
   /**
-   * @public
    * <p>The version of the engine type used by the application.</p>
+   * @public
    */
   engineVersion: string | undefined;
 }
@@ -3634,15 +3634,15 @@ export interface EngineVersionsSummary {
  */
 export interface ListEngineVersionsResponse {
   /**
-   * @public
    * <p>Returns the engine versions.</p>
+   * @public
    */
   engineVersions: EngineVersionsSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more items to return, this contains a token
    *   that is passed to a subsequent call to this operation to retrieve the next set of items.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3652,8 +3652,8 @@ export interface ListEngineVersionsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -3663,8 +3663,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags for the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -3674,14 +3674,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to add to the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -3696,14 +3696,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The keys of the tags to remove.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

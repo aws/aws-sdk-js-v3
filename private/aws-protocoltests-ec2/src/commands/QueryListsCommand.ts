@@ -25,7 +25,6 @@ export interface QueryListsCommandInput extends QueryListsInput {}
 export interface QueryListsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This test serializes simple and complex lists.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ * @public
  */
 export class QueryListsCommand extends $Command
   .classBuilder<

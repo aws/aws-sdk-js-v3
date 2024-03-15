@@ -27,7 +27,6 @@ export interface DisableMetricsCollectionCommandInput extends DisableMetricsColl
 export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables group metrics collection for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To disable metrics collection for an Auto Scaling group
  * ```javascript
  * // This example disables collecting data for the GroupDesiredCapacity metric for the specified Auto Scaling group.

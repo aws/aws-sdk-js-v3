@@ -732,7 +732,6 @@ export type GameLiftClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon GameLift provides solutions for hosting session-based multiplayer game servers in the
  *             cloud, including tools for deploying, operating, and scaling game servers. Built on
  *             Amazon Web Services global computing infrastructure, GameLift helps you deliver high-performance,
@@ -791,6 +790,7 @@ export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConf
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class GameLiftClient extends __Client<
   __HttpHandlerOptions,

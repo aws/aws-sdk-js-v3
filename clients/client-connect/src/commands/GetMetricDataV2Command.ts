@@ -27,7 +27,6 @@ export interface GetMetricDataV2CommandInput extends GetMetricDataV2Request {}
 export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets metric data from the specified Amazon Connect instance. </p>
  *          <p>
  *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous
@@ -152,6 +151,7 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetMetricDataV2Command extends $Command
   .classBuilder<

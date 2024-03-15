@@ -27,7 +27,6 @@ export interface GetIdentityPoliciesCommandInput extends GetIdentityPoliciesRequ
 export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the requested sending authorization policies for the given identity (an email
  *             address or a domain). The policies are returned as a map of policy names to policy
  *             contents. You can retrieve a maximum of 20 policies at a time.</p>
@@ -71,6 +70,7 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetIdentityPolicies
  * ```javascript
  * // The following example returns a sending authorization policy for an identity:

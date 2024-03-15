@@ -27,7 +27,6 @@ export interface DeleteServiceCommandInput extends DeleteServiceInput {}
 export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a service, with its instances and pipeline.</p>
  *          <note>
  *             <p>You can't delete a service if it has any service instances that have components attached
@@ -107,6 +106,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteServiceCommand extends $Command
   .classBuilder<

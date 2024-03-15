@@ -27,7 +27,6 @@ export interface UpdateNodegroupConfigCommandInput extends UpdateNodegroupConfig
 export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon EKS managed node group configuration. Your node group
  *             continues to function during the update. The response output includes an update ID that
  *             you can use to track the status of your node group update with the <a>DescribeUpdate</a> API operation. Currently you can update the Kubernetes labels
@@ -137,6 +136,7 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class UpdateNodegroupConfigCommand extends $Command
   .classBuilder<

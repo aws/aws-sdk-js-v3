@@ -31,7 +31,6 @@ export interface ListFragmentsCommandInput extends ListFragmentsInput {}
 export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <a>Fragment</a> objects from the specified stream and
  *             timestamp range within the archived data.</p>
  *          <p>Listing fragments is eventually consistent. This means that even if the producer
@@ -136,6 +135,7 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * @public
  */
 export class ListFragmentsCommand extends $Command
   .classBuilder<

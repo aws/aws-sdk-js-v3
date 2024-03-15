@@ -27,7 +27,6 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Redshift event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteEventSubscriptionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateObjectAttributesCommandInput extends UpdateObjectAttribut
 export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a given object's attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class UpdateObjectAttributesCommand extends $Command
   .classBuilder<

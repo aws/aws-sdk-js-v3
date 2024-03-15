@@ -35,7 +35,6 @@ export interface AdminDeleteUserAttributesCommandInput extends AdminDeleteUserAt
 export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the user attributes in a user pool as an administrator. Works on any
  *             user.</p>
  *          <note>
@@ -107,6 +106,7 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminDeleteUserAttributesCommand extends $Command
   .classBuilder<

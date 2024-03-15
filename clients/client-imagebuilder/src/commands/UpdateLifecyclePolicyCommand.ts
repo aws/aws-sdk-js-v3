@@ -27,7 +27,6 @@ export interface UpdateLifecyclePolicyCommandInput extends UpdateLifecyclePolicy
 export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the specified lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class UpdateLifecyclePolicyCommand extends $Command
   .classBuilder<

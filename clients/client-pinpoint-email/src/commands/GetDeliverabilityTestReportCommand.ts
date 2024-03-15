@@ -32,7 +32,6 @@ export interface GetDeliverabilityTestReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the results of a predictive inbox placement test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetDeliverabilityTestReportCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetDeliverabilityTestReportCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListRoomsCommandInput extends ListRoomsRequest {}
 export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about all your rooms in the AWS region where the API request is
  *          processed. Results are sorted in descending order of <code>updateTime</code>.</p>
  * @example
@@ -88,6 +87,7 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class ListRoomsCommand extends $Command
   .classBuilder<

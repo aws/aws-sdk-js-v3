@@ -29,7 +29,6 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
 }
 
 /**
- * @public
  * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the
  *          job, the output will be either the content of an archive or a vault inventory.</p>
  *
@@ -115,6 +114,7 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To get the output of a previously initiated job
  * ```javascript
  * // The example downloads the output of a previously initiated inventory retrieval job that is identified by the job ID.

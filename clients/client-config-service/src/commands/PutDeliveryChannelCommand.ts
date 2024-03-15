@@ -27,7 +27,6 @@ export interface PutDeliveryChannelCommandInput extends PutDeliveryChannelReques
 export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a delivery channel object to deliver configuration
  * 			information and other compliance information to an Amazon S3 bucket and Amazon SNS topic.
  * 			For more information,
@@ -106,6 +105,7 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutDeliveryChannelCommand extends $Command
   .classBuilder<

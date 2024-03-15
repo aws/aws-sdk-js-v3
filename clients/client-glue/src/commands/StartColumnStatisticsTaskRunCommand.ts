@@ -32,7 +32,6 @@ export interface StartColumnStatisticsTaskRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a column statistics task run, for a specified table and columns.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface StartColumnStatisticsTaskRunCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartColumnStatisticsTaskRunCommand extends $Command
   .classBuilder<

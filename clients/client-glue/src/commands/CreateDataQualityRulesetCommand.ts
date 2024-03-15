@@ -27,7 +27,6 @@ export interface CreateDataQualityRulesetCommandInput extends CreateDataQualityR
 export interface CreateDataQualityRulesetCommandOutput extends CreateDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data quality ruleset with DQDL rules applied to a specified Glue table.</p>
  *          <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
  * @example
@@ -82,6 +81,7 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateDataQualityRulesetCommand extends $Command
   .classBuilder<

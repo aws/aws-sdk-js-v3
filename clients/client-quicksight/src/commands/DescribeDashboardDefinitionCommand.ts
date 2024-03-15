@@ -36,7 +36,6 @@ export interface DescribeDashboardDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a detailed description of the definition of a dashboard.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of a dashboard, for instance if you
@@ -4710,6 +4709,7 @@ export interface DescribeDashboardDefinitionCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDashboardDefinitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeParametersCommandInput extends DescribeParametersReques
 export interface DescribeParametersCommandOutput extends DescribeParametersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable
  *    the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html#systemsmanager-DescribeParameters-request-Shared">Shared</a> option.</p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
@@ -125,6 +124,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeParametersCommand extends $Command
   .classBuilder<

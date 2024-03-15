@@ -27,7 +27,6 @@ export interface ScheduleRunCommandInput extends ScheduleRunRequest {}
 export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Schedules a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -230,6 +229,7 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To schedule a test run
  * ```javascript
  * // The following example schedules a test run named MyRun.

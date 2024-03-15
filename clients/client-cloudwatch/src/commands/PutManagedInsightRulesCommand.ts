@@ -27,7 +27,6 @@ export interface PutManagedInsightRulesCommandInput extends PutManagedInsightRul
 export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * 			Creates a managed Contributor Insights rule
  * 			for a specified Amazon Web Services resource.
@@ -95,6 +94,7 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class PutManagedInsightRulesCommand extends $Command
   .classBuilder<

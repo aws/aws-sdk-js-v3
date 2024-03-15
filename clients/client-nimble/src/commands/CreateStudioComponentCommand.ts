@@ -32,7 +32,6 @@ export interface CreateStudioComponentCommandInput extends CreateStudioComponent
 export interface CreateStudioComponentCommandOutput extends CreateStudioComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a studio component resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -199,6 +198,7 @@ export interface CreateStudioComponentCommandOutput extends CreateStudioComponen
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class CreateStudioComponentCommand extends $Command
   .classBuilder<

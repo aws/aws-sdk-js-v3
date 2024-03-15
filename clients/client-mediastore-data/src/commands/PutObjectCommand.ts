@@ -30,7 +30,6 @@ export interface PutObjectCommandInput extends Omit<PutObjectRequest, "Body"> {
 export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB for standard upload availability and 10 MB for streaming upload availability.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * @public
  */
 export class PutObjectCommand extends $Command
   .classBuilder<

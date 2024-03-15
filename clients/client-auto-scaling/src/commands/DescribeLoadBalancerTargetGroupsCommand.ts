@@ -32,7 +32,6 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
  *                 which can describe multiple traffic sources types. We recommend using
@@ -107,6 +106,7 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the target groups for an Auto Scaling group
  * ```javascript
  * // This example describes the target groups attached to the specified Auto Scaling group.

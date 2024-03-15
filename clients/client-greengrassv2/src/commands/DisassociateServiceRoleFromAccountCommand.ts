@@ -35,7 +35,6 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.
  *       Without a service role, IoT Greengrass can't verify the identity of client devices or manage core device
  *       connectivity information. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in
@@ -67,6 +66,7 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command
   .classBuilder<

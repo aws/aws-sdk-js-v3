@@ -27,7 +27,6 @@ export interface CreateDataCellsFilterCommandInput extends CreateDataCellsFilter
 export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data cell filter to allow one to grant access to certain columns on certain rows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class CreateDataCellsFilterCommand extends $Command
   .classBuilder<

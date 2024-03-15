@@ -35,7 +35,6 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the Amazon Web Services services that you enabled to integrate with your
  *             organization. After a service on this list creates the resources that it requires for
  *             the integration, it can perform operations on your organization and its accounts.</p>
@@ -402,6 +401,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class ListAWSServiceAccessForOrganizationCommand extends $Command
   .classBuilder<

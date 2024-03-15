@@ -32,7 +32,6 @@ export interface PutImageScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <important>
  *             <p>The <code>PutImageScanningConfiguration</code> API is being deprecated, in favor
  *                 of specifying the image scanning configuration at the registry level. For more
@@ -87,6 +86,7 @@ export interface PutImageScanningConfigurationCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class PutImageScanningConfigurationCommand extends $Command
   .classBuilder<

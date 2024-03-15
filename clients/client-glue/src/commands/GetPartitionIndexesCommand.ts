@@ -27,7 +27,6 @@ export interface GetPartitionIndexesCommandInput extends GetPartitionIndexesRequ
 export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the partition indexes associated with a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesRes
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetPartitionIndexesCommand extends $Command
   .classBuilder<

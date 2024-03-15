@@ -31,7 +31,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a project. To delete a project, it must not have any placements associated with
  *       it.</p>
  *          <note>
@@ -73,6 +72,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

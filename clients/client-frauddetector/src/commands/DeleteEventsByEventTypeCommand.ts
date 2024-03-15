@@ -27,7 +27,6 @@ export interface DeleteEventsByEventTypeCommandInput extends DeleteEventsByEvent
 export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEventTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all events of a particular event type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteEventsByEventTypeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateChangeSetCommandInput extends CreateChangeSetInput {}
 export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a list of changes that will be applied to a stack so that you can review the changes before executing
  *    them. You can create a change set for a stack that doesn't exist or an existing stack. If you create a change set for
  *    a stack that doesn't exist, the change set shows all of the resources that CloudFormation will create. If you create a change
@@ -131,6 +130,7 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class CreateChangeSetCommand extends $Command
   .classBuilder<

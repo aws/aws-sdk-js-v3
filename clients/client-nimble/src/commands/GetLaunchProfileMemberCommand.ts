@@ -27,7 +27,6 @@ export interface GetLaunchProfileMemberCommandInput extends GetLaunchProfileMemb
 export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a user persona in launch profile membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMem
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class GetLaunchProfileMemberCommand extends $Command
   .classBuilder<

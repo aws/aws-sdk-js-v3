@@ -32,7 +32,6 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
@@ -68,6 +67,7 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableVpcClassicLinkDnsSupportCommand extends $Command
   .classBuilder<

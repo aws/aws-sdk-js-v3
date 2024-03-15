@@ -32,7 +32,6 @@ export interface DescribeScheduledQueryCommandInput extends DescribeScheduledQue
 export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides detailed information about a scheduled query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -184,6 +183,7 @@ export interface DescribeScheduledQueryCommandOutput extends DescribeScheduledQu
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class DescribeScheduledQueryCommand extends $Command
   .classBuilder<

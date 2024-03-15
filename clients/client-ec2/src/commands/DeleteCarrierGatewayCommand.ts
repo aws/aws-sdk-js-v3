@@ -27,7 +27,6 @@ export interface DeleteCarrierGatewayCommandInput extends DeleteCarrierGatewayRe
 export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a carrier gateway.</p>
  *          <important>
  *             <p>If you do not delete the route that contains the carrier gateway as the
@@ -72,6 +71,7 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteCarrierGatewayCommand extends $Command
   .classBuilder<

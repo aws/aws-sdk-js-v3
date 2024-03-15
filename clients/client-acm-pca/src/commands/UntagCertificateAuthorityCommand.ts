@@ -27,7 +27,6 @@ export interface UntagCertificateAuthorityCommandInput extends UntagCertificateA
 export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If
  * 			you do not specify the value portion of the tag when calling this action, the tag will
  * 			be removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -78,6 +77,7 @@ export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class UntagCertificateAuthorityCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateIndexTypeCommandInput extends UpdateIndexTypeInput {}
 export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the type of the index from one of the following types to the other. For more
  *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on
  *                 cross-Region search by creating an aggregator index</a> in the
@@ -152,6 +151,7 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class UpdateIndexTypeCommand extends $Command
   .classBuilder<

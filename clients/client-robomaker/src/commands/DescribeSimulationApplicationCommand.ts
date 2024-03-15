@@ -32,7 +32,6 @@ export interface DescribeSimulationApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a simulation application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface DescribeSimulationApplicationCommandOutput
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class DescribeSimulationApplicationCommand extends $Command
   .classBuilder<

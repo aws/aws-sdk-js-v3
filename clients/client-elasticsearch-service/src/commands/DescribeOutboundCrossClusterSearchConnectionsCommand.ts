@@ -40,7 +40,6 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Command
   .classBuilder<

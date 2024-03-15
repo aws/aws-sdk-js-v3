@@ -27,7 +27,6 @@ export interface DeleteSnapshotCommandInput extends DeleteSnapshotMessage {}
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing snapshot. When you receive a successful response from this
  *             operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or
  *             revert this operation.</p>
@@ -124,6 +123,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DeleteSnapshot
  * ```javascript
  * // Deletes the Redis snapshot snapshot-20160822.

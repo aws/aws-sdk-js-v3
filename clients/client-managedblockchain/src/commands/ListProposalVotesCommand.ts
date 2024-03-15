@@ -31,7 +31,6 @@ export interface ListProposalVotesCommandInput extends ListProposalVotesInput {}
 export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class ListProposalVotesCommand extends $Command
   .classBuilder<

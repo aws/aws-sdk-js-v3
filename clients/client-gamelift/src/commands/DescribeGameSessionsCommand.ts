@@ -31,7 +31,6 @@ export interface DescribeGameSessionsCommandInput extends DescribeGameSessionsIn
 export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a set of one or more game sessions in a specific fleet location. You can
  *             optionally filter the results by current game session status.</p>
  *          <p>This operation can be used in the following ways: </p>
@@ -157,6 +156,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeGameSessionsCommand extends $Command
   .classBuilder<

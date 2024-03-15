@@ -32,7 +32,6 @@ export interface UpdateSettingsCommandInput extends UpdateSettingsRequest {}
 export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates Audit Manager settings for the current account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class UpdateSettingsCommand extends $Command
   .classBuilder<

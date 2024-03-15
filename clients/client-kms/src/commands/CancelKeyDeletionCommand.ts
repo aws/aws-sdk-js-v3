@@ -27,7 +27,6 @@ export interface CancelKeyDeletionCommandInput extends CancelKeyDeletionRequest 
 export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the deletion of a KMS key. When this operation succeeds, the key state of the KMS
  *       key is <code>Disabled</code>. To enable the KMS key, use <a>EnableKey</a>. </p>
  *          <p>For more information about scheduling and canceling deletion of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the
@@ -106,6 +105,7 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To cancel deletion of a KMS key
  * ```javascript
  * // The following example cancels deletion of the specified KMS key.

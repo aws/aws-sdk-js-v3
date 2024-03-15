@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { Inspector2ServiceException as __BaseException } from "./Inspector2ServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -42,56 +42,56 @@ export const Status = {
 export type Status = (typeof Status)[keyof typeof Status];
 
 /**
- * @public
  * <p>Details the status of Amazon Inspector for each resource type Amazon Inspector scans.</p>
+ * @public
  */
 export interface ResourceStatus {
   /**
-   * @public
    * <p>The status of Amazon Inspector scanning for Amazon EC2 resources.</p>
+   * @public
    */
   ec2: Status | undefined;
 
   /**
-   * @public
    * <p>The status of Amazon Inspector scanning for Amazon ECR resources.</p>
+   * @public
    */
   ecr: Status | undefined;
 
   /**
-   * @public
    * <p>The status of Amazon Inspector scanning for Amazon Web Services Lambda function.</p>
+   * @public
    */
   lambda?: Status;
 
   /**
-   * @public
    * <p>The status of Amazon Inspector scanning for custom application code for Amazon Web Services Lambda functions.
    *       </p>
+   * @public
    */
   lambdaCode?: Status;
 }
 
 /**
- * @public
  * <p>An Amazon Web Services account within your environment that Amazon Inspector has been enabled for.</p>
+ * @public
  */
 export interface Account {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The status of Amazon Inspector for the account.</p>
+   * @public
    */
   status: Status | undefined;
 
   /**
-   * @public
    * <p>Details of the status of Amazon Inspector scans by resource type.</p>
+   * @public
    */
   resourceStatus: ResourceStatus | undefined;
 }
@@ -156,80 +156,80 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * @public
  * <p>An object that contains details about an aggregation response based on
  *          Amazon Web Services accounts.</p>
+ * @public
  */
 export interface AccountAggregation {
   /**
-   * @public
    * <p>The type of finding.</p>
+   * @public
    */
   findingType?: AggregationFindingType;
 
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   resourceType?: AggregationResourceType;
 
   /**
-   * @public
    * <p>The sort order (ascending or descending).</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort by.</p>
+   * @public
    */
   sortBy?: AccountSortBy;
 }
 
 /**
- * @public
  * <p>An object that contains the counts of aggregated finding per severity.</p>
+ * @public
  */
 export interface SeverityCounts {
   /**
-   * @public
    * <p>The total count of findings from all severities.</p>
+   * @public
    */
   all?: number;
 
   /**
-   * @public
    * <p>The total count of medium severity findings.</p>
+   * @public
    */
   medium?: number;
 
   /**
-   * @public
    * <p>The total count of high severity findings.</p>
+   * @public
    */
   high?: number;
 
   /**
-   * @public
    * <p>The total count of critical severity findings.</p>
+   * @public
    */
   critical?: number;
 }
 
 /**
- * @public
  * <p>An aggregation of findings by Amazon Web Services account ID.</p>
+ * @public
  */
 export interface AccountAggregationResponse {
   /**
-   * @public
    * <p>The Amazon Web Services account ID.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The number of findings by severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 }
@@ -250,19 +250,19 @@ export const CisStringComparison = {
 export type CisStringComparison = (typeof CisStringComparison)[keyof typeof CisStringComparison];
 
 /**
- * @public
  * <p>The CIS string filter.</p>
+ * @public
  */
 export interface CisStringFilter {
   /**
-   * @public
    * <p>The comparison value of the CIS string filter.</p>
+   * @public
    */
   comparison: CisStringComparison | undefined;
 
   /**
-   * @public
    * <p>The value of the CIS string filter.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -294,79 +294,79 @@ export const ErrorCode = {
 export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
- * @public
  * <p>An object that described the state of Amazon Inspector scans for an account.</p>
+ * @public
  */
 export interface State {
   /**
-   * @public
    * <p>The status of Amazon Inspector for the account.</p>
+   * @public
    */
   status: Status | undefined;
 
   /**
-   * @public
    * <p>The error code explaining why the account failed to enable Amazon Inspector.</p>
+   * @public
    */
   errorCode: ErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message received when the account failed to enable Amazon Inspector.</p>
+   * @public
    */
   errorMessage: string | undefined;
 }
 
 /**
- * @public
  * <p>Details the state of Amazon Inspector for each resource type Amazon Inspector scans.</p>
+ * @public
  */
 export interface ResourceState {
   /**
-   * @public
    * <p>An object detailing the state of Amazon Inspector scanning for Amazon EC2 resources.</p>
+   * @public
    */
   ec2: State | undefined;
 
   /**
-   * @public
    * <p>An object detailing the state of Amazon Inspector scanning for Amazon ECR resources.</p>
+   * @public
    */
   ecr: State | undefined;
 
   /**
-   * @public
    * <p>An object that described the state of Amazon Inspector scans for an account.</p>
+   * @public
    */
   lambda?: State;
 
   /**
-   * @public
    * <p>An object that described the state of Amazon Inspector scans for an account.</p>
+   * @public
    */
   lambdaCode?: State;
 }
 
 /**
- * @public
  * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector environment.</p>
+ * @public
  */
 export interface AccountState {
   /**
-   * @public
    * <p>The Amazon Web Services account ID.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>An object detailing the status of Amazon Inspector for the account.</p>
+   * @public
    */
   state: State | undefined;
 
   /**
-   * @public
    * <p>An object detailing which resources Amazon Inspector is enabled to scan for the account.</p>
+   * @public
    */
   resourceState: ResourceState | undefined;
 }
@@ -387,19 +387,19 @@ export const StringComparison = {
 export type StringComparison = (typeof StringComparison)[keyof typeof StringComparison];
 
 /**
- * @public
  * <p>An object that describes the details of a string filter.</p>
+ * @public
  */
 export interface StringFilter {
   /**
-   * @public
    * <p>The operator to use when comparing values in the filter.</p>
+   * @public
    */
   comparison: StringComparison | undefined;
 
   /**
-   * @public
    * <p>The value to filter on.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -421,25 +421,25 @@ export const AmiSortBy = {
 export type AmiSortBy = (typeof AmiSortBy)[keyof typeof AmiSortBy];
 
 /**
- * @public
  * <p>The details that define an aggregation based on Amazon machine images (AMIs).</p>
+ * @public
  */
 export interface AmiAggregation {
   /**
-   * @public
    * <p>The IDs of AMIs to aggregate findings for.</p>
+   * @public
    */
   amis?: StringFilter[];
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   sortBy?: AmiSortBy;
 }
@@ -460,49 +460,49 @@ export const AwsEcrContainerSortBy = {
 export type AwsEcrContainerSortBy = (typeof AwsEcrContainerSortBy)[keyof typeof AwsEcrContainerSortBy];
 
 /**
- * @public
  * <p>An aggregation of information about Amazon ECR containers.</p>
+ * @public
  */
 export interface AwsEcrContainerAggregation {
   /**
-   * @public
    * <p>The container resource IDs.</p>
+   * @public
    */
   resourceIds?: StringFilter[];
 
   /**
-   * @public
    * <p>The image SHA values.</p>
+   * @public
    */
   imageShas?: StringFilter[];
 
   /**
-   * @public
    * <p>The container repositories.</p>
+   * @public
    */
   repositories?: StringFilter[];
 
   /**
-   * @public
    * <p>The architecture of the containers.</p>
+   * @public
    */
   architectures?: StringFilter[];
 
   /**
-   * @public
    * <p>The image tags.</p>
+   * @public
    */
   imageTags?: StringFilter[];
 
   /**
-   * @public
    * <p>The sort order (ascending or descending).</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort by.</p>
+   * @public
    */
   sortBy?: AwsEcrContainerSortBy;
 }
@@ -521,25 +521,25 @@ export const MapComparison = {
 export type MapComparison = (typeof MapComparison)[keyof typeof MapComparison];
 
 /**
- * @public
  * <p>An object that describes details of a map filter.</p>
+ * @public
  */
 export interface MapFilter {
   /**
-   * @public
    * <p>The operator to use when comparing values in the filter.</p>
+   * @public
    */
   comparison: MapComparison | undefined;
 
   /**
-   * @public
    * <p>The tag key used in the filter.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The tag value used in the filter.</p>
+   * @public
    */
   value?: string;
 }
@@ -561,45 +561,45 @@ export const Ec2InstanceSortBy = {
 export type Ec2InstanceSortBy = (typeof Ec2InstanceSortBy)[keyof typeof Ec2InstanceSortBy];
 
 /**
- * @public
  * <p>The details that define an aggregation based on Amazon EC2 instances.</p>
+ * @public
  */
 export interface Ec2InstanceAggregation {
   /**
-   * @public
    * <p>The AMI IDs associated with the Amazon EC2 instances to aggregate findings for.</p>
+   * @public
    */
   amis?: StringFilter[];
 
   /**
-   * @public
    * <p>The operating system types to aggregate findings for. Valid values must be uppercase and
    *          underscore separated, examples are <code>ORACLE_LINUX_7</code> and
    *          <code>ALPINE_LINUX_3_8</code>.</p>
+   * @public
    */
   operatingSystems?: StringFilter[];
 
   /**
-   * @public
    * <p>The Amazon EC2 instance IDs to aggregate findings for.</p>
+   * @public
    */
   instanceIds?: StringFilter[];
 
   /**
-   * @public
    * <p>The Amazon EC2 instance tags to aggregate findings for.</p>
+   * @public
    */
   instanceTags?: MapFilter[];
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   sortBy?: Ec2InstanceSortBy;
 }
@@ -620,31 +620,31 @@ export const FindingTypeSortBy = {
 export type FindingTypeSortBy = (typeof FindingTypeSortBy)[keyof typeof FindingTypeSortBy];
 
 /**
- * @public
  * <p>The details that define an aggregation based on finding type.</p>
+ * @public
  */
 export interface FindingTypeAggregation {
   /**
-   * @public
    * <p>The finding type to aggregate.</p>
+   * @public
    */
   findingType?: AggregationFindingType;
 
   /**
-   * @public
    * <p>The resource type to aggregate.</p>
+   * @public
    */
   resourceType?: AggregationResourceType;
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   sortBy?: FindingTypeSortBy;
 }
@@ -665,37 +665,37 @@ export const ImageLayerSortBy = {
 export type ImageLayerSortBy = (typeof ImageLayerSortBy)[keyof typeof ImageLayerSortBy];
 
 /**
- * @public
  * <p>The details that define an aggregation based on container image layers.</p>
+ * @public
  */
 export interface ImageLayerAggregation {
   /**
-   * @public
    * <p>The repository associated with the container image hosting the layers.</p>
+   * @public
    */
   repositories?: StringFilter[];
 
   /**
-   * @public
    * <p>The ID of the container image layer.</p>
+   * @public
    */
   resourceIds?: StringFilter[];
 
   /**
-   * @public
    * <p>The hashes associated with the layers.</p>
+   * @public
    */
   layerHashes?: StringFilter[];
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   sortBy?: ImageLayerSortBy;
 }
@@ -716,43 +716,43 @@ export const LambdaFunctionSortBy = {
 export type LambdaFunctionSortBy = (typeof LambdaFunctionSortBy)[keyof typeof LambdaFunctionSortBy];
 
 /**
- * @public
  * <p>The details that define a findings aggregation based on Amazon Web Services Lambda functions.</p>
+ * @public
  */
 export interface LambdaFunctionAggregation {
   /**
-   * @public
    * <p>The resource IDs to include in the aggregation results.</p>
+   * @public
    */
   resourceIds?: StringFilter[];
 
   /**
-   * @public
    * <p>The Amazon Web Services Lambda function names to include in the aggregation results.</p>
+   * @public
    */
   functionNames?: StringFilter[];
 
   /**
-   * @public
    * <p>Returns findings aggregated by Amazon Web Services Lambda function runtime environments.</p>
+   * @public
    */
   runtimes?: StringFilter[];
 
   /**
-   * @public
    * <p>The tags to include in the aggregation results.</p>
+   * @public
    */
   functionTags?: MapFilter[];
 
   /**
-   * @public
    * <p>The order to use for sorting the results.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The finding severity to use for sorting the results.</p>
+   * @public
    */
   sortBy?: LambdaFunctionSortBy;
 }
@@ -773,38 +773,38 @@ export const LambdaLayerSortBy = {
 export type LambdaLayerSortBy = (typeof LambdaLayerSortBy)[keyof typeof LambdaLayerSortBy];
 
 /**
- * @public
  * <p>The details that define a findings aggregation based on an Amazon Web Services Lambda function's layers.</p>
+ * @public
  */
 export interface LambdaLayerAggregation {
   /**
-   * @public
    * <p>The names of the Amazon Web Services Lambda functions associated with the layers.</p>
+   * @public
    */
   functionNames?: StringFilter[];
 
   /**
-   * @public
    * <p>The resource IDs for the Amazon Web Services Lambda function layers.</p>
+   * @public
    */
   resourceIds?: StringFilter[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Lambda function layer.
    *       </p>
+   * @public
    */
   layerArns?: StringFilter[];
 
   /**
-   * @public
    * <p>The order to use for sorting the results.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The finding severity to use for sorting the results.</p>
+   * @public
    */
   sortBy?: LambdaLayerSortBy;
 }
@@ -825,25 +825,25 @@ export const PackageSortBy = {
 export type PackageSortBy = (typeof PackageSortBy)[keyof typeof PackageSortBy];
 
 /**
- * @public
  * <p>The details that define an aggregation based on operating system package type.</p>
+ * @public
  */
 export interface PackageAggregation {
   /**
-   * @public
    * <p>The names of packages to aggregate findings on.</p>
+   * @public
    */
   packageNames?: StringFilter[];
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   sortBy?: PackageSortBy;
 }
@@ -865,25 +865,25 @@ export const RepositorySortBy = {
 export type RepositorySortBy = (typeof RepositorySortBy)[keyof typeof RepositorySortBy];
 
 /**
- * @public
  * <p>The details that define an aggregation based on repository.</p>
+ * @public
  */
 export interface RepositoryAggregation {
   /**
-   * @public
    * <p>The names of repositories to aggregate findings on.</p>
+   * @public
    */
   repositories?: StringFilter[];
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   sortBy?: RepositorySortBy;
 }
@@ -904,50 +904,50 @@ export const TitleSortBy = {
 export type TitleSortBy = (typeof TitleSortBy)[keyof typeof TitleSortBy];
 
 /**
- * @public
  * <p>The details that define an aggregation based on finding title.</p>
+ * @public
  */
 export interface TitleAggregation {
   /**
-   * @public
    * <p>The finding titles to aggregate on.</p>
+   * @public
    */
   titles?: StringFilter[];
 
   /**
-   * @public
    * <p>The vulnerability IDs of the findings.</p>
+   * @public
    */
   vulnerabilityIds?: StringFilter[];
 
   /**
-   * @public
    * <p>The resource type to aggregate on.</p>
+   * @public
    */
   resourceType?: AggregationResourceType;
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   sortBy?: TitleSortBy;
 
   /**
-   * @public
    * <p>The type of finding to aggregate on.</p>
+   * @public
    */
   findingType?: AggregationFindingType;
 }
 
 /**
- * @public
  * <p>Contains details about an aggregation request.</p>
+ * @public
  */
 export type AggregationRequest =
   | AggregationRequest.AccountAggregationMember
@@ -968,9 +968,9 @@ export type AggregationRequest =
  */
 export namespace AggregationRequest {
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on Amazon Web Services account
    *          IDs.</p>
+   * @public
    */
   export interface AccountAggregationMember {
     accountAggregation: AccountAggregation;
@@ -988,9 +988,9 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on Amazon Machine
    *          Images (AMIs).</p>
+   * @public
    */
   export interface AmiAggregationMember {
     accountAggregation?: never;
@@ -1008,9 +1008,9 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on Amazon ECR container
    *          images.</p>
+   * @public
    */
   export interface AwsEcrContainerAggregationMember {
     accountAggregation?: never;
@@ -1028,9 +1028,9 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on Amazon EC2
    *          instances.</p>
+   * @public
    */
   export interface Ec2InstanceAggregationMember {
     accountAggregation?: never;
@@ -1048,8 +1048,8 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on finding types.</p>
+   * @public
    */
   export interface FindingTypeAggregationMember {
     accountAggregation?: never;
@@ -1067,9 +1067,9 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on container image
    *          layers.</p>
+   * @public
    */
   export interface ImageLayerAggregationMember {
     accountAggregation?: never;
@@ -1087,9 +1087,9 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on operating system
    *          package type.</p>
+   * @public
    */
   export interface PackageAggregationMember {
     accountAggregation?: never;
@@ -1107,8 +1107,8 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on Amazon ECR repositories.</p>
+   * @public
    */
   export interface RepositoryAggregationMember {
     accountAggregation?: never;
@@ -1126,8 +1126,8 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation request based on finding title.</p>
+   * @public
    */
   export interface TitleAggregationMember {
     accountAggregation?: never;
@@ -1145,8 +1145,8 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>Returns an object with findings aggregated by Amazon Web Services Lambda layer.</p>
+   * @public
    */
   export interface LambdaLayerAggregationMember {
     accountAggregation?: never;
@@ -1164,8 +1164,8 @@ export namespace AggregationRequest {
   }
 
   /**
-   * @public
    * <p>Returns an object with findings aggregated by Amazon Web Services Lambda function.</p>
+   * @public
    */
   export interface LambdaFunctionAggregationMember {
     accountAggregation?: never;
@@ -1234,357 +1234,357 @@ export namespace AggregationRequest {
 }
 
 /**
- * @public
  * <p>A response that contains the results of a finding aggregation by AMI.</p>
+ * @public
  */
 export interface AmiAggregationResponse {
   /**
-   * @public
    * <p>The ID of the AMI that findings were aggregated for.</p>
+   * @public
    */
   ami: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID for the AMI.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>An object that contains the count of matched findings per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 
   /**
-   * @public
    * <p>The IDs of Amazon EC2 instances using this AMI.</p>
+   * @public
    */
   affectedInstances?: number;
 }
 
 /**
- * @public
  * <p>An aggregation of information about Amazon ECR containers.</p>
+ * @public
  */
 export interface AwsEcrContainerAggregationResponse {
   /**
-   * @public
    * <p>The resource ID of the container.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The SHA value of the container image.</p>
+   * @public
    */
   imageSha?: string;
 
   /**
-   * @public
    * <p>The container repository.</p>
+   * @public
    */
   repository?: string;
 
   /**
-   * @public
    * <p>The architecture of the container.</p>
+   * @public
    */
   architecture?: string;
 
   /**
-   * @public
    * <p>The container image stags.</p>
+   * @public
    */
   imageTags?: string[];
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the account that owns the container.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The number of finding by severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 }
 
 /**
- * @public
  * <p>A response that contains the results of a finding aggregation by Amazon EC2 instance.</p>
+ * @public
  */
 export interface Ec2InstanceAggregationResponse {
   /**
-   * @public
    * <p>The Amazon EC2 instance ID.</p>
+   * @public
    */
   instanceId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Machine Image (AMI) of the Amazon EC2 instance.</p>
+   * @public
    */
   ami?: string;
 
   /**
-   * @public
    * <p>The operating system of the Amazon EC2 instance.</p>
+   * @public
    */
   operatingSystem?: string;
 
   /**
-   * @public
    * <p>The tags attached to the instance.</p>
+   * @public
    */
   instanceTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The Amazon Web Services account for the Amazon EC2 instance.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>An object that contains the count of matched findings per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 
   /**
-   * @public
    * <p>The number of network findings for the Amazon EC2 instance.</p>
+   * @public
    */
   networkFindings?: number;
 }
 
 /**
- * @public
  * <p>A response that contains the results of a finding type aggregation.</p>
+ * @public
  */
 export interface FindingTypeAggregationResponse {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account associated with the findings.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The value to sort results by.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 }
 
 /**
- * @public
  * <p>A response that contains the results of a finding aggregation by image layer.</p>
+ * @public
  */
 export interface ImageLayerAggregationResponse {
   /**
-   * @public
    * <p>The repository the layer resides in.</p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>The resource ID of the container image layer.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The layer hash.</p>
+   * @public
    */
   layerHash: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the container image hosting the layer image.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>An object that represents the count of matched findings per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 }
 
 /**
- * @public
  * <p>A response that contains the results of an Amazon Web Services Lambda function finding aggregation.</p>
+ * @public
  */
 export interface LambdaFunctionAggregationResponse {
   /**
-   * @public
    * <p>The resource IDs included in the aggregation results.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Lambda function names included in the aggregation results.</p>
+   * @public
    */
   functionName?: string;
 
   /**
-   * @public
    * <p>The runtimes included in the aggregation results.</p>
+   * @public
    */
   runtime?: string;
 
   /**
-   * @public
    * <p>The tags included in the aggregation results.</p>
+   * @public
    */
   lambdaTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the Amazon Web Services Lambda function.
    *       </p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>An object that contains the counts of aggregated finding per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 
   /**
-   * @public
    * <p>The date that the Amazon Web Services Lambda function included in the aggregation results was last changed.</p>
+   * @public
    */
   lastModifiedAt?: Date;
 }
 
 /**
- * @public
  * <p>A response that contains the results of an Amazon Web Services Lambda function layer finding aggregation.</p>
+ * @public
  */
 export interface LambdaLayerAggregationResponse {
   /**
-   * @public
    * <p>The names of the Amazon Web Services Lambda functions associated with the layers.</p>
+   * @public
    */
   functionName: string | undefined;
 
   /**
-   * @public
    * <p>The Resource ID of the Amazon Web Services Lambda function layer.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Lambda function layer.</p>
+   * @public
    */
   layerArn: string | undefined;
 
   /**
-   * @public
    * <p>The account ID of the Amazon Web Services Lambda function layer.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>An object that contains the counts of aggregated finding per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 }
 
 /**
- * @public
  * <p>A response that contains the results of a finding aggregation by image layer.</p>
+ * @public
  */
 export interface PackageAggregationResponse {
   /**
-   * @public
    * <p>The name of the operating system package.</p>
+   * @public
    */
   packageName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account associated with the findings.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>An object that contains the count of matched findings per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 }
 
 /**
- * @public
  * <p>A response that contains details on the results of a finding aggregation by repository.</p>
+ * @public
  */
 export interface RepositoryAggregationResponse {
   /**
-   * @public
    * <p>The name of the repository associated with the findings.</p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account associated with the findings.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>An object that represent the count of matched findings per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 
   /**
-   * @public
    * <p>The number of container images impacted by the findings.</p>
+   * @public
    */
   affectedImages?: number;
 }
 
 /**
- * @public
  * <p>A response that contains details on the results of a finding aggregation by title.</p>
+ * @public
  */
 export interface TitleAggregationResponse {
   /**
-   * @public
    * <p>The title that the findings were aggregated on.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The vulnerability ID of the finding.</p>
+   * @public
    */
   vulnerabilityId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account associated with the findings.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>An object that represent the count of matched findings per severity.</p>
+   * @public
    */
   severityCounts?: SeverityCounts;
 }
 
 /**
- * @public
  * <p>A structure that contains details about the results of an aggregation type.</p>
+ * @public
  */
 export type AggregationResponse =
   | AggregationResponse.AccountAggregationMember
@@ -1605,9 +1605,9 @@ export type AggregationResponse =
  */
 export namespace AggregationResponse {
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on Amazon Web Services account
    *          IDs.</p>
+   * @public
    */
   export interface AccountAggregationMember {
     accountAggregation: AccountAggregationResponse;
@@ -1625,9 +1625,9 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on Amazon Machine
    *          Images (AMIs).</p>
+   * @public
    */
   export interface AmiAggregationMember {
     accountAggregation?: never;
@@ -1645,9 +1645,9 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on Amazon ECR container
    *          images.</p>
+   * @public
    */
   export interface AwsEcrContainerAggregationMember {
     accountAggregation?: never;
@@ -1665,9 +1665,9 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on Amazon EC2
    *          instances.</p>
+   * @public
    */
   export interface Ec2InstanceAggregationMember {
     accountAggregation?: never;
@@ -1685,8 +1685,8 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on finding types.</p>
+   * @public
    */
   export interface FindingTypeAggregationMember {
     accountAggregation?: never;
@@ -1704,9 +1704,9 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on container image
    *          layers.</p>
+   * @public
    */
   export interface ImageLayerAggregationMember {
     accountAggregation?: never;
@@ -1724,9 +1724,9 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on operating system
    *          package type.</p>
+   * @public
    */
   export interface PackageAggregationMember {
     accountAggregation?: never;
@@ -1744,9 +1744,9 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on Amazon ECR
    *          repositories.</p>
+   * @public
    */
   export interface RepositoryAggregationMember {
     accountAggregation?: never;
@@ -1764,8 +1764,8 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An object that contains details about an aggregation response based on finding title.</p>
+   * @public
    */
   export interface TitleAggregationMember {
     accountAggregation?: never;
@@ -1783,8 +1783,8 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An aggregation of findings by Amazon Web Services Lambda layer.</p>
+   * @public
    */
   export interface LambdaLayerAggregationMember {
     accountAggregation?: never;
@@ -1802,8 +1802,8 @@ export namespace AggregationResponse {
   }
 
   /**
-   * @public
    * <p>An aggregation of findings by Amazon Web Services Lambda function.</p>
+   * @public
    */
   export interface LambdaFunctionAggregationMember {
     accountAggregation?: never;
@@ -1913,8 +1913,8 @@ export type Architecture = (typeof Architecture)[keyof typeof Architecture];
  */
 export interface AssociateMemberRequest {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the member account to be associated.</p>
+   * @public
    */
   accountId: string | undefined;
 }
@@ -1924,23 +1924,23 @@ export interface AssociateMemberRequest {
  */
 export interface AssociateMemberResponse {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the successfully associated member account.</p>
+   * @public
    */
   accountId: string | undefined;
 }
 
 /**
- * @public
  * <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>The number of seconds to wait before retrying the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -1959,8 +1959,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The limit on the number of requests per second was exceeded.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -1969,8 +1969,8 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>The number of seconds to wait before retrying the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -1989,19 +1989,19 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An object that describes a validation exception.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The name of the validation exception.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The validation exception message.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -2022,22 +2022,22 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The request has failed validation due to missing required fields or having invalid
  *          inputs.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The reason for the validation failure.</p>
+   * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * @public
    * <p>The fields that failed validation.</p>
+   * @public
    */
   fields?: ValidationExceptionField[];
 
@@ -2057,186 +2057,186 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The Amazon Web Services Threat Intel Group (ATIG) details for a specific vulnerability.</p>
+ * @public
  */
 export interface AtigData {
   /**
-   * @public
    * <p>The date and time this vulnerability was first observed.</p>
+   * @public
    */
   firstSeen?: Date;
 
   /**
-   * @public
    * <p>The date and time this vulnerability was last observed.</p>
+   * @public
    */
   lastSeen?: Date;
 
   /**
-   * @public
    * <p>The commercial sectors this vulnerability targets.</p>
+   * @public
    */
   targets?: string[];
 
   /**
-   * @public
    * <p>The <a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> tactics, techniques, and procedures (TTPs) associated with vulnerability.</p>
+   * @public
    */
   ttps?: string[];
 }
 
 /**
- * @public
  * <p>Represents which scan types are automatically enabled for new members of your Amazon Inspector organization.</p>
+ * @public
  */
 export interface AutoEnable {
   /**
-   * @public
    * <p>Represents whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector
    *          organization.</p>
+   * @public
    */
   ec2: boolean | undefined;
 
   /**
-   * @public
    * <p>Represents whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector
    *          organization.</p>
+   * @public
    */
   ecr: boolean | undefined;
 
   /**
-   * @public
    * <p>Represents whether Amazon Web Services Lambda standard scans are automatically enabled for new members of your Amazon Inspector organization.
    *       </p>
+   * @public
    */
   lambda?: boolean;
 
   /**
-   * @public
    * <p>Represents whether Lambda code scans are automatically enabled for new members of your Amazon Inspector organization.
    *
    *       </p>
+   * @public
    */
   lambdaCode?: boolean;
 }
 
 /**
- * @public
  * <p>Details of the Amazon EC2 instance involved in a finding.</p>
+ * @public
  */
 export interface AwsEc2InstanceDetails {
   /**
-   * @public
    * <p>The type of the Amazon EC2 instance.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The image ID of the Amazon EC2 instance.</p>
+   * @public
    */
   imageId?: string;
 
   /**
-   * @public
    * <p>The IPv4 addresses of the Amazon EC2 instance.</p>
+   * @public
    */
   ipV4Addresses?: string[];
 
   /**
-   * @public
    * <p>The IPv6 addresses of the Amazon EC2 instance.</p>
+   * @public
    */
   ipV6Addresses?: string[];
 
   /**
-   * @public
    * <p>The name of the key pair used to launch the Amazon EC2 instance.</p>
+   * @public
    */
   keyName?: string;
 
   /**
-   * @public
    * <p>The IAM instance profile ARN of the Amazon EC2 instance.</p>
+   * @public
    */
   iamInstanceProfileArn?: string;
 
   /**
-   * @public
    * <p>The VPC ID of the Amazon EC2 instance.</p>
+   * @public
    */
   vpcId?: string;
 
   /**
-   * @public
    * <p>The subnet ID of the Amazon EC2 instance.</p>
+   * @public
    */
   subnetId?: string;
 
   /**
-   * @public
    * <p>The date and time the Amazon EC2 instance was launched at.</p>
+   * @public
    */
   launchedAt?: Date;
 
   /**
-   * @public
    * <p>The platform of the Amazon EC2 instance.</p>
+   * @public
    */
   platform?: string;
 }
 
 /**
- * @public
  * <p>The image details of the Amazon ECR container image.</p>
+ * @public
  */
 export interface AwsEcrContainerImageDetails {
   /**
-   * @public
    * <p>The name of the repository the Amazon ECR container image resides in.</p>
+   * @public
    */
   repositoryName: string | undefined;
 
   /**
-   * @public
    * <p>The image tags attached to the Amazon ECR container image.</p>
+   * @public
    */
   imageTags?: string[];
 
   /**
-   * @public
    * <p>The date and time the Amazon ECR container image was pushed.</p>
+   * @public
    */
   pushedAt?: Date;
 
   /**
-   * @public
    * <p>The image author of the Amazon ECR container image.</p>
+   * @public
    */
   author?: string;
 
   /**
-   * @public
    * <p>The architecture of the Amazon ECR container image.</p>
+   * @public
    */
   architecture?: string;
 
   /**
-   * @public
    * <p>The image hash of the Amazon ECR container image.</p>
+   * @public
    */
   imageHash: string | undefined;
 
   /**
-   * @public
    * <p>The registry for the Amazon ECR container image.</p>
+   * @public
    */
   registry: string | undefined;
 
   /**
-   * @public
    * <p>The platform of the Amazon ECR container image.</p>
+   * @public
    */
   platform?: string;
 }
@@ -2283,101 +2283,101 @@ export const Runtime = {
 export type Runtime = (typeof Runtime)[keyof typeof Runtime];
 
 /**
- * @public
  * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ * @public
  */
 export interface LambdaVpcConfig {
   /**
-   * @public
    * <p>A list of VPC subnet IDs.</p>
+   * @public
    */
   subnetIds?: string[];
 
   /**
-   * @public
    * <p>The VPC security groups and subnets that are attached to an Amazon Web Services Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   * @public
    */
   securityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The ID of the VPC.</p>
+   * @public
    */
   vpcId?: string;
 }
 
 /**
- * @public
  * <p> A summary of information about the Amazon Web Services Lambda function.</p>
+ * @public
  */
 export interface AwsLambdaFunctionDetails {
   /**
-   * @public
    * <p>The name of the Amazon Web Services Lambda function.</p>
+   * @public
    */
   functionName: string | undefined;
 
   /**
-   * @public
    * <p>The runtime environment for the Amazon Web Services Lambda function.</p>
+   * @public
    */
   runtime: Runtime | undefined;
 
   /**
-   * @public
    * <p>The SHA256 hash of the Amazon Web Services Lambda function's deployment package.</p>
+   * @public
    */
   codeSha256: string | undefined;
 
   /**
-   * @public
    * <p>The version of the Amazon Web Services Lambda function.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Lambda function's execution role.</p>
+   * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
    *          layers</a>. A Lambda function can have up to five layers.</p>
+   * @public
    */
   layers?: string[];
 
   /**
-   * @public
    * <p>The Amazon Web Services Lambda function's networking configuration.</p>
+   * @public
    */
   vpcConfig?: LambdaVpcConfig;
 
   /**
-   * @public
    * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+   * @public
    */
   packageType?: PackageType;
 
   /**
-   * @public
    * <p>The instruction set architecture that the Amazon Web Services Lambda function supports. Architecture is a string array with one of the
    *          valid values. The default architecture value is <code>x86_64</code>.</p>
+   * @public
    */
   architectures?: Architecture[];
 
   /**
-   * @public
    * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
    *          </p>
+   * @public
    */
   lastModifiedAt?: Date;
 }
 
 /**
- * @public
  * <p>One or more tags submitted as part of the request is not valid.</p>
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
@@ -2400,44 +2400,44 @@ export class BadRequestException extends __BaseException {
  */
 export interface BatchGetAccountStatusRequest {
   /**
-   * @public
    * <p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>
+   * @public
    */
   accountIds?: string[];
 }
 
 /**
- * @public
  * <p>An object with details on why an account failed to enable Amazon Inspector.</p>
+ * @public
  */
 export interface FailedAccount {
   /**
-   * @public
    * <p>The Amazon Web Services account ID.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The status of Amazon Inspector for the account.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>An object detailing which resources Amazon Inspector is enabled to scan for the account.</p>
+   * @public
    */
   resourceStatus?: ResourceStatus;
 
   /**
-   * @public
    * <p>The error code explaining why the account failed to enable Amazon Inspector.</p>
+   * @public
    */
   errorCode: ErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message received when the account failed to enable Amazon Inspector.</p>
+   * @public
    */
   errorMessage: string | undefined;
 }
@@ -2447,21 +2447,21 @@ export interface FailedAccount {
  */
 export interface BatchGetAccountStatusResponse {
   /**
-   * @public
    * <p>An array of objects that provide details on the status of Amazon Inspector for each of the requested accounts.</p>
+   * @public
    */
   accounts: AccountState[] | undefined;
 
   /**
-   * @public
    * <p>An array of objects detailing any accounts that failed to enable Amazon Inspector and why.</p>
+   * @public
    */
   failedAccounts?: FailedAccount[];
 }
 
 /**
- * @public
  * <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -2484,80 +2484,80 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface BatchGetCodeSnippetRequest {
   /**
-   * @public
    * <p>An array of finding ARNs for the findings you want to retrieve code snippets from.</p>
+   * @public
    */
   findingArns: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains information on the lines of code associated with a code snippet.</p>
+ * @public
  */
 export interface CodeLine {
   /**
-   * @public
    * <p>The content of a line of code</p>
+   * @public
    */
   content: string | undefined;
 
   /**
-   * @public
    * <p>The line number that a section of code is located at.</p>
+   * @public
    */
   lineNumber: number | undefined;
 }
 
 /**
- * @public
  * <p>A suggested fix for a vulnerability in your Lambda function code.</p>
+ * @public
  */
 export interface SuggestedFix {
   /**
-   * @public
    * <p>The fix's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The fix's code.</p>
+   * @public
    */
   code?: string;
 }
 
 /**
- * @public
  * <p>Contains information on a code snippet retrieved by Amazon Inspector from a code vulnerability finding.</p>
+ * @public
  */
 export interface CodeSnippetResult {
   /**
-   * @public
    * <p>The ARN of a finding that the code snippet is associated with.</p>
+   * @public
    */
   findingArn?: string;
 
   /**
-   * @public
    * <p>The line number of the first line of a code snippet.</p>
+   * @public
    */
   startLine?: number;
 
   /**
-   * @public
    * <p>The line number of the last line of a code snippet.</p>
+   * @public
    */
   endLine?: number;
 
   /**
-   * @public
    * <p>Contains information on the retrieved code snippet.</p>
+   * @public
    */
   codeSnippet?: CodeLine[];
 
   /**
-   * @public
    * <p>Details of a suggested code fix.</p>
+   * @public
    */
   suggestedFixes?: SuggestedFix[];
 }
@@ -2579,25 +2579,25 @@ export const CodeSnippetErrorCode = {
 export type CodeSnippetErrorCode = (typeof CodeSnippetErrorCode)[keyof typeof CodeSnippetErrorCode];
 
 /**
- * @public
  * <p>Contains information about any errors encountered while trying to retrieve a code snippet.</p>
+ * @public
  */
 export interface CodeSnippetError {
   /**
-   * @public
    * <p>The ARN of the finding that a code snippet couldn't be retrieved for.</p>
+   * @public
    */
   findingArn: string | undefined;
 
   /**
-   * @public
    * <p>The error code for the error that prevented a code snippet from being retrieved.</p>
+   * @public
    */
   errorCode: CodeSnippetErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message received when Amazon Inspector failed to retrieve a code snippet.</p>
+   * @public
    */
   errorMessage: string | undefined;
 }
@@ -2607,14 +2607,14 @@ export interface CodeSnippetError {
  */
 export interface BatchGetCodeSnippetResponse {
   /**
-   * @public
    * <p>The retrieved code snippets associated with the provided finding ARNs.</p>
+   * @public
    */
   codeSnippetResults?: CodeSnippetResult[];
 
   /**
-   * @public
    * <p>Any errors Amazon Inspector encountered while trying to retrieve the requested code snippets.</p>
+   * @public
    */
   errors?: CodeSnippetError[];
 }
@@ -2624,8 +2624,8 @@ export interface BatchGetCodeSnippetResponse {
  */
 export interface BatchGetFindingDetailsRequest {
   /**
-   * @public
    * <p>A list of finding ARNs.</p>
+   * @public
    */
   findingArns: string[] | undefined;
 }
@@ -2647,157 +2647,157 @@ export const FindingDetailsErrorCode = {
 export type FindingDetailsErrorCode = (typeof FindingDetailsErrorCode)[keyof typeof FindingDetailsErrorCode];
 
 /**
- * @public
  * <p>Details about an error encountered when trying to return vulnerability data for a finding.</p>
+ * @public
  */
 export interface FindingDetailsError {
   /**
-   * @public
    * <p>The finding ARN that returned an error.</p>
+   * @public
    */
   findingArn: string | undefined;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: FindingDetailsErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   errorMessage: string | undefined;
 }
 
 /**
- * @public
  * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
+ * @public
  */
 export interface CisaData {
   /**
-   * @public
    * <p>The date and time CISA added this vulnerability to their catalogue.</p>
+   * @public
    */
   dateAdded?: Date;
 
   /**
-   * @public
    * <p>The date and time CISA expects a fix to have been provided vulnerability.</p>
+   * @public
    */
   dateDue?: Date;
 
   /**
-   * @public
    * <p>The remediation action recommended by CISA for this vulnerability.</p>
+   * @public
    */
   action?: string;
 }
 
 /**
- * @public
  * <p>Details of the evidence for a vulnerability identified in a finding.</p>
+ * @public
  */
 export interface Evidence {
   /**
-   * @public
    * <p>The evidence rule.</p>
+   * @public
    */
   evidenceRule?: string;
 
   /**
-   * @public
    * <p>The evidence details.</p>
+   * @public
    */
   evidenceDetail?: string;
 
   /**
-   * @public
    * <p>The evidence severity.</p>
+   * @public
    */
   severity?: string;
 }
 
 /**
- * @public
  * <p>Contains information on when this exploit was observed.</p>
+ * @public
  */
 export interface ExploitObserved {
   /**
-   * @public
    * <p>The date an time when the exploit was last seen.</p>
+   * @public
    */
   lastSeen?: Date;
 
   /**
-   * @public
    * <p>The date an time when the exploit was first seen.</p>
+   * @public
    */
   firstSeen?: Date;
 }
 
 /**
- * @public
  * <p>Details of the vulnerability identified in a finding.</p>
+ * @public
  */
 export interface FindingDetail {
   /**
-   * @public
    * <p>The finding ARN that the vulnerability details are associated with.</p>
+   * @public
    */
   findingArn?: string;
 
   /**
-   * @public
    * <p>The Cybersecurity and Infrastructure Security Agency (CISA) details for a specific vulnerability.</p>
+   * @public
    */
   cisaData?: CisaData;
 
   /**
-   * @public
    * <p>The risk score of the vulnerability.</p>
+   * @public
    */
   riskScore?: number;
 
   /**
-   * @public
    * <p>Information on the evidence of the vulnerability.</p>
+   * @public
    */
   evidences?: Evidence[];
 
   /**
-   * @public
    * <p>The MITRE adversary tactics, techniques, or procedures (TTPs) associated with the vulnerability.</p>
+   * @public
    */
   ttps?: string[];
 
   /**
-   * @public
    * <p>The known malware tools or kits that can exploit the vulnerability.</p>
+   * @public
    */
   tools?: string[];
 
   /**
-   * @public
    * <p>Contains information on when this exploit was observed.</p>
+   * @public
    */
   exploitObserved?: ExploitObserved;
 
   /**
-   * @public
    * <p>The reference URLs for the vulnerability data.</p>
+   * @public
    */
   referenceUrls?: string[];
 
   /**
-   * @public
    * <p>The Common Weakness Enumerations (CWEs) associated with the vulnerability.</p>
+   * @public
    */
   cwes?: string[];
 
   /**
-   * @public
    * <p>The Exploit Prediction Scoring System (EPSS) score of the vulnerability.</p>
+   * @public
    */
   epssScore?: number;
 }
@@ -2807,14 +2807,14 @@ export interface FindingDetail {
  */
 export interface BatchGetFindingDetailsResponse {
   /**
-   * @public
    * <p>A finding's vulnerability details.</p>
+   * @public
    */
   findingDetails?: FindingDetail[];
 
   /**
-   * @public
    * <p>Error information for findings that details could not be returned for.</p>
+   * @public
    */
   errors?: FindingDetailsError[];
 }
@@ -2824,8 +2824,8 @@ export interface BatchGetFindingDetailsResponse {
  */
 export interface BatchGetFreeTrialInfoRequest {
   /**
-   * @public
    * <p>The account IDs to get free trial status for.</p>
+   * @public
    */
   accountIds: string[] | undefined;
 }
@@ -2861,49 +2861,49 @@ export const FreeTrialType = {
 export type FreeTrialType = (typeof FreeTrialType)[keyof typeof FreeTrialType];
 
 /**
- * @public
  * <p>An object that contains information about the Amazon Inspector free trial for an account.</p>
+ * @public
  */
 export interface FreeTrialInfo {
   /**
-   * @public
    * <p>The type of scan covered by the Amazon Inspector free trail.</p>
+   * @public
    */
   type: FreeTrialType | undefined;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Inspector free trail started for a given account.</p>
+   * @public
    */
   start: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Inspector free trail ends for a given account.</p>
+   * @public
    */
   end: Date | undefined;
 
   /**
-   * @public
    * <p>The order to sort results by.</p>
+   * @public
    */
   status: FreeTrialStatus | undefined;
 }
 
 /**
- * @public
  * <p>Information about the Amazon Inspector free trial for an account.</p>
+ * @public
  */
 export interface FreeTrialAccountInfo {
   /**
-   * @public
    * <p>The account associated with the Amazon Inspector free trial information.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>Contains information about the Amazon Inspector free trial for an account.</p>
+   * @public
    */
   freeTrialInfo: FreeTrialInfo[] | undefined;
 }
@@ -2923,25 +2923,25 @@ export const FreeTrialInfoErrorCode = {
 export type FreeTrialInfoErrorCode = (typeof FreeTrialInfoErrorCode)[keyof typeof FreeTrialInfoErrorCode];
 
 /**
- * @public
  * <p>Information about an error received while accessing free trail data for an account.</p>
+ * @public
  */
 export interface FreeTrialInfoError {
   /**
-   * @public
    * <p>The account associated with the Amazon Inspector free trial information.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   code: FreeTrialInfoErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message returned.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -2951,15 +2951,15 @@ export interface FreeTrialInfoError {
  */
 export interface BatchGetFreeTrialInfoResponse {
   /**
-   * @public
    * <p>An array of objects that provide Amazon Inspector free trial details for each of the requested accounts.
    *       </p>
+   * @public
    */
   accounts: FreeTrialAccountInfo[] | undefined;
 
   /**
-   * @public
    * <p>An array of objects detailing any accounts that free trial data could not be returned for.</p>
+   * @public
    */
   failedAccounts: FreeTrialInfoError[] | undefined;
 }
@@ -2969,10 +2969,10 @@ export interface BatchGetFreeTrialInfoResponse {
  */
 export interface BatchGetMemberEc2DeepInspectionStatusRequest {
   /**
-   * @public
    * <p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for.
    *
    *       </p>
+   * @public
    */
   accountIds?: string[];
 }
@@ -2994,49 +2994,49 @@ export const Ec2DeepInspectionStatus = {
 export type Ec2DeepInspectionStatus = (typeof Ec2DeepInspectionStatus)[keyof typeof Ec2DeepInspectionStatus];
 
 /**
- * @public
  * <p>An object that contains details about the state of Amazon Inspector deep inspection for a member account.</p>
+ * @public
  */
 export interface MemberAccountEc2DeepInspectionStatusState {
   /**
-   * @public
    * <p>The unique identifier for the Amazon Web Services account of the organization member</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The state of Amazon Inspector deep inspection in the member account.</p>
+   * @public
    */
   status?: Ec2DeepInspectionStatus;
 
   /**
-   * @public
    * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
+   * @public
    */
   errorMessage?: string;
 }
 
 /**
- * @public
  * <p>An object that contains details about a member account in your organization that failed to activate Amazon Inspector deep inspection.</p>
+ * @public
  */
 export interface FailedMemberAccountEc2DeepInspectionStatusState {
   /**
-   * @public
    * <p>The unique identifier for the Amazon Web Services account of the organization member that failed to activate Amazon Inspector deep inspection.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The status of EC2 scanning in the account that failed to activate Amazon Inspector deep inspection.</p>
+   * @public
    */
   ec2ScanStatus?: Status;
 
   /**
-   * @public
    * <p>The error message explaining why the account failed to activate Amazon Inspector deep inspection.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -3046,36 +3046,36 @@ export interface FailedMemberAccountEc2DeepInspectionStatusState {
  */
 export interface BatchGetMemberEc2DeepInspectionStatusResponse {
   /**
-   * @public
    * <p>An array of objects that provide details on the activation status of Amazon Inspector deep inspection for each of the requested accounts.
    *
    *          </p>
+   * @public
    */
   accountIds?: MemberAccountEc2DeepInspectionStatusState[];
 
   /**
-   * @public
    * <p>An array of objects that provide details on any accounts that failed to activate Amazon Inspector deep inspection and why.
    *
    *       </p>
+   * @public
    */
   failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[];
 }
 
 /**
- * @public
  * <p>An object that contains details about the status of Amazon Inspector deep inspection for a member account in your organization.</p>
+ * @public
  */
 export interface MemberAccountEc2DeepInspectionStatus {
   /**
-   * @public
    * <p>The unique identifier for the Amazon Web Services account of the organization member.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>Whether Amazon Inspector deep inspection is active in the account.  If <code>TRUE</code> Amazon Inspector deep inspection is active, if <code>FALSE</code> it is not active.</p>
+   * @public
    */
   activateDeepInspection: boolean | undefined;
 }
@@ -3085,8 +3085,8 @@ export interface MemberAccountEc2DeepInspectionStatus {
  */
 export interface BatchUpdateMemberEc2DeepInspectionStatusRequest {
   /**
-   * @public
    * <p>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector deep inspection status for.</p>
+   * @public
    */
   accountIds: MemberAccountEc2DeepInspectionStatus[] | undefined;
 }
@@ -3096,16 +3096,16 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusRequest {
  */
 export interface BatchUpdateMemberEc2DeepInspectionStatusResponse {
   /**
-   * @public
    * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status was successfully changed for.
    *       </p>
+   * @public
    */
   accountIds?: MemberAccountEc2DeepInspectionStatusState[];
 
   /**
-   * @public
    * <p>An array of objects that provide details for each of the accounts that Amazon Inspector deep inspection status could not be successfully changed for.
    *       </p>
+   * @public
    */
   failedAccountIds?: FailedMemberAccountEc2DeepInspectionStatusState[];
 }
@@ -3115,8 +3115,8 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusResponse {
  */
 export interface CancelFindingsReportRequest {
   /**
-   * @public
    * <p>The ID of the report to be canceled.</p>
+   * @public
    */
   reportId: string | undefined;
 }
@@ -3126,8 +3126,8 @@ export interface CancelFindingsReportRequest {
  */
 export interface CancelFindingsReportResponse {
   /**
-   * @public
    * <p>The ID of the canceled report.</p>
+   * @public
    */
   reportId: string | undefined;
 }
@@ -3137,8 +3137,8 @@ export interface CancelFindingsReportResponse {
  */
 export interface CancelSbomExportRequest {
   /**
-   * @public
    * <p>The report ID of the SBOM export to cancel.</p>
+   * @public
    */
   reportId: string | undefined;
 }
@@ -3148,8 +3148,8 @@ export interface CancelSbomExportRequest {
  */
 export interface CancelSbomExportResponse {
   /**
-   * @public
    * <p>The report ID of the canceled SBOM export.</p>
+   * @public
    */
   reportId?: string;
 }
@@ -3169,97 +3169,97 @@ export const CisSecurityLevel = {
 export type CisSecurityLevel = (typeof CisSecurityLevel)[keyof typeof CisSecurityLevel];
 
 /**
- * @public
  * <p>The status counts.</p>
+ * @public
  */
 export interface StatusCounts {
   /**
-   * @public
    * <p>The number of checks that failed.</p>
+   * @public
    */
   failed?: number;
 
   /**
-   * @public
    * <p>The number of checks that were skipped.</p>
+   * @public
    */
   skipped?: number;
 
   /**
-   * @public
    * <p>The number of checks that passed.</p>
+   * @public
    */
   passed?: number;
 }
 
 /**
- * @public
  * <p>A CIS check.</p>
+ * @public
  */
 export interface CisCheckAggregation {
   /**
-   * @public
    * <p>The scan ARN for the CIS check scan ARN.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The check ID for the CIS check.</p>
+   * @public
    */
   checkId?: string;
 
   /**
-   * @public
    * <p>The CIS check title.</p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>The description for the CIS check.</p>
+   * @public
    */
   checkDescription?: string;
 
   /**
-   * @public
    * <p>The CIS check level.</p>
+   * @public
    */
   level?: CisSecurityLevel;
 
   /**
-   * @public
    * <p>The account ID for the CIS check.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The CIS check status counts.</p>
+   * @public
    */
   statusCounts?: StatusCounts;
 
   /**
-   * @public
    * <p>The CIS check platform.</p>
+   * @public
    */
   platform?: string;
 }
 
 /**
- * @public
  * <p>The CIS date filter.</p>
+ * @public
  */
 export interface CisDateFilter {
   /**
-   * @public
    * <p>The CIS date filter's earliest scan start time.</p>
+   * @public
    */
   earliestScanStartTime?: Date;
 
   /**
-   * @public
    * <p>The CIS date filter's latest scan start time.</p>
+   * @public
    */
   latestScanStartTime?: Date;
 }
@@ -3293,37 +3293,37 @@ export const CisFindingStatusComparison = {
 export type CisFindingStatusComparison = (typeof CisFindingStatusComparison)[keyof typeof CisFindingStatusComparison];
 
 /**
- * @public
  * <p>The CIS finding status filter.</p>
+ * @public
  */
 export interface CisFindingStatusFilter {
   /**
-   * @public
    * <p>The comparison value of the CIS finding status filter.</p>
+   * @public
    */
   comparison: CisFindingStatusComparison | undefined;
 
   /**
-   * @public
    * <p>The value of the CIS finding status filter.</p>
+   * @public
    */
   value: CisFindingStatus | undefined;
 }
 
 /**
- * @public
  * <p>The CIS number filter.</p>
+ * @public
  */
 export interface CisNumberFilter {
   /**
-   * @public
    * <p>The CIS number filter's upper inclusive.</p>
+   * @public
    */
   upperInclusive?: number;
 
   /**
-   * @public
    * <p>The CIS number filter's lower inclusive.</p>
+   * @public
    */
   lowerInclusive?: number;
 }
@@ -3372,19 +3372,19 @@ export const CisResultStatusComparison = {
 export type CisResultStatusComparison = (typeof CisResultStatusComparison)[keyof typeof CisResultStatusComparison];
 
 /**
- * @public
  * <p>The CIS result status filter.</p>
+ * @public
  */
 export interface CisResultStatusFilter {
   /**
-   * @public
    * <p>The comparison value of the CIS result status filter.</p>
+   * @public
    */
   comparison: CisResultStatusComparison | undefined;
 
   /**
-   * @public
    * <p>The value of the CIS result status filter.</p>
+   * @public
    */
   value: CisResultStatus | undefined;
 }
@@ -3425,118 +3425,118 @@ export const CisScanStatus = {
 export type CisScanStatus = (typeof CisScanStatus)[keyof typeof CisScanStatus];
 
 /**
- * @public
  * <p>The CIS targets.</p>
+ * @public
  */
 export interface CisTargets {
   /**
-   * @public
    * <p>The CIS target account ids.</p>
+   * @public
    */
   accountIds?: string[];
 
   /**
-   * @public
    * <p>The CIS target resource tags.</p>
+   * @public
    */
   targetResourceTags?: Record<string, string[]>;
 }
 
 /**
- * @public
  * <p>The CIS scan.</p>
+ * @public
  */
 export interface CisScan {
   /**
-   * @public
    * <p>The CIS scan's ARN.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The CIS scan's configuration ARN.</p>
+   * @public
    */
   scanConfigurationArn: string | undefined;
 
   /**
-   * @public
    * <p>The CIS scan's status.</p>
+   * @public
    */
   status?: CisScanStatus;
 
   /**
-   * @public
    * <p>The the name of the scan configuration that's associated with this scan.</p>
+   * @public
    */
   scanName?: string;
 
   /**
-   * @public
    * <p>The CIS scan's date.</p>
+   * @public
    */
   scanDate?: Date;
 
   /**
-   * @public
    * <p>The CIS scan's failed checks.</p>
+   * @public
    */
   failedChecks?: number;
 
   /**
-   * @public
    * <p>The CIS scan's total checks.</p>
+   * @public
    */
   totalChecks?: number;
 
   /**
-   * @public
    * <p>The CIS scan's targets.</p>
+   * @public
    */
   targets?: CisTargets;
 
   /**
-   * @public
    * <p>The account or organization that schedules the CIS scan.</p>
+   * @public
    */
   scheduledBy?: string;
 
   /**
-   * @public
    * <p>
    *          The security level for the CIS scan.
    *          Security level refers to the Benchmark levels that CIS assigns to a profile.
    *       </p>
+   * @public
    */
   securityLevel?: CisSecurityLevel;
 }
 
 /**
- * @public
  * <p>The time.</p>
+ * @public
  */
 export interface Time {
   /**
-   * @public
    * <p>The time of day in 24-hour format (00:00).</p>
+   * @public
    */
   timeOfDay: string | undefined;
 
   /**
-   * @public
    * <p>The timezone.</p>
+   * @public
    */
   timezone: string | undefined;
 }
 
 /**
- * @public
  * <p>A daily schedule.</p>
+ * @public
  */
 export interface DailySchedule {
   /**
-   * @public
    * <p>The schedule start time.</p>
+   * @public
    */
   startTime: Time | undefined;
 }
@@ -3561,50 +3561,50 @@ export const Day = {
 export type Day = (typeof Day)[keyof typeof Day];
 
 /**
- * @public
  * <p>A monthly schedule.</p>
+ * @public
  */
 export interface MonthlySchedule {
   /**
-   * @public
    * <p>The monthly schedule's start time.</p>
+   * @public
    */
   startTime: Time | undefined;
 
   /**
-   * @public
    * <p>The monthly schedule's day.</p>
+   * @public
    */
   day: Day | undefined;
 }
 
 /**
- * @public
  * <p>A one time schedule.</p>
+ * @public
  */
 export interface OneTimeSchedule {}
 
 /**
- * @public
  * <p>A weekly schedule.</p>
+ * @public
  */
 export interface WeeklySchedule {
   /**
-   * @public
    * <p>The weekly schedule's start time.</p>
+   * @public
    */
   startTime: Time | undefined;
 
   /**
-   * @public
    * <p>The weekly schedule's days.</p>
+   * @public
    */
   days: Day[] | undefined;
 }
 
 /**
- * @public
  * <p>A schedule.</p>
+ * @public
  */
 export type Schedule =
   | Schedule.DailyMember
@@ -3618,8 +3618,8 @@ export type Schedule =
  */
 export namespace Schedule {
   /**
-   * @public
    * <p>The schedule's one time.</p>
+   * @public
    */
   export interface OneTimeMember {
     oneTime: OneTimeSchedule;
@@ -3630,8 +3630,8 @@ export namespace Schedule {
   }
 
   /**
-   * @public
    * <p>The schedule's daily.</p>
+   * @public
    */
   export interface DailyMember {
     oneTime?: never;
@@ -3642,8 +3642,8 @@ export namespace Schedule {
   }
 
   /**
-   * @public
    * <p>The schedule's weekly.</p>
+   * @public
    */
   export interface WeeklyMember {
     oneTime?: never;
@@ -3654,8 +3654,8 @@ export namespace Schedule {
   }
 
   /**
-   * @public
    * <p>The schedule's monthly.</p>
+   * @public
    */
   export interface MonthlyMember {
     oneTime?: never;
@@ -3694,49 +3694,49 @@ export namespace Schedule {
 }
 
 /**
- * @public
  * <p>The CIS scan configuration.</p>
+ * @public
  */
 export interface CisScanConfiguration {
   /**
-   * @public
    * <p>The CIS scan configuration's scan configuration ARN.</p>
+   * @public
    */
   scanConfigurationArn: string | undefined;
 
   /**
-   * @public
    * <p>The CIS scan configuration's owner ID.</p>
+   * @public
    */
   ownerId?: string;
 
   /**
-   * @public
    * <p>The name of the CIS scan configuration.</p>
+   * @public
    */
   scanName?: string;
 
   /**
-   * @public
    * <p>The CIS scan configuration's security level.</p>
+   * @public
    */
   securityLevel?: CisSecurityLevel;
 
   /**
-   * @public
    * <p>The CIS scan configuration's schedule.</p>
+   * @public
    */
   schedule?: Schedule;
 
   /**
-   * @public
    * <p>The CIS scan configuration's targets.</p>
+   * @public
    */
   targets?: CisTargets;
 
   /**
-   * @public
    * <p>The CIS scan configuration's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3757,79 +3757,79 @@ export type CisScanConfigurationsSortBy =
   (typeof CisScanConfigurationsSortBy)[keyof typeof CisScanConfigurationsSortBy];
 
 /**
- * @public
  * <p>The CIS scan result details.</p>
+ * @public
  */
 export interface CisScanResultDetails {
   /**
-   * @public
    * <p>The CIS scan result details' scan ARN.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The CIS scan result details' account ID.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The CIS scan result details' target resource ID.</p>
+   * @public
    */
   targetResourceId?: string;
 
   /**
-   * @public
    * <p>The CIS scan result details' platform.</p>
+   * @public
    */
   platform?: string;
 
   /**
-   * @public
    * <p>The CIS scan result details' status.</p>
+   * @public
    */
   status?: CisFindingStatus;
 
   /**
-   * @public
    * <p>The CIS scan result details' status reason.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The CIS scan result details' check ID.</p>
+   * @public
    */
   checkId?: string;
 
   /**
-   * @public
    * <p>The CIS scan result details' title.</p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>The account ID that's associated with the CIS scan result details.</p>
+   * @public
    */
   checkDescription?: string;
 
   /**
-   * @public
    * <p>The CIS scan result details' remediation.</p>
+   * @public
    */
   remediation?: string;
 
   /**
-   * @public
    * <p>The CIS scan result details' level.</p>
+   * @public
    */
   level?: CisSecurityLevel;
 
   /**
-   * @public
    * <p>The CIS scan result details' finding ARN.</p>
+   * @public
    */
   findingArn?: string;
 }
@@ -3848,61 +3848,61 @@ export const CisSecurityLevelComparison = {
 export type CisSecurityLevelComparison = (typeof CisSecurityLevelComparison)[keyof typeof CisSecurityLevelComparison];
 
 /**
- * @public
  * <p>
  *          The CIS security level filter.
  *          Security level refers to the Benchmark levels that CIS assigns to a profile.
  *       </p>
+ * @public
  */
 export interface CisSecurityLevelFilter {
   /**
-   * @public
    * <p>The CIS security filter comparison value.</p>
+   * @public
    */
   comparison: CisSecurityLevelComparison | undefined;
 
   /**
-   * @public
    * <p>The CIS security filter value.</p>
+   * @public
    */
   value: CisSecurityLevel | undefined;
 }
 
 /**
- * @public
  * <p>The CIS scan result details filter criteria.</p>
+ * @public
  */
 export interface CisScanResultDetailsFilterCriteria {
   /**
-   * @public
    * <p>The criteria's finding status filters.</p>
+   * @public
    */
   findingStatusFilters?: CisFindingStatusFilter[];
 
   /**
-   * @public
    * <p>The criteria's check ID filters.</p>
+   * @public
    */
   checkIdFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's title filters.</p>
+   * @public
    */
   titleFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>
    *          The criteria's security level filters. .
    *          Security level refers to the Benchmark levels that CIS assigns to a profile.
    *       </p>
+   * @public
    */
   securityLevelFilters?: CisSecurityLevelFilter[];
 
   /**
-   * @public
    * <p>The criteria's finding ARN filters.</p>
+   * @public
    */
   findingArnFilters?: CisStringFilter[];
 }
@@ -3922,43 +3922,43 @@ export const CisScanResultDetailsSortBy = {
 export type CisScanResultDetailsSortBy = (typeof CisScanResultDetailsSortBy)[keyof typeof CisScanResultDetailsSortBy];
 
 /**
- * @public
  * <p>The scan results aggregated by checks filter criteria.</p>
+ * @public
  */
 export interface CisScanResultsAggregatedByChecksFilterCriteria {
   /**
-   * @public
    * <p>The criteria's account ID filters.</p>
+   * @public
    */
   accountIdFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's check ID filters.</p>
+   * @public
    */
   checkIdFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's title filters.</p>
+   * @public
    */
   titleFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's platform filters.</p>
+   * @public
    */
   platformFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's failed resources filters.</p>
+   * @public
    */
   failedResourcesFilters?: CisNumberFilter[];
 
   /**
-   * @public
    * <p>The criteria's security level filters.</p>
+   * @public
    */
   securityLevelFilters?: CisSecurityLevelFilter[];
 }
@@ -3995,25 +3995,25 @@ export const TagComparison = {
 export type TagComparison = (typeof TagComparison)[keyof typeof TagComparison];
 
 /**
- * @public
  * <p>The tag filter.</p>
+ * @public
  */
 export interface TagFilter {
   /**
-   * @public
    * <p>The tag filter comparison value.</p>
+   * @public
    */
   comparison: TagComparison | undefined;
 
   /**
-   * @public
    * <p>The tag filter key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The tag filter value.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -4047,19 +4047,19 @@ export const CisTargetStatus = {
 export type CisTargetStatus = (typeof CisTargetStatus)[keyof typeof CisTargetStatus];
 
 /**
- * @public
  * <p>The CIS target status filter.</p>
+ * @public
  */
 export interface CisTargetStatusFilter {
   /**
-   * @public
    * <p>The comparison value of the CIS target status filter.</p>
+   * @public
    */
   comparison: CisTargetStatusComparison | undefined;
 
   /**
-   * @public
    * <p>The value of the CIS target status filter.</p>
+   * @public
    */
   value: CisTargetStatus | undefined;
 }
@@ -4080,79 +4080,79 @@ export const CisTargetStatusReason = {
 export type CisTargetStatusReason = (typeof CisTargetStatusReason)[keyof typeof CisTargetStatusReason];
 
 /**
- * @public
  * <p>The CIS target status reason filter.</p>
+ * @public
  */
 export interface CisTargetStatusReasonFilter {
   /**
-   * @public
    * <p>The comparison value of the CIS target status reason filter.</p>
+   * @public
    */
   comparison: CisTargetStatusComparison | undefined;
 
   /**
-   * @public
    * <p>The value of the CIS target status reason filter.</p>
+   * @public
    */
   value: CisTargetStatusReason | undefined;
 }
 
 /**
- * @public
  * <p>The scan results aggregated by target resource filter criteria.</p>
+ * @public
  */
 export interface CisScanResultsAggregatedByTargetResourceFilterCriteria {
   /**
-   * @public
    * <p>The criteria's account ID filters.</p>
+   * @public
    */
   accountIdFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's status filter.</p>
+   * @public
    */
   statusFilters?: CisResultStatusFilter[];
 
   /**
-   * @public
    * <p>The criteria's check ID filters.</p>
+   * @public
    */
   checkIdFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's target resource ID filters.</p>
+   * @public
    */
   targetResourceIdFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's target resource tag filters.</p>
+   * @public
    */
   targetResourceTagFilters?: TagFilter[];
 
   /**
-   * @public
    * <p>The criteria's platform filters.</p>
+   * @public
    */
   platformFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The criteria's target status filters.</p>
+   * @public
    */
   targetStatusFilters?: CisTargetStatusFilter[];
 
   /**
-   * @public
    * <p>The criteria's target status reason filters.</p>
+   * @public
    */
   targetStatusReasonFilters?: CisTargetStatusReasonFilter[];
 
   /**
-   * @public
    * <p>The criteria's failed checks filters.</p>
+   * @public
    */
   failedChecksFilters?: CisNumberFilter[];
 }
@@ -4190,43 +4190,43 @@ export const CisScanStatusComparison = {
 export type CisScanStatusComparison = (typeof CisScanStatusComparison)[keyof typeof CisScanStatusComparison];
 
 /**
- * @public
  * <p>The CIS scan status filter.</p>
+ * @public
  */
 export interface CisScanStatusFilter {
   /**
-   * @public
    * <p>The filter comparison value.</p>
+   * @public
    */
   comparison: CisScanStatusComparison | undefined;
 
   /**
-   * @public
    * <p>The filter value.</p>
+   * @public
    */
   value: CisScanStatus | undefined;
 }
 
 /**
- * @public
  * <p>The CIS session message.</p>
+ * @public
  */
 export interface CisSessionMessage {
   /**
-   * @public
    * <p>The rule ID for the CIS session message.</p>
+   * @public
    */
   ruleId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the CIS session message.</p>
+   * @public
    */
   status: CisRuleStatus | undefined;
 
   /**
-   * @public
    * <p>The CIS rule details for the CIS session message.</p>
+   * @public
    */
   cisRuleDetails: Uint8Array | undefined;
 }
@@ -4246,184 +4246,184 @@ export const CisSortOrder = {
 export type CisSortOrder = (typeof CisSortOrder)[keyof typeof CisSortOrder];
 
 /**
- * @public
  * <p>The CIS target resource aggregation.</p>
+ * @public
  */
 export interface CisTargetResourceAggregation {
   /**
-   * @public
    * <p>The scan ARN for the CIS target resource.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the target resource.</p>
+   * @public
    */
   targetResourceId?: string;
 
   /**
-   * @public
    * <p>The account ID for the CIS target resource.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The tag for the target resource.</p>
+   * @public
    */
   targetResourceTags?: Record<string, string[]>;
 
   /**
-   * @public
    * <p>The target resource status counts.</p>
+   * @public
    */
   statusCounts?: StatusCounts;
 
   /**
-   * @public
    * <p>The platform for the CIS target resource.</p>
+   * @public
    */
   platform?: string;
 
   /**
-   * @public
    * <p>The status of the target resource.</p>
+   * @public
    */
   targetStatus?: CisTargetStatus;
 
   /**
-   * @public
    * <p>The reason for the target resource.</p>
+   * @public
    */
   targetStatusReason?: CisTargetStatusReason;
 }
 
 /**
- * @public
  * <p>Contains information on where a code vulnerability is located in your Lambda function.</p>
+ * @public
  */
 export interface CodeFilePath {
   /**
-   * @public
    * <p>The name of the file the code vulnerability was found in.</p>
+   * @public
    */
   fileName: string | undefined;
 
   /**
-   * @public
    * <p>The file path to the code that a vulnerability was found in.</p>
+   * @public
    */
   filePath: string | undefined;
 
   /**
-   * @public
    * <p>The line number of the first line of code that a vulnerability was found in.</p>
+   * @public
    */
   startLine: number | undefined;
 
   /**
-   * @public
    * <p>The line number of the last line of code that a vulnerability was found in.</p>
+   * @public
    */
   endLine: number | undefined;
 }
 
 /**
- * @public
  * <p>Contains information on the code vulnerability identified in your Lambda function.</p>
+ * @public
  */
 export interface CodeVulnerabilityDetails {
   /**
-   * @public
    * <p>Contains information on where the code vulnerability is located in your code.</p>
+   * @public
    */
   filePath: CodeFilePath | undefined;
 
   /**
-   * @public
    * <p>The detector tag associated with the vulnerability. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
+   * @public
    */
   detectorTags?: string[];
 
   /**
-   * @public
    * <p>A URL containing supporting documentation about the code vulnerability detected.</p>
+   * @public
    */
   referenceUrls?: string[];
 
   /**
-   * @public
    * <p>The identifier for a rule that was used to detect the code vulnerability.</p>
+   * @public
    */
   ruleId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Lambda layer that the code vulnerability was detected in.</p>
+   * @public
    */
   sourceLambdaLayerArn?: string;
 
   /**
-   * @public
    * <p>The ID for the Amazon CodeGuru detector associated with the finding. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">Amazon CodeGuru
    *          Detector Library</a>.</p>
+   * @public
    */
   detectorId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the detector used to identify the code vulnerability. For more information on detectors see <a href="https://docs.aws.amazon.com/codeguru/detector-library">CodeGuru Detector Library</a>.</p>
+   * @public
    */
   detectorName: string | undefined;
 
   /**
-   * @public
    * <p>The Common Weakness Enumeration (CWE) item associated with the detected vulnerability.</p>
+   * @public
    */
   cwes: string[] | undefined;
 }
 
 /**
- * @public
  * <p>A compute platform.</p>
+ * @public
  */
 export interface ComputePlatform {
   /**
-   * @public
    * <p>The compute platform vendor.</p>
+   * @public
    */
   vendor?: string;
 
   /**
-   * @public
    * <p>The compute platform product.</p>
+   * @public
    */
   product?: string;
 
   /**
-   * @public
    * <p>The compute platform version.</p>
+   * @public
    */
   version?: string;
 }
 
 /**
- * @public
  * <p>A conflict occurred.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the conflicting resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the conflicting resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -4460,37 +4460,37 @@ export const GroupKey = {
 export type GroupKey = (typeof GroupKey)[keyof typeof GroupKey];
 
 /**
- * @public
  * <p>a structure that contains information on the count of resources within a group.</p>
+ * @public
  */
 export interface Counts {
   /**
-   * @public
    * <p>The number of resources.</p>
+   * @public
    */
   count?: number;
 
   /**
-   * @public
    * <p>The key associated with this group</p>
+   * @public
    */
   groupKey?: GroupKey;
 }
 
 /**
- * @public
  * <p>Contains details of a coverage date filter.</p>
+ * @public
  */
 export interface CoverageDateFilter {
   /**
-   * @public
    * <p>A timestamp representing the start of the time period to filter results by.</p>
+   * @public
    */
   startInclusive?: Date;
 
   /**
-   * @public
    * <p>A timestamp representing the end of the time period to filter results by.</p>
+   * @public
    */
   endInclusive?: Date;
 }
@@ -4510,19 +4510,19 @@ export const CoverageStringComparison = {
 export type CoverageStringComparison = (typeof CoverageStringComparison)[keyof typeof CoverageStringComparison];
 
 /**
- * @public
  * <p>Contains details of a coverage string filter.</p>
+ * @public
  */
 export interface CoverageStringFilter {
   /**
-   * @public
    * <p>The operator to compare strings on.</p>
+   * @public
    */
   comparison: CoverageStringComparison | undefined;
 
   /**
-   * @public
    * <p>The value to compare strings on.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -4541,115 +4541,115 @@ export const CoverageMapComparison = {
 export type CoverageMapComparison = (typeof CoverageMapComparison)[keyof typeof CoverageMapComparison];
 
 /**
- * @public
  * <p>Contains details of a coverage map filter.</p>
+ * @public
  */
 export interface CoverageMapFilter {
   /**
-   * @public
    * <p>The operator to compare coverage on.</p>
+   * @public
    */
   comparison: CoverageMapComparison | undefined;
 
   /**
-   * @public
    * <p>The tag key associated with the coverage map filter.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The tag value associated with the coverage map filter.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>A structure that identifies filter criteria for <code>GetCoverageStatistics</code>.</p>
+ * @public
  */
 export interface CoverageFilterCriteria {
   /**
-   * @public
    * <p>The scan status code to filter on. Valid values are: <code>ValidationException</code>, <code>InternalServerException</code>, <code>ResourceNotFoundException</code>, <code>BadRequestException</code>, and <code>ThrottlingException</code>.</p>
+   * @public
    */
   scanStatusCode?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>The scan status reason to filter on.</p>
+   * @public
    */
   scanStatusReason?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>An array of Amazon Web Services account IDs to return coverage statistics for.</p>
+   * @public
    */
   accountId?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>An array of Amazon Web Services resource IDs to return coverage statistics for.</p>
+   * @public
    */
   resourceId?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>An array of Amazon Web Services resource types to return coverage statistics for. The values can be <code>AWS_EC2_INSTANCE</code>, <code>AWS_LAMBDA_FUNCTION</code>, <code>AWS_ECR_CONTAINER_IMAGE</code>,  <code>AWS_ECR_REPOSITORY</code> or <code>AWS_ACCOUNT</code>.</p>
+   * @public
    */
   resourceType?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>An array of Amazon Inspector scan types to return coverage statistics for.</p>
+   * @public
    */
   scanType?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>The Amazon ECR repository name to filter on.</p>
+   * @public
    */
   ecrRepositoryName?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>The Amazon ECR image tags to filter on.</p>
+   * @public
    */
   ecrImageTags?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>The Amazon EC2 instance tags to filter on.</p>
+   * @public
    */
   ec2InstanceTags?: CoverageMapFilter[];
 
   /**
-   * @public
    * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by function names.</p>
+   * @public
    */
   lambdaFunctionName?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by tag.</p>
+   * @public
    */
   lambdaFunctionTags?: CoverageMapFilter[];
 
   /**
-   * @public
    * <p>Returns coverage statistics for Amazon Web Services Lambda functions filtered by runtime.</p>
+   * @public
    */
   lambdaFunctionRuntime?: CoverageStringFilter[];
 
   /**
-   * @public
    * <p>Filters Amazon Web Services resources based on whether Amazon Inspector has checked them for vulnerabilities within the specified time range.</p>
+   * @public
    */
   lastScannedAt?: CoverageDateFilter[];
 
   /**
-   * @public
    * <p>The date an image was last pulled at.</p>
+   * @public
    */
   imagePulledAt?: CoverageDateFilter[];
 }
@@ -4687,43 +4687,43 @@ export const Ec2Platform = {
 export type Ec2Platform = (typeof Ec2Platform)[keyof typeof Ec2Platform];
 
 /**
- * @public
  * <p>Meta data details of an Amazon EC2 instance.</p>
+ * @public
  */
 export interface Ec2Metadata {
   /**
-   * @public
    * <p>The tags attached to the instance.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The ID of the Amazon Machine Image (AMI) used to launch the instance.</p>
+   * @public
    */
   amiId?: string;
 
   /**
-   * @public
    * <p>The platform of the instance.</p>
+   * @public
    */
   platform?: Ec2Platform;
 }
 
 /**
- * @public
  * <p>Information on the Amazon ECR image metadata associated with a finding.</p>
+ * @public
  */
 export interface EcrContainerImageMetadata {
   /**
-   * @public
    * <p>Tags associated with the Amazon ECR image metadata.</p>
+   * @public
    */
   tags?: string[];
 
   /**
-   * @public
    * <p>The date an image was last pulled at.</p>
+   * @public
    */
   imagePulledAt?: Date;
 }
@@ -4744,79 +4744,79 @@ export const EcrScanFrequency = {
 export type EcrScanFrequency = (typeof EcrScanFrequency)[keyof typeof EcrScanFrequency];
 
 /**
- * @public
  * <p>Information on the Amazon ECR repository metadata associated with a finding.</p>
+ * @public
  */
 export interface EcrRepositoryMetadata {
   /**
-   * @public
    * <p>The name of the Amazon ECR repository.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The frequency of scans.</p>
+   * @public
    */
   scanFrequency?: EcrScanFrequency;
 }
 
 /**
- * @public
  * <p>The Amazon Web Services Lambda function metadata.</p>
+ * @public
  */
 export interface LambdaFunctionMetadata {
   /**
-   * @public
    * <p>The resource tags on an Amazon Web Services Lambda function.</p>
+   * @public
    */
   functionTags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The layers for an Amazon Web Services Lambda function. A Lambda function can have up to five layers.</p>
+   * @public
    */
   layers?: string[];
 
   /**
-   * @public
    * <p>The name of a function.</p>
+   * @public
    */
   functionName?: string;
 
   /**
-   * @public
    * <p>An Amazon Web Services Lambda function's runtime.</p>
+   * @public
    */
   runtime?: Runtime;
 }
 
 /**
- * @public
  * <p>An object that contains details about the metadata for an Amazon ECR resource.</p>
+ * @public
  */
 export interface ResourceScanMetadata {
   /**
-   * @public
    * <p>An object that contains details about the repository an Amazon ECR image resides in.</p>
+   * @public
    */
   ecrRepository?: EcrRepositoryMetadata;
 
   /**
-   * @public
    * <p>An object that contains details about the container metadata for an Amazon ECR image.</p>
+   * @public
    */
   ecrImage?: EcrContainerImageMetadata;
 
   /**
-   * @public
    * <p>An object that contains metadata details for an Amazon EC2 instance.</p>
+   * @public
    */
   ec2?: Ec2Metadata;
 
   /**
-   * @public
    * <p>An object that contains metadata details for an Amazon Web Services Lambda function.</p>
+   * @public
    */
   lambdaFunction?: LambdaFunctionMetadata;
 }
@@ -4872,18 +4872,17 @@ export const ScanStatusCode = {
 export type ScanStatusCode = (typeof ScanStatusCode)[keyof typeof ScanStatusCode];
 
 /**
- * @public
  * <p>The status of the scan.</p>
+ * @public
  */
 export interface ScanStatus {
   /**
-   * @public
    * <p>The status code of the scan.</p>
+   * @public
    */
   statusCode: ScanStatusCode | undefined;
 
   /**
-   * @public
    * <p>The scan status. Possible return values and descriptions are: </p>
    *          <p>
    *             <code>PENDING_INITIAL_SCAN</code> - This resource has been identified for scanning, results will be available soon.</p>
@@ -4934,6 +4933,7 @@ export interface ScanStatus {
    *          <p>
    *             <code>DEEP_INSPECTION_NO_INVENTORY</code>  The Amazon Inspector plugin hasn't yet been able to collect an inventory of packages for this instance. This is usually the result of a pending scan, however, if this status persists after 6 hours, use SSM to ensure that the required Amazon Inspector associations exist and are running for the instance.</p>
    *          <p/>
+   * @public
    */
   reason: ScanStatusReason | undefined;
 }
@@ -4954,67 +4954,67 @@ export const ScanType = {
 export type ScanType = (typeof ScanType)[keyof typeof ScanType];
 
 /**
- * @public
  * <p>An object that contains details about a resource covered by Amazon Inspector.</p>
+ * @public
  */
 export interface CoveredResource {
   /**
-   * @public
    * <p>The type of the covered resource.</p>
+   * @public
    */
   resourceType: CoverageResourceType | undefined;
 
   /**
-   * @public
    * <p>The ID of the covered resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the covered resource.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Inspector scan type covering the resource.</p>
+   * @public
    */
   scanType: ScanType | undefined;
 
   /**
-   * @public
    * <p>The status of the scan covering the resource.</p>
+   * @public
    */
   scanStatus?: ScanStatus;
 
   /**
-   * @public
    * <p>An object that contains details about the metadata.</p>
+   * @public
    */
   resourceMetadata?: ResourceScanMetadata;
 
   /**
-   * @public
    * <p>The date and time the resource was last checked for vulnerabilities.</p>
+   * @public
    */
   lastScannedAt?: Date;
 }
 
 /**
- * @public
  * <p>Creates CIS targets.</p>
+ * @public
  */
 export interface CreateCisTargets {
   /**
-   * @public
    * <p>The CIS target account ids.</p>
+   * @public
    */
   accountIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The CIS target resource tags.</p>
+   * @public
    */
   targetResourceTags: Record<string, string[]> | undefined;
 }
@@ -5024,35 +5024,35 @@ export interface CreateCisTargets {
  */
 export interface CreateCisScanConfigurationRequest {
   /**
-   * @public
    * <p>The scan name for the CIS scan configuration.</p>
+   * @public
    */
   scanName: string | undefined;
 
   /**
-   * @public
    * <p>
    *          The security level for the CIS scan configuration.
    *          Security level refers to the Benchmark levels that CIS assigns to a profile.
    *       </p>
+   * @public
    */
   securityLevel: CisSecurityLevel | undefined;
 
   /**
-   * @public
    * <p>The schedule for the CIS scan configuration.</p>
+   * @public
    */
   schedule: Schedule | undefined;
 
   /**
-   * @public
    * <p>The targets for the CIS scan configuration.</p>
+   * @public
    */
   targets: CreateCisTargets | undefined;
 
   /**
-   * @public
    * <p>The tags for the CIS scan configuration.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -5062,8 +5062,8 @@ export interface CreateCisScanConfigurationRequest {
  */
 export interface CreateCisScanConfigurationResponse {
   /**
-   * @public
    * <p>The scan configuration ARN for the CIS scan configuration.</p>
+   * @public
    */
   scanConfigurationArn?: string;
 }
@@ -5083,363 +5083,363 @@ export const FilterAction = {
 export type FilterAction = (typeof FilterAction)[keyof typeof FilterAction];
 
 /**
- * @public
  * <p>Contains details on the time range used to filter findings.</p>
+ * @public
  */
 export interface DateFilter {
   /**
-   * @public
    * <p>A timestamp representing the start of the time period filtered on.</p>
+   * @public
    */
   startInclusive?: Date;
 
   /**
-   * @public
    * <p>A timestamp representing the end of the time period filtered on.</p>
+   * @public
    */
   endInclusive?: Date;
 }
 
 /**
- * @public
  * <p>An object that describes the details of a number filter.</p>
+ * @public
  */
 export interface NumberFilter {
   /**
-   * @public
    * <p>The highest number to be included in the filter.</p>
+   * @public
    */
   upperInclusive?: number;
 
   /**
-   * @public
    * <p>The lowest number to be included in the filter.</p>
+   * @public
    */
   lowerInclusive?: number;
 }
 
 /**
- * @public
  * <p>An object that describes the details of a port range filter.</p>
+ * @public
  */
 export interface PortRangeFilter {
   /**
-   * @public
    * <p>The port number the port range begins at.</p>
+   * @public
    */
   beginInclusive?: number;
 
   /**
-   * @public
    * <p>The port number the port range ends at.</p>
+   * @public
    */
   endInclusive?: number;
 }
 
 /**
- * @public
  * <p>Contains information on the details of a package filter.</p>
+ * @public
  */
 export interface PackageFilter {
   /**
-   * @public
    * <p>An object that contains details on the name of the package to filter on.</p>
+   * @public
    */
   name?: StringFilter;
 
   /**
-   * @public
    * <p>The package version to filter on.</p>
+   * @public
    */
   version?: StringFilter;
 
   /**
-   * @public
    * <p>An object that contains details on the package epoch to filter on.</p>
+   * @public
    */
   epoch?: NumberFilter;
 
   /**
-   * @public
    * <p>An object that contains details on the package release to filter on.</p>
+   * @public
    */
   release?: StringFilter;
 
   /**
-   * @public
    * <p>An object that contains details on the package architecture type to filter on.</p>
+   * @public
    */
   architecture?: StringFilter;
 
   /**
-   * @public
    * <p>An object that contains details on the source layer hash to filter on.</p>
+   * @public
    */
   sourceLayerHash?: StringFilter;
 
   /**
-   * @public
    * <p>An object that describes the details of a string filter.</p>
+   * @public
    */
   sourceLambdaLayerArn?: StringFilter;
 }
 
 /**
- * @public
  * <p>Details on the criteria used to define the filter.</p>
+ * @public
  */
 export interface FilterCriteria {
   /**
-   * @public
    * <p>Details on the finding ARNs used to filter findings.</p>
+   * @public
    */
   findingArn?: StringFilter[];
 
   /**
-   * @public
    * <p>Details of the Amazon Web Services account IDs used to filter findings.</p>
+   * @public
    */
   awsAccountId?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the finding types used to filter findings.</p>
+   * @public
    */
   findingType?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the severity used to filter findings.</p>
+   * @public
    */
   severity?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the date and time a finding was first seen used to filter findings.</p>
+   * @public
    */
   firstObservedAt?: DateFilter[];
 
   /**
-   * @public
    * <p>Details on the date and time a finding was last seen used to filter findings.</p>
+   * @public
    */
   lastObservedAt?: DateFilter[];
 
   /**
-   * @public
    * <p>Details on the date and time a finding was last updated at used to filter findings.</p>
+   * @public
    */
   updatedAt?: DateFilter[];
 
   /**
-   * @public
    * <p>Details on the finding status types used to filter findings.</p>
+   * @public
    */
   findingStatus?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the finding title used to filter findings.</p>
+   * @public
    */
   title?: StringFilter[];
 
   /**
-   * @public
    * <p>The Amazon Inspector score to filter on.</p>
+   * @public
    */
   inspectorScore?: NumberFilter[];
 
   /**
-   * @public
    * <p>Details on the resource types used to filter findings.</p>
+   * @public
    */
   resourceType?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the resource IDs used to filter findings.</p>
+   * @public
    */
   resourceId?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the resource tags used to filter findings.</p>
+   * @public
    */
   resourceTags?: MapFilter[];
 
   /**
-   * @public
    * <p>Details of the Amazon EC2 instance image IDs used to filter findings.</p>
+   * @public
    */
   ec2InstanceImageId?: StringFilter[];
 
   /**
-   * @public
    * <p>Details of the Amazon EC2 instance VPC IDs used to filter findings.</p>
+   * @public
    */
   ec2InstanceVpcId?: StringFilter[];
 
   /**
-   * @public
    * <p>Details of the Amazon EC2 instance subnet IDs used to filter findings.</p>
+   * @public
    */
   ec2InstanceSubnetId?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the Amazon ECR image push date and time used to filter findings.</p>
+   * @public
    */
   ecrImagePushedAt?: DateFilter[];
 
   /**
-   * @public
    * <p>Details of the Amazon ECR image architecture types used to filter findings.</p>
+   * @public
    */
   ecrImageArchitecture?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the Amazon ECR registry used to filter findings.</p>
+   * @public
    */
   ecrImageRegistry?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the name of the Amazon ECR repository used to filter findings.</p>
+   * @public
    */
   ecrImageRepositoryName?: StringFilter[];
 
   /**
-   * @public
    * <p>The tags attached to the Amazon ECR container image.</p>
+   * @public
    */
   ecrImageTags?: StringFilter[];
 
   /**
-   * @public
    * <p>Details of the Amazon ECR image hashes used to filter findings.</p>
+   * @public
    */
   ecrImageHash?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the port ranges used to filter findings.</p>
+   * @public
    */
   portRange?: PortRangeFilter[];
 
   /**
-   * @public
    * <p>Details on network protocol used to filter findings.</p>
+   * @public
    */
   networkProtocol?: StringFilter[];
 
   /**
-   * @public
    * <p>Details of the component IDs used to filter findings.</p>
+   * @public
    */
   componentId?: StringFilter[];
 
   /**
-   * @public
    * <p>Details of the component types used to filter findings.</p>
+   * @public
    */
   componentType?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the vulnerability ID used to filter findings.</p>
+   * @public
    */
   vulnerabilityId?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the vulnerability type used to filter findings.</p>
+   * @public
    */
   vulnerabilitySource?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the vendor severity used to filter findings.</p>
+   * @public
    */
   vendorSeverity?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on the vulnerable packages used to filter findings.</p>
+   * @public
    */
   vulnerablePackages?: PackageFilter[];
 
   /**
-   * @public
    * <p>Details on the related vulnerabilities used to filter findings.</p>
+   * @public
    */
   relatedVulnerabilities?: StringFilter[];
 
   /**
-   * @public
    * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
+   * @public
    */
   fixAvailable?: StringFilter[];
 
   /**
-   * @public
    * <p>Filters the list of Amazon Web Services Lambda functions by the name of the function.</p>
+   * @public
    */
   lambdaFunctionName?: StringFilter[];
 
   /**
-   * @public
    * <p>Filters the list of Amazon Web Services Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
    *          layers</a>. A Lambda function can have up to five layers.</p>
+   * @public
    */
   lambdaFunctionLayers?: StringFilter[];
 
   /**
-   * @public
    * <p>Filters the list of Amazon Web Services Lambda functions by the runtime environment for the Lambda function.</p>
+   * @public
    */
   lambdaFunctionRuntime?: StringFilter[];
 
   /**
-   * @public
    * <p>Filters the list of Amazon Web Services Lambda functions by the date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
    *          </p>
+   * @public
    */
   lambdaFunctionLastModifiedAt?: DateFilter[];
 
   /**
-   * @public
    * <p>Filters the list of Amazon Web Services Lambda functions by execution role.</p>
+   * @public
    */
   lambdaFunctionExecutionRoleArn?: StringFilter[];
 
   /**
-   * @public
    * <p>Filters the list of Amazon Web Services Lambda findings by the availability of exploits.</p>
+   * @public
    */
   exploitAvailable?: StringFilter[];
 
   /**
-   * @public
    * <p>The name of the detector used to identify a code vulnerability in a Lambda function used to filter findings.</p>
+   * @public
    */
   codeVulnerabilityDetectorName?: StringFilter[];
 
   /**
-   * @public
    * <p>The detector type tag associated with the vulnerability used to filter findings. Detector tags group related vulnerabilities by common themes or tactics. For a list of available tags by programming language, see <a href="https://docs.aws.amazon.com/codeguru/detector-library/java/tags/">Java tags</a>, or <a href="https://docs.aws.amazon.com/codeguru/detector-library/python/tags/">Python tags</a>. </p>
+   * @public
    */
   codeVulnerabilityDetectorTags?: StringFilter[];
 
   /**
-   * @public
    * <p>The file path to the file in a Lambda function that contains a code vulnerability used to filter findings.</p>
+   * @public
    */
   codeVulnerabilityFilePath?: StringFilter[];
 
   /**
-   * @public
    * <p>The EPSS score used to filter findings.</p>
+   * @public
    */
   epssScore?: NumberFilter[];
 }
@@ -5449,40 +5449,40 @@ export interface FilterCriteria {
  */
 export interface CreateFilterRequest {
   /**
-   * @public
    * <p>Defines the action that is to be applied to the findings that match the filter.</p>
+   * @public
    */
   action: FilterAction | undefined;
 
   /**
-   * @public
    * <p>A description of the filter.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Defines the criteria to be used in the filter for querying findings.</p>
+   * @public
    */
   filterCriteria: FilterCriteria | undefined;
 
   /**
-   * @public
    * <p>The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters
    *          include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not
    *          allowed.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags for the filter.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The reason for creating the filter.</p>
+   * @public
    */
   reason?: string;
 }
@@ -5492,23 +5492,23 @@ export interface CreateFilterRequest {
  */
 export interface CreateFilterResponse {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of the successfully created filter.</p>
+   * @public
    */
   arn: string | undefined;
 }
 
 /**
- * @public
  * <p>You have exceeded your service quota. To perform the requested action, remove some of
  *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the resource that exceeds a service quota.</p>
+   * @public
    */
   resourceId: string | undefined;
 
@@ -5541,25 +5541,25 @@ export const ReportFormat = {
 export type ReportFormat = (typeof ReportFormat)[keyof typeof ReportFormat];
 
 /**
- * @public
  * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
+ * @public
  */
 export interface Destination {
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket to export findings to.</p>
+   * @public
    */
   bucketName: string | undefined;
 
   /**
-   * @public
    * <p>The prefix that the findings will be written under.</p>
+   * @public
    */
   keyPrefix?: string;
 
   /**
-   * @public
    * <p>The ARN of the KMS key used to encrypt data when exporting findings.</p>
+   * @public
    */
   kmsKeyArn: string | undefined;
 }
@@ -5569,20 +5569,20 @@ export interface Destination {
  */
 export interface CreateFindingsReportRequest {
   /**
-   * @public
    * <p>The filter criteria to apply to the results of the finding report.</p>
+   * @public
    */
   filterCriteria?: FilterCriteria;
 
   /**
-   * @public
    * <p>The format to generate the report in.</p>
+   * @public
    */
   reportFormat: ReportFormat | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 export destination for the report.</p>
+   * @public
    */
   s3Destination: Destination | undefined;
 }
@@ -5592,8 +5592,8 @@ export interface CreateFindingsReportRequest {
  */
 export interface CreateFindingsReportResponse {
   /**
-   * @public
    * <p>The ID of the report.</p>
+   * @public
    */
   reportId?: string;
 }
@@ -5627,19 +5627,19 @@ export const ResourceStringComparison = {
 export type ResourceStringComparison = (typeof ResourceStringComparison)[keyof typeof ResourceStringComparison];
 
 /**
- * @public
  * <p>A resource string filter for a software bill of materials report.</p>
+ * @public
  */
 export interface ResourceStringFilter {
   /**
-   * @public
    * <p>The filter's comparison.</p>
+   * @public
    */
   comparison: ResourceStringComparison | undefined;
 
   /**
-   * @public
    * <p>The filter's value.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -5658,79 +5658,79 @@ export const ResourceMapComparison = {
 export type ResourceMapComparison = (typeof ResourceMapComparison)[keyof typeof ResourceMapComparison];
 
 /**
- * @public
  * <p>A resource map filter for a software bill of material report.</p>
+ * @public
  */
 export interface ResourceMapFilter {
   /**
-   * @public
    * <p>The filter's comparison.</p>
+   * @public
    */
   comparison: ResourceMapComparison | undefined;
 
   /**
-   * @public
    * <p>The filter's key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The filter's value.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>The resource filter criteria for a Software bill of materials (SBOM) report.</p>
+ * @public
  */
 export interface ResourceFilterCriteria {
   /**
-   * @public
    * <p>The account IDs used as resource filter criteria.</p>
+   * @public
    */
   accountId?: ResourceStringFilter[];
 
   /**
-   * @public
    * <p>The resource IDs used as resource filter criteria.</p>
+   * @public
    */
   resourceId?: ResourceStringFilter[];
 
   /**
-   * @public
    * <p>The resource types used as resource filter criteria.</p>
+   * @public
    */
   resourceType?: ResourceStringFilter[];
 
   /**
-   * @public
    * <p>The ECR repository names used as resource filter criteria.</p>
+   * @public
    */
   ecrRepositoryName?: ResourceStringFilter[];
 
   /**
-   * @public
    * <p>The Amazon Web Services Lambda function name used as resource filter criteria.</p>
+   * @public
    */
   lambdaFunctionName?: ResourceStringFilter[];
 
   /**
-   * @public
    * <p>The ECR image tags used as resource filter criteria.</p>
+   * @public
    */
   ecrImageTags?: ResourceStringFilter[];
 
   /**
-   * @public
    * <p>The EC2 instance tags used as resource filter criteria.</p>
+   * @public
    */
   ec2InstanceTags?: ResourceMapFilter[];
 
   /**
-   * @public
    * <p>The Amazon Web Services Lambda function tags used as resource filter criteria.</p>
+   * @public
    */
   lambdaFunctionTags?: ResourceMapFilter[];
 }
@@ -5740,20 +5740,20 @@ export interface ResourceFilterCriteria {
  */
 export interface CreateSbomExportRequest {
   /**
-   * @public
    * <p>The resource filter criteria for the software bill of materials (SBOM) report.</p>
+   * @public
    */
   resourceFilterCriteria?: ResourceFilterCriteria;
 
   /**
-   * @public
    * <p>The output format for the software bill of materials (SBOM) report.</p>
+   * @public
    */
   reportFormat: SbomReportFormat | undefined;
 
   /**
-   * @public
    * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
+   * @public
    */
   s3Destination: Destination | undefined;
 }
@@ -5763,8 +5763,8 @@ export interface CreateSbomExportRequest {
  */
 export interface CreateSbomExportResponse {
   /**
-   * @public
    * <p>The report ID for the software bill of materials (SBOM) report.</p>
+   * @public
    */
   reportId?: string;
 }
@@ -5783,127 +5783,127 @@ export const Currency = {
 export type Currency = (typeof Currency)[keyof typeof Currency];
 
 /**
- * @public
  * <p>The Common Vulnerability Scoring System (CVSS) version 2 details for the vulnerability.</p>
+ * @public
  */
 export interface Cvss2 {
   /**
-   * @public
    * <p>The CVSS v2 base score for the vulnerability.</p>
+   * @public
    */
   baseScore?: number;
 
   /**
-   * @public
    * <p>The scoring vector associated with the CVSS v2 score.</p>
+   * @public
    */
   scoringVector?: string;
 }
 
 /**
- * @public
  * <p>The Common Vulnerability Scoring System (CVSS) version 3 details for the vulnerability.</p>
+ * @public
  */
 export interface Cvss3 {
   /**
-   * @public
    * <p>The CVSS v3 base score for the vulnerability.</p>
+   * @public
    */
   baseScore?: number;
 
   /**
-   * @public
    * <p>The scoring vector associated with the CVSS v3 score.</p>
+   * @public
    */
   scoringVector?: string;
 }
 
 /**
- * @public
  * <p>The CVSS score for a finding.</p>
+ * @public
  */
 export interface CvssScore {
   /**
-   * @public
    * <p>The base CVSS score used for the finding.</p>
+   * @public
    */
   baseScore: number | undefined;
 
   /**
-   * @public
    * <p>The vector string of the CVSS score.</p>
+   * @public
    */
   scoringVector: string | undefined;
 
   /**
-   * @public
    * <p>The version of CVSS used for the score.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The source of the CVSS score.</p>
+   * @public
    */
   source: string | undefined;
 }
 
 /**
- * @public
  * <p>Details on adjustments Amazon Inspector made to the CVSS score for a finding.</p>
+ * @public
  */
 export interface CvssScoreAdjustment {
   /**
-   * @public
    * <p>The metric used to adjust the CVSS score.</p>
+   * @public
    */
   metric: string | undefined;
 
   /**
-   * @public
    * <p>The reason the CVSS score has been adjustment.</p>
+   * @public
    */
   reason: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the CVSS score.</p>
+ * @public
  */
 export interface CvssScoreDetails {
   /**
-   * @public
    * <p>The source for the CVSS score.</p>
+   * @public
    */
   scoreSource: string | undefined;
 
   /**
-   * @public
    * <p>The source of the CVSS data.</p>
+   * @public
    */
   cvssSource?: string;
 
   /**
-   * @public
    * <p>The CVSS version used in scoring.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The CVSS score.</p>
+   * @public
    */
   score: number | undefined;
 
   /**
-   * @public
    * <p>The vector for the CVSS score.</p>
+   * @public
    */
   scoringVector: string | undefined;
 
   /**
-   * @public
    * <p>An object that contains details about adjustment Amazon Inspector made to the CVSS score.</p>
+   * @public
    */
   adjustments?: CvssScoreAdjustment[];
 }
@@ -5933,19 +5933,19 @@ export const RelationshipStatus = {
 export type RelationshipStatus = (typeof RelationshipStatus)[keyof typeof RelationshipStatus];
 
 /**
- * @public
  * <p>Details of the Amazon Inspector delegated administrator for your organization.</p>
+ * @public
  */
 export interface DelegatedAdmin {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for your organization.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The status of the Amazon Inspector delegated administrator.</p>
+   * @public
    */
   relationshipStatus?: RelationshipStatus;
 }
@@ -5965,19 +5965,19 @@ export const DelegatedAdminStatus = {
 export type DelegatedAdminStatus = (typeof DelegatedAdminStatus)[keyof typeof DelegatedAdminStatus];
 
 /**
- * @public
  * <p>Details of the Amazon Inspector delegated administrator for your organization.</p>
+ * @public
  */
 export interface DelegatedAdminAccount {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for your organization.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The status of the Amazon Inspector delegated administrator.</p>
+   * @public
    */
   status?: DelegatedAdminStatus;
 }
@@ -5987,8 +5987,8 @@ export interface DelegatedAdminAccount {
  */
 export interface DeleteCisScanConfigurationRequest {
   /**
-   * @public
    * <p>The ARN of the CIS scan configuration.</p>
+   * @public
    */
   scanConfigurationArn: string | undefined;
 }
@@ -5998,8 +5998,8 @@ export interface DeleteCisScanConfigurationRequest {
  */
 export interface DeleteCisScanConfigurationResponse {
   /**
-   * @public
    * <p>The ARN of the CIS scan configuration.</p>
+   * @public
    */
   scanConfigurationArn: string | undefined;
 }
@@ -6009,8 +6009,8 @@ export interface DeleteCisScanConfigurationResponse {
  */
 export interface DeleteFilterRequest {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of the filter to be deleted.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -6020,8 +6020,8 @@ export interface DeleteFilterRequest {
  */
 export interface DeleteFilterResponse {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of the filter that has been deleted.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -6036,14 +6036,14 @@ export interface DescribeOrganizationConfigurationRequest {}
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * @public
    * <p>The scan types are automatically enabled for new members of your organization.</p>
+   * @public
    */
   autoEnable?: AutoEnable;
 
   /**
-   * @public
    * <p>Represents whether your organization has reached the maximum Amazon Web Services account limit for Amazon Inspector.</p>
+   * @public
    */
   maxAccountLimitReached?: boolean;
 }
@@ -6069,14 +6069,14 @@ export type ResourceScanType = (typeof ResourceScanType)[keyof typeof ResourceSc
  */
 export interface DisableRequest {
   /**
-   * @public
    * <p>An array of account IDs you want to disable Amazon Inspector scans for.</p>
+   * @public
    */
   accountIds?: string[];
 
   /**
-   * @public
    * <p>The resource scan types you want to disable.</p>
+   * @public
    */
   resourceTypes?: ResourceScanType[];
 }
@@ -6086,16 +6086,16 @@ export interface DisableRequest {
  */
 export interface DisableResponse {
   /**
-   * @public
    * <p>Information on the accounts that have had Amazon Inspector scans successfully disabled. Details are
    *          provided for each account.</p>
+   * @public
    */
   accounts: Account[] | undefined;
 
   /**
-   * @public
    * <p>Information on any accounts for which Amazon Inspector scans could not be disabled. Details are
    *          provided for each account.</p>
+   * @public
    */
   failedAccounts?: FailedAccount[];
 }
@@ -6105,8 +6105,8 @@ export interface DisableResponse {
  */
 export interface DisableDelegatedAdminAccountRequest {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the current Amazon Inspector delegated administrator.</p>
+   * @public
    */
   delegatedAdminAccountId: string | undefined;
 }
@@ -6116,8 +6116,8 @@ export interface DisableDelegatedAdminAccountRequest {
  */
 export interface DisableDelegatedAdminAccountResponse {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the successfully disabled delegated administrator.</p>
+   * @public
    */
   delegatedAdminAccountId: string | undefined;
 }
@@ -6127,8 +6127,8 @@ export interface DisableDelegatedAdminAccountResponse {
  */
 export interface DisassociateMemberRequest {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the member account to disassociate.</p>
+   * @public
    */
   accountId: string | undefined;
 }
@@ -6138,8 +6138,8 @@ export interface DisassociateMemberRequest {
  */
 export interface DisassociateMemberResponse {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the successfully disassociated member.</p>
+   * @public
    */
   accountId: string | undefined;
 }
@@ -6180,19 +6180,19 @@ export const EcrRescanDuration = {
 export type EcrRescanDuration = (typeof EcrRescanDuration)[keyof typeof EcrRescanDuration];
 
 /**
- * @public
  * <p>Details about the ECR automated re-scan duration setting for your environment.</p>
+ * @public
  */
 export interface EcrConfiguration {
   /**
-   * @public
    * <p>The rescan duration configured for image push date.</p>
+   * @public
    */
   rescanDuration: EcrRescanDuration | undefined;
 
   /**
-   * @public
    * <p>The rescan duration configured for image pull date.</p>
+   * @public
    */
   pullDateRescanDuration?: EcrPullDateRescanDuration;
 }
@@ -6213,45 +6213,45 @@ export const EcrRescanDurationStatus = {
 export type EcrRescanDurationStatus = (typeof EcrRescanDurationStatus)[keyof typeof EcrRescanDurationStatus];
 
 /**
- * @public
  * <p>Details about the state of your ECR re-scan duration settings. The ECR re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the duration configured for image pull date, and the duration configured for image pull date, the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
+ * @public
  */
 export interface EcrRescanDurationState {
   /**
-   * @public
    * <p>The rescan duration configured for image push date.
    *
    *          </p>
+   * @public
    */
   rescanDuration?: EcrRescanDuration;
 
   /**
-   * @public
    * <p>The status of changes to the ECR automated re-scan duration.</p>
+   * @public
    */
   status?: EcrRescanDurationStatus;
 
   /**
-   * @public
    * <p>A timestamp representing when the last time the ECR scan duration setting was changed.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The rescan duration configured for image pull date.</p>
+   * @public
    */
   pullDateRescanDuration?: EcrPullDateRescanDuration;
 }
 
 /**
- * @public
  * <p>Details about the state of the ECR scans for your environment.</p>
+ * @public
  */
 export interface EcrConfigurationState {
   /**
-   * @public
    * <p>An object that contains details about the state of the ECR re-scan settings.</p>
+   * @public
    */
   rescanDurationState?: EcrRescanDurationState;
 }
@@ -6261,20 +6261,20 @@ export interface EcrConfigurationState {
  */
 export interface EnableRequest {
   /**
-   * @public
    * <p>A list of account IDs you want to enable Amazon Inspector scans for.</p>
+   * @public
    */
   accountIds?: string[];
 
   /**
-   * @public
    * <p>The resource scan types you want to enable.</p>
+   * @public
    */
   resourceTypes: ResourceScanType[] | undefined;
 
   /**
-   * @public
    * <p>The idempotency token for the request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -6284,16 +6284,16 @@ export interface EnableRequest {
  */
 export interface EnableResponse {
   /**
-   * @public
    * <p>Information on the accounts that have had Amazon Inspector scans successfully enabled. Details are
    *          provided for each account.</p>
+   * @public
    */
   accounts: Account[] | undefined;
 
   /**
-   * @public
    * <p>Information on any accounts for which Amazon Inspector scans could not be enabled. Details are
    *          provided for each account.</p>
+   * @public
    */
   failedAccounts?: FailedAccount[];
 }
@@ -6303,14 +6303,14 @@ export interface EnableResponse {
  */
 export interface EnableDelegatedAdminAccountRequest {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
+   * @public
    */
   delegatedAdminAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The idempotency token for the request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -6320,44 +6320,44 @@ export interface EnableDelegatedAdminAccountRequest {
  */
 export interface EnableDelegatedAdminAccountResponse {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the successfully Amazon Inspector delegated administrator.</p>
+   * @public
    */
   delegatedAdminAccountId: string | undefined;
 }
 
 /**
- * @public
  * <p>Details about the Exploit Prediction Scoring System (EPSS) score.</p>
+ * @public
  */
 export interface Epss {
   /**
-   * @public
    * <p>The Exploit Prediction Scoring System (EPSS) score.</p>
+   * @public
    */
   score?: number;
 }
 
 /**
- * @public
  * <p>Details about the Exploit Prediction Scoring System (EPSS) score for a finding.</p>
+ * @public
  */
 export interface EpssDetails {
   /**
-   * @public
    * <p>The EPSS score.</p>
+   * @public
    */
   score?: number;
 }
 
 /**
- * @public
  * <p>The details of an exploit available for a finding discovered in your environment.</p>
+ * @public
  */
 export interface ExploitabilityDetails {
   /**
-   * @public
    * <p>The date and time of the last exploit associated with a finding discovered in your environment.</p>
+   * @public
    */
   lastKnownExploitAt?: Date;
 }
@@ -6393,67 +6393,67 @@ export const ExternalReportStatus = {
 export type ExternalReportStatus = (typeof ExternalReportStatus)[keyof typeof ExternalReportStatus];
 
 /**
- * @public
  * <p>Details about a filter.</p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) associated with this filter.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the account that created the filter.</p>
+   * @public
    */
   ownerId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the filter.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Details on the filter criteria associated with this filter.</p>
+   * @public
    */
   criteria: FilterCriteria | undefined;
 
   /**
-   * @public
    * <p>The action that is to be applied to the findings that match the filter.</p>
+   * @public
    */
   action: FilterAction | undefined;
 
   /**
-   * @public
    * <p>The date and time this filter was created at.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the filter was last updated at.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>A description of the filter.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The reason for the filter.</p>
+   * @public
    */
   reason?: string;
 
   /**
-   * @public
    * <p>The tags attached to the filter.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -6474,61 +6474,61 @@ export const FixAvailable = {
 export type FixAvailable = (typeof FixAvailable)[keyof typeof FixAvailable];
 
 /**
- * @public
  * <p>Information about the Amazon Inspector score given to a finding.</p>
+ * @public
  */
 export interface InspectorScoreDetails {
   /**
-   * @public
    * <p>An object that contains details about the CVSS score given to a finding.</p>
+   * @public
    */
   adjustedCvss?: CvssScoreDetails;
 }
 
 /**
- * @public
  * <p>Details about the step associated with a finding.</p>
+ * @public
  */
 export interface Step {
   /**
-   * @public
    * <p>The component ID.</p>
+   * @public
    */
   componentId: string | undefined;
 
   /**
-   * @public
    * <p>The component type.</p>
+   * @public
    */
   componentType: string | undefined;
 }
 
 /**
- * @public
  * <p>Information on the network path associated with a finding.</p>
+ * @public
  */
 export interface NetworkPath {
   /**
-   * @public
    * <p>The details on the steps in the network path.</p>
+   * @public
    */
   steps?: Step[];
 }
 
 /**
- * @public
  * <p>Details about the port range associated with a finding.</p>
+ * @public
  */
 export interface PortRange {
   /**
-   * @public
    * <p>The beginning port in a port range.</p>
+   * @public
    */
   begin: number | undefined;
 
   /**
-   * @public
    * <p>The ending port in a port range.</p>
+   * @public
    */
   end: number | undefined;
 }
@@ -6548,25 +6548,25 @@ export const NetworkProtocol = {
 export type NetworkProtocol = (typeof NetworkProtocol)[keyof typeof NetworkProtocol];
 
 /**
- * @public
  * <p>Contains the details of a network reachability finding.</p>
+ * @public
  */
 export interface NetworkReachabilityDetails {
   /**
-   * @public
    * <p>An object that contains details about the open port range associated with a finding.</p>
+   * @public
    */
   openPortRange: PortRange | undefined;
 
   /**
-   * @public
    * <p>The protocol associated with a finding.</p>
+   * @public
    */
   protocol: NetworkProtocol | undefined;
 
   /**
-   * @public
    * <p>An object that contains details about a network path associated with a finding.</p>
+   * @public
    */
   networkPath: NetworkPath | undefined;
 }
@@ -6601,193 +6601,193 @@ export const PackageManager = {
 export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager];
 
 /**
- * @public
  * <p>Information on the vulnerable package identified by a finding.</p>
+ * @public
  */
 export interface VulnerablePackage {
   /**
-   * @public
    * <p>The name of the vulnerable package.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The version of the vulnerable package.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The source layer hash of the vulnerable package.</p>
+   * @public
    */
   sourceLayerHash?: string;
 
   /**
-   * @public
    * <p>The epoch of the vulnerable package.</p>
+   * @public
    */
   epoch?: number;
 
   /**
-   * @public
    * <p>The release of the vulnerable package.</p>
+   * @public
    */
   release?: string;
 
   /**
-   * @public
    * <p>The architecture of the vulnerable package.</p>
+   * @public
    */
   arch?: string;
 
   /**
-   * @public
    * <p>The package manager of the vulnerable package.</p>
+   * @public
    */
   packageManager?: PackageManager;
 
   /**
-   * @public
    * <p>The file path of the vulnerable package.</p>
+   * @public
    */
   filePath?: string;
 
   /**
-   * @public
    * <p>The version of the package that contains the vulnerability fix.</p>
+   * @public
    */
   fixedInVersion?: string;
 
   /**
-   * @public
    * <p>The code to run in your environment to update packages with a fix available.</p>
+   * @public
    */
   remediation?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of the Amazon Web Services Lambda function affected by a finding.</p>
+   * @public
    */
   sourceLambdaLayerArn?: string;
 }
 
 /**
- * @public
  * <p>Information about a package vulnerability finding.</p>
+ * @public
  */
 export interface PackageVulnerabilityDetails {
   /**
-   * @public
    * <p>The ID given to this vulnerability.</p>
+   * @public
    */
   vulnerabilityId: string | undefined;
 
   /**
-   * @public
    * <p>The packages impacted by this vulnerability.</p>
+   * @public
    */
   vulnerablePackages?: VulnerablePackage[];
 
   /**
-   * @public
    * <p>The source of the vulnerability information.</p>
+   * @public
    */
   source: string | undefined;
 
   /**
-   * @public
    * <p>An object that contains details about the CVSS score of a finding.</p>
+   * @public
    */
   cvss?: CvssScore[];
 
   /**
-   * @public
    * <p>One or more vulnerabilities related to the one identified in this finding.</p>
+   * @public
    */
   relatedVulnerabilities?: string[];
 
   /**
-   * @public
    * <p>A URL to the source of the vulnerability information.</p>
+   * @public
    */
   sourceUrl?: string;
 
   /**
-   * @public
    * <p>The severity the vendor has given to this vulnerability type.</p>
+   * @public
    */
   vendorSeverity?: string;
 
   /**
-   * @public
    * <p>The date and time that this vulnerability was first added to the vendor's database.</p>
+   * @public
    */
   vendorCreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time the vendor last updated this vulnerability in their database.</p>
+   * @public
    */
   vendorUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>One or more URLs that contain details about this vulnerability type.</p>
+   * @public
    */
   referenceUrls?: string[];
 }
 
 /**
- * @public
  * <p>Details about the recommended course of action to remediate the finding.</p>
+ * @public
  */
 export interface Recommendation {
   /**
-   * @public
    * <p>The recommended course of action to remediate the finding.</p>
+   * @public
    */
   text?: string;
 
   /**
-   * @public
    * <p>The URL address to the CVE remediation recommendations.</p>
+   * @public
    */
   Url?: string;
 }
 
 /**
- * @public
  * <p>Information on how to remediate a finding.</p>
+ * @public
  */
 export interface Remediation {
   /**
-   * @public
    * <p>An object that contains information about the recommended course of action to remediate the finding.</p>
+   * @public
    */
   recommendation?: Recommendation;
 }
 
 /**
- * @public
  * <p>Contains details about the resource involved in the finding.</p>
+ * @public
  */
 export interface ResourceDetails {
   /**
-   * @public
    * <p>An object that contains details about the Amazon EC2 instance involved in the finding.</p>
+   * @public
    */
   awsEc2Instance?: AwsEc2InstanceDetails;
 
   /**
-   * @public
    * <p>An object that contains details about the Amazon ECR container image involved in the finding.</p>
+   * @public
    */
   awsEcrContainerImage?: AwsEcrContainerImageDetails;
 
   /**
-   * @public
    * <p>A summary of the information about an Amazon Web Services Lambda function affected by a finding.</p>
+   * @public
    */
   awsLambdaFunction?: AwsLambdaFunctionDetails;
 }
@@ -6809,43 +6809,43 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * @public
  * <p>Details about the resource involved in a finding.</p>
+ * @public
  */
 export interface Resource {
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   type: ResourceType | undefined;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The partition of the resource.</p>
+   * @public
    */
   partition?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region the impacted resource is located in.</p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>The tags attached to the resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>An object that contains details about the resource involved in a finding.</p>
+   * @public
    */
   details?: ResourceDetails;
 }
@@ -6899,133 +6899,133 @@ export const FindingType = {
 export type FindingType = (typeof FindingType)[keyof typeof FindingType];
 
 /**
- * @public
  * <p>Details about an Amazon Inspector finding.</p>
+ * @public
  */
 export interface Finding {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of the finding.</p>
+   * @public
    */
   findingArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID associated with the finding.</p>
+   * @public
    */
   awsAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the finding. The <code>type</code> value determines the valid values for <code>resource</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding types</a> in the Amazon Inspector user guide.</p>
+   * @public
    */
   type: FindingType | undefined;
 
   /**
-   * @public
    * <p>The description of the finding.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The title of the finding.</p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>An object that contains the details about how to remediate a finding.</p>
+   * @public
    */
   remediation: Remediation | undefined;
 
   /**
-   * @public
    * <p>The severity of the finding. <code>UNTRIAGED</code> applies to <code>PACKAGE_VULNERABILITY</code> type findings that the vendor has not assigned a severity yet. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html">Severity levels for findings</a> in the Amazon Inspector user guide.</p>
+   * @public
    */
   severity: Severity | undefined;
 
   /**
-   * @public
    * <p>The date and time that the finding was first observed.</p>
+   * @public
    */
   firstObservedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the finding was last observed.</p>
+   * @public
    */
   lastObservedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the finding was last updated at.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The status of the finding.</p>
+   * @public
    */
   status: FindingStatus | undefined;
 
   /**
-   * @public
    * <p>Contains information on the resources involved in a finding. The <code>resource</code> value determines the valid values for <code>type</code> in your request. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-types.html">Finding types</a> in the Amazon Inspector user guide.</p>
+   * @public
    */
   resources: Resource[] | undefined;
 
   /**
-   * @public
    * <p>The Amazon Inspector score given to the finding.</p>
+   * @public
    */
   inspectorScore?: number;
 
   /**
-   * @public
    * <p>An object that contains details of the Amazon Inspector score.</p>
+   * @public
    */
   inspectorScoreDetails?: InspectorScoreDetails;
 
   /**
-   * @public
    * <p>An object that contains the details of a network reachability finding.</p>
+   * @public
    */
   networkReachabilityDetails?: NetworkReachabilityDetails;
 
   /**
-   * @public
    * <p>An object that contains the details of a package vulnerability finding.</p>
+   * @public
    */
   packageVulnerabilityDetails?: PackageVulnerabilityDetails;
 
   /**
-   * @public
    * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
+   * @public
    */
   fixAvailable?: FixAvailable;
 
   /**
-   * @public
    * <p>If a finding discovered in your environment has an exploit available.</p>
+   * @public
    */
   exploitAvailable?: ExploitAvailable;
 
   /**
-   * @public
    * <p>The details of an exploit available for a finding discovered in your environment.</p>
+   * @public
    */
   exploitabilityDetails?: ExploitabilityDetails;
 
   /**
-   * @public
    * <p>Details about the code vulnerability identified in a Lambda function used to filter findings.</p>
+   * @public
    */
   codeVulnerabilityDetails?: CodeVulnerabilityDetails;
 
   /**
-   * @public
    * <p>The finding's EPSS score.</p>
+   * @public
    */
   epss?: EpssDetails;
 }
@@ -7035,14 +7035,14 @@ export interface Finding {
  */
 export interface GetCisScanReportRequest {
   /**
-   * @public
    * <p>The scan ARN.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The target accounts.</p>
+   * @public
    */
   targetAccounts?: string[];
 }
@@ -7052,16 +7052,16 @@ export interface GetCisScanReportRequest {
  */
 export interface GetCisScanReportResponse {
   /**
-   * @public
    * <p>
    *          The URL where the CIS scan report PDF can be downloaded.
    *       </p>
+   * @public
    */
   url?: string;
 
   /**
-   * @public
    * <p>The status.</p>
+   * @public
    */
   status?: CisReportStatus;
 }
@@ -7071,50 +7071,50 @@ export interface GetCisScanReportResponse {
  */
 export interface GetCisScanResultDetailsRequest {
   /**
-   * @public
    * <p>The scan ARN.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The target resource ID.</p>
+   * @public
    */
   targetResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The account ID.</p>
+   * @public
    */
   accountId: string | undefined;
 
   /**
-   * @public
    * <p>The filter criteria.</p>
+   * @public
    */
   filterCriteria?: CisScanResultDetailsFilterCriteria;
 
   /**
-   * @public
    * <p>The sort by order.</p>
+   * @public
    */
   sortBy?: CisScanResultDetailsSortBy;
 
   /**
-   * @public
    * <p>The sort order.</p>
+   * @public
    */
   sortOrder?: CisSortOrder;
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of CIS scan result details to be returned in a single page of results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7124,14 +7124,14 @@ export interface GetCisScanResultDetailsRequest {
  */
 export interface GetCisScanResultDetailsResponse {
   /**
-   * @public
    * <p>The scan result details.</p>
+   * @public
    */
   scanResultDetails?: CisScanResultDetails[];
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7146,8 +7146,8 @@ export interface GetConfigurationRequest {}
  */
 export interface GetConfigurationResponse {
   /**
-   * @public
    * <p>Specifies how the ECR automated re-scan duration is currently configured for your environment.</p>
+   * @public
    */
   ecrConfiguration?: EcrConfigurationState;
 }
@@ -7162,8 +7162,8 @@ export interface GetDelegatedAdminAccountRequest {}
  */
 export interface GetDelegatedAdminAccountResponse {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>
+   * @public
    */
   delegatedAdmin?: DelegatedAdmin;
 }
@@ -7178,26 +7178,26 @@ export interface GetEc2DeepInspectionConfigurationRequest {}
  */
 export interface GetEc2DeepInspectionConfigurationResponse {
   /**
-   * @public
    * <p>The Amazon Inspector deep inspection custom paths for your account.</p>
+   * @public
    */
   packagePaths?: string[];
 
   /**
-   * @public
    * <p>The Amazon Inspector deep inspection custom paths for your organization.</p>
+   * @public
    */
   orgPackagePaths?: string[];
 
   /**
-   * @public
    * <p>The activation status of Amazon Inspector deep inspection in your account.</p>
+   * @public
    */
   status?: Ec2DeepInspectionStatus;
 
   /**
-   * @public
    * <p>An error message explaining why Amazon Inspector deep inspection configurations could not be retrieved for your account.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -7207,14 +7207,14 @@ export interface GetEc2DeepInspectionConfigurationResponse {
  */
 export interface GetEncryptionKeyRequest {
   /**
-   * @public
    * <p>The scan type the key encrypts.</p>
+   * @public
    */
   scanType: ScanType | undefined;
 
   /**
-   * @public
    * <p>The resource type the key encrypts.</p>
+   * @public
    */
   resourceType: ResourceType | undefined;
 }
@@ -7224,8 +7224,8 @@ export interface GetEncryptionKeyRequest {
  */
 export interface GetEncryptionKeyResponse {
   /**
-   * @public
    * <p>A kms key ID.</p>
+   * @public
    */
   kmsKeyId: string | undefined;
 }
@@ -7235,8 +7235,8 @@ export interface GetEncryptionKeyResponse {
  */
 export interface GetFindingsReportStatusRequest {
   /**
-   * @public
    * <p>The ID of the report to retrieve the status of.</p>
+   * @public
    */
   reportId?: string;
 }
@@ -7264,38 +7264,38 @@ export type ReportingErrorCode = (typeof ReportingErrorCode)[keyof typeof Report
  */
 export interface GetFindingsReportStatusResponse {
   /**
-   * @public
    * <p>The ID of the report.</p>
+   * @public
    */
   reportId?: string;
 
   /**
-   * @public
    * <p>The status of the report.</p>
+   * @public
    */
   status?: ExternalReportStatus;
 
   /**
-   * @public
    * <p>The error code of the report.</p>
+   * @public
    */
   errorCode?: ReportingErrorCode;
 
   /**
-   * @public
    * <p>The error message of the report.</p>
+   * @public
    */
   errorMessage?: string;
 
   /**
-   * @public
    * <p>The destination of the report.</p>
+   * @public
    */
   destination?: Destination;
 
   /**
-   * @public
    * <p>The filter criteria associated with the report.</p>
+   * @public
    */
   filterCriteria?: FilterCriteria;
 }
@@ -7305,38 +7305,38 @@ export interface GetFindingsReportStatusResponse {
  */
 export interface GetMemberRequest {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the member account to retrieve information on.</p>
+   * @public
    */
   accountId: string | undefined;
 }
 
 /**
- * @public
  * <p>Details on a member account in your organization.</p>
+ * @public
  */
 export interface Member {
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the member account.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The status of the member account.</p>
+   * @public
    */
   relationshipStatus?: RelationshipStatus;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for this member account.</p>
+   * @public
    */
   delegatedAdminAccountId?: string;
 
   /**
-   * @public
    * <p>A timestamp showing when the status of this member was last updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -7346,8 +7346,8 @@ export interface Member {
  */
 export interface GetMemberResponse {
   /**
-   * @public
    * <p>Details of the retrieved member account.</p>
+   * @public
    */
   member?: Member;
 }
@@ -7357,8 +7357,8 @@ export interface GetMemberResponse {
  */
 export interface GetSbomExportRequest {
   /**
-   * @public
    * <p>The report ID of the SBOM export to get details for.</p>
+   * @public
    */
   reportId: string | undefined;
 }
@@ -7368,44 +7368,44 @@ export interface GetSbomExportRequest {
  */
 export interface GetSbomExportResponse {
   /**
-   * @public
    * <p>The report ID of the software bill of materials (SBOM) report.</p>
+   * @public
    */
   reportId?: string;
 
   /**
-   * @public
    * <p>The format of the software bill of materials (SBOM) report.</p>
+   * @public
    */
   format?: SbomReportFormat;
 
   /**
-   * @public
    * <p>The status of the software bill of materials (SBOM) report.</p>
+   * @public
    */
   status?: ExternalReportStatus;
 
   /**
-   * @public
    * <p>An error code.</p>
+   * @public
    */
   errorCode?: ReportingErrorCode;
 
   /**
-   * @public
    * <p>An error message.</p>
+   * @public
    */
   errorMessage?: string;
 
   /**
-   * @public
    * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings.</p>
+   * @public
    */
   s3Destination?: Destination;
 
   /**
-   * @public
    * <p>Contains details about the resource filter criteria used for the software bill of materials (SBOM) report.</p>
+   * @public
    */
   filterCriteria?: ResourceFilterCriteria;
 }
@@ -7430,20 +7430,20 @@ export type Service = (typeof Service)[keyof typeof Service];
  */
 export interface ListAccountPermissionsRequest {
   /**
-   * @public
    * <p>The service scan type to check permissions for.</p>
+   * @public
    */
   service?: Service;
 
   /**
-   * @public
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7465,19 +7465,19 @@ export const Operation = {
 export type Operation = (typeof Operation)[keyof typeof Operation];
 
 /**
- * @public
  * <p>Contains information on the permissions an account has within Amazon Inspector.</p>
+ * @public
  */
 export interface Permission {
   /**
-   * @public
    * <p>The services that the permissions allow an account to perform the given operations for.</p>
+   * @public
    */
   service: Service | undefined;
 
   /**
-   * @public
    * <p>The operations that can be performed with the given permissions.</p>
+   * @public
    */
   operation: Operation | undefined;
 }
@@ -7487,41 +7487,41 @@ export interface Permission {
  */
 export interface ListAccountPermissionsResponse {
   /**
-   * @public
    * <p>Contains details on the permissions an account has to configure Amazon Inspector.</p>
+   * @public
    */
   permissions: Permission[] | undefined;
 
   /**
-   * @public
    * <p>A token to use for paginating results that are returned in the response. Set the value
    *          of this parameter to null for the first request to a list action. For subsequent calls, use
    *          the <code>NextToken</code> value returned from the previous request to continue listing
    *          results after the first page.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A list of CIS scan configurations filter criteria.</p>
+ * @public
  */
 export interface ListCisScanConfigurationsFilterCriteria {
   /**
-   * @public
    * <p>The list of scan name filters.</p>
+   * @public
    */
   scanNameFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The list of target resource tag filters.</p>
+   * @public
    */
   targetResourceTagFilters?: TagFilter[];
 
   /**
-   * @public
    * <p>The list of scan configuration ARN filters.</p>
+   * @public
    */
   scanConfigurationArnFilters?: CisStringFilter[];
 }
@@ -7531,32 +7531,32 @@ export interface ListCisScanConfigurationsFilterCriteria {
  */
 export interface ListCisScanConfigurationsRequest {
   /**
-   * @public
    * <p>The CIS scan configuration filter criteria.</p>
+   * @public
    */
   filterCriteria?: ListCisScanConfigurationsFilterCriteria;
 
   /**
-   * @public
    * <p>The CIS scan configuration sort by order.</p>
+   * @public
    */
   sortBy?: CisScanConfigurationsSortBy;
 
   /**
-   * @public
    * <p>The CIS scan configuration sort order order.</p>
+   * @public
    */
   sortOrder?: CisSortOrder;
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of CIS scan configurations to be returned in a single page of results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7566,14 +7566,14 @@ export interface ListCisScanConfigurationsRequest {
  */
 export interface ListCisScanConfigurationsResponse {
   /**
-   * @public
    * <p>The CIS scan configuration scan configurations.</p>
+   * @public
    */
   scanConfigurations?: CisScanConfiguration[];
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7583,38 +7583,38 @@ export interface ListCisScanConfigurationsResponse {
  */
 export interface ListCisScanResultsAggregatedByChecksRequest {
   /**
-   * @public
    * <p>The scan ARN.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The filter criteria.</p>
+   * @public
    */
   filterCriteria?: CisScanResultsAggregatedByChecksFilterCriteria;
 
   /**
-   * @public
    * <p>The sort by order.</p>
+   * @public
    */
   sortBy?: CisScanResultsAggregatedByChecksSortBy;
 
   /**
-   * @public
    * <p>The sort order.</p>
+   * @public
    */
   sortOrder?: CisSortOrder;
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of scan results aggregated by checks to be returned in a single page of results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7624,14 +7624,14 @@ export interface ListCisScanResultsAggregatedByChecksRequest {
  */
 export interface ListCisScanResultsAggregatedByChecksResponse {
   /**
-   * @public
    * <p>The check aggregations.</p>
+   * @public
    */
   checkAggregations?: CisCheckAggregation[];
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7641,38 +7641,38 @@ export interface ListCisScanResultsAggregatedByChecksResponse {
  */
 export interface ListCisScanResultsAggregatedByTargetResourceRequest {
   /**
-   * @public
    * <p>The scan ARN.</p>
+   * @public
    */
   scanArn: string | undefined;
 
   /**
-   * @public
    * <p>The filter criteria.</p>
+   * @public
    */
   filterCriteria?: CisScanResultsAggregatedByTargetResourceFilterCriteria;
 
   /**
-   * @public
    * <p>The sort by order.</p>
+   * @public
    */
   sortBy?: CisScanResultsAggregatedByTargetResourceSortBy;
 
   /**
-   * @public
    * <p>The sort order.</p>
+   * @public
    */
   sortOrder?: CisSortOrder;
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of scan results aggregated by a target resource to be returned in a single page of results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7682,14 +7682,14 @@ export interface ListCisScanResultsAggregatedByTargetResourceRequest {
  */
 export interface ListCisScanResultsAggregatedByTargetResourceResponse {
   /**
-   * @public
    * <p>The resource aggregations.</p>
+   * @public
    */
   targetResourceAggregations?: CisTargetResourceAggregation[];
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7709,67 +7709,67 @@ export const ListCisScansDetailLevel = {
 export type ListCisScansDetailLevel = (typeof ListCisScansDetailLevel)[keyof typeof ListCisScansDetailLevel];
 
 /**
- * @public
  * <p>A list of CIS scans filter criteria.</p>
+ * @public
  */
 export interface ListCisScansFilterCriteria {
   /**
-   * @public
    * <p>The list of scan name filters.</p>
+   * @public
    */
   scanNameFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The list of target resource tag filters.</p>
+   * @public
    */
   targetResourceTagFilters?: TagFilter[];
 
   /**
-   * @public
    * <p>The list of target resource ID filters.</p>
+   * @public
    */
   targetResourceIdFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The list of scan status filters.</p>
+   * @public
    */
   scanStatusFilters?: CisScanStatusFilter[];
 
   /**
-   * @public
    * <p>The list of scan at filters.</p>
+   * @public
    */
   scanAtFilters?: CisDateFilter[];
 
   /**
-   * @public
    * <p>The list of scan configuration ARN filters.</p>
+   * @public
    */
   scanConfigurationArnFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The list of scan ARN filters.</p>
+   * @public
    */
   scanArnFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The list of scheduled by filters.</p>
+   * @public
    */
   scheduledByFilters?: CisStringFilter[];
 
   /**
-   * @public
    * <p>The list of failed checks filters.</p>
+   * @public
    */
   failedChecksFilters?: CisNumberFilter[];
 
   /**
-   * @public
    * <p>The list of target account ID filters.</p>
+   * @public
    */
   targetAccountIdFilters?: CisStringFilter[];
 }
@@ -7795,38 +7795,38 @@ export type ListCisScansSortBy = (typeof ListCisScansSortBy)[keyof typeof ListCi
  */
 export interface ListCisScansRequest {
   /**
-   * @public
    * <p>The CIS scan filter criteria.</p>
+   * @public
    */
   filterCriteria?: ListCisScansFilterCriteria;
 
   /**
-   * @public
    * <p>The detail applied to the CIS scan.</p>
+   * @public
    */
   detailLevel?: ListCisScansDetailLevel;
 
   /**
-   * @public
    * <p>The CIS scans sort by order.</p>
+   * @public
    */
   sortBy?: ListCisScansSortBy;
 
   /**
-   * @public
    * <p>The CIS scans sort order.</p>
+   * @public
    */
   sortOrder?: CisSortOrder;
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be returned.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7836,14 +7836,14 @@ export interface ListCisScansRequest {
  */
 export interface ListCisScansResponse {
   /**
-   * @public
    * <p>The CIS scans.</p>
+   * @public
    */
   scans?: CisScan[];
 
   /**
-   * @public
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }

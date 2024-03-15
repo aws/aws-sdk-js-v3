@@ -27,9 +27,6 @@ export interface GetInvitationConfigurationCommandInput extends GetInvitationCon
 export interface GetInvitationConfigurationCommandOutput extends GetInvitationConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Retrieves the configured values for the user enrollment invitation email
  *          template.</p>
  * @example
@@ -63,6 +60,8 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class GetInvitationConfigurationCommand extends $Command
   .classBuilder<

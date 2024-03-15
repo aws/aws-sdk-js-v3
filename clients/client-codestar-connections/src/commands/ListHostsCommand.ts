@@ -31,7 +31,6 @@ export interface ListHostsCommandInput extends ListHostsInput {}
 export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the hosts associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class ListHostsCommand extends $Command
   .classBuilder<

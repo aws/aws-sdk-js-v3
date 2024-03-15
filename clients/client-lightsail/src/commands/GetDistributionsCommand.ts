@@ -27,7 +27,6 @@ export interface GetDistributionsCommandInput extends GetDistributionsRequest {}
 export interface GetDistributionsCommandOutput extends GetDistributionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one or more of your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
  * @example
@@ -153,6 +152,7 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetDistributionsCommand extends $Command
   .classBuilder<

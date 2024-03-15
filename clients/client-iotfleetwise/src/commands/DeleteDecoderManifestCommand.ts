@@ -27,7 +27,6 @@ export interface DeleteDecoderManifestCommandInput extends DeleteDecoderManifest
 export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a decoder manifest. You can't delete a decoder manifest if it has vehicles
  *             associated with it. </p>
  *          <note>
@@ -77,6 +76,7 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class DeleteDecoderManifestCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartFlywheelIterationCommandInput extends StartFlywheelIterati
 export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start the flywheel iteration.This operation uses any new datasets to train a new model version.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -75,6 +74,7 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartFlywheelIterationCommand extends $Command
   .classBuilder<

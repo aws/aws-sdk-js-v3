@@ -31,7 +31,6 @@ export interface DeregisterScalableTargetCommandInput extends DeregisterScalable
 export interface DeregisterScalableTargetCommandOutput extends DeregisterScalableTargetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which
  *          resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. </p>
  *          <note>
@@ -82,6 +81,7 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To deregister a scalable target
  * ```javascript
  * // This example deregisters a scalable target for an Amazon ECS service called web-app that is running in the default cluster.

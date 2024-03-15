@@ -38,7 +38,6 @@ export interface PostToConnectionCommandInput extends PostToConnectionCommandInp
 export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends the provided data to the specified connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayManagementApiServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
+ * @public
  */
 export class PostToConnectionCommand extends $Command
   .classBuilder<

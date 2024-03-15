@@ -31,7 +31,6 @@ export interface CreateEnvironmentEC2CommandInput extends CreateEnvironmentEC2Re
 export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2Result, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and
  *       then connects from the instance to the environment.</p>
  * @example
@@ -96,6 +95,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example CreateEnvironmentEC2
  * ```javascript
  * //

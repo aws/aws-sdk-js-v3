@@ -36,7 +36,6 @@ export interface ListChannelFlowsCommandInput extends ListChannelFlowsRequest {}
 export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListChannelFlowsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateMembersCommandInput extends CreateMembersRequest {}
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a member association in Security Hub between the specified accounts and the account
  *          used to make the request, which is the administrator account. If you are integrated with
  *          Organizations, then the administrator account is designated by the organization management account.</p>
@@ -119,6 +118,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To add a member account
  * ```javascript
  * // The following example creates a member association between the specified accounts and the administrator account (the account that makes the request). This operation is used to add accounts that aren't part of an organization.

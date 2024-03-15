@@ -27,7 +27,6 @@ export interface ListBotReplicasCommandInput extends ListBotReplicasRequest {}
 export interface ListBotReplicasCommandOutput extends ListBotReplicasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The action to list the replicated bots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListBotReplicasCommandOutput extends ListBotReplicasResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotReplicasCommand extends $Command
   .classBuilder<

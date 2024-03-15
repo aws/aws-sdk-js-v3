@@ -25,7 +25,6 @@ export interface XmlMapsCommandInput extends XmlMapsRequest {}
 export interface XmlMapsCommandOutput extends XmlMapsResponse, __MetadataBearer {}
 
 /**
- * @public
  * The example tests basic map serialization.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface XmlMapsCommandOutput extends XmlMapsResponse, __MetadataBearer 
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlMapsCommand extends $Command
   .classBuilder<

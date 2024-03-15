@@ -27,7 +27,6 @@ export interface DeleteAppCommandInput extends DeleteAppRequest {}
 export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing Amplify app specified by an app ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class DeleteAppCommand extends $Command
   .classBuilder<

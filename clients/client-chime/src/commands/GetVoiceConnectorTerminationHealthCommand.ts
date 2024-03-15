@@ -35,9 +35,6 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace
- *
  * <important>
  *             <p>
  *                <b>This API is is no longer supported and will not be updated.</b> We recommend using the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTerminationHealth.html">GetVoiceConnectorTerminationHealth</a>, in the Amazon Chime SDK.</p>
@@ -97,6 +94,8 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace
  */
 export class GetVoiceConnectorTerminationHealthCommand extends $Command
   .classBuilder<

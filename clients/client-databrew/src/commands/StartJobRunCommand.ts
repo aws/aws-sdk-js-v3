@@ -27,7 +27,6 @@ export interface StartJobRunCommandInput extends StartJobRunRequest {}
 export interface StartJobRunCommandOutput extends StartJobRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs a DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class StartJobRunCommand extends $Command
   .classBuilder<

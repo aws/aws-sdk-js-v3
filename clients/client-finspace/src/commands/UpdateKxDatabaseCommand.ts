@@ -27,7 +27,6 @@ export interface UpdateKxDatabaseCommandInput extends UpdateKxDatabaseRequest {}
 export interface UpdateKxDatabaseCommandOutput extends UpdateKxDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information for the given kdb database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateKxDatabaseCommandOutput extends UpdateKxDatabaseResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxDatabaseCommand extends $Command
   .classBuilder<

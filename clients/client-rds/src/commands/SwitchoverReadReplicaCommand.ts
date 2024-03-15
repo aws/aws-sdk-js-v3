@@ -27,7 +27,6 @@ export interface SwitchoverReadReplicaCommandInput extends SwitchoverReadReplica
 export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplicaResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new
  *             primary database. Issue this command in the Region that hosts the current standby database.</p>
  * @example
@@ -285,6 +284,7 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class SwitchoverReadReplicaCommand extends $Command
   .classBuilder<

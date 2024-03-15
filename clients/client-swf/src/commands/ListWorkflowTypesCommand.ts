@@ -27,7 +27,6 @@ export interface ListWorkflowTypesCommandInput extends ListWorkflowTypesInput {}
 export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about workflow types in the specified domain. The results may be
  *       split into multiple pages that can be retrieved by making the call repeatedly.</p>
  *          <p>
@@ -102,6 +101,7 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class ListWorkflowTypesCommand extends $Command
   .classBuilder<

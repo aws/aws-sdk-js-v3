@@ -31,7 +31,6 @@ export interface CreateBucketAccessKeyCommandInput extends CreateBucketAccessKey
 export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKeyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new access key for the specified Amazon Lightsail bucket. Access keys consist of
  *       an access key ID and corresponding secret access key.</p>
  *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
@@ -122,6 +121,7 @@ export interface CreateBucketAccessKeyCommandOutput extends CreateBucketAccessKe
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateBucketAccessKeyCommand extends $Command
   .classBuilder<

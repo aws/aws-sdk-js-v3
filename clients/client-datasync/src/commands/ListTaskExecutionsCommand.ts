@@ -27,7 +27,6 @@ export interface ListTaskExecutionsCommandInput extends ListTaskExecutionsReques
 export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of executions for an DataSync transfer task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class ListTaskExecutionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeThingCommandInput extends DescribeThingRequest {}
 export interface DescribeThingCommandOutput extends DescribeThingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThing</a> action.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DescribeThingCommandOutput extends DescribeThingResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeThingCommand extends $Command
   .classBuilder<

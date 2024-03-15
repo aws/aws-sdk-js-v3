@@ -35,7 +35,6 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>You can call <a>DescribeValidDBInstanceModifications</a>
  *       to learn what modifications you can make to your DB instance. You can use this
  *       information when you call <a>ModifyDBInstance</a>.</p>
@@ -98,6 +97,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command
   .classBuilder<

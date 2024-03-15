@@ -31,7 +31,6 @@ export interface GetNetworkCommandInput extends GetNetworkInput {}
 export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about a network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -107,6 +106,7 @@ export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class GetNetworkCommand extends $Command
   .classBuilder<

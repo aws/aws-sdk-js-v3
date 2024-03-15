@@ -27,7 +27,6 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists summary information for all the services that are associated with one or more
  *    specified namespaces.</p>
  * @example
@@ -100,6 +99,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: List services
  * ```javascript
  * // Example: List services

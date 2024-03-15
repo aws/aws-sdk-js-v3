@@ -27,7 +27,6 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteEventSubscriptionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeVirtualRouterCommandInput extends DescribeVirtualRouter
 export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRouterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing virtual router.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRoute
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DescribeVirtualRouterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeletePipelineCommandInput extends DeletePipelineInput {}
 export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a pipeline, its pipeline definition, and its run history.
  *            AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.</p>
  *         <p>Deleting a pipeline cannot be undone. You cannot query or restore a deleted pipeline.
@@ -93,6 +92,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class DeletePipelineCommand extends $Command
   .classBuilder<

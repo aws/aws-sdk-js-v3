@@ -36,7 +36,6 @@ export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>For a given maintenance window execution, lists the tasks that were run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface DescribeMaintenanceWindowExecutionTasksCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command
   .classBuilder<

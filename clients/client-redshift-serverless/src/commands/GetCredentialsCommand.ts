@@ -35,7 +35,6 @@ export interface GetCredentialsCommandInput extends GetCredentialsRequest {}
 export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a database user name and temporary password with
  *          temporary authorization to log in to Amazon Redshift Serverless.</p>
  *          <p>By default, the temporary credentials expire in 900 seconds.
@@ -88,6 +87,7 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class GetCredentialsCommand extends $Command
   .classBuilder<

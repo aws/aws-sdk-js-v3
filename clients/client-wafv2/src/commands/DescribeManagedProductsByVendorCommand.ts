@@ -32,7 +32,6 @@ export interface DescribeManagedProductsByVendorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides high-level information for the managed rule groups owned by a specific vendor.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeManagedProductsByVendorCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DescribeManagedProductsByVendorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListIngestionsCommandInput extends ListIngestionsRequest {}
 export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all ingestions configured for an app bundle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class ListIngestionsCommand extends $Command
   .classBuilder<

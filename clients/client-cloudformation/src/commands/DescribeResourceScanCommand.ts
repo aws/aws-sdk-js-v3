@@ -27,7 +27,6 @@ export interface DescribeResourceScanCommandInput extends DescribeResourceScanIn
 export interface DescribeResourceScanCommandOutput extends DescribeResourceScanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes details of a resource scan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DescribeResourceScanCommandOutput extends DescribeResourceScanO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To describe a selected resource scan
  * ```javascript
  * // This example describes a selected resource scan

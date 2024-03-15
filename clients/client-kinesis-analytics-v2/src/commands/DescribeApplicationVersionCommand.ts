@@ -31,7 +31,6 @@ export interface DescribeApplicationVersionCommandInput extends DescribeApplicat
 export interface DescribeApplicationVersionCommandOutput extends DescribeApplicationVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a detailed description of a specified version of the application. To see a list of all the versions of an application, invoke the <a>ListApplicationVersions</a> operation.</p>
  *          <note>
  *             <p>This operation is supported only for Managed Service for Apache Flink.</p>
@@ -307,6 +306,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class DescribeApplicationVersionCommand extends $Command
   .classBuilder<

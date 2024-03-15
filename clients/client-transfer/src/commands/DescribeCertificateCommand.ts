@@ -31,7 +31,6 @@ export interface DescribeCertificateCommandInput extends DescribeCertificateRequ
 export interface DescribeCertificateCommandOutput extends DescribeCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeCertificateCommand extends $Command
   .classBuilder<

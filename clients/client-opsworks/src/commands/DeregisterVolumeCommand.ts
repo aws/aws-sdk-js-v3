@@ -27,7 +27,6 @@ export interface DeregisterVolumeCommandInput extends DeregisterVolumeRequest {}
 export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
  *         Management</a>.</p>
@@ -66,6 +65,7 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeregisterVolumeCommand extends $Command
   .classBuilder<

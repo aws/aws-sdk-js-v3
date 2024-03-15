@@ -27,7 +27,6 @@ export interface UnassignInstanceCommandInput extends UnassignInstanceRequest {}
 export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Unassigns a registered instance from all layers that are using the instance.
  *           The instance remains in the stack as an unassigned instance, and can be assigned to
  *           another layer as needed. You cannot use this action with instances that were created
@@ -67,6 +66,7 @@ export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class UnassignInstanceCommand extends $Command
   .classBuilder<

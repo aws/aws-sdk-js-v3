@@ -27,7 +27,6 @@ export interface ListIndicesCommandInput extends ListIndicesRequest {}
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Q indices you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ListIndicesCommand extends $Command
   .classBuilder<

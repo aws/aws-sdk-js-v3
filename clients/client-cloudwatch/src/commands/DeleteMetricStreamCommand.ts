@@ -27,7 +27,6 @@ export interface DeleteMetricStreamCommandInput extends DeleteMetricStreamInput 
 export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes the metric stream that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DeleteMetricStreamCommand extends $Command
   .classBuilder<

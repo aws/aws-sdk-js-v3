@@ -27,7 +27,6 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a continuous deployment for a target, which is a Greengrass core device or group of core
  *       devices. When you add a new core device to a group of core devices that has a deployment, IoT Greengrass
  *       deploys that group's deployment to the new device.</p>
@@ -154,6 +153,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class CreateDeploymentCommand extends $Command
   .classBuilder<

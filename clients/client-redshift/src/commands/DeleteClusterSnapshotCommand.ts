@@ -27,7 +27,6 @@ export interface DeleteClusterSnapshotCommandInput extends DeleteClusterSnapshot
 export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified manual snapshot. The snapshot must be in the
  *                 <code>available</code> state, with no other users authorized to access the snapshot. </p>
  *          <p>Unlike automated snapshots, manual snapshots are retained even after you delete
@@ -118,6 +117,7 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteClusterSnapshotCommand extends $Command
   .classBuilder<

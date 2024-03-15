@@ -27,7 +27,6 @@ export interface DescribeVirtualGatewayCommandInput extends DescribeVirtualGatew
 export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing virtual gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -213,6 +212,7 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DescribeVirtualGatewayCommand extends $Command
   .classBuilder<

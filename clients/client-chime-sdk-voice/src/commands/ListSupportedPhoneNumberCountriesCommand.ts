@@ -35,7 +35,6 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the countries that you can order phone numbers from.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class ListSupportedPhoneNumberCountriesCommand extends $Command
   .classBuilder<

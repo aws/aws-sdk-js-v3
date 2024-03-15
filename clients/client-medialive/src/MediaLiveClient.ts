@@ -520,8 +520,8 @@ export type MediaLiveClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface MediaLiveClientResolvedConfig extends MediaLiveClientResolvedConfigType {}
 
 /**
- * @public
  * API for AWS Elemental MediaLive
+ * @public
  */
 export class MediaLiveClient extends __Client<
   __HttpHandlerOptions,

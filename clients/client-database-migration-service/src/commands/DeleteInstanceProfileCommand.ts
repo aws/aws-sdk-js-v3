@@ -31,7 +31,6 @@ export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfile
 export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified instance profile.</p>
  *          <note>
  *             <p>All migration projects associated with the instance profile must be deleted or modified
@@ -86,6 +85,7 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Instance Profile
  * ```javascript
  * // Deletes the specified instance profile.

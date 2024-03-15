@@ -35,7 +35,6 @@ export interface GetPolicyTemplateCommandInput extends GetPolicyTemplateInput {}
 export interface GetPolicyTemplateCommandOutput extends GetPolicyTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the details for the specified policy template in the specified policy store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -165,6 +164,7 @@ export interface GetPolicyTemplateCommandOutput extends GetPolicyTemplateOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class GetPolicyTemplateCommand extends $Command
   .classBuilder<

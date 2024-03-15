@@ -309,7 +309,6 @@ export type ResourceGroupsClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface ResourceGroupsClientResolvedConfig extends ResourceGroupsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Resource Groups lets you organize Amazon Web Services resources such as Amazon Elastic Compute Cloud instances, Amazon Relational Database Service
  *             databases, and Amazon Simple Storage Service buckets into groups using criteria that you define as tags. A
  *             resource group is a collection of resources that match the resource types specified in a
@@ -344,6 +343,7 @@ export interface ResourceGroupsClientResolvedConfig extends ResourceGroupsClient
  *                <p>Searching Amazon Web Services resources based on a resource query</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class ResourceGroupsClient extends __Client<
   __HttpHandlerOptions,

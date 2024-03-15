@@ -27,7 +27,6 @@ export interface DeleteViewVersionCommandInput extends DeleteViewVersionRequest 
 export interface DeleteViewVersionCommandOutput extends DeleteViewVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the particular version specified in <code>ViewVersion</code> identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteViewVersionCommandOutput extends DeleteViewVersionRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteViewVersionCommand extends $Command
   .classBuilder<

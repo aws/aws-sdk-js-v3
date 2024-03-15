@@ -30,7 +30,6 @@ export interface UpdatePrivacyBudgetTemplateCommandInput extends UpdatePrivacyBu
 export interface UpdatePrivacyBudgetTemplateCommandOutput extends UpdatePrivacyBudgetTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the privacy budget template for the specified membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdatePrivacyBudgetTemplateCommandOutput extends UpdatePrivacyB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class UpdatePrivacyBudgetTemplateCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface ListMultiRegionAccessPointsCommandInput extends ListMultiRegion
 export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegionAccessPointsResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -111,6 +110,7 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class ListMultiRegionAccessPointsCommand extends $Command
   .classBuilder<

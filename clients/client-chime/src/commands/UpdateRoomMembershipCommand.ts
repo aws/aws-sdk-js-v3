@@ -31,7 +31,6 @@ export interface UpdateRoomMembershipCommandInput extends UpdateRoomMembershipRe
 export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates room membership details, such as the member role, for a room in an Amazon Chime
  *             Enterprise account. The member role designates whether the member is a chat room
  *             administrator or a general chat room member. The member role can be updated only for
@@ -98,6 +97,7 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class UpdateRoomMembershipCommand extends $Command
   .classBuilder<

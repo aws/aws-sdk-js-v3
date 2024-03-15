@@ -31,7 +31,6 @@ export interface CreateConfigurationSetCommandInput extends CreateConfigurationS
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new configuration set. After you create the configuration set, you can add
  *             one or more event destinations to it.</p>
  *          <p>A configuration set is a set of rules that you apply to the SMS and voice messages
@@ -102,6 +101,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetCommand extends $Command
   .classBuilder<

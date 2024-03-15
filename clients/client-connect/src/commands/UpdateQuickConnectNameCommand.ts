@@ -27,7 +27,6 @@ export interface UpdateQuickConnectNameCommandInput extends UpdateQuickConnectNa
 export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateQuickConnectNameCommand extends $Command
   .classBuilder<

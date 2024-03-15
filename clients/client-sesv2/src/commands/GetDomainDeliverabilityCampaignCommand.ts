@@ -32,7 +32,6 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for.</p>
@@ -90,6 +89,7 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetDomainDeliverabilityCampaignCommand extends $Command
   .classBuilder<

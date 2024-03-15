@@ -36,7 +36,6 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides organization conformance pack deployment status for an organization. </p>
  *          <note>
  *             <p>The status is not considered successful until organization conformance pack is successfully
@@ -117,6 +116,7 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConformancePackStatusesCommand extends $Command
   .classBuilder<

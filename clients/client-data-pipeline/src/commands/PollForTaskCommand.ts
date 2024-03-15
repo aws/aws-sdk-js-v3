@@ -27,7 +27,6 @@ export interface PollForTaskCommandInput extends PollForTaskInput {}
 export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform
  *             by setting a value for the <code>workerGroup</code> parameter. The task returned can come from any of the pipelines that
  *             match the <code>workerGroup</code> value passed in by the task runner and that was launched using the IAM user credentials
@@ -164,6 +163,7 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class PollForTaskCommand extends $Command
   .classBuilder<

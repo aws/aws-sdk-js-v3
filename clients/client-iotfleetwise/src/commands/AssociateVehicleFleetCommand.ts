@@ -27,7 +27,6 @@ export interface AssociateVehicleFleetCommandInput extends AssociateVehicleFleet
 export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Adds, or associates, a vehicle with a fleet. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface AssociateVehicleFleetCommandOutput extends AssociateVehicleFlee
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class AssociateVehicleFleetCommand extends $Command
   .classBuilder<

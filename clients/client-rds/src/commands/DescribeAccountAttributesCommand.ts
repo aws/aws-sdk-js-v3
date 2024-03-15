@@ -28,7 +28,6 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends AccountAttributesMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p>
  *          <p>This command doesn't take any parameters.</p>
  * @example
@@ -61,6 +60,7 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe account attributes
  * ```javascript
  * // The following example retrieves the attributes for the current AWS account.

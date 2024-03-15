@@ -27,7 +27,6 @@ export interface CreateWorkspaceBundleCommandInput extends CreateWorkspaceBundle
 export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html">
  *             Create a Custom WorkSpaces Image and Bundle</a>.</p>
@@ -111,6 +110,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateWorkspaceBundleCommand extends $Command
   .classBuilder<

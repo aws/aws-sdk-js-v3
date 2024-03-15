@@ -37,7 +37,6 @@ export interface InstantiateSolNetworkInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Instantiates a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  *          <p>Before you can instantiate a network instance, you have to create a network instance. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_CreateSolNetworkInstance.html">CreateSolNetworkInstance</a>.</p>
@@ -93,6 +92,7 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class InstantiateSolNetworkInstanceCommand extends $Command
   .classBuilder<

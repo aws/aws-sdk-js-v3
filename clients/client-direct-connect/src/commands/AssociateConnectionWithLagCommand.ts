@@ -27,7 +27,6 @@ export interface AssociateConnectionWithLagCommandInput extends AssociateConnect
 export interface AssociateConnectionWithLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an existing connection with a link aggregation group (LAG). The connection
  *       is interrupted and re-established as a member of the LAG (connectivity to Amazon Web Services is
  *       interrupted). The connection must be hosted on the same Direct Connect endpoint as the LAG, and its
@@ -108,6 +107,7 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class AssociateConnectionWithLagCommand extends $Command
   .classBuilder<

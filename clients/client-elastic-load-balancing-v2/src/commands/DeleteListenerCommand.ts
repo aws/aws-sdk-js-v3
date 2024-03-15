@@ -31,7 +31,6 @@ export interface DeleteListenerCommandInput extends DeleteListenerInput {}
 export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified listener.</p>
  *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
  *         attached.</p>
@@ -65,6 +64,7 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To delete a listener
  * ```javascript
  * // This example deletes the specified listener.

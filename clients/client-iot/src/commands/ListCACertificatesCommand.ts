@@ -27,7 +27,6 @@ export interface ListCACertificatesCommandInput extends ListCACertificatesReques
 export interface ListCACertificatesCommandOutput extends ListCACertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the CA certificates registered for your Amazon Web Services account.</p>
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
@@ -84,6 +83,7 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListCACertificatesCommand extends $Command
   .classBuilder<

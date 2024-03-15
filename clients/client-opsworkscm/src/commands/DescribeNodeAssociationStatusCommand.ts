@@ -36,7 +36,6 @@ export interface DescribeNodeAssociationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns the current status of an existing association or disassociation request.
  *     </p>
@@ -85,6 +84,7 @@ export interface DescribeNodeAssociationStatusCommandOutput
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DescribeNodeAssociationStatusCommand extends $Command
   .classBuilder<

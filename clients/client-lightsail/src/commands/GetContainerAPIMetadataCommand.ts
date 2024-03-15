@@ -27,7 +27,6 @@ export interface GetContainerAPIMetadataCommandInput extends GetContainerAPIMeta
 export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about Amazon Lightsail containers, such as the current version of the
  *       Lightsail Control (lightsailctl) plugin.</p>
  * @example
@@ -68,6 +67,7 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetContainerAPIMetadataCommand extends $Command
   .classBuilder<

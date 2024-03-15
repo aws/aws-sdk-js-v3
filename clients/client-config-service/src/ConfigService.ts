@@ -2122,7 +2122,6 @@ export interface ConfigService {
 }
 
 /**
- * @public
  * <fullname>Config</fullname>
  *          <p>Config provides a way to keep track of the configurations
  * 			of all the Amazon Web Services resources associated with your Amazon Web Services account. You can
@@ -2144,6 +2143,7 @@ export interface ConfigService {
  * 			about Config features and their associated actions or commands,
  * 			as well as how to work with Amazon Web Services Management Console, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html">What Is Config</a> in the <i>Config Developer
  * 				Guide</i>.</p>
+ * @public
  */
 export class ConfigService extends ConfigServiceClient implements ConfigService {}
 createAggregatedClient(commands, ConfigService);

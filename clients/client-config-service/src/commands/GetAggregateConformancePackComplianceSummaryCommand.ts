@@ -36,7 +36,6 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the count of compliant and noncompliant conformance packs across all Amazon Web Services accounts and Amazon Web Services Regions in an aggregator. You can filter based on Amazon Web Services account ID or Amazon Web Services Region.</p>
  *          <note>
  *             <p>The results can return an empty result page, but if you have a nextToken, the results are displayed on the next page.</p>
@@ -100,6 +99,7 @@ export interface GetAggregateConformancePackComplianceSummaryCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetAggregateConformancePackComplianceSummaryCommand extends $Command
   .classBuilder<

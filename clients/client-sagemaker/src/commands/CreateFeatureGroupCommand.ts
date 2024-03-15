@@ -27,7 +27,6 @@ export interface CreateFeatureGroupCommandInput extends CreateFeatureGroupReques
 export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new <code>FeatureGroup</code>. A <code>FeatureGroup</code> is a group of
  *             <code>Features</code> defined in the <code>FeatureStore</code> to describe a
  *             <code>Record</code>. </p>
@@ -131,6 +130,7 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateFeatureGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelPolicyGenerationCommandInput extends CancelPolicyGenerati
 export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the requested policy generation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class CancelPolicyGenerationCommand extends $Command
   .classBuilder<

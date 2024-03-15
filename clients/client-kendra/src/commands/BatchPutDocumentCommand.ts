@@ -27,7 +27,6 @@ export interface BatchPutDocumentCommandInput extends BatchPutDocumentRequest {}
 export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more documents to an index.</p>
  *          <p>The <code>BatchPutDocument</code> API enables you to ingest inline documents or a set
  *             of documents stored in an Amazon S3 bucket. Use this API to ingest your text and
@@ -214,6 +213,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class BatchPutDocumentCommand extends $Command
   .classBuilder<

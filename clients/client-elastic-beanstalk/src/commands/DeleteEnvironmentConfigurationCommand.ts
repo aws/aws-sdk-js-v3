@@ -30,7 +30,6 @@ export interface DeleteEnvironmentConfigurationCommandInput extends DeleteEnviro
 export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the draft configuration associated with the running environment.</p>
  *          <p>Updating a running environment with any configuration changes creates a draft
  *       configuration set. You can get the draft configuration using <a>DescribeConfigurationSettings</a> while the update is in progress or if the update
@@ -62,6 +61,7 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To delete a draft configuration
  * ```javascript
  * // The following operation deletes a draft configuration for an environment named my-env:

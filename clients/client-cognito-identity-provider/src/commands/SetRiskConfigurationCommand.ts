@@ -36,7 +36,6 @@ export interface SetRiskConfigurationCommandInput extends SetRiskConfigurationRe
 export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures actions on detected risks. To delete the risk configuration for
  *                 <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four
  *             configuration types.</p>
@@ -206,6 +205,7 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class SetRiskConfigurationCommand extends $Command
   .classBuilder<

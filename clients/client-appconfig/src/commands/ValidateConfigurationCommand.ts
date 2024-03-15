@@ -27,7 +27,6 @@ export interface ValidateConfigurationCommandInput extends ValidateConfiguration
 export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Uses the validators in a configuration profile to validate a configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To validate a configuration
  * ```javascript
  * // The following validate-configuration example uses the validators in a configuration profile to validate a configuration.

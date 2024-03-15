@@ -27,7 +27,6 @@ export interface StartCrawlerScheduleCommandInput extends StartCrawlerScheduleRe
 export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the schedule state of the specified crawler to
  *       <code>SCHEDULED</code>, unless the crawler is already running or the
  *       schedule state is already <code>SCHEDULED</code>.</p>
@@ -70,6 +69,7 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartCrawlerScheduleCommand extends $Command
   .classBuilder<

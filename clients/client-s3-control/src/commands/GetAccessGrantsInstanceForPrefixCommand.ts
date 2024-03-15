@@ -34,7 +34,6 @@ export interface GetAccessGrantsInstanceForPrefixCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the S3 Access Grants instance that contains a particular prefix.  </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -74,6 +73,7 @@ export interface GetAccessGrantsInstanceForPrefixCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetAccessGrantsInstanceForPrefixCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListConnectionsCommandInput extends ListConnectionsInput {}
 export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the connections associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class ListConnectionsCommand extends $Command
   .classBuilder<

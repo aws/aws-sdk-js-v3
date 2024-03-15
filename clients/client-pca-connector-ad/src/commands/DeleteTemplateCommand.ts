@@ -27,7 +27,6 @@ export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 export interface DeleteTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a template. Certificates issued using the template are still valid until they
  *          are revoked or expired.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DeleteTemplateCommandOutput extends __MetadataBearer {}
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class DeleteTemplateCommand extends $Command
   .classBuilder<

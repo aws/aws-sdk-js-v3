@@ -27,7 +27,6 @@ export interface RetrieveTapeArchiveCommandInput extends RetrieveTapeArchiveInpu
 export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway.
  *          Virtual tapes archived in the VTS are not associated with any gateway. However after a tape
  *          is retrieved, it is associated with a gateway, even though it is also listed in the VTS,
@@ -70,6 +69,7 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To retrieve an archived tape from the VTS
  * ```javascript
  * // Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL. Virtual tapes archived in the VTS are not associated with any gateway.

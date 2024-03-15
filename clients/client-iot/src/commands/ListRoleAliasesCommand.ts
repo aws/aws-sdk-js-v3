@@ -27,7 +27,6 @@ export interface ListRoleAliasesCommandInput extends ListRoleAliasesRequest {}
 export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the role aliases registered in your account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListRoleAliasesCommand extends $Command
   .classBuilder<

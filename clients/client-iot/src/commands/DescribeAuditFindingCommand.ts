@@ -27,7 +27,6 @@ export interface DescribeAuditFindingCommandInput extends DescribeAuditFindingRe
 export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a single audit finding. Properties include the reason for
  *       noncompliance, the severity of the issue,
  *       and the start time
@@ -134,6 +133,7 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeAuditFindingCommand extends $Command
   .classBuilder<

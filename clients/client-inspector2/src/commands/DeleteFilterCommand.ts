@@ -27,7 +27,6 @@ export interface DeleteFilterCommandInput extends DeleteFilterRequest {}
 export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a filter resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class DeleteFilterCommand extends $Command
   .classBuilder<

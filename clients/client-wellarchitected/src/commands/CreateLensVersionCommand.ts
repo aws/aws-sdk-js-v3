@@ -27,7 +27,6 @@ export interface CreateLensVersionCommandInput extends CreateLensVersionInput {}
 export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new lens version.</p>
  *          <p>A lens can have up to 100 versions.</p>
  *          <p>Use this operation to publish a new lens version after you have imported a lens. The <code>LensAlias</code>
@@ -86,6 +85,7 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class CreateLensVersionCommand extends $Command
   .classBuilder<

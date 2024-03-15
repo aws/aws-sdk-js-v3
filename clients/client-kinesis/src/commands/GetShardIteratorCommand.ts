@@ -27,7 +27,6 @@ export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is
  *             returned to the requester.</p>
  *          <note>
@@ -117,6 +116,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class GetShardIteratorCommand extends $Command
   .classBuilder<

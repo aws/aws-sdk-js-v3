@@ -29,7 +29,6 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Shows the contents of the Verified Access policy associated with the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetVerifiedAccessGroupPolicyCommand extends $Command
   .classBuilder<

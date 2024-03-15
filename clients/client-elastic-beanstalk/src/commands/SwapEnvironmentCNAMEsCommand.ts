@@ -27,7 +27,6 @@ export interface SwapEnvironmentCNAMEsCommandInput extends SwapEnvironmentCNAMEs
 export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Swaps the CNAMEs of two environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To swap environment CNAMES
  * ```javascript
  * // The following operation swaps the assigned subdomains of two environments:

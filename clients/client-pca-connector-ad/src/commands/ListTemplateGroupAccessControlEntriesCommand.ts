@@ -36,7 +36,6 @@ export interface ListTemplateGroupAccessControlEntriesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists group access control entries you created. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface ListTemplateGroupAccessControlEntriesCommandOutput
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class ListTemplateGroupAccessControlEntriesCommand extends $Command
   .classBuilder<

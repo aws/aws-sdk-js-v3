@@ -32,7 +32,6 @@ export interface DescribePlayerSessionsCommandInput extends DescribePlayerSessio
 export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves properties for one or more player sessions. </p>
  *          <p>This action can be used in the following ways: </p>
  *          <ul>
@@ -122,6 +121,7 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribePlayerSessionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
 export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a list of specified images that are within a repository in a public registry.
  *          Images are specified with either an <code>imageTag</code> or
  *          <code>imageDigest</code>.</p>
@@ -97,6 +96,7 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class BatchDeleteImageCommand extends $Command
   .classBuilder<

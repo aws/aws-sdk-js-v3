@@ -31,7 +31,6 @@ export interface GetImagesCommandInput extends GetImagesInput {}
 export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of images corresponding to each timestamp for a given time range,
  *             sampling interval, and image format configuration.</p>
  * @example
@@ -108,6 +107,7 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * @public
  */
 export class GetImagesCommand extends $Command
   .classBuilder<

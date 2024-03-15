@@ -36,7 +36,6 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or disables automated sensitive data discovery for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command
   .classBuilder<

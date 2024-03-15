@@ -36,7 +36,6 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List provisioned resources for a service and pipeline with details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListServicePipelineProvisionedResourcesCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListServicePipelineProvisionedResourcesCommand extends $Command
   .classBuilder<

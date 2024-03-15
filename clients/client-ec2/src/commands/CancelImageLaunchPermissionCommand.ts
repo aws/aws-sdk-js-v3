@@ -27,7 +27,6 @@ export interface CancelImageLaunchPermissionCommandInput extends CancelImageLaun
 export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLaunchPermissionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
  *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
  *         Cancel having an AMI shared with your Amazon Web Services account</a> in the
@@ -59,6 +58,7 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CancelImageLaunchPermissionCommand extends $Command
   .classBuilder<

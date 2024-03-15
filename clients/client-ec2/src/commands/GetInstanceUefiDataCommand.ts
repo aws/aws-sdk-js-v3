@@ -27,7 +27,6 @@ export interface GetInstanceUefiDataCommandInput extends GetInstanceUefiDataRequ
 export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
  *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
  *             encoded.</p>
@@ -67,6 +66,7 @@ export interface GetInstanceUefiDataCommandOutput extends GetInstanceUefiDataRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetInstanceUefiDataCommand extends $Command
   .classBuilder<

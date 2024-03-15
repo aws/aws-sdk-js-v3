@@ -36,7 +36,6 @@ export interface UpdateIdentityProviderSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates additional product configuration settings for the registered identity
  *       provider.</p>
  * @example
@@ -106,6 +105,7 @@ export interface UpdateIdentityProviderSettingsCommandOutput
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class UpdateIdentityProviderSettingsCommand extends $Command
   .classBuilder<

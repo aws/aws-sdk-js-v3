@@ -27,7 +27,6 @@ export interface GetVoiceChannelCommandInput extends GetVoiceChannelRequest {}
 export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the voice channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetVoiceChannelCommand extends $Command
   .classBuilder<

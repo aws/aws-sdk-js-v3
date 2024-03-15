@@ -27,7 +27,6 @@ export interface DeleteNetworkProfileCommandInput extends DeleteNetworkProfileRe
 export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class DeleteNetworkProfileCommand extends $Command
   .classBuilder<

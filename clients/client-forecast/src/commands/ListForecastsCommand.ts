@@ -27,7 +27,6 @@ export interface ListForecastsCommandInput extends ListForecastsRequest {}
 export interface ListForecastsCommandOutput extends ListForecastsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of forecasts created using the <a>CreateForecast</a> operation.
  *       For each forecast, this operation returns a summary of its properties, including its Amazon
  *       Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the
@@ -87,6 +86,7 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListForecastsCommand extends $Command
   .classBuilder<

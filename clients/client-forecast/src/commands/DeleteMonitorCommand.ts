@@ -27,7 +27,6 @@ export interface DeleteMonitorCommandInput extends DeleteMonitorRequest {}
 export interface DeleteMonitorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a monitor resource. You can only delete a monitor resource with a status of <code>ACTIVE</code>, <code>ACTIVE_STOPPED</code>, <code>CREATE_FAILED</code>, or <code>CREATE_STOPPED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteMonitorCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteMonitorCommand extends $Command
   .classBuilder<

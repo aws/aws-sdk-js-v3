@@ -27,7 +27,6 @@ export interface GetSavingsPlansUtilizationCommandInput extends GetSavingsPlansU
 export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlansUtilizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
  *       monthly granularity. Management account in an organization have access to member accounts. You
  *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
@@ -182,6 +181,7 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetSavingsPlansUtilizationCommand extends $Command
   .classBuilder<

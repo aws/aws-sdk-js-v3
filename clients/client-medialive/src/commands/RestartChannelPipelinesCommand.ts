@@ -27,7 +27,6 @@ export interface RestartChannelPipelinesCommandInput extends RestartChannelPipel
 export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipelinesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Restart pipelines in one channel that is currently running.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1110,6 +1109,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class RestartChannelPipelinesCommand extends $Command
   .classBuilder<

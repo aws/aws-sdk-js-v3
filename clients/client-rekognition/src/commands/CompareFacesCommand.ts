@@ -27,7 +27,6 @@ export interface CompareFacesCommandInput extends CompareFacesRequest {}
 export interface CompareFacesCommandOutput extends CompareFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Compares a face in the <i>source</i> input image with each of the 100
  *       largest faces detected in the <i>target</i> input image. </p>
  *          <p> If the source image contains multiple faces, the service detects the largest face and
@@ -233,6 +232,7 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To compare two images
  * ```javascript
  * // This operation compares the largest face detected in the source image with each face detected in the target image.

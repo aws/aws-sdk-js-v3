@@ -27,7 +27,6 @@ export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest 
 export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a subnet group. A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.
  *
  *          When you create a cluster in an Amazon VPC, you must specify a subnet group. MemoryDB uses that subnet group to choose a subnet and IP addresses within that subnet to associate with your nodes.
@@ -102,6 +101,7 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class CreateSubnetGroupCommand extends $Command
   .classBuilder<

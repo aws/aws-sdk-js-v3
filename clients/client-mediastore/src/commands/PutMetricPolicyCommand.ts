@@ -27,7 +27,6 @@ export interface PutMetricPolicyCommandInput extends PutMetricPolicyInput {}
 export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class PutMetricPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetClassificationScopeCommandInput extends GetClassificationSco
 export interface GetClassificationScopeCommandOutput extends GetClassificationScopeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the classification scope settings for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetClassificationScopeCommand extends $Command
   .classBuilder<

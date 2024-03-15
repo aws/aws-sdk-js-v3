@@ -27,9 +27,6 @@ export interface RedactChannelMessageCommandInput extends RedactChannelMessageRe
 export interface RedactChannelMessageCommandOutput extends RedactChannelMessageResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by RedactChannelMessage in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Redacts message content, but not metadata. The message exists in the back end, but the
  *          action returns null content, and the state shows as redacted.</p>
  *          <note>
@@ -91,6 +88,8 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by RedactChannelMessage in the Amazon Chime SDK Messaging Namespace
  */
 export class RedactChannelMessageCommand extends $Command
   .classBuilder<

@@ -369,7 +369,6 @@ export type AccessAnalyzerClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface AccessAnalyzerClientResolvedConfig extends AccessAnalyzerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing
  *          a suite of capabilities. Its features include findings for external and unused access,
  *          basic and custom policy checks for validating policies, and policy generation to generate
@@ -394,6 +393,7 @@ export interface AccessAnalyzerClientResolvedConfig extends AccessAnalyzerClient
  *          <p>This guide describes the IAM Access Analyzer operations that you can call programmatically.
  *          For general information about IAM Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">Identity and Access Management Access Analyzer</a> in the
  *             <b>IAM User Guide</b>.</p>
+ * @public
  */
 export class AccessAnalyzerClient extends __Client<
   __HttpHandlerOptions,

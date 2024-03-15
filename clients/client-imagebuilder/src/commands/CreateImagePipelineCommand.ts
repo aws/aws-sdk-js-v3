@@ -27,7 +27,6 @@ export interface CreateImagePipelineCommandInput extends CreateImagePipelineRequ
 export interface CreateImagePipelineCommandOutput extends CreateImagePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new image pipeline. Image pipelines enable you to automate the creation and
  * 			distribution of images.</p>
  * @example
@@ -140,6 +139,7 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CreateImagePipelineCommand extends $Command
   .classBuilder<

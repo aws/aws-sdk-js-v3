@@ -39,7 +39,6 @@ export interface PutSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads the contents of a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -99,6 +98,7 @@ export interface PutSolFunctionPackageContentCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class PutSolFunctionPackageContentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListMilestonesCommandInput extends ListMilestonesInput {}
 export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all milestones for an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListMilestonesCommand extends $Command
   .classBuilder<

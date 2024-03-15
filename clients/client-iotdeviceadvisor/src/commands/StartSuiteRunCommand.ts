@@ -27,7 +27,6 @@ export interface StartSuiteRunCommandInput extends StartSuiteRunRequest {}
 export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a Device Advisor test suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartSuiteRun</a> action.</p>
  * @example
@@ -83,6 +82,7 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * @public
  */
 export class StartSuiteRunCommand extends $Command
   .classBuilder<

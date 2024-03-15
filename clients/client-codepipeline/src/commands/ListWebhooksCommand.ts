@@ -27,7 +27,6 @@ export interface ListWebhooksCommandInput extends ListWebhooksInput {}
 export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a listing of all the webhooks in this Amazon Web Services Region for this
  *             account. The output lists all webhooks and includes the webhook URL and ARN and the
  *             configuration for each webhook.</p>
@@ -96,6 +95,7 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class ListWebhooksCommand extends $Command
   .classBuilder<

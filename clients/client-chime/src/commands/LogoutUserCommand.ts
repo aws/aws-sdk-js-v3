@@ -27,7 +27,6 @@ export interface LogoutUserCommandInput extends LogoutUserRequest {}
 export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Logs out the specified user from all of the devices they are currently logged into.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class LogoutUserCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface MergeProfilesCommandInput extends MergeProfilesRequest {}
 export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs an AWS Lambda job that does the following:</p>
  *          <ol>
  *             <li>
@@ -138,6 +137,7 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class MergeProfilesCommand extends $Command
   .classBuilder<

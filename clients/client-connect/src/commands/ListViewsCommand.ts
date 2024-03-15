@@ -27,7 +27,6 @@ export interface ListViewsCommandInput extends ListViewsRequest {}
 export interface ListViewsCommandOutput extends ListViewsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns views in the given instance.</p>
  *          <p>Results are sorted primarily by type, and secondarily by name.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListViewsCommandOutput extends ListViewsResponse, __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListViewsCommand extends $Command
   .classBuilder<

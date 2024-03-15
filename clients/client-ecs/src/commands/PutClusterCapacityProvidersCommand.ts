@@ -29,7 +29,6 @@ export interface PutClusterCapacityProvidersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the available capacity providers and the default capacity provider strategy
  * 			for a cluster.</p>
  *          <p>You must specify both the available capacity providers and a default capacity provider
@@ -171,6 +170,7 @@ export interface PutClusterCapacityProvidersCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class PutClusterCapacityProvidersCommand extends $Command
   .classBuilder<

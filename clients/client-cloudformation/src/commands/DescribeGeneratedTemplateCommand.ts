@@ -27,7 +27,6 @@ export interface DescribeGeneratedTemplateCommandInput extends DescribeGenerated
 export interface DescribeGeneratedTemplateCommandOutput extends DescribeGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a generated template. The output includes details about the progress of the creation of a generated
  *    template started by a <code>CreateGeneratedTemplate</code> API action or the update of a generated template started
  *    with an <code>UpdateGeneratedTemplate</code> API action.</p>
@@ -100,6 +99,7 @@ export interface DescribeGeneratedTemplateCommandOutput extends DescribeGenerate
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To describe a generated template
  * ```javascript
  * // This example describes a generated template

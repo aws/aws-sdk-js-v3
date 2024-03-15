@@ -28,7 +28,6 @@ export interface ResumeClusterCommandInput extends ResumeClusterMessage {}
 export interface ResumeClusterCommandOutput extends ResumeClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resumes a paused cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -258,6 +257,7 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ResumeClusterCommand extends $Command
   .classBuilder<

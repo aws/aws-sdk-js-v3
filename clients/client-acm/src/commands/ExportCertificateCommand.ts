@@ -32,7 +32,6 @@ export interface ExportCertificateCommandInput extends ExportCertificateRequest 
 export interface ExportCertificateCommandOutput extends ExportCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports a private certificate issued by a private certificate authority (CA) for use
  *       anywhere. The exported file contains the certificate, the certificate chain, and the encrypted
  *       private 2048-bit RSA key associated with the public key that is embedded in the certificate.
@@ -80,6 +79,7 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class ExportCertificateCommand extends $Command
   .classBuilder<

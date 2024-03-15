@@ -31,7 +31,6 @@ export interface ModifyInstanceProfileCommandInput extends ModifyInstanceProfile
 export interface ModifyInstanceProfileCommandOutput extends ModifyInstanceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified instance profile using the provided parameters.</p>
  *          <note>
  *             <p>All migration projects associated with the instance profile must be deleted
@@ -106,6 +105,7 @@ export interface ModifyInstanceProfileCommandOutput extends ModifyInstanceProfil
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Modify Instance Profile
  * ```javascript
  * // Modifies the specified instance profile using the provided parameters.

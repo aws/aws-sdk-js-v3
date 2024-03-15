@@ -27,7 +27,6 @@ export interface CreateFlywheelCommandInput extends CreateFlywheelRequest {}
 export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification
  *       or custom entity recognition. You can create a flywheel to start with an existing trained model, or
  *       Comprehend can create and train a new model.</p>
@@ -144,6 +143,7 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class CreateFlywheelCommand extends $Command
   .classBuilder<

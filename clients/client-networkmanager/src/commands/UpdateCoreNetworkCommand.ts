@@ -27,7 +27,6 @@ export interface UpdateCoreNetworkCommandInput extends UpdateCoreNetworkRequest 
 export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class UpdateCoreNetworkCommand extends $Command
   .classBuilder<

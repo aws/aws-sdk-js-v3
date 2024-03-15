@@ -27,7 +27,6 @@ export interface BatchGetSecurityControlsCommandInput extends BatchGetSecurityCo
 export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityControlsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region.
  *       </p>
@@ -113,6 +112,7 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get security control details
  * ```javascript
  * // The following example gets details for the specified controls in the current AWS account and AWS Region.

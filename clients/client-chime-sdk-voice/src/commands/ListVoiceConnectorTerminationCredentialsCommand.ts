@@ -37,7 +37,6 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
   .classBuilder<

@@ -655,7 +655,6 @@ export interface ElasticLoadBalancing {
 }
 
 /**
- * @public
  * <fullname>Elastic Load Balancing</fullname>
  *
  *         <p>A load balancer can distribute incoming traffic across your EC2 instances.
@@ -677,6 +676,7 @@ export interface ElasticLoadBalancing {
  *         <p>All Elastic Load Balancing operations are <i>idempotent</i>, which means
  *             that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK
  *             response code.</p>
+ * @public
  */
 export class ElasticLoadBalancing extends ElasticLoadBalancingClient implements ElasticLoadBalancing {}
 createAggregatedClient(commands, ElasticLoadBalancing);

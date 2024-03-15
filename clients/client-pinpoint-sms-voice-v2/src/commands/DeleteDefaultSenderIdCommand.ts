@@ -31,7 +31,6 @@ export interface DeleteDefaultSenderIdCommandInput extends DeleteDefaultSenderId
 export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing default sender ID on a configuration set.</p>
  *          <p>A default sender ID is the identity that appears on recipients' devices when they
  *             receive SMS messages. Support for sender ID capabilities varies by country or
@@ -82,6 +81,7 @@ export interface DeleteDefaultSenderIdCommandOutput extends DeleteDefaultSenderI
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteDefaultSenderIdCommand extends $Command
   .classBuilder<

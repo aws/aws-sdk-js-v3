@@ -27,7 +27,6 @@ export interface DescribeDestinationsCommandInput extends DescribeDestinationsRe
 export interface DescribeDestinationsCommandOutput extends DescribeDestinationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeDestinationsCommandOutput extends DescribeDestinationsR
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeDestinationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartSessionCommandInput extends StartSessionRequest {}
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a session for running calculations within a workgroup. The session is ready
  *             when it reaches an <code>IDLE</code> state.</p>
  * @example
@@ -89,6 +88,7 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class StartSessionCommand extends $Command
   .classBuilder<

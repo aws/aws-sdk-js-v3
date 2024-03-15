@@ -27,7 +27,6 @@ export interface GetAttendeeCommandInput extends GetAttendeeRequest {}
 export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -90,6 +89,7 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * @public
  */
 export class GetAttendeeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
  *      	that is either running or stopped.</p>
  *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
@@ -94,6 +93,7 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create an AMI from an Amazon EBS-backed instance
  * ```javascript
  * // This example creates an AMI from the specified instance and adds an EBS volume with the device name /dev/sdh and an instance store volume with the device name /dev/sdc.

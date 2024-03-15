@@ -29,7 +29,6 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies which task set in a service is the primary task set. Any parameters that are
  * 			updated on the primary task set in a service will transition to the service. This is
  * 			used when a service uses the <code>EXTERNAL</code> deployment controller type. For more
@@ -159,6 +158,7 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class UpdateServicePrimaryTaskSetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListOriginAccessControlsCommandInput extends ListOriginAccessCo
 export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessControlsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the list of CloudFront origin access controls in this Amazon Web Services account.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -80,6 +79,7 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListOriginAccessControlsCommand extends $Command
   .classBuilder<

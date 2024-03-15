@@ -27,7 +27,6 @@ export interface GetParallelDataCommandInput extends GetParallelDataRequest {}
 export interface GetParallelDataCommandOutput extends GetParallelDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a parallel data resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class GetParallelDataCommand extends $Command
   .classBuilder<

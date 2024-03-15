@@ -27,7 +27,6 @@ export interface DescribeAccountAttributesCommandInput {}
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS
  *       account.</p>
  *          <p>The result currently has one set of attributes—resource quotas.</p>
@@ -75,6 +74,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
   .classBuilder<

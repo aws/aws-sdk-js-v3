@@ -939,7 +939,6 @@ export type SSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services applications and resources and a secure
  *    end-to-end management solution for hybrid cloud environments that enables safe and secure
  *    operations at scale.</p>
@@ -976,6 +975,7 @@ export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
  *                   </i>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SSMClient extends __Client<
   __HttpHandlerOptions,

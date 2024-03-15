@@ -27,7 +27,6 @@ export interface DeleteAudienceModelCommandInput extends DeleteAudienceModelRequ
 export interface DeleteAudienceModelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies an audience model that you want to delete. You can't delete an audience model if there are any configured audience models that depend on the audience model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteAudienceModelCommandOutput extends __MetadataBearer {}
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class DeleteAudienceModelCommand extends $Command
   .classBuilder<

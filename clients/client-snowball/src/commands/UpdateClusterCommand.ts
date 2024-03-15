@@ -27,7 +27,6 @@ export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 export interface UpdateClusterCommandOutput extends UpdateClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>
  *       state, you can update some of the information associated with a cluster. Once the cluster
  *       changes to a different job state, usually 60 minutes after the cluster being created, this
@@ -141,6 +140,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To update a cluster
  * ```javascript
  * // This action allows you to update certain parameters for a cluster. Once the cluster changes to a different state, usually within 60 minutes of it being created, this action is no longer available.

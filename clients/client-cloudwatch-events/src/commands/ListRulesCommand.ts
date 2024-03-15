@@ -27,7 +27,6 @@ export interface ListRulesCommandInput extends ListRulesRequest {}
 export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your Amazon EventBridge rules. You can either list all the rules or you can provide
  *       a prefix to match to the rule names.</p>
  *          <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,
@@ -80,6 +79,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ListRulesCommand extends $Command
   .classBuilder<

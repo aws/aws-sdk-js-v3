@@ -27,7 +27,6 @@ export interface StartInputDeviceCommandInput extends StartInputDeviceRequest {}
 export interface StartInputDeviceCommandOutput extends StartInputDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Start an input device that is attached to a MediaConnect flow. (There is no need to start a device that is attached to a MediaLive input; MediaLive starts the device when the channel starts.)
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface StartInputDeviceCommandOutput extends StartInputDeviceResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class StartInputDeviceCommand extends $Command
   .classBuilder<

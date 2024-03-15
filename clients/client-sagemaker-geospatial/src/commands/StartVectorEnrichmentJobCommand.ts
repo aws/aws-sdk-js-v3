@@ -31,7 +31,6 @@ export interface StartVectorEnrichmentJobCommandInput extends StartVectorEnrichm
 export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Vector Enrichment job for the supplied job type.  Currently, there are two supported job types: reverse geocoding and map matching.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface StartVectorEnrichmentJobCommandOutput extends StartVectorEnrich
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class StartVectorEnrichmentJobCommand extends $Command
   .classBuilder<

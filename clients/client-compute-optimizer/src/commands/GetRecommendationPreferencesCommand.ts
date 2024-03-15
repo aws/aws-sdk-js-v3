@@ -32,7 +32,6 @@ export interface GetRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns existing recommendation preferences, such as enhanced infrastructure
  *             metrics.</p>
  *          <p>Use the <code>scope</code> parameter to specify which preferences to return. You can
@@ -137,6 +136,7 @@ export interface GetRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetRecommendationPreferencesCommand extends $Command
   .classBuilder<

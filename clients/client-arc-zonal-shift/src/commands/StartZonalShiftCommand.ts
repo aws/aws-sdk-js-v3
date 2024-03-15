@@ -27,7 +27,6 @@ export interface StartZonalShiftCommandInput extends StartZonalShiftRequest {}
 export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
- * @public
  * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in an Amazon Web Services Region,
  *    		to help your application recover immediately, for example, from a developer's bad code deployment or from an Amazon Web Services
  *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in Route 53 ARC only for managed
@@ -92,6 +91,7 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class StartZonalShiftCommand extends $Command
   .classBuilder<

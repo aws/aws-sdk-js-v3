@@ -27,7 +27,6 @@ export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequ
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an IAM policy to the specified resource. Use this to share a rule group across
  *          accounts.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
@@ -127,6 +126,7 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class PutPermissionPolicyCommand extends $Command
   .classBuilder<

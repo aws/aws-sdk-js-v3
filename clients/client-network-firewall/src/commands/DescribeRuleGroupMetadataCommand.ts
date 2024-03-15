@@ -27,7 +27,6 @@ export interface DescribeRuleGroupMetadataCommandInput extends DescribeRuleGroup
 export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGroupMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>High-level information about a rule group, returned by operations like create and describe.
  *          You can use the information provided in the metadata to retrieve and manage a rule group.
  *          You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>.
@@ -94,6 +93,7 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DescribeRuleGroupMetadataCommand extends $Command
   .classBuilder<

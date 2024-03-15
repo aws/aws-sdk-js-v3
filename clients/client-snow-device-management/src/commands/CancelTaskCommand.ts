@@ -31,7 +31,6 @@ export interface CancelTaskCommandInput extends CancelTaskInput {}
 export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a cancel request for a specified task. You can cancel a task only if it's still in a
  *         <code>QUEUED</code> state. Tasks that are already running can't be cancelled.</p>
  *          <note>
@@ -79,6 +78,7 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class CancelTaskCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing DMS event notification subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class ModifyEventSubscriptionCommand extends $Command
   .classBuilder<

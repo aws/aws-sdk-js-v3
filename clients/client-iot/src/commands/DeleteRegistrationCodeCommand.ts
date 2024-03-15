@@ -27,7 +27,6 @@ export interface DeleteRegistrationCodeCommandInput extends DeleteRegistrationCo
 export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationCodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a CA certificate registration code.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteRegistrationCode</a> action.</p>
  * @example
@@ -67,6 +66,7 @@ export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationC
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteRegistrationCodeCommand extends $Command
   .classBuilder<

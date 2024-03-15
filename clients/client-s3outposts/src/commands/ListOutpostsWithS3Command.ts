@@ -27,7 +27,6 @@ export interface ListOutpostsWithS3CommandInput extends ListOutpostsWithS3Reques
 export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Result, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services account.
  *             Includes S3 on Outposts that you have access to as the Outposts owner, or as a shared user
  *             from Resource Access Manager (RAM). </p>
@@ -79,6 +78,7 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * @throws {@link S3OutpostsServiceException}
  * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ * @public
  */
 export class ListOutpostsWithS3Command extends $Command
   .classBuilder<

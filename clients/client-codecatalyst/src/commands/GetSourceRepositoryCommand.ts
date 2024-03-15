@@ -27,7 +27,6 @@ export interface GetSourceRepositoryCommandInput extends GetSourceRepositoryRequ
 export interface GetSourceRepositoryCommandOutput extends GetSourceRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a source repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetSourceRepositoryCommandOutput extends GetSourceRepositoryRes
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class GetSourceRepositoryCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface CreateDatabaseCommandInput extends CreateDatabaseRequest {}
 export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Timestream database. If the KMS key is not
  *          specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed keys</a>. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. For
  *          details, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html">code sample</a>.
@@ -98,6 +97,7 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class CreateDatabaseCommand extends $Command
   .classBuilder<

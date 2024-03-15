@@ -31,7 +31,6 @@ export interface CreateParticipantTokenCommandInput extends CreateParticipantTok
 export interface CreateParticipantTokenCommandOutput extends CreateParticipantTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an additional token for a specified stage. This can be done after stage creation
  *          or when tokens expire. Tokens always are scoped to the stage for which they are
  *          created.</p>
@@ -98,6 +97,7 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class CreateParticipantTokenCommand extends $Command
   .classBuilder<

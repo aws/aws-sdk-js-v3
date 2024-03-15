@@ -27,7 +27,6 @@ export interface GetServicesInScopeCommandInput extends GetServicesInScopeReques
 export interface GetServicesInScopeCommandOutput extends GetServicesInScopeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of all of the Amazon Web Services that you can choose to include in
  *          your assessment. When you <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html">create an assessment</a>, specify which of these services you want to include to
  *          narrow the assessment's <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html">scope</a>.</p>
@@ -73,6 +72,7 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetServicesInScopeCommand extends $Command
   .classBuilder<

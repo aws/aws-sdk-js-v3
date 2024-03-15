@@ -27,7 +27,6 @@ export interface CreateCacheSecurityGroupCommandInput extends CreateCacheSecurit
 export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecurityGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new cache security group. Use a cache security group to control access to
  *             one or more clusters.</p>
  *          <p>Cache security groups are only used when you are creating a cluster outside of an
@@ -96,6 +95,7 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example CreateCacheSecurityGroup
  * ```javascript
  * // Creates an ElastiCache security group. ElastiCache security groups are only for clusters not running in an AWS VPC.

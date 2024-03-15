@@ -27,7 +27,6 @@ export interface UpdateClusterConfigCommandInput extends UpdateClusterConfigRequ
 export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to
  *             function during the update. The response output includes an update ID that you can use
  *             to track the status of your cluster update with <code>DescribeUpdate</code>"/>.</p>
@@ -156,6 +155,7 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class UpdateClusterConfigCommand extends $Command
   .classBuilder<

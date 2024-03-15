@@ -27,7 +27,6 @@ export interface DescribeSnapshotScheduleCommandInput extends DescribeSnapshotSc
 export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the snapshot schedule for the specified gateway volume. The snapshot schedule
  *          information includes intervals at which snapshots are automatically initiated on the
  *          volume. This operation is only supported in the cached volume and stored volume
@@ -76,6 +75,7 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe snapshot schedule for gateway volume
  * ```javascript
  * // Describes the snapshot schedule for the specified gateway volume including intervals at which snapshots are automatically initiated.

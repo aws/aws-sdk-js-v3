@@ -27,7 +27,6 @@ export interface ListImportFailuresCommandInput extends ListImportFailuresReques
 export interface ListImportFailuresCommandOutput extends ListImportFailuresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of failures for the specified import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListImportFailuresCommand extends $Command
   .classBuilder<

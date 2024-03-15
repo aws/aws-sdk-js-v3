@@ -27,7 +27,6 @@ export interface UpdateTableOptimizerCommandInput extends UpdateTableOptimizerRe
 export interface UpdateTableOptimizerCommandOutput extends UpdateTableOptimizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration for an existing table optimizer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateTableOptimizerCommandOutput extends UpdateTableOptimizerR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateTableOptimizerCommand extends $Command
   .classBuilder<

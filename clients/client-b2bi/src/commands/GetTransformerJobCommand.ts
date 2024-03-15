@@ -27,7 +27,6 @@ export interface GetTransformerJobCommandInput extends GetTransformerJobRequest 
 export interface GetTransformerJobCommandOutput extends GetTransformerJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of the transformer run, based on the Transformer job ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetTransformerJobCommandOutput extends GetTransformerJobRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample GetTransformerJob call
  * ```javascript
  * //

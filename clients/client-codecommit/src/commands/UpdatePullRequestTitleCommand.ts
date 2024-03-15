@@ -27,7 +27,6 @@ export interface UpdatePullRequestTitleCommandInput extends UpdatePullRequestTit
 export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTitleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the title of a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdatePullRequestTitleCommand extends $Command
   .classBuilder<

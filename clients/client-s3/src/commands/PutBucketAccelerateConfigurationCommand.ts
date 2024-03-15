@@ -31,7 +31,6 @@ export interface PutBucketAccelerateConfigurationCommandInput extends PutBucketA
 export interface PutBucketAccelerateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -103,6 +102,7 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class PutBucketAccelerateConfigurationCommand extends $Command
   .classBuilder<

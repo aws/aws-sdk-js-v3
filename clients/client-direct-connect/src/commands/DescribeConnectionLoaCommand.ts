@@ -27,9 +27,6 @@ export interface DescribeConnectionLoaCommandInput extends DescribeConnectionLoa
 export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLoaResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
  *          <p>Gets the LOA-CFA for a connection.</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or
@@ -73,6 +70,8 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class DescribeConnectionLoaCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteNetworkInterfaceCommandInput extends DeleteNetworkInterfa
 export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +53,7 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a network interface
  * ```javascript
  * // This example deletes the specified network interface.

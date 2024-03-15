@@ -27,7 +27,6 @@ export interface UnlinkIdentityCommandInput extends UnlinkIdentityInput {}
 export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Unlinks a federated identity from an existing account. Unlinked logins will be
  *          considered new identities next time they are seen. Removing the last linked login will make
  *          this identity inaccessible.</p>
@@ -86,6 +85,7 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class UnlinkIdentityCommand extends $Command
   .classBuilder<

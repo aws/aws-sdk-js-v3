@@ -32,7 +32,6 @@ export interface PutRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new recommendation preference or updates an existing recommendation
  *             preference, such as enhanced infrastructure metrics.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Activating
@@ -118,6 +117,7 @@ export interface PutRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class PutRecommendationPreferencesCommand extends $Command
   .classBuilder<

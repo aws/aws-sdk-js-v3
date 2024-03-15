@@ -27,7 +27,6 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified managed policy.</p>
  *          <p>Before you can delete a managed policy, you must first detach the policy from all
  *             users, groups, and roles that it is attached to. In addition, you must delete all the
@@ -97,6 +96,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

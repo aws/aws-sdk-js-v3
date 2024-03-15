@@ -36,7 +36,6 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetThirdPartyFirewallAssociationStatusCommandOutput
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetThirdPartyFirewallAssociationStatusCommand extends $Command
   .classBuilder<

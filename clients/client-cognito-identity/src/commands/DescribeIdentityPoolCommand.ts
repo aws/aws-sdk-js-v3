@@ -27,7 +27,6 @@ export interface DescribeIdentityPoolCommandInput extends DescribeIdentityPoolIn
 export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details about a particular identity pool, including the pool name, ID
  *          description, creation date, and current number of users.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -96,6 +95,7 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class DescribeIdentityPoolCommand extends $Command
   .classBuilder<

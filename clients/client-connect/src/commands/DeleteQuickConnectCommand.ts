@@ -27,7 +27,6 @@ export interface DeleteQuickConnectCommandInput extends DeleteQuickConnectReques
 export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a quick connect. </p>
  *          <important>
  *             <p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it's important to
@@ -87,6 +86,7 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteQuickConnectCommand extends $Command
   .classBuilder<

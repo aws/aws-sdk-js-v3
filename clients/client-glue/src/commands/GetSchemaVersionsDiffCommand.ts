@@ -27,7 +27,6 @@ export interface GetSchemaVersionsDiffCommandInput extends GetSchemaVersionsDiff
 export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDiffResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
  *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
  * @example
@@ -81,6 +80,7 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetSchemaVersionsDiffCommand extends $Command
   .classBuilder<

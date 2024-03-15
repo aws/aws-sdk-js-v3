@@ -27,7 +27,6 @@ export interface ViewBillingCommandInput extends ViewBillingRequest {}
 export interface ViewBillingCommandOutput extends ViewBillingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all the domain-related billing records for the current Amazon Web Services account for a specified period</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class ViewBillingCommand extends $Command
   .classBuilder<

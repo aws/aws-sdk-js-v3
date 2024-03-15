@@ -33,7 +33,6 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified policies.</p>
  *          <p>If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer.
  *     If you specify a policy name associated with your load balancer, the action returns the description of that policy.
@@ -85,6 +84,7 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To describe a policy associated with a load balancer
  * ```javascript
  * // This example describes the specified policy associated with the specified load balancer.

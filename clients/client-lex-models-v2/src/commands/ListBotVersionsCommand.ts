@@ -27,7 +27,6 @@ export interface ListBotVersionsCommandInput extends ListBotVersionsRequest {}
 export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about all of the versions of a bot.</p>
  *          <p>The <code>ListBotVersions</code> operation returns a summary of each
  *          version of a bot. For example, if a bot has three numbered versions,
@@ -93,6 +92,7 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotVersionsCommand extends $Command
   .classBuilder<

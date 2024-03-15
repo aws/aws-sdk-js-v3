@@ -27,7 +27,6 @@ export interface CreateRoleAliasCommandInput extends CreateRoleAliasRequest {}
 export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a role alias.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a> action.</p>
  * @example
@@ -86,6 +85,7 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateRoleAliasCommand extends $Command
   .classBuilder<

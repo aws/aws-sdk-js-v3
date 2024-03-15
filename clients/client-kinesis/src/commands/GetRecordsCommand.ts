@@ -27,7 +27,6 @@ export interface GetRecordsCommandInput extends GetRecordsInput {}
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets data records from a Kinesis data stream's shard.</p>
  *          <note>
  *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
@@ -180,6 +179,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class GetRecordsCommand extends $Command
   .classBuilder<

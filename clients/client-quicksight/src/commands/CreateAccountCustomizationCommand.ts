@@ -27,7 +27,6 @@ export interface CreateAccountCustomizationCommandInput extends CreateAccountCus
 export interface CreateAccountCustomizationCommandOutput extends CreateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates Amazon QuickSight customizations for the current Amazon Web Services Region. Currently, you can add a custom default theme by using the
  *                 <code>CreateAccountCustomization</code> or <code>UpdateAccountCustomization</code>
  *             API operation. To further customize Amazon QuickSight by removing Amazon QuickSight
@@ -123,6 +122,7 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateAccountCustomizationCommand extends $Command
   .classBuilder<

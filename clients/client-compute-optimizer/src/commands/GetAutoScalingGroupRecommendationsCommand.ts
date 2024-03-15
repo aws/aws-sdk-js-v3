@@ -35,7 +35,6 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns Auto Scaling group recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
@@ -233,6 +232,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetAutoScalingGroupRecommendationsCommand extends $Command
   .classBuilder<

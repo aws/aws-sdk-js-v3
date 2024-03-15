@@ -32,7 +32,6 @@ export interface RegisterComputeCommandInput extends RegisterComputeInput {}
 export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a compute resource to an Amazon GameLift Anywhere fleet. With Anywhere fleets you can
  *             incorporate your own computing hardware into an Amazon GameLift game hosting solution.</p>
  *          <p>To register a compute to a fleet, give the compute a name (must be unique within the
@@ -130,6 +129,7 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class RegisterComputeCommand extends $Command
   .classBuilder<

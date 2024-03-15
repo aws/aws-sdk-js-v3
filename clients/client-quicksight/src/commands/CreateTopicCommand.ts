@@ -27,7 +27,6 @@ export interface CreateTopicCommandInput extends CreateTopicRequest {}
 export interface CreateTopicCommandOutput extends CreateTopicResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Q topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -341,6 +340,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateTopicCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CompleteLayerUploadCommandInput extends CompleteLayerUploadRequ
 export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Informs Amazon ECR that the image layer upload is complete for a specified public registry,
  *          repository name, and upload ID. You can optionally provide a <code>sha256</code> digest of
  *          the image layer for data validation purposes.</p>
@@ -104,6 +103,7 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class CompleteLayerUploadCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateTableCommandInput extends CreateTableInput {}
 export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateTable</code> operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
  *             have two tables with same name if you create the tables in different Regions.</p>
  *          <p>
@@ -299,6 +298,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To create a table
  * ```javascript
  * // This example creates a table named Music.

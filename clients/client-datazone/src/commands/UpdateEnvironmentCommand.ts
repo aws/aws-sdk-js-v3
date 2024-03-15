@@ -31,7 +31,6 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentInput {}
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified environment in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -154,6 +153,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<

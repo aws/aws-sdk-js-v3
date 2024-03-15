@@ -27,7 +27,6 @@ export interface UpdateOriginEndpointCommandInput extends UpdateOriginEndpointRe
 export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates an existing OriginEndpoint.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -395,6 +394,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class UpdateOriginEndpointCommand extends $Command
   .classBuilder<

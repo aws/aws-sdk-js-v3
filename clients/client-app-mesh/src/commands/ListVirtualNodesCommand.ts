@@ -27,7 +27,6 @@ export interface ListVirtualNodesCommandInput extends ListVirtualNodesInput {}
 export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of existing virtual nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class ListVirtualNodesCommand extends $Command
   .classBuilder<

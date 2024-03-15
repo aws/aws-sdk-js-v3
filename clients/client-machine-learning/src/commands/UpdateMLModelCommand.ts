@@ -27,7 +27,6 @@ export interface UpdateMLModelCommandInput extends UpdateMLModelInput {}
 export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
  *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -67,6 +66,7 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class UpdateMLModelCommand extends $Command
   .classBuilder<

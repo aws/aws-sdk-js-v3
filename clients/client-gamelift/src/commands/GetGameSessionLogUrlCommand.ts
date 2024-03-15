@@ -27,7 +27,6 @@ export interface GetGameSessionLogUrlCommandInput extends GetGameSessionLogUrlIn
 export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the location of stored game session logs for a specified game session on
  *             Amazon GameLift managed fleets. When a game session is terminated, Amazon GameLift automatically stores
  *             the logs in Amazon S3 and retains them for 14 days. Use this URL to download the logs.</p>
@@ -79,6 +78,7 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class GetGameSessionLogUrlCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface IndexFacesCommandInput extends IndexFacesRequest {}
 export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects faces in the input image and adds them to the specified collection. </p>
  *          <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying
  *       detection algorithm first detects the faces in the input image. For each face, the algorithm
@@ -376,6 +375,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To add a face to a collection
  * ```javascript
  * // This operation detects faces in an image and adds them to the specified Rekognition collection.

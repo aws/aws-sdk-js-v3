@@ -27,7 +27,6 @@ export interface GetWorkflowExecutionCommandInput extends GetWorkflowExecutionRe
 export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the runtime information that was logged for a specific runtime instance
  * 			of the workflow.</p>
  * @example
@@ -90,6 +89,7 @@ export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionR
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetWorkflowExecutionCommand extends $Command
   .classBuilder<

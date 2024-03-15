@@ -27,7 +27,6 @@ export interface ListVerifiedEmailAddressesCommandInput {}
 export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEmailAddressesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
  *             and domains associated with your account.</p>
  * @example
@@ -56,6 +55,7 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example ListVerifiedEmailAddresses
  * ```javascript
  * // The following example lists all email addresses that have been submitted for verification with Amazon SES:

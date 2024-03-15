@@ -31,7 +31,6 @@ export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimits
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current Amazon Pinpoint SMS Voice V2 resource quotas for your
  *             account. The description for a quota includes the quota name, current usage toward that
  *             quota, and the quota's maximum value.</p>
@@ -89,6 +88,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeAccountLimitsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ImportLensCommandInput extends ImportLensInput {}
 export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Import a new custom lens or update an existing custom lens.</p>
  *          <p>To update an existing custom lens, specify its ARN as the  <code>LensAlias</code>. If
  *             no ARN is specified, a new custom lens is created.</p>
@@ -101,6 +100,7 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ImportLensCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes metadata tags from an Amazon RDS resource.</p>
  *          <p>For an overview on tagging an Amazon RDS resource,
  *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
@@ -91,6 +90,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To remove tags from a resource
  * ```javascript
  * // The following example removes tags from a resource.

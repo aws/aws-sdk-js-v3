@@ -27,7 +27,6 @@ export interface GetAppBundleCommandInput extends GetAppBundleRequest {}
 export interface GetAppBundleCommandOutput extends GetAppBundleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an app bundle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetAppBundleCommandOutput extends GetAppBundleResponse, __Metad
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class GetAppBundleCommand extends $Command
   .classBuilder<

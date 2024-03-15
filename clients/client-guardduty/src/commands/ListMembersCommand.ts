@@ -27,7 +27,6 @@ export interface ListMembersCommandInput extends ListMembersRequest {}
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists details about all member accounts for the current GuardDuty administrator
  *       account.</p>
  * @example
@@ -77,6 +76,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListMembersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListIntentsCommandInput extends ListIntentsRequest {}
 export interface ListIntentsCommandOutput extends ListIntentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a list of intents that meet the specified criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListIntentsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeInputCommandInput extends DescribeInputRequest {}
 export interface DescribeInputCommandOutput extends DescribeInputResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DescribeInputCommand extends $Command
   .classBuilder<

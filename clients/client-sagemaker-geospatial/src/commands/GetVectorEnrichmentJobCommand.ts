@@ -31,7 +31,6 @@ export interface GetVectorEnrichmentJobCommandInput extends GetVectorEnrichmentJ
 export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details of a Vector Enrichment Job for a given job Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface GetVectorEnrichmentJobCommandOutput extends GetVectorEnrichment
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class GetVectorEnrichmentJobCommand extends $Command
   .classBuilder<

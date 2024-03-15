@@ -27,7 +27,6 @@ export interface GetComponentCommandInput extends GetComponentRequest {}
 export interface GetComponentCommandOutput extends GetComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an existing component for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -284,6 +283,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class GetComponentCommand extends $Command
   .classBuilder<

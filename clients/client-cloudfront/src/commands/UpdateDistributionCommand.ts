@@ -32,7 +32,6 @@ export interface UpdateDistributionCommandInput extends UpdateDistributionReques
 export interface UpdateDistributionCommandOutput extends UpdateDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration for a CloudFront distribution.</p>
  *          <p>The update process includes getting the current distribution configuration, updating
  * 			it to make your changes, and then submitting an <code>UpdateDistribution</code> request
@@ -952,6 +951,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateDistributionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDBClusterSnapshotCommandInput extends CreateDBClusterSnap
 export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of a cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class CreateDBClusterSnapshotCommand extends $Command
   .classBuilder<

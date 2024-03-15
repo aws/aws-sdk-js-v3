@@ -35,7 +35,6 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateTransitGatewayPolicyTableCommand extends $Command
   .classBuilder<

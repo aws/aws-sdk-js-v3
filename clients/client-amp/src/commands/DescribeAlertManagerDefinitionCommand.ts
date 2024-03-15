@@ -32,7 +32,6 @@ export interface DescribeAlertManagerDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the full information about the alert manager definition for a
  *             workspace.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DescribeAlertManagerDefinitionCommand extends $Command
   .classBuilder<

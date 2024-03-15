@@ -31,7 +31,6 @@ export interface DeleteKeyCommandInput extends DeleteKeyRequest {}
 export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the key value pair specified by the key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ * @public
  */
 export class DeleteKeyCommand extends $Command
   .classBuilder<

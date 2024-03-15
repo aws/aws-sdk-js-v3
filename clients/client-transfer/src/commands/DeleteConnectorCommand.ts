@@ -27,7 +27,6 @@ export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
 export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the connector that's specified in the provided <code>ConnectorId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteConnectorCommand extends $Command
   .classBuilder<

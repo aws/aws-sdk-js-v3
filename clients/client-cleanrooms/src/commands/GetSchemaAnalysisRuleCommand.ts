@@ -27,7 +27,6 @@ export interface GetSchemaAnalysisRuleCommandInput extends GetSchemaAnalysisRule
 export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRuleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a schema analysis rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetSchemaAnalysisRuleCommand extends $Command
   .classBuilder<

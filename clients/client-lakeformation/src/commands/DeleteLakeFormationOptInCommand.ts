@@ -27,7 +27,6 @@ export interface DeleteLakeFormationOptInCommandInput extends DeleteLakeFormatio
 export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormationOptInResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove the Lake Formation permissions enforcement of the given databases, tables, and principals.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DeleteLakeFormationOptInCommand extends $Command
   .classBuilder<

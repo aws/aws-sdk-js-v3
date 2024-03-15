@@ -25,7 +25,6 @@ export interface NoInputAndOutputCommandInput {}
 export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, __MetadataBearer {}
 
 /**
- * @public
  * The example tests how requests and responses are serialized when there's
  * no request or response payload because the operation has no input and the
  * output is empty. While this should be rare, code generators must support
@@ -52,6 +51,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class NoInputAndOutputCommand extends $Command
   .classBuilder<

@@ -37,9 +37,6 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DescribeChannelModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Returns the full details of a channel moderated by the specified
  *             <code>AppInstanceUser</code>.</p>
  *          <note>
@@ -109,6 +106,8 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DescribeChannelModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  */
 export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command
   .classBuilder<

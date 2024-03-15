@@ -27,7 +27,6 @@ export interface DeleteCustomDBEngineVersionCommandInput extends DeleteCustomDBE
 export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
  *          <ul>
  *             <li>
@@ -163,6 +162,7 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DeleteCustomDBEngineVersionCommand extends $Command
   .classBuilder<

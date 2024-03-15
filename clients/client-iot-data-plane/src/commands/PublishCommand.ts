@@ -34,7 +34,6 @@ export interface PublishCommandInput extends PublishCommandInputType {}
 export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes an MQTT message.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">Publish</a> action.</p>
  *          <p>For more information about MQTT messages, see
@@ -90,6 +89,7 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * @public
  */
 export class PublishCommand extends $Command
   .classBuilder<

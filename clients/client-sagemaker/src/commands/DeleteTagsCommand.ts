@@ -27,7 +27,6 @@ export interface DeleteTagsCommandInput extends DeleteTagsInput {}
 export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified tags from an SageMaker resource.</p>
  *          <p>To list a resource's tags, use the <code>ListTags</code> API. </p>
  *          <note>
@@ -67,6 +66,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

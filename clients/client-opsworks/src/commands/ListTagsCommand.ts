@@ -27,7 +27,6 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

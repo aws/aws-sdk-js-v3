@@ -32,7 +32,6 @@ export interface CreateGroupCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateGroupCertificateAuthorityCommand extends $Command
   .classBuilder<

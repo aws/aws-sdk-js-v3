@@ -27,7 +27,6 @@ export interface AssociateResourceCommandInput extends AssociateResourceRequest 
 export interface AssociateResourceCommandOutput extends AssociateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a canary with a group. Using groups can help you with
  *          managing and automating your canaries, and you can also view aggregated run results and statistics
  *          for all canaries in a group. </p>
@@ -72,6 +71,7 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class AssociateResourceCommand extends $Command
   .classBuilder<

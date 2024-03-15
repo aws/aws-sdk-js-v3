@@ -27,7 +27,6 @@ export interface ListMFADevicesCommandInput extends ListMFADevicesRequest {}
 export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name,
  *             then this operation lists all the MFA devices associated with the specified user. If you
  *             do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services
@@ -78,6 +77,7 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListMFADevicesCommand extends $Command
   .classBuilder<

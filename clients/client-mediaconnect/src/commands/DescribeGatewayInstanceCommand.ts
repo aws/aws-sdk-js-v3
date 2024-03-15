@@ -27,7 +27,6 @@ export interface DescribeGatewayInstanceCommandInput extends DescribeGatewayInst
 export interface DescribeGatewayInstanceCommandOutput extends DescribeGatewayInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays the details of an instance.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeGatewayInstanceCommandOutput extends DescribeGatewayIns
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DescribeGatewayInstanceCommand extends $Command
   .classBuilder<

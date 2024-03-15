@@ -1384,8 +1384,8 @@ export interface Forecast {
 }
 
 /**
- * @public
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
+ * @public
  */
 export class Forecast extends ForecastClient implements Forecast {}
 createAggregatedClient(commands, Forecast);

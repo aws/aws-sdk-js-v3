@@ -27,7 +27,6 @@ export interface UpdateClassifierCommandInput extends UpdateClassifierRequest {}
 export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
  *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
  *       which field is present).</p>
@@ -97,6 +96,7 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateClassifierCommand extends $Command
   .classBuilder<

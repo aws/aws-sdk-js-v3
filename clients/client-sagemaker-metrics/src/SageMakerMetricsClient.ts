@@ -247,7 +247,6 @@ export type SageMakerMetricsClientResolvedConfigType = __SmithyResolvedConfigura
 export interface SageMakerMetricsClientResolvedConfig extends SageMakerMetricsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Contains all data plane API operations and data types for Amazon SageMaker Metrics.
  *          Use these APIs to put and retrieve (get) features related to your training run.</p>
  *          <ul>
@@ -257,6 +256,7 @@ export interface SageMakerMetricsClientResolvedConfig extends SageMakerMetricsCl
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SageMakerMetricsClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DeleteActivityCommandInput extends DeleteActivityInput {}
 export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an activity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class DeleteActivityCommand extends $Command
   .classBuilder<

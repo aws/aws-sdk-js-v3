@@ -27,7 +27,6 @@ export interface ListTopicRulesCommandInput extends ListTopicRulesRequest {}
 export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the rules for the specific topic.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTopicRules</a> action.</p>
  * @example
@@ -77,6 +76,7 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListTopicRulesCommand extends $Command
   .classBuilder<

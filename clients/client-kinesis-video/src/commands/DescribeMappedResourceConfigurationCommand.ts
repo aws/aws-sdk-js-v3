@@ -35,7 +35,6 @@ export interface DescribeMappedResourceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the most current information about the stream. The <code>streamName</code>
  *             or <code>streamARN</code> should be provided in the input.</p>
  * @example
@@ -86,6 +85,7 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DescribeMappedResourceConfigurationCommand extends $Command
   .classBuilder<

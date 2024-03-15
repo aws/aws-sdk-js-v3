@@ -1596,7 +1596,6 @@ export interface CloudWatchLogs {
 }
 
 /**
- * @public
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from
  *       EC2 instances, CloudTrail, and other sources. You can then retrieve the associated
  *       log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use
@@ -1632,6 +1631,7 @@ export interface CloudWatchLogs {
  *           into the log service. You can then access the raw log data when you need it.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CloudWatchLogs extends CloudWatchLogsClient implements CloudWatchLogs {}
 createAggregatedClient(commands, CloudWatchLogs);

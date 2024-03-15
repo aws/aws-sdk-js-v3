@@ -32,7 +32,6 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts ownership of a public virtual interface created by another Amazon Web Services account.</p>
  *          <p>After the virtual interface owner makes this call, the specified virtual interface is
  *       created and made available to handle traffic.</p>
@@ -68,6 +67,7 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class ConfirmPublicVirtualInterfaceCommand extends $Command
   .classBuilder<

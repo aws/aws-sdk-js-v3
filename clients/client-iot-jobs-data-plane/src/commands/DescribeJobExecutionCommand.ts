@@ -27,7 +27,6 @@ export interface DescribeJobExecutionCommandInput extends DescribeJobExecutionRe
 export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details of a job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ * @public
  */
 export class DescribeJobExecutionCommand extends $Command
   .classBuilder<

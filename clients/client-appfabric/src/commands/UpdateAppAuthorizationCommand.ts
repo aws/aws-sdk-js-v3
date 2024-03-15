@@ -31,7 +31,6 @@ export interface UpdateAppAuthorizationCommandInput extends UpdateAppAuthorizati
 export interface UpdateAppAuthorizationCommandOutput extends UpdateAppAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an app authorization within an app bundle, which allows AppFabric to connect to an
  *          application.</p>
  *          <p>If the app authorization was in a <code>connected</code> state, updating the app
@@ -106,6 +105,7 @@ export interface UpdateAppAuthorizationCommandOutput extends UpdateAppAuthorizat
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class UpdateAppAuthorizationCommand extends $Command
   .classBuilder<

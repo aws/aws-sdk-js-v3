@@ -27,7 +27,6 @@ export interface ListCrawlersCommandInput extends ListCrawlersRequest {}
 export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the names of all crawler resources in this Amazon Web Services account, or the
  *       resources with the specified tag. This operation allows you to see which
  *       resources are available in your account, and their names.</p>
@@ -70,6 +69,7 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListCrawlersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateResourceGroupCommandInput extends CreateResourceGroupRequ
 export interface CreateResourceGroupCommandOutput extends CreateResourceGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a resource group using the specified set of tags (key and value pairs) that
  *          are used to select the EC2 instances to be included in an Amazon Inspector assessment
  *          target. The created resource group is then used to create an Amazon Inspector assessment
@@ -80,6 +79,7 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Create resource group
  * ```javascript
  * // Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target.

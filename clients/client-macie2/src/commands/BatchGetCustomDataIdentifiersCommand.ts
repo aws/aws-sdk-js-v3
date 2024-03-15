@@ -32,7 +32,6 @@ export interface BatchGetCustomDataIdentifiersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about one or more custom data identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface BatchGetCustomDataIdentifiersCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class BatchGetCustomDataIdentifiersCommand extends $Command
   .classBuilder<

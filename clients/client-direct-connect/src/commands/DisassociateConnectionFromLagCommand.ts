@@ -30,7 +30,6 @@ export interface DisassociateConnectionFromLagCommandInput extends DisassociateC
 export interface DisassociateConnectionFromLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a connection from a link aggregation group (LAG). The connection is
  *       interrupted and re-established as a standalone connection (the connection is not
  *       deleted; to delete the connection, use the <a>DeleteConnection</a> request).
@@ -107,6 +106,7 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DisassociateConnectionFromLagCommand extends $Command
   .classBuilder<

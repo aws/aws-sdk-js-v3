@@ -27,7 +27,6 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotInput {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of the specified simulation.
  *          A snapshot is a file that contains simulation state data at a specific time.
  *          The state data saved in a snapshot includes entity data from the State Fabric,
@@ -127,6 +126,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class CreateSnapshotCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GenerateBackendAPIModelsCommandInput extends GenerateBackendAPI
 export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a model schema for an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAP
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class GenerateBackendAPIModelsCommand extends $Command
   .classBuilder<

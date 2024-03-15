@@ -31,7 +31,6 @@ export interface DescribeHumanLoopCommandInput extends DescribeHumanLoopRequest 
 export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified human loop. If the human loop was deleted, this
  *       operation will return a <code>ResourceNotFoundException</code> error. </p>
  * @example
@@ -86,6 +85,7 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ * @public
  */
 export class DescribeHumanLoopCommand extends $Command
   .classBuilder<

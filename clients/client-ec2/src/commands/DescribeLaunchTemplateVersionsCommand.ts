@@ -36,7 +36,6 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more versions of a specified launch template. You can describe all
  *             versions, individual versions, or a range of versions. You can also describe all the
  *             latest versions or all the default versions of all the launch templates in your
@@ -347,6 +346,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the versions for a launch template
  * ```javascript
  * // This example describes the versions for the specified launch template.

@@ -27,7 +27,6 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data source connector that you want to use with an Amazon Kendra
  *       index.</p>
  *          <p>You specify a name, data source connector type and description for your data source. You
@@ -665,6 +664,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class CreateDataSourceCommand extends $Command
   .classBuilder<

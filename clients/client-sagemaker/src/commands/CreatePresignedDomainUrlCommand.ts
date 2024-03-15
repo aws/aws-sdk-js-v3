@@ -27,7 +27,6 @@ export interface CreatePresignedDomainUrlCommandInput extends CreatePresignedDom
 export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDomainUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,
  *        the user will be automatically signed in to the domain, and granted access to all of
  *        the Apps and files associated with the Domain's Amazon Elastic File System volume.
@@ -79,6 +78,7 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreatePresignedDomainUrlCommand extends $Command
   .classBuilder<

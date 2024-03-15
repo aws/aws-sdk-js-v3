@@ -31,7 +31,6 @@ export interface DescribeListenerCommandInput extends DescribeListenerRequest {}
 export interface DescribeListenerCommandOutput extends DescribeListenerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe a listener. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DescribeListenerCommand extends $Command
   .classBuilder<

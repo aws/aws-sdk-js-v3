@@ -32,7 +32,6 @@ export interface UpdateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all
  *             matches and game sessions that are created after the update. To update settings, specify
  *             the configuration name to be updated and provide the new settings. </p>
@@ -128,6 +127,7 @@ export interface UpdateMatchmakingConfigurationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateMatchmakingConfigurationCommand extends $Command
   .classBuilder<

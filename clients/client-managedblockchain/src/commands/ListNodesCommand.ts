@@ -31,7 +31,6 @@ export interface ListNodesCommandInput extends ListNodesInput {}
 export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the nodes within a network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class ListNodesCommand extends $Command
   .classBuilder<

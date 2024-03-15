@@ -27,7 +27,6 @@ export interface GetMLEndpointCommandInput extends GetMLEndpointInput {}
 export interface GetMLEndpointCommandOutput extends GetMLEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about an inference endpoint. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html">Managing
  *       inference endpoints using the endpoints command</a>.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -107,6 +106,7 @@ export interface GetMLEndpointCommandOutput extends GetMLEndpointOutput, __Metad
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetMLEndpointCommand extends $Command
   .classBuilder<

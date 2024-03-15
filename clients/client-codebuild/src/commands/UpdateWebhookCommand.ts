@@ -27,7 +27,6 @@ export interface UpdateWebhookCommandInput extends UpdateWebhookInput {}
 export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the webhook associated with an CodeBuild build project. </p>
  *          <note>
  *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
@@ -96,6 +95,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class UpdateWebhookCommand extends $Command
   .classBuilder<

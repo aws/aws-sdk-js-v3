@@ -27,7 +27,6 @@ export interface BatchGetSchemaCommandInput extends BatchGetSchemaInput {}
 export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves multiple schemas by their identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class BatchGetSchemaCommand extends $Command
   .classBuilder<

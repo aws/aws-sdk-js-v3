@@ -33,7 +33,6 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a phone number and indicates whether the phone holder has opted out of
  *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
  *             that is opted out.</p>
@@ -78,6 +77,7 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command
   .classBuilder<

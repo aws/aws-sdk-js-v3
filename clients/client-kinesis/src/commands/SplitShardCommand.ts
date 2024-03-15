@@ -27,7 +27,6 @@ export interface SplitShardCommandInput extends SplitShardInput {}
 export interface SplitShardCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Splits a shard into two new shards in the Kinesis data stream, to increase the
  *             stream's capacity to ingest and transport data. <code>SplitShard</code> is called when
  *             there is a need to increase the overall capacity of a stream because of an expected
@@ -126,6 +125,7 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class SplitShardCommand extends $Command
   .classBuilder<

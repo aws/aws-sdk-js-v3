@@ -32,7 +32,6 @@ export interface CreateReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance
  * 			Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your
  * 			Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p>
@@ -114,6 +113,7 @@ export interface CreateReservedInstancesListingCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateReservedInstancesListingCommand extends $Command
   .classBuilder<

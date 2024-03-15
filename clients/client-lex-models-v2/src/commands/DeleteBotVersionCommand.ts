@@ -27,7 +27,6 @@ export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
 export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific version of a bot. To delete all versions of a bot,
  *          use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html">DeleteBot</a> operation.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteBotVersionCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the targets registered with the maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeMaintenanceWindowTargetsCommand extends $Command
   .classBuilder<

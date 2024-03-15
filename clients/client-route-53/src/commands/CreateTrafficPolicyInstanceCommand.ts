@@ -30,7 +30,6 @@ export interface CreateTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates resource record sets in a specified hosted zone based on the settings in a
  * 			specified traffic policy version. In addition, <code>CreateTrafficPolicyInstance</code>
  * 			associates the resource record sets with a specified domain name (such as example.com)
@@ -107,6 +106,7 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateTrafficPolicyInstanceCommand extends $Command
   .classBuilder<

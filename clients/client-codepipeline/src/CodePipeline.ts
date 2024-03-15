@@ -821,7 +821,6 @@ export interface CodePipeline {
 }
 
 /**
- * @public
  * <fullname>CodePipeline</fullname>
  *          <p>
  *             <b>Overview</b>
@@ -1016,6 +1015,7 @@ export interface CodePipeline {
  *                     success.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CodePipeline extends CodePipelineClient implements CodePipeline {}
 createAggregatedClient(commands, CodePipeline);

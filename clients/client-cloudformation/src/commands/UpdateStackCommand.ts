@@ -27,7 +27,6 @@ export interface UpdateStackCommandInput extends UpdateStackInput {}
 export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a stack as specified in the template. After the call completes successfully, the stack update starts.
  *    You can check the status of the stack through the <a>DescribeStacks</a> action.</p>
  *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a>
@@ -109,6 +108,7 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class UpdateStackCommand extends $Command
   .classBuilder<

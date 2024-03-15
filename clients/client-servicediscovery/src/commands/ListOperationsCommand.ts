@@ -27,7 +27,6 @@ export interface ListOperationsCommandInput extends ListOperationsRequest {}
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists operations that match the criteria that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example ListOperations Example
  * ```javascript
  * // This example gets the operations that have a STATUS of either PENDING or SUCCESS.

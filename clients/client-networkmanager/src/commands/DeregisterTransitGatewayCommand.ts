@@ -27,7 +27,6 @@ export interface DeregisterTransitGatewayCommandInput extends DeregisterTransitG
 export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransitGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters a transit gateway from your global network. This action does not delete
  *             your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeregisterTransitGatewayCommand extends $Command
   .classBuilder<

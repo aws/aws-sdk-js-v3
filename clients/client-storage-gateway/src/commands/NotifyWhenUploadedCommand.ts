@@ -27,7 +27,6 @@ export interface NotifyWhenUploadedCommandInput extends NotifyWhenUploadedInput 
 export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends you notification through CloudWatch Events when all files written to your file
  *          share have been uploaded to Amazon S3.</p>
  *          <p>Storage Gateway can send a notification through Amazon CloudWatch Events when all
@@ -73,6 +72,7 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class NotifyWhenUploadedCommand extends $Command
   .classBuilder<

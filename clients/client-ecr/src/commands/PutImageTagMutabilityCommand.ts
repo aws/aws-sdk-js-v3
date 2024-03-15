@@ -27,7 +27,6 @@ export interface PutImageTagMutabilityCommandInput extends PutImageTagMutability
 export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the image tag mutability settings for the specified repository. For more
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image tag
  *                 mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -72,6 +71,7 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class PutImageTagMutabilityCommand extends $Command
   .classBuilder<

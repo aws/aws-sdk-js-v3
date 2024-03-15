@@ -27,7 +27,6 @@ export interface UpdateResolverConfigCommandInput extends UpdateResolverConfigRe
 export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
  * 				Amazon Virtual Private Cloud.</p>
  * @example
@@ -90,6 +89,7 @@ export interface UpdateResolverConfigCommandOutput extends UpdateResolverConfigR
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class UpdateResolverConfigCommand extends $Command
   .classBuilder<

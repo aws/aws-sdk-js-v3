@@ -27,7 +27,6 @@ export interface ListWorkteamsCommandInput extends ListWorkteamsRequest {}
 export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
  *             no work team satisfies the filter specified in the <code>NameContains</code>
  *             parameter.</p>
@@ -92,6 +91,7 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListWorkteamsCommand extends $Command
   .classBuilder<

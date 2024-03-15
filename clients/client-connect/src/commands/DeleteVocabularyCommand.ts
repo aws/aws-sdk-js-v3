@@ -27,7 +27,6 @@ export interface DeleteVocabularyCommandInput extends DeleteVocabularyRequest {}
 export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the vocabulary that has the given identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteVocabularyCommand extends $Command
   .classBuilder<

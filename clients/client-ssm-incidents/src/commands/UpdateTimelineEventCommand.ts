@@ -27,7 +27,6 @@ export interface UpdateTimelineEventCommandInput extends UpdateTimelineEventInpu
 export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a timeline event. You can update events of type <code>Custom Event</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class UpdateTimelineEventCommand extends $Command
   .classBuilder<

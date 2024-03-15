@@ -27,7 +27,6 @@ export interface GetProbeCommandInput extends GetProbeInput {}
 export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details about a probe. You'll need both the <code>monitorName</code> and <code>probeId</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer 
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class GetProbeCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateScheduledQueryCommandInput extends CreateScheduledQueryRe
 export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Create a scheduled query that will be run on your behalf at the configured schedule.
  *             Timestream assumes the execution role provided as part of the
  *                 <code>ScheduledQueryExecutionRoleArn</code> parameter to run the query. You can use
@@ -151,6 +150,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class CreateScheduledQueryCommand extends $Command
   .classBuilder<

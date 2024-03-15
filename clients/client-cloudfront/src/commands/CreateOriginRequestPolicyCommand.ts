@@ -27,7 +27,6 @@ export interface CreateOriginRequestPolicyCommandInput extends CreateOriginReque
 export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an origin request policy.</p>
  *          <p>After you create an origin request policy, you can attach it to one or more cache
  * 			behaviors. When it's attached to a cache behavior, the origin request policy determines
@@ -182,6 +181,7 @@ export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequ
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateOriginRequestPolicyCommand extends $Command
   .classBuilder<

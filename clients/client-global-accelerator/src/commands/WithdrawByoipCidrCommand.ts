@@ -31,7 +31,6 @@ export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest 
 export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops advertising an address range that is provisioned as an address pool.
  * 			You can perform this operation at most once every 10 seconds, even if you specify different address
  * 			ranges each time.</p>
@@ -90,6 +89,7 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class WithdrawByoipCidrCommand extends $Command
   .classBuilder<

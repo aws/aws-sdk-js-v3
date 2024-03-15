@@ -27,7 +27,6 @@ export interface PutStorageConfigurationCommandInput extends PutStorageConfigura
 export interface PutStorageConfigurationCommandOutput extends PutStorageConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures storage settings for IoT SiteWise.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class PutStorageConfigurationCommand extends $Command
   .classBuilder<

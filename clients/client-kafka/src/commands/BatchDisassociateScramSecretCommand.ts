@@ -32,7 +32,6 @@ export interface BatchDisassociateScramSecretCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface BatchDisassociateScramSecretCommandOutput
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class BatchDisassociateScramSecretCommand extends $Command
   .classBuilder<

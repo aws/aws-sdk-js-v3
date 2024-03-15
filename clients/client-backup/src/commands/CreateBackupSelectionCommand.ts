@@ -27,7 +27,6 @@ export interface CreateBackupSelectionCommandInput extends CreateBackupSelection
 export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.
  *          For examples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json">Assigning resources programmatically</a>. </p>
  * @example
@@ -119,6 +118,7 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateBackupSelectionCommand extends $Command
   .classBuilder<

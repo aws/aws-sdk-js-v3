@@ -27,7 +27,6 @@ export interface DeleteGatewayResponseCommandInput extends DeleteGatewayResponse
 export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Clears any customization of a GatewayResponse of a specified response type on the given RestApi and resets it with the default settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class DeleteGatewayResponseCommand extends $Command
   .classBuilder<

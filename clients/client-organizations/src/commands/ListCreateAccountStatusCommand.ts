@@ -31,7 +31,6 @@ export interface ListCreateAccountStatusCommandInput extends ListCreateAccountSt
 export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the account creation requests that match the specified status that is currently
  *             being tracked for the organization.</p>
  *          <note>
@@ -213,6 +212,7 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To get a list of completed account creation requests made in the organization
  * ```javascript
  * // The following example shows a user requesting a list of only the completed account creation requests made for the current organization:

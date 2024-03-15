@@ -32,7 +32,6 @@ export interface CreateAlertManagerDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateAlertManagerDefinition</code> operation creates the alert manager
  *             definition in a workspace. If a workspace already has an alert manager definition, don't
  *             use this operation to update it. Instead, use
@@ -90,6 +89,7 @@ export interface CreateAlertManagerDefinitionCommandOutput
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class CreateAlertManagerDefinitionCommand extends $Command
   .classBuilder<

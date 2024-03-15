@@ -27,7 +27,6 @@ export interface MonitorInstancesCommandInput extends MonitorInstancesRequest {}
 export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
  *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
  *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -68,6 +67,7 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class MonitorInstancesCommand extends $Command
   .classBuilder<

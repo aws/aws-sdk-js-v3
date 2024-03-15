@@ -27,7 +27,6 @@ export interface GetNetworkSettingsCommandInput extends GetNetworkSettingsReques
 export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class GetNetworkSettingsCommand extends $Command
   .classBuilder<

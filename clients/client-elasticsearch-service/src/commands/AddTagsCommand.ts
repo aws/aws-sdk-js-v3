@@ -31,7 +31,6 @@ export interface AddTagsCommandInput extends AddTagsRequest {}
 export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
  *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
  * @example
@@ -76,6 +75,7 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<

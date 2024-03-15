@@ -32,7 +32,6 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a source identifier to an existing event notification
  *             subscription.</p>
  * @example
@@ -83,6 +82,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command
   .classBuilder<

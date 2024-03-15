@@ -27,8 +27,8 @@ export const AcceptanceType = {
 export type AcceptanceType = (typeof AcceptanceType)[keyof typeof AcceptanceType];
 
 /**
- * @public
  * <p>User does not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -68,33 +68,33 @@ export type NotificationSubscriptionStatus =
   (typeof NotificationSubscriptionStatus)[keyof typeof NotificationSubscriptionStatus];
 
 /**
- * @public
  * <p>Account settings for the customer.</p>
+ * @public
  */
 export interface AccountSettings {
   /**
-   * @public
    * <p>Notification subscription status of the customer.</p>
+   * @public
    */
   notificationSubscriptionStatus?: NotificationSubscriptionStatus;
 }
 
 /**
- * @public
  * <p>Request to create/modify content would result in a conflict.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Identifier of the affected resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>Type of the affected resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -123,23 +123,23 @@ export interface GetAccountSettingsRequest {}
  */
 export interface GetAccountSettingsResponse {
   /**
-   * @public
    * <p>Account settings for the customer.</p>
+   * @public
    */
   accountSettings?: AccountSettings;
 }
 
 /**
- * @public
  * <p>An unknown server exception has occurred.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>Number of seconds in which the caller can retry the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -158,21 +158,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request references a resource which does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Identifier of the affected resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>Type of the affected resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -192,33 +192,33 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request would cause a service quota to be exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Identifier of the affected resource.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>Type of the affected resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>Code for the affected service.</p>
+   * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * @public
    * <p>Code for the affected quota.</p>
+   * @public
    */
   quotaCode: string | undefined;
 
@@ -240,8 +240,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -250,20 +250,20 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>Code for the affected service.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>Code for the affected quota.</p>
+   * @public
    */
   quotaCode?: string;
 
   /**
-   * @public
    * <p>Number of seconds in which the caller can retry the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -284,19 +284,19 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Validation exception message and name.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>Name of validation exception.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Message describing why the field failed validation.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -319,21 +319,21 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>Request fails to satisfy the constraints specified by an AWS service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Reason the request failed validation.</p>
+   * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * @public
    * <p>The field that caused the error, if applicable.</p>
+   * @public
    */
   fieldList?: ValidationExceptionField[];
 
@@ -357,8 +357,8 @@ export class ValidationException extends __BaseException {
  */
 export interface PutAccountSettingsRequest {
   /**
-   * @public
    * <p>Desired notification subscription status.</p>
+   * @public
    */
   notificationSubscriptionStatus?: NotificationSubscriptionStatus;
 }
@@ -368,8 +368,8 @@ export interface PutAccountSettingsRequest {
  */
 export interface PutAccountSettingsResponse {
   /**
-   * @public
    * <p>Account settings for the customer.</p>
+   * @public
    */
   accountSettings?: AccountSettings;
 }
@@ -379,20 +379,20 @@ export interface PutAccountSettingsResponse {
  */
 export interface GetReportRequest {
   /**
-   * @public
    * <p>Unique resource ID for the report resource.</p>
+   * @public
    */
   reportId: string | undefined;
 
   /**
-   * @public
    * <p>Version for the report resource.</p>
+   * @public
    */
   reportVersion?: number;
 
   /**
-   * @public
    * <p>Unique download token provided by GetTermForReport API.</p>
+   * @public
    */
   termToken: string | undefined;
 }
@@ -402,8 +402,8 @@ export interface GetReportRequest {
  */
 export interface GetReportResponse {
   /**
-   * @public
    * <p>Presigned S3 url to access the report content.</p>
+   * @public
    */
   documentPresignedUrl?: string;
 }
@@ -413,14 +413,14 @@ export interface GetReportResponse {
  */
 export interface GetReportMetadataRequest {
   /**
-   * @public
    * <p>Unique resource ID for the report resource.</p>
+   * @public
    */
   reportId: string | undefined;
 
   /**
-   * @public
    * <p>Version for the report resource.</p>
+   * @public
    */
   reportVersion?: number;
 }
@@ -462,127 +462,127 @@ export const UploadState = {
 export type UploadState = (typeof UploadState)[keyof typeof UploadState];
 
 /**
- * @public
  * <p>Full detail for report resource metadata.</p>
+ * @public
  */
 export interface ReportDetail {
   /**
-   * @public
    * <p>Unique resource ID for the report resource.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Name for the report resource.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Description for the report resource.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Timestamp indicating the report resource effective start.</p>
+   * @public
    */
   periodStart?: Date;
 
   /**
-   * @public
    * <p>Timestamp indicating the report resource effective end.</p>
+   * @public
    */
   periodEnd?: Date;
 
   /**
-   * @public
    * <p>Timestamp indicating when the report resource was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>Timestamp indicating when the report resource was last modified.</p>
+   * @public
    */
   lastModifiedAt?: Date;
 
   /**
-   * @public
    * <p>Timestamp indicating when the report resource was deleted.</p>
+   * @public
    */
   deletedAt?: Date;
 
   /**
-   * @public
    * <p>Current state of the report resource</p>
+   * @public
    */
   state?: PublishedState;
 
   /**
-   * @public
    * <p>ARN for the report resource.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Series for the report resource.</p>
+   * @public
    */
   series?: string;
 
   /**
-   * @public
    * <p>Category for the report resource.</p>
+   * @public
    */
   category?: string;
 
   /**
-   * @public
    * <p>Associated company name for the report resource.</p>
+   * @public
    */
   companyName?: string;
 
   /**
-   * @public
    * <p>Associated product name for the report resource.</p>
+   * @public
    */
   productName?: string;
 
   /**
-   * @public
    * <p>Unique resource ARN for term resource.</p>
+   * @public
    */
   termArn?: string;
 
   /**
-   * @public
    * <p>Version for the report resource.</p>
+   * @public
    */
   version?: number;
 
   /**
-   * @public
    * <p>Acceptance type for report.</p>
+   * @public
    */
   acceptanceType?: AcceptanceType;
 
   /**
-   * @public
    * <p>Sequence number to enforce optimistic locking.</p>
+   * @public
    */
   sequenceNumber?: number;
 
   /**
-   * @public
    * <p>The current state of the document upload.</p>
+   * @public
    */
   uploadState?: UploadState;
 
   /**
-   * @public
    * <p>The message associated with the current upload state.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -592,8 +592,8 @@ export interface ReportDetail {
  */
 export interface GetReportMetadataResponse {
   /**
-   * @public
    * <p>Report resource detail.</p>
+   * @public
    */
   reportDetails?: ReportDetail;
 }
@@ -603,14 +603,14 @@ export interface GetReportMetadataResponse {
  */
 export interface GetTermForReportRequest {
   /**
-   * @public
    * <p>Unique resource ID for the report resource.</p>
+   * @public
    */
   reportId: string | undefined;
 
   /**
-   * @public
    * <p>Version for the report resource.</p>
+   * @public
    */
   reportVersion?: number;
 }
@@ -620,14 +620,14 @@ export interface GetTermForReportRequest {
  */
 export interface GetTermForReportResponse {
   /**
-   * @public
    * <p>Presigned S3 url to access the term content.</p>
+   * @public
    */
   documentPresignedUrl?: string;
 
   /**
-   * @public
    * <p>Unique token representing this request event.</p>
+   * @public
    */
   termToken?: string;
 }
@@ -637,104 +637,104 @@ export interface GetTermForReportResponse {
  */
 export interface ListReportsRequest {
   /**
-   * @public
    * <p>Maximum number of resources to return in the paginated response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Pagination token to request the next page of resources.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Summary for report resource.</p>
+ * @public
  */
 export interface ReportSummary {
   /**
-   * @public
    * <p>Unique resource ID for the report resource.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Name for the report resource.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Current state of the report resource.</p>
+   * @public
    */
   state?: PublishedState;
 
   /**
-   * @public
    * <p>ARN for the report resource.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Version for the report resource.</p>
+   * @public
    */
   version?: number;
 
   /**
-   * @public
    * <p>The current state of the document upload.</p>
+   * @public
    */
   uploadState?: UploadState;
 
   /**
-   * @public
    * <p>Description for the report resource.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Timestamp indicating the report resource effective start.</p>
+   * @public
    */
   periodStart?: Date;
 
   /**
-   * @public
    * <p>Timestamp indicating the report resource effective end.</p>
+   * @public
    */
   periodEnd?: Date;
 
   /**
-   * @public
    * <p>Series for the report resource.</p>
+   * @public
    */
   series?: string;
 
   /**
-   * @public
    * <p>Category for the report resource.</p>
+   * @public
    */
   category?: string;
 
   /**
-   * @public
    * <p>Associated company name for the report resource.</p>
+   * @public
    */
   companyName?: string;
 
   /**
-   * @public
    * <p>Associated product name for the report resource.</p>
+   * @public
    */
   productName?: string;
 
   /**
-   * @public
    * <p>The message associated with the current upload state.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -744,14 +744,14 @@ export interface ReportSummary {
  */
 export interface ListReportsResponse {
   /**
-   * @public
    * <p>List of report resources.</p>
+   * @public
    */
   reports?: ReportSummary[];
 
   /**
-   * @public
    * <p>Pagination token to request the next page of resources.</p>
+   * @public
    */
   nextToken?: string;
 }

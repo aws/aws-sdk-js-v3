@@ -31,7 +31,6 @@ export interface GetBackendAuthCommandInput extends GetBackendAuthRequest {}
 export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a backend auth details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -159,6 +158,7 @@ export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __M
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class GetBackendAuthCommand extends $Command
   .classBuilder<

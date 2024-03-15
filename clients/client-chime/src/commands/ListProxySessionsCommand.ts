@@ -31,9 +31,6 @@ export interface ListProxySessionsCommandInput extends ListProxySessionsRequest 
 export interface ListProxySessionsCommandOutput extends ListProxySessionsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListProxySessions in the Amazon Chime SDK Voice Namespace
- *
  * <p>Lists the proxy sessions for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -119,6 +116,8 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListProxySessions in the Amazon Chime SDK Voice Namespace
  */
 export class ListProxySessionsCommand extends $Command
   .classBuilder<

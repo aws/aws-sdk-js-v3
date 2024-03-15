@@ -27,7 +27,6 @@ export interface CreateEnvironmentMembershipCommandInput extends CreateEnvironme
 export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an environment member to an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example CreateEnvironmentMembership
  * ```javascript
  * //

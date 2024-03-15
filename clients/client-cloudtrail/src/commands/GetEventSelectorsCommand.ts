@@ -27,7 +27,6 @@ export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest 
 export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the settings for the event selectors that you configured for your trail. The
  *          information returned for your event selectors includes the following:</p>
  *          <ul>
@@ -173,6 +172,7 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetEventSelectorsCommand extends $Command
   .classBuilder<

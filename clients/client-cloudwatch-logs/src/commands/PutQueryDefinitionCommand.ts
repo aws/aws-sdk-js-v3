@@ -27,7 +27,6 @@ export interface PutQueryDefinitionCommandInput extends PutQueryDefinitionReques
 export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a query definition for CloudWatch Logs Insights. For
  *       more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">Analyzing Log Data with CloudWatch Logs Insights</a>.</p>
  *          <p>To update a query definition, specify its <code>queryDefinitionId</code> in your request.
@@ -83,6 +82,7 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutQueryDefinitionCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DescribeTargetedSentimentDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a targeted sentiment detection job. Use this operation
  *       to get the status of the job.</p>
  * @example
@@ -111,6 +110,7 @@ export interface DescribeTargetedSentimentDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeTargetedSentimentDetectionJobCommand extends $Command
   .classBuilder<

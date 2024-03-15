@@ -27,7 +27,6 @@ export interface DescribeStacksCommandInput extends DescribeStacksInput {}
 export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description for the specified stack; if no stack name was specified, then it returns the description
  *    for all the stacks created. For more information about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">CloudFormation stack creation
  *    events</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -123,6 +122,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStacksCommand extends $Command
   .classBuilder<

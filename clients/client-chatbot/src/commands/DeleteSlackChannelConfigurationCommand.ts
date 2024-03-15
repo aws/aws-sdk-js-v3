@@ -32,7 +32,6 @@ export interface DeleteSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Deletes Slack Channel Configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class DeleteSlackChannelConfigurationCommand extends $Command
   .classBuilder<

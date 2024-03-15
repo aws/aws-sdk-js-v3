@@ -27,7 +27,6 @@ export interface StartTranscriptionJobCommandInput extends StartTranscriptionJob
 export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transcribes the audio from a media file and applies any additional Request Parameters
  *             you choose to include in your request.</p>
  *          <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
@@ -258,6 +257,7 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class StartTranscriptionJobCommand extends $Command
   .classBuilder<

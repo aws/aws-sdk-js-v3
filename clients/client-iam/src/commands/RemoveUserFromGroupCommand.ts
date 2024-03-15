@@ -27,7 +27,6 @@ export interface RemoveUserFromGroupCommandInput extends RemoveUserFromGroupRequ
 export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified user from the specified group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To remove a user from an IAM group
  * ```javascript
  * // The following command removes the user named Bob from the IAM group named Admins.

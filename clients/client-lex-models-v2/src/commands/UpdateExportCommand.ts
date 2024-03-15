@@ -27,7 +27,6 @@ export interface UpdateExportCommandInput extends UpdateExportRequest {}
 export interface UpdateExportCommandOutput extends UpdateExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the password used to protect an export zip archive.</p>
  *          <p>The password is not required. If you don't supply a password, Amazon Lex
  *          generates a zip file that is not protected by a password. This is the
@@ -107,6 +106,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class UpdateExportCommand extends $Command
   .classBuilder<

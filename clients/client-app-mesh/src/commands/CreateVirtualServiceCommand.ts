@@ -27,7 +27,6 @@ export interface CreateVirtualServiceCommandInput extends CreateVirtualServiceIn
 export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a virtual service within a service mesh.</p>
  *          <p>A virtual service is an abstraction of a real service that is provided by a virtual node
  *          directly or indirectly by means of a virtual router. Dependent services call your virtual
@@ -134,6 +133,7 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class CreateVirtualServiceCommand extends $Command
   .classBuilder<

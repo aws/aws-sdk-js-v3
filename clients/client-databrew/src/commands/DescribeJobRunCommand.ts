@@ -27,7 +27,6 @@ export interface DescribeJobRunCommandInput extends DescribeJobRunRequest {}
 export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Represents one run of a DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -201,6 +200,7 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class DescribeJobRunCommand extends $Command
   .classBuilder<

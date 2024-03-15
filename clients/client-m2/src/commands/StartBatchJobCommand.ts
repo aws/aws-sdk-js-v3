@@ -27,7 +27,6 @@ export interface StartBatchJobCommandInput extends StartBatchJobRequest {}
 export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a batch job and returns the unique identifier of this execution of the batch job.
  *          The associated application must be running in order to start the batch job.</p>
  * @example
@@ -94,6 +93,7 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class StartBatchJobCommand extends $Command
   .classBuilder<

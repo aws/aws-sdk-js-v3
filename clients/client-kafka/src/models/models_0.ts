@@ -4,43 +4,43 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { KafkaServiceException as __BaseException } from "./KafkaServiceException";
 
 /**
- * @public
  * <p>Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.</p>
+ * @public
  */
 export interface ProvisionedThroughput {
   /**
-   * @public
    * <p>Provisioned throughput is enabled or not.</p>
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * <p>Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.</p>
+   * @public
    */
   VolumeThroughput?: number;
 }
 
 /**
- * @public
  * <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>
+ * @public
  */
 export interface BrokerEBSVolumeInfo {
   /**
-   * @public
    * <p>The ID of the broker to update.</p>
+   * @public
    */
   KafkaBrokerNodeId: string | undefined;
 
   /**
-   * @public
    * <p>EBS volume provisioned throughput information.</p>
+   * @public
    */
   ProvisionedThroughput?: ProvisionedThroughput;
 
   /**
-   * @public
    * <p>Size of the EBS volume to update.</p>
+   * @public
    */
   VolumeSizeGB?: number;
 }
@@ -66,37 +66,37 @@ export const VpcConnectionState = {
 export type VpcConnectionState = (typeof VpcConnectionState)[keyof typeof VpcConnectionState];
 
 /**
- * @public
  * <p>The client VPC connection object.</p>
+ * @public
  */
 export interface ClientVpcConnection {
   /**
-   * @public
    * <p>Information about the auth scheme of Vpc Connection.</p>
+   * @public
    */
   Authentication?: string;
 
   /**
-   * @public
    * <p>Creation time of the Vpc Connection.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>State of the Vpc Connection.</p>
+   * @public
    */
   State?: VpcConnectionState;
 
   /**
-   * @public
    * <p>The ARN that identifies the Vpc Connection.</p>
+   * @public
    */
   VpcConnectionArn: string | undefined;
 
   /**
-   * @public
    * <p>The Owner of the Vpc Connection.</p>
+   * @public
    */
   Owner?: string;
 }
@@ -129,255 +129,255 @@ export const BrokerAZDistribution = {
 export type BrokerAZDistribution = (typeof BrokerAZDistribution)[keyof typeof BrokerAZDistribution];
 
 /**
- * @public
  * Public access control for brokers.
+ * @public
  */
 export interface PublicAccess {
   /**
-   * @public
    * <p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>
+   * @public
    */
   Type?: string;
 }
 
 /**
- * @public
  * <p>Details for IAM access control for VPC connectivity.</p>
+ * @public
  */
 export interface VpcConnectivityIam {
   /**
-   * @public
    * <p>SASL/IAM authentication is on or off for VPC connectivity.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+ * @public
  */
 export interface VpcConnectivityScram {
   /**
-   * @public
    * <p>SASL/SCRAM authentication is on or off for VPC connectivity.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Details for SASL client authentication for VPC connectivity.</p>
+ * @public
  */
 export interface VpcConnectivitySasl {
   /**
-   * @public
    * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+   * @public
    */
   Scram?: VpcConnectivityScram;
 
   /**
-   * @public
    * <p>Details for SASL/IAM client authentication for VPC connectivity.</p>
+   * @public
    */
   Iam?: VpcConnectivityIam;
 }
 
 /**
- * @public
  * <p>Details for TLS client authentication for VPC connectivity.</p>
+ * @public
  */
 export interface VpcConnectivityTls {
   /**
-   * @public
    * <p>TLS authentication is on or off for VPC connectivity.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Includes all client authentication information for VPC connectivity.</p>
+ * @public
  */
 export interface VpcConnectivityClientAuthentication {
   /**
-   * @public
    * <p>SASL authentication type details for VPC connectivity.</p>
+   * @public
    */
   Sasl?: VpcConnectivitySasl;
 
   /**
-   * @public
    * <p>TLS authentication type details for VPC connectivity.</p>
+   * @public
    */
   Tls?: VpcConnectivityTls;
 }
 
 /**
- * @public
  * VPC connectivity access control for brokers.
+ * @public
  */
 export interface VpcConnectivity {
   /**
-   * @public
    * <p>Includes all client authentication information for VPC connectivity.</p>
+   * @public
    */
   ClientAuthentication?: VpcConnectivityClientAuthentication;
 }
 
 /**
- * @public
  * <p>Information about the broker access configuration.</p>
+ * @public
  */
 export interface ConnectivityInfo {
   /**
-   * @public
    * <p>Public access control for brokers.</p>
+   * @public
    */
   PublicAccess?: PublicAccess;
 
   /**
-   * @public
    * <p>VPC connectivity access control for brokers.</p>
+   * @public
    */
   VpcConnectivity?: VpcConnectivity;
 }
 
 /**
- * @public
  * <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>
+ * @public
  */
 export interface EBSStorageInfo {
   /**
-   * @public
    * <p>EBS volume provisioned throughput information.</p>
+   * @public
    */
   ProvisionedThroughput?: ProvisionedThroughput;
 
   /**
-   * @public
    * <p>The size in GiB of the EBS volume for the data drive on each broker node.</p>
+   * @public
    */
   VolumeSize?: number;
 }
 
 /**
- * @public
  * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
+ * @public
  */
 export interface StorageInfo {
   /**
-   * @public
    * <p>EBS volume information.</p>
+   * @public
    */
   EbsStorageInfo?: EBSStorageInfo;
 }
 
 /**
- * @public
  * <p>Describes the setup to be used for Apache Kafka broker nodes in the cluster.</p>
+ * @public
  */
 export interface BrokerNodeGroupInfo {
   /**
-   * @public
    * <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>
    *          <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>
+   * @public
    */
   BrokerAZDistribution?: BrokerAZDistribution;
 
   /**
-   * @public
    * <p>The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't occupy the Availability Zone with ID use use1-az3.</p>
+   * @public
    */
   ClientSubnets: string[] | undefined;
 
   /**
-   * @public
    * <p>The type of Amazon EC2 instances to use for Apache Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,
    * kafka.m5.4xlarge, kafka.m5.12xlarge, and kafka.m5.24xlarge.</p>
+   * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * @public
    * <p>The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC.</p>
+   * @public
    */
   SecurityGroups?: string[];
 
   /**
-   * @public
    * <p>Contains information about storage volumes attached to MSK broker nodes.</p>
+   * @public
    */
   StorageInfo?: StorageInfo;
 
   /**
-   * @public
    * <p>Information about the broker access configuration.</p>
+   * @public
    */
   ConnectivityInfo?: ConnectivityInfo;
 
   /**
-   * @public
    * <p>The list of zoneIds for the cluster in the virtual private cloud (VPC).</p>
+   * @public
    */
   ZoneIds?: string[];
 }
 
 /**
- * @public
  * <p>Details for IAM access control.</p>
+ * @public
  */
 export interface Iam {
   /**
-   * @public
    * <p>Indicates whether IAM access control is enabled.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Details for SASL/SCRAM client authentication.</p>
+ * @public
  */
 export interface Scram {
   /**
-   * @public
    * <p>SASL/SCRAM authentication is enabled or not.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Details for client authentication using SASL.</p>
+ * @public
  */
 export interface Sasl {
   /**
-   * @public
    * <p>Details for SASL/SCRAM client authentication.</p>
+   * @public
    */
   Scram?: Scram;
 
   /**
-   * @public
    * <p>Indicates whether IAM access control is enabled.</p>
+   * @public
    */
   Iam?: Iam;
 }
 
 /**
- * @public
  * <p>Details for client authentication using TLS.</p>
+ * @public
  */
 export interface Tls {
   /**
-   * @public
    * <p>List of ACM Certificate Authority ARNs.</p>
+   * @public
    */
   CertificateAuthorityArnList?: string[];
 
   /**
-   * @public
    * <p>Specifies whether you want to turn on or turn off TLS authentication.</p>
+   * @public
    */
   Enabled?: boolean;
 }
@@ -387,56 +387,56 @@ export interface Tls {
  */
 export interface Unauthenticated {
   /**
-   * @public
    * <p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>
+   * @public
    */
   Enabled?: boolean;
 }
 
 /**
- * @public
  * <p>Includes all client authentication information.</p>
+ * @public
  */
 export interface ClientAuthentication {
   /**
-   * @public
    * <p>Details for ClientAuthentication using SASL.</p>
+   * @public
    */
   Sasl?: Sasl;
 
   /**
-   * @public
    * <p>Details for ClientAuthentication using TLS.</p>
+   * @public
    */
   Tls?: Tls;
 
   /**
-   * @public
    * <p>Contains information about unauthenticated traffic to the cluster.</p>
+   * @public
    */
   Unauthenticated?: Unauthenticated;
 }
 
 /**
- * @public
  * <p>Information about the current software installed on the cluster.</p>
+ * @public
  */
 export interface BrokerSoftwareInfo {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration used for the cluster. This field isn't visible in this preview release.</p>
+   * @public
    */
   ConfigurationArn?: string;
 
   /**
-   * @public
    * <p>The revision of the configuration to use. This field isn't visible in this preview release.</p>
+   * @public
    */
   ConfigurationRevision?: number;
 
   /**
-   * @public
    * <p>The version of Apache Kafka.</p>
+   * @public
    */
   KafkaVersion?: string;
 }
@@ -457,13 +457,13 @@ export const CustomerActionStatus = {
 export type CustomerActionStatus = (typeof CustomerActionStatus)[keyof typeof CustomerActionStatus];
 
 /**
- * @public
  * <p>The data-volume encryption details.</p>
+ * @public
  */
 export interface EncryptionAtRest {
   /**
-   * @public
    * <p>The ARN of the AWS KMS key for encrypting data at rest. If you don't specify a KMS key, MSK creates one for you and uses it.</p>
+   * @public
    */
   DataVolumeKMSKeyId: string | undefined;
 }
@@ -484,12 +484,11 @@ export const ClientBroker = {
 export type ClientBroker = (typeof ClientBroker)[keyof typeof ClientBroker];
 
 /**
- * @public
  * <p>The settings for encrypting data in transit.</p>
+ * @public
  */
 export interface EncryptionInTransit {
   /**
-   * @public
    * <p>Indicates the encryption setting for data in transit between clients and brokers. The following are the possible values.</p>
    *             <p>
    *                TLS means that client-broker communication is enabled with TLS only.</p>
@@ -498,31 +497,32 @@ export interface EncryptionInTransit {
    *             <p>
    *                PLAINTEXT means that client-broker communication is enabled in plaintext only.</p>
    *             <p>The default value is TLS_PLAINTEXT.</p>
+   * @public
    */
   ClientBroker?: ClientBroker;
 
   /**
-   * @public
    * <p>When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.</p>
    *             <p>The default value is true.</p>
+   * @public
    */
   InCluster?: boolean;
 }
 
 /**
- * @public
  * <p>Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.</p>
+ * @public
  */
 export interface EncryptionInfo {
   /**
-   * @public
    * <p>The data-volume encryption details.</p>
+   * @public
    */
   EncryptionAtRest?: EncryptionAtRest;
 
   /**
-   * @public
    * <p>The details for encryption in transit.</p>
+   * @public
    */
   EncryptionInTransit?: EncryptionInTransit;
 }
@@ -585,55 +585,55 @@ export interface LoggingInfo {
 }
 
 /**
- * @public
  * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+ * @public
  */
 export interface JmxExporterInfo {
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+   * @public
    */
   EnabledInBroker: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+ * @public
  */
 export interface NodeExporterInfo {
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+   * @public
    */
   EnabledInBroker: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Prometheus settings.</p>
+ * @public
  */
 export interface PrometheusInfo {
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+   * @public
    */
   JmxExporter?: JmxExporterInfo;
 
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+   * @public
    */
   NodeExporter?: NodeExporterInfo;
 }
 
 /**
- * @public
  * <p>JMX and Node monitoring for the MSK cluster.</p>
+ * @public
  */
 export interface OpenMonitoringInfo {
   /**
-   * @public
    * <p>Prometheus settings.</p>
+   * @public
    */
   Prometheus: PrometheusInfo | undefined;
 }
@@ -653,139 +653,139 @@ export const StorageMode = {
 export type StorageMode = (typeof StorageMode)[keyof typeof StorageMode];
 
 /**
- * @public
  * <p>Provisioned cluster.</p>
+ * @public
  */
 export interface Provisioned {
   /**
-   * @public
    * <p>Information about the brokers.</p>
+   * @public
    */
   BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
 
   /**
-   * @public
    * <p>Information about the Apache Kafka version deployed on the brokers.</p>
+   * @public
    */
   CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
 
   /**
-   * @public
    * <p>Includes all client authentication information.</p>
+   * @public
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * @public
    * <p>Includes all encryption-related information.</p>
+   * @public
    */
   EncryptionInfo?: EncryptionInfo;
 
   /**
-   * @public
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
+   * @public
    */
   EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
-   * @public
    * <p>The settings for open monitoring.</p>
+   * @public
    */
   OpenMonitoring?: OpenMonitoringInfo;
 
   /**
-   * @public
    * <p>Log delivery information for the cluster.</p>
+   * @public
    */
   LoggingInfo?: LoggingInfo;
 
   /**
-   * @public
    * <p>The number of broker nodes in the cluster.</p>
+   * @public
    */
   NumberOfBrokerNodes: number | undefined;
 
   /**
-   * @public
    * <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
+   * @public
    */
   ZookeeperConnectString?: string;
 
   /**
-   * @public
    * <p>The connection string to use to connect to the Apache ZooKeeper cluster on a TLS port.</p>
+   * @public
    */
   ZookeeperConnectStringTls?: string;
 
   /**
-   * @public
    * <p>This controls storage mode for supported storage tiers.</p>
+   * @public
    */
   StorageMode?: StorageMode;
 
   /**
-   * @public
    * <p>Determines if there is an action required from the customer.</p>
+   * @public
    */
   CustomerActionStatus?: CustomerActionStatus;
 }
 
 /**
- * @public
  * <p>Details for client authentication using SASL.</p>
+ * @public
  */
 export interface ServerlessSasl {
   /**
-   * @public
    * <p>Indicates whether IAM access control is enabled.</p>
+   * @public
    */
   Iam?: Iam;
 }
 
 /**
- * @public
  * <p>Includes all client authentication information.</p>
+ * @public
  */
 export interface ServerlessClientAuthentication {
   /**
-   * @public
    * <p>Details for ClientAuthentication using SASL.</p>
+   * @public
    */
   Sasl?: ServerlessSasl;
 }
 
 /**
- * @public
  * <p>The configuration of the Amazon VPCs for the cluster.</p>
+ * @public
  */
 export interface VpcConfig {
   /**
-   * @public
    * <p>The IDs of the subnets associated with the cluster.</p>
+   * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The IDs of the security groups associated with the cluster.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 }
 
 /**
- * @public
  * <p>Serverless cluster.</p>
+ * @public
  */
 export interface Serverless {
   /**
-   * @public
    * <p>The configuration of the Amazon VPCs for the cluster.</p>
+   * @public
    */
   VpcConfigs: VpcConfig[] | undefined;
 
   /**
-   * @public
    * <p>Includes all client authentication information.</p>
+   * @public
    */
   ClientAuthentication?: ServerlessClientAuthentication;
 }
@@ -819,387 +819,387 @@ export interface StateInfo {
 }
 
 /**
- * @public
  * <p>Returns information about a cluster.</p>
+ * @public
  */
 export interface Cluster {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies a cluster operation.</p>
+   * @public
    */
   ActiveOperationArn?: string;
 
   /**
-   * @public
    * <p>Cluster Type.</p>
+   * @public
    */
   ClusterType?: ClusterType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The name of the cluster.</p>
+   * @public
    */
   ClusterName?: string;
 
   /**
-   * @public
    * <p>The time when the cluster was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The current version of the MSK cluster.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * @public
    */
   State?: ClusterState;
 
   /**
-   * @public
    * <p>State Info for the Amazon MSK cluster.</p>
+   * @public
    */
   StateInfo?: StateInfo;
 
   /**
-   * @public
    * <p>Tags attached to the cluster.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Information about the provisioned cluster.</p>
+   * @public
    */
   Provisioned?: Provisioned;
 
   /**
-   * @public
    * <p>Information about the serverless cluster.</p>
+   * @public
    */
   Serverless?: Serverless;
 }
 
 /**
- * @public
  * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+ * @public
  */
 export interface JmxExporter {
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+   * @public
    */
   EnabledInBroker: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+ * @public
  */
 export interface NodeExporter {
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+   * @public
    */
   EnabledInBroker: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Prometheus settings.</p>
+ * @public
  */
 export interface Prometheus {
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>
+   * @public
    */
   JmxExporter?: JmxExporter;
 
   /**
-   * @public
    * <p>Indicates whether you want to turn on or turn off the Node Exporter.</p>
+   * @public
    */
   NodeExporter?: NodeExporter;
 }
 
 /**
- * @public
  * <p>JMX and Node monitoring for the MSK cluster.</p>
+ * @public
  */
 export interface OpenMonitoring {
   /**
-   * @public
    * <p>Prometheus settings.</p>
+   * @public
    */
   Prometheus: Prometheus | undefined;
 }
 
 /**
- * @public
  * <p>Returns information about a cluster.</p>
+ * @public
  */
 export interface ClusterInfo {
   /**
-   * @public
    * <p>Arn of active cluster operation.</p>
+   * @public
    */
   ActiveOperationArn?: string;
 
   /**
-   * @public
    * <p>Information about the broker nodes.</p>
+   * @public
    */
   BrokerNodeGroupInfo?: BrokerNodeGroupInfo;
 
   /**
-   * @public
    * <p>Includes all client authentication information.</p>
+   * @public
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The name of the cluster.</p>
+   * @public
    */
   ClusterName?: string;
 
   /**
-   * @public
    * <p>The time when the cluster was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
+   * @public
    */
   CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
 
   /**
-   * @public
    * <p>The current version of the MSK cluster.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>Includes all encryption-related information.</p>
+   * @public
    */
   EncryptionInfo?: EncryptionInfo;
 
   /**
-   * @public
    * <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
+   * @public
    */
   EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
-   * @public
    * <p>Settings for open monitoring using Prometheus.</p>
+   * @public
    */
   OpenMonitoring?: OpenMonitoring;
 
   LoggingInfo?: LoggingInfo;
   /**
-   * @public
    * <p>The number of broker nodes in the cluster.</p>
+   * @public
    */
   NumberOfBrokerNodes?: number;
 
   /**
-   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * @public
    */
   State?: ClusterState;
 
   StateInfo?: StateInfo;
   /**
-   * @public
    * <p>Tags attached to the cluster.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The connection string to use to connect to the Apache ZooKeeper cluster.</p>
+   * @public
    */
   ZookeeperConnectString?: string;
 
   /**
-   * @public
    * <p>The connection string to use to connect to zookeeper cluster on Tls port.</p>
+   * @public
    */
   ZookeeperConnectStringTls?: string;
 
   /**
-   * @public
    * <p>This controls storage mode for supported storage tiers.</p>
+   * @public
    */
   StorageMode?: StorageMode;
 
   /**
-   * @public
    * <p>Determines if there is an action required from the customer.</p>
+   * @public
    */
   CustomerActionStatus?: CustomerActionStatus;
 }
 
 /**
- * @public
  * <p>Returns information about an error state of the cluster.</p>
+ * @public
  */
 export interface ErrorInfo {
   /**
-   * @public
    * <p>A number describing the error programmatically.</p>
+   * @public
    */
   ErrorCode?: string;
 
   /**
-   * @public
    * <p>An optional field to provide more details about the error.</p>
+   * @public
    */
   ErrorString?: string;
 }
 
 /**
- * @public
  * <p>State information about the operation step.</p>
+ * @public
  */
 export interface ClusterOperationStepInfo {
   /**
-   * @public
    * <p>The steps current status.</p>
+   * @public
    */
   StepStatus?: string;
 }
 
 /**
- * @public
  * <p>Step taken during a cluster operation.</p>
+ * @public
  */
 export interface ClusterOperationStep {
   /**
-   * @public
    * <p>Information about the step and its status.</p>
+   * @public
    */
   StepInfo?: ClusterOperationStepInfo;
 
   /**
-   * @public
    * <p>The name of the step.</p>
+   * @public
    */
   StepName?: string;
 }
 
 /**
- * @public
  * <p>Specifies the configuration to use for the brokers.</p>
+ * @public
  */
 export interface ConfigurationInfo {
   /**
-   * @public
    * <p>ARN of the configuration to use.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the configuration to use.</p>
+   * @public
    */
   Revision: number | undefined;
 }
 
 /**
- * @public
  * <p>Information about cluster attributes that can be updated via update APIs.</p>
+ * @public
  */
 export interface MutableClusterInfo {
   /**
-   * @public
    * <p>Specifies the size of the EBS volume and the ID of the associated broker.</p>
+   * @public
    */
   BrokerEBSVolumeInfo?: BrokerEBSVolumeInfo[];
 
   /**
-   * @public
    * <p>Information about the changes in the configuration of the brokers.</p>
+   * @public
    */
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
-   * @public
    * <p>The number of broker nodes in the cluster.</p>
+   * @public
    */
   NumberOfBrokerNodes?: number;
 
   /**
-   * @public
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
+   * @public
    */
   EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
-   * @public
    * <p>The settings for open monitoring.</p>
+   * @public
    */
   OpenMonitoring?: OpenMonitoring;
 
   /**
-   * @public
    * <p>The Apache Kafka version.</p>
+   * @public
    */
   KafkaVersion?: string;
 
   /**
-   * @public
    * <p>You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.</p>
+   * @public
    */
   LoggingInfo?: LoggingInfo;
 
   /**
-   * @public
    * <p>Information about the Amazon MSK broker type.</p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>Includes all client authentication information.</p>
+   * @public
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * @public
    * <p>Includes all encryption-related information.</p>
+   * @public
    */
   EncryptionInfo?: EncryptionInfo;
 
   /**
-   * @public
    * <p>Information about the broker access configuration.</p>
+   * @public
    */
   ConnectivityInfo?: ConnectivityInfo;
 
   /**
-   * @public
    * <p>This controls storage mode for supported storage tiers.</p>
+   * @public
    */
   StorageMode?: StorageMode;
 }
@@ -1219,217 +1219,217 @@ export const UserIdentityType = {
 export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
 
 /**
- * @public
  * <p>Description of the requester that calls the API operation.</p>
+ * @public
  */
 export interface UserIdentity {
   /**
-   * @public
    * <p>The identity type of the requester that calls the API operation.</p>
+   * @public
    */
   Type?: UserIdentityType;
 
   /**
-   * @public
    * <p>A unique identifier for the requester that calls the API operation.</p>
+   * @public
    */
   PrincipalId?: string;
 }
 
 /**
- * @public
  * <p>Description of the VPC connection.</p>
+ * @public
  */
 export interface VpcConnectionInfo {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   * @public
    */
   VpcConnectionArn?: string;
 
   /**
-   * @public
    * <p>The owner of the VPC Connection.</p>
+   * @public
    */
   Owner?: string;
 
   /**
-   * @public
    * <p>Description of the requester that calls the API operation.</p>
+   * @public
    */
   UserIdentity?: UserIdentity;
 
   /**
-   * @public
    * <p>The time when Amazon MSK creates the VPC Connnection.</p>
+   * @public
    */
   CreationTime?: Date;
 }
 
 /**
- * @public
  * <p>Returns information about a cluster operation.</p>
+ * @public
  */
 export interface ClusterOperationInfo {
   /**
-   * @public
    * <p>The ID of the API request that triggered this operation.</p>
+   * @public
    */
   ClientRequestId?: string;
 
   /**
-   * @public
    * <p>ARN of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The time that the operation was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The time at which the operation finished.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>Describes the error if the operation fails.</p>
+   * @public
    */
   ErrorInfo?: ErrorInfo;
 
   /**
-   * @public
    * <p>ARN of the cluster operation.</p>
+   * @public
    */
   OperationArn?: string;
 
   /**
-   * @public
    * <p>State of the cluster operation.</p>
+   * @public
    */
   OperationState?: string;
 
   /**
-   * @public
    * <p>Steps completed during the operation.</p>
+   * @public
    */
   OperationSteps?: ClusterOperationStep[];
 
   /**
-   * @public
    * <p>Type of the cluster operation.</p>
+   * @public
    */
   OperationType?: string;
 
   /**
-   * @public
    * <p>Information about cluster attributes before a cluster is updated.</p>
+   * @public
    */
   SourceClusterInfo?: MutableClusterInfo;
 
   /**
-   * @public
    * <p>Information about cluster attributes after a cluster is updated.</p>
+   * @public
    */
   TargetClusterInfo?: MutableClusterInfo;
 
   /**
-   * @public
    * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   * @public
    */
   VpcConnectionInfo?: VpcConnectionInfo;
 }
 
 /**
- * @public
  * <p>Returns information about a cluster operation.</p>
+ * @public
  */
 export interface ClusterOperationV2Summary {
   /**
-   * @public
    * <p>ARN of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>Type of the backend cluster.</p>
+   * @public
    */
   ClusterType?: ClusterType;
 
   /**
-   * @public
    * <p>The time at which operation was started.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The time at which the operation finished.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>ARN of the cluster operation.</p>
+   * @public
    */
   OperationArn?: string;
 
   /**
-   * @public
    * <p>State of the cluster operation.</p>
+   * @public
    */
   OperationState?: string;
 
   /**
-   * @public
    * <p>Type of the cluster operation.</p>
+   * @public
    */
   OperationType?: string;
 }
 
 /**
- * @public
  * <p>Contains source Apache Kafka versions and compatible target Apache Kafka versions.</p>
+ * @public
  */
 export interface CompatibleKafkaVersion {
   /**
-   * @public
    * <p>An Apache Kafka version.</p>
+   * @public
    */
   SourceVersion?: string;
 
   /**
-   * @public
    * <p>A list of Apache Kafka versions.</p>
+   * @public
    */
   TargetVersions?: string[];
 }
 
 /**
- * @public
  * <p>Describes a configuration revision.</p>
+ * @public
  */
 export interface ConfigurationRevision {
   /**
-   * @public
    * <p>The time when the configuration revision was created.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The description of the configuration revision.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The revision number.</p>
+   * @public
    */
   Revision: number | undefined;
 }
@@ -1450,139 +1450,139 @@ export const ConfigurationState = {
 export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
 
 /**
- * @public
  * <p>Represents an MSK Configuration.</p>
+ * @public
  */
 export interface Configuration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The time when the configuration was created.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The description of the configuration.</p>
+   * @public
    */
   Description: string | undefined;
 
   /**
-   * @public
    * <p>An array of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this array.</p>
+   * @public
    */
   KafkaVersions: string[] | undefined;
 
   /**
-   * @public
    * <p>Latest revision of the configuration.</p>
+   * @public
    */
   LatestRevision: ConfigurationRevision | undefined;
 
   /**
-   * @public
    * <p>The name of the configuration.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
+   * @public
    */
   State: ConfigurationState | undefined;
 }
 
 /**
- * @public
  * <p>Details of an Amazon MSK Cluster.</p>
+ * @public
  */
 export interface AmazonMskCluster {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an Amazon MSK cluster.</p>
+   * @public
    */
   MskClusterArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+ * @public
  */
 export interface KafkaClusterClientVpcConfig {
   /**
-   * @public
    * <p>The security groups to attach to the ENIs for the broker nodes.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The list of subnets in the client VPC to connect to.</p>
+   * @public
    */
   SubnetIds: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Information about Kafka Cluster to be used as source / target for replication.</p>
+ * @public
  */
 export interface KafkaCluster {
   /**
-   * @public
    * <p>Details of an Amazon MSK Cluster.</p>
+   * @public
    */
   AmazonMskCluster: AmazonMskCluster | undefined;
 
   /**
-   * @public
    * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   * @public
    */
   VpcConfig: KafkaClusterClientVpcConfig | undefined;
 }
 
 /**
- * @public
  * <p>Information about Kafka Cluster used as source / target for replication.</p>
+ * @public
  */
 export interface KafkaClusterDescription {
   /**
-   * @public
    * <p>Details of an Amazon MSK Cluster.</p>
+   * @public
    */
   AmazonMskCluster?: AmazonMskCluster;
 
   /**
-   * @public
    * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
+   * @public
    */
   KafkaClusterAlias?: string;
 
   /**
-   * @public
    * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   * @public
    */
   VpcConfig?: KafkaClusterClientVpcConfig;
 }
 
 /**
- * @public
  * <p>Summarized information about Kafka Cluster used as source / target for replication.</p>
+ * @public
  */
 export interface KafkaClusterSummary {
   /**
-   * @public
    * <p>Details of an Amazon MSK Cluster.</p>
+   * @public
    */
   AmazonMskCluster?: AmazonMskCluster;
 
   /**
-   * @public
    * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
+   * @public
    */
   KafkaClusterAlias?: string;
 }
@@ -1610,43 +1610,43 @@ export interface KafkaVersion {
 }
 
 /**
- * @public
  * <p>BrokerNodeInfo</p>
+ * @public
  */
 export interface BrokerNodeInfo {
   /**
-   * @public
    * <p>The attached elastic network interface of the broker.</p>
+   * @public
    */
   AttachedENIId?: string;
 
   /**
-   * @public
    * <p>The ID of the broker.</p>
+   * @public
    */
   BrokerId?: number;
 
   /**
-   * @public
    * <p>The client subnet to which this broker node belongs.</p>
+   * @public
    */
   ClientSubnet?: string;
 
   /**
-   * @public
    * <p>The virtual private cloud (VPC) of the client.</p>
+   * @public
    */
   ClientVpcIpAddress?: string;
 
   /**
-   * @public
    * <p>Information about the version of software currently deployed on the Apache Kafka brokers in the cluster.</p>
+   * @public
    */
   CurrentBrokerSoftwareInfo?: BrokerSoftwareInfo;
 
   /**
-   * @public
    * <p>Endpoints for accessing the broker.</p>
+   * @public
    */
   Endpoints?: string[];
 }
@@ -1665,109 +1665,109 @@ export const NodeType = {
 export type NodeType = (typeof NodeType)[keyof typeof NodeType];
 
 /**
- * @public
  * <p>Zookeeper node information.</p>
+ * @public
  */
 export interface ZookeeperNodeInfo {
   /**
-   * @public
    * <p>The attached elastic network interface of the broker.</p>
+   * @public
    */
   AttachedENIId?: string;
 
   /**
-   * @public
    * <p>The virtual private cloud (VPC) IP address of the client.</p>
+   * @public
    */
   ClientVpcIpAddress?: string;
 
   /**
-   * @public
    * <p>Endpoints for accessing the ZooKeeper.</p>
+   * @public
    */
   Endpoints?: string[];
 
   /**
-   * @public
    * <p>The role-specific ID for Zookeeper.</p>
+   * @public
    */
   ZookeeperId?: number;
 
   /**
-   * @public
    * <p>The version of Zookeeper.</p>
+   * @public
    */
   ZookeeperVersion?: string;
 }
 
 /**
- * @public
  * <p>The node information object.</p>
+ * @public
  */
 export interface NodeInfo {
   /**
-   * @public
    * <p>The start time.</p>
+   * @public
    */
   AddedToClusterTime?: string;
 
   /**
-   * @public
    * <p>The broker node info.</p>
+   * @public
    */
   BrokerNodeInfo?: BrokerNodeInfo;
 
   /**
-   * @public
    * <p>The instance type.</p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the node.</p>
+   * @public
    */
   NodeARN?: string;
 
   /**
-   * @public
    * <p>The node type.</p>
+   * @public
    */
   NodeType?: NodeType;
 
   /**
-   * @public
    * <p>The ZookeeperNodeInfo.</p>
+   * @public
    */
   ZookeeperNodeInfo?: ZookeeperNodeInfo;
 }
 
 /**
- * @public
  * <p>Details about consumer group replication.</p>
+ * @public
  */
 export interface ConsumerGroupReplication {
   /**
-   * @public
    * <p>List of regular expression patterns indicating the consumer groups that should not be replicated.</p>
+   * @public
    */
   ConsumerGroupsToExclude?: string[];
 
   /**
-   * @public
    * <p>List of regular expression patterns indicating the consumer groups to copy.</p>
+   * @public
    */
   ConsumerGroupsToReplicate: string[] | undefined;
 
   /**
-   * @public
    * <p>Enables synchronization of consumer groups to target cluster.</p>
+   * @public
    */
   DetectAndCopyNewConsumerGroups?: boolean;
 
   /**
-   * @public
    * <p>Enables synchronization of consumer group offsets to target cluster. The translated offsets will be written to topic __consumer_offsets.</p>
+   * @public
    */
   SynchroniseConsumerGroupOffsets?: boolean;
 }
@@ -1805,145 +1805,145 @@ export type ReplicationStartingPositionType =
   (typeof ReplicationStartingPositionType)[keyof typeof ReplicationStartingPositionType];
 
 /**
- * @public
  * <p>Configuration for specifying the position in the topics to start replicating from.</p>
+ * @public
  */
 export interface ReplicationStartingPosition {
   /**
-   * @public
    * <p>The type of replication starting position.</p>
+   * @public
    */
   Type?: ReplicationStartingPositionType;
 }
 
 /**
- * @public
  * <p>Details about topic replication.</p>
+ * @public
  */
 export interface TopicReplication {
   /**
-   * @public
    * <p>Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.</p>
+   * @public
    */
   CopyAccessControlListsForTopics?: boolean;
 
   /**
-   * @public
    * <p>Whether to periodically configure remote topics to match their corresponding upstream topics.</p>
+   * @public
    */
   CopyTopicConfigurations?: boolean;
 
   /**
-   * @public
    * <p>Whether to periodically check for new topics and partitions.</p>
+   * @public
    */
   DetectAndCopyNewTopics?: boolean;
 
   /**
-   * @public
    * <p>Configuration for specifying the position in the topics to start replicating from.</p>
+   * @public
    */
   StartingPosition?: ReplicationStartingPosition;
 
   /**
-   * @public
    * <p>List of regular expression patterns indicating the topics that should not be replicated.</p>
+   * @public
    */
   TopicsToExclude?: string[];
 
   /**
-   * @public
    * <p>List of regular expression patterns indicating the topics to copy.</p>
+   * @public
    */
   TopicsToReplicate: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Specifies configuration for replication between a source and target Kafka cluster.</p>
+ * @public
  */
 export interface ReplicationInfo {
   /**
-   * @public
    * <p>Configuration relating to consumer group replication.</p>
+   * @public
    */
   ConsumerGroupReplication: ConsumerGroupReplication | undefined;
 
   /**
-   * @public
    * <p>The ARN of the source Kafka cluster.</p>
+   * @public
    */
   SourceKafkaClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The compression type to use when producing records to target cluster.</p>
+   * @public
    */
   TargetCompressionType: TargetCompressionType | undefined;
 
   /**
-   * @public
    * <p>The ARN of the target Kafka cluster.</p>
+   * @public
    */
   TargetKafkaClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>Configuration relating to topic replication.</p>
+   * @public
    */
   TopicReplication: TopicReplication | undefined;
 }
 
 /**
- * @public
  * <p>Specifies configuration for replication between a source and target Kafka cluster (sourceKafkaClusterAlias -> targetKafkaClusterAlias)</p>
+ * @public
  */
 export interface ReplicationInfoDescription {
   /**
-   * @public
    * <p>Configuration relating to consumer group replication.</p>
+   * @public
    */
   ConsumerGroupReplication?: ConsumerGroupReplication;
 
   /**
-   * @public
    * <p>The alias of the source Kafka cluster.</p>
+   * @public
    */
   SourceKafkaClusterAlias?: string;
 
   /**
-   * @public
    * <p>The compression type to use when producing records to target cluster.</p>
+   * @public
    */
   TargetCompressionType?: TargetCompressionType;
 
   /**
-   * @public
    * <p>The alias of the target Kafka cluster.</p>
+   * @public
    */
   TargetKafkaClusterAlias?: string;
 
   /**
-   * @public
    * <p>Configuration relating to topic replication.</p>
+   * @public
    */
   TopicReplication?: TopicReplication;
 }
 
 /**
- * @public
  * <p>Summarized information of replication between clusters.</p>
+ * @public
  */
 export interface ReplicationInfoSummary {
   /**
-   * @public
    * <p>The alias of the source Kafka cluster.</p>
+   * @public
    */
   SourceKafkaClusterAlias?: string;
 
   /**
-   * @public
    * <p>The alias of the target Kafka cluster.</p>
+   * @public
    */
   TargetKafkaClusterAlias?: string;
 }
@@ -1966,147 +1966,147 @@ export const ReplicatorState = {
 export type ReplicatorState = (typeof ReplicatorState)[keyof typeof ReplicatorState];
 
 /**
- * @public
  * <p>Information about a replicator.</p>
+ * @public
  */
 export interface ReplicatorSummary {
   /**
-   * @public
    * <p>The time the replicator was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The current version of the replicator.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>Whether this resource is a replicator reference.</p>
+   * @public
    */
   IsReplicatorReference?: boolean;
 
   /**
-   * @public
    * <p>Kafka Clusters used in setting up sources / targets for replication.</p>
+   * @public
    */
   KafkaClustersSummary?: KafkaClusterSummary[];
 
   /**
-   * @public
    * <p>A list of summarized information of replications between clusters.</p>
+   * @public
    */
   ReplicationInfoSummaryList?: ReplicationInfoSummary[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   * @public
    */
   ReplicatorArn?: string;
 
   /**
-   * @public
    * <p>The name of the replicator.</p>
+   * @public
    */
   ReplicatorName?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator resource in the region where the replicator was created.</p>
+   * @public
    */
   ReplicatorResourceArn?: string;
 
   /**
-   * @public
    * <p>State of the replicator.</p>
+   * @public
    */
   ReplicatorState?: ReplicatorState;
 }
 
 /**
- * @public
  * <p>Error info for scram secret associate/disassociate failure.</p>
+ * @public
  */
 export interface UnprocessedScramSecret {
   /**
-   * @public
    * <p>Error code for associate/disassociate failure.</p>
+   * @public
    */
   ErrorCode?: string;
 
   /**
-   * @public
    * <p>Error message for associate/disassociate failure.</p>
+   * @public
    */
   ErrorMessage?: string;
 
   /**
-   * @public
    * <p>AWS Secrets Manager secret ARN.</p>
+   * @public
    */
   SecretArn?: string;
 }
 
 /**
- * @public
  * <p>The VPC connection object.</p>
+ * @public
  */
 export interface VpcConnection {
   /**
-   * @public
    * <p>The ARN that identifies the Vpc Connection.</p>
+   * @public
    */
   VpcConnectionArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN that identifies the Cluster which the Vpc Connection belongs to.</p>
+   * @public
    */
   TargetClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>Creation time of the Vpc Connection.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>Information about the auth scheme of Vpc Connection.</p>
+   * @public
    */
   Authentication?: string;
 
   /**
-   * @public
    * <p>The vpcId that belongs to the Vpc Connection.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>State of the Vpc Connection.</p>
+   * @public
    */
   State?: VpcConnectionState;
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2125,19 +2125,19 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Associates sasl scram secrets to cluster.</p>
+ * @public
  */
 export interface BatchAssociateScramSecretRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>List of AWS Secrets Manager secret ARNs.</p>
+   * @public
    */
   SecretArnList: string[] | undefined;
 }
@@ -2147,34 +2147,34 @@ export interface BatchAssociateScramSecretRequest {
  */
 export interface BatchAssociateScramSecretResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>List of errors when associating secrets to cluster.</p>
+   * @public
    */
   UnprocessedScramSecrets?: UnprocessedScramSecret[];
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2193,21 +2193,21 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class InternalServerErrorException extends __BaseException {
   readonly name: "InternalServerErrorException" = "InternalServerErrorException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2226,21 +2226,21 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2259,21 +2259,21 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2292,21 +2292,21 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2325,21 +2325,21 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2358,19 +2358,19 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Disassociates sasl scram secrets to cluster.</p>
+ * @public
  */
 export interface BatchDisassociateScramSecretRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>List of AWS Secrets Manager secret ARNs.</p>
+   * @public
    */
   SecretArnList: string[] | undefined;
 }
@@ -2380,172 +2380,172 @@ export interface BatchDisassociateScramSecretRequest {
  */
 export interface BatchDisassociateScramSecretResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>List of errors when disassociating secrets to cluster.</p>
+   * @public
    */
   UnprocessedScramSecrets?: UnprocessedScramSecret[];
 }
 
 /**
- * @public
  * <p>Returns information about a provisioned cluster operation.</p>
+ * @public
  */
 export interface ClusterOperationV2Provisioned {
   /**
-   * @public
    * <p>Steps completed during the operation.</p>
+   * @public
    */
   OperationSteps?: ClusterOperationStep[];
 
   /**
-   * @public
    * <p>Information about cluster attributes before a cluster is updated.</p>
+   * @public
    */
   SourceClusterInfo?: MutableClusterInfo;
 
   /**
-   * @public
    * <p>Information about cluster attributes after a cluster is updated.</p>
+   * @public
    */
   TargetClusterInfo?: MutableClusterInfo;
 
   /**
-   * @public
    * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   * @public
    */
   VpcConnectionInfo?: VpcConnectionInfo;
 }
 
 /**
- * @public
  * Description of the VPC connection.
+ * @public
  */
 export interface VpcConnectionInfoServerless {
   /**
-   * @public
    * <p>The time when Amazon MSK creates the VPC Connnection.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The owner of the VPC Connection.</p>
+   * @public
    */
   Owner?: string;
 
   /**
-   * @public
    * <p>Description of the requester that calls the API operation.</p>
+   * @public
    */
   UserIdentity?: UserIdentity;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   * @public
    */
   VpcConnectionArn?: string;
 }
 
 /**
- * @public
  * <p>Returns information about a serverless cluster operation.</p>
+ * @public
  */
 export interface ClusterOperationV2Serverless {
   /**
-   * @public
    * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   * @public
    */
   VpcConnectionInfo?: VpcConnectionInfoServerless;
 }
 
 /**
- * @public
  * <p>Returns information about a cluster operation.</p>
+ * @public
  */
 export interface ClusterOperationV2 {
   /**
-   * @public
    * <p>ARN of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>Type of the backend cluster.</p>
+   * @public
    */
   ClusterType?: ClusterType;
 
   /**
-   * @public
    * <p>The time at which operation was started.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The time at which the operation finished.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>If cluster operation failed from an error, it describes the error.</p>
+   * @public
    */
   ErrorInfo?: ErrorInfo;
 
   /**
-   * @public
    * <p>ARN of the cluster operation.</p>
+   * @public
    */
   OperationArn?: string;
 
   /**
-   * @public
    * <p>State of the cluster operation.</p>
+   * @public
    */
   OperationState?: string;
 
   /**
-   * @public
    * <p>Type of the cluster operation.</p>
+   * @public
    */
   OperationType?: string;
 
   /**
-   * @public
    * <p>Properties of a provisioned cluster.</p>
+   * @public
    */
   Provisioned?: ClusterOperationV2Provisioned;
 
   /**
-   * @public
    * <p>Properties of a serverless cluster.</p>
+   * @public
    */
   Serverless?: ClusterOperationV2Serverless;
 }
 
 /**
- * @public
  * <p>Returns information about an error.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The parameter that caused the error.</p>
+   * @public
    */
   InvalidParameter?: string;
 
   /**
-   * @public
    * <p>The description of the error.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -2564,31 +2564,31 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Details about consumer group replication.</p>
+ * @public
  */
 export interface ConsumerGroupReplicationUpdate {
   /**
-   * @public
    * <p>List of regular expression patterns indicating the consumer groups that should not be replicated.</p>
+   * @public
    */
   ConsumerGroupsToExclude: string[] | undefined;
 
   /**
-   * @public
    * <p>List of regular expression patterns indicating the consumer groups to copy.</p>
+   * @public
    */
   ConsumerGroupsToReplicate: string[] | undefined;
 
   /**
-   * @public
    * <p>Enables synchronization of consumer groups to target cluster.</p>
+   * @public
    */
   DetectAndCopyNewConsumerGroups: boolean | undefined;
 
   /**
-   * @public
    * <p>Enables synchronization of consumer group offsets to target cluster. The translated offsets will be written to topic __consumer_offsets.</p>
+   * @public
    */
   SynchroniseConsumerGroupOffsets: boolean | undefined;
 }
@@ -2598,69 +2598,69 @@ export interface ConsumerGroupReplicationUpdate {
  */
 export interface CreateClusterRequest {
   /**
-   * @public
    * <p>Information about the broker nodes in the cluster.</p>
+   * @public
    */
   BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
 
   /**
-   * @public
    * <p>Includes all client authentication related information.</p>
+   * @public
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * @public
    * <p>The name of the cluster.</p>
+   * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * @public
    * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
+   * @public
    */
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
-   * @public
    * <p>Includes all encryption-related information.</p>
+   * @public
    */
   EncryptionInfo?: EncryptionInfo;
 
   /**
-   * @public
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
+   * @public
    */
   EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
-   * @public
    * <p>The settings for open monitoring.</p>
+   * @public
    */
   OpenMonitoring?: OpenMonitoringInfo;
 
   /**
-   * @public
    * <p>The version of Apache Kafka.</p>
+   * @public
    */
   KafkaVersion: string | undefined;
 
   LoggingInfo?: LoggingInfo;
   /**
-   * @public
    * <p>The number of broker nodes in the cluster.</p>
+   * @public
    */
   NumberOfBrokerNodes: number | undefined;
 
   /**
-   * @public
    * <p>Create tags when creating the cluster.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>This controls storage mode for supported storage tiers.</p>
+   * @public
    */
   StorageMode?: StorageMode;
 }
@@ -2670,104 +2670,104 @@ export interface CreateClusterRequest {
  */
 export interface CreateClusterResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The name of the MSK cluster.</p>
+   * @public
    */
   ClusterName?: string;
 
   /**
-   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * @public
    */
   State?: ClusterState;
 }
 
 /**
- * @public
  * <p>Provisioned cluster request.</p>
+ * @public
  */
 export interface ProvisionedRequest {
   /**
-   * @public
    * <p>Information about the brokers.</p>
+   * @public
    */
   BrokerNodeGroupInfo: BrokerNodeGroupInfo | undefined;
 
   /**
-   * @public
    * <p>Includes all client authentication information.</p>
+   * @public
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * @public
    * <p>Represents the configuration that you want Amazon MSK to use for the brokers in a cluster.</p>
+   * @public
    */
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
-   * @public
    * <p>Includes all encryption-related information.</p>
+   * @public
    */
   EncryptionInfo?: EncryptionInfo;
 
   /**
-   * @public
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
+   * @public
    */
   EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
-   * @public
    * <p>The settings for open monitoring.</p>
+   * @public
    */
   OpenMonitoring?: OpenMonitoringInfo;
 
   /**
-   * @public
    * <p>The Apache Kafka version that you want for the cluster.</p>
+   * @public
    */
   KafkaVersion: string | undefined;
 
   /**
-   * @public
    * <p>Log delivery information for the cluster.</p>
+   * @public
    */
   LoggingInfo?: LoggingInfo;
 
   /**
-   * @public
    * <p>The number of broker nodes in the cluster.</p>
+   * @public
    */
   NumberOfBrokerNodes: number | undefined;
 
   /**
-   * @public
    * <p>This controls storage mode for supported storage tiers.</p>
+   * @public
    */
   StorageMode?: StorageMode;
 }
 
 /**
- * @public
  * <p>Serverless cluster request.</p>
+ * @public
  */
 export interface ServerlessRequest {
   /**
-   * @public
    * <p>The configuration of the Amazon VPCs for the cluster.</p>
+   * @public
    */
   VpcConfigs: VpcConfig[] | undefined;
 
   /**
-   * @public
    * <p>Includes all client authentication information.</p>
+   * @public
    */
   ClientAuthentication?: ServerlessClientAuthentication;
 }
@@ -2777,26 +2777,26 @@ export interface ServerlessRequest {
  */
 export interface CreateClusterV2Request {
   /**
-   * @public
    * <p>The name of the cluster.</p>
+   * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * @public
    * <p>A map of tags that you want the cluster to have.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Information about the provisioned cluster.</p>
+   * @public
    */
   Provisioned?: ProvisionedRequest;
 
   /**
-   * @public
    * <p>Information about the serverless cluster.</p>
+   * @public
    */
   Serverless?: ServerlessRequest;
 }
@@ -2806,26 +2806,26 @@ export interface CreateClusterV2Request {
  */
 export interface CreateClusterV2Response {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The name of the MSK cluster.</p>
+   * @public
    */
   ClusterName?: string;
 
   /**
-   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * @public
    */
   State?: ClusterState;
 
   /**
-   * @public
    * <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>
+   * @public
    */
   ClusterType?: ClusterType;
 }
@@ -2835,27 +2835,27 @@ export interface CreateClusterV2Response {
  */
 export interface CreateConfigurationRequest {
   /**
-   * @public
    * <p>The description of the configuration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
+   * @public
    */
   KafkaVersions?: string[];
 
   /**
-   * @public
    * <p>The name of the configuration.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
+   * @public
    */
   ServerProperties: Uint8Array | undefined;
 }
@@ -2865,74 +2865,74 @@ export interface CreateConfigurationRequest {
  */
 export interface CreateConfigurationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The time when the configuration was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>Latest revision of the configuration.</p>
+   * @public
    */
   LatestRevision?: ConfigurationRevision;
 
   /**
-   * @public
    * <p>The name of the configuration.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
+   * @public
    */
   State?: ConfigurationState;
 }
 
 /**
- * @public
  * <p>Creates a replicator using the specified configuration.</p>
+ * @public
  */
 export interface CreateReplicatorRequest {
   /**
-   * @public
    * <p>A summary description of the replicator.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Kafka Clusters to use in setting up sources / targets for replication.</p>
+   * @public
    */
   KafkaClusters: KafkaCluster[] | undefined;
 
   /**
-   * @public
    * <p>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</p>
+   * @public
    */
   ReplicationInfoList: ReplicationInfo[] | undefined;
 
   /**
-   * @public
    * <p>The name of the replicator. Alpha-numeric characters with '-' are allowed.</p>
+   * @public
    */
   ReplicatorName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters)</p>
+   * @public
    */
   ServiceExecutionRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>List of tags to attach to created Replicator.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2942,20 +2942,20 @@ export interface CreateReplicatorRequest {
  */
 export interface CreateReplicatorResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   * @public
    */
   ReplicatorArn?: string;
 
   /**
-   * @public
    * <p>Name of the replicator provided by the customer.</p>
+   * @public
    */
   ReplicatorName?: string;
 
   /**
-   * @public
    * <p>State of the replicator.</p>
+   * @public
    */
   ReplicatorState?: ReplicatorState;
 }
@@ -2965,38 +2965,38 @@ export interface CreateReplicatorResponse {
  */
 export interface CreateVpcConnectionRequest {
   /**
-   * @public
    * <p>The cluster Amazon Resource Name (ARN) for the VPC connection.</p>
+   * @public
    */
   TargetClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The authentication type of VPC connection.</p>
+   * @public
    */
   Authentication: string | undefined;
 
   /**
-   * @public
    * <p>The VPC ID of VPC connection.</p>
+   * @public
    */
   VpcId: string | undefined;
 
   /**
-   * @public
    * <p>The list of client subnets.</p>
+   * @public
    */
   ClientSubnets: string[] | undefined;
 
   /**
-   * @public
    * <p>The list of security groups.</p>
+   * @public
    */
   SecurityGroups: string[] | undefined;
 
   /**
-   * @public
    * <p>A map of tags for the VPC connection.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3006,50 +3006,50 @@ export interface CreateVpcConnectionRequest {
  */
 export interface CreateVpcConnectionResponse {
   /**
-   * @public
    * <p>The VPC connection ARN.</p>
+   * @public
    */
   VpcConnectionArn?: string;
 
   /**
-   * @public
    * <p>The State of Vpc Connection.</p>
+   * @public
    */
   State?: VpcConnectionState;
 
   /**
-   * @public
    * <p>The authentication type of VPC connection.</p>
+   * @public
    */
   Authentication?: string;
 
   /**
-   * @public
    * <p>The VPC ID of the VPC connection.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The list of client subnets.</p>
+   * @public
    */
   ClientSubnets?: string[];
 
   /**
-   * @public
    * <p>The list of security groups.</p>
+   * @public
    */
   SecurityGroups?: string[];
 
   /**
-   * @public
    * <p>The creation time of VPC connection.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>A map of tags for the VPC connection.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3059,14 +3059,14 @@ export interface CreateVpcConnectionResponse {
  */
 export interface DeleteClusterRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The current version of the MSK cluster.</p>
+   * @public
    */
   CurrentVersion?: string;
 }
@@ -3076,14 +3076,14 @@ export interface DeleteClusterRequest {
  */
 export interface DeleteClusterResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
+   * @public
    */
   State?: ClusterState;
 }
@@ -3093,8 +3093,8 @@ export interface DeleteClusterResponse {
  */
 export interface DeleteClusterPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 }
@@ -3109,8 +3109,8 @@ export interface DeleteClusterPolicyResponse {}
  */
 export interface DeleteConfigurationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -3120,14 +3120,14 @@ export interface DeleteConfigurationRequest {
  */
 export interface DeleteConfigurationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
+   * @public
    */
   State?: ConfigurationState;
 }
@@ -3137,14 +3137,14 @@ export interface DeleteConfigurationResponse {
  */
 export interface DeleteReplicatorRequest {
   /**
-   * @public
    * <p>The current version of the replicator.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator to be deleted.</p>
+   * @public
    */
   ReplicatorArn: string | undefined;
 }
@@ -3154,14 +3154,14 @@ export interface DeleteReplicatorRequest {
  */
 export interface DeleteReplicatorResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   * @public
    */
   ReplicatorArn?: string;
 
   /**
-   * @public
    * <p>The state of the replicator.</p>
+   * @public
    */
   ReplicatorState?: ReplicatorState;
 }
@@ -3171,8 +3171,8 @@ export interface DeleteReplicatorResponse {
  */
 export interface DeleteVpcConnectionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -3182,14 +3182,14 @@ export interface DeleteVpcConnectionRequest {
  */
 export interface DeleteVpcConnectionResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+   * @public
    */
   VpcConnectionArn?: string;
 
   /**
-   * @public
    * <p>The state of the VPC connection.</p>
+   * @public
    */
   State?: VpcConnectionState;
 }
@@ -3199,8 +3199,8 @@ export interface DeleteVpcConnectionResponse {
  */
 export interface DescribeClusterRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 }
@@ -3210,8 +3210,8 @@ export interface DescribeClusterRequest {
  */
 export interface DescribeClusterResponse {
   /**
-   * @public
    * <p>The cluster information.</p>
+   * @public
    */
   ClusterInfo?: ClusterInfo;
 }
@@ -3221,8 +3221,8 @@ export interface DescribeClusterResponse {
  */
 export interface DescribeClusterOperationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>
+   * @public
    */
   ClusterOperationArn: string | undefined;
 }
@@ -3232,8 +3232,8 @@ export interface DescribeClusterOperationRequest {
  */
 export interface DescribeClusterOperationResponse {
   /**
-   * @public
    * <p>Cluster operation information</p>
+   * @public
    */
   ClusterOperationInfo?: ClusterOperationInfo;
 }
@@ -3243,8 +3243,8 @@ export interface DescribeClusterOperationResponse {
  */
 export interface DescribeClusterOperationV2Request {
   /**
-   * @public
    * ARN of the cluster operation to describe.
+   * @public
    */
   ClusterOperationArn: string | undefined;
 }
@@ -3254,8 +3254,8 @@ export interface DescribeClusterOperationV2Request {
  */
 export interface DescribeClusterOperationV2Response {
   /**
-   * @public
    * <p>Cluster operation information</p>
+   * @public
    */
   ClusterOperationInfo?: ClusterOperationV2;
 }
@@ -3265,8 +3265,8 @@ export interface DescribeClusterOperationV2Response {
  */
 export interface DescribeClusterV2Request {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 }
@@ -3276,8 +3276,8 @@ export interface DescribeClusterV2Request {
  */
 export interface DescribeClusterV2Response {
   /**
-   * @public
    * <p>The cluster information.</p>
+   * @public
    */
   ClusterInfo?: Cluster;
 }
@@ -3287,8 +3287,8 @@ export interface DescribeClusterV2Response {
  */
 export interface DescribeConfigurationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -3298,44 +3298,44 @@ export interface DescribeConfigurationRequest {
  */
 export interface DescribeConfigurationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The time when the configuration was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The description of the configuration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The versions of Apache Kafka with which you can use this MSK configuration.</p>
+   * @public
    */
   KafkaVersions?: string[];
 
   /**
-   * @public
    * <p>Latest revision of the configuration.</p>
+   * @public
    */
   LatestRevision?: ConfigurationRevision;
 
   /**
-   * @public
    * <p>The name of the configuration.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
+   * @public
    */
   State?: ConfigurationState;
 }
@@ -3345,14 +3345,14 @@ export interface DescribeConfigurationResponse {
  */
 export interface DescribeConfigurationRevisionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>A string that uniquely identifies a revision of an MSK configuration.</p>
+   * @public
    */
   Revision: number | undefined;
 }
@@ -3362,33 +3362,33 @@ export interface DescribeConfigurationRevisionRequest {
  */
 export interface DescribeConfigurationRevisionResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The time when the configuration was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The description of the configuration.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The revision number.</p>
+   * @public
    */
   Revision?: number;
 
   /**
-   * @public
    * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
+   * @public
    */
   ServerProperties?: Uint8Array;
 }
@@ -3398,26 +3398,26 @@ export interface DescribeConfigurationRevisionResponse {
  */
 export interface DescribeReplicatorRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator to be described.</p>
+   * @public
    */
   ReplicatorArn: string | undefined;
 }
 
 /**
- * @public
  * Details about the state of a replicator
+ * @public
  */
 export interface ReplicationStateInfo {
   /**
-   * @public
    * Code that describes the current state of the replicator.
+   * @public
    */
   Code?: string;
 
   /**
-   * @public
    * Message that describes the state of the replicator.
+   * @public
    */
   Message?: string;
 }
@@ -3427,80 +3427,80 @@ export interface ReplicationStateInfo {
  */
 export interface DescribeReplicatorResponse {
   /**
-   * @public
    * <p>The time when the replicator was created.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The current version number of the replicator.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>Whether this resource is a replicator reference.</p>
+   * @public
    */
   IsReplicatorReference?: boolean;
 
   /**
-   * @public
    * <p>Kafka Clusters used in setting up sources / targets for replication.</p>
+   * @public
    */
   KafkaClusters?: KafkaClusterDescription[];
 
   /**
-   * @public
    * <p>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</p>
+   * @public
    */
   ReplicationInfoList?: ReplicationInfoDescription[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   * @public
    */
   ReplicatorArn?: string;
 
   /**
-   * @public
    * <p>The description of the replicator.</p>
+   * @public
    */
   ReplicatorDescription?: string;
 
   /**
-   * @public
    * <p>The name of the replicator.</p>
+   * @public
    */
   ReplicatorName?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator resource in the region where the replicator was created.</p>
+   * @public
    */
   ReplicatorResourceArn?: string;
 
   /**
-   * @public
    * <p>State of the replicator.</p>
+   * @public
    */
   ReplicatorState?: ReplicatorState;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters)</p>
+   * @public
    */
   ServiceExecutionRoleArn?: string;
 
   /**
-   * @public
    * <p>Details about the state of the replicator.</p>
+   * @public
    */
   StateInfo?: ReplicationStateInfo;
 
   /**
-   * @public
    * <p>List of tags attached to the Replicator.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3510,8 +3510,8 @@ export interface DescribeReplicatorResponse {
  */
 export interface DescribeVpcConnectionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -3521,56 +3521,56 @@ export interface DescribeVpcConnectionRequest {
  */
 export interface DescribeVpcConnectionResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+   * @public
    */
   VpcConnectionArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK cluster.</p>
+   * @public
    */
   TargetClusterArn?: string;
 
   /**
-   * @public
    * <p>The state of VPC connection.</p>
+   * @public
    */
   State?: VpcConnectionState;
 
   /**
-   * @public
    * <p>The authentication type of VPC connection.</p>
+   * @public
    */
   Authentication?: string;
 
   /**
-   * @public
    * <p>The VPC Id for the VPC connection.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The list of subnets for the VPC connection.</p>
+   * @public
    */
   Subnets?: string[];
 
   /**
-   * @public
    * <p>The list of security groups for the VPC connection.</p>
+   * @public
    */
   SecurityGroups?: string[];
 
   /**
-   * @public
    * <p>The creation time of the VPC connection.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>A map of tags for the VPC connection.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -3580,8 +3580,8 @@ export interface DescribeVpcConnectionResponse {
  */
 export interface GetBootstrapBrokersRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 }
@@ -3591,62 +3591,62 @@ export interface GetBootstrapBrokersRequest {
  */
 export interface GetBootstrapBrokersResponse {
   /**
-   * @public
    * <p>A string containing one or more hostname:port pairs.</p>
+   * @public
    */
   BootstrapBrokerString?: string;
 
   /**
-   * @public
    * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
+   * @public
    */
   BootstrapBrokerStringTls?: string;
 
   /**
-   * @public
    * <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>
+   * @public
    */
   BootstrapBrokerStringSaslScram?: string;
 
   /**
-   * @public
    * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
+   * @public
    */
   BootstrapBrokerStringSaslIam?: string;
 
   /**
-   * @public
    * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
+   * @public
    */
   BootstrapBrokerStringPublicTls?: string;
 
   /**
-   * @public
    * <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>
+   * @public
    */
   BootstrapBrokerStringPublicSaslScram?: string;
 
   /**
-   * @public
    * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
+   * @public
    */
   BootstrapBrokerStringPublicSaslIam?: string;
 
   /**
-   * @public
    * <p>A string containing one or more DNS names (or IP) and TLS port pairs for VPC connectivity.</p>
+   * @public
    */
   BootstrapBrokerStringVpcConnectivityTls?: string;
 
   /**
-   * @public
    * <p>A string containing one or more DNS names (or IP) and SASL/SCRAM port pairs for VPC connectivity.</p>
+   * @public
    */
   BootstrapBrokerStringVpcConnectivitySaslScram?: string;
 
   /**
-   * @public
    * <p>A string containing one or more DNS names (or IP) and SASL/IAM port pairs for VPC connectivity.</p>
+   * @public
    */
   BootstrapBrokerStringVpcConnectivitySaslIam?: string;
 }
@@ -3656,8 +3656,8 @@ export interface GetBootstrapBrokersResponse {
  */
 export interface GetClusterPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 }
@@ -3667,14 +3667,14 @@ export interface GetClusterPolicyRequest {
  */
 export interface GetClusterPolicyResponse {
   /**
-   * @public
    * <p>The version of cluster policy.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>The cluster policy.</p>
+   * @public
    */
   Policy?: string;
 }
@@ -3684,8 +3684,8 @@ export interface GetClusterPolicyResponse {
  */
 export interface GetCompatibleKafkaVersionsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster check.</p>
+   * @public
    */
   ClusterArn?: string;
 }
@@ -3695,8 +3695,8 @@ export interface GetCompatibleKafkaVersionsRequest {
  */
 export interface GetCompatibleKafkaVersionsResponse {
   /**
-   * @public
    * <p>A list of CompatibleKafkaVersion objects.</p>
+   * @public
    */
   CompatibleKafkaVersions?: CompatibleKafkaVersion[];
 }
@@ -3706,21 +3706,21 @@ export interface GetCompatibleKafkaVersionsResponse {
  */
 export interface ListClientVpcConnectionsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3730,15 +3730,15 @@ export interface ListClientVpcConnectionsRequest {
  */
 export interface ListClientVpcConnectionsResponse {
   /**
-   * @public
    * <p>List of client VPC connections.</p>
+   * @public
    */
   ClientVpcConnections?: ClientVpcConnection[];
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
    *                To get another batch of configurations, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3748,21 +3748,21 @@ export interface ListClientVpcConnectionsResponse {
  */
 export interface ListClusterOperationsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3772,14 +3772,14 @@ export interface ListClusterOperationsRequest {
  */
 export interface ListClusterOperationsResponse {
   /**
-   * @public
    * <p>An array of cluster operation information objects.</p>
+   * @public
    */
   ClusterOperationInfoList?: ClusterOperationInfo[];
 
   /**
-   * @public
    * <p>If the response of ListClusterOperations is truncated, it returns a NextToken in the response. This Nexttoken should be sent in the subsequent request to ListClusterOperations.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3789,20 +3789,20 @@ export interface ListClusterOperationsResponse {
  */
 export interface ListClusterOperationsV2Request {
   /**
-   * @public
    * The arn of the cluster whose operations are being requested.
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * The maxResults of the query.
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * The nextToken of the query.
+   * @public
    */
   NextToken?: string;
 }
@@ -3812,14 +3812,14 @@ export interface ListClusterOperationsV2Request {
  */
 export interface ListClusterOperationsV2Response {
   /**
-   * @public
    * <p>An array of cluster operation information objects.</p>
+   * @public
    */
   ClusterOperationInfoList?: ClusterOperationV2Summary[];
 
   /**
-   * @public
    * <p>If the response of ListClusterOperationsV2 is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListClusterOperationsV2.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3829,21 +3829,21 @@ export interface ListClusterOperationsV2Response {
  */
 export interface ListClustersRequest {
   /**
-   * @public
    * <p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
+   * @public
    */
   ClusterNameFilter?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3853,15 +3853,15 @@ export interface ListClustersRequest {
  */
 export interface ListClustersResponse {
   /**
-   * @public
    * <p>Information on each of the MSK clusters in the response.</p>
+   * @public
    */
   ClusterInfoList?: ClusterInfo[];
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response.
    *                To get another batch of clusters, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3871,27 +3871,27 @@ export interface ListClustersResponse {
  */
 export interface ListClustersV2Request {
   /**
-   * @public
    * <p>Specify a prefix of the names of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>
+   * @public
    */
   ClusterNameFilter?: string;
 
   /**
-   * @public
    * <p>Specify either PROVISIONED or SERVERLESS.</p>
+   * @public
    */
   ClusterTypeFilter?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3901,15 +3901,15 @@ export interface ListClustersV2Request {
  */
 export interface ListClustersV2Response {
   /**
-   * @public
    * <p>Information on each of the MSK clusters in the response.</p>
+   * @public
    */
   ClusterInfoList?: Cluster[];
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response.
    *                To get another batch of clusters, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3919,21 +3919,21 @@ export interface ListClustersV2Response {
  */
 export interface ListConfigurationRevisionsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3943,14 +3943,14 @@ export interface ListConfigurationRevisionsRequest {
  */
 export interface ListConfigurationRevisionsResponse {
   /**
-   * @public
    * <p>Paginated results marker.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>List of ConfigurationRevision objects.</p>
+   * @public
    */
   Revisions?: ConfigurationRevision[];
 }
@@ -3960,15 +3960,15 @@ export interface ListConfigurationRevisionsResponse {
  */
 export interface ListConfigurationsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3978,15 +3978,15 @@ export interface ListConfigurationsRequest {
  */
 export interface ListConfigurationsResponse {
   /**
-   * @public
    * <p>An array of MSK configurations.</p>
+   * @public
    */
   Configurations?: Configuration[];
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of a ListConfigurations operation is truncated, the call returns NextToken in the response.
    *                To get another batch of configurations, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3996,14 +3996,14 @@ export interface ListConfigurationsResponse {
  */
 export interface ListKafkaVersionsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response. To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4021,21 +4021,21 @@ export interface ListKafkaVersionsResponse {
  */
 export interface ListNodesRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4045,15 +4045,15 @@ export interface ListNodesRequest {
  */
 export interface ListNodesResponse {
   /**
-   * @public
    * <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response.
    *                To get another batch of nodes, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>List containing a NodeInfo object.</p>
+   * @public
    */
   NodeInfoList?: NodeInfo[];
 }
@@ -4063,20 +4063,20 @@ export interface ListNodesResponse {
  */
 export interface ListReplicatorsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Returns replicators starting with given name.</p>
+   * @public
    */
   ReplicatorNameFilter?: string;
 }
@@ -4086,14 +4086,14 @@ export interface ListReplicatorsRequest {
  */
 export interface ListReplicatorsResponse {
   /**
-   * @public
    * <p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>List containing information of each of the replicators in the account.</p>
+   * @public
    */
   Replicators?: ReplicatorSummary[];
 }
@@ -4103,20 +4103,20 @@ export interface ListReplicatorsResponse {
  */
 export interface ListScramSecretsRequest {
   /**
-   * @public
    * <p>The arn of the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The maxResults of the query.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The nextToken of the query.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4126,14 +4126,14 @@ export interface ListScramSecretsRequest {
  */
 export interface ListScramSecretsResponse {
   /**
-   * @public
    * <p>Paginated results marker.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The list of scram secrets associated with the cluster.</p>
+   * @public
    */
   SecretArnList?: string[];
 }
@@ -4143,8 +4143,8 @@ export interface ListScramSecretsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -4154,8 +4154,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The key-value pair for the resource tag.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -4165,15 +4165,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListVpcConnectionsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
    *             To get the next batch, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4183,15 +4183,15 @@ export interface ListVpcConnectionsRequest {
  */
 export interface ListVpcConnectionsResponse {
   /**
-   * @public
    * <p>List of VPC connections.</p>
+   * @public
    */
   VpcConnections?: VpcConnection[];
 
   /**
-   * @public
    * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
    *                To get another batch of configurations, provide this token in your next request.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4201,20 +4201,20 @@ export interface ListVpcConnectionsResponse {
  */
 export interface PutClusterPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The policy version.</p>
+   * @public
    */
   CurrentVersion?: string;
 
   /**
-   * @public
    * <p>The policy.</p>
+   * @public
    */
   Policy: string | undefined;
 }
@@ -4224,26 +4224,26 @@ export interface PutClusterPolicyRequest {
  */
 export interface PutClusterPolicyResponse {
   /**
-   * @public
    * <p>The policy version.</p>
+   * @public
    */
   CurrentVersion?: string;
 }
 
 /**
- * @public
  * Reboots a node.
+ * @public
  */
 export interface RebootBrokerRequest {
   /**
-   * @public
    * <p>The list of broker IDs to be rebooted. The reboot-broker operation supports rebooting one broker at a time.</p>
+   * @public
    */
   BrokerIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 }
@@ -4253,14 +4253,14 @@ export interface RebootBrokerRequest {
  */
 export interface RebootBrokerResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
@@ -4270,14 +4270,14 @@ export interface RebootBrokerResponse {
  */
 export interface RejectClientVpcConnectionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The VPC connection ARN.</p>
+   * @public
    */
   VpcConnectionArn: string | undefined;
 }
@@ -4292,14 +4292,14 @@ export interface RejectClientVpcConnectionResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The key-value pair for the resource tag.</p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -4309,13 +4309,12 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the resource that's associated with the tags.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Tag keys must be unique for a given cluster. In addition, the following restrictions apply:</p>
    *             <ul>
    *                <li>
@@ -4336,6 +4335,7 @@ export interface UntagResourceRequest {
    *                      @.</p>
    *                </li>
    *             </ul>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -4345,20 +4345,20 @@ export interface UntagResourceRequest {
  */
 export interface UpdateBrokerCountRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>The number of broker nodes that you want the cluster to have after this operation completes successfully.</p>
+   * @public
    */
   TargetNumberOfBrokerNodes: number | undefined;
 }
@@ -4368,14 +4368,14 @@ export interface UpdateBrokerCountRequest {
  */
 export interface UpdateBrokerCountResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
@@ -4385,20 +4385,20 @@ export interface UpdateBrokerCountResponse {
  */
 export interface UpdateBrokerStorageRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>Describes the target volume size and the ID of the broker to apply the update to.</p>
+   * @public
    */
   TargetBrokerEBSVolumeInfo: BrokerEBSVolumeInfo[] | undefined;
 }
@@ -4408,14 +4408,14 @@ export interface UpdateBrokerStorageRequest {
  */
 export interface UpdateBrokerStorageResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
@@ -4425,20 +4425,20 @@ export interface UpdateBrokerStorageResponse {
  */
 export interface UpdateBrokerTypeRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon MSK broker type that you want all of the brokers in this cluster to be.</p>
+   * @public
    */
   TargetInstanceType: string | undefined;
 }
@@ -4448,14 +4448,14 @@ export interface UpdateBrokerTypeRequest {
  */
 export interface UpdateBrokerTypeResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
@@ -4465,20 +4465,20 @@ export interface UpdateBrokerTypeResponse {
  */
 export interface UpdateClusterConfigurationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>Represents the configuration that you want MSK to use for the brokers in a cluster.</p>
+   * @public
    */
   ConfigurationInfo: ConfigurationInfo | undefined;
 
   /**
-   * @public
    * <p>The version of the cluster that needs to be updated.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 }
@@ -4488,14 +4488,14 @@ export interface UpdateClusterConfigurationRequest {
  */
 export interface UpdateClusterConfigurationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
@@ -4505,26 +4505,26 @@ export interface UpdateClusterConfigurationResponse {
  */
 export interface UpdateClusterKafkaVersionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The custom configuration that should be applied on the new version of cluster.</p>
+   * @public
    */
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
-   * @public
    * <p>Current cluster version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>Target Kafka version.</p>
+   * @public
    */
   TargetKafkaVersion: string | undefined;
 }
@@ -4534,14 +4534,14 @@ export interface UpdateClusterKafkaVersionRequest {
  */
 export interface UpdateClusterKafkaVersionResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
@@ -4551,21 +4551,21 @@ export interface UpdateClusterKafkaVersionResponse {
  */
 export interface UpdateConfigurationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The description of the configuration revision.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Contents of the <filename>server.properties</filename> file. When using the API, you must ensure that the contents of the file are base64 encoded.
    *                When using the AWS Management Console, the SDK, or the AWS CLI, the contents of <filename>server.properties</filename> can be in plaintext.</p>
+   * @public
    */
   ServerProperties: Uint8Array | undefined;
 }
@@ -4575,38 +4575,38 @@ export interface UpdateConfigurationRequest {
  */
 export interface UpdateConfigurationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>Latest revision of the configuration.</p>
+   * @public
    */
   LatestRevision?: ConfigurationRevision;
 }
 
 /**
- * @public
  * Request body for UpdateConnectivity.
+ * @public
  */
 export interface UpdateConnectivityRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>Information about the broker access configuration.</p>
+   * @public
    */
   ConnectivityInfo: ConnectivityInfo | undefined;
 
   /**
-   * @public
    * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 }
@@ -4616,44 +4616,44 @@ export interface UpdateConnectivityRequest {
  */
 export interface UpdateConnectivityResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
 
 /**
- * @public
  * Request body for UpdateMonitoring.
+ * @public
  */
 export interface UpdateMonitoringRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
+   * @public
    */
   EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
-   * @public
    * <p>The settings for open monitoring.</p>
+   * @public
    */
   OpenMonitoring?: OpenMonitoringInfo;
 
@@ -4665,92 +4665,92 @@ export interface UpdateMonitoringRequest {
  */
 export interface UpdateMonitoringResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
 
 /**
- * @public
  * <p>Details for updating the topic replication of a replicator.</p>
+ * @public
  */
 export interface TopicReplicationUpdate {
   /**
-   * @public
    * <p>Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.</p>
+   * @public
    */
   CopyAccessControlListsForTopics: boolean | undefined;
 
   /**
-   * @public
    * <p>Whether to periodically configure remote topics to match their corresponding upstream topics.</p>
+   * @public
    */
   CopyTopicConfigurations: boolean | undefined;
 
   /**
-   * @public
    * <p>Whether to periodically check for new topics and partitions.</p>
+   * @public
    */
   DetectAndCopyNewTopics: boolean | undefined;
 
   /**
-   * @public
    * <p>List of regular expression patterns indicating the topics that should not be replicated.</p>
+   * @public
    */
   TopicsToExclude: string[] | undefined;
 
   /**
-   * @public
    * <p>List of regular expression patterns indicating the topics to copy.</p>
+   * @public
    */
   TopicsToReplicate: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Update information relating to replication between a given source and target Kafka cluster.</p>
+ * @public
  */
 export interface UpdateReplicationInfoRequest {
   /**
-   * @public
    * <p>Updated consumer group replication information.</p>
+   * @public
    */
   ConsumerGroupReplication?: ConsumerGroupReplicationUpdate;
 
   /**
-   * @public
    * <p>Current replicator version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator to be updated.</p>
+   * @public
    */
   ReplicatorArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the source Kafka cluster.</p>
+   * @public
    */
   SourceKafkaClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the target Kafka cluster.</p>
+   * @public
    */
   TargetKafkaClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>Updated topic replication information.</p>
+   * @public
    */
   TopicReplication?: TopicReplicationUpdate;
 }
@@ -4760,14 +4760,14 @@ export interface UpdateReplicationInfoRequest {
  */
 export interface UpdateReplicationInfoResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   * @public
    */
   ReplicatorArn?: string;
 
   /**
-   * @public
    * <p>State of the replicator.</p>
+   * @public
    */
   ReplicatorState?: ReplicatorState;
 }
@@ -4777,26 +4777,26 @@ export interface UpdateReplicationInfoResponse {
  */
 export interface UpdateSecurityRequest {
   /**
-   * @public
    * <p>Includes all client authentication related information.</p>
+   * @public
    */
   ClientAuthentication?: ClientAuthentication;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the MSK cluster to update. Cluster versions aren't simple numbers. You can describe an MSK cluster to find its version. When this update operation is successful, it generates a new cluster version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>Includes all encryption-related information.</p>
+   * @public
    */
   EncryptionInfo?: EncryptionInfo;
 }
@@ -4806,50 +4806,50 @@ export interface UpdateSecurityRequest {
  */
 export interface UpdateSecurityResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }
 
 /**
- * @public
  * <p>Request object for UpdateStorage api. Its used to update the storage attributes for the cluster.</p>
+ * @public
  */
 export interface UpdateStorageRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>
+   * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of cluster to update from. A successful operation will then generate a new version.</p>
+   * @public
    */
   CurrentVersion: string | undefined;
 
   /**
-   * @public
    * <p>EBS volume provisioned throughput information.</p>
+   * @public
    */
   ProvisionedThroughput?: ProvisionedThroughput;
 
   /**
-   * @public
    * <p>Controls storage mode for supported storage tiers.</p>
+   * @public
    */
   StorageMode?: StorageMode;
 
   /**
-   * @public
    * <p>size of the EBS volume to update.</p>
+   * @public
    */
   VolumeSizeGB?: number;
 }
@@ -4859,14 +4859,14 @@ export interface UpdateStorageRequest {
  */
 export interface UpdateStorageResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
    */
   ClusterArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
    */
   ClusterOperationArn?: string;
 }

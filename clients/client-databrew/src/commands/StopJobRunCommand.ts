@@ -27,7 +27,6 @@ export interface StopJobRunCommandInput extends StopJobRunRequest {}
 export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a particular run of a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataB
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class StopJobRunCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchDeleteTableVersionCommandInput extends BatchDeleteTableVer
 export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified batch of versions of a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVe
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchDeleteTableVersionCommand extends $Command
   .classBuilder<

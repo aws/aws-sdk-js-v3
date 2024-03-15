@@ -32,7 +32,6 @@ export interface GetNetworkResourceRelationshipsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the network resource relationships for the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetNetworkResourceRelationshipsCommand extends $Command
   .classBuilder<

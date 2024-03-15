@@ -27,7 +27,6 @@ export interface UpdateFlowCommandInput extends UpdateFlowRequest {}
 export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates an existing flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -358,6 +357,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class UpdateFlowCommand extends $Command
   .classBuilder<

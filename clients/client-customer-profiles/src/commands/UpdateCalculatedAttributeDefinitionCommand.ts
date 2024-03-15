@@ -37,7 +37,6 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing calculated attribute definition. When updating the Conditions, note that increasing
  *          the date range of a calculated attribute will not trigger inclusion of historical data greater than the
  *          current date range.</p>
@@ -123,6 +122,7 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class UpdateCalculatedAttributeDefinitionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DeleteTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
  *    created.</p>
  *          <p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in
@@ -76,6 +75,7 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteTrafficDistributionGroupCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CompleteAttachmentUploadCommandInput extends CompleteAttachment
 export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmentUploadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
  *             provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
  *             with that identifier is already being uploaded.</p>
@@ -89,6 +88,7 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * @public
  */
 export class CompleteAttachmentUploadCommand extends $Command
   .classBuilder<

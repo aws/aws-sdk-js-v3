@@ -32,7 +32,6 @@ export interface DeleteAccessLogSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified access log subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteAccessLogSubscriptionCommand extends $Command
   .classBuilder<

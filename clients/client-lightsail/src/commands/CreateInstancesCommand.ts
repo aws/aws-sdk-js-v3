@@ -27,7 +27,6 @@ export interface CreateInstancesCommandInput extends CreateInstancesRequest {}
 export interface CreateInstancesCommandOutput extends CreateInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more Amazon Lightsail instances.</p>
  *          <p>The <code>create instances</code> operation supports tag-based access control via request
  *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Developer Guide</a>.</p>
@@ -132,6 +131,7 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateInstancesCommand extends $Command
   .classBuilder<

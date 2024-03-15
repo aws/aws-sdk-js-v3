@@ -27,7 +27,6 @@ export interface StopThingRegistrationTaskCommandInput extends StopThingRegistra
 export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a bulk thing provisioning task.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopThingRegistrationTask</a> action.</p>
  * @example
@@ -69,6 +68,7 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class StopThingRegistrationTaskCommand extends $Command
   .classBuilder<

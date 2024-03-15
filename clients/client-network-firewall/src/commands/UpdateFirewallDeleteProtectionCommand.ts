@@ -32,7 +32,6 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the flag, <code>DeleteProtection</code>, which indicates whether it is possible
  *          to delete the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
  *          against deletion. This setting helps protect against accidentally deleting a firewall
@@ -101,6 +100,7 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateFirewallDeleteProtectionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AssociateDiscoveredResourceCommandInput extends AssociateDiscov
 export interface AssociateDiscoveredResourceCommandOutput extends AssociateDiscoveredResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a discovered resource ID from Application Discovery Service with a migration
  *          task.</p>
  * @example
@@ -99,6 +98,7 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class AssociateDiscoveredResourceCommand extends $Command
   .classBuilder<

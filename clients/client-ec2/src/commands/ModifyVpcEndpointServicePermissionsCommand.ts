@@ -35,7 +35,6 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
  *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
  *             your endpoint service.</p>
@@ -83,6 +82,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVpcEndpointServicePermissionsCommand extends $Command
   .classBuilder<

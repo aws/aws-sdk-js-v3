@@ -27,7 +27,6 @@ export interface GetAssetPropertyValueCommandInput extends GetAssetPropertyValue
 export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
  *         current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -99,6 +98,7 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class GetAssetPropertyValueCommand extends $Command
   .classBuilder<

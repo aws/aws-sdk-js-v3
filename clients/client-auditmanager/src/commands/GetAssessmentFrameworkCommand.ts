@@ -31,7 +31,6 @@ export interface GetAssessmentFrameworkCommandInput extends GetAssessmentFramewo
 export interface GetAssessmentFrameworkCommandOutput extends GetAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified framework.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface GetAssessmentFrameworkCommandOutput extends GetAssessmentFramew
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetAssessmentFrameworkCommand extends $Command
   .classBuilder<

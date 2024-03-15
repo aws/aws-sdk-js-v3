@@ -27,7 +27,6 @@ export interface GetVirtualMachineCommandInput extends GetVirtualMachineInput {}
 export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>By providing the ARN (Amazon Resource Name), this API returns the virtual machine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetVirtualMachineCommandOutput extends GetVirtualMachineOutput,
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class GetVirtualMachineCommand extends $Command
   .classBuilder<

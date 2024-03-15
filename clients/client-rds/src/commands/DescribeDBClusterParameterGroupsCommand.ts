@@ -32,7 +32,6 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
  *             <code>DBClusterParameterGroupName</code> parameter is specified,
  *             the list will contain only the description of the specified DB cluster parameter group.</p>
@@ -91,6 +90,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe DB cluster parameter groups
  * ```javascript
  * // The following example retrieves details for your DB cluster parameter groups.

@@ -27,7 +27,6 @@ export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a SageMaker HyperPod cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteClusterCommand extends $Command
   .classBuilder<

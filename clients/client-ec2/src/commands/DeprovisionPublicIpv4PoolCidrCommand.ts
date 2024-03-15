@@ -29,7 +29,6 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprovision a CIDR from a public IPv4 pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeprovisionPublicIpv4PoolCidrCommand extends $Command
   .classBuilder<

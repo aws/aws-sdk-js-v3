@@ -31,9 +31,6 @@ export interface CreateAppInstanceCommandInput extends CreateAppInstanceRequest 
 export interface CreateAppInstanceCommandOutput extends CreateAppInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateAppInstance in the Amazon Chime SDK Identity Namespace
- *
  * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account. Only SDK messaging customers use this API.
  * <code>CreateAppInstance</code> supports idempotency behavior as described in the AWS API Standard.</p>
  *          <important>
@@ -102,6 +99,8 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateAppInstance in the Amazon Chime SDK Identity Namespace
  */
 export class CreateAppInstanceCommand extends $Command
   .classBuilder<

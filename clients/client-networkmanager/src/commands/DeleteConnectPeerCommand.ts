@@ -27,7 +27,6 @@ export interface DeleteConnectPeerCommandInput extends DeleteConnectPeerRequest 
 export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Connect peer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface DeleteConnectPeerCommandOutput extends DeleteConnectPeerRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteConnectPeerCommand extends $Command
   .classBuilder<

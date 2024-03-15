@@ -27,7 +27,6 @@ export interface DeleteSubscriberCommandInput extends DeleteSubscriberRequest {}
 export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the subscription permission and all notification settings for accounts that are
  *          already enabled in Amazon Security Lake. When you run <code>DeleteSubscriber</code>, the
  *          subscriber will no longer consume data from Security Lake and the subscriber is removed. This
@@ -81,6 +80,7 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class DeleteSubscriberCommand extends $Command
   .classBuilder<

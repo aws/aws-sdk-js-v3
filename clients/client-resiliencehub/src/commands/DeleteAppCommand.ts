@@ -27,7 +27,6 @@ export interface DeleteAppCommandInput extends DeleteAppRequest {}
 export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Resilience Hub application. This is a destructive action that can't be
  *       undone.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DeleteAppCommand extends $Command
   .classBuilder<

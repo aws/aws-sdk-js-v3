@@ -27,7 +27,6 @@ export interface GetRegisterAccountStatusCommandInput extends GetRegisterAccount
 export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccountStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about the status of registering your Amazon Web Services account, IAM, and
  *             Amazon Timestream resources so that Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services
  *             Cloud. </p>
@@ -90,6 +89,7 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetRegisterAccountStatusCommand extends $Command
   .classBuilder<

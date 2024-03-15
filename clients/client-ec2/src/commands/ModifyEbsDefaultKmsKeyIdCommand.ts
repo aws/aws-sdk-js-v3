@@ -27,7 +27,6 @@ export interface ModifyEbsDefaultKmsKeyIdCommandInput extends ModifyEbsDefaultKm
 export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the default KMS key for EBS encryption by default for your account in this Region.</p>
  *          <p>Amazon Web Services creates a unique Amazon Web Services managed KMS key in each Region for use with encryption by default. If
  *       you change the default KMS key to a symmetric customer managed KMS key, it is used instead of the Amazon Web Services
@@ -63,6 +62,7 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyEbsDefaultKmsKeyIdCommand extends $Command
   .classBuilder<

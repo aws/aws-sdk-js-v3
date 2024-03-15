@@ -27,7 +27,6 @@ export interface AssignIpv6AddressesCommandInput extends AssignIpv6AddressesRequ
 export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more IPv6 addresses to the specified network interface. You can
  *             specify one or more specific IPv6 addresses, or you can specify the number of IPv6
  *             addresses to be automatically assigned from within the subnet's IPv6 CIDR block range.
@@ -79,6 +78,7 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssignIpv6AddressesCommand extends $Command
   .classBuilder<

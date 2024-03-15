@@ -27,7 +27,6 @@ export interface DescribeRepositoryCommandInput extends DescribeRepositoryReques
 export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Returns a <code>RepositoryDescription</code> object that contains detailed information
  *         about the requested repository.
@@ -103,6 +102,7 @@ export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResul
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DescribeRepositoryCommand extends $Command
   .classBuilder<

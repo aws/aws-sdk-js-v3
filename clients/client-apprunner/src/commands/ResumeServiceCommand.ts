@@ -31,7 +31,6 @@ export interface ResumeServiceCommandInput extends ResumeServiceRequest {}
 export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resume an active App Runner service. App Runner provisions compute capacity for the service.</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
  *       call to track the operation's progress.</p>
@@ -166,6 +165,7 @@ export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __Met
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class ResumeServiceCommand extends $Command
   .classBuilder<

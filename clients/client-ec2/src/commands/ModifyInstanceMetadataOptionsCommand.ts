@@ -29,7 +29,6 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify the instance metadata parameters on a running or stopped instance. When you
  *             modify the parameters on a stopped instance, they are applied when the instance is
  *             started. When you modify the parameters on a running instance, the API responds with a
@@ -77,6 +76,7 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyInstanceMetadataOptionsCommand extends $Command
   .classBuilder<

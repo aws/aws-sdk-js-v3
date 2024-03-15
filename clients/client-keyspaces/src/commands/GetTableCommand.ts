@@ -27,7 +27,6 @@ export interface GetTableCommandInput extends GetTableRequest {}
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the table, including the table's name and current status, the keyspace name,
  *          configuration settings, and metadata.</p>
  *          <p>To read table metadata using <code>GetTable</code>, <code>Select</code> action
@@ -139,6 +138,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class GetTableCommand extends $Command
   .classBuilder<

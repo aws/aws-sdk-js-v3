@@ -453,9 +453,9 @@ export type FSxClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface FSxClientResolvedConfig extends FSxClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon FSx is a fully managed service that makes it easy for storage and
  *             application administrators to launch and use shared file storage.</p>
+ * @public
  */
 export class FSxClient extends __Client<
   __HttpHandlerOptions,

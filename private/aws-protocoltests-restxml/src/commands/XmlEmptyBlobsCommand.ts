@@ -25,7 +25,6 @@ export interface XmlEmptyBlobsCommandInput extends XmlEmptyBlobsRequest {}
 export interface XmlEmptyBlobsCommandOutput extends XmlEmptyBlobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlEmptyBlobsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlEmptyBlobsCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface UpdateStorageLensGroupCommandInput extends UpdateStorageLensGro
 export interface UpdateStorageLensGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Updates the existing Storage Lens group.</p>
  *          <p>To use this operation, you must have the permission to perform the
@@ -131,6 +130,7 @@ export interface UpdateStorageLensGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class UpdateStorageLensGroupCommand extends $Command
   .classBuilder<

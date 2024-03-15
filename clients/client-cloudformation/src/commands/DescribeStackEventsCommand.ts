@@ -27,7 +27,6 @@ export interface DescribeStackEventsCommandInput extends DescribeStackEventsInpu
 export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all stack related events for a specified stack in reverse chronological order. For more information
  *    about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">CloudFormation stack creation
  *    events</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -83,6 +82,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStackEventsCommand extends $Command
   .classBuilder<

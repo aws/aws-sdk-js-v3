@@ -27,7 +27,6 @@ export interface ListReceiptRuleSetsCommandInput extends ListReceiptRuleSetsRequ
 export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the receipt rule sets that exist under your Amazon Web Services account in the current
  *             Amazon Web Services Region. If there are additional receipt rule sets to be retrieved, you receive a
  *                 <code>NextToken</code> that you can provide to the next call to
@@ -67,6 +66,7 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example ListReceiptRuleSets
  * ```javascript
  * // The following example lists the receipt rule sets that exist under an AWS account:

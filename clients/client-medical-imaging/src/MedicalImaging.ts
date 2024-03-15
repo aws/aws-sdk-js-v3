@@ -366,7 +366,6 @@ export interface MedicalImaging {
 }
 
 /**
- * @public
  * <p>This is the <i>AWS HealthImaging API Reference</i>. AWS HealthImaging is a HIPAA-eligible service that helps health
  *             care providers and their medical imaging ISV partners store, transform, and apply machine learning to medical images. For
  *             an introduction to the service, see the <a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/what-is.html">
@@ -518,6 +517,7 @@ export interface MedicalImaging {
  *                         <a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-image-set.html">Tagging an image set</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class MedicalImaging extends MedicalImagingClient implements MedicalImaging {}
 createAggregatedClient(commands, MedicalImaging);

@@ -31,7 +31,6 @@ export interface CreateTargetGroupCommandInput extends CreateTargetGroupInput {}
 export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a target group.</p>
  *          <p>For more information, see the following:</p>
  *          <ul>
@@ -145,6 +144,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To create a target group
  * ```javascript
  * // This example creates a target group that you can use to route traffic to targets using HTTP on port 80. This target group uses the default health check configuration.

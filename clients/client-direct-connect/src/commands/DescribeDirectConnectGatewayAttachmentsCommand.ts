@@ -36,7 +36,6 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify
  *       a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains
  *       all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the
@@ -88,6 +87,7 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch Evidently resource. Projects,
  *        features, launches, and experiments can be tagged.</p>
  *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
@@ -77,6 +76,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

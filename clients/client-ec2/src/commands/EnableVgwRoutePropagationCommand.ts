@@ -27,7 +27,6 @@ export interface EnableVgwRoutePropagationCommandInput extends EnableVgwRoutePro
 export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route
  *             table of a VPC.</p>
  * @example
@@ -56,6 +55,7 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To enable route propagation
  * ```javascript
  * // This example enables the specified virtual private gateway to propagate static routes to the specified route table.

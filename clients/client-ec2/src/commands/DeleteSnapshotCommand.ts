@@ -27,7 +27,6 @@ export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified snapshot.</p>
  *          <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the
  *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -63,6 +62,7 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a snapshot
  * ```javascript
  * // This example deletes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.

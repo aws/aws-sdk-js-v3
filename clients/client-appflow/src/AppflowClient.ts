@@ -357,7 +357,6 @@ export type AppflowClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need
  *       detailed information about the Amazon AppFlow API operations, data types, and errors. </p>
  *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely
@@ -393,6 +392,7 @@ export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfig
  *       the <a href="https://help.salesforce.com/articleView?id=remoteaccess_authenticate.htm">
  *                <i>Authorize Apps with OAuth</i>
  *             </a> documentation.</p>
+ * @public
  */
 export class AppflowClient extends __Client<
   __HttpHandlerOptions,

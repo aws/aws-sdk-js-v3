@@ -27,7 +27,6 @@ export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDet
 export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the anomaly detection models that you have created in your account.
  * 			For single metric anomaly detectors,
  * 			you can list all of the models in your account or filter the results
@@ -141,6 +140,7 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DescribeAnomalyDetectorsCommand extends $Command
   .classBuilder<

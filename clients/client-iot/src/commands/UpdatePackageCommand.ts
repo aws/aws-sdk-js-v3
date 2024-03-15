@@ -31,7 +31,6 @@ export interface UpdatePackageCommandInput extends UpdatePackageRequest {}
 export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the supported fields for a specific software package.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdatePackage</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> actions.</p>
  * @example
@@ -78,6 +77,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdatePackageCommand extends $Command
   .classBuilder<

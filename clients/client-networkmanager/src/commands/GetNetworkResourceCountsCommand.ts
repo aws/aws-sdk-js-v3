@@ -27,7 +27,6 @@ export interface GetNetworkResourceCountsCommandInput extends GetNetworkResource
 export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourceCountsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the count of network resources, by resource type, for the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetNetworkResourceCountsCommandOutput extends GetNetworkResourc
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetNetworkResourceCountsCommand extends $Command
   .classBuilder<

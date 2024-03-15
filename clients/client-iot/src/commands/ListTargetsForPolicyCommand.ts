@@ -27,7 +27,6 @@ export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRe
 export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List targets for the specified policy.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTargetsForPolicy</a> action.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListTargetsForPolicyCommand extends $Command
   .classBuilder<

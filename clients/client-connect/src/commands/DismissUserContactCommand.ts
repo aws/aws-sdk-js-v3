@@ -27,7 +27,6 @@ export interface DismissUserContactCommandInput extends DismissUserContactReques
 export interface DismissUserContactCommandOutput extends DismissUserContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
  *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
  *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
@@ -77,6 +76,7 @@ export interface DismissUserContactCommandOutput extends DismissUserContactRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DismissUserContactCommand extends $Command
   .classBuilder<

@@ -644,8 +644,8 @@ export interface Schemas {
 }
 
 /**
- * @public
  * <p>Amazon EventBridge Schema Registry</p>
+ * @public
  */
 export class Schemas extends SchemasClient implements Schemas {}
 createAggregatedClient(commands, Schemas);

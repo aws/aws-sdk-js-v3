@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { ForecastqueryServiceException as __BaseException } from "./ForecastqueryServiceException";
 
 /**
- * @public
  * <p>The value is invalid or is too long.</p>
+ * @public
  */
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
@@ -26,8 +26,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
+ * @public
  */
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
@@ -48,8 +48,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The limit on the number of requests per second has been exceeded.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -74,27 +74,26 @@ export class LimitExceededException extends __BaseException {
  */
 export interface QueryForecastRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
+   * @public
    */
   ForecastArn: string | undefined;
 
   /**
-   * @public
    * <p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
+   * @public
    */
   StartDate?: string;
 
   /**
-   * @public
    * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
+   * @public
    */
   EndDate?: string;
 
   /**
-   * @public
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
    *       following:</p>
@@ -104,44 +103,44 @@ export interface QueryForecastRequest {
    *
    *
    *          <p>To get the full forecast, use the <a href="https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateForecastExportJob.html">CreateForecastExportJob</a> operation.</p>
+   * @public
    */
   Filters: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The forecast value for a specific date. Part of the <a>Forecast</a>
  *       object.</p>
+ * @public
  */
 export interface DataPoint {
   /**
-   * @public
    * <p>The timestamp of the specific forecast.</p>
+   * @public
    */
   Timestamp?: string;
 
   /**
-   * @public
    * <p>The forecast value.</p>
+   * @public
    */
   Value?: number;
 }
 
 /**
- * @public
  * <p>Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.</p>
+ * @public
  */
 export interface Forecast {
   /**
-   * @public
    * <p>The forecast.</p>
    *          <p>The <i>string</i> of the string-to-array map is one of the following
    *       values:</p>
@@ -158,6 +157,7 @@ export interface Forecast {
    *          </ul>
    *          <p>The default setting is <code>["0.1", "0.5", "0.9"]</code>. Use the optional <code>ForecastTypes</code> parameter of the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html">CreateForecast</a> operation to change the values. The values will vary depending on how this is set, with a minimum of <code>1</code> and a maximum of <code>5.</code>
    *          </p>
+   * @public
    */
   Predictions?: Record<string, DataPoint[]>;
 }
@@ -167,15 +167,15 @@ export interface Forecast {
  */
 export interface QueryForecastResponse {
   /**
-   * @public
    * <p>The forecast.</p>
+   * @public
    */
   Forecast?: Forecast;
 }
 
 /**
- * @public
  * <p>The specified resource is in use.</p>
+ * @public
  */
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
@@ -196,9 +196,9 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We can't find that resource. Check the information that you've provided and try
  *       again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -223,27 +223,26 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface QueryWhatIfForecastRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the what-if forecast to query.</p>
+   * @public
    */
   WhatIfForecastArn: string | undefined;
 
   /**
-   * @public
    * <p>The start date for the what-if forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
+   * @public
    */
   StartDate?: string;
 
   /**
-   * @public
    * <p>The end date for the what-if forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
+   * @public
    */
   EndDate?: string;
 
   /**
-   * @public
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
    *       forecast for <code>client_21</code> in the electricity usage dataset, specify the
    *       following:</p>
@@ -251,14 +250,15 @@ export interface QueryWhatIfForecastRequest {
    *             <code>\{"item_id" : "client_21"\}</code>
    *          </p>
    *          <p>To get the full what-if forecast, use the <a href="https://docs.aws.amazon.com/en_us/forecast/latest/dg/API_CreateWhatIfForecastExport.html">CreateForecastExportJob</a> operation.</p>
+   * @public
    */
   Filters: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>If the result of the previous request was truncated, the response includes a
    *       <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -268,8 +268,8 @@ export interface QueryWhatIfForecastRequest {
  */
 export interface QueryWhatIfForecastResponse {
   /**
-   * @public
    * <p>Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.</p>
+   * @public
    */
   Forecast?: Forecast;
 }

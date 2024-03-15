@@ -27,7 +27,6 @@ export interface ListCompatibleImagesCommandInput extends ListCompatibleImagesRe
 export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action returns a list of the different Amazon EC2-compatible Amazon Machine Images (AMIs)
  *       that are owned by your Amazon Web Services accountthat would be supported for use on a Snow
  *       device. Currently, supported AMIs are based on the Amazon Linux-2, Ubuntu 20.04 LTS - Focal, or Ubuntu 22.04 LTS - Jammy images, available on the
@@ -74,6 +73,7 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  */
 export class ListCompatibleImagesCommand extends $Command
   .classBuilder<

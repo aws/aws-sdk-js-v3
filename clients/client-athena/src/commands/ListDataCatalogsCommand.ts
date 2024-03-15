@@ -27,7 +27,6 @@ export interface ListDataCatalogsCommandInput extends ListDataCatalogsInput {}
 export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the data catalogs in the current Amazon Web Services account.</p>
  *          <note>
  *             <p>In the Athena console, data catalogs are listed as "data sources" on
@@ -75,6 +74,7 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListDataCatalogsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteTestSetCommandInput extends DeleteTestSetRequest {}
 export interface DeleteTestSetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>The action to delete the selected test set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteTestSetCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteTestSetCommand extends $Command
   .classBuilder<

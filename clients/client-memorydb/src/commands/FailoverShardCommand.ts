@@ -27,7 +27,6 @@ export interface FailoverShardCommandInput extends FailoverShardRequest {}
 export interface FailoverShardCommandOutput extends FailoverShardResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to failover a shard. This API is designed for testing the behavior of your application in case of MemoryDB failover. It is not designed to be used as a production-level tool for initiating
  *          a failover to overcome a problem you may have with the cluster. Moreover, in certain conditions such as large scale operational events, Amazon may block this API. </p>
  * @example
@@ -150,6 +149,7 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class FailoverShardCommand extends $Command
   .classBuilder<

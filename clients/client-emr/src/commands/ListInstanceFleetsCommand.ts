@@ -27,7 +27,6 @@ export interface ListInstanceFleetsCommandInput extends ListInstanceFleetsInput 
 export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all available details about the instance fleets in a cluster.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
@@ -152,6 +151,7 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListInstanceFleetsCommand extends $Command
   .classBuilder<

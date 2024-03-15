@@ -27,7 +27,6 @@ export interface UpdateConfigurationPolicyCommandInput extends UpdateConfigurati
 export interface UpdateConfigurationPolicyCommandOutput extends UpdateConfigurationPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Updates a configuration policy. Only the Security Hub delegated
  *             administrator can invoke this operation from the home Region.
@@ -173,6 +172,7 @@ export interface UpdateConfigurationPolicyCommandOutput extends UpdateConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update a configuration policy
  * ```javascript
  * // This operation updates the specified configuration policy.

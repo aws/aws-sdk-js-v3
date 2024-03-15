@@ -31,7 +31,6 @@ export interface TagResourcesCommandInput extends TagResourcesInput {}
 export interface TagResourcesCommandOutput extends TagResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies one or more tags to the specified resources. Note the following:</p>
  *          <ul>
  *             <li>
@@ -149,6 +148,7 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * @public
  */
 export class TagResourcesCommand extends $Command
   .classBuilder<

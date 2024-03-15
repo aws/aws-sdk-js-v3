@@ -31,7 +31,6 @@ export interface ListIdentityProvidersCommandInput extends ListIdentityProviders
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of identity providers for a specific web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class ListIdentityProvidersCommand extends $Command
   .classBuilder<

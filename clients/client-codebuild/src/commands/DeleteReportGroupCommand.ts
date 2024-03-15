@@ -27,7 +27,6 @@ export interface DeleteReportGroupCommandInput extends DeleteReportGroupInput {}
 export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class DeleteReportGroupCommand extends $Command
   .classBuilder<

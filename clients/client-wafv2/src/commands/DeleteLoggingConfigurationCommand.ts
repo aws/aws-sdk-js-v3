@@ -27,7 +27,6 @@ export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingCon
 export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the <a>LoggingConfiguration</a> from the specified web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DeleteLoggingConfigurationCommand extends $Command
   .classBuilder<

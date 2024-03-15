@@ -31,7 +31,6 @@ export interface ListTableRestoreStatusCommandInput extends ListTableRestoreStat
 export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class ListTableRestoreStatusCommand extends $Command
   .classBuilder<

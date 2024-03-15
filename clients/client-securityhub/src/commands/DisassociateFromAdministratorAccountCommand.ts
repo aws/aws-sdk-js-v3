@@ -35,7 +35,6 @@ export interface DisassociateFromAdministratorAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the current Security Hub member account from the associated administrator
  *          account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization. For
@@ -80,6 +79,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To disassociate requesting account from administrator account
  * ```javascript
  * // The following example dissociates the requesting account from its associated administrator account.

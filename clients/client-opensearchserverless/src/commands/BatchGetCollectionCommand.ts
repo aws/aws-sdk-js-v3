@@ -31,7 +31,6 @@ export interface BatchGetCollectionCommandInput extends BatchGetCollectionReques
 export interface BatchGetCollectionCommandOutput extends BatchGetCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns attributes for one or more collections, including the collection endpoint and
  *             the OpenSearch Dashboards endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
@@ -96,6 +95,7 @@ export interface BatchGetCollectionCommandOutput extends BatchGetCollectionRespo
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class BatchGetCollectionCommand extends $Command
   .classBuilder<

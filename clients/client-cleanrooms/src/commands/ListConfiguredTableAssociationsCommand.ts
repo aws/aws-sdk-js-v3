@@ -32,7 +32,6 @@ export interface ListConfiguredTableAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists configured table associations for a membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListConfiguredTableAssociationsCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListConfiguredTableAssociationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateCollaborationCommandInput extends UpdateCollaborationInpu
 export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates collaboration metadata and can only be called by the collaboration owner.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class UpdateCollaborationCommand extends $Command
   .classBuilder<

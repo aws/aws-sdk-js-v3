@@ -27,7 +27,6 @@ export interface DescribeOrganizationalUnitCommandInput extends DescribeOrganiza
 export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an organizational unit (OU).</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -189,6 +188,7 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To get information about an organizational unit
  * ```javascript
  * // The following example shows how to request details about an OU:/n/n

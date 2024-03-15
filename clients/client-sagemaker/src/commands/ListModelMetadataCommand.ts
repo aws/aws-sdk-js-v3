@@ -27,7 +27,6 @@ export interface ListModelMetadataCommandInput extends ListModelMetadataRequest 
 export interface ListModelMetadataCommandOutput extends ListModelMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the domain, framework, task, and model name of standard
  *           machine learning models found in common model zoos.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListModelMetadataCommand extends $Command
   .classBuilder<

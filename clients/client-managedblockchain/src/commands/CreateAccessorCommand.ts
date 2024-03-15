@@ -31,7 +31,6 @@ export interface CreateAccessorCommandInput extends CreateAccessorInput {}
 export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new accessor for use with Amazon Managed Blockchain service that supports token based access.
  *          The accessor contains information required for token based access.</p>
  * @example
@@ -92,6 +91,7 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class CreateAccessorCommand extends $Command
   .classBuilder<

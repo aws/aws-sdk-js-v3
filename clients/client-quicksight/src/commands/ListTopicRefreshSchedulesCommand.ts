@@ -27,7 +27,6 @@ export interface ListTopicRefreshSchedulesCommandInput extends ListTopicRefreshS
 export interface ListTopicRefreshSchedulesCommandOutput extends ListTopicRefreshSchedulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the refresh schedules for a topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface ListTopicRefreshSchedulesCommandOutput extends ListTopicRefresh
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListTopicRefreshSchedulesCommand extends $Command
   .classBuilder<

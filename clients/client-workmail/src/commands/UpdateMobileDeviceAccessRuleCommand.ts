@@ -32,7 +32,6 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a mobile device access rule for the specified WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class UpdateMobileDeviceAccessRuleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release and subject to change.</p>
  *          <p>Creates and persists an Application resource.</p>
  * @example
@@ -108,6 +107,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  * @example To create an application
  * ```javascript
  * // The following creates an application named My Application with access url https://example.com.

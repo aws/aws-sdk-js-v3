@@ -35,7 +35,6 @@ export interface UpdateReplicationConfigurationCommandInput extends UpdateReplic
 export interface UpdateReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -133,6 +132,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class UpdateReplicationConfigurationCommand extends $Command
   .classBuilder<

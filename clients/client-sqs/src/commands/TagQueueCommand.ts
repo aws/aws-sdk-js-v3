@@ -27,7 +27,6 @@ export interface TagQueueCommandInput extends TagQueueRequest {}
 export interface TagQueueCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see
  *                 <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging
  *                 Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer
@@ -114,6 +113,7 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class TagQueueCommand extends $Command
   .classBuilder<

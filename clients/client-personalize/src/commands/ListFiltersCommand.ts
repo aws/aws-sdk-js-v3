@@ -27,7 +27,6 @@ export interface ListFiltersCommandInput extends ListFiltersRequest {}
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all filters that belong to a given dataset group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListFiltersCommand extends $Command
   .classBuilder<

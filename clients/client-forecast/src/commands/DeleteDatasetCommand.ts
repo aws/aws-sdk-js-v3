@@ -27,7 +27,6 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Forecast dataset that was created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html">CreateDataset</a> operation. You can
  *       only delete datasets that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
  *       To get the status use the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html">DescribeDataset</a> operation.</p>
@@ -71,6 +70,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteDatasetCommand extends $Command
   .classBuilder<

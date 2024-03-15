@@ -27,7 +27,6 @@ export interface ListHealthEventsCommandInput extends ListHealthEventsInput {}
 export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns information for health events including the event start and end time and
  * 			the status.</p>
  *          <note>
@@ -141,6 +140,7 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class ListHealthEventsCommand extends $Command
   .classBuilder<

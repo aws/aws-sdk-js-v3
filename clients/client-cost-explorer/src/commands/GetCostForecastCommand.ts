@@ -27,7 +27,6 @@ export interface GetCostForecastCommandInput extends GetCostForecastRequest {}
 export interface GetCostForecastCommandOutput extends GetCostForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over
  *       the forecast time period that you select, based on your past costs. </p>
  * @example
@@ -149,6 +148,7 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetCostForecastCommand extends $Command
   .classBuilder<

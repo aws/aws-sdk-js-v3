@@ -27,7 +27,6 @@ export interface GetPlaybackConfigurationCommandInput extends GetPlaybackConfigu
 export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a playback configuration. For information about MediaTailor configurations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working with configurations in AWS Elemental MediaTailor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class GetPlaybackConfigurationCommand extends $Command
   .classBuilder<

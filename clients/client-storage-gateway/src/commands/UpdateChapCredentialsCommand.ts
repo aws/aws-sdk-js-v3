@@ -31,7 +31,6 @@ export interface UpdateChapCredentialsCommandInput extends UpdateChapCredentials
 export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredentialsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
  *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
  *          added security, you might use it. This operation is supported in the volume and tape
@@ -78,6 +77,7 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To update CHAP credentials for an iSCSI target
  * ```javascript
  * // Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target.

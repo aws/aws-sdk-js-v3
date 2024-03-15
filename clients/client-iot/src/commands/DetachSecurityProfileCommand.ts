@@ -27,7 +27,6 @@ export interface DetachSecurityProfileCommandInput extends DetachSecurityProfile
 export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DetachSecurityProfile</a> action.</p>
  * @example
@@ -67,6 +66,7 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DetachSecurityProfileCommand extends $Command
   .classBuilder<

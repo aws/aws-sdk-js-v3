@@ -32,7 +32,6 @@ export interface GetRestoreTestingInferredMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This request returns the minimal required set of metadata needed to
  *          start a restore job with secure default settings. <code>BackupVaultName</code>
  *          and <code>RecoveryPointArn</code> are required parameters.
@@ -80,6 +79,7 @@ export interface GetRestoreTestingInferredMetadataCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetRestoreTestingInferredMetadataCommand extends $Command
   .classBuilder<

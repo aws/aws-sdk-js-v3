@@ -27,7 +27,6 @@ export interface DescribeForecastCommandInput extends DescribeForecastRequest {}
 export interface DescribeForecastCommandOutput extends DescribeForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a forecast created using the <a>CreateForecast</a> operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreateForecast</code> request,
  *       this operation lists the following properties:</p>
@@ -122,6 +121,7 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeForecastCommand extends $Command
   .classBuilder<

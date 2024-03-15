@@ -35,7 +35,6 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the type of client authentication for the specified directory, if the type is specified. If no type is specified, information about all client authentication types that are supported for the specified directory is retrieved. Currently, only <code>SmartCard</code> is supported.
  *     </p>
  * @example
@@ -92,6 +91,7 @@ export interface DescribeClientAuthenticationSettingsCommandOutput
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeClientAuthenticationSettingsCommand extends $Command
   .classBuilder<

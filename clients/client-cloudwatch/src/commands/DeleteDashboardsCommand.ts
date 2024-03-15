@@ -27,7 +27,6 @@ export interface DeleteDashboardsCommandInput extends DeleteDashboardsInput {}
 export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all dashboards that you specify. You
  * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
  * 			deleted.</p>
@@ -66,6 +65,7 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DeleteDashboardsCommand extends $Command
   .classBuilder<

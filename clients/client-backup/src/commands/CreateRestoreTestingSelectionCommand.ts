@@ -36,7 +36,6 @@ export interface CreateRestoreTestingSelectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This request can be sent after CreateRestoreTestingPlan request
  *          returns successfully. This is the second part of creating a resource testing
  *          plan, and it must be completed sequentially.</p>
@@ -137,6 +136,7 @@ export interface CreateRestoreTestingSelectionCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateRestoreTestingSelectionCommand extends $Command
   .classBuilder<

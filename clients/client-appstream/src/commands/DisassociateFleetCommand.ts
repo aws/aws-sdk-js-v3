@@ -27,7 +27,6 @@ export interface DisassociateFleetCommandInput extends DisassociateFleetRequest 
 export interface DisassociateFleetCommandOutput extends DisassociateFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified fleet from the specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DisassociateFleetCommand extends $Command
   .classBuilder<

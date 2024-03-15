@@ -32,9 +32,6 @@ export interface PutVoiceConnectorOriginationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace
- *
  * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
  *          <note>
  *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off origination settings.</p>
@@ -116,6 +113,8 @@ export interface PutVoiceConnectorOriginationCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace
  */
 export class PutVoiceConnectorOriginationCommand extends $Command
   .classBuilder<

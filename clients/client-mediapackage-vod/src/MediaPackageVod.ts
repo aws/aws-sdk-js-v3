@@ -346,8 +346,8 @@ export interface MediaPackageVod {
 }
 
 /**
- * @public
  * AWS Elemental MediaPackage VOD
+ * @public
  */
 export class MediaPackageVod extends MediaPackageVodClient implements MediaPackageVod {}
 createAggregatedClient(commands, MediaPackageVod);

@@ -27,7 +27,6 @@ export interface ListPermissionAssociationsCommandInput extends ListPermissionAs
 export interface ListPermissionAssociationsCommandOutput extends ListPermissionAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about the managed permission and its associations to any resource shares that use
  *             this managed permission. This lets you see which resource shares use which versions of the specified
  *             managed permission.</p>
@@ -95,6 +94,7 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListPermissionAssociationsCommand extends $Command
   .classBuilder<

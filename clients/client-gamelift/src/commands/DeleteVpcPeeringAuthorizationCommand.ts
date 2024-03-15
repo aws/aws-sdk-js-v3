@@ -32,7 +32,6 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to
  *             delete an existing VPC peering connection, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteVpcPeeringConnection.html">DeleteVpcPeeringConnection</a>.</p>
  *          <p>
@@ -80,6 +79,7 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteVpcPeeringAuthorizationCommand extends $Command
   .classBuilder<

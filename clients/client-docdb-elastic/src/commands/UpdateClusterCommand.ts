@@ -27,7 +27,6 @@ export interface UpdateClusterCommandInput extends UpdateClusterInput {}
 export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an elastic cluster. This includes updating admin-username/password,
  *     upgrading the API version, and setting up a backup window and maintenance window</p>
  * @example
@@ -117,6 +116,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class UpdateClusterCommand extends $Command
   .classBuilder<

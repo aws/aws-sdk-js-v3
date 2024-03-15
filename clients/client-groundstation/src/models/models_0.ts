@@ -4,15 +4,15 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { GroundStationServiceException as __BaseException } from "./GroundStationServiceException";
 
 /**
- * @public
  * <p>Dependency encountered an error.</p>
+ * @public
  */
 export class DependencyException extends __BaseException {
   readonly name: "DependencyException" = "DependencyException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p/>
+   * @public
    */
   parameterName?: string;
 
@@ -35,8 +35,8 @@ export class DependencyException extends __BaseException {
  */
 export interface GetAgentConfigurationRequest {
   /**
-   * @public
    * <p>UUID of agent to get configuration information for.</p>
+   * @public
    */
   agentId: string | undefined;
 }
@@ -46,28 +46,28 @@ export interface GetAgentConfigurationRequest {
  */
 export interface GetAgentConfigurationResponse {
   /**
-   * @public
    * <p>UUID of agent.</p>
+   * @public
    */
   agentId?: string;
 
   /**
-   * @public
    * <p>Tasking document for agent.</p>
+   * @public
    */
   taskingDocument?: string;
 }
 
 /**
- * @public
  * <p>One or more parameters are not valid.</p>
+ * @public
  */
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p/>
+   * @public
    */
   parameterName?: string;
 
@@ -86,8 +86,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -106,88 +106,88 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Version information for agent components.</p>
+ * @public
  */
 export interface ComponentVersion {
   /**
-   * @public
    * <p>Component type.</p>
+   * @public
    */
   componentType: string | undefined;
 
   /**
-   * @public
    * <p>List of versions.</p>
+   * @public
    */
   versions: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Detailed information about the agent.</p>
+ * @public
  */
 export interface AgentDetails {
   /**
-   * @public
    * <p>Current agent version.</p>
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * <p>ID of EC2 instance agent is running on.</p>
+   * @public
    */
   instanceId: string | undefined;
 
   /**
-   * @public
    * <p>Type of EC2 instance agent is running on.</p>
+   * @public
    */
   instanceType: string | undefined;
 
   /**
-   * @public
    * <note>
    *             <p>This field should not be used. Use agentCpuCores instead.</p>
    *          </note>
    *          <p>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</p>
+   * @public
    */
   reservedCpuCores?: number[];
 
   /**
-   * @public
    * <p>List of CPU cores reserved for the agent.</p>
+   * @public
    */
   agentCpuCores?: number[];
 
   /**
-   * @public
    * <p>List of versions being used by agent components.</p>
+   * @public
    */
   componentVersions: ComponentVersion[] | undefined;
 }
 
 /**
- * @public
  * <p>Data for agent discovery.</p>
+ * @public
  */
 export interface DiscoveryData {
   /**
-   * @public
    * <p>List of public IP addresses to associate with agent.</p>
+   * @public
    */
   publicIpAddresses: string[] | undefined;
 
   /**
-   * @public
    * <p>List of private IP addresses to associate with agent.</p>
+   * @public
    */
   privateIpAddresses: string[] | undefined;
 
   /**
-   * @public
    * <p>List of capabilities to associate with agent.</p>
+   * @public
    */
   capabilityArns: string[] | undefined;
 }
@@ -197,14 +197,14 @@ export interface DiscoveryData {
  */
 export interface RegisterAgentRequest {
   /**
-   * @public
    * <p>Data for associating an agent with the capabilities it is managing.</p>
+   * @public
    */
   discoveryData: DiscoveryData | undefined;
 
   /**
-   * @public
    * <p>Detailed information about the agent being registered.</p>
+   * @public
    */
   agentDetails: AgentDetails | undefined;
 }
@@ -214,8 +214,8 @@ export interface RegisterAgentRequest {
  */
 export interface RegisterAgentResponse {
   /**
-   * @public
    * <p>UUID of registered agent.</p>
+   * @public
    */
   agentId?: string;
 }
@@ -237,67 +237,67 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
- * @public
  * <p>Aggregate status of Agent components.</p>
+ * @public
  */
 export interface AggregateStatus {
   /**
-   * @public
    * <p>Aggregate status.</p>
+   * @public
    */
   status: AgentStatus | undefined;
 
   /**
-   * @public
    * <p>Sparse map of failure signatures.</p>
+   * @public
    */
   signatureMap?: Record<string, boolean>;
 }
 
 /**
- * @public
  * <p>Data on the status of agent components.</p>
+ * @public
  */
 export interface ComponentStatusData {
   /**
-   * @public
    * <p>The Component type.</p>
+   * @public
    */
   componentType: string | undefined;
 
   /**
-   * @public
    * <p>Capability ARN of the component.</p>
+   * @public
    */
   capabilityArn: string | undefined;
 
   /**
-   * @public
    * <p>Component status.</p>
+   * @public
    */
   status: AgentStatus | undefined;
 
   /**
-   * @public
    * <p>Bytes sent by the component.</p>
+   * @public
    */
   bytesSent?: number;
 
   /**
-   * @public
    * <p>Bytes received by the component.</p>
+   * @public
    */
   bytesReceived?: number;
 
   /**
-   * @public
    * <p>Packets dropped by component.</p>
+   * @public
    */
   packetsDropped?: number;
 
   /**
-   * @public
    * <p>Dataflow UUID associated with the component.</p>
+   * @public
    */
   dataflowId: string | undefined;
 }
@@ -307,26 +307,26 @@ export interface ComponentStatusData {
  */
 export interface UpdateAgentStatusRequest {
   /**
-   * @public
    * <p>UUID of agent to update.</p>
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * <p>GUID of agent task.</p>
+   * @public
    */
   taskId: string | undefined;
 
   /**
-   * @public
    * <p>Aggregate status for agent.</p>
+   * @public
    */
   aggregateStatus: AggregateStatus | undefined;
 
   /**
-   * @public
    * <p>List of component statuses for agent.</p>
+   * @public
    */
   componentStatuses: ComponentStatusData[] | undefined;
 }
@@ -336,8 +336,8 @@ export interface UpdateAgentStatusRequest {
  */
 export interface UpdateAgentStatusResponse {
   /**
-   * @public
    * <p>UUID of updated agent.</p>
+   * @public
    */
   agentId: string | undefined;
 }
@@ -357,13 +357,13 @@ export const AngleUnits = {
 export type AngleUnits = (typeof AngleUnits)[keyof typeof AngleUnits];
 
 /**
- * @public
  * <p>Details about an antenna demod decode <code>Config</code> used in a contact.</p>
+ * @public
  */
 export interface AntennaDemodDecodeDetails {
   /**
-   * @public
    * <p>Name of an antenna demod decode output node used in a contact.</p>
+   * @public
    */
   outputNode?: string;
 }
@@ -384,12 +384,11 @@ export const BandwidthUnits = {
 export type BandwidthUnits = (typeof BandwidthUnits)[keyof typeof BandwidthUnits];
 
 /**
- * @public
  * <p>Object that describes the frequency bandwidth. </p>
+ * @public
  */
 export interface FrequencyBandwidth {
   /**
-   * @public
    * <p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p>
    *          <ul>
    *             <li>
@@ -402,12 +401,13 @@ export interface FrequencyBandwidth {
    *                <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   value: number | undefined;
 
   /**
-   * @public
    * <p>Frequency bandwidth units.</p>
+   * @public
    */
   units: BandwidthUnits | undefined;
 }
@@ -428,19 +428,19 @@ export const FrequencyUnits = {
 export type FrequencyUnits = (typeof FrequencyUnits)[keyof typeof FrequencyUnits];
 
 /**
- * @public
  * <p>Object that describes the frequency.</p>
+ * @public
  */
 export interface Frequency {
   /**
-   * @public
    * <p>Frequency value. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.</p>
+   * @public
    */
   value: number | undefined;
 
   /**
-   * @public
    * <p>Frequency units.</p>
+   * @public
    */
   units: FrequencyUnits | undefined;
 }
@@ -461,18 +461,17 @@ export const Polarization = {
 export type Polarization = (typeof Polarization)[keyof typeof Polarization];
 
 /**
- * @public
  * <p>Object that describes a spectral <code>Config</code>.</p>
+ * @public
  */
 export interface SpectrumConfig {
   /**
-   * @public
    * <p>Center frequency of a spectral <code>Config</code>. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.</p>
+   * @public
    */
   centerFrequency: Frequency | undefined;
 
   /**
-   * @public
    * <p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p>
    *          <ul>
    *             <li>
@@ -485,91 +484,92 @@ export interface SpectrumConfig {
    *                <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   bandwidth: FrequencyBandwidth | undefined;
 
   /**
-   * @public
    * <p>Polarization of a spectral <code>Config</code>. Capturing both <code>"RIGHT_HAND"</code> and <code>"LEFT_HAND"</code> polarization requires two separate configs.</p>
+   * @public
    */
   polarization?: Polarization;
 }
 
 /**
- * @public
  * <p>Information about how AWS Ground Station should configure an
  *          antenna for downlink during a contact.</p>
+ * @public
  */
 export interface AntennaDownlinkConfig {
   /**
-   * @public
    * <p>Object that describes a spectral <code>Config</code>.</p>
+   * @public
    */
   spectrumConfig: SpectrumConfig | undefined;
 }
 
 /**
- * @public
  * <p>Information about the decode <code>Config</code>.</p>
+ * @public
  */
 export interface DecodeConfig {
   /**
-   * @public
    * <p>Unvalidated JSON of a decode <code>Config</code>.</p>
+   * @public
    */
   unvalidatedJSON: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the demodulation <code>Config</code>.</p>
+ * @public
  */
 export interface DemodulationConfig {
   /**
-   * @public
    * <p>Unvalidated JSON of a demodulation <code>Config</code>.</p>
+   * @public
    */
   unvalidatedJSON: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact.</p>
+ * @public
  */
 export interface AntennaDownlinkDemodDecodeConfig {
   /**
-   * @public
    * <p>Information about the spectral <code>Config</code>.</p>
+   * @public
    */
   spectrumConfig: SpectrumConfig | undefined;
 
   /**
-   * @public
    * <p>Information about the demodulation <code>Config</code>.</p>
+   * @public
    */
   demodulationConfig: DemodulationConfig | undefined;
 
   /**
-   * @public
    * <p>Information about the decode <code>Config</code>.</p>
+   * @public
    */
   decodeConfig: DecodeConfig | undefined;
 }
 
 /**
- * @public
  * <p>Information about the uplink spectral <code>Config</code>.</p>
+ * @public
  */
 export interface UplinkSpectrumConfig {
   /**
-   * @public
    * <p>Center frequency of an uplink spectral <code>Config</code>. Valid values are between 2025 to 2120 MHz.</p>
+   * @public
    */
   centerFrequency: Frequency | undefined;
 
   /**
-   * @public
    * <p>Polarization of an uplink spectral <code>Config</code>. Capturing both <code>"RIGHT_HAND"</code> and <code>"LEFT_HAND"</code> polarization requires two separate configs.</p>
+   * @public
    */
   polarization?: Polarization;
 }
@@ -588,43 +588,43 @@ export const EirpUnits = {
 export type EirpUnits = (typeof EirpUnits)[keyof typeof EirpUnits];
 
 /**
- * @public
  * <p>Object that represents EIRP.</p>
+ * @public
  */
 export interface Eirp {
   /**
-   * @public
    * <p>Value of an EIRP. Valid values are between 20.0 to 50.0 dBW.</p>
+   * @public
    */
   value: number | undefined;
 
   /**
-   * @public
    * <p>Units of an EIRP.</p>
+   * @public
    */
   units: EirpUnits | undefined;
 }
 
 /**
- * @public
  * <p>Information about the uplink <code>Config</code> of an antenna.</p>
+ * @public
  */
 export interface AntennaUplinkConfig {
   /**
-   * @public
    * <p>Whether or not uplink transmit is disabled.</p>
+   * @public
    */
   transmitDisabled?: boolean;
 
   /**
-   * @public
    * <p>Information about the uplink spectral <code>Config</code>.</p>
+   * @public
    */
   spectrumConfig: UplinkSpectrumConfig | undefined;
 
   /**
-   * @public
    * <p>EIRP of the target.</p>
+   * @public
    */
   targetEirp: Eirp | undefined;
 }
@@ -644,151 +644,151 @@ export const AuditResults = {
 export type AuditResults = (typeof AuditResults)[keyof typeof AuditResults];
 
 /**
- * @public
  * <p>Information about the socket address.</p>
+ * @public
  */
 export interface SocketAddress {
   /**
-   * @public
    * <p>Name of a socket address.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Port of a socket address.</p>
+   * @public
    */
   port: number | undefined;
 }
 
 /**
- * @public
  * <p>Egress address of AgentEndpoint with an optional mtu.</p>
+ * @public
  */
 export interface ConnectionDetails {
   /**
-   * @public
    * <p>A socket address.</p>
+   * @public
    */
   socketAddress: SocketAddress | undefined;
 
   /**
-   * @public
    * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
+   * @public
    */
   mtu?: number;
 }
 
 /**
- * @public
  * <p>An integer range that has a minimum and maximum value.</p>
+ * @public
  */
 export interface IntegerRange {
   /**
-   * @public
    * <p>A minimum value.</p>
+   * @public
    */
   minimum: number | undefined;
 
   /**
-   * @public
    * <p>A maximum value.</p>
+   * @public
    */
   maximum: number | undefined;
 }
 
 /**
- * @public
  * <p>A socket address with a port range.</p>
+ * @public
  */
 export interface RangedSocketAddress {
   /**
-   * @public
    * <p>IPv4 socket address.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Port range of a socket address.</p>
+   * @public
    */
   portRange: IntegerRange | undefined;
 }
 
 /**
- * @public
  * <p>Ingress address of AgentEndpoint with a port range and an optional mtu.</p>
+ * @public
  */
 export interface RangedConnectionDetails {
   /**
-   * @public
    * <p>A ranged socket address.</p>
+   * @public
    */
   socketAddress: RangedSocketAddress | undefined;
 
   /**
-   * @public
    * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
+   * @public
    */
   mtu?: number;
 }
 
 /**
- * @public
  * <p>Information about AwsGroundStationAgentEndpoint.</p>
+ * @public
  */
 export interface AwsGroundStationAgentEndpoint {
   /**
-   * @public
    * <p>Name string associated with AgentEndpoint. Used as a human-readable identifier for AgentEndpoint.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The egress address of AgentEndpoint.</p>
+   * @public
    */
   egressAddress: ConnectionDetails | undefined;
 
   /**
-   * @public
    * <p>The ingress address of AgentEndpoint.</p>
+   * @public
    */
   ingressAddress: RangedConnectionDetails | undefined;
 
   /**
-   * @public
    * <p>The status of AgentEndpoint.</p>
+   * @public
    */
   agentStatus?: AgentStatus;
 
   /**
-   * @public
    * <p>The results of the audit.</p>
+   * @public
    */
   auditResults?: AuditResults;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface CancelContactRequest {
   /**
-   * @public
    * <p>UUID of a contact.</p>
+   * @public
    */
   contactId: string | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ContactIdResponse {
   /**
-   * @public
    * <p>UUID of a contact.</p>
+   * @public
    */
   contactId?: string;
 }
@@ -846,67 +846,67 @@ export const ConfigCapabilityType = {
 export type ConfigCapabilityType = (typeof ConfigCapabilityType)[keyof typeof ConfigCapabilityType];
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ConfigIdResponse {
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId?: string;
 
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType?: ConfigCapabilityType;
 
   /**
-   * @public
    * <p>ARN of a <code>Config</code>.</p>
+   * @public
    */
   configArn?: string;
 }
 
 /**
- * @public
  * <p>Information about the dataflow endpoint <code>Config</code>.</p>
+ * @public
  */
 export interface DataflowEndpointConfig {
   /**
-   * @public
    * <p>Name of a dataflow endpoint.</p>
+   * @public
    */
   dataflowEndpointName: string | undefined;
 
   /**
-   * @public
    * <p>Region of a dataflow endpoint.</p>
+   * @public
    */
   dataflowEndpointRegion?: string;
 }
 
 /**
- * @public
  * <p>Information about an S3 recording <code>Config</code>.</p>
+ * @public
  */
 export interface S3RecordingConfig {
   /**
-   * @public
    * <p>ARN of the bucket to record to.</p>
+   * @public
    */
   bucketArn: string | undefined;
 
   /**
-   * @public
    * <p>ARN of the role Ground Station assumes to write data to the bucket.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>S3 Key prefix to prefice data files.</p>
+   * @public
    */
   prefix?: string;
 }
@@ -927,43 +927,43 @@ export const Criticality = {
 export type Criticality = (typeof Criticality)[keyof typeof Criticality];
 
 /**
- * @public
  * <p>Object that determines whether tracking should be used during a contact
  *          executed with this <code>Config</code> in the mission profile.</p>
+ * @public
  */
 export interface TrackingConfig {
   /**
-   * @public
    * <p>Current setting for autotrack.</p>
+   * @public
    */
   autotrack: Criticality | undefined;
 }
 
 /**
- * @public
  * <p>Information about an uplink echo <code>Config</code>.</p>
  *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the
  *          specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code>
  *          is used in a contact.</p>
+ * @public
  */
 export interface UplinkEchoConfig {
   /**
-   * @public
    * <p>Whether or not an uplink <code>Config</code> is enabled.</p>
+   * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>ARN of an uplink <code>Config</code>.</p>
+   * @public
    */
   antennaUplinkConfigArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Object containing the parameters of a <code>Config</code>.</p>
  *          <p>See the subtype definitions for what each type of <code>Config</code> contains.</p>
+ * @public
  */
 export type ConfigTypeData =
   | ConfigTypeData.AntennaDownlinkConfigMember
@@ -980,8 +980,8 @@ export type ConfigTypeData =
  */
 export namespace ConfigTypeData {
   /**
-   * @public
    * <p>Information about how AWS Ground Station should configure an antenna for downlink during a contact.</p>
+   * @public
    */
   export interface AntennaDownlinkConfigMember {
     antennaDownlinkConfig: AntennaDownlinkConfig;
@@ -995,8 +995,8 @@ export namespace ConfigTypeData {
   }
 
   /**
-   * @public
    * <p>Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile. </p>
+   * @public
    */
   export interface TrackingConfigMember {
     antennaDownlinkConfig?: never;
@@ -1010,8 +1010,8 @@ export namespace ConfigTypeData {
   }
 
   /**
-   * @public
    * <p>Information about the dataflow endpoint <code>Config</code>.</p>
+   * @public
    */
   export interface DataflowEndpointConfigMember {
     antennaDownlinkConfig?: never;
@@ -1025,8 +1025,8 @@ export namespace ConfigTypeData {
   }
 
   /**
-   * @public
    * <p>Information about how AWS Ground Station should conﬁgure an antenna for downlink demod decode during a contact.</p>
+   * @public
    */
   export interface AntennaDownlinkDemodDecodeConfigMember {
     antennaDownlinkConfig?: never;
@@ -1040,8 +1040,8 @@ export namespace ConfigTypeData {
   }
 
   /**
-   * @public
    * <p>Information about how AWS Ground Station should conﬁgure an antenna for uplink during a contact.</p>
+   * @public
    */
   export interface AntennaUplinkConfigMember {
     antennaDownlinkConfig?: never;
@@ -1055,9 +1055,9 @@ export namespace ConfigTypeData {
   }
 
   /**
-   * @public
    * <p>Information about an uplink echo <code>Config</code>.</p>
    *          <p>Parameters from the <code>AntennaUplinkConfig</code>, corresponding to the specified <code>AntennaUplinkConfigArn</code>, are used when this <code>UplinkEchoConfig</code> is used in a contact.</p>
+   * @public
    */
   export interface UplinkEchoConfigMember {
     antennaDownlinkConfig?: never;
@@ -1071,8 +1071,8 @@ export namespace ConfigTypeData {
   }
 
   /**
-   * @public
    * <p>Information about an S3 recording <code>Config</code>.</p>
+   * @public
    */
   export interface S3RecordingConfigMember {
     antennaDownlinkConfig?: never;
@@ -1124,39 +1124,39 @@ export namespace ConfigTypeData {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface CreateConfigRequest {
   /**
-   * @public
    * <p>Name of a <code>Config</code>.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Parameters of a <code>Config</code>.</p>
+   * @public
    */
   configData: ConfigTypeData | undefined;
 
   /**
-   * @public
    * <p>Tags assigned to a <code>Config</code>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Account limits for this resource have been exceeded.</p>
+ * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p/>
+   * @public
    */
   parameterName?: string;
 
@@ -1175,176 +1175,176 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DeleteConfigRequest {
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId: string | undefined;
 
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType: ConfigCapabilityType | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetConfigRequest {
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId: string | undefined;
 
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType: ConfigCapabilityType | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetConfigResponse {
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId: string | undefined;
 
   /**
-   * @public
    * <p>ARN of a <code>Config</code>
    *          </p>
+   * @public
    */
   configArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of a <code>Config</code>.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType?: ConfigCapabilityType;
 
   /**
-   * @public
    * <p>Data elements in a <code>Config</code>.</p>
+   * @public
    */
   configData: ConfigTypeData | undefined;
 
   /**
-   * @public
    * <p>Tags assigned to a <code>Config</code>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListConfigsRequest {
   /**
-   * @public
    * <p>Maximum number of <code>Configs</code> returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Next token returned in the request of a previous <code>ListConfigs</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An item in a list of <code>Config</code> objects.</p>
+ * @public
  */
 export interface ConfigListItem {
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId?: string;
 
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType?: ConfigCapabilityType;
 
   /**
-   * @public
    * <p>ARN of a <code>Config</code>.</p>
+   * @public
    */
   configArn?: string;
 
   /**
-   * @public
    * <p>Name of a <code>Config</code>.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListConfigsResponse {
   /**
-   * @public
    * <p>Next token returned in the response of a previous <code>ListConfigs</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>List of <code>Config</code> items.</p>
+   * @public
    */
   configList?: ConfigListItem[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface UpdateConfigRequest {
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId: string | undefined;
 
   /**
-   * @public
    * <p>Name of a <code>Config</code>.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType: ConfigCapabilityType | undefined;
 
   /**
-   * @public
    * <p>Parameters of a <code>Config</code>.</p>
+   * @public
    */
   configData: ConfigTypeData | undefined;
 }
@@ -1367,116 +1367,116 @@ export const EndpointStatus = {
 export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];
 
 /**
- * @public
  * <p>Information about a dataflow endpoint.</p>
+ * @public
  */
 export interface DataflowEndpoint {
   /**
-   * @public
    * <p>Name of a dataflow endpoint.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Socket address of a dataflow endpoint.</p>
+   * @public
    */
   address?: SocketAddress;
 
   /**
-   * @public
    * <p>Status of a dataflow endpoint.</p>
+   * @public
    */
   status?: EndpointStatus;
 
   /**
-   * @public
    * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
+   * @public
    */
   mtu?: number;
 }
 
 /**
- * @public
  * <p>Information about endpoints.</p>
+ * @public
  */
 export interface SecurityDetails {
   /**
-   * @public
    * <p>A list of subnets where AWS Ground Station places elastic network interfaces to send streams to your instances.</p>
+   * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The security groups to attach to the elastic network interfaces.</p>
+   * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * @public
    * <p>ARN to a role needed for connecting streams to your instances. </p>
+   * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the endpoint details.</p>
+ * @public
  */
 export interface EndpointDetails {
   /**
-   * @public
    * <p>Endpoint security details including a list of subnets, a list of security groups and a role to connect streams to instances.</p>
+   * @public
    */
   securityDetails?: SecurityDetails;
 
   /**
-   * @public
    * <p>A dataflow endpoint.</p>
+   * @public
    */
   endpoint?: DataflowEndpoint;
 
   /**
-   * @public
    * <p>An agent endpoint.</p>
+   * @public
    */
   awsGroundStationAgentEndpoint?: AwsGroundStationAgentEndpoint;
 
   /**
-   * @public
    * <p>A dataflow endpoint health status. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
+   * @public
    */
   healthStatus?: CapabilityHealth;
 
   /**
-   * @public
    * <p>Health reasons for a dataflow endpoint. This field is ignored when calling <code>CreateDataflowEndpointGroup</code>.</p>
+   * @public
    */
   healthReasons?: CapabilityHealthReason[];
 }
 
 /**
- * @public
  * <p>Details about an S3 recording <code>Config</code> used in a contact.</p>
+ * @public
  */
 export interface S3RecordingDetails {
   /**
-   * @public
    * <p>ARN of the bucket used.</p>
+   * @public
    */
   bucketArn?: string;
 
   /**
-   * @public
    * <p>Key template used for the S3 Recording Configuration</p>
+   * @public
    */
   keyTemplate?: string;
 }
 
 /**
- * @public
  * <p>Details for certain <code>Config</code> object types in a contact.</p>
+ * @public
  */
 export type ConfigDetails =
   | ConfigDetails.AntennaDemodDecodeDetailsMember
@@ -1489,8 +1489,8 @@ export type ConfigDetails =
  */
 export namespace ConfigDetails {
   /**
-   * @public
    * <p>Information about the endpoint details.</p>
+   * @public
    */
   export interface EndpointDetailsMember {
     endpointDetails: EndpointDetails;
@@ -1500,8 +1500,8 @@ export namespace ConfigDetails {
   }
 
   /**
-   * @public
    * <p>Details for antenna demod decode <code>Config</code> in a contact.</p>
+   * @public
    */
   export interface AntennaDemodDecodeDetailsMember {
     endpointDetails?: never;
@@ -1511,8 +1511,8 @@ export namespace ConfigDetails {
   }
 
   /**
-   * @public
    * <p>Details for an S3 recording <code>Config</code> in a contact.</p>
+   * @public
    */
   export interface S3RecordingDetailsMember {
     endpointDetails?: never;
@@ -1548,13 +1548,13 @@ export namespace ConfigDetails {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DescribeContactRequest {
   /**
-   * @public
    * <p>UUID of a contact.</p>
+   * @public
    */
   contactId: string | undefined;
 }
@@ -1585,543 +1585,543 @@ export const ContactStatus = {
 export type ContactStatus = (typeof ContactStatus)[keyof typeof ContactStatus];
 
 /**
- * @public
  * <p>Dataflow details for the destination side.</p>
+ * @public
  */
 export interface Destination {
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType?: ConfigCapabilityType;
 
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId?: string;
 
   /**
-   * @public
    * <p>Additional details for a <code>Config</code>, if type is dataflow endpoint or antenna demod decode.</p>
+   * @public
    */
   configDetails?: ConfigDetails;
 
   /**
-   * @public
    * <p>Region of a dataflow destination.</p>
+   * @public
    */
   dataflowDestinationRegion?: string;
 }
 
 /**
- * @public
  * <p>Dataflow details for the source side.</p>
+ * @public
  */
 export interface Source {
   /**
-   * @public
    * <p>Type of a <code>Config</code>.</p>
+   * @public
    */
   configType?: ConfigCapabilityType;
 
   /**
-   * @public
    * <p>UUID of a <code>Config</code>.</p>
+   * @public
    */
   configId?: string;
 
   /**
-   * @public
    * <p>Additional details for a <code>Config</code>, if type is <code>dataflow-endpoint</code> or <code>antenna-downlink-demod-decode</code>
    *          </p>
+   * @public
    */
   configDetails?: ConfigDetails;
 
   /**
-   * @public
    * <p>Region of a dataflow source.</p>
+   * @public
    */
   dataflowSourceRegion?: string;
 }
 
 /**
- * @public
  * <p>Information about a dataflow edge used in a contact.</p>
+ * @public
  */
 export interface DataflowDetail {
   /**
-   * @public
    * <p>Dataflow details for the source side.</p>
+   * @public
    */
   source?: Source;
 
   /**
-   * @public
    * <p>Dataflow details for the destination side.</p>
+   * @public
    */
   destination?: Destination;
 
   /**
-   * @public
    * <p>Error message for a dataflow.</p>
+   * @public
    */
   errorMessage?: string;
 }
 
 /**
- * @public
  * <p>Elevation angle of the satellite in the sky during a contact.</p>
+ * @public
  */
 export interface Elevation {
   /**
-   * @public
    * <p>Elevation angle value.</p>
+   * @public
    */
   value: number | undefined;
 
   /**
-   * @public
    * <p>Elevation angle units.</p>
+   * @public
    */
   unit: AngleUnits | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DescribeContactResponse {
   /**
-   * @public
    * <p>UUID of a contact.</p>
+   * @public
    */
   contactId?: string;
 
   /**
-   * @public
    * <p>ARN of a mission profile.</p>
+   * @public
    */
   missionProfileArn?: string;
 
   /**
-   * @public
    * <p>ARN of a satellite.</p>
+   * @public
    */
   satelliteArn?: string;
 
   /**
-   * @public
    * <p>Start time of a contact in UTC.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>End time of a contact in UTC.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * @public
    */
   prePassStartTime?: Date;
 
   /**
-   * @public
    * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * @public
    */
   postPassEndTime?: Date;
 
   /**
-   * @public
    * <p>Ground station for a contact.</p>
+   * @public
    */
   groundStation?: string;
 
   /**
-   * @public
    * <p>Status of a contact.</p>
+   * @public
    */
   contactStatus?: ContactStatus;
 
   /**
-   * @public
    * <p>Error message for a contact.</p>
+   * @public
    */
   errorMessage?: string;
 
   /**
-   * @public
    * <p>Maximum elevation angle of a contact.</p>
+   * @public
    */
   maximumElevation?: Elevation;
 
   /**
-   * @public
    * <p>Tags assigned to a contact.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Region of a contact.</p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>List describing source and destination details for each dataflow edge.</p>
+   * @public
    */
   dataflowList?: DataflowDetail[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListContactsRequest {
   /**
-   * @public
    * <p>Maximum number of contacts returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Next token returned in the request of a previous <code>ListContacts</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Status of a contact reservation.</p>
+   * @public
    */
   statusList: ContactStatus[] | undefined;
 
   /**
-   * @public
    * <p>Start time of a contact in UTC.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>End time of a contact in UTC.</p>
+   * @public
    */
   endTime: Date | undefined;
 
   /**
-   * @public
    * <p>Name of a ground station.</p>
+   * @public
    */
   groundStation?: string;
 
   /**
-   * @public
    * <p>ARN of a satellite.</p>
+   * @public
    */
   satelliteArn?: string;
 
   /**
-   * @public
    * <p>ARN of a mission profile.</p>
+   * @public
    */
   missionProfileArn?: string;
 }
 
 /**
- * @public
  * <p>Data describing a contact.</p>
+ * @public
  */
 export interface ContactData {
   /**
-   * @public
    * <p>UUID of a contact.</p>
+   * @public
    */
   contactId?: string;
 
   /**
-   * @public
    * <p>ARN of a mission profile.</p>
+   * @public
    */
   missionProfileArn?: string;
 
   /**
-   * @public
    * <p>ARN of a satellite.</p>
+   * @public
    */
   satelliteArn?: string;
 
   /**
-   * @public
    * <p>Start time of a contact in UTC.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>End time of a contact in UTC.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * @public
    */
   prePassStartTime?: Date;
 
   /**
-   * @public
    * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * @public
    */
   postPassEndTime?: Date;
 
   /**
-   * @public
    * <p>Name of a ground station.</p>
+   * @public
    */
   groundStation?: string;
 
   /**
-   * @public
    * <p>Status of a contact.</p>
+   * @public
    */
   contactStatus?: ContactStatus;
 
   /**
-   * @public
    * <p>Error message of a contact.</p>
+   * @public
    */
   errorMessage?: string;
 
   /**
-   * @public
    * <p>Maximum elevation angle of a contact.</p>
+   * @public
    */
   maximumElevation?: Elevation;
 
   /**
-   * @public
    * <p>Region of a contact.</p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>Tags assigned to a contact.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListContactsResponse {
   /**
-   * @public
    * <p>Next token returned in the response of a previous <code>ListContacts</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>List of contacts.</p>
+   * @public
    */
   contactList?: ContactData[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ReserveContactRequest {
   /**
-   * @public
    * <p>ARN of a mission profile.</p>
+   * @public
    */
   missionProfileArn: string | undefined;
 
   /**
-   * @public
    * <p>ARN of a satellite</p>
+   * @public
    */
   satelliteArn: string | undefined;
 
   /**
-   * @public
    * <p>Start time of a contact in UTC.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>End time of a contact in UTC.</p>
+   * @public
    */
   endTime: Date | undefined;
 
   /**
-   * @public
    * <p>Name of a ground station.</p>
+   * @public
    */
   groundStation: string | undefined;
 
   /**
-   * @public
    * <p>Tags assigned to a contact.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface CreateDataflowEndpointGroupRequest {
   /**
-   * @public
    * <p>Endpoint details of each endpoint in the dataflow endpoint group.</p>
+   * @public
    */
   endpointDetails: EndpointDetails[] | undefined;
 
   /**
-   * @public
    * <p>Tags of a dataflow endpoint group.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
+   * @public
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
+   * @public
    */
   contactPostPassDurationSeconds?: number;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DataflowEndpointGroupIdResponse {
   /**
-   * @public
    * <p>UUID of a dataflow endpoint group.</p>
+   * @public
    */
   dataflowEndpointGroupId?: string;
 }
 
 /**
- * @public
  * <p>Object stored in S3 containing ephemeris data.</p>
+ * @public
  */
 export interface S3Object {
   /**
-   * @public
    * <p>An Amazon S3 Bucket name.</p>
+   * @public
    */
   bucket?: string;
 
   /**
-   * @public
    * <p>An Amazon S3 key for the ephemeris.</p>
+   * @public
    */
   key?: string;
 
   /**
-   * @public
    * <p>For versioned S3 objects, the version to use for the ephemeris.</p>
+   * @public
    */
   version?: string;
 }
 
 /**
- * @public
  * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
+ * @public
  */
 export interface OEMEphemeris {
   /**
-   * @public
    * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   * @public
    */
   s3Object?: S3Object;
 
   /**
-   * @public
    * <p>The data for an OEM ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   * @public
    */
   oemData?: string;
 }
 
 /**
- * @public
  * <p>A time range with a start and end time.</p>
+ * @public
  */
 export interface TimeRange {
   /**
-   * @public
    * <p>Time in UTC at which the time range starts.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>Time in UTC at which the time range ends.</p>
+   * @public
    */
   endTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>Two-line element set (TLE) data.</p>
+ * @public
  */
 export interface TLEData {
   /**
-   * @public
    * <p>First line of two-line element set (TLE) data.</p>
+   * @public
    */
   tleLine1: string | undefined;
 
   /**
-   * @public
    * <p>Second line of two-line element set (TLE) data.</p>
+   * @public
    */
   tleLine2: string | undefined;
 
   /**
-   * @public
    * <p>The valid time range for the TLE. Gaps or overlap are not permitted.</p>
+   * @public
    */
   validTimeRange: TimeRange | undefined;
 }
 
 /**
- * @public
  * <p>Two-line element set (TLE) ephemeris.</p>
+ * @public
  */
 export interface TLEEphemeris {
   /**
-   * @public
    * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   * @public
    */
   s3Object?: S3Object;
 
   /**
-   * @public
    * <p>The data for a TLE ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   * @public
    */
   tleData?: TLEData[];
 }
 
 /**
- * @public
  * <p>Ephemeris data.</p>
+ * @public
  */
 export type EphemerisData = EphemerisData.OemMember | EphemerisData.TleMember | EphemerisData.$UnknownMember;
 
@@ -2130,8 +2130,8 @@ export type EphemerisData = EphemerisData.OemMember | EphemerisData.TleMember | 
  */
 export namespace EphemerisData {
   /**
-   * @public
    * <p>Two-line element set (TLE) ephemeris.</p>
+   * @public
    */
   export interface TleMember {
     tle: TLEEphemeris;
@@ -2140,8 +2140,8 @@ export namespace EphemerisData {
   }
 
   /**
-   * @public
    * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
+   * @public
    */
   export interface OemMember {
     tle?: never;
@@ -2176,53 +2176,53 @@ export namespace EphemerisData {
  */
 export interface CreateEphemerisRequest {
   /**
-   * @public
    * <p>AWS Ground Station satellite ID for this ephemeris.</p>
+   * @public
    */
   satelliteId: string | undefined;
 
   /**
-   * @public
    * <p>Whether to set the ephemeris status to <code>ENABLED</code> after validation.</p>
    *          <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
    *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
    *          <p>Priority must be 1 or greater</p>
+   * @public
    */
   priority?: number;
 
   /**
-   * @public
    * <p>An overall expiration time for the ephemeris in UTC, after which it will become <code>EXPIRED</code>.</p>
+   * @public
    */
   expirationTime?: Date;
 
   /**
-   * @public
    * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of a KMS key used to encrypt the ephemeris in Ground Station.</p>
+   * @public
    */
   kmsKeyArn?: string;
 
   /**
-   * @public
    * <p>Ephemeris data.</p>
+   * @public
    */
   ephemeris?: EphemerisData;
 
   /**
-   * @public
    * <p>Tags assigned to an ephemeris.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2232,15 +2232,15 @@ export interface CreateEphemerisRequest {
  */
 export interface EphemerisIdResponse {
   /**
-   * @public
    * <p>The AWS Ground Station ephemeris ID.</p>
+   * @public
    */
   ephemerisId?: string;
 }
 
 /**
- * @public
  * <p>AWS Key Management Service (KMS) Key.</p>
+ * @public
  */
 export type KmsKey =
   | KmsKey.KmsAliasArnMember
@@ -2253,8 +2253,8 @@ export type KmsKey =
  */
 export namespace KmsKey {
   /**
-   * @public
    * <p>KMS Key Arn.</p>
+   * @public
    */
   export interface KmsKeyArnMember {
     kmsKeyArn: string;
@@ -2264,8 +2264,8 @@ export namespace KmsKey {
   }
 
   /**
-   * @public
    * <p>KMS Alias Arn.</p>
+   * @public
    */
   export interface KmsAliasArnMember {
     kmsKeyArn?: never;
@@ -2275,8 +2275,8 @@ export namespace KmsKey {
   }
 
   /**
-   * @public
    * <p>KMS Alias Name.</p>
+   * @public
    */
   export interface KmsAliasNameMember {
     kmsKeyArn?: never;
@@ -2311,195 +2311,195 @@ export namespace KmsKey {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface CreateMissionProfileRequest {
   /**
-   * @public
    * <p>Name of a mission profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * @public
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * @public
    */
   contactPostPassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
+   * @public
    */
   minimumViableContactDurationSeconds: number | undefined;
 
   /**
-   * @public
    * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
    *             <code>Config</code> and a <i>to</i>
    *             <code>Config</code>.</p>
+   * @public
    */
   dataflowEdges: string[][] | undefined;
 
   /**
-   * @public
    * <p>ARN of a tracking <code>Config</code>.</p>
+   * @public
    */
   trackingConfigArn: string | undefined;
 
   /**
-   * @public
    * <p>Tags assigned to a mission profile.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>KMS key to use for encrypting streams.</p>
+   * @public
    */
   streamsKmsKey?: KmsKey;
 
   /**
-   * @public
    * <p>Role to use for encrypting streams with KMS key.</p>
+   * @public
    */
   streamsKmsRole?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface MissionProfileIdResponse {
   /**
-   * @public
    * <p>UUID of a mission profile.</p>
+   * @public
    */
   missionProfileId?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DeleteDataflowEndpointGroupRequest {
   /**
-   * @public
    * <p>UUID of a dataflow endpoint group.</p>
+   * @public
    */
   dataflowEndpointGroupId: string | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetDataflowEndpointGroupRequest {
   /**
-   * @public
    * <p>UUID of a dataflow endpoint group.</p>
+   * @public
    */
   dataflowEndpointGroupId: string | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetDataflowEndpointGroupResponse {
   /**
-   * @public
    * <p>UUID of a dataflow endpoint group.</p>
+   * @public
    */
   dataflowEndpointGroupId?: string;
 
   /**
-   * @public
    * <p>ARN of a dataflow endpoint group.</p>
+   * @public
    */
   dataflowEndpointGroupArn?: string;
 
   /**
-   * @public
    * <p>Details of a dataflow endpoint.</p>
+   * @public
    */
   endpointsDetails?: EndpointDetails[];
 
   /**
-   * @public
    * <p>Tags assigned to a dataflow endpoint group.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a <code>PREPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>PREPASS</code> state.</p>
+   * @public
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a <code>POSTPASS</code> state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the <code>POSTPASS</code> state.</p>
+   * @public
    */
   contactPostPassDurationSeconds?: number;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListDataflowEndpointGroupsRequest {
   /**
-   * @public
    * <p>Maximum number of dataflow endpoint groups returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Next token returned in the request of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Item in a list of <code>DataflowEndpoint</code> groups.</p>
+ * @public
  */
 export interface DataflowEndpointListItem {
   /**
-   * @public
    * <p>UUID of a dataflow endpoint group.</p>
+   * @public
    */
   dataflowEndpointGroupId?: string;
 
   /**
-   * @public
    * <p>ARN of a dataflow endpoint group.</p>
+   * @public
    */
   dataflowEndpointGroupArn?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListDataflowEndpointGroupsResponse {
   /**
-   * @public
    * <p>Next token returned in the response of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of dataflow endpoint groups.</p>
+   * @public
    */
   dataflowEndpointGroupList?: DataflowEndpointListItem[];
 }
@@ -2509,20 +2509,20 @@ export interface ListDataflowEndpointGroupsResponse {
  */
 export interface DeleteEphemerisRequest {
   /**
-   * @public
    * <p>The AWS Ground Station ephemeris ID.</p>
+   * @public
    */
   ephemerisId: string | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DeleteMissionProfileRequest {
   /**
-   * @public
    * <p>UUID of a mission profile.</p>
+   * @public
    */
   missionProfileId: string | undefined;
 }
@@ -2532,8 +2532,8 @@ export interface DeleteMissionProfileRequest {
  */
 export interface DescribeEphemerisRequest {
   /**
-   * @public
    * <p>The AWS Ground Station ephemeris ID.</p>
+   * @public
    */
   ephemerisId: string | undefined;
 }
@@ -2589,26 +2589,26 @@ export const EphemerisStatus = {
 export type EphemerisStatus = (typeof EphemerisStatus)[keyof typeof EphemerisStatus];
 
 /**
- * @public
  * <p>Description of ephemeris.</p>
+ * @public
  */
 export interface EphemerisDescription {
   /**
-   * @public
    * <p>Source S3 object used for the ephemeris.</p>
+   * @public
    */
   sourceS3Object?: S3Object;
 
   /**
-   * @public
    * <p>Supplied ephemeris data.</p>
+   * @public
    */
   ephemerisData?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export type EphemerisTypeDescription =
   | EphemerisTypeDescription.OemMember
@@ -2620,8 +2620,8 @@ export type EphemerisTypeDescription =
  */
 export namespace EphemerisTypeDescription {
   /**
-   * @public
    * <p>Description of ephemeris.</p>
+   * @public
    */
   export interface TleMember {
     tle: EphemerisDescription;
@@ -2630,8 +2630,8 @@ export namespace EphemerisTypeDescription {
   }
 
   /**
-   * @public
    * <p>Description of ephemeris.</p>
+   * @public
    */
   export interface OemMember {
     tle?: never;
@@ -2666,114 +2666,114 @@ export namespace EphemerisTypeDescription {
  */
 export interface DescribeEphemerisResponse {
   /**
-   * @public
    * <p>The AWS Ground Station ephemeris ID.</p>
+   * @public
    */
   ephemerisId?: string;
 
   /**
-   * @public
    * <p>The AWS Ground Station satellite ID associated with ephemeris.</p>
+   * @public
    */
   satelliteId?: string;
 
   /**
-   * @public
    * <p>The status of the ephemeris.</p>
+   * @public
    */
   status?: EphemerisStatus;
 
   /**
-   * @public
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
    *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
    *          <p>Priority must be 1 or greater</p>
+   * @public
    */
   priority?: number;
 
   /**
-   * @public
    * <p>The time the ephemeris was uploaded in UTC.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>Whether or not the ephemeris is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Tags assigned to an ephemeris.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Supplied ephemeris data.</p>
+   * @public
    */
   suppliedData?: EphemerisTypeDescription;
 
   /**
-   * @public
    * <p>Reason that an ephemeris failed validation. Only provided for ephemerides with <code>INVALID</code> status.</p>
+   * @public
    */
   invalidReason?: EphemerisInvalidReason;
 }
 
 /**
- * @public
  * <p>Ephemeris item.</p>
+ * @public
  */
 export interface EphemerisItem {
   /**
-   * @public
    * <p>The AWS Ground Station ephemeris ID.</p>
+   * @public
    */
   ephemerisId?: string;
 
   /**
-   * @public
    * <p>The status of the ephemeris.</p>
+   * @public
    */
   status?: EphemerisStatus;
 
   /**
-   * @public
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
    *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
    *          <p>Priority must be 1 or greater</p>
+   * @public
    */
   priority?: number;
 
   /**
-   * @public
    * <p>Whether or not the ephemeris is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>The time the ephemeris was uploaded in UTC.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Source S3 object used for the ephemeris.</p>
+   * @public
    */
   sourceS3Object?: S3Object;
 }
@@ -2783,38 +2783,38 @@ export interface EphemerisItem {
  */
 export interface ListEphemeridesRequest {
   /**
-   * @public
    * <p>The AWS Ground Station satellite ID to list ephemeris for.</p>
+   * @public
    */
   satelliteId: string | undefined;
 
   /**
-   * @public
    * <p>The start time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   * @public
    */
   startTime: Date | undefined;
 
   /**
-   * @public
    * <p>The end time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   * @public
    */
   endTime: Date | undefined;
 
   /**
-   * @public
    * <p>The list of ephemeris status to return.</p>
+   * @public
    */
   statusList?: EphemerisStatus[];
 
   /**
-   * @public
    * <p>Maximum number of ephemerides to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Pagination token.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2824,14 +2824,14 @@ export interface ListEphemeridesRequest {
  */
 export interface ListEphemeridesResponse {
   /**
-   * @public
    * <p>Pagination token.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>List of ephemerides.</p>
+   * @public
    */
   ephemerides?: EphemerisItem[];
 }
@@ -2841,28 +2841,28 @@ export interface ListEphemeridesResponse {
  */
 export interface UpdateEphemerisRequest {
   /**
-   * @public
    * <p>The AWS Ground Station ephemeris ID.</p>
+   * @public
    */
   ephemerisId: string | undefined;
 
   /**
-   * @public
    * <p>Whether the ephemeris is enabled or not. Changing this value will not require the ephemeris to be re-validated.</p>
+   * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
    *          <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
    *          <p>Priority must be 1 or greater</p>
+   * @public
    */
   priority?: number;
 }
@@ -2882,566 +2882,566 @@ export const EphemerisSource = {
 export type EphemerisSource = (typeof EphemerisSource)[keyof typeof EphemerisSource];
 
 /**
- * @public
  * <p>Metadata describing a particular ephemeris.</p>
+ * @public
  */
 export interface EphemerisMetaData {
   /**
-   * @public
    * <p>The <code>EphemerisSource</code> that generated a given ephemeris.</p>
+   * @public
    */
   source: EphemerisSource | undefined;
 
   /**
-   * @public
    * <p>UUID of a customer-provided ephemeris.</p>
    *          <p>This field is not populated for default ephemerides from Space Track.</p>
+   * @public
    */
   ephemerisId?: string;
 
   /**
-   * @public
    * <p>The epoch of a default, ephemeris from Space Track in UTC.</p>
    *          <p>This field is not populated for customer-provided ephemerides.</p>
+   * @public
    */
   epoch?: Date;
 
   /**
-   * @public
    * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
    *          <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetMinuteUsageRequest {
   /**
-   * @public
    * <p>The month being requested, with a value of 1-12.</p>
+   * @public
    */
   month: number | undefined;
 
   /**
-   * @public
    * <p>The year being requested, in the format of YYYY.</p>
+   * @public
    */
   year: number | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetMinuteUsageResponse {
   /**
-   * @public
    * <p>Returns whether or not an account has signed up for the reserved minutes pricing plan, specific to the month being requested.</p>
+   * @public
    */
   isReservedMinutesCustomer?: boolean;
 
   /**
-   * @public
    * <p>Total number of reserved minutes allocated, specific to the month being requested.</p>
+   * @public
    */
   totalReservedMinuteAllocation?: number;
 
   /**
-   * @public
    * <p>Upcoming minutes scheduled for an account, specific to the month being requested.</p>
+   * @public
    */
   upcomingMinutesScheduled?: number;
 
   /**
-   * @public
    * <p>Total scheduled minutes for an account, specific to the month being requested.</p>
+   * @public
    */
   totalScheduledMinutes?: number;
 
   /**
-   * @public
    * <p>Estimated number of minutes remaining for an account, specific to the month being requested.</p>
+   * @public
    */
   estimatedMinutesRemaining?: number;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetMissionProfileRequest {
   /**
-   * @public
    * <p>UUID of a mission profile.</p>
+   * @public
    */
   missionProfileId: string | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetMissionProfileResponse {
   /**
-   * @public
    * <p>UUID of a mission profile.</p>
+   * @public
    */
   missionProfileId?: string;
 
   /**
-   * @public
    * <p>ARN of a mission profile.</p>
+   * @public
    */
   missionProfileArn?: string;
 
   /**
-   * @public
    * <p>Name of a mission profile.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Region of a mission profile.</p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * @public
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * @public
    */
   contactPostPassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
+   * @public
    */
   minimumViableContactDurationSeconds?: number;
 
   /**
-   * @public
    * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
    *             <code>Config</code> and a <i>to</i>
    *             <code>Config</code>.</p>
+   * @public
    */
   dataflowEdges?: string[][];
 
   /**
-   * @public
    * <p>ARN of a tracking <code>Config</code>.</p>
+   * @public
    */
   trackingConfigArn?: string;
 
   /**
-   * @public
    * <p>Tags assigned to a mission profile.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>KMS key to use for encrypting streams.</p>
+   * @public
    */
   streamsKmsKey?: KmsKey;
 
   /**
-   * @public
    * <p>Role to use for encrypting streams with KMS key.</p>
+   * @public
    */
   streamsKmsRole?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetSatelliteRequest {
   /**
-   * @public
    * <p>UUID of a satellite.</p>
+   * @public
    */
   satelliteId: string | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface GetSatelliteResponse {
   /**
-   * @public
    * <p>UUID of a satellite.</p>
+   * @public
    */
   satelliteId?: string;
 
   /**
-   * @public
    * <p>ARN of a satellite.</p>
+   * @public
    */
   satelliteArn?: string;
 
   /**
-   * @public
    * <p>NORAD satellite ID number.</p>
+   * @public
    */
   noradSatelliteID?: number;
 
   /**
-   * @public
    * <p>A list of ground stations to which the satellite is on-boarded.</p>
+   * @public
    */
   groundStations?: string[];
 
   /**
-   * @public
    * <p>The current ephemeris being used to compute the trajectory of the satellite.</p>
+   * @public
    */
   currentEphemeris?: EphemerisMetaData;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListGroundStationsRequest {
   /**
-   * @public
    * <p>Satellite ID to retrieve on-boarded ground stations.</p>
+   * @public
    */
   satelliteId?: string;
 
   /**
-   * @public
    * <p>Maximum number of ground stations returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Next token that can be supplied in the next call to get the next page of ground stations.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Information about the ground station data.</p>
+ * @public
  */
 export interface GroundStationData {
   /**
-   * @public
    * <p>UUID of a ground station.</p>
+   * @public
    */
   groundStationId?: string;
 
   /**
-   * @public
    * <p>Name of a ground station.</p>
+   * @public
    */
   groundStationName?: string;
 
   /**
-   * @public
    * <p>Ground station Region.</p>
+   * @public
    */
   region?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListGroundStationsResponse {
   /**
-   * @public
    * <p>Next token that can be supplied in the next call to get the next page of ground stations.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>List of ground stations.</p>
+   * @public
    */
   groundStationList?: GroundStationData[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>ARN of a resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Tags assigned to a resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListMissionProfilesRequest {
   /**
-   * @public
    * <p>Maximum number of mission profiles returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Next token returned in the request of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Item in a list of mission profiles.</p>
+ * @public
  */
 export interface MissionProfileListItem {
   /**
-   * @public
    * <p>UUID of a mission profile.</p>
+   * @public
    */
   missionProfileId?: string;
 
   /**
-   * @public
    * <p>ARN of a mission profile.</p>
+   * @public
    */
   missionProfileArn?: string;
 
   /**
-   * @public
    * <p>Region of a mission profile.</p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>Name of a mission profile.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListMissionProfilesResponse {
   /**
-   * @public
    * <p>Next token returned in the response of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>List of mission profiles.</p>
+   * @public
    */
   missionProfileList?: MissionProfileListItem[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface UpdateMissionProfileRequest {
   /**
-   * @public
    * <p>UUID of a mission profile.</p>
+   * @public
    */
   missionProfileId: string | undefined;
 
   /**
-   * @public
    * <p>Name of a mission profile.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * @public
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * @public
    */
   contactPostPassDurationSeconds?: number;
 
   /**
-   * @public
    * <p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>
+   * @public
    */
   minimumViableContactDurationSeconds?: number;
 
   /**
-   * @public
    * <p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i>
    *             <code>Config</code> and a <i>to</i>
    *             <code>Config</code>.</p>
+   * @public
    */
   dataflowEdges?: string[][];
 
   /**
-   * @public
    * <p>ARN of a tracking <code>Config</code>.</p>
+   * @public
    */
   trackingConfigArn?: string;
 
   /**
-   * @public
    * <p>KMS key to use for encrypting streams.</p>
+   * @public
    */
   streamsKmsKey?: KmsKey;
 
   /**
-   * @public
    * <p>Role to use for encrypting streams with KMS key.</p>
+   * @public
    */
   streamsKmsRole?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListSatellitesRequest {
   /**
-   * @public
    * <p>Maximum number of satellites returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Next token that can be supplied in the next call to get the next page of satellites.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Item in a list of satellites.</p>
+ * @public
  */
 export interface SatelliteListItem {
   /**
-   * @public
    * <p>UUID of a satellite.</p>
+   * @public
    */
   satelliteId?: string;
 
   /**
-   * @public
    * <p>ARN of a satellite.</p>
+   * @public
    */
   satelliteArn?: string;
 
   /**
-   * @public
    * <p>NORAD satellite ID number.</p>
+   * @public
    */
   noradSatelliteID?: number;
 
   /**
-   * @public
    * <p>A list of ground stations to which the satellite is on-boarded.</p>
+   * @public
    */
   groundStations?: string[];
 
   /**
-   * @public
    * <p>The current ephemeris being used to compute the trajectory of the satellite.</p>
+   * @public
    */
   currentEphemeris?: EphemerisMetaData;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface ListSatellitesResponse {
   /**
-   * @public
    * <p>Next token that can be supplied in the next call to get the next page of satellites.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>List of satellites.</p>
+   * @public
    */
   satellites?: SatelliteListItem[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>ARN of a resource tag.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Tags assigned to a resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>ARN of a resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Keys of a resource tag.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface UntagResourceResponse {}

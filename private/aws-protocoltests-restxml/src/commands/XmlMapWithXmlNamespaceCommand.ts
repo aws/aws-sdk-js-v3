@@ -25,7 +25,6 @@ export interface XmlMapWithXmlNamespaceCommandInput extends XmlMapWithXmlNamespa
 export interface XmlMapWithXmlNamespaceCommandOutput extends XmlMapWithXmlNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Maps with @xmlNamespace and @xmlName
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface XmlMapWithXmlNamespaceCommandOutput extends XmlMapWithXmlNamesp
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlMapWithXmlNamespaceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetStatementResultCommandInput extends GetStatementResultReques
 export interface GetStatementResultCommandOutput extends GetStatementResultResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Fetches the temporarily cached result of an SQL statement.
  *        A token is returned to page through the statement results. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
@@ -99,6 +98,7 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class GetStatementResultCommand extends $Command
   .classBuilder<

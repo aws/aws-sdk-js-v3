@@ -32,7 +32,6 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association between an OpsItem and a related item. For example, this API
  *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability of
  *    Amazon Web Services Systems Manager.</p>
@@ -78,6 +77,7 @@ export interface DisassociateOpsItemRelatedItemCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DisassociateOpsItemRelatedItemCommand extends $Command
   .classBuilder<

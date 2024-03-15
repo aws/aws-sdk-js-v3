@@ -27,7 +27,6 @@ export interface UpdateTimeToLiveCommandInput extends UpdateTimeToLiveInput {}
 export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
  *             the specified table. A successful <code>UpdateTimeToLive</code> call returns the current
  *                 <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to
@@ -116,6 +115,7 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class UpdateTimeToLiveCommand extends $Command
   .classBuilder<

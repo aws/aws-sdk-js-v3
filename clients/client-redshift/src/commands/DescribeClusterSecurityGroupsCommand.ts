@@ -30,7 +30,6 @@ export interface DescribeClusterSecurityGroupsCommandInput extends DescribeClust
 export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecurityGroupMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about Amazon Redshift security groups. If the name of a security
  *             group is specified, the response will contain only information about only that security
  *             group.</p>
@@ -124,6 +123,7 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterSecurityGroupsCommand extends $Command
   .classBuilder<

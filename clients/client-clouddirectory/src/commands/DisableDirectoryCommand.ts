@@ -27,7 +27,6 @@ export interface DisableDirectoryCommandInput extends DisableDirectoryRequest {}
 export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the specified directory. Disabled directories cannot be read or written to.
  *       Only enabled directories can be disabled. Disabled directories may be reenabled.</p>
  * @example
@@ -82,6 +81,7 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class DisableDirectoryCommand extends $Command
   .classBuilder<

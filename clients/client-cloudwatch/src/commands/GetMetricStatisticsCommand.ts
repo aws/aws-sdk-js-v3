@@ -27,7 +27,6 @@ export interface GetMetricStatisticsCommandInput extends GetMetricStatisticsInpu
 export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets statistics for the specified metric.</p>
  *          <p>The maximum number of data points returned from a single call is 1,440. If
  * 			you request more than 1,440 data points, CloudWatch returns an error.
@@ -144,6 +143,7 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class GetMetricStatisticsCommand extends $Command
   .classBuilder<

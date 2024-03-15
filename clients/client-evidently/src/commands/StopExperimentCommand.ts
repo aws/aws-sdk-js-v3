@@ -27,7 +27,6 @@ export interface StopExperimentCommandInput extends StopExperimentRequest {}
 export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an experiment that is currently running. If you stop an experiment, you can't
  *       resume it or restart it.</p>
  * @example
@@ -77,6 +76,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class StopExperimentCommand extends $Command
   .classBuilder<

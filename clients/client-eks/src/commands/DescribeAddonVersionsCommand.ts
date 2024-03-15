@@ -27,7 +27,6 @@ export interface DescribeAddonVersionsCommandInput extends DescribeAddonVersions
 export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the versions for an add-on.</p>
  *          <p>Information such as the Kubernetes versions that you can use the add-on with, the
  *                 <code>owner</code>, <code>publisher</code>, and the <code>type</code> of the add-on
@@ -112,6 +111,7 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeAddonVersionsCommand extends $Command
   .classBuilder<

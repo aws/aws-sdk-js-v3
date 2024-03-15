@@ -27,7 +27,6 @@ export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a cluster. It also deletes all associated nodes and node endpoints</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DeleteClusterCommand extends $Command
   .classBuilder<

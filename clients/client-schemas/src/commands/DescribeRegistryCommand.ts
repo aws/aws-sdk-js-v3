@@ -27,7 +27,6 @@ export interface DescribeRegistryCommandInput extends DescribeRegistryRequest {}
 export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class DescribeRegistryCommand extends $Command
   .classBuilder<

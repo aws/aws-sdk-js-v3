@@ -27,7 +27,6 @@ export interface AttachLoadBalancersCommandInput extends AttachLoadBalancersType
 export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersResultType, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This API operation is superseded by <a>AttachTrafficSources</a>, which
  *                 can attach multiple traffic sources types. We recommend using
@@ -79,6 +78,7 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To attach a load balancer to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified load balancer to the specified Auto Scaling group.

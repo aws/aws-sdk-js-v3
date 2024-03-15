@@ -29,7 +29,6 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -120,6 +119,7 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  */
 export class GetRateBasedRuleManagedKeysCommand extends $Command
   .classBuilder<

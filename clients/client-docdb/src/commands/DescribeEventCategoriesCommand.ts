@@ -27,7 +27,6 @@ export interface DescribeEventCategoriesCommandInput extends DescribeEventCatego
 export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays a list of categories for all event source types, or, if specified, for a
  *             specified source type. </p>
  * @example
@@ -71,6 +70,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeEventCategoriesCommand extends $Command
   .classBuilder<

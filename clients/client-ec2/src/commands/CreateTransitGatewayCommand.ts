@@ -27,7 +27,6 @@ export interface CreateTransitGatewayCommandInput extends CreateTransitGatewayRe
 export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transit gateway.</p>
  *          <p>You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks.
  *           After the transit gateway enters the <code>available</code> state, you can attach your VPCs and VPN
@@ -120,6 +119,7 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTransitGatewayCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListReadSetImportJobsCommandInput extends ListReadSetImportJobs
 export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of read set import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListReadSetImportJobsCommandOutput extends ListReadSetImportJob
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListReadSetImportJobsCommand extends $Command
   .classBuilder<

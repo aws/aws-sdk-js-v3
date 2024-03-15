@@ -32,7 +32,6 @@ export interface ImportImageCommandInput extends ImportImageRequest {}
 export interface ImportImageCommandOutput extends ImportImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>To import your virtual machines (VMs) with a console-based experience, you can use the
  *     <i>Import virtual machine images to Amazon Web Services</i> template in the <a href="https://console.aws.amazon.com/migrationhub/orchestrator">Migration Hub Orchestrator console</a>. For more
@@ -161,6 +160,7 @@ export interface ImportImageCommandOutput extends ImportImageResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ImportImageCommand extends $Command
   .classBuilder<

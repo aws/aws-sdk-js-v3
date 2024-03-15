@@ -27,7 +27,6 @@ export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotSchedu
 export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a snapshot of a volume.</p>
  *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API
  *          action enables you to delete a snapshot schedule for a volume. For more information, see
@@ -74,6 +73,7 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To delete a snapshot of a volume
  * ```javascript
  * // This action enables you to delete a snapshot schedule for a volume.

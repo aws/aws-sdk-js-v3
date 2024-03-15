@@ -27,9 +27,6 @@ export interface GetDeploymentInstanceCommandInput extends GetDeploymentInstance
 export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is deprecated, use GetDeploymentTarget instead.
- *
  * <p>Gets information about an instance as part of a deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +96,8 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
+ * @deprecated This operation is deprecated, use GetDeploymentTarget instead.
  */
 export class GetDeploymentInstanceCommand extends $Command
   .classBuilder<

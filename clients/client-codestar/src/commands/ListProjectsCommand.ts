@@ -27,7 +27,6 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class ListProjectsCommand extends $Command
   .classBuilder<

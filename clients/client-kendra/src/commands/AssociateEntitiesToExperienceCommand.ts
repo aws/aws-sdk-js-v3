@@ -32,7 +32,6 @@ export interface AssociateEntitiesToExperienceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Grants users or groups in your IAM Identity Center identity source access
  *             to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a
  *             search application. For more information on creating a search application
@@ -100,6 +99,7 @@ export interface AssociateEntitiesToExperienceCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class AssociateEntitiesToExperienceCommand extends $Command
   .classBuilder<

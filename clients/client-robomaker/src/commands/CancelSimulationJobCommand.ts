@@ -27,7 +27,6 @@ export interface CancelSimulationJobCommandInput extends CancelSimulationJobRequ
 export interface CancelSimulationJobCommandOutput extends CancelSimulationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified simulation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface CancelSimulationJobCommandOutput extends CancelSimulationJobRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class CancelSimulationJobCommand extends $Command
   .classBuilder<

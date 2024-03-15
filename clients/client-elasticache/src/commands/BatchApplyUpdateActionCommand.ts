@@ -27,7 +27,6 @@ export interface BatchApplyUpdateActionCommandInput extends BatchApplyUpdateActi
 export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Apply the service update. For more information on service updates and applying them,
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html">Applying Service
  *                 Updates</a>.</p>
@@ -85,6 +84,7 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class BatchApplyUpdateActionCommand extends $Command
   .classBuilder<

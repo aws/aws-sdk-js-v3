@@ -27,7 +27,6 @@ export interface GetAppMonitorCommandInput extends GetAppMonitorRequest {}
 export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the complete configuration information for one app monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface GetAppMonitorCommandOutput extends GetAppMonitorResponse, __Met
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class GetAppMonitorCommand extends $Command
   .classBuilder<

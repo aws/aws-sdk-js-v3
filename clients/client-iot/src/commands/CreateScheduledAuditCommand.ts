@@ -27,7 +27,6 @@ export interface CreateScheduledAuditCommandInput extends CreateScheduledAuditRe
 export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a scheduled audit that is run at a specified
  *           time interval.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateScheduledAudit</a> action.</p>
@@ -84,6 +83,7 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateScheduledAuditCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTrustedTokenIssuersCommandInput extends ListTrustedTokenIss
 export interface ListTrustedTokenIssuersCommandOutput extends ListTrustedTokenIssuersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the trusted token issuers configured in an instance of IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListTrustedTokenIssuersCommandOutput extends ListTrustedTokenIs
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListTrustedTokenIssuersCommand extends $Command
   .classBuilder<

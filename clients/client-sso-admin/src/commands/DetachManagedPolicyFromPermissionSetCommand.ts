@@ -35,7 +35,6 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches the attached Amazon Web Services managed policy ARN from the specified permission
  *             set.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DetachManagedPolicyFromPermissionSetCommand extends $Command
   .classBuilder<

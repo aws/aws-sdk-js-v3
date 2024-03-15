@@ -27,7 +27,6 @@ export interface UpdateFirewallRuleCommandInput extends UpdateFirewallRuleReques
 export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified firewall rule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class UpdateFirewallRuleCommand extends $Command
   .classBuilder<

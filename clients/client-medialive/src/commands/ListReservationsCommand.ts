@@ -27,7 +27,6 @@ export interface ListReservationsCommandInput extends ListReservationsRequest {}
 export interface ListReservationsCommandOutput extends ListReservationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * List purchased reservations.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ListReservationsCommand extends $Command
   .classBuilder<

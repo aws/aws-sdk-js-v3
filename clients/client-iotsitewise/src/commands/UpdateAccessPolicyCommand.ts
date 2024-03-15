@@ -27,7 +27,6 @@ export interface UpdateAccessPolicyCommandInput extends UpdateAccessPolicyReques
 export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing access policy that specifies an identity's access to an IoT SiteWise Monitor
  *       portal or project resource.</p>
  * @example
@@ -94,6 +93,7 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class UpdateAccessPolicyCommand extends $Command
   .classBuilder<

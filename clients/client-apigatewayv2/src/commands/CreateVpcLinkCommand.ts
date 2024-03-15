@@ -27,7 +27,6 @@ export interface CreateVpcLinkCommandInput extends CreateVpcLinkRequest {}
 export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a VPC link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class CreateVpcLinkCommand extends $Command
   .classBuilder<

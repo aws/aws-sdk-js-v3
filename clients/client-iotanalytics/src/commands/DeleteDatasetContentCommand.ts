@@ -27,7 +27,6 @@ export interface DeleteDatasetContentCommandInput extends DeleteDatasetContentRe
 export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the content of the specified dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class DeleteDatasetContentCommand extends $Command
   .classBuilder<

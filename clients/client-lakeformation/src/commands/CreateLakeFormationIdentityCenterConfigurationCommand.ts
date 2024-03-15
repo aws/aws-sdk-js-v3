@@ -36,7 +36,6 @@ export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateLakeFormationIdentityCenterConfigurationCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class CreateLakeFormationIdentityCenterConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetVoiceToneAnalysisTaskCommandInput extends GetVoiceToneAnalys
 export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnalysisTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of a voice tone analysis task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetVoiceToneAnalysisTaskCommandOutput extends GetVoiceToneAnaly
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class GetVoiceToneAnalysisTaskCommand extends $Command
   .classBuilder<

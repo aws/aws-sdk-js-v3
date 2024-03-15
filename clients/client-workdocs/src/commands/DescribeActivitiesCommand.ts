@@ -32,7 +32,6 @@ export interface DescribeActivitiesCommandInput extends DescribeActivitiesReques
 export interface DescribeActivitiesCommandOutput extends DescribeActivitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the user activities in a specified time period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -166,6 +165,7 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeActivitiesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RemoveFacetFromObjectCommandInput extends RemoveFacetFromObject
 export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified facet from the specified object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class RemoveFacetFromObjectCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class GetEnvironmentCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes attributes of your Amazon Web Services account. The supported account
  *             attributes include account tier, which indicates whether your account is in the sandbox
  *             or production environment. When you're ready to move your account out of the sandbox,
@@ -87,6 +86,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
   .classBuilder<

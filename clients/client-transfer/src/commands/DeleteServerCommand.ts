@@ -27,7 +27,6 @@ export interface DeleteServerCommandInput extends DeleteServerRequest {}
 export interface DeleteServerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
  *          <p>No response returns from this operation.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteServerCommand extends $Command
   .classBuilder<

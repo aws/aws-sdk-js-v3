@@ -27,7 +27,6 @@ export interface DeleteCacheSecurityGroupCommandInput extends DeleteCacheSecurit
 export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a cache security group.</p>
  *          <note>
  *             <p>You cannot delete a cache security group if it is associated with any
@@ -70,6 +69,7 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DeleteCacheSecurityGroup
  * ```javascript
  * // Deletes a cache security group.

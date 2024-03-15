@@ -31,7 +31,6 @@ export interface DescribeCertificatesCommandInput extends DescribeCertificatesMe
 export interface DescribeCertificatesCommandOutput extends DescribeCertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a description of the certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe certificates
  * ```javascript
  * // Provides a description of the certificate.

@@ -31,7 +31,6 @@ export interface RegenerateSecurityTokenCommandInput extends RegenerateSecurityT
 export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurityTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Regenerates the security token for a bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class RegenerateSecurityTokenCommand extends $Command
   .classBuilder<

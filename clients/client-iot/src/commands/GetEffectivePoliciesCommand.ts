@@ -27,7 +27,6 @@ export interface GetEffectivePoliciesCommandInput extends GetEffectivePoliciesRe
 export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the policies that have an effect on the authorization behavior of the
  *          specified device when it connects to the IoT device gateway.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetEffectivePolicies</a> action.</p>
@@ -86,6 +85,7 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetEffectivePoliciesCommand extends $Command
   .classBuilder<

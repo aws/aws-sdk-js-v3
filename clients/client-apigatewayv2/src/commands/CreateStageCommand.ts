@@ -27,7 +27,6 @@ export interface CreateStageCommandInput extends CreateStageRequest {}
 export interface CreateStageCommandOutput extends CreateStageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Stage for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class CreateStageCommand extends $Command
   .classBuilder<

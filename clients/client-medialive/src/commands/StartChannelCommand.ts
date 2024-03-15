@@ -27,7 +27,6 @@ export interface StartChannelCommandInput extends StartChannelRequest {}
 export interface StartChannelCommandOutput extends StartChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * Starts an existing channel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1106,6 +1105,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class StartChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetExperimentTemplateCommandInput extends GetExperimentTemplate
 export interface GetExperimentTemplateCommandOutput extends GetExperimentTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface GetExperimentTemplateCommandOutput extends GetExperimentTemplat
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class GetExperimentTemplateCommand extends $Command
   .classBuilder<

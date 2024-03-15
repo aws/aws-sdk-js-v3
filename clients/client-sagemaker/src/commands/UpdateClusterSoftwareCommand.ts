@@ -27,7 +27,6 @@ export interface UpdateClusterSoftwareCommandInput extends UpdateClusterSoftware
 export interface UpdateClusterSoftwareCommandOutput extends UpdateClusterSoftwareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the platform software of a SageMaker HyperPod cluster for security patching. To learn how to
  *          use this API, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software">Update the SageMaker HyperPod platform software of a cluster</a>.</p>
  * @example
@@ -63,6 +62,7 @@ export interface UpdateClusterSoftwareCommandOutput extends UpdateClusterSoftwar
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateClusterSoftwareCommand extends $Command
   .classBuilder<

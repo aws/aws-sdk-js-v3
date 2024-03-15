@@ -27,7 +27,6 @@ export interface ListUniqueProblemsCommandInput extends ListUniqueProblemsReques
 export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about unique problems, such as exceptions or crashes.</p>
  *         <p>Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
  *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
@@ -151,6 +150,7 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about unique problems
  * ```javascript
  * // The following example returns information about unique problems, given a specific Device Farm project.

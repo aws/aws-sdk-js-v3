@@ -28,7 +28,6 @@ export interface DeleteCidrCollectionCommandInput extends DeleteCidrCollectionRe
 export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a CIDR collection in the current Amazon Web Services account. The collection
  * 			must be empty before it can be deleted.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteCidrCollectionCommand extends $Command
   .classBuilder<

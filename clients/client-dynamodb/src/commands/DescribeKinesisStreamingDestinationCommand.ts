@@ -35,7 +35,6 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the status of Kinesis streaming.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DescribeKinesisStreamingDestinationCommand extends $Command
   .classBuilder<

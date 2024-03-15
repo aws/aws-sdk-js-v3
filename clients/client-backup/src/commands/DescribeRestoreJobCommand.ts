@@ -27,7 +27,6 @@ export interface DescribeRestoreJobCommandInput extends DescribeRestoreJobInput 
 export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata associated with a restore job that is specified by a job ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeRestoreJobCommand extends $Command
   .classBuilder<

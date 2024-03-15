@@ -27,7 +27,6 @@ export interface CreateBatchPredictionJobCommandInput extends CreateBatchPredict
 export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredictionJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a batch prediction job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredic
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class CreateBatchPredictionJobCommand extends $Command
   .classBuilder<

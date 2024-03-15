@@ -32,7 +32,6 @@ export interface ListAdminAccountsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a <code>AdminAccounts</code> object that lists the Firewall Manager administrators within the organization that are onboarded to Firewall Manager by <a>AssociateAdminAccount</a>.</p>
  *          <p>This operation can be called only from the organization's management account.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListAdminAccountsForOrganizationCommandOutput
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListAdminAccountsForOrganizationCommand extends $Command
   .classBuilder<

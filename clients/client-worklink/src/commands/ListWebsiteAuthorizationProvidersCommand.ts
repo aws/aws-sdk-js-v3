@@ -35,9 +35,6 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +87,8 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class ListWebsiteAuthorizationProvidersCommand extends $Command
   .classBuilder<

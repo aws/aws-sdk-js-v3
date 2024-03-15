@@ -27,7 +27,6 @@ export interface RetrieveCommandInput extends RetrieveRequest {}
 export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves relevant passages or text excerpts given an input query.</p>
  *          <p>This API is similar to the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html">Query</a> API. However, by
  *             default, the <code>Query</code> API only returns excerpt passages of up to 100 token
@@ -259,6 +258,7 @@ export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer 
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class RetrieveCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchWriteItemCommandInput extends BatchWriteItemInput {}
 export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
  *             more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of
  *             data over the network, consisting of up to 25 item put or delete operations. While
@@ -315,6 +314,7 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To add multiple items to a table
  * ```javascript
  * // This example adds three new items to the Music table using a batch of three PutItem requests.

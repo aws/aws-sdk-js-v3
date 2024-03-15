@@ -27,7 +27,6 @@ export interface DeleteFunctionConcurrencyCommandInput extends DeleteFunctionCon
 export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a concurrent execution limit from a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteFunctionConcurrencyCommand extends $Command
   .classBuilder<

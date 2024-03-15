@@ -31,7 +31,6 @@ export interface SearchCommandInput extends SearchRequest {}
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:</p>
  *       <ul>
  *          <li><code>simple</code>: search all <code>text</code> and <code>text-array</code> fields for the specified string. Search for phrases, individual terms, and prefixes. </li>
@@ -129,6 +128,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @throws {@link CloudSearchDomainServiceException}
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
+ * @public
  */
 export class SearchCommand extends $Command
   .classBuilder<

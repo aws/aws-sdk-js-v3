@@ -27,7 +27,6 @@ export interface DeleteServiceNetworkCommandInput extends DeleteServiceNetworkRe
 export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a service network. You can only delete the service network if there is no service or
  *    VPC associated with it. If you delete a service network, all resources related to the service
  *    network, such as the resource policy, auth policy, and access log subscriptions, are also
@@ -77,6 +76,7 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteServiceNetworkCommand extends $Command
   .classBuilder<

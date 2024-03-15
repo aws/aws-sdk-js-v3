@@ -31,7 +31,6 @@ export interface CreateVoiceProfileCommandInput extends CreateVoiceProfileReques
 export interface CreateVoiceProfileCommandOutput extends CreateVoiceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a voice profile, which consists of an enrolled user and their latest voice print.</p>
  *          <important>
  *             <p>Before creating any voice profiles, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
@@ -105,6 +104,7 @@ export interface CreateVoiceProfileCommandOutput extends CreateVoiceProfileRespo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class CreateVoiceProfileCommand extends $Command
   .classBuilder<

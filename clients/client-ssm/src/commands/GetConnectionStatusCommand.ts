@@ -27,7 +27,6 @@ export interface GetConnectionStatusCommandInput extends GetConnectionStatusRequ
 export interface GetConnectionStatusCommandOutput extends GetConnectionStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running
  *    and ready to receive Session Manager connections.</p>
  * @example
@@ -60,6 +59,7 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetConnectionStatusCommand extends $Command
   .classBuilder<

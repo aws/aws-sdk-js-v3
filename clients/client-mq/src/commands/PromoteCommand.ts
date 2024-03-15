@@ -27,7 +27,6 @@ export interface PromoteCommandInput extends PromoteRequest {}
 export interface PromoteCommandOutput extends PromoteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Promotes a data replication replica broker to the primary broker role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface PromoteCommandOutput extends PromoteResponse, __MetadataBearer 
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class PromoteCommand extends $Command
   .classBuilder<

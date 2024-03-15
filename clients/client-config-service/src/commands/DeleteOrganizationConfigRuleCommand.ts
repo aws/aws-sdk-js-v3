@@ -30,7 +30,6 @@ export interface DeleteOrganizationConfigRuleCommandInput extends DeleteOrganiza
 export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization. </p>
  *          <p>Only a management account and a delegated administrator account can delete an organization Config rule.
  * 		When calling this API with a delegated administrator, you must ensure Organizations
@@ -111,6 +110,7 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteOrganizationConfigRuleCommand extends $Command
   .classBuilder<

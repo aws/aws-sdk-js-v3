@@ -27,7 +27,6 @@ export interface DeleteHealthCheckCommandInput extends DeleteHealthCheckRequest 
 export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a health check.</p>
  *          <important>
  *             <p>Amazon Route 53 does not prevent you from deleting a health check even if the
@@ -76,6 +75,7 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteHealthCheckCommand extends $Command
   .classBuilder<

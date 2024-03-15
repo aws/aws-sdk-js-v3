@@ -31,7 +31,6 @@ export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
 export interface DescribeProjectCommandOutput extends DescribeProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an object describing a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class DescribeProjectCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeregisterInstanceCommandInput extends DeregisterInstanceReques
 export interface DeregisterInstanceCommandOutput extends DeregisterInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that Cloud Map created for the
  *    specified instance.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Deregister a service instance
  * ```javascript
  * // Example: Deregister a service instance

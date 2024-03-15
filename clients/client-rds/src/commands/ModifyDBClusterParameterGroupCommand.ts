@@ -32,7 +32,6 @@ export interface ModifyDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
  *             submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>,
  *             and <code>ApplyMethod</code>. A maximum of 20
@@ -112,6 +111,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify parameters in a DB cluster parameter group
  * ```javascript
  * // The following example modifies the values of parameters in a DB cluster parameter group.

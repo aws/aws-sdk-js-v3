@@ -609,7 +609,6 @@ export type CloudFormationClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface CloudFormationClientResolvedConfig extends CloudFormationClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>CloudFormation</fullname>
  *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure deployments predictably and
  *    repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly reliable, highly
@@ -622,6 +621,7 @@ export interface CloudFormationClientResolvedConfig extends CloudFormationClient
  *    product page</a>.</p>
  *          <p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information about a
  *    specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
+ * @public
  */
 export class CloudFormationClient extends __Client<
   __HttpHandlerOptions,

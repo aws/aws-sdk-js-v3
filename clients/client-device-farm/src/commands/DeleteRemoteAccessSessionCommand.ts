@@ -27,7 +27,6 @@ export interface DeleteRemoteAccessSessionCommandInput extends DeleteRemoteAcces
 export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a completed remote access session and its results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To delete a specific remote access session
  * ```javascript
  * // The following example deletes a specific remote access session.

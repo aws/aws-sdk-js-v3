@@ -31,7 +31,6 @@ export interface DetectPHICommandInput extends DetectPHIRequest {}
 export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects the clinical text for protected health information (PHI) entities and returns
  *       the entity category, location, and confidence score for each entity. Amazon Comprehend Medical
  *       only detects entities in English language texts.</p>
@@ -122,6 +121,7 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class DetectPHICommand extends $Command
   .classBuilder<

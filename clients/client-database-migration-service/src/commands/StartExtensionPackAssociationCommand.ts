@@ -36,7 +36,6 @@ export interface StartExtensionPackAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies the extension pack to your target database. An extension pack is an add-on
  *          module that emulates functions present in a source database that are required when
  *          converting objects to the target database.
@@ -93,6 +92,7 @@ export interface StartExtensionPackAssociationCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Start Extension Pack Association
  * ```javascript
  * // Applies the extension pack to your target database.

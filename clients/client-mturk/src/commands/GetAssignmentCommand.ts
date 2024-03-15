@@ -27,7 +27,6 @@ export interface GetAssignmentCommandInput extends GetAssignmentRequest {}
 export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
  *         </p>
@@ -115,6 +114,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class GetAssignmentCommand extends $Command
   .classBuilder<

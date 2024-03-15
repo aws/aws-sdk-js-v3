@@ -33,7 +33,6 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing volume by using a snapshot from another Amazon FSx for OpenZFS file system. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html">on-demand data replication</a> in the Amazon FSx for OpenZFS User
  *             Guide.</p>
  * @example
@@ -656,6 +655,7 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CopySnapshotAndUpdateVolumeCommand extends $Command
   .classBuilder<

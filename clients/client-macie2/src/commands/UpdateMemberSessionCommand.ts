@@ -27,7 +27,6 @@ export interface UpdateMemberSessionCommandInput extends UpdateMemberSessionRequ
 export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables an Amazon Macie administrator to suspend or re-enable Macie for a member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionRes
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateMemberSessionCommand extends $Command
   .classBuilder<

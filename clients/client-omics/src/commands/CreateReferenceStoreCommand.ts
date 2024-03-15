@@ -27,7 +27,6 @@ export interface CreateReferenceStoreCommandInput extends CreateReferenceStoreRe
 export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a reference store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CreateReferenceStoreCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeFolderContentsCommandInput extends DescribeFolderConten
 export interface DescribeFolderContentsCommandOutput extends DescribeFolderContentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the contents of the specified folder, including its documents and
  *             subfolders.</p>
  *          <p>By default, Amazon WorkDocs returns the first 100 active document and folder
@@ -141,6 +140,7 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeFolderContentsCommand extends $Command
   .classBuilder<

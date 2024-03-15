@@ -29,7 +29,6 @@ export interface DeleteApplicationAssignmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Revoke application access to an application by deleting application assignments for a
  *             user or group.</p>
  * @example
@@ -81,6 +80,7 @@ export interface DeleteApplicationAssignmentCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteApplicationAssignmentCommand extends $Command
   .classBuilder<

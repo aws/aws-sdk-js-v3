@@ -27,7 +27,6 @@ export interface UpdateConfiguredTableCommandInput extends UpdateConfiguredTable
 export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class UpdateConfiguredTableCommand extends $Command
   .classBuilder<

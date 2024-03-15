@@ -27,7 +27,6 @@ export interface GetAssociatedRoleCommandInput extends GetAssociatedRoleRequest 
 export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves the role associated with a particular group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetAssociatedRoleCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class DeleteServiceCommand extends $Command
   .classBuilder<

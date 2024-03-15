@@ -27,7 +27,6 @@ export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
 export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove one or more specified aliases from a set of aliases for a given
  *          user.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteAliasCommand extends $Command
   .classBuilder<

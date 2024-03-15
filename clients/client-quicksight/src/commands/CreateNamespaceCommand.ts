@@ -27,7 +27,6 @@ export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>
  *          <p>A namespace allows you to isolate the Amazon QuickSight users and groups that are registered
  *             for that namespace. Users that access the namespace can share assets only with other
@@ -109,6 +108,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateNamespaceCommand extends $Command
   .classBuilder<

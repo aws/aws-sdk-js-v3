@@ -27,7 +27,6 @@ export interface SendTaskHeartbeatCommandInput extends SendTaskHeartbeatInput {}
 export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by activity workers and Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
  *       pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> pattern to report to Step Functions that the task represented by the specified
  *         <code>taskToken</code> is still making progress. This action resets the
@@ -76,6 +75,7 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class SendTaskHeartbeatCommand extends $Command
   .classBuilder<

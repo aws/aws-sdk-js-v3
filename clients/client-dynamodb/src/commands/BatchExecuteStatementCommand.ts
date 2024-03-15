@@ -27,7 +27,6 @@ export interface BatchExecuteStatementCommandInput extends BatchExecuteStatement
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
  *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
  *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
@@ -210,6 +209,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class BatchExecuteStatementCommand extends $Command
   .classBuilder<

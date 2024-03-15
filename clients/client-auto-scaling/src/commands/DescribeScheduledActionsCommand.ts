@@ -27,7 +27,6 @@ export interface DescribeScheduledActionsCommandInput extends DescribeScheduledA
 export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the scheduled actions that haven't run or that have not reached
  *             their end time.</p>
  *          <p>To describe the scaling activities for scheduled actions that have already run, call
@@ -87,6 +86,7 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe scheduled actions
  * ```javascript
  * // This example describes the scheduled actions for the specified Auto Scaling group.

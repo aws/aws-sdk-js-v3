@@ -27,7 +27,6 @@ export interface ModifyAccountCommandInput extends ModifyAccountRequest {}
 export interface ModifyAccountCommandOutput extends ModifyAccountResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the configuration of Bring Your Own License (BYOL) for the specified
  *          account.</p>
  * @example
@@ -70,6 +69,7 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifyAccountCommand extends $Command
   .classBuilder<

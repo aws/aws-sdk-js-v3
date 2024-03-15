@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified tag to the specified index, FAQ, or data source resource. If the tag
  *       already exists, the existing value is replaced with the new value.</p>
  * @example
@@ -80,6 +79,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

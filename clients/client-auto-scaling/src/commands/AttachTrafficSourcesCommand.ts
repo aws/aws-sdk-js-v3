@@ -27,7 +27,6 @@ export interface AttachTrafficSourcesCommandInput extends AttachTrafficSourcesTy
 export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p>
  *          <p>You can use any of the following as traffic sources for an Auto Scaling group:</p>
  *          <ul>
@@ -89,6 +88,7 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To attach a target group to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified target group to the specified Auto Scaling group.

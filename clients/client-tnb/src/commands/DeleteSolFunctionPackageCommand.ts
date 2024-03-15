@@ -27,7 +27,6 @@ export interface DeleteSolFunctionPackageCommandInput extends DeleteSolFunctionP
 export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  *          <p>To delete a function package, the package must be in a disabled state. To disable a function package, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html">UpdateSolFunctionPackage</a>.
@@ -71,6 +70,7 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class DeleteSolFunctionPackageCommand extends $Command
   .classBuilder<

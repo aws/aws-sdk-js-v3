@@ -27,7 +27,6 @@ export interface ScanSbomCommandInput extends ScanSbomRequest {}
 export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Scans a provided CycloneDX 1.5 SBOM and reports on any vulnerabilities discovered in that SBOM. You can generate compatible SBOMs for your resources using the <a href="">Amazon Inspector SBOM generator</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBeare
  * @throws {@link InspectorScanServiceException}
  * <p>Base exception class for all service exceptions from InspectorScan service.</p>
  *
+ * @public
  * @example Sample ScanSbom Call
  * ```javascript
  * //

@@ -32,7 +32,6 @@ export interface ListIdentityPropagationConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all services and authorized targets that the Amazon QuickSight IAM Identity Center application can access.</p>
  *          <p>This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ListIdentityPropagationConfigsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListIdentityPropagationConfigsCommand extends $Command
   .classBuilder<

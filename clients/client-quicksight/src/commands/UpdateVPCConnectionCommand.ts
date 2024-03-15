@@ -27,7 +27,6 @@ export interface UpdateVPCConnectionCommandInput extends UpdateVPCConnectionRequ
 export interface UpdateVPCConnectionCommandOutput extends UpdateVPCConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a VPC connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateVPCConnectionCommandOutput extends UpdateVPCConnectionRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateVPCConnectionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateServiceInstanceCommandInput extends CreateServiceInstance
 export interface CreateServiceInstanceCommandOutput extends CreateServiceInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a service instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface CreateServiceInstanceCommandOutput extends CreateServiceInstanc
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateServiceInstanceCommand extends $Command
   .classBuilder<

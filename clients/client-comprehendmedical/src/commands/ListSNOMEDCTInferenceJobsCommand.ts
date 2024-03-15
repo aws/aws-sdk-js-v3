@@ -31,7 +31,6 @@ export interface ListSNOMEDCTInferenceJobsCommandInput extends ListSNOMEDCTInfer
 export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInferenceJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Gets a list of InferSNOMEDCT jobs a user has submitted.
  *     </p>
@@ -108,6 +107,7 @@ export interface ListSNOMEDCTInferenceJobsCommandOutput extends ListSNOMEDCTInfe
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class ListSNOMEDCTInferenceJobsCommand extends $Command
   .classBuilder<

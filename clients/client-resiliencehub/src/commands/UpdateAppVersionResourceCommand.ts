@@ -27,7 +27,6 @@ export interface UpdateAppVersionResourceCommandInput extends UpdateAppVersionRe
 export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the resource details in the Resilience Hub application.</p>
  *          <note>
  *             <ul>
@@ -156,6 +155,7 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class UpdateAppVersionResourceCommand extends $Command
   .classBuilder<

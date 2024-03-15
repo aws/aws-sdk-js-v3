@@ -36,7 +36,6 @@ export interface IsAuthorizedWithTokenCommandInput extends IsAuthorizedWithToken
 export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithTokenOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Makes an authorization decision about a service request described in the parameters.
  *             The principal in this request comes from an external identity source in the form of an identity
  *             token formatted as a <a href="https://wikipedia.org/wiki/JSON_Web_Token">JSON web
@@ -245,6 +244,7 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class IsAuthorizedWithTokenCommand extends $Command
   .classBuilder<

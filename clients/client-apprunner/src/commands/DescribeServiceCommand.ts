@@ -31,7 +31,6 @@ export interface DescribeServiceCommandInput extends DescribeServiceRequest {}
 export interface DescribeServiceCommandOutput extends DescribeServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return a full description of an App Runner service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -160,6 +159,7 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DescribeServiceCommand extends $Command
   .classBuilder<

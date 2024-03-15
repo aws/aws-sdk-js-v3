@@ -31,7 +31,6 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandInput
 export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or disables the publishing of reputation metrics for emails sent using a
  *             specific configuration set in a given Amazon Web Services Region. Reputation metrics include bounce
  *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
@@ -65,6 +64,7 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript
  * // Set the reputationMetricsEnabled flag for a specific configuration set.

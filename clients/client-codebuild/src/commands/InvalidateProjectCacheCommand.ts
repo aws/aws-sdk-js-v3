@@ -27,7 +27,6 @@ export interface InvalidateProjectCacheCommandInput extends InvalidateProjectCac
 export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCacheOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the cache for a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class InvalidateProjectCacheCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetQueryStatisticsCommandInput extends GetQueryStatisticsReques
 export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves statistics on the planning and execution of a query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetQueryStatisticsCommand extends $Command
   .classBuilder<

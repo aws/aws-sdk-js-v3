@@ -27,7 +27,6 @@ export interface GetDimensionValuesCommandInput extends GetDimensionValuesReques
 export interface GetDimensionValuesCommandOutput extends GetDimensionValuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all available filter values for a specified filter over a period of time. You
  *       can search the dimension values for an arbitrary string. </p>
  * @example
@@ -163,6 +162,7 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetDimensionValuesCommand extends $Command
   .classBuilder<

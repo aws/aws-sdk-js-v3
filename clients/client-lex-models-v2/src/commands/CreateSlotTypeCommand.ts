@@ -27,7 +27,6 @@ export interface CreateSlotTypeCommandInput extends CreateSlotTypeRequest {}
 export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom slot type</p>
  *          <p> To create a custom slot type, specify a name for the slot type and
  *          a set of enumeration values, the values that a slot of this type can
@@ -171,6 +170,7 @@ export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateSlotTypeCommand extends $Command
   .classBuilder<

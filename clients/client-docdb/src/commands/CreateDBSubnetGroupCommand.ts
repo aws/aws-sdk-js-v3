@@ -27,7 +27,6 @@ export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMess
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
  *             least two Availability Zones in the Amazon Web Services Region.</p>
  * @example
@@ -98,6 +97,7 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class CreateDBSubnetGroupCommand extends $Command
   .classBuilder<

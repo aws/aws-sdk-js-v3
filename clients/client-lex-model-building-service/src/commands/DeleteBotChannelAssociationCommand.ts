@@ -34,7 +34,6 @@ export interface DeleteBotChannelAssociationCommandInput extends DeleteBotChanne
 export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association between an Amazon Lex bot and a messaging
  *       platform.</p>
  *          <p>This operation requires permission for the
@@ -84,6 +83,7 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class DeleteBotChannelAssociationCommand extends $Command
   .classBuilder<

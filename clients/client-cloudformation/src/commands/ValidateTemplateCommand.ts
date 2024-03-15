@@ -27,7 +27,6 @@ export interface ValidateTemplateCommandInput extends ValidateTemplateInput {}
 export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates a specified template. CloudFormation first checks if the template is valid JSON. If it isn't, CloudFormation
  *    checks if the template is valid YAML. If both these checks fail, CloudFormation returns a template validation
  *    error.</p>
@@ -73,6 +72,7 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ValidateTemplateCommand extends $Command
   .classBuilder<

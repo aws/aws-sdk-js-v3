@@ -32,7 +32,6 @@ export interface UpdateChatControlsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an set of chat controls configured for an existing Amazon Q
  *             application.</p>
  * @example
@@ -183,6 +182,7 @@ export interface UpdateChatControlsConfigurationCommandOutput
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class UpdateChatControlsConfigurationCommand extends $Command
   .classBuilder<

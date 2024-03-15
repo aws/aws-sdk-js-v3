@@ -28,7 +28,6 @@ export interface DeleteAccessPointPolicyCommandInput extends DeleteAccessPointPo
 export interface DeleteAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -73,6 +72,7 @@ export interface DeleteAccessPointPolicyCommandOutput extends __MetadataBearer {
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteAccessPointPolicyCommand extends $Command
   .classBuilder<

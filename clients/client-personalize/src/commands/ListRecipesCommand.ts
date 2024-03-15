@@ -27,7 +27,6 @@ export interface ListRecipesCommandInput extends ListRecipesRequest {}
 export interface ListRecipesCommandOutput extends ListRecipesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of available recipes. The response provides the properties
  *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListRecipesCommand extends $Command
   .classBuilder<

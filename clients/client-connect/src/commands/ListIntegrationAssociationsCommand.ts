@@ -32,7 +32,6 @@ export interface ListIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides summary information about the Amazon Web Services resource associations for the
  *    specified Amazon Connect instance.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListIntegrationAssociationsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Managed Service for Apache Flink application. For information about creating a
  *           Managed Service for Apache Flink application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating an
  *         Application</a>.</p>
@@ -517,6 +516,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<

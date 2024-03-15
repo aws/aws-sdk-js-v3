@@ -31,7 +31,6 @@ export interface GetDevicesInPlacementCommandInput extends GetDevicesInPlacement
 export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an object enumerating the devices in a placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class GetDevicesInPlacementCommand extends $Command
   .classBuilder<

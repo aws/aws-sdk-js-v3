@@ -1260,7 +1260,6 @@ export interface GlobalAccelerator {
 }
 
 /**
- * @public
  * <fullname>Global Accelerator</fullname>
  *          <p>This is the <i>Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
  * 		    Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the
@@ -1309,6 +1308,7 @@ export interface GlobalAccelerator {
  * 			directed to healthy endpoints.</p>
  *          <p>For more information about understanding and using Global Accelerator, see the
  * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html">Global Accelerator Developer Guide</a>.</p>
+ * @public
  */
 export class GlobalAccelerator extends GlobalAcceleratorClient implements GlobalAccelerator {}
 createAggregatedClient(commands, GlobalAccelerator);

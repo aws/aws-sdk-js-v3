@@ -27,7 +27,6 @@ export interface CreateUploadCommandInput extends CreateUploadRequest {}
 export interface CreateUploadCommandOutput extends CreateUploadResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads an app or test scripts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface CreateUploadCommandOutput extends CreateUploadResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To create a new test package upload
  * ```javascript
  * // The following example creates a new Appium Python test package upload inside an existing project.

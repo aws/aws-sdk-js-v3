@@ -76,7 +76,6 @@ export interface SageMakerFeatureStoreRuntime {
 }
 
 /**
- * @public
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature
  *          Store. Use this API to put, delete, and retrieve (get) features from a feature
  *          store.</p>
@@ -104,6 +103,7 @@ export interface SageMakerFeatureStoreRuntime {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SageMakerFeatureStoreRuntime
   extends SageMakerFeatureStoreRuntimeClient

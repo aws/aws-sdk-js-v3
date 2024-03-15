@@ -27,9 +27,6 @@ export interface GetVoiceConnectorGroupCommandInput extends GetVoiceConnectorGro
 export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
- *
  * <p>
  * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
  *          <important>
@@ -98,6 +95,8 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  */
 export class GetVoiceConnectorGroupCommand extends $Command
   .classBuilder<

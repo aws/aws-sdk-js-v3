@@ -35,7 +35,6 @@ export interface StartConfigurationPolicyAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Associates a target account, organizational unit, or the root with a specified configuration. The target can be
  *             associated with a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can
@@ -98,6 +97,7 @@ export interface StartConfigurationPolicyAssociationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To associate a configuration with a target
  * ```javascript
  * // This operation associates a configuration policy or self-managed behavior with the target account, organizational unit, or the root.

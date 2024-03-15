@@ -27,7 +27,6 @@ export interface UpdateAccessEntryCommandInput extends UpdateAccessEntryRequest 
 export interface UpdateAccessEntryCommandOutput extends UpdateAccessEntryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an access entry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateAccessEntryCommandOutput extends UpdateAccessEntryRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class UpdateAccessEntryCommand extends $Command
   .classBuilder<

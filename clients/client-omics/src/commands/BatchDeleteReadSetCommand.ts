@@ -27,7 +27,6 @@ export interface BatchDeleteReadSetCommandInput extends BatchDeleteReadSetReques
 export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more read sets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface BatchDeleteReadSetCommandOutput extends BatchDeleteReadSetRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class BatchDeleteReadSetCommand extends $Command
   .classBuilder<

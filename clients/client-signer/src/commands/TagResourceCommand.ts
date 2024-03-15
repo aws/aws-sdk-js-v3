@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to a signing profile. Tags are labels that you can use to
  * 			identify and organize your AWS resources. Each tag consists of a key and an optional
  * 			value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
@@ -73,6 +72,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

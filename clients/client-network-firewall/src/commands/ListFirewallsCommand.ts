@@ -27,7 +27,6 @@ export interface ListFirewallsCommandInput extends ListFirewallsRequest {}
 export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the metadata for the firewalls that you have defined. If you provide VPC
  *          identifiers in your request, this returns only the firewalls for those VPCs.</p>
  *          <p>Depending on your setting for max results and the number of firewalls, a single call
@@ -91,6 +90,7 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class ListFirewallsCommand extends $Command
   .classBuilder<

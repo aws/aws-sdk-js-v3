@@ -36,7 +36,6 @@ export interface CreateCrossAccountAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a cross-account readiness authorization. This lets you authorize another account to work with Route 53 Application Recovery Controller, for example, to check the readiness status of resources in a separate account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateCrossAccountAuthorizationCommandOutput
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class CreateCrossAccountAuthorizationCommand extends $Command
   .classBuilder<

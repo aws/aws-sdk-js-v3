@@ -27,7 +27,6 @@ export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostIn
 export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple Monthly
  *    Calculator URL with a query string that describes the resources required to run the template.</p>
  * @example
@@ -65,6 +64,7 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class EstimateTemplateCostCommand extends $Command
   .classBuilder<

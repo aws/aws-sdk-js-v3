@@ -27,7 +27,6 @@ export interface DeleteConfigurationPolicyCommandInput extends DeleteConfigurati
 export interface DeleteConfigurationPolicyCommandOutput extends DeleteConfigurationPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Deletes a configuration policy. Only the Security Hub delegated administrator can invoke this operation
  *             from the home Region. For the deletion to succeed, you must first disassociate a configuration policy from target accounts,
@@ -80,6 +79,7 @@ export interface DeleteConfigurationPolicyCommandOutput extends DeleteConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To delete a configuration policy
  * ```javascript
  * // This operation deletes the specified configuration policy.

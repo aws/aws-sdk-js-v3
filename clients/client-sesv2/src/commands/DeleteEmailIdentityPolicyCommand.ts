@@ -27,7 +27,6 @@ export interface DeleteEmailIdentityPolicyCommandInput extends DeleteEmailIdenti
 export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified sending authorization policy for the given identity (an email
  *             address or a domain). This API returns successfully even if a policy with the specified
  *             name does not exist.</p>
@@ -74,6 +73,7 @@ export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdent
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class DeleteEmailIdentityPolicyCommand extends $Command
   .classBuilder<

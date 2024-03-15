@@ -32,7 +32,6 @@ export interface DescribeDirectConnectGatewaysCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeDirectConnectGatewaysCommand extends $Command
   .classBuilder<

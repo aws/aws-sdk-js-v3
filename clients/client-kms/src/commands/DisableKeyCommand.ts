@@ -27,7 +27,6 @@ export interface DisableKeyCommandInput extends DisableKeyRequest {}
 export interface DisableKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
  *       key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
  *          <p>For more information about how key state affects the use of a KMS key, see
@@ -106,6 +105,7 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To disable a KMS key
  * ```javascript
  * // The following example disables the specified KMS key.

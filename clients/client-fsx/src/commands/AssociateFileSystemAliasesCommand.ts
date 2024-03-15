@@ -27,7 +27,6 @@ export interface AssociateFileSystemAliasesCommandInput extends AssociateFileSys
 export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.
  *         A file system can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
  *         associate a DNS alias that is already associated with the file system, FSx takes no action on that alias in the request.
@@ -83,6 +82,7 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class AssociateFileSystemAliasesCommand extends $Command
   .classBuilder<

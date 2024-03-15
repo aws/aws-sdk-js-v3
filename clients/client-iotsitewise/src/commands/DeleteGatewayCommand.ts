@@ -27,7 +27,6 @@ export interface DeleteGatewayCommandInput extends DeleteGatewayRequest {}
 export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a gateway from IoT SiteWise. When you delete a gateway, some of the gateway's files remain
  *       in your gateway's file system.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DeleteGatewayCommand extends $Command
   .classBuilder<

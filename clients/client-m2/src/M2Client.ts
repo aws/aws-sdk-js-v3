@@ -381,12 +381,12 @@ export type M2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
 export interface M2ClientResolvedConfig extends M2ClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and
  *          modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for
  *          analyzing existing mainframe applications, developing or updating mainframe applications
  *          using COBOL or PL/I, and implementing an automated pipeline for continuous integration and
  *          continuous delivery (CI/CD) of the applications.</p>
+ * @public
  */
 export class M2Client extends __Client<
   __HttpHandlerOptions,

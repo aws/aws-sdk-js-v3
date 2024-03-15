@@ -27,7 +27,6 @@ export interface UpdateFolderPermissionsCommandInput extends UpdateFolderPermiss
 export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates permissions of a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermis
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateFolderPermissionsCommand extends $Command
   .classBuilder<

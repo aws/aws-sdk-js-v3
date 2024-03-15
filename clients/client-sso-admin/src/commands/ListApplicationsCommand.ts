@@ -27,7 +27,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all applications associated with the instance of IAM Identity Center. When listing applications for an instance
  *             in the management account, member accounts must use the <code>applicationAccount</code>
  *             parameter to filter the list to only applications created from that account.</p>
@@ -96,6 +95,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

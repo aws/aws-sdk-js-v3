@@ -27,7 +27,6 @@ export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
 export interface DeleteMessageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified message from the specified queue. To select the message to
  *             delete, use the <code>ReceiptHandle</code> of the message (<i>not</i> the
  *                 <code>MessageId</code> which you receive when you send the message). Amazon SQS can
@@ -110,6 +109,7 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class DeleteMessageCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface JoinDomainCommandInput extends JoinDomainInput {}
 export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
  *          file gateways that support the SMB file protocol.</p>
  *          <note>
@@ -82,6 +81,7 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class JoinDomainCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information, including performance data and capacity usage, which DataSync Discovery
  *       collects about a specific resource in your-premises storage system.</p>
  * @example
@@ -109,6 +108,7 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeStorageSystemResourceMetricsCommand extends $Command
   .classBuilder<

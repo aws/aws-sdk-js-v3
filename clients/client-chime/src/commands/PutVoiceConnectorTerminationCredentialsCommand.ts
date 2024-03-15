@@ -34,9 +34,6 @@ export interface PutVoiceConnectorTerminationCredentialsCommandInput
 export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
- *
  * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -96,6 +93,8 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
  */
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with an entities detection job. Use this operation to get
  *       the status of a detection job.</p>
  * @example
@@ -109,6 +108,7 @@ export interface DescribeEntitiesDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeEntitiesDetectionJobCommand extends $Command
   .classBuilder<

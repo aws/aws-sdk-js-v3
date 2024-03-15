@@ -32,7 +32,6 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
  *       can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
@@ -93,6 +92,7 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class AcceptEnvironmentAccountConnectionCommand extends $Command
   .classBuilder<

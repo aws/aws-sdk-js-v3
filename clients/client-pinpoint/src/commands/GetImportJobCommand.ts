@@ -27,7 +27,6 @@ export interface GetImportJobCommandInput extends GetImportJobRequest {}
 export interface GetImportJobCommandOutput extends GetImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of a specific import job for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetImportJobCommand extends $Command
   .classBuilder<

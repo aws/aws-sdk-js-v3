@@ -31,7 +31,6 @@ export interface DeleteFleetAdvisorCollectorCommandInput extends DeleteCollector
 export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Fleet Advisor collector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DeleteFleetAdvisorCollectorCommand extends $Command
   .classBuilder<

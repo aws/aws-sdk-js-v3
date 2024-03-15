@@ -31,7 +31,6 @@ export interface GetMaintenanceWindowTaskCommandInput extends GetMaintenanceWind
 export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of a maintenance window task.</p>
  *          <note>
  *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -159,6 +158,7 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetMaintenanceWindowTaskCommand extends $Command
   .classBuilder<

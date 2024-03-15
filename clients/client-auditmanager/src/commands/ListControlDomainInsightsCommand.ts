@@ -27,7 +27,6 @@ export interface ListControlDomainInsightsCommandInput extends ListControlDomain
 export interface ListControlDomainInsightsCommandOutput extends ListControlDomainInsightsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the latest analytics data for control domains across all of your active
  *          assessments. </p>
  *          <note>
@@ -91,6 +90,7 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListControlDomainInsightsCommand extends $Command
   .classBuilder<

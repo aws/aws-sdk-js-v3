@@ -27,9 +27,6 @@ export interface GetSipRuleCommandInput extends GetSipRuleRequest {}
 export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetSipRule in the Amazon Chime SDK Voice Namespace
- *
  * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target endpoints.</p>
  *          <important>
  *             <p>
@@ -100,6 +97,8 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetSipRule in the Amazon Chime SDK Voice Namespace
  */
 export class GetSipRuleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAutoSnapshotsCommandInput extends GetAutoSnapshotsRequest {}
 export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the available automatic snapshots for an instance or disk. For more information,
  *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
@@ -96,6 +95,7 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetAutoSnapshotsCommand extends $Command
   .classBuilder<

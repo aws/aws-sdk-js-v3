@@ -27,7 +27,6 @@ export interface CreateStageCommandInput extends CreateStageRequest {}
 export interface CreateStageCommandOutput extends CreateStageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new stage (and optionally participant tokens).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class CreateStageCommand extends $Command
   .classBuilder<

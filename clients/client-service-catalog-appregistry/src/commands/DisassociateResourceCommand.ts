@@ -31,7 +31,6 @@ export interface DisassociateResourceCommandInput extends DisassociateResourceRe
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Disassociates a resource from application.
  *        Both the resource and the application can be specified either by ID or name.
@@ -126,6 +125,7 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class DisassociateResourceCommand extends $Command
   .classBuilder<

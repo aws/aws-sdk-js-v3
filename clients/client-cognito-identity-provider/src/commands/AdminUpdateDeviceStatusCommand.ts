@@ -35,7 +35,6 @@ export interface AdminUpdateDeviceStatusCommandInput extends AdminUpdateDeviceSt
 export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the device status as an administrator.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -108,6 +107,7 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminUpdateDeviceStatusCommand extends $Command
   .classBuilder<

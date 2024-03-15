@@ -31,7 +31,6 @@ export interface DeleteElasticsearchDomainCommandInput extends DeleteElasticsear
 export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -200,6 +199,7 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DeleteElasticsearchDomainCommand extends $Command
   .classBuilder<

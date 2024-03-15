@@ -32,7 +32,6 @@ export interface ListAvailabilityConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListAvailabilityConfigurationsCommand extends $Command
   .classBuilder<

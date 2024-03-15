@@ -27,7 +27,6 @@ export interface StopFlowCommandInput extends StopFlowRequest {}
 export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deactivates the existing flow. For on-demand flows, this operation returns an
  *         <code>unsupportedOperationException</code> error message. For schedule and event-triggered
  *       flows, this operation deactivates the flow. </p>
@@ -73,6 +72,7 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class StopFlowCommand extends $Command
   .classBuilder<

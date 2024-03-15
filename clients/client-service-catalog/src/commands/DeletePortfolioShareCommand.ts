@@ -27,7 +27,6 @@ export interface DeletePortfolioShareCommandInput extends DeletePortfolioShareIn
 export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops sharing the specified portfolio with the specified account or organization
  *          node. Shares to an organization node can only be deleted by the management account of an
  *          organization or by a delegated administrator.</p>
@@ -77,6 +76,7 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeletePortfolioShareCommand extends $Command
   .classBuilder<

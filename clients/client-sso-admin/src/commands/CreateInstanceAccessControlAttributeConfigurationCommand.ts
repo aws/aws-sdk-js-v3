@@ -36,7 +36,6 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
  *             instance. You can also specify new attributes to add to your ABAC configuration during
  *             the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>IAM Identity Center User Guide</i>.</p>
@@ -104,6 +103,7 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class CreateInstanceAccessControlAttributeConfigurationCommand extends $Command
   .classBuilder<

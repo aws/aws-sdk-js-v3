@@ -27,7 +27,6 @@ export interface GetDevEndpointCommandInput extends GetDevEndpointRequest {}
 export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specified development endpoint.</p>
  *          <note>
  *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only
@@ -104,6 +103,7 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetDevEndpointCommand extends $Command
   .classBuilder<

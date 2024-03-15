@@ -32,7 +32,6 @@ export interface ListProvisionedModelThroughputsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List the provisioned capacities. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned throughput</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListProvisionedModelThroughputsCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class ListProvisionedModelThroughputsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RejectPortfolioShareCommandInput extends RejectPortfolioShareIn
 export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects an offer to share the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class RejectPortfolioShareCommand extends $Command
   .classBuilder<

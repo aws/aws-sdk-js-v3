@@ -31,7 +31,6 @@ export interface AssociateResourceCommandInput extends AssociateResourceRequest 
 export interface AssociateResourceCommandOutput extends AssociateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Associates a resource with an application.
  *        The resource can be specified by its ARN or name.
@@ -143,6 +142,7 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class AssociateResourceCommand extends $Command
   .classBuilder<

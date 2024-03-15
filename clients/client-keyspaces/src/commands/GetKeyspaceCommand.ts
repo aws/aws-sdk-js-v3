@@ -27,7 +27,6 @@ export interface GetKeyspaceCommandInput extends GetKeyspaceRequest {}
 export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the name and the Amazon Resource Name (ARN) of the specified table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class GetKeyspaceCommand extends $Command
   .classBuilder<

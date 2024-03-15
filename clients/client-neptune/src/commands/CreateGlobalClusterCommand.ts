@@ -27,7 +27,6 @@ export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMess
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Neptune global database spread across multiple Amazon Regions.
  *       The global database contains a single primary cluster with read-write
  *       capability, and read-only secondary clusters that receive data from the
@@ -99,6 +98,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CreateGlobalClusterCommand extends $Command
   .classBuilder<

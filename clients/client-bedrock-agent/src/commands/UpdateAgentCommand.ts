@@ -32,7 +32,6 @@ export interface UpdateAgentCommandInput extends UpdateAgentRequest {}
 export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates an existing Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -152,6 +151,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class UpdateAgentCommand extends $Command
   .classBuilder<

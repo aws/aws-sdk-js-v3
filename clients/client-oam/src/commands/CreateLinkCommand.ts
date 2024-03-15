@@ -27,7 +27,6 @@ export interface CreateLinkCommandInput extends CreateLinkInput {}
 export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a link between a source account and a sink that you have created in a monitoring account.</p>
  *          <p>Before you create a link, you must create a sink in the monitoring account and create a
  *             sink policy in that account. The sink policy must permit the source account to link to it. You
@@ -96,6 +95,7 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class CreateLinkCommand extends $Command
   .classBuilder<

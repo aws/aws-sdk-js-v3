@@ -27,7 +27,6 @@ export interface GetSetupHistoryCommandInput extends GetSetupHistoryRequest {}
 export interface GetSetupHistoryCommandOutput extends GetSetupHistoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information for five of the most recent <code>SetupInstanceHttps</code> requests that were ran on the target instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface GetSetupHistoryCommandOutput extends GetSetupHistoryResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetSetupHistoryCommand extends $Command
   .classBuilder<

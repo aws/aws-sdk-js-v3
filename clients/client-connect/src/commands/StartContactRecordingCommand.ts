@@ -27,7 +27,6 @@ export interface StartContactRecordingCommandInput extends StartContactRecording
 export interface StartContactRecordingCommandOutput extends StartContactRecordingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts recording the contact: </p>
  *          <ul>
  *             <li>
@@ -88,6 +87,7 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StartContactRecordingCommand extends $Command
   .classBuilder<

@@ -37,7 +37,6 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
  *    group.</p>
  * @example
@@ -112,6 +111,7 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command
   .classBuilder<

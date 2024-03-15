@@ -27,7 +27,6 @@ export interface StartTopicsDetectionJobCommandInput extends StartTopicsDetectio
 export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous topic detection job. Use the
  *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
  * @example
@@ -113,6 +112,7 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartTopicsDetectionJobCommand extends $Command
   .classBuilder<

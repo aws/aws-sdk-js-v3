@@ -27,7 +27,6 @@ export interface ListClusterNodesCommandInput extends ListClusterNodesRequest {}
 export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of instances (also called <i>nodes</i> interchangeably)
  *          in a SageMaker HyperPod cluster.</p>
  * @example
@@ -78,6 +77,7 @@ export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListClusterNodesCommand extends $Command
   .classBuilder<

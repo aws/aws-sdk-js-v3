@@ -27,7 +27,6 @@ export interface CreateResolverEndpointCommandInput extends CreateResolverEndpoi
 export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>
  *          <ul>
  *             <li>
@@ -134,6 +133,7 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class CreateResolverEndpointCommand extends $Command
   .classBuilder<

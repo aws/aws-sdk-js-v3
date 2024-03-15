@@ -27,7 +27,6 @@ export interface CreateRetrieverCommandInput extends CreateRetrieverRequest {}
 export interface CreateRetrieverCommandOutput extends CreateRetrieverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a retriever to your Amazon Q application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface CreateRetrieverCommandOutput extends CreateRetrieverResponse, _
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class CreateRetrieverCommand extends $Command
   .classBuilder<

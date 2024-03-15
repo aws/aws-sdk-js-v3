@@ -27,7 +27,6 @@ export interface DeleteRepositoryCommandInput extends DeleteRepositoryInput {}
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a repository. If a specified repository was already deleted, a null repository
  *             ID is returned.</p>
  *          <important>
@@ -86,6 +85,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class DeleteRepositoryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateHealthCheckCommandInput extends UpdateHealthCheckRequest 
 export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing health check. Note that some values can't be updated. </p>
  *          <p>For more information about updating health checks, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating,
  * 				Updating, and Deleting Health Checks</a> in the <i>Amazon Route 53
@@ -143,6 +142,7 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class UpdateHealthCheckCommand extends $Command
   .classBuilder<

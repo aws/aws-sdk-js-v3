@@ -27,7 +27,6 @@ export interface BatchPutFieldOptionsCommandInput extends BatchPutFieldOptionsRe
 export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and updates a set of field options for a single select field in a Cases
  *       domain.</p>
  * @example
@@ -91,6 +90,7 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class BatchPutFieldOptionsCommand extends $Command
   .classBuilder<

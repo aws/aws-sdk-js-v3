@@ -27,7 +27,6 @@ export interface PutInboundDmarcSettingsCommandInput extends PutInboundDmarcSett
 export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or disables a DMARC policy for a given organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface PutInboundDmarcSettingsCommandOutput extends PutInboundDmarcSet
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class PutInboundDmarcSettingsCommand extends $Command
   .classBuilder<

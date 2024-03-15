@@ -27,7 +27,6 @@ export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage 
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Forces a failover for a DB cluster.</p>
  *          <p>A failover for a DB cluster promotes one of the Read Replicas (read-only instances) in the
  *       DB cluster to be the primary instance (the cluster writer).</p>
@@ -167,6 +166,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class FailoverDBClusterCommand extends $Command
   .classBuilder<

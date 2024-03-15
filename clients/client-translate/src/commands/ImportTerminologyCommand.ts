@@ -31,7 +31,6 @@ export interface ImportTerminologyCommandInput extends ImportTerminologyRequest 
 export interface ImportTerminologyCommandOutput extends ImportTerminologyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a custom terminology, depending on whether one already exists for the
  *       given terminology name. Importing a terminology with the same name as an existing one will
  *       merge the terminologies based on the chosen merge strategy. The only supported merge strategy
@@ -129,6 +128,7 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class ImportTerminologyCommand extends $Command
   .classBuilder<

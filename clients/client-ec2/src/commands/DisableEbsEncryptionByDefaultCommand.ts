@@ -29,7 +29,6 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables EBS encryption by default for your account in the current Region.</p>
  *          <p>After you disable encryption by default, you can still create encrypted volumes by
  *       enabling encryption when you create each volume.</p>
@@ -63,6 +62,7 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableEbsEncryptionByDefaultCommand extends $Command
   .classBuilder<

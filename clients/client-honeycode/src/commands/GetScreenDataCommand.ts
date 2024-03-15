@@ -32,7 +32,6 @@ export interface GetScreenDataCommandInput extends GetScreenDataRequest {}
 export interface GetScreenDataCommandOutput extends GetScreenDataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The GetScreenData API allows retrieval of data from a screen in a Honeycode app.
  *             The API allows setting local variables in the screen to filter, sort or otherwise affect what will be
@@ -122,6 +121,7 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class GetScreenDataCommand extends $Command
   .classBuilder<

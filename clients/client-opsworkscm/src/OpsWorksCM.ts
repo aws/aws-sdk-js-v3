@@ -383,7 +383,6 @@ export interface OpsWorksCM {
 }
 
 /**
- * @public
  * <fullname>AWS OpsWorks CM</fullname>
  *          <p>AWS OpsWorks for configuration management (CM) is a service that runs and manages
  *       configuration management servers. You can use AWS OpsWorks CM to create and manage AWS
@@ -472,6 +471,7 @@ export interface OpsWorksCM {
  *             <b>Throttling limits</b>
  *          </p>
  *          <p>All API operations allow for five requests per second with a burst of 10 requests per second.</p>
+ * @public
  */
 export class OpsWorksCM extends OpsWorksCMClient implements OpsWorksCM {}
 createAggregatedClient(commands, OpsWorksCM);

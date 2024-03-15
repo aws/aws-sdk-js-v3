@@ -32,7 +32,6 @@ export interface DisassociateAgentKnowledgeBaseCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Disassociate an existing Knowledge Base from an Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DisassociateAgentKnowledgeBaseCommandOutput
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class DisassociateAgentKnowledgeBaseCommand extends $Command
   .classBuilder<

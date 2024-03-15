@@ -27,7 +27,6 @@ export interface TestFailoverCommandInput extends TestFailoverMessage {}
 export interface TestFailoverCommandOutput extends TestFailoverResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Represents the input of a <code>TestFailover</code> operation which test automatic
  *             failover on a specified node group (called shard in the console) in a replication group
  *             (called cluster in the console).</p>
@@ -281,6 +280,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class TestFailoverCommand extends $Command
   .classBuilder<

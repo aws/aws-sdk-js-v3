@@ -27,7 +27,6 @@ export interface DisableAWSServiceAccessCommandInput extends DisableAWSServiceAc
 export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the integration of an Amazon Web Services service (the service that is specified by
  *                 <code>ServicePrincipal</code>) with Organizations. When you disable integration, the
  *             specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
@@ -436,6 +435,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class DisableAWSServiceAccessCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface AssociateAccessGrantsIdentityCenterCommandInput extends Associa
 export interface AssociateAccessGrantsIdentityCenterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance. Use this action if you want to create access grants for users or groups from your corporate identity directory. First, you must add your corporate identity directory to Amazon Web Services IAM Identity Center. Then, you can associate this IAM Identity Center instance with your S3 Access Grants instance.</p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -69,6 +68,7 @@ export interface AssociateAccessGrantsIdentityCenterCommandOutput extends __Meta
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class AssociateAccessGrantsIdentityCenterCommand extends $Command
   .classBuilder<

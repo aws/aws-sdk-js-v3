@@ -27,7 +27,6 @@ export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadRe
 export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation aborts a multipart upload. After a multipart upload is aborted, no
  *          additional parts can be uploaded using that upload ID. The storage consumed by any
  *          previously uploaded parts will be freed. However, if any part uploads are currently in
@@ -132,6 +131,7 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To abort a multipart upload
  * ```javascript
  * // The following example aborts a multipart upload.

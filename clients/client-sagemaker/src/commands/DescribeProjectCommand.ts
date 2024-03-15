@@ -27,7 +27,6 @@ export interface DescribeProjectCommandInput extends DescribeProjectInput {}
 export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the details of a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeProjectCommand extends $Command
   .classBuilder<

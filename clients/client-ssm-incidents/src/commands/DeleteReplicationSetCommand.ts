@@ -27,7 +27,6 @@ export interface DeleteReplicationSetCommandInput extends DeleteReplicationSetIn
 export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all Regions in your replication set. Deleting the replication set deletes all
  *       Incident Manager data.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class DeleteReplicationSetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeUserHierarchyGroupCommandInput extends DescribeUserHier
 export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified hierarchy group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeUserHierarchyGroupCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface GetAccessPointPolicyCommandInput extends GetAccessPointPolicyRe
 export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -73,6 +72,7 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetAccessPointPolicyCommand extends $Command
   .classBuilder<

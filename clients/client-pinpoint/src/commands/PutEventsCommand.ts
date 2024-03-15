@@ -27,7 +27,6 @@ export interface PutEventsCommandInput extends PutEventsRequest {}
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -162,6 +161,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class PutEventsCommand extends $Command
   .classBuilder<

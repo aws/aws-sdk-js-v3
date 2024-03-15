@@ -27,7 +27,6 @@ export interface ExportNotebookCommandInput extends ExportNotebookInput {}
 export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports the specified notebook and its metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ExportNotebookCommand extends $Command
   .classBuilder<

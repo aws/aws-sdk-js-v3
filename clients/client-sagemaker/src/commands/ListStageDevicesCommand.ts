@@ -27,7 +27,6 @@ export interface ListStageDevicesCommandInput extends ListStageDevicesRequest {}
 export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists devices allocated to the stage, containing detailed device information and
  *             deployment status.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListStageDevicesCommand extends $Command
   .classBuilder<

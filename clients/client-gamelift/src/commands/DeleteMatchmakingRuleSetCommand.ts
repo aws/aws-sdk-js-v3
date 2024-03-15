@@ -27,7 +27,6 @@ export interface DeleteMatchmakingRuleSetCommandInput extends DeleteMatchmakingR
 export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set
  *             name. Rule sets cannot be deleted if they are currently being used by a matchmaking
  *             configuration. </p>
@@ -85,6 +84,7 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteMatchmakingRuleSetCommand extends $Command
   .classBuilder<

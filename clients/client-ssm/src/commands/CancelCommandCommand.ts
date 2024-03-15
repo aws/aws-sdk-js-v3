@@ -27,7 +27,6 @@ export interface CancelCommandCommandInput extends CancelCommandRequest {}
 export interface CancelCommandCommandOutput extends CancelCommandResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
  *    command will be terminated and the underlying process stopped.</p>
  * @example
@@ -86,6 +85,7 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CancelCommandCommand extends $Command
   .classBuilder<

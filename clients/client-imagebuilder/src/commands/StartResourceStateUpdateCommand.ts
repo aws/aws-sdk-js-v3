@@ -27,7 +27,6 @@ export interface StartResourceStateUpdateCommandInput extends StartResourceState
 export interface StartResourceStateUpdateCommandOutput extends StartResourceStateUpdateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Begin asynchronous resource state update for lifecycle changes to the
  * 			specified image resources.</p>
  * @example
@@ -118,6 +117,7 @@ export interface StartResourceStateUpdateCommandOutput extends StartResourceStat
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class StartResourceStateUpdateCommand extends $Command
   .classBuilder<

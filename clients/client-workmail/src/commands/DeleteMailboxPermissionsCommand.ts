@@ -27,7 +27,6 @@ export interface DeleteMailboxPermissionsCommandInput extends DeleteMailboxPermi
 export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes permissions granted to a member (user or group).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteMailboxPermissionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateEntitlementCommandInput extends UpdateEntitlementRequest 
 export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class UpdateEntitlementCommand extends $Command
   .classBuilder<

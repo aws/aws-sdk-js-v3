@@ -27,7 +27,6 @@ export interface ListManagedSchemaArnsCommandInput extends ListManagedSchemaArns
 export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArnsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListManagedSchemaArnsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDBParameterGroupCommandInput extends DeleteDBParameterGro
 export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB parameter group
  * ```javascript
  * // The following example deletes a DB parameter group.

@@ -27,7 +27,6 @@ export interface DescribeDBSubnetGroupsCommandInput extends DescribeDBSubnetGrou
 export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
  *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the descriptions of the specified <code>DBSubnetGroup</code>.</p>
  * @example
@@ -88,6 +87,7 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeDBSubnetGroupsCommand extends $Command
   .classBuilder<

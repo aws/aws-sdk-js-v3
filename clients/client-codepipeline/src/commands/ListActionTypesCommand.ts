@@ -27,7 +27,6 @@ export interface ListActionTypesCommandInput extends ListActionTypesInput {}
 export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a summary of all CodePipeline action types associated with your
  *             account.</p>
  * @example
@@ -100,6 +99,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class ListActionTypesCommand extends $Command
   .classBuilder<

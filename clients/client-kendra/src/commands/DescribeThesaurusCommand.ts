@@ -27,7 +27,6 @@ export interface DescribeThesaurusCommandInput extends DescribeThesaurusRequest 
 export interface DescribeThesaurusCommandOutput extends DescribeThesaurusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an existing Amazon Kendra thesaurus.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeThesaurusCommand extends $Command
   .classBuilder<

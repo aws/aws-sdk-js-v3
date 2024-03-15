@@ -27,7 +27,6 @@ export interface DescribeBrokerCommandInput extends DescribeBrokerRequest {}
 export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified broker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -188,6 +187,7 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class DescribeBrokerCommand extends $Command
   .classBuilder<

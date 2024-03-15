@@ -27,7 +27,6 @@ export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRe
 export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the instance profiles that have the specified path prefix. If there are none,
  *             the operation returns an empty list. For more information about instance profiles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
@@ -112,6 +111,7 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListInstanceProfilesCommand extends $Command
   .classBuilder<

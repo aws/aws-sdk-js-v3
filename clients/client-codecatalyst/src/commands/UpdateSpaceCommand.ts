@@ -27,7 +27,6 @@ export interface UpdateSpaceCommandInput extends UpdateSpaceRequest {}
 export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes one or more values for a space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class UpdateSpaceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified member accounts from the behavior graph. The removed accounts no
  *          longer contribute data to the behavior graph. This operation can only be called by the
  *          administrator account for the behavior graph.</p>
@@ -94,6 +93,7 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class DeleteMembersCommand extends $Command
   .classBuilder<

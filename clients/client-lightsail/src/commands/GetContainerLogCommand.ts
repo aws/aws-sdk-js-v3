@@ -27,7 +27,6 @@ export interface GetContainerLogCommandInput extends GetContainerLogRequest {}
 export interface GetContainerLogCommandOutput extends GetContainerLogResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the log events of a container of your Amazon Lightsail container service.</p>
  *          <p>If your container service has more than one node (i.e., a scale greater than 1), then the
  *       log events that are returned for the specified container are merged from all nodes on your
@@ -98,6 +97,7 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetContainerLogCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateHsmConfigurationCommandInput extends CreateHsmConfigurati
 export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an HSM configuration that contains the information required by an Amazon Redshift
  *             cluster to store and use database encryption keys in a Hardware Security Module (HSM).
  *             After creating the HSM configuration, you can specify it as a parameter when creating a
@@ -99,6 +98,7 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateHsmConfigurationCommand extends $Command
   .classBuilder<

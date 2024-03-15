@@ -27,7 +27,6 @@ export interface DescribeConfigRulesCommandInput extends DescribeConfigRulesRequ
 export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about your Config rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConfigRulesCommand extends $Command
   .classBuilder<

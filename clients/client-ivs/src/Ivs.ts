@@ -714,7 +714,6 @@ export interface Ivs {
 }
 
 /**
- * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -1090,6 +1089,7 @@ export interface Ivs {
  *                   <a>ListTagsForResource</a> — Gets information about Amazon Web Services tags for the specified ARN.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Ivs extends IvsClient implements Ivs {}
 createAggregatedClient(commands, Ivs);

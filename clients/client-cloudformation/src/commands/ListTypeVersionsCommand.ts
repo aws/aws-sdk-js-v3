@@ -27,7 +27,6 @@ export interface ListTypeVersionsCommandInput extends ListTypeVersionsInput {}
 export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summary information about the versions of an extension.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListTypeVersionsCommand extends $Command
   .classBuilder<

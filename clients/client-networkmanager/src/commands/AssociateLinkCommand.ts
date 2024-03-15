@@ -27,7 +27,6 @@ export interface AssociateLinkCommandInput extends AssociateLinkRequest {}
 export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class AssociateLinkCommand extends $Command
   .classBuilder<

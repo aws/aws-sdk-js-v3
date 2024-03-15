@@ -36,7 +36,6 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified response headers policy.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -90,6 +89,7 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command
   .classBuilder<

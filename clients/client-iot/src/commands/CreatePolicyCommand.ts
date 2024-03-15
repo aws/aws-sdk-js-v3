@@ -27,7 +27,6 @@ export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IoT policy.</p>
  *          <p>The created policy is the default version for the policy. This operation creates a
  *          policy version with a version identifier of <b>1</b> and sets
@@ -90,6 +89,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreatePolicyCommand extends $Command
   .classBuilder<

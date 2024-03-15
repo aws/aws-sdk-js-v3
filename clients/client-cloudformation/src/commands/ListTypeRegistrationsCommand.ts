@@ -27,7 +27,6 @@ export interface ListTypeRegistrationsCommandInput extends ListTypeRegistrations
 export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistrationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of registration tokens for the specified extension(s).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListTypeRegistrationsCommand extends $Command
   .classBuilder<

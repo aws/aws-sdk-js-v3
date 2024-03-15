@@ -27,7 +27,6 @@ export interface ListLegalHoldsCommandInput extends ListLegalHoldsInput {}
 export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action returns metadata about active and previous legal holds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __Met
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListLegalHoldsCommand extends $Command
   .classBuilder<

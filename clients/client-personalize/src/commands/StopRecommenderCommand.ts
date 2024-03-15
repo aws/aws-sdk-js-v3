@@ -27,7 +27,6 @@ export interface StopRecommenderCommandInput extends StopRecommenderRequest {}
 export interface StopRecommenderCommandOutput extends StopRecommenderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class StopRecommenderCommand extends $Command
   .classBuilder<

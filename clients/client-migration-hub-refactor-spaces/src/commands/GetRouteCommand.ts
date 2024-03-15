@@ -31,7 +31,6 @@ export interface GetRouteCommandInput extends GetRouteRequest {}
 export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class GetRouteCommand extends $Command
   .classBuilder<

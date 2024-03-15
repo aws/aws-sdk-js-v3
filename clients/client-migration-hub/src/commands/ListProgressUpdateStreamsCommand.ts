@@ -27,7 +27,6 @@ export interface ListProgressUpdateStreamsCommandInput extends ListProgressUpdat
 export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpdateStreamsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists progress update streams associated with the user account making this call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class ListProgressUpdateStreamsCommand extends $Command
   .classBuilder<

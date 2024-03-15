@@ -27,7 +27,6 @@ export interface ListParticipantsCommandInput extends ListParticipantsRequest {}
 export interface ListParticipantsCommandOutput extends ListParticipantsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all participants in a specified stage session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class ListParticipantsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeInstanceHealthCommandInput extends DescribeEndPointStat
 export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointStateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To describe the health of the instances for a load balancer
  * ```javascript
  * // This example describes the health of the instances for the specified load balancer.

@@ -38,7 +38,6 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime SDK Voice
  *          Connector group.</p>
  * @example
@@ -97,6 +96,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Command
   .classBuilder<

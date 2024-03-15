@@ -423,7 +423,6 @@ export type CodePipelineClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface CodePipelineClientResolvedConfig extends CodePipelineClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>CodePipeline</fullname>
  *          <p>
  *             <b>Overview</b>
@@ -618,6 +617,7 @@ export interface CodePipelineClientResolvedConfig extends CodePipelineClientReso
  *                     success.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CodePipelineClient extends __Client<
   __HttpHandlerOptions,

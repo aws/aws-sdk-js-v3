@@ -36,7 +36,6 @@ export interface TestAvailabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs a test on an availability provider to ensure that access is allowed. For EWS, it verifies the provided credentials can be used to successfully log in. For Lambda, it verifies that the Lambda function can be invoked and that the resource access
  *          policy was configured to deny anonymous access. An anonymous invocation is one done without providing either a <code>SourceArn</code> or <code>SourceAccount</code> header.</p>
  *          <note>
@@ -95,6 +94,7 @@ export interface TestAvailabilityConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class TestAvailabilityConfigurationCommand extends $Command
   .classBuilder<

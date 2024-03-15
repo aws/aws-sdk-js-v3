@@ -39,7 +39,6 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -275,6 +274,7 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeElasticsearchDomainConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeRulesPackagesCommandInput extends DescribeRulesPackages
 export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the rules packages that are specified by the ARNs of the rules
  *          packages.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Describe rules packages
  * ```javascript
  * // Describes the rules packages that are specified by the ARNs of the rules packages.

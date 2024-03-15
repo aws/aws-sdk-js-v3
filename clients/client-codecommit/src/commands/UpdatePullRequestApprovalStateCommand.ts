@@ -30,7 +30,6 @@ export interface UpdatePullRequestApprovalStateCommandInput extends UpdatePullRe
 export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdatePullRequestApprovalStateCommand extends $Command
   .classBuilder<

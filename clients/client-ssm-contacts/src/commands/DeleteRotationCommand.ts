@@ -27,7 +27,6 @@ export interface DeleteRotationCommandInput extends DeleteRotationRequest {}
 export interface DeleteRotationCommandOutput extends DeleteRotationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a rotation from the system. If a rotation belongs to more than one on-call
  *          schedule, this operation deletes it from all of them.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteRotationCommandOutput extends DeleteRotationResult, __Met
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class DeleteRotationCommand extends $Command
   .classBuilder<

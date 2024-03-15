@@ -27,7 +27,6 @@ export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequ
 export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetInvitationsCountCommand extends $Command
   .classBuilder<

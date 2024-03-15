@@ -27,7 +27,6 @@ export interface ModifyUserCommandInput extends ModifyUserMessage {}
 export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes user password(s) and/or access string.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class ModifyUserCommand extends $Command
   .classBuilder<

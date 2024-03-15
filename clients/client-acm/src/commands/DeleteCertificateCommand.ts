@@ -27,7 +27,6 @@ export interface DeleteCertificateCommandInput extends DeleteCertificateRequest 
 export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a certificate and its associated private key. If this action succeeds, the
  *       certificate no longer appears in the list that can be displayed by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a> action. The certificate will not be available for use by Amazon Web Services
  *       services integrated with ACM. </p>
@@ -81,6 +80,7 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class DeleteCertificateCommand extends $Command
   .classBuilder<

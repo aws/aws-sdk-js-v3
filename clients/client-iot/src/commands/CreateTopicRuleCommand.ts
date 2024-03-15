@@ -27,7 +27,6 @@ export interface CreateTopicRuleCommandInput extends CreateTopicRuleRequest {}
 export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
  *          permission to create rules will be able to access data processed by the rule.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateTopicRule</a> action.</p>
@@ -495,6 +494,7 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateTopicRuleCommand extends $Command
   .classBuilder<

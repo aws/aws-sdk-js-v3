@@ -27,7 +27,6 @@ export interface ListImagesInRecycleBinCommandInput extends ListImagesInRecycleB
 export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycleBinResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information,
  *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
  *         Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -71,6 +70,7 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ListImagesInRecycleBinCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteContainerPolicyCommandInput extends DeleteContainerPolicy
 export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the access policy that is associated with the specified container.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class DeleteContainerPolicyCommand extends $Command
   .classBuilder<

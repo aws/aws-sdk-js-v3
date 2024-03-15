@@ -27,7 +27,6 @@ export interface SendChatIntegrationEventCommandInput extends SendChatIntegratio
 export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrationEventResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Processes chat integration events from Amazon Web Services or external integrations to
  *     Amazon Connect. A chat integration event includes:</p>
  *          <ul>
@@ -107,6 +106,7 @@ export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrati
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SendChatIntegrationEventCommand extends $Command
   .classBuilder<

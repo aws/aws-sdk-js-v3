@@ -27,7 +27,6 @@ export interface CreateSecretCommandInput extends CreateSecretRequest {}
 export interface CreateSecretCommandOutput extends CreateSecretResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new secret. A <i>secret</i> can be a password, a set of
  *       credentials such as a user name and password, an OAuth token, or other secret information
  *       that you store in an encrypted form in Secrets Manager. The secret also
@@ -166,6 +165,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To create a basic secret
  * ```javascript
  * // The following example shows how to create a secret. The credentials stored in the encrypted secret value are retrieved from a file on disk named mycreds.json.

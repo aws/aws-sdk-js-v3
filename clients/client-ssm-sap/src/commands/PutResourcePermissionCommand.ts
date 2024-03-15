@@ -27,7 +27,6 @@ export interface PutResourcePermissionCommandInput extends PutResourcePermission
 export interface PutResourcePermissionCommandOutput extends PutResourcePermissionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds permissions to the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface PutResourcePermissionCommandOutput extends PutResourcePermissio
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class PutResourcePermissionCommand extends $Command
   .classBuilder<

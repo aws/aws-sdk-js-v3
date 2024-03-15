@@ -27,7 +27,6 @@ export interface GetCostCategoriesCommandInput extends GetCostCategoriesRequest 
 export interface GetCostCategoriesCommandOutput extends GetCostCategoriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
  *          <note>
  *             <p>If some Cost Category names and values are not associated with any cost, they will not
@@ -163,6 +162,7 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetCostCategoriesCommand extends $Command
   .classBuilder<

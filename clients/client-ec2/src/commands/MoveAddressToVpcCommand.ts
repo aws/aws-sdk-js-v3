@@ -27,7 +27,6 @@ export interface MoveAddressToVpcCommandInput extends MoveAddressToVpcRequest {}
 export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
@@ -65,6 +64,7 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To move an address to EC2-VPC
  * ```javascript
  * // This example moves the specified Elastic IP address to the EC2-VPC platform.

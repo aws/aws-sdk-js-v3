@@ -24,21 +24,21 @@ export const AccessDeniedErrorCode = {
 export type AccessDeniedErrorCode = (typeof AccessDeniedErrorCode)[keyof typeof AccessDeniedErrorCode];
 
 /**
- * @public
  * <p>You do not have required permissions to access the requested resource.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Code that indicates the type of error that is generated.</p>
+   * @public
    */
   errorCode: AccessDeniedErrorCode | undefined;
 
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -58,20 +58,20 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a>
  *          actions.</p>
+ * @public
  */
 export interface Attribute {
   /**
-   * @public
    * <p>The attribute key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The value assigned to the attribute key.</p>
+   * @public
    */
   value?: string;
 }
@@ -81,14 +81,14 @@ export interface Attribute {
  */
 export interface AddAttributesToFindingsRequest {
   /**
-   * @public
    * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
+   * @public
    */
   findingArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The array of attributes that you want to assign to specified findings.</p>
+   * @public
    */
   attributes: Attribute[] | undefined;
 }
@@ -112,20 +112,20 @@ export const FailedItemErrorCode = {
 export type FailedItemErrorCode = (typeof FailedItemErrorCode)[keyof typeof FailedItemErrorCode];
 
 /**
- * @public
  * <p>Includes details about the failed items.</p>
+ * @public
  */
 export interface FailedItemDetails {
   /**
-   * @public
    * <p>The status code of a failed item.</p>
+   * @public
    */
   failureCode: FailedItemErrorCode | undefined;
 
   /**
-   * @public
    * <p>Indicates whether you can immediately retry a request for this item for a specified
    *          resource.</p>
+   * @public
    */
   retryable: boolean | undefined;
 }
@@ -135,23 +135,23 @@ export interface FailedItemDetails {
  */
 export interface AddAttributesToFindingsResponse {
   /**
-   * @public
    * <p>Attribute details that cannot be described. An error code is provided for each failed
    *          item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 /**
- * @public
  * <p>Internal server error.</p>
+ * @public
  */
 export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -236,22 +236,22 @@ export const InvalidInputErrorCode = {
 export type InvalidInputErrorCode = (typeof InvalidInputErrorCode)[keyof typeof InvalidInputErrorCode];
 
 /**
- * @public
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
+ * @public
  */
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Code that indicates the type of error that is generated.</p>
+   * @public
    */
   errorCode: InvalidInputErrorCode | undefined;
 
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -291,22 +291,22 @@ export const NoSuchEntityErrorCode = {
 export type NoSuchEntityErrorCode = (typeof NoSuchEntityErrorCode)[keyof typeof NoSuchEntityErrorCode];
 
 /**
- * @public
  * <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
+ * @public
  */
 export class NoSuchEntityException extends __BaseException {
   readonly name: "NoSuchEntityException" = "NoSuchEntityException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Code that indicates the type of error that is generated.</p>
+   * @public
    */
   errorCode: NoSuchEntityErrorCode | undefined;
 
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -326,15 +326,15 @@ export class NoSuchEntityException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The serice is temporary unavailable.</p>
+ * @public
  */
 export class ServiceTemporarilyUnavailableException extends __BaseException {
   readonly name: "ServiceTemporarilyUnavailableException" = "ServiceTemporarilyUnavailableException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>You can wait and then retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -353,22 +353,22 @@ export class ServiceTemporarilyUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Used in the exception error that is thrown if you start an assessment run for an
  *          assessment target that includes an EC2 instance that is already participating in another
  *          started assessment run.</p>
+ * @public
  */
 export interface AgentAlreadyRunningAssessment {
   /**
-   * @public
    * <p>ID of the agent that is running on an EC2 instance that is already participating in
    *          another started assessment run.</p>
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the assessment run that has already been started.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 }
@@ -407,105 +407,105 @@ export const AgentHealth = {
 export type AgentHealth = (typeof AgentHealth)[keyof typeof AgentHealth];
 
 /**
- * @public
  * <p>Contains information about an Amazon Inspector agent. This data type is used as a
  *          request parameter in the <a>ListAssessmentRunAgents</a> action.</p>
+ * @public
  */
 export interface AgentFilter {
   /**
-   * @public
    * <p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>
+   * @public
    */
   agentHealths: AgentHealth[] | undefined;
 
   /**
-   * @public
    * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
+   * @public
    */
   agentHealthCodes: AgentHealthCode[] | undefined;
 }
 
 /**
- * @public
  * <p>Used as a response element in the <a>PreviewAgents</a> action.</p>
+ * @public
  */
 export interface AgentPreview {
   /**
-   * @public
    * <p>The hostname of the EC2 instance on which the Amazon Inspector Agent is
    *          installed.</p>
+   * @public
    */
   hostname?: string;
 
   /**
-   * @public
    * <p>The ID of the EC2 instance where the agent is installed.</p>
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * <p>The Auto Scaling group for the EC2 instance where the agent is installed.</p>
+   * @public
    */
   autoScalingGroup?: string;
 
   /**
-   * @public
    * <p>The health status of the Amazon Inspector Agent.</p>
+   * @public
    */
   agentHealth?: AgentHealth;
 
   /**
-   * @public
    * <p>The version of the Amazon Inspector Agent.</p>
+   * @public
    */
   agentVersion?: string;
 
   /**
-   * @public
    * <p>The operating system running on the EC2 instance on which the Amazon Inspector Agent
    *          is installed.</p>
+   * @public
    */
   operatingSystem?: string;
 
   /**
-   * @public
    * <p>The kernel version of the operating system running on the EC2 instance on which the
    *          Amazon Inspector Agent is installed.</p>
+   * @public
    */
   kernelVersion?: string;
 
   /**
-   * @public
    * <p>The IP address of the EC2 instance on which the Amazon Inspector Agent is
    *          installed.</p>
+   * @public
    */
   ipv4Address?: string;
 }
 
 /**
- * @public
  * <p>You started an assessment run, but one of the instances is already participating in
  *          another assessment run.</p>
+ * @public
  */
 export class AgentsAlreadyRunningAssessmentException extends __BaseException {
   readonly name: "AgentsAlreadyRunningAssessmentException" = "AgentsAlreadyRunningAssessmentException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p></p>
+   * @public
    */
   agents: AgentAlreadyRunningAssessment[] | undefined;
 
   /**
-   * @public
    * <p></p>
+   * @public
    */
   agentsTruncated: boolean | undefined;
 
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -577,45 +577,45 @@ export type AssessmentRunNotificationSnsStatusCode =
   (typeof AssessmentRunNotificationSnsStatusCode)[keyof typeof AssessmentRunNotificationSnsStatusCode];
 
 /**
- * @public
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
  *          type.</p>
+ * @public
  */
 export interface AssessmentRunNotification {
   /**
-   * @public
    * <p>The date of the notification.</p>
+   * @public
    */
   date: Date | undefined;
 
   /**
-   * @public
    * <p>The event for which a notification is sent.</p>
+   * @public
    */
   event: InspectorEvent | undefined;
 
   /**
-   * @public
    * <p>The message included in the notification.</p>
+   * @public
    */
   message?: string;
 
   /**
-   * @public
    * <p>The Boolean value that specifies whether the notification represents an
    *          error.</p>
+   * @public
    */
   error: boolean | undefined;
 
   /**
-   * @public
    * <p>The SNS topic to which the SNS notification is sent.</p>
+   * @public
    */
   snsTopicArn?: string;
 
   /**
-   * @public
    * <p>The status code of the SNS notification.</p>
+   * @public
    */
   snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode;
 }
@@ -646,330 +646,330 @@ export const AssessmentRunState = {
 export type AssessmentRunState = (typeof AssessmentRunState)[keyof typeof AssessmentRunState];
 
 /**
- * @public
  * <p>Used as one of the elements of the <a>AssessmentRun</a> data
  *          type.</p>
+ * @public
  */
 export interface AssessmentRunStateChange {
   /**
-   * @public
    * <p>The last time the assessment run state changed.</p>
+   * @public
    */
   stateChangedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The assessment run state.</p>
+   * @public
    */
   state: AssessmentRunState | undefined;
 }
 
 /**
- * @public
  * <p>A snapshot of an Amazon Inspector assessment run that contains the findings of the
  *          assessment run .</p>
  *          <p>Used as the response element in the <a>DescribeAssessmentRuns</a>
  *          action.</p>
+ * @public
  */
 export interface AssessmentRun {
   /**
-   * @public
    * <p>The ARN of the assessment run.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The auto-generated name for the assessment run.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the assessment template that is associated with the assessment
    *          run.</p>
+   * @public
    */
   assessmentTemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>The state of the assessment run.</p>
+   * @public
    */
   state: AssessmentRunState | undefined;
 
   /**
-   * @public
    * <p>The duration of the assessment run.</p>
+   * @public
    */
   durationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The rules packages selected for the assessment run.</p>
+   * @public
    */
   rulesPackageArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The user-defined attributes that are assigned to every generated finding.</p>
+   * @public
    */
   userAttributesForFindings: Attribute[] | undefined;
 
   /**
-   * @public
    * <p>The time when <a>StartAssessmentRun</a> was called.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when <a>StartAssessmentRun</a> was called.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>The assessment run completion time that corresponds to the rules packages evaluation
    *          completion time or failure.</p>
+   * @public
    */
   completedAt?: Date;
 
   /**
-   * @public
    * <p>The last time when the assessment run's state changed.</p>
+   * @public
    */
   stateChangedAt: Date | undefined;
 
   /**
-   * @public
    * <p>A Boolean value (true or false) that specifies whether the process of collecting data
    *          from the agents is completed.</p>
+   * @public
    */
   dataCollected: boolean | undefined;
 
   /**
-   * @public
    * <p>A list of the assessment run state changes.</p>
+   * @public
    */
   stateChanges: AssessmentRunStateChange[] | undefined;
 
   /**
-   * @public
    * <p>A list of notifications for the event subscriptions. A notification about a
    *          particular generated finding is added to this list only once.</p>
+   * @public
    */
   notifications: AssessmentRunNotification[] | undefined;
 
   /**
-   * @public
    * <p>Provides a total count of generated findings per severity.</p>
+   * @public
    */
   findingCounts: Partial<Record<Severity, number>> | undefined;
 }
 
 /**
- * @public
  * <p>The metadata about the Amazon Inspector application data metrics collected by the
  *          agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.</p>
+ * @public
  */
 export interface TelemetryMetadata {
   /**
-   * @public
    * <p>A specific type of behavioral data that is collected by the agent.</p>
+   * @public
    */
   messageType: string | undefined;
 
   /**
-   * @public
    * <p>The count of messages that the agent sends to the Amazon Inspector service.</p>
+   * @public
    */
   count: number | undefined;
 
   /**
-   * @public
    * <p>The data size of messages that the agent sends to the Amazon Inspector
    *          service.</p>
+   * @public
    */
   dataSize?: number;
 }
 
 /**
- * @public
  * <p>Contains information about an Amazon Inspector agent. This data type is used as a
  *          response element in the <a>ListAssessmentRunAgents</a> action.</p>
+ * @public
  */
 export interface AssessmentRunAgent {
   /**
-   * @public
    * <p>The AWS account of the EC2 instance where the agent is installed.</p>
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the assessment run that is associated with the agent.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 
   /**
-   * @public
    * <p>The current health state of the agent.</p>
+   * @public
    */
   agentHealth: AgentHealth | undefined;
 
   /**
-   * @public
    * <p>The detailed health state of the agent.</p>
+   * @public
    */
   agentHealthCode: AgentHealthCode | undefined;
 
   /**
-   * @public
    * <p>The description for the agent health code.</p>
+   * @public
    */
   agentHealthDetails?: string;
 
   /**
-   * @public
    * <p>The Auto Scaling group of the EC2 instance that is specified by the agent
    *          ID.</p>
+   * @public
    */
   autoScalingGroup?: string;
 
   /**
-   * @public
    * <p>The Amazon Inspector application data metrics that are collected by the
    *          agent.</p>
+   * @public
    */
   telemetryMetadata: TelemetryMetadata[] | undefined;
 }
 
 /**
- * @public
  * <p>This data type is used in the <a>AssessmentRunFilter</a> data
  *          type.</p>
+ * @public
  */
 export interface TimestampRange {
   /**
-   * @public
    * <p>The minimum value of the timestamp range.</p>
+   * @public
    */
   beginDate?: Date;
 
   /**
-   * @public
    * <p>The maximum value of the timestamp range.</p>
+   * @public
    */
   endDate?: Date;
 }
 
 /**
- * @public
  * <p>This data type is used in the <a>AssessmentTemplateFilter</a> data
  *          type.</p>
+ * @public
  */
 export interface DurationRange {
   /**
-   * @public
    * <p>The minimum value of the duration range. Must be greater than zero.</p>
+   * @public
    */
   minSeconds?: number;
 
   /**
-   * @public
    * <p>The maximum value of the duration range. Must be less than or equal to 604800 seconds
    *          (1 week).</p>
+   * @public
    */
   maxSeconds?: number;
 }
 
 /**
- * @public
  * <p>Used as the request parameter in the <a>ListAssessmentRuns</a>
  *          action.</p>
+ * @public
  */
 export interface AssessmentRunFilter {
   /**
-   * @public
    * <p>For a record to match a filter, an explicit value or a string containing a wildcard
    *          that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a>
    *          data type.</p>
+   * @public
    */
   namePattern?: string;
 
   /**
-   * @public
    * <p>For a record to match a filter, one of the values specified for this data type
    *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
+   * @public
    */
   states?: AssessmentRunState[];
 
   /**
-   * @public
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must inclusively match any value between the specified minimum and maximum values
    *          of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>
+   * @public
    */
   durationRange?: DurationRange;
 
   /**
-   * @public
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
+   * @public
    */
   rulesPackageArns?: string[];
 
   /**
-   * @public
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must inclusively match any value between the specified minimum and maximum values
    *          of the <b>startTime</b> property of the <a>AssessmentRun</a> data type.</p>
+   * @public
    */
   startTimeRange?: TimestampRange;
 
   /**
-   * @public
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must inclusively match any value between the specified minimum and maximum values
    *          of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type.</p>
+   * @public
    */
   completionTimeRange?: TimestampRange;
 
   /**
-   * @public
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must match the <b>stateChangedAt</b> property of the
    *             <a>AssessmentRun</a> data type.</p>
+   * @public
    */
   stateChangeTimeRange?: TimestampRange;
 }
 
 /**
- * @public
  * <p>You cannot perform a specified action if an assessment run is currently in
  *          progress.</p>
+ * @public
  */
 export class AssessmentRunInProgressException extends __BaseException {
   readonly name: "AssessmentRunInProgressException" = "AssessmentRunInProgressException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ARNs of the assessment runs that are currently in progress.</p>
+   * @public
    */
   assessmentRunArns: string[] | undefined;
 
   /**
-   * @public
    * <p>Boolean value that indicates whether the ARN list of the assessment runs is
    *          truncated.</p>
+   * @public
    */
   assessmentRunArnsTruncated: boolean | undefined;
 
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -990,339 +990,339 @@ export class AssessmentRunInProgressException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information about an Amazon Inspector application. This data type is used as
  *          the response element in the <a>DescribeAssessmentTargets</a> action.</p>
+ * @public
  */
 export interface AssessmentTarget {
   /**
-   * @public
    * <p>The ARN that specifies the Amazon Inspector assessment target.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Inspector assessment target.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ARN that specifies the resource group that is associated with the assessment
    *          target.</p>
+   * @public
    */
   resourceGroupArn?: string;
 
   /**
-   * @public
    * <p>The time at which the assessment target is created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time at which <a>UpdateAssessmentTarget</a> is called.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * @public
  * <p>Used as the request parameter in the <a>ListAssessmentTargets</a>
  *          action.</p>
+ * @public
  */
 export interface AssessmentTargetFilter {
   /**
-   * @public
    * <p>For a record to match a filter, an explicit value or a string that contains a
    *          wildcard that is specified for this data type property must match the value of the
    *             <b>assessmentTargetName</b> property of the <a>AssessmentTarget</a> data type.</p>
+   * @public
    */
   assessmentTargetNamePattern?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an Amazon Inspector assessment template. This data type is
  *          used as the response element in the <a>DescribeAssessmentTemplates</a>
  *          action.</p>
+ * @public
  */
 export interface AssessmentTemplate {
   /**
-   * @public
    * <p>The ARN of the assessment template.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the assessment template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the assessment target that corresponds to this assessment
    *          template.</p>
+   * @public
    */
   assessmentTargetArn: string | undefined;
 
   /**
-   * @public
    * <p>The duration in seconds specified for this assessment template. The default value is
    *          3600 seconds (one hour). The maximum value is 86400 seconds (one day).</p>
+   * @public
    */
   durationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The rules packages that are specified for this assessment template.</p>
+   * @public
    */
   rulesPackageArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The user-defined attributes that are assigned to every generated finding from the
    *          assessment run that uses this assessment template.</p>
+   * @public
    */
   userAttributesForFindings: Attribute[] | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the most recent assessment run associated with this
    *          assessment template. This value exists only when the value of assessmentRunCount is
    *          greaterpa than zero.</p>
+   * @public
    */
   lastAssessmentRunArn?: string;
 
   /**
-   * @public
    * <p>The number of existing assessment runs associated with this assessment template. This
    *          value can be zero or a positive integer.</p>
+   * @public
    */
   assessmentRunCount: number | undefined;
 
   /**
-   * @public
    * <p>The time at which the assessment template is created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 }
 
 /**
- * @public
  * <p>Used as the request parameter in the <a>ListAssessmentTemplates</a>
  *          action.</p>
+ * @public
  */
 export interface AssessmentTemplateFilter {
   /**
-   * @public
    * <p>For a record to match a filter, an explicit value or a string that contains a
    *          wildcard that is specified for this data type property must match the value of the
    *             <b>assessmentTemplateName</b> property of the <a>AssessmentTemplate</a> data type.</p>
+   * @public
    */
   namePattern?: string;
 
   /**
-   * @public
    * <p>For a record to match a filter, the value specified for this data type property must
    *          inclusively match any value between the specified minimum and maximum values of the
    *             <b>durationInSeconds</b> property of the <a>AssessmentTemplate</a> data type.</p>
+   * @public
    */
   durationRange?: DurationRange;
 
   /**
-   * @public
    * <p>For a record to match a filter, the values that are specified for this data type
    *          property must be contained in the list of values of the <b>rulesPackageArns</b> property of the <a>AssessmentTemplate</a> data
    *          type.</p>
+   * @public
    */
   rulesPackageArns?: string[];
 }
 
 /**
- * @public
  * <p>Contains information about a private IP address associated with a network interface. This
  *          data type is used as a response element in the <a>DescribeFindings</a>
  *          action.</p>
+ * @public
  */
 export interface PrivateIp {
   /**
-   * @public
    * <p>The DNS name of the private IP address.</p>
+   * @public
    */
   privateDnsName?: string;
 
   /**
-   * @public
    * <p>The full IP address of the network inteface.</p>
+   * @public
    */
   privateIpAddress?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a security group associated with a network interface. This
  *          data type is used as one of the elements of the <a>NetworkInterface</a> data
  *          type.</p>
+ * @public
  */
 export interface SecurityGroup {
   /**
-   * @public
    * <p>The name of the security group.</p>
+   * @public
    */
   groupName?: string;
 
   /**
-   * @public
    * <p>The ID of the security group.</p>
+   * @public
    */
   groupId?: string;
 }
 
 /**
- * @public
  * <p>Contains information about the network interfaces interacting with an EC2 instance.
  *          This data type is used as one of the elements of the <a>AssetAttributes</a> data
  *          type.</p>
+ * @public
  */
 export interface NetworkInterface {
   /**
-   * @public
    * <p>The ID of the network interface.</p>
+   * @public
    */
   networkInterfaceId?: string;
 
   /**
-   * @public
    * <p>The ID of a subnet associated with the network interface.</p>
+   * @public
    */
   subnetId?: string;
 
   /**
-   * @public
    * <p>The ID of a VPC associated with the network interface.</p>
+   * @public
    */
   vpcId?: string;
 
   /**
-   * @public
    * <p>The name of a private DNS associated with the network interface.</p>
+   * @public
    */
   privateDnsName?: string;
 
   /**
-   * @public
    * <p>The private IP address associated with the network interface.</p>
+   * @public
    */
   privateIpAddress?: string;
 
   /**
-   * @public
    * <p>A list of the private IP addresses associated with the network interface. Includes
    *          the privateDnsName and privateIpAddress.</p>
+   * @public
    */
   privateIpAddresses?: PrivateIp[];
 
   /**
-   * @public
    * <p>The name of a public DNS associated with the network interface.</p>
+   * @public
    */
   publicDnsName?: string;
 
   /**
-   * @public
    * <p>The public IP address from which the network interface is reachable.</p>
+   * @public
    */
   publicIp?: string;
 
   /**
-   * @public
    * <p>The IP addresses associated with the network interface.</p>
+   * @public
    */
   ipv6Addresses?: string[];
 
   /**
-   * @public
    * <p>A list of the security groups associated with the network interface. Includes the
    *          groupId and groupName.</p>
+   * @public
    */
   securityGroups?: SecurityGroup[];
 }
 
 /**
- * @public
  * <p>A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>A tag key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>A value assigned to a tag key.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>A collection of attributes of the host from which the finding is generated.</p>
+ * @public
  */
 export interface AssetAttributes {
   /**
-   * @public
    * <p>The schema version of this data type.</p>
+   * @public
    */
   schemaVersion: number | undefined;
 
   /**
-   * @public
    * <p>The ID of the agent that is installed on the EC2 instance where the finding is
    *          generated.</p>
+   * @public
    */
   agentId?: string;
 
   /**
-   * @public
    * <p>The Auto Scaling group of the EC2 instance where the finding is generated.</p>
+   * @public
    */
   autoScalingGroup?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where
    *          the finding is generated.</p>
+   * @public
    */
   amiId?: string;
 
   /**
-   * @public
    * <p>The hostname of the EC2 instance where the finding is generated.</p>
+   * @public
    */
   hostname?: string;
 
   /**
-   * @public
    * <p>The list of IP v4 addresses of the EC2 instance where the finding is
    *          generated.</p>
+   * @public
    */
   ipv4Addresses?: string[];
 
   /**
-   * @public
    * <p>The tags related to the EC2 instance where the finding is generated.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>An array of the network interfaces interacting with the EC2 instance where the
    *          finding is generated.</p>
+   * @public
    */
   networkInterfaces?: NetworkInterface[];
 }
@@ -1345,17 +1345,17 @@ export type AssetType = (typeof AssetType)[keyof typeof AssetType];
  */
 export interface CreateAssessmentTargetRequest {
   /**
-   * @public
    * <p>The user-defined name that identifies the assessment target that you want to create.
    *          The name must be unique within the AWS account.</p>
+   * @public
    */
   assessmentTargetName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN that specifies the resource group that is used to create the assessment
    *          target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account
    *          and region are included in the assessment target.</p>
+   * @public
    */
   resourceGroupArn?: string;
 }
@@ -1365,8 +1365,8 @@ export interface CreateAssessmentTargetRequest {
  */
 export interface CreateAssessmentTargetResponse {
   /**
-   * @public
    * <p>The ARN that specifies the assessment target that is created.</p>
+   * @public
    */
   assessmentTargetArn: string | undefined;
 }
@@ -1387,22 +1387,22 @@ export type InvalidCrossAccountRoleErrorCode =
   (typeof InvalidCrossAccountRoleErrorCode)[keyof typeof InvalidCrossAccountRoleErrorCode];
 
 /**
- * @public
  * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
  *          instances during the assessment run.</p>
+ * @public
  */
 export class InvalidCrossAccountRoleException extends __BaseException {
   readonly name: "InvalidCrossAccountRoleException" = "InvalidCrossAccountRoleException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Code that indicates the type of error that is generated.</p>
+   * @public
    */
   errorCode: InvalidCrossAccountRoleErrorCode | undefined;
 
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -1439,22 +1439,22 @@ export const LimitExceededErrorCode = {
 export type LimitExceededErrorCode = (typeof LimitExceededErrorCode)[keyof typeof LimitExceededErrorCode];
 
 /**
- * @public
  * <p>The request was rejected because it attempted to create resources beyond the current
  *          AWS account limits. The error code describes the limit exceeded.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Code that indicates the type of error that is generated.</p>
+   * @public
    */
   errorCode: LimitExceededErrorCode | undefined;
 
   /**
-   * @public
    * <p>You can immediately retry your request.</p>
+   * @public
    */
   canRetry: boolean | undefined;
 
@@ -1478,40 +1478,40 @@ export class LimitExceededException extends __BaseException {
  */
 export interface CreateAssessmentTemplateRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment target for which you want to create the
    *          assessment template.</p>
+   * @public
    */
   assessmentTargetArn: string | undefined;
 
   /**
-   * @public
    * <p>The user-defined name that identifies the assessment template that you want to
    *          create. You can create several assessment templates for an assessment target. The names of
    *          the assessment templates that correspond to a particular assessment target must be
    *          unique.</p>
+   * @public
    */
   assessmentTemplateName: string | undefined;
 
   /**
-   * @public
    * <p>The duration of the assessment run in seconds.</p>
+   * @public
    */
   durationInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The ARNs that specify the rules packages that you want to attach to the assessment
    *          template.</p>
+   * @public
    */
   rulesPackageArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The user-defined attributes that are assigned to every finding that is generated by
    *          the assessment run that uses this assessment template. An attribute is a key and value pair
    *          (an <a>Attribute</a> object). Within an assessment template, each key must be
    *          unique.</p>
+   * @public
    */
   userAttributesForFindings?: Attribute[];
 }
@@ -1521,8 +1521,8 @@ export interface CreateAssessmentTemplateRequest {
  */
 export interface CreateAssessmentTemplateResponse {
   /**
-   * @public
    * <p>The ARN that specifies the assessment template that is created.</p>
+   * @public
    */
   assessmentTemplateArn: string | undefined;
 }
@@ -1532,9 +1532,9 @@ export interface CreateAssessmentTemplateResponse {
  */
 export interface CreateExclusionsPreviewRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment template for which you want to create an
    *          exclusions preview.</p>
+   * @public
    */
   assessmentTemplateArn: string | undefined;
 }
@@ -1544,18 +1544,18 @@ export interface CreateExclusionsPreviewRequest {
  */
 export interface CreateExclusionsPreviewResponse {
   /**
-   * @public
    * <p>Specifies the unique identifier of the requested exclusions preview. You can use the
    *          unique identifier to retrieve the exclusions preview when running the GetExclusionsPreview
    *          API.</p>
+   * @public
    */
   previewToken: string | undefined;
 }
 
 /**
- * @public
  * <p>The request is rejected. The specified assessment template is currently generating an
  *          exclusions preview.</p>
+ * @public
  */
 export class PreviewGenerationInProgressException extends __BaseException {
   readonly name: "PreviewGenerationInProgressException" = "PreviewGenerationInProgressException";
@@ -1574,20 +1574,20 @@ export class PreviewGenerationInProgressException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This data type is used as one of the elements of the <a>ResourceGroup</a>
  *          data type.</p>
+ * @public
  */
 export interface ResourceGroupTag {
   /**
-   * @public
    * <p>A tag key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The value assigned to a tag key.</p>
+   * @public
    */
   value?: string;
 }
@@ -1597,10 +1597,10 @@ export interface ResourceGroupTag {
  */
 export interface CreateResourceGroupRequest {
   /**
-   * @public
    * <p>A collection of keys and an array of possible values,
    *          '[\{"key":"key1","values":["Value1","Value2"]\},\{"key":"Key2","values":["Value3"]\}]'.</p>
    *          <p>For example,'[\{"key":"Name","values":["TestEC2Instance"]\}]'.</p>
+   * @public
    */
   resourceGroupTags: ResourceGroupTag[] | undefined;
 }
@@ -1610,8 +1610,8 @@ export interface CreateResourceGroupRequest {
  */
 export interface CreateResourceGroupResponse {
   /**
-   * @public
    * <p>The ARN that specifies the resource group that is created.</p>
+   * @public
    */
   resourceGroupArn: string | undefined;
 }
@@ -1621,8 +1621,8 @@ export interface CreateResourceGroupResponse {
  */
 export interface DeleteAssessmentRunRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment run that you want to delete.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 }
@@ -1632,8 +1632,8 @@ export interface DeleteAssessmentRunRequest {
  */
 export interface DeleteAssessmentTargetRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment target that you want to delete.</p>
+   * @public
    */
   assessmentTargetArn: string | undefined;
 }
@@ -1643,8 +1643,8 @@ export interface DeleteAssessmentTargetRequest {
  */
 export interface DeleteAssessmentTemplateRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment template that you want to delete.</p>
+   * @public
    */
   assessmentTemplateArn: string | undefined;
 }
@@ -1654,8 +1654,8 @@ export interface DeleteAssessmentTemplateRequest {
  */
 export interface DescribeAssessmentRunsRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment run that you want to describe.</p>
+   * @public
    */
   assessmentRunArns: string[] | undefined;
 }
@@ -1665,15 +1665,15 @@ export interface DescribeAssessmentRunsRequest {
  */
 export interface DescribeAssessmentRunsResponse {
   /**
-   * @public
    * <p>Information about the assessment run.</p>
+   * @public
    */
   assessmentRuns: AssessmentRun[] | undefined;
 
   /**
-   * @public
    * <p>Assessment run details that cannot be described. An error code is provided for each
    *          failed item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
@@ -1683,8 +1683,8 @@ export interface DescribeAssessmentRunsResponse {
  */
 export interface DescribeAssessmentTargetsRequest {
   /**
-   * @public
    * <p>The ARNs that specifies the assessment targets that you want to describe.</p>
+   * @public
    */
   assessmentTargetArns: string[] | undefined;
 }
@@ -1694,15 +1694,15 @@ export interface DescribeAssessmentTargetsRequest {
  */
 export interface DescribeAssessmentTargetsResponse {
   /**
-   * @public
    * <p>Information about the assessment targets.</p>
+   * @public
    */
   assessmentTargets: AssessmentTarget[] | undefined;
 
   /**
-   * @public
    * <p>Assessment target details that cannot be described. An error code is provided for
    *          each failed item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
@@ -1719,15 +1719,15 @@ export interface DescribeAssessmentTemplatesRequest {
  */
 export interface DescribeAssessmentTemplatesResponse {
   /**
-   * @public
    * <p>Information about the assessment templates.</p>
+   * @public
    */
   assessmentTemplates: AssessmentTemplate[] | undefined;
 
   /**
-   * @public
    * <p>Assessment template details that cannot be described. An error code is provided for
    *          each failed item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
@@ -1737,22 +1737,22 @@ export interface DescribeAssessmentTemplatesResponse {
  */
 export interface DescribeCrossAccountAccessRoleResponse {
   /**
-   * @public
    * <p>The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS
    *          account.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the IAM role has the necessary policies
    *          attached to enable Amazon Inspector to access your AWS account.</p>
+   * @public
    */
   valid: boolean | undefined;
 
   /**
-   * @public
    * <p>The date when the cross-account access role was registered.</p>
+   * @public
    */
   registeredAt: Date | undefined;
 }
@@ -1775,15 +1775,15 @@ export type Locale = (typeof Locale)[keyof typeof Locale];
  */
 export interface DescribeExclusionsRequest {
   /**
-   * @public
    * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
+   * @public
    */
   exclusionArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The locale into which you want to translate the exclusion's title, description, and
    *          recommendation.</p>
+   * @public
    */
   locale?: Locale;
 }
@@ -1803,62 +1803,62 @@ export const ScopeType = {
 export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
 
 /**
- * @public
  * <p>This data type contains key-value pairs that identify various Amazon
  *          resources.</p>
+ * @public
  */
 export interface Scope {
   /**
-   * @public
    * <p>The type of the scope.</p>
+   * @public
    */
   key?: ScopeType;
 
   /**
-   * @public
    * <p>The resource identifier for the specified scope type.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>Contains information about what was excluded from an assessment run.</p>
+ * @public
  */
 export interface Exclusion {
   /**
-   * @public
    * <p>The ARN that specifies the exclusion.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the exclusion.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The description of the exclusion.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The recommendation for the exclusion.</p>
+   * @public
    */
   recommendation: string | undefined;
 
   /**
-   * @public
    * <p>The AWS resources for which the exclusion pertains.</p>
+   * @public
    */
   scopes: Scope[] | undefined;
 
   /**
-   * @public
    * <p>The system-defined attributes for the exclusion.</p>
+   * @public
    */
   attributes?: Attribute[];
 }
@@ -1868,15 +1868,15 @@ export interface Exclusion {
  */
 export interface DescribeExclusionsResponse {
   /**
-   * @public
    * <p>Information about the exclusions.</p>
+   * @public
    */
   exclusions: Record<string, Exclusion> | undefined;
 
   /**
-   * @public
    * <p>Exclusion details that cannot be described. An error code is provided for each failed
    *          item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
@@ -1886,155 +1886,155 @@ export interface DescribeExclusionsResponse {
  */
 export interface DescribeFindingsRequest {
   /**
-   * @public
    * <p>The ARN that specifies the finding that you want to describe.</p>
+   * @public
    */
   findingArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The locale into which you want to translate a finding description, recommendation,
    *          and the short description that identifies the finding.</p>
+   * @public
    */
   locale?: Locale;
 }
 
 /**
- * @public
  * <p>This data type is used in the <a>Finding</a> data type.</p>
+ * @public
  */
 export interface InspectorServiceAttributes {
   /**
-   * @public
    * <p>The schema version of this data type.</p>
+   * @public
    */
   schemaVersion: number | undefined;
 
   /**
-   * @public
    * <p>The ARN of the assessment run during which the finding is generated.</p>
+   * @public
    */
   assessmentRunArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the rules package that is used to generate the finding.</p>
+   * @public
    */
   rulesPackageArn?: string;
 }
 
 /**
- * @public
  * <p>Contains information about an Amazon Inspector finding. This data type is used as the
  *          response element in the <a>DescribeFindings</a> action.</p>
+ * @public
  */
 export interface Finding {
   /**
-   * @public
    * <p>The ARN that specifies the finding.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The schema version of this data type.</p>
+   * @public
    */
   schemaVersion?: number;
 
   /**
-   * @public
    * <p>The data element is set to "Inspector".</p>
+   * @public
    */
   service?: string;
 
   /**
-   * @public
    * <p>This data type is used in the <a>Finding</a> data type.</p>
+   * @public
    */
   serviceAttributes?: InspectorServiceAttributes;
 
   /**
-   * @public
    * <p>The type of the host from which the finding is generated.</p>
+   * @public
    */
   assetType?: AssetType;
 
   /**
-   * @public
    * <p>A collection of attributes of the host from which the finding is generated.</p>
+   * @public
    */
   assetAttributes?: AssetAttributes;
 
   /**
-   * @public
    * <p>The ID of the finding.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the finding.</p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>The description of the finding.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The recommendation for the finding.</p>
+   * @public
    */
   recommendation?: string;
 
   /**
-   * @public
    * <p>The finding severity. Values can be set to High, Medium, Low, and
    *          Informational.</p>
+   * @public
    */
   severity?: Severity;
 
   /**
-   * @public
    * <p>The numeric value of the finding severity.</p>
+   * @public
    */
   numericSeverity?: number;
 
   /**
-   * @public
    * <p>This data element is currently not used.</p>
+   * @public
    */
   confidence?: number;
 
   /**
-   * @public
    * <p>This data element is currently not used.</p>
+   * @public
    */
   indicatorOfCompromise?: boolean;
 
   /**
-   * @public
    * <p>The system-defined attributes for the finding.</p>
+   * @public
    */
   attributes: Attribute[] | undefined;
 
   /**
-   * @public
    * <p>The user-defined attributes that are assigned to the finding.</p>
+   * @public
    */
   userAttributes: Attribute[] | undefined;
 
   /**
-   * @public
    * <p>The time when the finding was generated.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time when <a>AddAttributesToFindings</a> is called.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 }
@@ -2044,15 +2044,15 @@ export interface Finding {
  */
 export interface DescribeFindingsResponse {
   /**
-   * @public
    * <p>Information about the finding.</p>
+   * @public
    */
   findings: Finding[] | undefined;
 
   /**
-   * @public
    * <p>Finding details that cannot be described. An error code is provided for each failed
    *          item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
@@ -2062,36 +2062,36 @@ export interface DescribeFindingsResponse {
  */
 export interface DescribeResourceGroupsRequest {
   /**
-   * @public
    * <p>The ARN that specifies the resource group that you want to describe.</p>
+   * @public
    */
   resourceGroupArns: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about a resource group. The resource group defines a set of tags
  *          that, when queried, identify the AWS resources that make up the assessment target. This
  *          data type is used as the response element in the <a>DescribeResourceGroups</a>
  *          action.</p>
+ * @public
  */
 export interface ResourceGroup {
   /**
-   * @public
    * <p>The ARN of the resource group.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The tags (key and value pairs) of the resource group. This data type property is used
    *          in the <a>CreateResourceGroup</a> action.</p>
+   * @public
    */
   tags: ResourceGroupTag[] | undefined;
 
   /**
-   * @public
    * <p>The time at which resource group is created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 }
@@ -2101,15 +2101,15 @@ export interface ResourceGroup {
  */
 export interface DescribeResourceGroupsResponse {
   /**
-   * @public
    * <p>Information about a resource group.</p>
+   * @public
    */
   resourceGroups: ResourceGroup[] | undefined;
 
   /**
-   * @public
    * <p>Resource group details that cannot be described. An error code is provided for each
    *          failed item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
@@ -2119,51 +2119,51 @@ export interface DescribeResourceGroupsResponse {
  */
 export interface DescribeRulesPackagesRequest {
   /**
-   * @public
    * <p>The ARN that specifies the rules package that you want to describe.</p>
+   * @public
    */
   rulesPackageArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The locale that you want to translate a rules package description into.</p>
+   * @public
    */
   locale?: Locale;
 }
 
 /**
- * @public
  * <p>Contains information about an Amazon Inspector rules package. This data type is used
  *          as the response element in the <a>DescribeRulesPackages</a> action.</p>
+ * @public
  */
 export interface RulesPackage {
   /**
-   * @public
    * <p>The ARN of the rules package.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the rules package.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The version ID of the rules package.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The provider of the rules package.</p>
+   * @public
    */
   provider: string | undefined;
 
   /**
-   * @public
    * <p>The description of the rules package.</p>
+   * @public
    */
   description?: string;
 }
@@ -2173,136 +2173,136 @@ export interface RulesPackage {
  */
 export interface DescribeRulesPackagesResponse {
   /**
-   * @public
    * <p>Information about the rules package.</p>
+   * @public
    */
   rulesPackages: RulesPackage[] | undefined;
 
   /**
-   * @public
    * <p>Rules package details that cannot be described. An error code is provided for each
    *          failed item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
 /**
- * @public
  * <p>This data type is used in the <a>Subscription</a> data type.</p>
+ * @public
  */
 export interface EventSubscription {
   /**
-   * @public
    * <p>The event for which Amazon Simple Notification Service (SNS) notifications are
    *          sent.</p>
+   * @public
    */
   event: InspectorEvent | undefined;
 
   /**
-   * @public
    * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
+   * @public
    */
   subscribedAt: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about what is excluded from an assessment run given the current
  *          state of the assessment template.</p>
+ * @public
  */
 export interface ExclusionPreview {
   /**
-   * @public
    * <p>The name of the exclusion preview.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The description of the exclusion preview.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The recommendation for the exclusion preview.</p>
+   * @public
    */
   recommendation: string | undefined;
 
   /**
-   * @public
    * <p>The AWS resources for which the exclusion preview pertains.</p>
+   * @public
    */
   scopes: Scope[] | undefined;
 
   /**
-   * @public
    * <p>The system-defined attributes for the exclusion preview.</p>
+   * @public
    */
   attributes?: Attribute[];
 }
 
 /**
- * @public
  * <p>This data type is used as a request parameter in the <a>ListFindings</a>
  *          action.</p>
+ * @public
  */
 export interface FindingFilter {
   /**
-   * @public
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type.</p>
+   * @public
    */
   agentIds?: string[];
 
   /**
-   * @public
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>autoScalingGroup</b> property of the <a>Finding</a> data
    *          type.</p>
+   * @public
    */
   autoScalingGroups?: string[];
 
   /**
-   * @public
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>ruleName</b> property of the <a>Finding</a> data type.</p>
+   * @public
    */
   ruleNames?: string[];
 
   /**
-   * @public
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
+   * @public
    */
   severities?: Severity[];
 
   /**
-   * @public
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data
    *          type.</p>
+   * @public
    */
   rulesPackageArns?: string[];
 
   /**
-   * @public
    * <p>For a record to match a filter, the list of values that are specified for this data
    *          type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type.</p>
+   * @public
    */
   attributes?: Attribute[];
 
   /**
-   * @public
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data
    *          type.</p>
+   * @public
    */
   userAttributes?: Attribute[];
 
   /**
-   * @public
    * <p>The time range during which the finding is generated.</p>
+   * @public
    */
   creationTimeRange?: TimestampRange;
 }
@@ -2340,24 +2340,24 @@ export type ReportType = (typeof ReportType)[keyof typeof ReportType];
  */
 export interface GetAssessmentReportRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment run for which you want to generate a
    *          report.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the file format (html or pdf) of the assessment report that you want to
    *          generate.</p>
+   * @public
    */
   reportFileFormat: ReportFileFormat | undefined;
 
   /**
-   * @public
    * <p>Specifies the type of the assessment report that you want to generate. There are two
    *          types of assessment reports: a finding report and a full report. For more information, see
    *             <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html">Assessment Reports</a>. </p>
+   * @public
    */
   reportType: ReportType | undefined;
 }
@@ -2382,26 +2382,26 @@ export type ReportStatus = (typeof ReportStatus)[keyof typeof ReportStatus];
  */
 export interface GetAssessmentReportResponse {
   /**
-   * @public
    * <p>Specifies the status of the request to generate an assessment report. </p>
+   * @public
    */
   status: ReportStatus | undefined;
 
   /**
-   * @public
    * <p>Specifies the URL where you can find the generated assessment report. This parameter
    *          is only returned if the report is successfully generated.</p>
+   * @public
    */
   url?: string;
 }
 
 /**
- * @public
  * <p>Used by the <a>GetAssessmentReport</a> API. The request was rejected
  *          because you tried to generate a report for an assessment run that existed before reporting
  *          was supported in Amazon Inspector. You can only generate reports for assessment runs that
  *          took place or will take place after generating reports in Amazon Inspector became
  *          available.</p>
+ * @public
  */
 export class UnsupportedFeatureException extends __BaseException {
   readonly name: "UnsupportedFeatureException" = "UnsupportedFeatureException";
@@ -2426,38 +2426,38 @@ export class UnsupportedFeatureException extends __BaseException {
  */
 export interface GetExclusionsPreviewRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment template for which the exclusions preview was
    *          requested.</p>
+   * @public
    */
   assessmentTemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier associated of the exclusions preview.</p>
+   * @public
    */
   previewToken: string | undefined;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the GetExclusionsPreviewRequest action. Subsequent calls to
    *          the action fill nextToken in the request with the value of nextToken from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 100. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The locale into which you want to translate the exclusion's title, description, and
    *          recommendation.</p>
+   * @public
    */
   locale?: Locale;
 }
@@ -2481,23 +2481,23 @@ export type PreviewStatus = (typeof PreviewStatus)[keyof typeof PreviewStatus];
  */
 export interface GetExclusionsPreviewResponse {
   /**
-   * @public
    * <p>Specifies the status of the request to generate an exclusions preview.</p>
+   * @public
    */
   previewStatus: PreviewStatus | undefined;
 
   /**
-   * @public
    * <p>Information about the exclusions included in the preview.</p>
+   * @public
    */
   exclusionPreviews?: ExclusionPreview[];
 
   /**
-   * @public
    * <p>When a response is generated, if there is more data to be listed, this parameters is
    *          present in the response and contains the value to use for the nextToken parameter in a
    *          subsequent pagination request. If there is no more data to be listed, this parameter is set
    *          to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2507,9 +2507,9 @@ export interface GetExclusionsPreviewResponse {
  */
 export interface GetTelemetryMetadataRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment run that has the telemetry data that you want
    *          to obtain.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 }
@@ -2519,8 +2519,8 @@ export interface GetTelemetryMetadataRequest {
  */
 export interface GetTelemetryMetadataResponse {
   /**
-   * @public
    * <p>Telemetry details.</p>
+   * @public
    */
   telemetryMetadata: TelemetryMetadata[] | undefined;
 }
@@ -2530,35 +2530,35 @@ export interface GetTelemetryMetadataResponse {
  */
 export interface ListAssessmentRunAgentsRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment run whose agents you want to list.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 
   /**
-   * @public
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
    *          multiple values are specified for a filter attribute, any of the values can
    *          match.</p>
+   * @public
    */
   filter?: AgentFilter;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentRunAgents</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
    *          the request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items that you want in
    *          the response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2568,16 +2568,16 @@ export interface ListAssessmentRunAgentsRequest {
  */
 export interface ListAssessmentRunAgentsResponse {
   /**
-   * @public
    * <p>A list of ARNs that specifies the agents returned by the action.</p>
+   * @public
    */
   assessmentRunAgents: AssessmentRunAgent[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2587,36 +2587,36 @@ export interface ListAssessmentRunAgentsResponse {
  */
 export interface ListAssessmentRunsRequest {
   /**
-   * @public
    * <p>The ARNs that specify the assessment templates whose assessment runs you want to
    *          list.</p>
+   * @public
    */
   assessmentTemplateArns?: string[];
 
   /**
-   * @public
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
    *          multiple values are specified for a filter attribute, any of the values can
    *          match.</p>
+   * @public
    */
   filter?: AssessmentRunFilter;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentRuns</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
    *          the request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items that you want in
    *          the response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2626,17 +2626,17 @@ export interface ListAssessmentRunsRequest {
  */
 export interface ListAssessmentRunsResponse {
   /**
-   * @public
    * <p>A list of ARNs that specifies the assessment runs that are returned by the
    *          action.</p>
+   * @public
    */
   assessmentRunArns: string[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2646,29 +2646,29 @@ export interface ListAssessmentRunsResponse {
  */
 export interface ListAssessmentTargetsRequest {
   /**
-   * @public
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
    *          multiple values are specified for a filter attribute, any of the values can
    *          match.</p>
+   * @public
    */
   filter?: AssessmentTargetFilter;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentTargets</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
    *          the request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2678,17 +2678,17 @@ export interface ListAssessmentTargetsRequest {
  */
 export interface ListAssessmentTargetsResponse {
   /**
-   * @public
    * <p>A list of ARNs that specifies the assessment targets that are returned by the
    *          action.</p>
+   * @public
    */
   assessmentTargetArns: string[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2698,36 +2698,36 @@ export interface ListAssessmentTargetsResponse {
  */
 export interface ListAssessmentTemplatesRequest {
   /**
-   * @public
    * <p>A list of ARNs that specifies the assessment targets whose assessment templates you
    *          want to list.</p>
+   * @public
    */
   assessmentTargetArns?: string[];
 
   /**
-   * @public
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
    *          multiple values are specified for a filter attribute, any of the values can
    *          match.</p>
+   * @public
    */
   filter?: AssessmentTemplateFilter;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentTemplates</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
    *          the request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2737,17 +2737,17 @@ export interface ListAssessmentTemplatesRequest {
  */
 export interface ListAssessmentTemplatesResponse {
   /**
-   * @public
    * <p>A list of ARNs that specifies the assessment templates returned by the
    *          action.</p>
+   * @public
    */
   assessmentTemplateArns: string[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2757,52 +2757,52 @@ export interface ListAssessmentTemplatesResponse {
  */
 export interface ListEventSubscriptionsRequest {
   /**
-   * @public
    * <p>The ARN of the assessment template for which you want to list the existing event
    *          subscriptions.</p>
+   * @public
    */
   resourceArn?: string;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListEventSubscriptions</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
    *          the request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>This data type is used as a response element in the <a>ListEventSubscriptions</a> action.</p>
+ * @public
  */
 export interface Subscription {
   /**
-   * @public
    * <p>The ARN of the assessment template that is used during the event for which the SNS
    *          notification is sent.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS
    *          notifications are sent.</p>
+   * @public
    */
   topicArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of existing event subscriptions.</p>
+   * @public
    */
   eventSubscriptions: EventSubscription[] | undefined;
 }
@@ -2812,16 +2812,16 @@ export interface Subscription {
  */
 export interface ListEventSubscriptionsResponse {
   /**
-   * @public
    * <p>Details of the returned event subscriptions.</p>
+   * @public
    */
   subscriptions: Subscription[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2831,25 +2831,25 @@ export interface ListEventSubscriptionsResponse {
  */
 export interface ListExclusionsRequest {
   /**
-   * @public
    * <p>The ARN of the assessment run that generated the exclusions that you want to
    *          list.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the ListExclusionsRequest action. Subsequent calls to the
    *          action fill nextToken in the request with the value of nextToken from the previous response
    *          to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 100. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2859,17 +2859,17 @@ export interface ListExclusionsRequest {
  */
 export interface ListExclusionsResponse {
   /**
-   * @public
    * <p>A list of exclusions' ARNs returned by the action.</p>
+   * @public
    */
   exclusionArns: string[] | undefined;
 
   /**
-   * @public
    * <p>When a response is generated, if there is more data to be listed, this parameters is
    *          present in the response and contains the value to use for the nextToken parameter in a
    *          subsequent pagination request. If there is no more data to be listed, this parameter is set
    *          to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2879,36 +2879,36 @@ export interface ListExclusionsResponse {
  */
 export interface ListFindingsRequest {
   /**
-   * @public
    * <p>The ARNs of the assessment runs that generate the findings that you want to
    *          list.</p>
+   * @public
    */
   assessmentRunArns?: string[];
 
   /**
-   * @public
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
    *          multiple values are specified for a filter attribute, any of the values can
    *          match.</p>
+   * @public
    */
   filter?: FindingFilter;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListFindings</b> action.
    *          Subsequent calls to the action fill <b>nextToken</b> in the
    *          request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2918,16 +2918,16 @@ export interface ListFindingsRequest {
  */
 export interface ListFindingsResponse {
   /**
-   * @public
    * <p>A list of ARNs that specifies the findings returned by the action.</p>
+   * @public
    */
   findingArns: string[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2937,19 +2937,19 @@ export interface ListFindingsResponse {
  */
 export interface ListRulesPackagesRequest {
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListRulesPackages</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
    *          the request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2959,16 +2959,16 @@ export interface ListRulesPackagesRequest {
  */
 export interface ListRulesPackagesResponse {
   /**
-   * @public
    * <p>The list of ARNs that specifies the rules packages returned by the action.</p>
+   * @public
    */
   rulesPackageArns: string[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2978,8 +2978,8 @@ export interface ListRulesPackagesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN that specifies the assessment template whose tags you want to list.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -2989,8 +2989,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A collection of key and value pairs.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 }
@@ -3000,25 +3000,25 @@ export interface ListTagsForResourceResponse {
  */
 export interface PreviewAgentsRequest {
   /**
-   * @public
    * <p>The ARN of the assessment target whose agents you want to preview.</p>
+   * @public
    */
   previewAgentsArn: string | undefined;
 
   /**
-   * @public
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>PreviewAgents</b> action.
    *          Subsequent calls to the action fill <b>nextToken</b> in the
    *          request with the value of <b>NextToken</b> from the previous
    *          response to continue listing data.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -3028,16 +3028,16 @@ export interface PreviewAgentsRequest {
  */
 export interface PreviewAgentsResponse {
   /**
-   * @public
    * <p>The resulting list of agents.</p>
+   * @public
    */
   agentPreviews: AgentPreview[] | undefined;
 
   /**
-   * @public
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3047,9 +3047,9 @@ export interface PreviewAgentsResponse {
  */
 export interface RegisterCrossAccountAccessRoleRequest {
   /**
-   * @public
    * <p>The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to
    *          perform security assessments. </p>
+   * @public
    */
   roleArn: string | undefined;
 }
@@ -3059,15 +3059,15 @@ export interface RegisterCrossAccountAccessRoleRequest {
  */
 export interface RemoveAttributesFromFindingsRequest {
   /**
-   * @public
    * <p>The ARNs that specify the findings that you want to remove attributes from.</p>
+   * @public
    */
   findingArns: string[] | undefined;
 
   /**
-   * @public
    * <p>The array of attribute keys that you want to remove from specified
    *          findings.</p>
+   * @public
    */
   attributeKeys: string[] | undefined;
 }
@@ -3077,9 +3077,9 @@ export interface RemoveAttributesFromFindingsRequest {
  */
 export interface RemoveAttributesFromFindingsResponse {
   /**
-   * @public
    * <p>Attributes details that cannot be described. An error code is provided for each
    *          failed item.</p>
+   * @public
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
@@ -3089,15 +3089,15 @@ export interface RemoveAttributesFromFindingsResponse {
  */
 export interface SetTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the assessment template that you want to set tags to.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A collection of key and value pairs that you want to set to the assessment
    *          template.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -3107,16 +3107,16 @@ export interface SetTagsForResourceRequest {
  */
 export interface StartAssessmentRunRequest {
   /**
-   * @public
    * <p>The ARN of the assessment template of the assessment run that you want to
    *          start.</p>
+   * @public
    */
   assessmentTemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>You can specify the name for the assessment run. The name must be unique for the
    *          assessment template whose ARN is used to start the assessment run.</p>
+   * @public
    */
   assessmentRunName?: string;
 }
@@ -3126,8 +3126,8 @@ export interface StartAssessmentRunRequest {
  */
 export interface StartAssessmentRunResponse {
   /**
-   * @public
    * <p>The ARN of the assessment run that has been started.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 }
@@ -3151,17 +3151,17 @@ export type StopAction = (typeof StopAction)[keyof typeof StopAction];
  */
 export interface StopAssessmentRunRequest {
   /**
-   * @public
    * <p>The ARN of the assessment run that you want to stop.</p>
+   * @public
    */
   assessmentRunArn: string | undefined;
 
   /**
-   * @public
    * <p>An input option that can be set to either START_EVALUATION or SKIP_EVALUATION.
    *          START_EVALUATION (the default value), stops the AWS agent from collecting data and begins
    *          the results evaluation and the findings generation process. SKIP_EVALUATION cancels the
    *          assessment run immediately, after which no findings are generated.</p>
+   * @public
    */
   stopAction?: StopAction;
 }
@@ -3171,21 +3171,21 @@ export interface StopAssessmentRunRequest {
  */
 export interface SubscribeToEventRequest {
   /**
-   * @public
    * <p>The ARN of the assessment template that is used during the event for which you want
    *          to receive SNS notifications.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The event for which you want to receive SNS notifications.</p>
+   * @public
    */
   event: InspectorEvent | undefined;
 
   /**
-   * @public
    * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
+   * @public
    */
   topicArn: string | undefined;
 }
@@ -3195,21 +3195,21 @@ export interface SubscribeToEventRequest {
  */
 export interface UnsubscribeFromEventRequest {
   /**
-   * @public
    * <p>The ARN of the assessment template that is used during the event for which you want
    *          to stop receiving SNS notifications.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The event for which you want to stop receiving SNS notifications.</p>
+   * @public
    */
   event: InspectorEvent | undefined;
 
   /**
-   * @public
    * <p>The ARN of the SNS topic to which SNS notifications are sent.</p>
+   * @public
    */
   topicArn: string | undefined;
 }
@@ -3219,21 +3219,21 @@ export interface UnsubscribeFromEventRequest {
  */
 export interface UpdateAssessmentTargetRequest {
   /**
-   * @public
    * <p>The ARN of the assessment target that you want to update.</p>
+   * @public
    */
   assessmentTargetArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the assessment target that you want to update.</p>
+   * @public
    */
   assessmentTargetName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the resource group that is used to specify the new resource group to
    *          associate with the assessment target.</p>
+   * @public
    */
   resourceGroupArn?: string;
 }

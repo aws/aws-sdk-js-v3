@@ -27,7 +27,6 @@ export interface DeleteIngestionDestinationCommandInput extends DeleteIngestionD
 export interface DeleteIngestionDestinationCommandOutput extends DeleteIngestionDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an ingestion destination.</p>
  *          <p>This deletes the association between an ingestion and it's destination. It doesn't
  *          delete previously ingested data or the storage destination, such as the Amazon S3
@@ -75,6 +74,7 @@ export interface DeleteIngestionDestinationCommandOutput extends DeleteIngestion
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class DeleteIngestionDestinationCommand extends $Command
   .classBuilder<

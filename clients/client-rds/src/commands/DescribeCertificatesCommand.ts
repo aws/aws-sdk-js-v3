@@ -27,7 +27,6 @@ export interface DescribeCertificatesCommandInput extends DescribeCertificatesMe
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the set of certificate authority (CA) certificates provided by Amazon RDS for this Amazon Web Services account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
  *             instance</a> in the <i>Amazon RDS User Guide</i> and
@@ -88,6 +87,7 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe certificates
  * ```javascript
  * // The following example retrieves the details of the certificate associated with the user's default region.

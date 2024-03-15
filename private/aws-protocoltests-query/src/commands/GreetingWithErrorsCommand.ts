@@ -25,7 +25,6 @@ export interface GreetingWithErrorsCommandInput {}
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * This operation has three possible return values:
  *
  * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -63,6 +62,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class GreetingWithErrorsCommand extends $Command
   .classBuilder<

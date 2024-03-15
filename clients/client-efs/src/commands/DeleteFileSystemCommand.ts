@@ -27,7 +27,6 @@ export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
 export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
  *       file system no longer exists and you can't access any contents of the deleted file
  *       system.</p>
@@ -86,6 +85,7 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To delete a file system
  * ```javascript
  * // This operation deletes an EFS file system.

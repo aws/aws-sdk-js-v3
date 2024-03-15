@@ -27,7 +27,6 @@ export interface LookupDeveloperIdentityCommandInput extends LookupDeveloperIden
 export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the <code>IdentityID</code> associated with a
  *             <code>DeveloperUserIdentifier</code> or the list of <code>DeveloperUserIdentifier</code>
  *          values associated with an <code>IdentityId</code> for an existing identity. Either
@@ -99,6 +98,7 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class LookupDeveloperIdentityCommand extends $Command
   .classBuilder<

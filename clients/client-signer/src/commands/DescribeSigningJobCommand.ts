@@ -27,7 +27,6 @@ export interface DescribeSigningJobCommandInput extends DescribeSigningJobReques
 export interface DescribeSigningJobCommandOutput extends DescribeSigningJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific code signing job. You specify the job by using the
  * 				<code>jobId</code> value that is returned by the <a>StartSigningJob</a>
  * 			operation. </p>
@@ -113,6 +112,7 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class DescribeSigningJobCommand extends $Command
   .classBuilder<

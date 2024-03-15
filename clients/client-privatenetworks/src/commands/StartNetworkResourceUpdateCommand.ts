@@ -32,7 +32,6 @@ export interface StartNetworkResourceUpdateCommandInput extends StartNetworkReso
 export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkResourceUpdateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this action to do the following tasks:</p>
  *          <ul>
  *             <li>
@@ -158,6 +157,7 @@ export interface StartNetworkResourceUpdateCommandOutput extends StartNetworkRes
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class StartNetworkResourceUpdateCommand extends $Command
   .classBuilder<

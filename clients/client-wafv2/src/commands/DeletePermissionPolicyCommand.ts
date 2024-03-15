@@ -27,7 +27,6 @@ export interface DeletePermissionPolicyCommandInput extends DeletePermissionPoli
 export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes an IAM policy from the specified rule group.</p>
  *          <p>You must be the owner of the rule group to perform this operation.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DeletePermissionPolicyCommand extends $Command
   .classBuilder<

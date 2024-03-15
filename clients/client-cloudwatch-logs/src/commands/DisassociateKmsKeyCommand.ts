@@ -27,7 +27,6 @@ export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyReques
 export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified KMS key from the specified log
  *       group or from all CloudWatch Logs Insights query results in the account.</p>
  *          <p>When you use <code>DisassociateKmsKey</code>, you specify either the <code>logGroupName</code> parameter
@@ -88,6 +87,7 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DisassociateKmsKeyCommand extends $Command
   .classBuilder<

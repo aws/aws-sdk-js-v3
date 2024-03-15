@@ -35,7 +35,6 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
  *             your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
@@ -120,6 +119,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe valid modifications for a DB instance
  * ```javascript
  * // The following example retrieves details about the valid modifications for the specified DB instance.

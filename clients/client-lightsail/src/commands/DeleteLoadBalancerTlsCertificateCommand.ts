@@ -32,7 +32,6 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>
  *          <p>The <code>DeleteLoadBalancerTlsCertificate</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by <code>load balancer
@@ -113,6 +112,7 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteLoadBalancerTlsCertificateCommand extends $Command
   .classBuilder<

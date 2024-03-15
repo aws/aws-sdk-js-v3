@@ -27,7 +27,6 @@ export interface CreateHsmClientCertificateCommandInput extends CreateHsmClientC
 export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClientCertificateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to
  *             the client's HSM in order to store and retrieve the keys used to encrypt the cluster
  *             databases.</p>
@@ -93,6 +92,7 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateHsmClientCertificateCommand extends $Command
   .classBuilder<

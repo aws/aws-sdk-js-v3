@@ -35,7 +35,6 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified Amazon Web Services account as a delegated administrator for
  *             Audit Manager. </p>
  *          <p>When you remove a delegated administrator from your Audit Manager settings, you
@@ -134,6 +133,7 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class DeregisterOrganizationAdminAccountCommand extends $Command
   .classBuilder<

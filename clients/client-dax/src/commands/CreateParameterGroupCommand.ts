@@ -27,7 +27,6 @@ export interface CreateParameterGroupCommandInput extends CreateParameterGroupRe
 export interface CreateParameterGroupCommandOutput extends CreateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new parameter group. A parameter group is a collection of parameters that
  *             you apply to all of the nodes in a DAX cluster.</p>
  * @example
@@ -78,6 +77,7 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class CreateParameterGroupCommand extends $Command
   .classBuilder<

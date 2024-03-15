@@ -27,7 +27,6 @@ export interface UpdateEndpointCommandInput extends UpdateEndpointInput {}
 export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deploys the <code>EndpointConfig</code> specified in the request to a new fleet of
  *             instances. SageMaker shifts endpoint traffic to the new instances with the updated endpoint
  *             configuration and then deletes the old instances using the previous
@@ -123,6 +122,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateEndpointCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>.
  *       If existing tags on a resource aren't specified in the request parameters, they aren't
  *       changed. When a resource is deleted, the tags that are associated with that resource are
@@ -68,6 +67,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example TagResource Example
  * ```javascript
  * // This demonstrates calling the TagResource action.

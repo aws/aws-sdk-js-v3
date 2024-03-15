@@ -31,7 +31,6 @@ export interface GetMigrationsCommandInput extends GetMigrationsRequest {}
 export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetMigrationsCommand extends $Command
   .classBuilder<

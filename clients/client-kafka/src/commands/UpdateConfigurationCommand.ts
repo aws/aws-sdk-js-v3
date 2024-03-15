@@ -27,7 +27,6 @@ export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequ
 export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an MSK configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateConfigurationCommand extends $Command
   .classBuilder<

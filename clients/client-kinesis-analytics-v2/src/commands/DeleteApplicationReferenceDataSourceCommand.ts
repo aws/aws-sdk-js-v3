@@ -39,7 +39,6 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p>
  *          <p>If the application is running, Kinesis Data Analytics immediately removes the in-application table
  *       that you created using the <a>AddApplicationReferenceDataSource</a> operation.  </p>
@@ -89,6 +88,7 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class DeleteApplicationReferenceDataSourceCommand extends $Command
   .classBuilder<

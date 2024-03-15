@@ -28,7 +28,6 @@ export interface AssociateVPCWithHostedZoneCommandInput extends AssociateVPCWith
 export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWithHostedZoneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an Amazon VPC with a private hosted zone. </p>
  *          <important>
  *             <p>To perform the association, the VPC and the private hosted zone must already
@@ -156,6 +155,7 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  * @example To associate a VPC with a hosted zone
  * ```javascript
  * // The following example associates the VPC with ID vpc-1a2b3c4d with the hosted zone with ID Z3M3LMPEXAMPLE.

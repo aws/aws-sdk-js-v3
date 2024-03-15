@@ -27,7 +27,6 @@ export interface DescribeFlywheelIterationCommandInput extends DescribeFlywheelI
 export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheelIterationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the configuration properties of a flywheel iteration.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -92,6 +91,7 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeFlywheelIterationCommand extends $Command
   .classBuilder<

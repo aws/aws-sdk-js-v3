@@ -27,7 +27,6 @@ export interface CreateEvaluationCommandInput extends CreateEvaluationInput {}
 export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>
  *           for an <code>MLModel</code>, the <code>DataSource</code> for an <code>Evaluation</code> contains values for the <code>Target Variable</code>. The <code>Evaluation</code> compares the predicted result for each observation to the actual outcome and provides a
  *             summary so that you know how effective the <code>MLModel</code> functions on the test
@@ -78,6 +77,7 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class CreateEvaluationCommand extends $Command
   .classBuilder<

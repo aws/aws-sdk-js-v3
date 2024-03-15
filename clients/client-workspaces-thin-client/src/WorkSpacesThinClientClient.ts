@@ -297,7 +297,6 @@ export type WorkSpacesThinClientClientResolvedConfigType = __SmithyResolvedConfi
 export interface WorkSpacesThinClientClientResolvedConfig extends WorkSpacesThinClientClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon WorkSpaces Thin Client is a affordable device built to work with Amazon Web Services End User
  *             Computing (EUC) virtual desktops to provide users with a complete cloud desktop
  *             solution. WorkSpaces Thin Client is a compact device designed to connect up to two monitors and USB
@@ -310,6 +309,7 @@ export interface WorkSpacesThinClientClientResolvedConfig extends WorkSpacesThin
  *             more information about using the Command Line Interface (CLI) to manage
  *             your WorkSpaces Thin Client resources, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces-thin-client/index.html">WorkSpaces Thin Client section of the
  *                     CLI Reference</a>.</p>
+ * @public
  */
 export class WorkSpacesThinClientClient extends __Client<
   __HttpHandlerOptions,

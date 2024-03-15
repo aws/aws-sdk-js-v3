@@ -27,7 +27,6 @@ export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
  *       retains the DB cluster's metadata, including its endpoints and DB parameter
  *       groups.</p>
@@ -163,6 +162,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class StopDBClusterCommand extends $Command
   .classBuilder<

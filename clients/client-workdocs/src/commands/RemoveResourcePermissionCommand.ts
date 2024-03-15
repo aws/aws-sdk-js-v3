@@ -27,7 +27,6 @@ export interface RemoveResourcePermissionCommandInput extends RemoveResourcePerm
 export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the permission for the specified principal from the specified
  *             resource.</p>
  * @example
@@ -71,6 +70,7 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class RemoveResourcePermissionCommand extends $Command
   .classBuilder<

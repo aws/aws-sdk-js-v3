@@ -27,7 +27,6 @@ export interface PutEntityTypeCommandInput extends PutEntityTypeRequest {}
 export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __Metad
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class PutEntityTypeCommand extends $Command
   .classBuilder<

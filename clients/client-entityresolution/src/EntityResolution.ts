@@ -603,7 +603,6 @@ export interface EntityResolution {
 }
 
 /**
- * @public
  * <p>Welcome to the <i>Entity Resolution API Reference</i>.</p>
  *          <p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity
  *          resolution capabilities that enable developers and analysts at advertising and marketing
@@ -615,6 +614,7 @@ export interface EntityResolution {
  *          from a marketing system containing campaign information.</p>
  *          <p>To learn more about Entity Resolution concepts, procedures, and best practices, see the
  *             <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
+ * @public
  */
 export class EntityResolution extends EntityResolutionClient implements EntityResolution {}
 createAggregatedClient(commands, EntityResolution);

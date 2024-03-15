@@ -32,7 +32,6 @@ export interface CreateServerlessCacheSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Redis only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface CreateServerlessCacheSnapshotCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class CreateServerlessCacheSnapshotCommand extends $Command
   .classBuilder<

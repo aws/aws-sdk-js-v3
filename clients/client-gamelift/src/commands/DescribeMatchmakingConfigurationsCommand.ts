@@ -32,7 +32,6 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of FlexMatch matchmaking configurations. </p>
  *          <p>This operation offers the following options: (1) retrieve all matchmaking
  *             configurations, (2) retrieve configurations for a specified list, or (3) retrieve all
@@ -116,6 +115,7 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeMatchmakingConfigurationsCommand extends $Command
   .classBuilder<

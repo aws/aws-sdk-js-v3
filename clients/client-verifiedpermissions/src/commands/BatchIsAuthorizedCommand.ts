@@ -36,7 +36,6 @@ export interface BatchIsAuthorizedCommandInput extends BatchIsAuthorizedInput {}
 export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Makes a series of decisions about multiple authorization requests for one principal or
  *             resource. Each request contains the equivalent content of an <code>IsAuthorized</code>
  *             request: principal, action, resource, and context. Either the <code>principal</code> or
@@ -294,6 +293,7 @@ export interface BatchIsAuthorizedCommandOutput extends BatchIsAuthorizedOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class BatchIsAuthorizedCommand extends $Command
   .classBuilder<

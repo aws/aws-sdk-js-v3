@@ -32,7 +32,6 @@ export interface DeleteDBClusterAutomatedBackupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes automated backups using the <code>DbClusterResourceId</code> value of the source DB cluster or the Amazon
  *             Resource Name (ARN) of the automated backups.</p>
  * @example
@@ -99,6 +98,7 @@ export interface DeleteDBClusterAutomatedBackupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DeleteDBClusterAutomatedBackupCommand extends $Command
   .classBuilder<

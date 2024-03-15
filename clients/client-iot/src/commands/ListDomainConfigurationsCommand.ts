@@ -27,7 +27,6 @@ export interface ListDomainConfigurationsCommandInput extends ListDomainConfigur
 export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of domain configurations for the user. This list is sorted
  *          alphabetically by domain configuration name.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListDomainConfigurations</a> action.</p>
@@ -81,6 +80,7 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListDomainConfigurationsCommand extends $Command
   .classBuilder<

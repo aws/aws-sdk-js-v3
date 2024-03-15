@@ -27,7 +27,6 @@ export interface StartDevEnvironmentCommandInput extends StartDevEnvironmentRequ
 export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a specified Dev Environment and puts it into an active state. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class StartDevEnvironmentCommand extends $Command
   .classBuilder<

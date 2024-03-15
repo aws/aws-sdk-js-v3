@@ -35,7 +35,6 @@ export interface DescribeChannelMembershipCommandInput extends DescribeChannelMe
 export interface DescribeChannelMembershipCommandOutput extends DescribeChannelMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the full details of a user's channel membership.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -106,6 +105,7 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DescribeChannelMembershipCommand extends $Command
   .classBuilder<

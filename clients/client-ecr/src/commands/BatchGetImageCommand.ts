@@ -27,7 +27,6 @@ export interface BatchGetImageCommandInput extends BatchGetImageRequest {}
 export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets detailed information for an image. Images are specified with either an
  *                 <code>imageTag</code> or <code>imageDigest</code>.</p>
  *          <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
@@ -110,6 +109,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To obtain multiple images in a single request
  * ```javascript
  * // This example obtains information for an image with a specified image digest ID from the repository named ubuntu in the current account.

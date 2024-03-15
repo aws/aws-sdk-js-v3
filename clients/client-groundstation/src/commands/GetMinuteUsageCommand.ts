@@ -27,7 +27,6 @@ export interface GetMinuteUsageCommandInput extends GetMinuteUsageRequest {}
 export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of reserved minutes used by account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class GetMinuteUsageCommand extends $Command
   .classBuilder<

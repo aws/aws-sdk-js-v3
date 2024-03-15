@@ -36,7 +36,6 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups">Security Groups for Load Balancers in a VPC</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -80,6 +79,7 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To associate a security group with a load balancer in a VPC
  * ```javascript
  * // This example associates a security group with the specified load balancer in a VPC.

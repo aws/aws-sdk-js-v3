@@ -32,7 +32,6 @@ export interface ListSourceRepositoryBranchesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of branches in a specified source repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListSourceRepositoryBranchesCommandOutput
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class ListSourceRepositoryBranchesCommand extends $Command
   .classBuilder<

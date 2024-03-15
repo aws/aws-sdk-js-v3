@@ -35,7 +35,6 @@ export interface GetResolverQueryLogConfigAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC
  * 			with a query logging configuration, Resolver logs DNS queries that originate in that VPC.</p>
  * @example
@@ -90,6 +89,7 @@ export interface GetResolverQueryLogConfigAssociationCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetResolverQueryLogConfigAssociationCommand extends $Command
   .classBuilder<

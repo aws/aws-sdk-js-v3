@@ -27,7 +27,6 @@ export interface UpdateJobCommandInput extends UpdateJobRequest {}
 export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing job definition. The previous job definition is completely overwritten by this information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1141,6 +1140,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateJobCommand extends $Command
   .classBuilder<

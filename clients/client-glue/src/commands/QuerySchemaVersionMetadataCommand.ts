@@ -27,7 +27,6 @@ export interface QuerySchemaVersionMetadataCommandInput extends QuerySchemaVersi
 export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Queries for the schema version metadata information. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class QuerySchemaVersionMetadataCommand extends $Command
   .classBuilder<

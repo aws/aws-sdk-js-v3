@@ -27,7 +27,6 @@ export interface UpdateSourceServerCommandInput extends UpdateSourceServerReques
 export interface UpdateSourceServerCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update Source Server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -184,6 +183,7 @@ export interface UpdateSourceServerCommandOutput extends SourceServer, __Metadat
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class UpdateSourceServerCommand extends $Command
   .classBuilder<

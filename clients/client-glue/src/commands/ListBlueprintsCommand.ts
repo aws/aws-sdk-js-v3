@@ -27,7 +27,6 @@ export interface ListBlueprintsCommandInput extends ListBlueprintsRequest {}
 export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the blueprint names in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListBlueprintsCommand extends $Command
   .classBuilder<

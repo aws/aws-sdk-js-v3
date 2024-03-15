@@ -27,7 +27,6 @@ export interface RevokeSnapshotAccessCommandInput extends RevokeSnapshotAccessMe
 export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the ability of the specified  Amazon Web Services account to restore the specified
  *             snapshot. If the account is currently restoring the snapshot, the restore will run to
  *             completion.</p>
@@ -127,6 +126,7 @@ export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessR
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class RevokeSnapshotAccessCommand extends $Command
   .classBuilder<

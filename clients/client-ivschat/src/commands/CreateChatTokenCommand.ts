@@ -32,7 +32,6 @@ export interface CreateChatTokenCommandInput extends CreateChatTokenRequest {}
 export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an encrypted token that is used by a chat participant to establish an individual
  *          WebSocket chat connection to a room. When the token is used to connect to chat, the
  *          connection is valid for the session duration specified in the request. The token becomes
@@ -93,6 +92,7 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class CreateChatTokenCommand extends $Command
   .classBuilder<

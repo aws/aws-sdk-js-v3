@@ -27,7 +27,6 @@ export interface StopFailbackCommandInput extends StopFailbackRequest {}
 export interface StopFailbackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the failback process for a specified Recovery Instance. This changes the Failback State of the Recovery Instance back to FAILBACK_NOT_STARTED.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StopFailbackCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Associates an evidence folder to an assessment report in an Audit Manager
  *          assessment. </p>
  * @example
@@ -78,6 +77,7 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class AssociateAssessmentReportEvidenceFolderCommand extends $Command
   .classBuilder<

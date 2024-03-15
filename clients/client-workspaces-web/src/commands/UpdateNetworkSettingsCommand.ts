@@ -27,7 +27,6 @@ export interface UpdateNetworkSettingsCommandInput extends UpdateNetworkSettings
 export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class UpdateNetworkSettingsCommand extends $Command
   .classBuilder<

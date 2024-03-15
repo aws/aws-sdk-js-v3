@@ -27,7 +27,6 @@ export interface UpdateContactScheduleCommandInput extends UpdateContactSchedule
 export interface UpdateContactScheduleCommandOutput extends UpdateContactScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the scheduled time of a task contact that is already scheduled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateContactScheduleCommand extends $Command
   .classBuilder<

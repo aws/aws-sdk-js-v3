@@ -27,7 +27,6 @@ export interface ListModelCardsCommandInput extends ListModelCardsRequest {}
 export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List existing model cards.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListModelCardsCommandOutput extends ListModelCardsResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListModelCardsCommand extends $Command
   .classBuilder<

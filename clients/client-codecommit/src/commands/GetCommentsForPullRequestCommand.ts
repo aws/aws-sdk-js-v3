@@ -27,7 +27,6 @@ export interface GetCommentsForPullRequestCommandInput extends GetCommentsForPul
 export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPullRequestOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns comments made on a pull request.</p>
  *          <note>
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
@@ -153,6 +152,7 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetCommentsForPullRequestCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class DisassociatePhoneNumberFromUserCommand extends $Command
   .classBuilder<

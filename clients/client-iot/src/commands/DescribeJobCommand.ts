@@ -27,7 +27,6 @@ export interface DescribeJobCommandInput extends DescribeJobRequest {}
 export interface DescribeJobCommandOutput extends DescribeJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a job.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJob</a> action.</p>
  * @example
@@ -158,6 +157,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeJobCommand extends $Command
   .classBuilder<

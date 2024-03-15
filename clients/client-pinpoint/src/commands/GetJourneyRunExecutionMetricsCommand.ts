@@ -32,7 +32,6 @@ export interface GetJourneyRunExecutionMetricsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetJourneyRunExecutionMetricsCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  * @example To get the execution metrics for a journey run
  * ```javascript
  * // The following example gets execution metrics for a single run of a journey.

@@ -27,7 +27,6 @@ export interface DescribeSolutionCommandInput extends DescribeSolutionRequest {}
 export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a solution.
  *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
  * @example
@@ -144,6 +143,7 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeSolutionCommand extends $Command
   .classBuilder<

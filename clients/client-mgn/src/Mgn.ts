@@ -1468,8 +1468,8 @@ export interface Mgn {
 }
 
 /**
- * @public
  * <p>The Application Migration Service service.</p>
+ * @public
  */
 export class Mgn extends MgnClient implements Mgn {}
 createAggregatedClient(commands, Mgn);

@@ -27,7 +27,6 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an environment. An environment is a deployment group of
  *             AppConfig applications, such as applications in a <code>Production</code>
  *          environment or in an <code>EU_Region</code> environment. Each configuration deployment
@@ -80,6 +79,7 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To retrieve environment details
  * ```javascript
  * // The following get-environment example returns the details and state of the specified environment.

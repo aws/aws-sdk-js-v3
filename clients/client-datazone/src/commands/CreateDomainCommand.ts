@@ -27,7 +27,6 @@ export interface CreateDomainCommandInput extends CreateDomainInput {}
 export interface CreateDomainCommandOutput extends CreateDomainOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon DataZone domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateDomainCommand extends $Command
   .classBuilder<

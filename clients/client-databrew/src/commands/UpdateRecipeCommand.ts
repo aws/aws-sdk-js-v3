@@ -27,7 +27,6 @@ export interface UpdateRecipeCommandInput extends UpdateRecipeRequest {}
 export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
  *             recipe.</p>
  * @example
@@ -80,6 +79,7 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class UpdateRecipeCommand extends $Command
   .classBuilder<

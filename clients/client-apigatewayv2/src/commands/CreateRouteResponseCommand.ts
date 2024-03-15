@@ -27,7 +27,6 @@ export interface CreateRouteResponseCommandInput extends CreateRouteResponseRequ
 export interface CreateRouteResponseCommandOutput extends CreateRouteResponseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a RouteResponse for a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class CreateRouteResponseCommand extends $Command
   .classBuilder<

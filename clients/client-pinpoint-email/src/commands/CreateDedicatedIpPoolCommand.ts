@@ -27,7 +27,6 @@ export interface CreateDedicatedIpPoolCommandInput extends CreateDedicatedIpPool
 export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
  *             IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with
  *             a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint
@@ -77,6 +76,7 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class CreateDedicatedIpPoolCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeIpGroupsCommandInput extends DescribeIpGroupsRequest {}
 export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your IP access control groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeIpGroupsCommand extends $Command
   .classBuilder<

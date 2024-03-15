@@ -27,7 +27,6 @@ export interface PutLaunchActionCommandInput extends PutLaunchActionRequest {}
 export interface PutLaunchActionCommandOutput extends PutLaunchActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts a resource launch action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface PutLaunchActionCommandOutput extends PutLaunchActionResponse, _
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class PutLaunchActionCommand extends $Command
   .classBuilder<

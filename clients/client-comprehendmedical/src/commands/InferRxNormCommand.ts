@@ -31,7 +31,6 @@ export interface InferRxNormCommandInput extends InferRxNormRequest {}
 export interface InferRxNormCommandOutput extends InferRxNormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>InferRxNorm detects medications as entities listed in a patient record and links to the
  *       normalized concept identifiers in the RxNorm database from the National Library of Medicine.
  *       Amazon Comprehend Medical only detects medical entities in English language texts.  </p>
@@ -127,6 +126,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class InferRxNormCommand extends $Command
   .classBuilder<

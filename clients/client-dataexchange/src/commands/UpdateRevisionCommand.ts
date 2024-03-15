@@ -27,7 +27,6 @@ export interface UpdateRevisionCommandInput extends UpdateRevisionRequest {}
 export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation updates a revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class UpdateRevisionCommand extends $Command
   .classBuilder<

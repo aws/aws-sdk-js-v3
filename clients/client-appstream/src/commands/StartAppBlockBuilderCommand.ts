@@ -27,7 +27,6 @@ export interface StartAppBlockBuilderCommandInput extends StartAppBlockBuilderRe
 export interface StartAppBlockBuilderCommandOutput extends StartAppBlockBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an app block builder.</p>
  *          <p>An app block builder can only be started when it's associated with an app
  *             block.</p>
@@ -116,6 +115,7 @@ export interface StartAppBlockBuilderCommandOutput extends StartAppBlockBuilderR
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class StartAppBlockBuilderCommand extends $Command
   .classBuilder<

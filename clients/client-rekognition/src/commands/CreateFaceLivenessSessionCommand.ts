@@ -27,7 +27,6 @@ export interface CreateFaceLivenessSessionCommandInput extends CreateFaceLivenes
 export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivenessSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>,
  *       which you can use to start streaming Face Liveness video and get the results for a Face
  *       Liveness session. </p>
@@ -89,6 +88,7 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class CreateFaceLivenessSessionCommand extends $Command
   .classBuilder<

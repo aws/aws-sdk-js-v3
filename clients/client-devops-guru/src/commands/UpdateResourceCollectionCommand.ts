@@ -27,7 +27,6 @@ export interface UpdateResourceCollectionCommandInput extends UpdateResourceColl
 export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the collection of resources that DevOps Guru analyzes.
  * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
  *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -91,6 +90,7 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class UpdateResourceCollectionCommand extends $Command
   .classBuilder<

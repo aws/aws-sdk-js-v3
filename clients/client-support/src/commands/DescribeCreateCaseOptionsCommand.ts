@@ -27,7 +27,6 @@ export interface DescribeCreateCaseOptionsCommandInput extends DescribeCreateCas
 export interface DescribeCreateCaseOptionsCommandOutput extends DescribeCreateCaseOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of CreateCaseOption types along with the
  *         corresponding supported hours and language availability. You can specify the <code>language</code>
  *             <code>categoryCode</code>,
@@ -100,6 +99,7 @@ export interface DescribeCreateCaseOptionsCommandOutput extends DescribeCreateCa
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeCreateCaseOptionsCommand extends $Command
   .classBuilder<

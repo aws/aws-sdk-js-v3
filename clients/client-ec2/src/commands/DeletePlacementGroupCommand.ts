@@ -27,7 +27,6 @@ export interface DeletePlacementGroupCommandInput extends DeletePlacementGroupRe
 export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified placement group. You must terminate all instances in the
  *             placement group before you can delete the placement group. For more information, see
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -56,6 +55,7 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a placement group
  * ```javascript
  * // This example deletes the specified placement group.

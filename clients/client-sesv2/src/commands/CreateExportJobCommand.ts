@@ -31,7 +31,6 @@ export interface CreateExportJobCommandInput extends CreateExportJobRequest {}
 export interface CreateExportJobCommandOutput extends CreateExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an export job for a data source and destination.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -138,6 +137,7 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  * @example Create Metrics export job
  * ```javascript
  * // Creates a new export job for Metrics data

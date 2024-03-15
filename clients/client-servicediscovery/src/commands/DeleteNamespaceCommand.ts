@@ -27,7 +27,6 @@ export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a namespace from the current account. If the namespace still contains one or more
  *    services, the request fails.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Delete namespace
  * ```javascript
  * // Example: Delete namespace

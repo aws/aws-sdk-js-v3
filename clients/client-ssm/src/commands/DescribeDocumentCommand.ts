@@ -27,7 +27,6 @@ export interface DescribeDocumentCommandInput extends DescribeDocumentRequest {}
 export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified Amazon Web Services Systems Manager document (SSM document).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeDocumentCommand extends $Command
   .classBuilder<

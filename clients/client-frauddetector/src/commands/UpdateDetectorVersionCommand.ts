@@ -27,7 +27,6 @@ export interface UpdateDetectorVersionCommandInput extends UpdateDetectorVersion
 export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a <code>DRAFT</code> detector version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersio
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateDetectorVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetServiceRoleForAccountCommandInput extends GetServiceRoleForA
 export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleForAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the service role associated with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.
  *       IoT Greengrass uses this role to verify the identity of client devices and manage core device
  *       connectivity information. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in
@@ -60,6 +59,7 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class GetServiceRoleForAccountCommand extends $Command
   .classBuilder<

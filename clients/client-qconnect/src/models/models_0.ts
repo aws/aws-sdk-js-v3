@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { QConnectServiceException as __BaseException } from "./QConnectServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,12 +24,11 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
+ * @public
  */
 export interface AppIntegrationsConfiguration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.</p>
    *          <ul>
    *             <li>
@@ -69,11 +68,11 @@ export interface AppIntegrationsConfiguration {
    *                </important>
    *             </li>
    *          </ul>
+   * @public
    */
   appIntegrationArn: string | undefined;
 
   /**
-   * @public
    * <p>The fields from the source that are made available to your agents in Amazon Q. Optional if
    *       ObjectConfiguration is included in the provided DataIntegration. </p>
    *          <ul>
@@ -95,16 +94,17 @@ export interface AppIntegrationsConfiguration {
    *          </ul>
    *          <p>Make sure to include additional fields. These fields are indexed and used to source
    *       recommendations. </p>
+   * @public
    */
   objectFields?: string[];
 }
 
 /**
- * @public
  * <p>The request could not be processed because of conflict in the current state of the
  *       resource. For example, if you're using a <code>Create</code> API (such as
  *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
  *       same name) is being created or mutated.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -123,8 +123,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The data that is input into Amazon Q as a result of the assistant association.</p>
+ * @public
  */
 export type AssistantAssociationInputData =
   | AssistantAssociationInputData.KnowledgeBaseIdMember
@@ -135,9 +135,9 @@ export type AssistantAssociationInputData =
  */
 export namespace AssistantAssociationInputData {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   export interface KnowledgeBaseIdMember {
     knowledgeBaseId: string;
@@ -181,61 +181,61 @@ export type AssociationType = (typeof AssociationType)[keyof typeof AssociationT
  */
 export interface CreateAssistantAssociationRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The type of association.</p>
+   * @public
    */
   associationType: AssociationType | undefined;
 
   /**
-   * @public
    * <p>The identifier of the associated resource.</p>
+   * @public
    */
   association: AssistantAssociationInputData | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Association information about the knowledge base.</p>
+ * @public
  */
 export interface KnowledgeBaseAssociationData {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn?: string;
 }
 
 /**
- * @public
  * <p>The data that is output as a result of the assistant association.</p>
+ * @public
  */
 export type AssistantAssociationOutputData =
   | AssistantAssociationOutputData.KnowledgeBaseAssociationMember
@@ -246,8 +246,8 @@ export type AssistantAssociationOutputData =
  */
 export namespace AssistantAssociationOutputData {
   /**
-   * @public
    * <p>The knowledge base where output data is sent.</p>
+   * @public
    */
   export interface KnowledgeBaseAssociationMember {
     knowledgeBaseAssociation: KnowledgeBaseAssociationData;
@@ -275,49 +275,49 @@ export namespace AssistantAssociationOutputData {
 }
 
 /**
- * @public
  * <p>Information about the assistant association.</p>
+ * @public
  */
 export interface AssistantAssociationData {
   /**
-   * @public
    * <p>The identifier of the assistant association.</p>
+   * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the assistant association.</p>
+   * @public
    */
   assistantAssociationArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of association.</p>
+   * @public
    */
   associationType: AssociationType | undefined;
 
   /**
-   * @public
    * <p>A union type that currently has a single argument, the knowledge base ID.</p>
+   * @public
    */
   associationData: AssistantAssociationOutputData | undefined;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -327,22 +327,22 @@ export interface AssistantAssociationData {
  */
 export interface CreateAssistantAssociationResponse {
   /**
-   * @public
    * <p>The assistant association.</p>
+   * @public
    */
   assistantAssociation?: AssistantAssociationData;
 }
 
 /**
- * @public
  * <p>The specified resource does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The specified resource name.</p>
+   * @public
    */
   resourceName?: string;
 
@@ -361,9 +361,9 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You've exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use service quotas to request a service quota increase.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -382,8 +382,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by a service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -406,14 +406,14 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteAssistantAssociationRequest {
   /**
-   * @public
    * <p>The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 }
@@ -428,14 +428,14 @@ export interface DeleteAssistantAssociationResponse {}
  */
 export interface GetAssistantAssociationRequest {
   /**
-   * @public
    * <p>The identifier of the assistant association. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 }
@@ -445,8 +445,8 @@ export interface GetAssistantAssociationRequest {
  */
 export interface GetAssistantAssociationResponse {
   /**
-   * @public
    * <p>The assistant association.</p>
+   * @public
    */
   assistantAssociation?: AssistantAssociationData;
 }
@@ -456,69 +456,69 @@ export interface GetAssistantAssociationResponse {
  */
 export interface ListAssistantAssociationsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 }
 
 /**
- * @public
  * <p>Summary information about the assistant association.</p>
+ * @public
  */
 export interface AssistantAssociationSummary {
   /**
-   * @public
    * <p>The identifier of the assistant association.</p>
+   * @public
    */
   assistantAssociationId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the assistant association.</p>
+   * @public
    */
   assistantAssociationArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of association.</p>
+   * @public
    */
   associationType: AssociationType | undefined;
 
   /**
-   * @public
    * <p>The association data.</p>
+   * @public
    */
   associationData: AssistantAssociationOutputData | undefined;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -528,28 +528,28 @@ export interface AssistantAssociationSummary {
  */
 export interface ListAssistantAssociationsResponse {
   /**
-   * @public
    * <p>Summary information about assistant associations.</p>
+   * @public
    */
   assistantAssociationSummaries: AssistantAssociationSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The configuration information for the customer managed key used for encryption.</p>
+ * @public
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * @public
    * <p>The customer managed key used for encryption. For more information about setting up a
    *         customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.
    *       For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
+   * @public
    */
   kmsKeyId?: string;
 }
@@ -572,40 +572,39 @@ export type AssistantType = (typeof AssistantType)[keyof typeof AssistantType];
  */
 export interface CreateAssistantRequest {
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The name of the assistant.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of assistant.</p>
+   * @public
    */
   type: AssistantType | undefined;
 
   /**
-   * @public
    * <p>The description of the assistant.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration information for the customer managed key used for encryption. </p>
    *          <p>The customer managed key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code> kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
@@ -616,6 +615,7 @@ export interface CreateAssistantRequest {
    *       principal. </p>
    *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 }
@@ -635,25 +635,25 @@ export const AssistantCapabilityType = {
 export type AssistantCapabilityType = (typeof AssistantCapabilityType)[keyof typeof AssistantCapabilityType];
 
 /**
- * @public
  * <p>The capability configuration for an Amazon Q assistant. </p>
+ * @public
  */
 export interface AssistantCapabilityConfiguration {
   /**
-   * @public
    * <p>The type of Amazon Q assistant capability. </p>
+   * @public
    */
   type?: AssistantCapabilityType;
 }
 
 /**
- * @public
  * <p>The configuration information for the Amazon Q assistant integration.</p>
+ * @public
  */
 export interface AssistantIntegrationConfiguration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
+   * @public
    */
   topicIntegrationArn?: string;
 }
@@ -677,54 +677,53 @@ export const AssistantStatus = {
 export type AssistantStatus = (typeof AssistantStatus)[keyof typeof AssistantStatus];
 
 /**
- * @public
  * <p>The assistant data.</p>
+ * @public
  */
 export interface AssistantData {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * @public
    * <p>The name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of assistant.</p>
+   * @public
    */
   type: AssistantType | undefined;
 
   /**
-   * @public
    * <p>The status of the assistant.</p>
+   * @public
    */
   status: AssistantStatus | undefined;
 
   /**
-   * @public
    * <p>The description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration information for the customer managed key used for encryption. </p>
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
@@ -735,18 +734,19 @@ export interface AssistantData {
    *       principal. </p>
    *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * <p>The configuration information for the Amazon Q assistant integration.</p>
+   * @public
    */
   integrationConfiguration?: AssistantIntegrationConfiguration;
 
   /**
-   * @public
    * <p>The configuration information for the Amazon Q assistant capability. </p>
+   * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration;
 }
@@ -756,8 +756,8 @@ export interface AssistantData {
  */
 export interface CreateAssistantResponse {
   /**
-   * @public
    * <p>Information about the assistant.</p>
+   * @public
    */
   assistant?: AssistantData;
 }
@@ -767,8 +767,8 @@ export interface CreateAssistantResponse {
  */
 export interface DeleteAssistantRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 }
@@ -783,8 +783,8 @@ export interface DeleteAssistantResponse {}
  */
 export interface GetAssistantRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 }
@@ -794,8 +794,8 @@ export interface GetAssistantRequest {
  */
 export interface GetAssistantResponse {
   /**
-   * @public
    * <p>Information about the assistant.</p>
+   * @public
    */
   assistant?: AssistantData;
 }
@@ -805,29 +805,29 @@ export interface GetAssistantResponse {
  */
 export interface GetRecommendationsRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The duration (in seconds) for which the call waits for a recommendation to be made
    *       available before returning. If a recommendation is available, the call returns sooner than
    *         <code>WaitTimeSeconds</code>. If no messages are available and the wait time expires, the
    *       call returns successfully with an empty list.</p>
+   * @public
    */
   waitTimeSeconds?: number;
 }
@@ -848,92 +848,92 @@ export const RelevanceLevel = {
 export type RelevanceLevel = (typeof RelevanceLevel)[keyof typeof RelevanceLevel];
 
 /**
- * @public
  * <p>Details about the source content ranking data.</p>
+ * @public
  */
 export interface RankingData {
   /**
-   * @public
    * <p>The relevance level of the recommendation.</p>
+   * @public
    */
   relevanceScore?: number;
 
   /**
-   * @public
    * <p>The relevance score of the content.</p>
+   * @public
    */
   relevanceLevel?: RelevanceLevel;
 }
 
 /**
- * @public
  * <p>Offset specification to describe highlighting of document excerpts for rendering search
  *       results and recommendations.</p>
+ * @public
  */
 export interface Highlight {
   /**
-   * @public
    * <p>The offset for the start of the highlight.</p>
+   * @public
    */
   beginOffsetInclusive?: number;
 
   /**
-   * @public
    * <p>The offset for the end of the highlight.</p>
+   * @public
    */
   endOffsetExclusive?: number;
 }
 
 /**
- * @public
  * <p>The text of the document.</p>
+ * @public
  */
 export interface DocumentText {
   /**
-   * @public
    * <p>Text in the document.</p>
+   * @public
    */
   text?: string;
 
   /**
-   * @public
    * <p>Highlights in the document text.</p>
+   * @public
    */
   highlights?: Highlight[];
 }
 
 /**
- * @public
  * <p>Details about the source content text data.</p>
+ * @public
  */
 export interface TextData {
   /**
-   * @public
    * <p>The text of the document.</p>
+   * @public
    */
   title?: DocumentText;
 
   /**
-   * @public
    * <p>The text of the document.</p>
+   * @public
    */
   excerpt?: DocumentText;
 }
 
 /**
- * @public
  * <p>Details about the content data.</p>
+ * @public
  */
 export interface ContentDataDetails {
   /**
-   * @public
    * <p>Details about the content text data.</p>
+   * @public
    */
   textData: TextData | undefined;
 
   /**
-   * @public
    * <p>Details about the content ranking data.</p>
+   * @public
    */
   rankingData: RankingData | undefined;
 }
@@ -952,87 +952,87 @@ export const SourceContentType = {
 export type SourceContentType = (typeof SourceContentType)[keyof typeof SourceContentType];
 
 /**
- * @public
  * <p>Details about the source content data.</p>
+ * @public
  */
 export interface SourceContentDataDetails {
   /**
-   * @public
    * <p>The identifier of the source content.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The type of the source content.</p>
+   * @public
    */
   type: SourceContentType | undefined;
 
   /**
-   * @public
    * <p> Details about the source content text data.</p>
+   * @public
    */
   textData: TextData | undefined;
 
   /**
-   * @public
    * <p>Details about the source content ranking data.</p>
+   * @public
    */
   rankingData: RankingData | undefined;
 }
 
 /**
- * @public
  * <p>Reference information about the content.</p>
+ * @public
  */
 export interface ContentReference {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn?: string;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * @public
    */
   contentArn?: string;
 
   /**
-   * @public
    * <p>The identifier of the content.</p>
+   * @public
    */
   contentId?: string;
 }
 
 /**
- * @public
  * <p>Reference information about generative content.</p>
+ * @public
  */
 export interface GenerativeReference {
   /**
-   * @public
    * <p>The identifier of the LLM model. </p>
+   * @public
    */
   modelId?: string;
 
   /**
-   * @public
    * <p> The identifier of the LLM model. </p>
+   * @public
    */
   generationId?: string;
 }
 
 /**
- * @public
  * <p>Reference data.</p>
+ * @public
  */
 export type DataReference =
   | DataReference.ContentReferenceMember
@@ -1044,8 +1044,8 @@ export type DataReference =
  */
 export namespace DataReference {
   /**
-   * @public
    * <p>Reference information about the content.</p>
+   * @public
    */
   export interface ContentReferenceMember {
     contentReference: ContentReference;
@@ -1054,8 +1054,8 @@ export namespace DataReference {
   }
 
   /**
-   * @public
    * <p>Reference information about the generative content.</p>
+   * @public
    */
   export interface GenerativeReferenceMember {
     contentReference?: never;
@@ -1086,25 +1086,25 @@ export namespace DataReference {
 }
 
 /**
- * @public
  * <p>The document.</p>
+ * @public
  */
 export interface Document {
   /**
-   * @public
    * <p>A reference to the content resource.</p>
+   * @public
    */
   contentReference: ContentReference | undefined;
 
   /**
-   * @public
    * <p>The title of the document.</p>
+   * @public
    */
   title?: DocumentText;
 
   /**
-   * @public
    * <p>The excerpt from the document.</p>
+   * @public
    */
   excerpt?: DocumentText;
 }
@@ -1125,20 +1125,20 @@ export const RecommendationType = {
 export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 /**
- * @public
  * <p>Data associated with the QUERY RecommendationTriggerType.</p>
+ * @public
  */
 export interface QueryRecommendationTriggerData {
   /**
-   * @public
    * <p>The text associated with the recommendation trigger.</p>
+   * @public
    */
   text?: string;
 }
 
 /**
- * @public
  * <p>A union type containing information related to the trigger.</p>
+ * @public
  */
 export type RecommendationTriggerData =
   | RecommendationTriggerData.QueryMember
@@ -1149,8 +1149,8 @@ export type RecommendationTriggerData =
  */
 export namespace RecommendationTriggerData {
   /**
-   * @public
    * <p>Data associated with the QUERY RecommendationTriggerType.</p>
+   * @public
    */
   export interface QueryMember {
     query: QueryRecommendationTriggerData;
@@ -1206,26 +1206,25 @@ export const RecommendationTriggerType = {
 export type RecommendationTriggerType = (typeof RecommendationTriggerType)[keyof typeof RecommendationTriggerType];
 
 /**
- * @public
  * <p>A recommendation trigger provides context on the event that produced the referenced
  *       recommendations. Recommendations are only referenced in <code>recommendationIds</code> by a
  *       single RecommendationTrigger.</p>
+ * @public
  */
 export interface RecommendationTrigger {
   /**
-   * @public
    * <p>The identifier of the recommendation trigger.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The type of recommendation trigger.</p>
+   * @public
    */
   type: RecommendationTriggerType | undefined;
 
   /**
-   * @public
    * <p>The source of the recommendation trigger.</p>
    *          <ul>
    *             <li>
@@ -1237,18 +1236,19 @@ export interface RecommendationTrigger {
    *           rule.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   source: RecommendationSourceType | undefined;
 
   /**
-   * @public
    * <p>A union type containing information related to the trigger.</p>
+   * @public
    */
   data: RecommendationTriggerData | undefined;
 
   /**
-   * @public
    * <p>The identifiers of the recommendations.</p>
+   * @public
    */
   recommendationIds: string[] | undefined;
 }
@@ -1258,68 +1258,67 @@ export interface RecommendationTrigger {
  */
 export interface ListAssistantsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about the assistant.</p>
+ * @public
  */
 export interface AssistantSummary {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the assistant.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the assistant.</p>
+   * @public
    */
   type: AssistantType | undefined;
 
   /**
-   * @public
    * <p>The status of the assistant.</p>
+   * @public
    */
   status: AssistantStatus | undefined;
 
   /**
-   * @public
    * <p>The description of the assistant.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration information for the customer managed key used for encryption. </p>
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
@@ -1330,18 +1329,19 @@ export interface AssistantSummary {
    *       principal. </p>
    *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * <p>The configuration information for the Amazon Q assistant integration.</p>
+   * @public
    */
   integrationConfiguration?: AssistantIntegrationConfiguration;
 
   /**
-   * @public
    * <p>The configuration information for the Amazon Q assistant capability. </p>
+   * @public
    */
   capabilityConfiguration?: AssistantCapabilityConfiguration;
 }
@@ -1351,14 +1351,14 @@ export interface AssistantSummary {
  */
 export interface ListAssistantsResponse {
   /**
-   * @public
    * <p>Information about the assistants.</p>
+   * @public
    */
   assistantSummaries: AssistantSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1368,38 +1368,38 @@ export interface ListAssistantsResponse {
  */
 export interface NotifyRecommendationsReceivedRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>The identifiers of the recommendations.</p>
+   * @public
    */
   recommendationIds: string[] | undefined;
 }
 
 /**
- * @public
  * <p>An error occurred when creating a recommendation.</p>
+ * @public
  */
 export interface NotifyRecommendationsReceivedError {
   /**
-   * @public
    * <p>The identifier of the recommendation that is in error.</p>
+   * @public
    */
   recommendationId?: string;
 
   /**
-   * @public
    * <p>A recommendation is causing an error.</p>
+   * @public
    */
   message?: string;
 }
@@ -1409,14 +1409,14 @@ export interface NotifyRecommendationsReceivedError {
  */
 export interface NotifyRecommendationsReceivedResponse {
   /**
-   * @public
    * <p>The identifiers of the recommendations.</p>
+   * @public
    */
   recommendationIds?: string[];
 
   /**
-   * @public
    * <p>The identifiers of recommendations that are causing errors.</p>
+   * @public
    */
   errors?: NotifyRecommendationsReceivedError[];
 }
@@ -1436,20 +1436,20 @@ export const Relevance = {
 export type Relevance = (typeof Relevance)[keyof typeof Relevance];
 
 /**
- * @public
  * <p>The feedback information for a generative target type.</p>
+ * @public
  */
 export interface GenerativeContentFeedbackData {
   /**
-   * @public
    * <p>The relevance of the feedback.</p>
+   * @public
    */
   relevance: Relevance | undefined;
 }
 
 /**
- * @public
  * <p>Information about the feedback.</p>
+ * @public
  */
 export type ContentFeedbackData =
   | ContentFeedbackData.GenerativeContentFeedbackDataMember
@@ -1460,8 +1460,8 @@ export type ContentFeedbackData =
  */
 export namespace ContentFeedbackData {
   /**
-   * @public
    * <p>Information about the feedback for a generative target type.</p>
+   * @public
    */
   export interface GenerativeContentFeedbackDataMember {
     generativeContentFeedbackData: GenerativeContentFeedbackData;
@@ -1507,26 +1507,26 @@ export type TargetType = (typeof TargetType)[keyof typeof TargetType];
  */
 export interface PutFeedbackRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the feedback target.</p>
+   * @public
    */
   targetId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the feedback target.</p>
+   * @public
    */
   targetType: TargetType | undefined;
 
   /**
-   * @public
    * <p>Information about the feedback provided.</p>
+   * @public
    */
   contentFeedback: ContentFeedbackData | undefined;
 }
@@ -1536,32 +1536,32 @@ export interface PutFeedbackRequest {
  */
 export interface PutFeedbackResponse {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * @public
    */
   assistantArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the feedback target.</p>
+   * @public
    */
   targetId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the feedback target.</p>
+   * @public
    */
   targetType: TargetType | undefined;
 
   /**
-   * @public
    * <p>Information about the feedback provided.</p>
+   * @public
    */
   contentFeedback: ContentFeedbackData | undefined;
 }
@@ -1594,32 +1594,32 @@ export const QueryConditionFieldName = {
 export type QueryConditionFieldName = (typeof QueryConditionFieldName)[keyof typeof QueryConditionFieldName];
 
 /**
- * @public
  * <p>The condition for the query.</p>
+ * @public
  */
 export interface QueryConditionItem {
   /**
-   * @public
    * <p> The name of the field for query condition to query on.</p>
+   * @public
    */
   field: QueryConditionFieldName | undefined;
 
   /**
-   * @public
    * <p>The comparison operator for query condition to query on.</p>
+   * @public
    */
   comparator: QueryConditionComparisonOperator | undefined;
 
   /**
-   * @public
    * <p>The value for the query condition to query on.</p>
+   * @public
    */
   value: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about how to query content.</p>
+ * @public
  */
 export type QueryCondition = QueryCondition.SingleMember | QueryCondition.$UnknownMember;
 
@@ -1628,8 +1628,8 @@ export type QueryCondition = QueryCondition.SingleMember | QueryCondition.$Unkno
  */
 export namespace QueryCondition {
   /**
-   * @public
    * <p>The condition for the query.</p>
+   * @public
    */
   export interface SingleMember {
     single: QueryConditionItem;
@@ -1660,40 +1660,40 @@ export namespace QueryCondition {
  */
 export interface QueryAssistantRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The text to search for.</p>
+   * @public
    */
   queryText: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q session. Can be either the ID or the ARN. URLs cannot
    *       contain the ARN.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>Information about how to query content.</p>
+   * @public
    */
   queryCondition?: QueryCondition[];
 }
@@ -1713,10 +1713,10 @@ export const QueryResultType = {
 export type QueryResultType = (typeof QueryResultType)[keyof typeof QueryResultType];
 
 /**
- * @public
  * <p>The request reached the service more than 15 minutes after the date stamp on the request
  *       or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or
  *       the date stamp on the request is more than 15 minutes in the future.</p>
+ * @public
  */
 export class RequestTimeoutException extends __BaseException {
   readonly name: "RequestTimeoutException" = "RequestTimeoutException";
@@ -1762,37 +1762,37 @@ export const FilterOperator = {
 export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
- * @public
  * <p>A search filter.</p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>The field on which to filter.</p>
+   * @public
    */
   field: FilterField | undefined;
 
   /**
-   * @public
    * <p>The operator to use for comparing the field’s value with the provided value.</p>
+   * @public
    */
   operator: FilterOperator | undefined;
 
   /**
-   * @public
    * <p>The desired field value on which to filter.</p>
+   * @public
    */
   value: string | undefined;
 }
 
 /**
- * @public
  * <p>The search expression.</p>
+ * @public
  */
 export interface SearchExpression {
   /**
-   * @public
    * <p>The search expression filters.</p>
+   * @public
    */
   filters: Filter[] | undefined;
 }
@@ -1802,57 +1802,57 @@ export interface SearchExpression {
  */
 export interface SearchSessionsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The search expression to filter results.</p>
+   * @public
    */
   searchExpression: SearchExpression | undefined;
 }
 
 /**
- * @public
  * <p>Summary information about the session.</p>
+ * @public
  */
 export interface SessionSummary {
   /**
-   * @public
    * <p>The identifier of the session.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
    */
   sessionArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Q assistant.</p>
+   * @public
    */
   assistantArn: string | undefined;
 }
@@ -1862,14 +1862,14 @@ export interface SessionSummary {
  */
 export interface SearchSessionsResponse {
   /**
-   * @public
    * <p>Summary information about the sessions.</p>
+   * @public
    */
   sessionSummaries: SessionSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1879,89 +1879,89 @@ export interface SearchSessionsResponse {
  */
 export interface CreateSessionRequest {
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the session.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The configuration information for the session integration.</p>
+ * @public
  */
 export interface SessionIntegrationConfiguration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the integrated Amazon SNS topic used for streaming chat messages.</p>
+   * @public
    */
   topicIntegrationArn?: string;
 }
 
 /**
- * @public
  * <p>Information about the session.</p>
+ * @public
  */
 export interface SessionData {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
    */
   sessionArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the session.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the session.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration information for the session integration.</p>
+   * @public
    */
   integrationConfiguration?: SessionIntegrationConfiguration;
 }
@@ -1971,8 +1971,8 @@ export interface SessionData {
  */
 export interface CreateSessionResponse {
   /**
-   * @public
    * <p>The session.</p>
+   * @public
    */
   session?: SessionData;
 }
@@ -1982,14 +1982,14 @@ export interface CreateSessionResponse {
  */
 export interface GetSessionRequest {
   /**
-   * @public
    * <p>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   assistantId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   sessionId: string | undefined;
 }
@@ -1999,27 +1999,27 @@ export interface GetSessionRequest {
  */
 export interface GetSessionResponse {
   /**
-   * @public
    * <p>The session.</p>
+   * @public
    */
   session?: SessionData;
 }
 
 /**
- * @public
  * <p>The configuration information of the Amazon Connect data source.</p>
+ * @public
  */
 export interface ConnectConfiguration {
   /**
-   * @public
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * @public
    */
   instanceId?: string;
 }
 
 /**
- * @public
  * <p>The configuration information of the external data source.</p>
+ * @public
  */
 export type Configuration = Configuration.ConnectConfigurationMember | Configuration.$UnknownMember;
 
@@ -2028,8 +2028,8 @@ export type Configuration = Configuration.ConnectConfigurationMember | Configura
  */
 export namespace Configuration {
   /**
-   * @public
    * <p>The configuration information of the Amazon Connect data source.</p>
+   * @public
    */
   export interface ConnectConfigurationMember {
     connectConfiguration: ConnectConfiguration;
@@ -2060,58 +2060,58 @@ export namespace Configuration {
  */
 export interface CreateContentRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the content. Each piece of content in a knowledge base must have a unique
    *       name. You can retrieve a piece of content using only its knowledge base and its name with the
    *         <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SearchContent.html">SearchContent</a> API.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The title of the content. If not set, the title is equal to the name.</p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>The URI you want to use for the article. If the knowledge base has a templateUri, setting
    *       this argument overrides it for this piece of content.</p>
+   * @public
    */
   overrideLinkOutUri?: string;
 
   /**
-   * @public
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Amazon Q, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2136,93 +2136,93 @@ export const ContentStatus = {
 export type ContentStatus = (typeof ContentStatus)[keyof typeof ContentStatus];
 
 /**
- * @public
  * <p>Information about the content.</p>
+ * @public
  */
 export interface ContentData {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * @public
    */
   contentArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the content.</p>
+   * @public
    */
   contentId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the content.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the content revision.</p>
+   * @public
    */
   revisionId: string | undefined;
 
   /**
-   * @public
    * <p>The title of the content.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The media type of the content.</p>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The status of the content.</p>
+   * @public
    */
   status: ContentStatus | undefined;
 
   /**
-   * @public
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Amazon Q, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The URI of the content.</p>
+   * @public
    */
   linkOutUri?: string;
 
   /**
-   * @public
    * <p>The URL of the content.</p>
+   * @public
    */
   url: string | undefined;
 
   /**
-   * @public
    * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * @public
    */
   urlExpiry: Date | undefined;
 }
@@ -2232,8 +2232,8 @@ export interface ContentData {
  */
 export interface CreateContentResponse {
   /**
-   * @public
    * <p>The content.</p>
+   * @public
    */
   content?: ContentData;
 }
@@ -2243,15 +2243,15 @@ export interface CreateContentResponse {
  */
 export interface DeleteContentRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   contentId: string | undefined;
 }
@@ -2266,15 +2266,15 @@ export interface DeleteContentResponse {}
  */
 export interface GetContentRequest {
   /**
-   * @public
    * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   contentId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -2284,8 +2284,8 @@ export interface GetContentRequest {
  */
 export interface GetContentResponse {
   /**
-   * @public
    * <p>The content.</p>
+   * @public
    */
   content?: ContentData;
 }
@@ -2295,89 +2295,89 @@ export interface GetContentResponse {
  */
 export interface GetContentSummaryRequest {
   /**
-   * @public
    * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   contentId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * @public
  * <p>Summary information about the content.</p>
+ * @public
  */
 export interface ContentSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the content.</p>
+   * @public
    */
   contentArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the content.</p>
+   * @public
    */
   contentId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the content.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the revision of the content.</p>
+   * @public
    */
   revisionId: string | undefined;
 
   /**
-   * @public
    * <p>The title of the content.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The media type of the content.</p>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The status of the content.</p>
+   * @public
    */
   status: ContentStatus | undefined;
 
   /**
-   * @public
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Amazon Q, you can store an external version identifier as metadata to utilize for determining drift.</p>
+   * @public
    */
   metadata: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2387,8 +2387,8 @@ export interface ContentSummary {
  */
 export interface GetContentSummaryResponse {
   /**
-   * @public
    * <p>The content summary.</p>
+   * @public
    */
   contentSummary?: ContentSummary;
 }
@@ -2398,22 +2398,22 @@ export interface GetContentSummaryResponse {
  */
 export interface ListContentsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -2423,22 +2423,22 @@ export interface ListContentsRequest {
  */
 export interface ListContentsResponse {
   /**
-   * @public
    * <p>Information about the content.</p>
+   * @public
    */
   contentSummaries: ContentSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The provided <code>revisionId</code> does not match, indicating the content has been
  *       modified since it was last read.</p>
+ * @public
  */
 export class PreconditionFailedException extends __BaseException {
   readonly name: "PreconditionFailedException" = "PreconditionFailedException";
@@ -2461,60 +2461,60 @@ export class PreconditionFailedException extends __BaseException {
  */
 export interface UpdateContentRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the content. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   contentId: string | undefined;
 
   /**
-   * @public
    * <p>The <code>revisionId</code> of the content resource to update, taken from an earlier call
    *       to <code>GetContent</code>, <code>GetContentSummary</code>, <code>SearchContent</code>, or
    *         <code>ListContents</code>. If included, this argument acts as an optimistic lock to ensure
    *       content was not modified since it was last read. If it has been modified, this API throws a
    *         <code>PreconditionFailedException</code>.</p>
+   * @public
    */
   revisionId?: string;
 
   /**
-   * @public
    * <p>The title of the content.</p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>The URI for the article. If the knowledge base has a templateUri, setting this argument
    *       overrides it for this piece of content. To remove an existing <code>overrideLinkOurUri</code>,
    *       exclude this argument and set <code>removeOverrideLinkOutUri</code> to true.</p>
+   * @public
    */
   overrideLinkOutUri?: string;
 
   /**
-   * @public
    * <p>Unset the existing <code>overrideLinkOutUri</code> if it exists.</p>
+   * @public
    */
   removeOverrideLinkOutUri?: boolean;
 
   /**
-   * @public
    * <p>A key/value map to store attributes without affecting tagging or recommendations. For
    *       example, when synchronizing data between an external system and Amazon Q, you can store an
    *       external version identifier as metadata to utilize for determining drift.</p>
+   * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.
    *     </p>
+   * @public
    */
   uploadId?: string;
 }
@@ -2524,8 +2524,8 @@ export interface UpdateContentRequest {
  */
 export interface UpdateContentResponse {
   /**
-   * @public
    * <p>The content.</p>
+   * @public
    */
   content?: ContentData;
 }
@@ -2546,12 +2546,11 @@ export const KnowledgeBaseType = {
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
 
 /**
- * @public
  * <p>Information about how to render the content.</p>
+ * @public
  */
 export interface RenderingConfiguration {
   /**
-   * @public
    * <p>A URI template containing exactly one variable in <code>$\{variableName\} </code>format.
    *       This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce, ServiceNow,
    *       and Zendesk, the variable must be one of the following:</p>
@@ -2573,13 +2572,14 @@ export interface RenderingConfiguration {
    *             </li>
    *          </ul>
    *          <p>The variable is replaced with the actual value for a piece of content when calling <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html">GetContent</a>. </p>
+   * @public
    */
   templateUri?: string;
 }
 
 /**
- * @public
  * <p>Configuration information about the external data source.</p>
+ * @public
  */
 export type SourceConfiguration = SourceConfiguration.AppIntegrationsMember | SourceConfiguration.$UnknownMember;
 
@@ -2588,8 +2588,8 @@ export type SourceConfiguration = SourceConfiguration.AppIntegrationsMember | So
  */
 export namespace SourceConfiguration {
   /**
-   * @public
    * <p>Configuration information for Amazon AppIntegrations to automatically ingest content.</p>
+   * @public
    */
   export interface AppIntegrationsMember {
     appIntegrations: AppIntegrationsConfiguration;
@@ -2620,43 +2620,42 @@ export namespace SourceConfiguration {
  */
 export interface CreateKnowledgeBaseRequest {
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The name of the knowledge base.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content.
    *       EXTERNAL knowledge bases support integrations with third-party systems whose content is
    *       synchronized automatically. </p>
+   * @public
    */
   knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
-   * @public
    * <p>The source of the knowledge base content. Only set this argument for EXTERNAL knowledge
    *       bases.</p>
+   * @public
    */
   sourceConfiguration?: SourceConfiguration;
 
   /**
-   * @public
    * <p>Information about how to render the content.</p>
+   * @public
    */
   renderingConfiguration?: RenderingConfiguration;
 
   /**
-   * @public
    * <p>The configuration information for the customer managed key used for encryption. </p>
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
@@ -2664,18 +2663,19 @@ export interface CreateKnowledgeBaseRequest {
    *       key to invoke Amazon Q.</p>
    *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * <p>The description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2699,62 +2699,61 @@ export const KnowledgeBaseStatus = {
 export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof KnowledgeBaseStatus];
 
 /**
- * @public
  * <p>Information about the knowledge base.</p>
+ * @public
  */
 export interface KnowledgeBaseData {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the knowledge base.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of knowledge base.</p>
+   * @public
    */
   knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
-   * @public
    * <p>The status of the knowledge base.</p>
+   * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * @public
    * <p>An epoch timestamp indicating the most recent content modification inside the knowledge
    *       base. If no content exists in a knowledge base, this value is unset.</p>
+   * @public
    */
   lastContentModificationTime?: Date;
 
   /**
-   * @public
    * <p>Source configuration information about the knowledge base.</p>
+   * @public
    */
   sourceConfiguration?: SourceConfiguration;
 
   /**
-   * @public
    * <p>Information about how to render the content.</p>
+   * @public
    */
   renderingConfiguration?: RenderingConfiguration;
 
   /**
-   * @public
    * <p>The configuration information for the customer managed key used for encryption. </p>
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
@@ -2762,18 +2761,19 @@ export interface KnowledgeBaseData {
    *       key to invoke Amazon Q. </p>
    *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * <p>The description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2783,15 +2783,15 @@ export interface KnowledgeBaseData {
  */
 export interface CreateKnowledgeBaseResponse {
   /**
-   * @public
    * <p>The knowledge base.</p>
+   * @public
    */
   knowledgeBase?: KnowledgeBaseData;
 }
 
 /**
- * @public
  * <p>The container of quick response data.</p>
+ * @public
  */
 export type QuickResponseDataProvider =
   | QuickResponseDataProvider.ContentMember
@@ -2802,8 +2802,8 @@ export type QuickResponseDataProvider =
  */
 export namespace QuickResponseDataProvider {
   /**
-   * @public
    * <p>The content of the quick response.</p>
+   * @public
    */
   export interface ContentMember {
     content: string;
@@ -2830,12 +2830,11 @@ export namespace QuickResponseDataProvider {
 }
 
 /**
- * @public
  * <p>The configuration information of the grouping of Amazon Q users.</p>
+ * @public
  */
 export interface GroupingConfiguration {
   /**
-   * @public
    * <p>The criteria used for grouping Amazon Q users.</p>
    *          <p>The following is the list of supported criteria values.</p>
    *          <ul>
@@ -2845,11 +2844,11 @@ export interface GroupingConfiguration {
    *             <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a> permissions when setting criteria to this value.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   criteria?: string;
 
   /**
-   * @public
    * <p>The list of values that define different groups of Amazon Q users.</p>
    *          <ul>
    *             <li>
@@ -2857,6 +2856,7 @@ export interface GroupingConfiguration {
    *             ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing profiles</a> as values of this parameter.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   values?: string[];
 }
@@ -2866,26 +2866,25 @@ export interface GroupingConfiguration {
  */
 export interface CreateQuickResponseRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the quick response.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The content of the quick response.</p>
+   * @public
    */
   content: QuickResponseDataProvider | undefined;
 
   /**
-   * @public
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
@@ -2895,69 +2894,70 @@ export interface CreateQuickResponseRequest {
    *                <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
    */
   groupingConfiguration?: GroupingConfiguration;
 
   /**
-   * @public
    * <p>The description of the quick response.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The shortcut key of the quick response. The value should be unique across the
    *   knowledge base.
    *     </p>
+   * @public
    */
   shortcutKey?: string;
 
   /**
-   * @public
    * <p>Whether the quick response is active.</p>
+   * @public
    */
   isActive?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Connect channels this quick response applies to.</p>
+   * @public
    */
   channels?: string[];
 
   /**
-   * @public
    * <p>The language code value for the language in which the quick response is written.  The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
    *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
    *   <code>zh_CN</code>, <code>zh_TW</code>
    *          </p>
+   * @public
    */
   language?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The container quick response content.</p>
+ * @public
  */
 export type QuickResponseContentProvider =
   | QuickResponseContentProvider.ContentMember
@@ -2968,8 +2968,8 @@ export type QuickResponseContentProvider =
  */
 export namespace QuickResponseContentProvider {
   /**
-   * @public
    * <p>The content of the quick response.</p>
+   * @public
    */
   export interface ContentMember {
     content: string;
@@ -2996,19 +2996,19 @@ export namespace QuickResponseContentProvider {
 }
 
 /**
- * @public
  * <p>The content of the quick response stored in different media types.</p>
+ * @public
  */
 export interface QuickResponseContents {
   /**
-   * @public
    * <p>The container quick response content.</p>
+   * @public
    */
   plainText?: QuickResponseContentProvider;
 
   /**
-   * @public
    * <p>The container quick response content.</p>
+   * @public
    */
   markdown?: QuickResponseContentProvider;
 }
@@ -3034,43 +3034,42 @@ export const QuickResponseStatus = {
 export type QuickResponseStatus = (typeof QuickResponseStatus)[keyof typeof QuickResponseStatus];
 
 /**
- * @public
  * <p>Information about the quick response.</p>
+ * @public
  */
 export interface QuickResponseData {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * @public
    */
   quickResponseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the quick response.</p>
+   * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the quick response.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
@@ -3080,79 +3079,80 @@ export interface QuickResponseData {
    *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The status of the quick response data.</p>
+   * @public
    */
   status: QuickResponseStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the quick response was created.</p>
+   * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the quick response data was last modified.</p>
+   * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * @public
    * <p>The contents of the quick response.</p>
+   * @public
    */
   contents?: QuickResponseContents;
 
   /**
-   * @public
    * <p>The description of the quick response.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
    */
   groupingConfiguration?: GroupingConfiguration;
 
   /**
-   * @public
    * <p>The shortcut key of the quick response. The value should be unique across the
    *   knowledge base.</p>
+   * @public
    */
   shortcutKey?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * @public
    */
   lastModifiedBy?: string;
 
   /**
-   * @public
    * <p>Whether the quick response is active.</p>
+   * @public
    */
   isActive?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * @public
    */
   channels?: string[];
 
   /**
-   * @public
    * <p>The language code value for the language in which the quick response is written.</p>
+   * @public
    */
   language?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3162,8 +3162,8 @@ export interface QuickResponseData {
  */
 export interface CreateQuickResponseResponse {
   /**
-   * @public
    * <p>The quick response.</p>
+   * @public
    */
   quickResponse?: QuickResponseData;
 }
@@ -3173,15 +3173,15 @@ export interface CreateQuickResponseResponse {
  */
 export interface DeleteImportJobRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the import job to be deleted.</p>
+   * @public
    */
   importJobId: string | undefined;
 }
@@ -3196,8 +3196,8 @@ export interface DeleteImportJobResponse {}
  */
 export interface DeleteKnowledgeBaseRequest {
   /**
-   * @public
    * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3212,15 +3212,15 @@ export interface DeleteKnowledgeBaseResponse {}
  */
 export interface DeleteQuickResponseRequest {
   /**
-   * @public
    * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the quick response to delete.</p>
+   * @public
    */
   quickResponseId: string | undefined;
 }
@@ -3244,19 +3244,19 @@ export const ExternalSource = {
 export type ExternalSource = (typeof ExternalSource)[keyof typeof ExternalSource];
 
 /**
- * @public
  * <p>The configuration information of the external data source.</p>
+ * @public
  */
 export interface ExternalSourceConfiguration {
   /**
-   * @public
    * <p>The type of the external data source.</p>
+   * @public
    */
   source: ExternalSource | undefined;
 
   /**
-   * @public
    * <p>The configuration information of the external data source.</p>
+   * @public
    */
   configuration: Configuration | undefined;
 }
@@ -3266,14 +3266,14 @@ export interface ExternalSourceConfiguration {
  */
 export interface GetImportJobRequest {
   /**
-   * @public
    * <p>The identifier of the import job to retrieve.</p>
+   * @public
    */
   importJobId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base that the import job belongs to.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3310,86 +3310,86 @@ export const ImportJobStatus = {
 export type ImportJobStatus = (typeof ImportJobStatus)[keyof typeof ImportJobStatus];
 
 /**
- * @public
  * <p>Summary information about the import job.</p>
+ * @public
  */
 export interface ImportJobData {
   /**
-   * @public
    * <p>The identifier of the import job.</p>
+   * @public
    */
   importJobId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of the import job.</p>
+   * @public
    */
   importJobType: ImportJobType | undefined;
 
   /**
-   * @public
    * <p>The status of the import job.</p>
+   * @public
    */
   status: ImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>The download link to the resource file that is uploaded to the import job.</p>
+   * @public
    */
   url: string | undefined;
 
   /**
-   * @public
    * <p>The link to donwload the information of resource data that failed to be imported.</p>
+   * @public
    */
   failedRecordReport?: string;
 
   /**
-   * @public
    * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * @public
    */
   urlExpiry: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the import job was created.</p>
+   * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the import job data was last modified.</p>
+   * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata fields of the imported Amazon Q resources.</p>
+   * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration information of the external data source.</p>
+   * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
@@ -3399,8 +3399,8 @@ export interface ImportJobData {
  */
 export interface GetImportJobResponse {
   /**
-   * @public
    * <p>The import job.</p>
+   * @public
    */
   importJob?: ImportJobData;
 }
@@ -3410,9 +3410,9 @@ export interface GetImportJobResponse {
  */
 export interface GetKnowledgeBaseRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3422,8 +3422,8 @@ export interface GetKnowledgeBaseRequest {
  */
 export interface GetKnowledgeBaseResponse {
   /**
-   * @public
    * <p>The knowledge base.</p>
+   * @public
    */
   knowledgeBase?: KnowledgeBaseData;
 }
@@ -3433,14 +3433,14 @@ export interface GetKnowledgeBaseResponse {
  */
 export interface GetQuickResponseRequest {
   /**
-   * @public
    * <p>The identifier of the quick response.</p>
+   * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3450,75 +3450,75 @@ export interface GetQuickResponseRequest {
  */
 export interface GetQuickResponseResponse {
   /**
-   * @public
    * <p>The quick response.</p>
+   * @public
    */
   quickResponse?: QuickResponseData;
 }
 
 /**
- * @public
  * <p>Summary information about the import job.</p>
+ * @public
  */
 export interface ImportJobSummary {
   /**
-   * @public
    * <p>The identifier of the import job.</p>
+   * @public
    */
   importJobId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of import job.</p>
+   * @public
    */
   importJobType: ImportJobType | undefined;
 
   /**
-   * @public
    * <p>The status of the import job.</p>
+   * @public
    */
   status: ImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the import job was created.</p>
+   * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the import job was last modified.</p>
+   * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata fields of the imported Amazon Q resources.</p>
+   * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
@@ -3528,22 +3528,22 @@ export interface ImportJobSummary {
  */
 export interface ListImportJobsRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3553,15 +3553,15 @@ export interface ListImportJobsRequest {
  */
 export interface ListImportJobsResponse {
   /**
-   * @public
    * <p>Summary information about the import jobs.</p>
+   * @public
    */
   importJobSummaries: ImportJobSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3571,69 +3571,68 @@ export interface ListImportJobsResponse {
  */
 export interface ListKnowledgeBasesRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about the knowledge base.</p>
+ * @public
  */
 export interface KnowledgeBaseSummary {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the knowledge base.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of knowledge base.</p>
+   * @public
    */
   knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
-   * @public
    * <p>The status of the knowledge base summary.</p>
+   * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * @public
    * <p>Configuration information about the external data source.</p>
+   * @public
    */
   sourceConfiguration?: SourceConfiguration;
 
   /**
-   * @public
    * <p>Information about how to render the content.</p>
+   * @public
    */
   renderingConfiguration?: RenderingConfiguration;
 
   /**
-   * @public
    * <p>The configuration information for the customer managed key used for encryption. </p>
    *          <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>,
    *         <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and
@@ -3641,18 +3640,19 @@ export interface KnowledgeBaseSummary {
    *       key to invoke Amazon Q. </p>
    *          <p>For more information about setting up a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for
    *         your instance</a>.</p>
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * <p>The description of the knowledge base.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3662,14 +3662,14 @@ export interface KnowledgeBaseSummary {
  */
 export interface ListKnowledgeBasesResponse {
   /**
-   * @public
    * <p>Information about the knowledge bases.</p>
+   * @public
    */
   knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3679,64 +3679,63 @@ export interface ListKnowledgeBasesResponse {
  */
 export interface ListQuickResponsesRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * @public
  * <p>The summary information about the quick response.</p>
+ * @public
  */
 export interface QuickResponseSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * @public
    */
   quickResponseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the quick response.</p>
+   * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the quick response.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
@@ -3746,54 +3745,55 @@ export interface QuickResponseSummary {
    *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The resource status of the quick response.</p>
+   * @public
    */
   status: QuickResponseStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the quick response was created.</p>
+   * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the quick response summary was last modified.</p>
+   * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * @public
    * <p>The description of the quick response.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * @public
    */
   lastModifiedBy?: string;
 
   /**
-   * @public
    * <p>Whether the quick response is active.</p>
+   * @public
    */
   isActive?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * @public
    */
   channels?: string[];
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3803,15 +3803,15 @@ export interface QuickResponseSummary {
  */
 export interface ListQuickResponsesResponse {
   /**
-   * @public
    * <p>Summary information about the quick responses.</p>
+   * @public
    */
   quickResponseSummaries: QuickResponseSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3821,32 +3821,31 @@ export interface ListQuickResponsesResponse {
  */
 export interface UpdateQuickResponseRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the quick response.</p>
+   * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the quick response.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The updated content of the quick response.</p>
+   * @public
    */
   content?: QuickResponseDataProvider;
 
   /**
-   * @public
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
@@ -3856,64 +3855,65 @@ export interface UpdateQuickResponseRequest {
    *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>The updated grouping configuration of the quick response.</p>
+   * @public
    */
   groupingConfiguration?: GroupingConfiguration;
 
   /**
-   * @public
    * <p>Whether to remove the grouping configuration of the quick response.</p>
+   * @public
    */
   removeGroupingConfiguration?: boolean;
 
   /**
-   * @public
    * <p>The updated description of the quick response.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Whether to remove the description from the quick response.</p>
+   * @public
    */
   removeDescription?: boolean;
 
   /**
-   * @public
    * <p>The shortcut key of the quick response. The value should be unique across the
    *   knowledge base.</p>
+   * @public
    */
   shortcutKey?: string;
 
   /**
-   * @public
    * <p>Whether to remove the shortcut key of the quick response.</p>
+   * @public
    */
   removeShortcutKey?: boolean;
 
   /**
-   * @public
    * <p>Whether the quick response is active. </p>
+   * @public
    */
   isActive?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * @public
    */
   channels?: string[];
 
   /**
-   * @public
    * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
    *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
    *   <code>zh_CN</code>, <code>zh_TW</code>
    *          </p>
+   * @public
    */
   language?: string;
 }
@@ -3923,8 +3923,8 @@ export interface UpdateQuickResponseRequest {
  */
 export interface UpdateQuickResponseResponse {
   /**
-   * @public
    * <p>The quick response.</p>
+   * @public
    */
   quickResponse?: QuickResponseData;
 }
@@ -3934,9 +3934,9 @@ export interface UpdateQuickResponseResponse {
  */
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3951,28 +3951,28 @@ export interface RemoveKnowledgeBaseTemplateUriResponse {}
  */
 export interface SearchContentRequest {
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The search expression to filter results.</p>
+   * @public
    */
   searchExpression: SearchExpression | undefined;
 }
@@ -3982,14 +3982,14 @@ export interface SearchContentRequest {
  */
 export interface SearchContentResponse {
   /**
-   * @public
    * <p>Summary information about the content.</p>
+   * @public
    */
   contentSummaries: ContentSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4010,7 +4010,6 @@ export type QuickResponseFilterOperator =
   (typeof QuickResponseFilterOperator)[keyof typeof QuickResponseFilterOperator];
 
 /**
- * @public
  * <p>The quick response fields to filter the quick response query results by.</p>
  *          <p>The following is the list of supported field names.</p>
  *          <ul>
@@ -4051,29 +4050,30 @@ export type QuickResponseFilterOperator =
  *                <p>groupingConfiguration.values</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface QuickResponseFilterField {
   /**
-   * @public
    * <p>The name of the attribute field to filter the quick responses by.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The values of attribute field to filter the quick response by.</p>
+   * @public
    */
   values?: string[];
 
   /**
-   * @public
    * <p>The operator to use for filtering.</p>
+   * @public
    */
   operator: QuickResponseFilterOperator | undefined;
 
   /**
-   * @public
    * <p>Whether to treat null value as a match for the attribute field.</p>
+   * @public
    */
   includeNoExistence?: boolean;
 }
@@ -4093,7 +4093,6 @@ export const Order = {
 export type Order = (typeof Order)[keyof typeof Order];
 
 /**
- * @public
  * <p>The quick response fields to order the quick response query results by.</p>
  *          <p>The following is the list of supported field names.</p>
  *          <ul>
@@ -4134,17 +4133,18 @@ export type Order = (typeof Order)[keyof typeof Order];
  *                <p>groupingConfiguration.values</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface QuickResponseOrderField {
   /**
-   * @public
    * <p>The name of the attribute to order the quick response query results by.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The order at which the quick responses are sorted by.</p>
+   * @public
    */
   order?: Order;
 }
@@ -4179,7 +4179,6 @@ export const Priority = {
 export type Priority = (typeof Priority)[keyof typeof Priority];
 
 /**
- * @public
  * <p>The quick response fields to query quick responses by.</p>
  *          <p>The following is the list of supported field names.</p>
  *          <ul>
@@ -4196,60 +4195,61 @@ export type Priority = (typeof Priority)[keyof typeof Priority];
  *                <p>shortcutKey</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface QuickResponseQueryField {
   /**
-   * @public
    * <p>The name of the attribute to query the quick responses by.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The values of the attribute to query the quick responses by.</p>
+   * @public
    */
   values: string[] | undefined;
 
   /**
-   * @public
    * <p>The operator to use for matching attribute field values in the query.</p>
+   * @public
    */
   operator: QuickResponseQueryOperator | undefined;
 
   /**
-   * @public
    * <p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>
+   * @public
    */
   allowFuzziness?: boolean;
 
   /**
-   * @public
    * <p>The importance of the attribute field when calculating query result relevancy scores.
    *       The value set for this parameter affects the ordering of search results.</p>
+   * @public
    */
   priority?: Priority;
 }
 
 /**
- * @public
  * <p>Information about the import job.</p>
+ * @public
  */
 export interface QuickResponseSearchExpression {
   /**
-   * @public
    * <p>The quick response query expressions.</p>
+   * @public
    */
   queries?: QuickResponseQueryField[];
 
   /**
-   * @public
    * <p>The configuration of filtering rules applied to quick response query results.</p>
+   * @public
    */
   filters?: QuickResponseFilterField[];
 
   /**
-   * @public
    * <p>The quick response attribute fields on which the query results are ordered.</p>
+   * @public
    */
   orderOnField?: QuickResponseOrderField;
 }
@@ -4259,75 +4259,74 @@ export interface QuickResponseSearchExpression {
  */
 export interface SearchQuickResponsesRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The search expression for querying the quick response.</p>
+   * @public
    */
   searchExpression: QuickResponseSearchExpression | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>
+   * @public
    */
   attributes?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The result of quick response search.</p>
+ * @public
  */
 export interface QuickResponseSearchResultData {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * @public
    */
   quickResponseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the quick response.</p>
+   * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the quick response.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The media type of the quick response content.</p>
    *          <ul>
    *             <li>
@@ -4337,91 +4336,92 @@ export interface QuickResponseSearchResultData {
    *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The resource status of the quick response.</p>
+   * @public
    */
   status: QuickResponseStatus | undefined;
 
   /**
-   * @public
    * <p>The contents of the quick response.</p>
+   * @public
    */
   contents: QuickResponseContents | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the quick response was created.</p>
+   * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the quick response search result data was last modified.</p>
+   * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * @public
    * <p>Whether the quick response is active.</p>
+   * @public
    */
   isActive: boolean | undefined;
 
   /**
-   * @public
    * <p>The description of the quick response.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
    */
   groupingConfiguration?: GroupingConfiguration;
 
   /**
-   * @public
    * <p>The shortcut key of the quick response. The value should be unique across the
    *   knowledge base.</p>
+   * @public
    */
   shortcutKey?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search result data.</p>
+   * @public
    */
   lastModifiedBy?: string;
 
   /**
-   * @public
    * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * @public
    */
   channels?: string[];
 
   /**
-   * @public
    * <p>The language code value for the language in which the quick response is written.</p>
+   * @public
    */
   language?: string;
 
   /**
-   * @public
    * <p>The user defined contact attributes that are not resolved when the search result is returned.</p>
+   * @public
    */
   attributesNotInterpolated?: string[];
 
   /**
-   * @public
    * <p>The user defined contact attributes that are resolved when the search result is returned.</p>
+   * @public
    */
   attributesInterpolated?: string[];
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -4431,15 +4431,15 @@ export interface QuickResponseSearchResultData {
  */
 export interface SearchQuickResponsesResponse {
   /**
-   * @public
    * <p>The results of the quick response search.</p>
+   * @public
    */
   results: QuickResponseSearchResultData[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4449,21 +4449,21 @@ export interface SearchQuickResponsesResponse {
  */
 export interface StartContentUploadRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The type of content to upload.</p>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The expected expiration time of the generated presigned URL, specified in minutes.</p>
+   * @public
    */
   presignedUrlTimeToLive?: number;
 }
@@ -4473,26 +4473,26 @@ export interface StartContentUploadRequest {
  */
 export interface StartContentUploadResponse {
   /**
-   * @public
    * <p>The identifier of the upload.</p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>The URL of the upload.</p>
+   * @public
    */
   url: string | undefined;
 
   /**
-   * @public
    * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * @public
    */
   urlExpiry: Date | undefined;
 
   /**
-   * @public
    * <p>The headers to include in the upload.</p>
+   * @public
    */
   headersToInclude: Record<string, string> | undefined;
 }
@@ -4502,7 +4502,6 @@ export interface StartContentUploadResponse {
  */
 export interface StartImportJobRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    *          <ul>
@@ -4510,41 +4509,42 @@ export interface StartImportJobRequest {
    *                <p>For importing Amazon Q quick responses, this should be a <code>QUICK_RESPONSES</code> type knowledge base.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the import job.</p>
    *          <ul>
    *             <li>
    *                <p>For importing quick response resource, set the value to <code>QUICK_RESPONSES</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   importJobType: ImportJobType | undefined;
 
   /**
-   * @public
    * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The metadata fields of the imported Amazon Q resources.</p>
+   * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration;
 }
@@ -4554,8 +4554,8 @@ export interface StartImportJobRequest {
  */
 export interface StartImportJobResponse {
   /**
-   * @public
    * <p>The import job.</p>
+   * @public
    */
   importJob?: ImportJobData;
 }
@@ -4565,15 +4565,15 @@ export interface StartImportJobResponse {
  */
 export interface UpdateKnowledgeBaseTemplateUriRequest {
   /**
-   * @public
    * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
    * base if you're storing Amazon Q Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The template URI to update.</p>
+   * @public
    */
   templateUri: string | undefined;
 }
@@ -4583,8 +4583,8 @@ export interface UpdateKnowledgeBaseTemplateUriRequest {
  */
 export interface UpdateKnowledgeBaseTemplateUriResponse {
   /**
-   * @public
    * <p>The knowledge base to update.</p>
+   * @public
    */
   knowledgeBase?: KnowledgeBaseData;
 }
@@ -4594,8 +4594,8 @@ export interface UpdateKnowledgeBaseTemplateUriResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -4605,8 +4605,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -4616,14 +4616,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -4634,15 +4634,15 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p>Amazon Q in Connect throws this exception if you have too many tags in your tag set.</p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The specified resource name.</p>
+   * @public
    */
   resourceName?: string;
 
@@ -4665,14 +4665,14 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -4683,8 +4683,8 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * @public
  * <p>Details about the data.</p>
+ * @public
  */
 export type DataDetails =
   | DataDetails.ContentDataMember
@@ -4697,8 +4697,8 @@ export type DataDetails =
  */
 export namespace DataDetails {
   /**
-   * @public
    * <p>Details about the content data.</p>
+   * @public
    */
   export interface ContentDataMember {
     contentData: ContentDataDetails;
@@ -4708,8 +4708,8 @@ export namespace DataDetails {
   }
 
   /**
-   * @public
    * <p> Details about the generative data.</p>
+   * @public
    */
   export interface GenerativeDataMember {
     contentData?: never;
@@ -4719,8 +4719,8 @@ export namespace DataDetails {
   }
 
   /**
-   * @public
    * <p>Details about the content data.</p>
+   * @public
    */
   export interface SourceContentDataMember {
     contentData?: never;
@@ -4755,121 +4755,121 @@ export namespace DataDetails {
 }
 
 /**
- * @public
  * <p>Summary of the data.</p>
+ * @public
  */
 export interface DataSummary {
   /**
-   * @public
    * <p>Reference information about the content.</p>
+   * @public
    */
   reference: DataReference | undefined;
 
   /**
-   * @public
    * <p>Details about the data.</p>
+   * @public
    */
   details: DataDetails | undefined;
 }
 
 /**
- * @public
  * <p>Details about generative data.</p>
+ * @public
  */
 export interface GenerativeDataDetails {
   /**
-   * @public
    * <p>The LLM response.</p>
+   * @public
    */
   completion: string | undefined;
 
   /**
-   * @public
    * <p>The references used to generative the LLM response.</p>
+   * @public
    */
   references: DataSummary[] | undefined;
 
   /**
-   * @public
    * <p>Details about the generative content ranking data.</p>
+   * @public
    */
   rankingData: RankingData | undefined;
 }
 
 /**
- * @public
  * <p>Information about the recommendation.</p>
+ * @public
  */
 export interface RecommendationData {
   /**
-   * @public
    * <p>The identifier of the recommendation.</p>
+   * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * @public
    * <p>The recommended document.</p>
+   * @public
    */
   document?: Document;
 
   /**
-   * @public
    * <p>The relevance score of the recommendation.</p>
+   * @public
    */
   relevanceScore?: number;
 
   /**
-   * @public
    * <p>The relevance level of the recommendation.</p>
+   * @public
    */
   relevanceLevel?: RelevanceLevel;
 
   /**
-   * @public
    * <p>The type of recommendation.</p>
+   * @public
    */
   type?: RecommendationType;
 
   /**
-   * @public
    * <p> Summary of the recommended content.</p>
+   * @public
    */
   data?: DataSummary;
 }
 
 /**
- * @public
  * <p>Information about the result.</p>
+ * @public
  */
 export interface ResultData {
   /**
-   * @public
    * <p>The identifier of the result data.</p>
+   * @public
    */
   resultId: string | undefined;
 
   /**
-   * @public
    * <p>The document.</p>
+   * @public
    */
   document?: Document;
 
   /**
-   * @public
    * <p>The relevance score of the results.</p>
+   * @public
    */
   relevanceScore?: number;
 
   /**
-   * @public
    * <p> Summary of the recommended content.</p>
+   * @public
    */
   data?: DataSummary;
 
   /**
-   * @public
    * <p>The type of the query result.</p>
+   * @public
    */
   type?: QueryResultType;
 }
@@ -4879,14 +4879,14 @@ export interface ResultData {
  */
 export interface GetRecommendationsResponse {
   /**
-   * @public
    * <p>The recommendations.</p>
+   * @public
    */
   recommendations: RecommendationData[] | undefined;
 
   /**
-   * @public
    * <p>The triggers corresponding to recommendations.</p>
+   * @public
    */
   triggers?: RecommendationTrigger[];
 }
@@ -4896,14 +4896,14 @@ export interface GetRecommendationsResponse {
  */
 export interface QueryAssistantResponse {
   /**
-   * @public
    * <p>The results of the query.</p>
+   * @public
    */
   results: ResultData[] | undefined;
 
   /**
-   * @public
    * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }

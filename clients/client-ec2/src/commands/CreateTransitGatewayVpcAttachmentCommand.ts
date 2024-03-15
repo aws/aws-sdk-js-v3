@@ -32,7 +32,6 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches the specified VPC to the specified transit gateway.</p>
  *          <p>If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached,
  *          the new VPC CIDR range is not propagated to the default propagation route table.</p>
@@ -107,6 +106,7 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTransitGatewayVpcAttachmentCommand extends $Command
   .classBuilder<

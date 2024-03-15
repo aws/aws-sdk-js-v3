@@ -27,7 +27,6 @@ export interface GetRouteCommandInput extends GetRouteRequest {}
 export interface GetRouteCommandOutput extends GetRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetRouteCommandOutput extends GetRouteResult, __MetadataBearer 
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class GetRouteCommand extends $Command
   .classBuilder<

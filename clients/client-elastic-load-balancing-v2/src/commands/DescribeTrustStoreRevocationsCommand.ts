@@ -36,7 +36,6 @@ export interface DescribeTrustStoreRevocationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the revocation files in use by the specified
  *       trust store arn, or revocation ID.</p>
  * @example
@@ -84,6 +83,7 @@ export interface DescribeTrustStoreRevocationsCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class DescribeTrustStoreRevocationsCommand extends $Command
   .classBuilder<

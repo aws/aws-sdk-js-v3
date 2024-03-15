@@ -32,7 +32,6 @@ export interface DescribeModelBiasJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of a model bias job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -154,6 +153,7 @@ export interface DescribeModelBiasJobDefinitionCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeModelBiasJobDefinitionCommand extends $Command
   .classBuilder<

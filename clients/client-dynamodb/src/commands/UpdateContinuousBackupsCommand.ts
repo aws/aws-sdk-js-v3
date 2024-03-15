@@ -27,7 +27,6 @@ export interface UpdateContinuousBackupsCommandInput extends UpdateContinuousBac
 export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBackupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>UpdateContinuousBackups</code> enables or disables point in time recovery for
  *             the specified table. A successful <code>UpdateContinuousBackups</code> call returns the
@@ -88,6 +87,7 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class UpdateContinuousBackupsCommand extends $Command
   .classBuilder<

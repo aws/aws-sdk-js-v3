@@ -27,9 +27,6 @@ export interface CreateSkillGroupCommandInput extends CreateSkillGroupRequest {}
 export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Creates a skill group with a specified name and description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +71,8 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class CreateSkillGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutCommentReactionCommandInput extends PutCommentReactionInput 
 export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
  *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
  * @example
@@ -77,6 +76,7 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class PutCommentReactionCommand extends $Command
   .classBuilder<

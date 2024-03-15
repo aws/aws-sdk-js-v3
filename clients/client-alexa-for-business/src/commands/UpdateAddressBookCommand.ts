@@ -27,9 +27,6 @@ export interface UpdateAddressBookCommandInput extends UpdateAddressBookRequest 
 export interface UpdateAddressBookCommandOutput extends UpdateAddressBookResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Updates address book details by the address book ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +63,8 @@ export interface UpdateAddressBookCommandOutput extends UpdateAddressBookRespons
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateAddressBookCommand extends $Command
   .classBuilder<

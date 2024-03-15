@@ -31,7 +31,6 @@ export interface DescribeContinuousExportsCommandInput extends DescribeContinuou
 export interface DescribeContinuousExportsCommandOutput extends DescribeContinuousExportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists exports as specified by ID. All continuous exports associated with your user
  *       can be listed if you call <code>DescribeContinuousExports</code> as is without passing
  *       any parameters.</p>
@@ -103,6 +102,7 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DescribeContinuousExportsCommand extends $Command
   .classBuilder<

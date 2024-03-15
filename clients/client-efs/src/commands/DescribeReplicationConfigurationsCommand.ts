@@ -35,7 +35,6 @@ export interface DescribeReplicationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the replication configuration for a specific file system. If a file system is
  *       not specified, all of the replication configurations for the Amazon Web Services account in an
  *         Amazon Web Services Region are retrieved.</p>
@@ -102,6 +101,7 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DescribeReplicationConfigurationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteContactCommandInput extends DeleteContactRequest {}
 export interface DeleteContactCommandOutput extends DeleteContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a contact from a contact list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class DeleteContactCommand extends $Command
   .classBuilder<

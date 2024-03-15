@@ -27,7 +27,6 @@ export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupReques
 export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a dataset group. Before you delete a dataset group, you must
  *       delete the following:</p>
  *          <ul>
@@ -74,6 +73,7 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteDatasetGroupCommand extends $Command
   .classBuilder<

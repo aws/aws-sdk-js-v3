@@ -35,7 +35,6 @@ export interface AdminUserGlobalSignOutCommandInput extends AdminUserGlobalSignO
 export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSignOutResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to a user. Call
  *             this operation with your administrative credentials when your user signs out of your
  *             app. This results in the following behavior. </p>
@@ -126,6 +125,7 @@ export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSign
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminUserGlobalSignOutCommand extends $Command
   .classBuilder<

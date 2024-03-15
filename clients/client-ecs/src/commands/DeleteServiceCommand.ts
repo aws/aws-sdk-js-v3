@@ -27,7 +27,6 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified service within a cluster. You can delete a service if you have no
  * 			running tasks in it and the desired task count is zero. If the service is actively
  * 			maintaining tasks, you can't delete it, and you must update the service to a desired
@@ -360,6 +359,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To delete a service
  * ```javascript
  * // This example deletes the my-http-service service. The service must have a desired count and running count of 0 before you can delete it.

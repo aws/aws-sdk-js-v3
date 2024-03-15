@@ -27,7 +27,6 @@ export interface ListConfigurationPoliciesCommandInput extends ListConfiguration
 export interface ListConfigurationPoliciesCommandOutput extends ListConfigurationPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Lists the configuration policies that the Security Hub delegated administrator has created for your
  *             organization. Only the delegated administrator can invoke this operation from the home Region.
@@ -86,6 +85,7 @@ export interface ListConfigurationPoliciesCommandOutput extends ListConfiguratio
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To view a list of configuration policies
  * ```javascript
  * // This operation provides a list of your configuration policies, including metadata for each policy.

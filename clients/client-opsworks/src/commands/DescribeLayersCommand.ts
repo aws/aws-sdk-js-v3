@@ -27,7 +27,6 @@ export interface DescribeLayersCommandInput extends DescribeLayersRequest {}
 export interface DescribeLayersCommandOutput extends DescribeLayersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a description of one or more layers in a specified stack.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -154,6 +153,7 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeLayersCommand extends $Command
   .classBuilder<

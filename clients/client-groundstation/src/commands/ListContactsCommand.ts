@@ -27,7 +27,6 @@ export interface ListContactsCommandInput extends ListContactsRequest {}
 export interface ListContactsCommandOutput extends ListContactsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of contacts.</p>
  *          <p>If <code>statusList</code> contains AVAILABLE, the request must include
  *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
@@ -98,6 +97,7 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ListContactsCommand extends $Command
   .classBuilder<

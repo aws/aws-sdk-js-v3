@@ -27,7 +27,6 @@ export interface DescribeStorageSystemCommandInput extends DescribeStorageSystem
 export interface DescribeStorageSystemCommandOutput extends DescribeStorageSystemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an on-premises storage system that you're using with
  *       DataSync Discovery.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DescribeStorageSystemCommandOutput extends DescribeStorageSyste
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeStorageSystemCommand extends $Command
   .classBuilder<

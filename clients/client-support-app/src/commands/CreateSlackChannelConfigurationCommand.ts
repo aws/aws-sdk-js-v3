@@ -32,7 +32,6 @@ export interface CreateSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Slack channel configuration for your Amazon Web Services account.</p>
  *          <note>
  *             <ul>
@@ -128,6 +127,7 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * @public
  */
 export class CreateSlackChannelConfigurationCommand extends $Command
   .classBuilder<

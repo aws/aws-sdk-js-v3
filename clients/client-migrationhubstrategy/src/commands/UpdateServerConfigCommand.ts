@@ -31,7 +31,6 @@ export interface UpdateServerConfigCommandInput extends UpdateServerConfigReques
 export interface UpdateServerConfigCommandOutput extends UpdateServerConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the configuration of the specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateServerConfigCommandOutput extends UpdateServerConfigRespo
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class UpdateServerConfigCommand extends $Command
   .classBuilder<

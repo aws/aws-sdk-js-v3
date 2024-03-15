@@ -31,7 +31,6 @@ export interface DescribeIdentityProviderCommandInput extends DescribeIdentityPr
 export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specific IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DescribeIdentityProviderCommand extends $Command
   .classBuilder<

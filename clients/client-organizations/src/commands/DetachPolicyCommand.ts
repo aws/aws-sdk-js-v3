@@ -27,7 +27,6 @@ export interface DetachPolicyCommandInput extends DetachPolicyRequest {}
 export interface DetachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a policy from a target root, organizational unit (OU), or account.</p>
  *          <important>
  *             <p>If the policy being detached is a service control policy (SCP), the changes to
@@ -412,6 +411,7 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To detach a policy from a root, OU, or account
  * ```javascript
  * // The following example shows how to detach a policy from an OU:/n/n

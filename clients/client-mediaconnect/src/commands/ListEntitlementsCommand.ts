@@ -27,7 +27,6 @@ export interface ListEntitlementsCommandInput extends ListEntitlementsRequest {}
 export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class ListEntitlementsCommand extends $Command
   .classBuilder<

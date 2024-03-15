@@ -35,7 +35,6 @@ export interface GetPersonalizedRankingCommandInput extends GetPersonalizedRanki
 export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRankingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Re-ranks a list of recommended items for the given user. The first item in the list is
  *       deemed the most likely item to be of interest to the user.</p>
  *          <note>
@@ -100,6 +99,7 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * @throws {@link PersonalizeRuntimeServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ * @public
  */
 export class GetPersonalizedRankingCommand extends $Command
   .classBuilder<

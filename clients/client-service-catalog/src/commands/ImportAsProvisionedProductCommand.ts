@@ -27,7 +27,6 @@ export interface ImportAsProvisionedProductCommandInput extends ImportAsProvisio
 export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisionedProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Requests the import of a resource as an Service Catalog provisioned product
  *          that is associated to an Service Catalog product and provisioning artifact.
@@ -131,6 +130,7 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ImportAsProvisionedProductCommand extends $Command
   .classBuilder<

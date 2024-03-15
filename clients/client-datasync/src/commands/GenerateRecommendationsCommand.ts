@@ -27,7 +27,6 @@ export interface GenerateRecommendationsCommandInput extends GenerateRecommendat
 export interface GenerateRecommendationsCommandOutput extends GenerateRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates recommendations about where to migrate your data to in Amazon Web Services.
  *       Recommendations are generated based on information that DataSync Discovery collects about your
  *       on-premises storage system's resources. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/discovery-understand-recommendations.html">Recommendations
@@ -68,6 +67,7 @@ export interface GenerateRecommendationsCommandOutput extends GenerateRecommenda
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class GenerateRecommendationsCommand extends $Command
   .classBuilder<

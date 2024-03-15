@@ -27,7 +27,6 @@ export interface UpdateTaskTemplateCommandInput extends UpdateTaskTemplateReques
 export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates details about a specific task template in the specified Amazon Connect instance.
  *    This operation does not support partial updates. Instead it does a full update of template
  *    content.</p>
@@ -178,6 +177,7 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateTaskTemplateCommand extends $Command
   .classBuilder<

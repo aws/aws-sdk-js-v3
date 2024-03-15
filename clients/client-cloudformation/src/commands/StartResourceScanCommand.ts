@@ -27,7 +27,6 @@ export interface StartResourceScanCommandInput extends StartResourceScanInput {}
 export interface StartResourceScanCommandOutput extends StartResourceScanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a scan of the resources in this account in this Region. You can the status of a scan using the
  *    <code>ListResourceScans</code> API action.</p>
  * @example
@@ -74,6 +73,7 @@ export interface StartResourceScanCommandOutput extends StartResourceScanOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To start a resource scan
  * ```javascript
  * // This example shows how to start a new resource scan

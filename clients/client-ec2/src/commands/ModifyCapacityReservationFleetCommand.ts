@@ -32,7 +32,6 @@ export interface ModifyCapacityReservationFleetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a Capacity Reservation Fleet.</p>
  *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
  * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
@@ -68,6 +67,7 @@ export interface ModifyCapacityReservationFleetCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyCapacityReservationFleetCommand extends $Command
   .classBuilder<

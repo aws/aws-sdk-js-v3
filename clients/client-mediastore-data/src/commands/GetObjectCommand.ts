@@ -29,7 +29,6 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
 }
 
 /**
- * @public
  * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * @public
  */
 export class GetObjectCommand extends $Command
   .classBuilder<

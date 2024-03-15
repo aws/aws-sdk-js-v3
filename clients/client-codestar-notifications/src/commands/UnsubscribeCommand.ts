@@ -31,7 +31,6 @@ export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
 export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an association between a notification rule and an Chatbot topic so that
  *             subscribers to that topic stop receiving notifications when the events described in the
  *             rule are triggered.</p>
@@ -65,6 +64,7 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class UnsubscribeCommand extends $Command
   .classBuilder<

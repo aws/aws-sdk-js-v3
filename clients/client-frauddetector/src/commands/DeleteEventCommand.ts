@@ -27,7 +27,6 @@ export interface DeleteEventCommandInput extends DeleteEventRequest {}
 export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified event.</p>
  *          <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.
  * 	  If <code>deleteAuditHistory</code> is <code>True</code>, event data is available through search for up to 30 seconds after the delete operation is completed.</p>
@@ -69,6 +68,7 @@ export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataB
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteEventCommand extends $Command
   .classBuilder<

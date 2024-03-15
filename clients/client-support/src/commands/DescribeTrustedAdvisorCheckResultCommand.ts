@@ -35,7 +35,6 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You
  *             can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
  *             operation.</p>
@@ -157,6 +156,7 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeTrustedAdvisorCheckResultCommand extends $Command
   .classBuilder<

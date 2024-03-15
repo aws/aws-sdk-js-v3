@@ -31,7 +31,6 @@ export interface CheckDomainTransferabilityCommandInput extends CheckDomainTrans
 export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTransferabilityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class CheckDomainTransferabilityCommand extends $Command
   .classBuilder<

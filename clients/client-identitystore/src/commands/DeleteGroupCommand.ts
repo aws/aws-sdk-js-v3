@@ -27,7 +27,6 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a group within an identity store given <code>GroupId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class DeleteGroupCommand extends $Command
   .classBuilder<

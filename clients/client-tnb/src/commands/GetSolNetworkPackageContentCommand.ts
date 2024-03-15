@@ -40,7 +40,6 @@ export interface GetSolNetworkPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the contents of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetSolNetworkPackageContentCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class GetSolNetworkPackageContentCommand extends $Command
   .classBuilder<

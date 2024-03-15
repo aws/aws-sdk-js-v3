@@ -27,7 +27,6 @@ export interface DisablePolicyTypeCommandInput extends DisablePolicyTypeRequest 
 export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables an organizational policy type in a root. A policy of a certain type can be
  *             attached to entities in a root only if that type is enabled in the root. After you
  *             perform this operation, you no longer can attach policies of the specified type to that
@@ -419,6 +418,7 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To disable a policy type in a root
  * ```javascript
  * // The following example shows how to disable the service control policy (SCP) policy type in a root. The response shows that the PolicyTypes response element no longer includes SERVICE_CONTROL_POLICY:/n/n

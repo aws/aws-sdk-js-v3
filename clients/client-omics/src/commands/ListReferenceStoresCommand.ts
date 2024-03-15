@@ -27,7 +27,6 @@ export interface ListReferenceStoresCommandInput extends ListReferenceStoresRequ
 export interface ListReferenceStoresCommandOutput extends ListReferenceStoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of reference stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListReferenceStoresCommandOutput extends ListReferenceStoresRes
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListReferenceStoresCommand extends $Command
   .classBuilder<

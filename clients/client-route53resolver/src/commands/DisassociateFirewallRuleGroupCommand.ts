@@ -32,7 +32,6 @@ export interface DisassociateFirewallRuleGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering from the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DisassociateFirewallRuleGroupCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DisassociateFirewallRuleGroupCommand extends $Command
   .classBuilder<

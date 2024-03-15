@@ -27,7 +27,6 @@ export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists data sources in current Amazon Web Services Region that belong to this Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -363,6 +362,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListDataSourcesCommand extends $Command
   .classBuilder<

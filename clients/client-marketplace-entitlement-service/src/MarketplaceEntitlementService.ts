@@ -33,7 +33,6 @@ export interface MarketplaceEntitlementService {
 }
 
 /**
- * @public
  * <fullname>AWS Marketplace Entitlement Service</fullname>
  *          <p>This reference provides descriptions of the AWS Marketplace Entitlement Service
  *    API.</p>
@@ -51,6 +50,7 @@ export interface MarketplaceEntitlementService {
  *      product.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class MarketplaceEntitlementService
   extends MarketplaceEntitlementServiceClient

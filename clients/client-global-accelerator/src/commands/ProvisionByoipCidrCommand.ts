@@ -31,7 +31,6 @@ export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrReques
 export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions an IP address range to use with your Amazon Web Services resources through bring your own IP
  * 			addresses (BYOIP) and creates a corresponding address pool. After the address range is provisioned,
  * 			it is ready to be advertised using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/AdvertiseByoipCidr.html">
@@ -93,6 +92,7 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ProvisionByoipCidrCommand extends $Command
   .classBuilder<

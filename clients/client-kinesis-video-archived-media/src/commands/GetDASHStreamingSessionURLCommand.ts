@@ -31,7 +31,6 @@ export interface GetDASHStreamingSessionURLCommandInput extends GetDASHStreaming
 export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You
  *             can then open the URL in a media player to view the stream contents.</p>
  *          <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
@@ -256,6 +255,7 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * @public
  */
 export class GetDASHStreamingSessionURLCommand extends $Command
   .classBuilder<

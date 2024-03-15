@@ -27,7 +27,6 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new dataset  in an Amazon Lookout for Vision project. <code>CreateDataset</code> can create a
  *       training or a test dataset from a valid dataset source (<code>DatasetSource</code>).</p>
  *          <p>If you want a single dataset project, specify <code>train</code> for the value of
@@ -103,6 +102,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class CreateDatasetCommand extends $Command
   .classBuilder<

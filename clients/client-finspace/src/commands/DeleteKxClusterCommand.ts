@@ -27,7 +27,6 @@ export interface DeleteKxClusterCommandInput extends DeleteKxClusterRequest {}
 export interface DeleteKxClusterCommandOutput extends DeleteKxClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a kdb cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteKxClusterCommandOutput extends DeleteKxClusterResponse, _
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class DeleteKxClusterCommand extends $Command
   .classBuilder<

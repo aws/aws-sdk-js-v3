@@ -31,7 +31,6 @@ export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class SetIpAddressTypeCommand extends $Command
   .classBuilder<

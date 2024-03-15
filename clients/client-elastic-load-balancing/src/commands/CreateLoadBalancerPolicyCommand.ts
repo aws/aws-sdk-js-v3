@@ -31,7 +31,6 @@ export interface CreateLoadBalancerPolicyCommandInput extends CreateLoadBalancer
 export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a policy with the specified attributes for the specified load balancer.</p>
  *          <p>Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.</p>
  * @example
@@ -81,6 +80,7 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To create a policy that enables Proxy Protocol on a load balancer
  * ```javascript
  * // This example creates a policy that enables Proxy Protocol on the specified load balancer.

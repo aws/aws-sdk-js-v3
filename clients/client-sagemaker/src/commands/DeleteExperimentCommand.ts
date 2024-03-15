@@ -27,7 +27,6 @@ export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted
  *       first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html">ListTrials</a> API to get a list of the trials associated with
  *       the experiment.</p>
@@ -60,6 +59,7 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteExperimentCommand extends $Command
   .classBuilder<

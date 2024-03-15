@@ -27,7 +27,6 @@ export interface CopyPackageVersionsCommandInput extends CopyPackageVersionsRequ
 export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Copies package versions from one repository to another repository in the same domain.
  *       </p>
@@ -120,6 +119,7 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class CopyPackageVersionsCommand extends $Command
   .classBuilder<

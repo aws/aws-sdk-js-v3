@@ -27,7 +27,6 @@ export interface CancelBatchImportJobCommandInput extends CancelBatchImportJobRe
 export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Cancels an in-progress batch import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class CancelBatchImportJobCommand extends $Command
   .classBuilder<

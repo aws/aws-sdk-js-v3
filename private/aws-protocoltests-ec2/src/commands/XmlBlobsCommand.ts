@@ -25,7 +25,6 @@ export interface XmlBlobsCommandInput {}
 export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,6 +50,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ * @public
  */
 export class XmlBlobsCommand extends $Command
   .classBuilder<

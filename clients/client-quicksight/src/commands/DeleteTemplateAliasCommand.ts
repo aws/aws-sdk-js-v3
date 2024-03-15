@@ -27,7 +27,6 @@ export interface DeleteTemplateAliasCommandInput extends DeleteTemplateAliasRequ
 export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the item that the specified template alias points to. If you provide a specific
  * 			alias, you delete the version of the template that the alias points to.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteTemplateAliasCommand extends $Command
   .classBuilder<

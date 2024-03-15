@@ -27,7 +27,6 @@ export interface ExecuteStatementCommandInput extends ExecuteStatementRequest {}
 export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs a SQL statement against a database.</p>
  *          <note>
  *             <p>If a call isn't part of a transaction because it doesn't include the
@@ -260,6 +259,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * @public
  */
 export class ExecuteStatementCommand extends $Command
   .classBuilder<

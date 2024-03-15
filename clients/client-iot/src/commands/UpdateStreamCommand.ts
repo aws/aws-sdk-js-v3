@@ -27,7 +27,6 @@ export interface UpdateStreamCommandInput extends UpdateStreamRequest {}
 export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing stream. The stream version will be incremented by one.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateStream</a> action.</p>
  * @example
@@ -89,6 +88,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateStreamCommand extends $Command
   .classBuilder<

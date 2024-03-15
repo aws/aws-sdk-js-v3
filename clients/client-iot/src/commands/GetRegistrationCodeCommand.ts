@@ -27,7 +27,6 @@ export interface GetRegistrationCodeCommandInput extends GetRegistrationCodeRequ
 export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a registration code used to register a CA certificate with IoT.</p>
  *          <p>IoT will create a registration code as part of this API call if the registration
  *          code doesn't exist or has been deleted. If you already have a registration code, this API
@@ -72,6 +71,7 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetRegistrationCodeCommand extends $Command
   .classBuilder<

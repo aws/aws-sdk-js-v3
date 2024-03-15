@@ -27,7 +27,6 @@ export interface DeleteVoiceConnectorCommandInput extends DeleteVoiceConnectorRe
 export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Chime SDK Voice Connector. Any phone numbers associated
  *          with the Amazon Chime SDK Voice Connector must be disassociated from it before it
  *          can be deleted.</p>
@@ -79,6 +78,7 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class DeleteVoiceConnectorCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
  *             domains).</p>
  *          <p>This operation is throttled at one request per second and can only get custom MAIL
@@ -74,6 +73,7 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetIdentityMailFromDomainAttributes
  * ```javascript
  * // The following example returns the custom MAIL FROM attributes for an identity:

@@ -27,7 +27,6 @@ export interface DescribeDatasetGroupCommandInput extends DescribeDatasetGroupRe
 export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a dataset group created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
  *       operation.</p>
  *          <p>In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
@@ -95,6 +94,7 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeDatasetGroupCommand extends $Command
   .classBuilder<

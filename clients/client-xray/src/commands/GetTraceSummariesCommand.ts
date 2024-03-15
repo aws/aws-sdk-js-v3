@@ -27,7 +27,6 @@ export interface GetTraceSummariesCommandInput extends GetTraceSummariesRequest 
 export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves IDs and annotations for traces available for a specified time frame using an
  *       optional filter. To get the full traces, pass the trace IDs to
  *       <code>BatchGetTraces</code>.</p>
@@ -241,6 +240,7 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetTraceSummariesCommand extends $Command
   .classBuilder<

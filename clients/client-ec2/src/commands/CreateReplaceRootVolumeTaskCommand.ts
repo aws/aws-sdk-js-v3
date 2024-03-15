@@ -27,7 +27,6 @@ export interface CreateReplaceRootVolumeTaskCommandInput extends CreateReplaceRo
 export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceRootVolumeTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new
  *       volume that is restored to the original root volume's launch state, that is restored to a
  *       specific snapshot taken from the original root volume, or that is restored from an AMI
@@ -90,6 +89,7 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateReplaceRootVolumeTaskCommand extends $Command
   .classBuilder<

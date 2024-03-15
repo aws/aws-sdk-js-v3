@@ -27,7 +27,6 @@ export interface GetSuppressedDestinationCommandInput extends GetSuppressedDesti
 export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specific email address that's on the suppression list
  *             for your account.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetSuppressedDestinationCommand extends $Command
   .classBuilder<

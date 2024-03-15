@@ -36,7 +36,6 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between a configuration set and a custom domain for open and
  *             click event tracking. </p>
  *          <p>By default, images and links used for tracking open and click events are hosted on
@@ -89,6 +88,7 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetTrackingOptionsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateLaunchTemplateVersionCommandInput extends CreateLaunchTem
 export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTemplateVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of a launch template. You can specify an existing version of
  *             launch template from which to base the new version.</p>
  *          <p>Launch template versions are numbered in the order in which they are created. You
@@ -590,6 +589,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a launch template version
  * ```javascript
  * // This example creates a new launch template version based on version 1 of the specified launch template and specifies a different AMI ID.

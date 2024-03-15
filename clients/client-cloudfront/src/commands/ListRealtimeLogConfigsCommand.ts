@@ -27,7 +27,6 @@ export interface ListRealtimeLogConfigsCommandInput extends ListRealtimeLogConfi
 export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConfigsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of real-time log configurations.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -94,6 +93,7 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListRealtimeLogConfigsCommand extends $Command
   .classBuilder<

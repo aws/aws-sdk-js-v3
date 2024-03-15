@@ -32,7 +32,6 @@ export interface CreateLoadBalancerTlsCertificateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p>
  *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
  *          <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
@@ -123,6 +122,7 @@ export interface CreateLoadBalancerTlsCertificateCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateLoadBalancerTlsCertificateCommand extends $Command
   .classBuilder<

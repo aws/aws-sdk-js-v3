@@ -27,7 +27,6 @@ export interface UpdateRuntimeConfigurationCommandInput extends UpdateRuntimeCon
 export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the current runtime configuration for the specified fleet, which tells Amazon GameLift
  *             how to launch server processes on all instances in the fleet. You can update a fleet's
  *             runtime configuration at any time after the fleet is created; it does not need to be in
@@ -113,6 +112,7 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateRuntimeConfigurationCommand extends $Command
   .classBuilder<

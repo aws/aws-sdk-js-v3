@@ -27,7 +27,6 @@ export interface StartTriggerCommandInput extends StartTriggerRequest {}
 export interface StartTriggerCommandOutput extends StartTriggerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
  *       Jobs</a> for information about how different types of trigger are
  *       started.</p>
@@ -75,6 +74,7 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartTriggerCommand extends $Command
   .classBuilder<

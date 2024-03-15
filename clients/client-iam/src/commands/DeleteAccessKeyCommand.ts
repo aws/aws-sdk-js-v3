@@ -27,7 +27,6 @@ export interface DeleteAccessKeyCommandInput extends DeleteAccessKeyRequest {}
 export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the access key pair associated with the specified IAM user.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the Amazon Web Services access key ID signing the request. This operation works for access keys under
@@ -70,6 +69,7 @@ export interface DeleteAccessKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete an access key for an IAM user
  * ```javascript
  * // The following command deletes one access key (access key ID and secret access key) assigned to the IAM user named Bob.

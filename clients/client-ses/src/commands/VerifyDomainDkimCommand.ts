@@ -27,7 +27,6 @@ export interface VerifyDomainDkimCommandInput extends VerifyDomainDkimRequest {}
 export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of DKIM tokens for a domain identity.</p>
  *          <important>
  *             <p>When you execute the <code>VerifyDomainDkim</code> operation, the domain that you
@@ -95,6 +94,7 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example VerifyDomainDkim
  * ```javascript
  * // The following example generates DKIM tokens for a domain that has been verified with Amazon SES:

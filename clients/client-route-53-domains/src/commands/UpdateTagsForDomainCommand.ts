@@ -27,7 +27,6 @@ export interface UpdateTagsForDomainCommandInput extends UpdateTagsForDomainRequ
 export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation adds or updates tags for a specified domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
  * 			immediately represent all issued operations.</p>
@@ -74,6 +73,7 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class UpdateTagsForDomainCommand extends $Command
   .classBuilder<

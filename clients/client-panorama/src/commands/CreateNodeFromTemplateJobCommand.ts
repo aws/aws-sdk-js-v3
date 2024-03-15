@@ -31,7 +31,6 @@ export interface CreateNodeFromTemplateJobCommandInput extends CreateNodeFromTem
 export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTemplateJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a camera stream node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class CreateNodeFromTemplateJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RegisterTaskDefinitionCommandInput extends RegisterTaskDefiniti
 export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a new task definition from the supplied <code>family</code> and
  * 				<code>containerDefinitions</code>. Optionally, you can add data volumes to your
  * 			containers with the <code>volumes</code> parameter. For more information about task
@@ -601,6 +600,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To register a task definition
  * ```javascript
  * // This example registers a task definition to the specified family.

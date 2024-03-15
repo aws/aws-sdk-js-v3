@@ -27,7 +27,6 @@ export interface DescribePlatformVersionCommandInput extends DescribePlatformVer
 export interface DescribePlatformVersionCommandOutput extends DescribePlatformVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of
  *       platform versions.</p>
  *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -106,6 +105,7 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class DescribePlatformVersionCommand extends $Command
   .classBuilder<

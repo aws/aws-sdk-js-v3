@@ -27,7 +27,6 @@ export interface DeleteMultiplexCommandInput extends DeleteMultiplexRequest {}
 export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, __MetadataBearer {}
 
 /**
- * @public
  * Delete a multiplex. The multiplex must be idle.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DeleteMultiplexCommand extends $Command
   .classBuilder<

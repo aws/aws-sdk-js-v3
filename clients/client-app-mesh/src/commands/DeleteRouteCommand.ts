@@ -27,7 +27,6 @@ export interface DeleteRouteCommandInput extends DeleteRouteInput {}
 export interface DeleteRouteCommandOutput extends DeleteRouteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -301,6 +300,7 @@ export interface DeleteRouteCommandOutput extends DeleteRouteOutput, __MetadataB
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DeleteRouteCommand extends $Command
   .classBuilder<

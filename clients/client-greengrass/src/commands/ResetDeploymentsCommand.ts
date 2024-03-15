@@ -27,7 +27,6 @@ export interface ResetDeploymentsCommandInput extends ResetDeploymentsRequest {}
 export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Resets a group's deployments.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ResetDeploymentsCommand extends $Command
   .classBuilder<

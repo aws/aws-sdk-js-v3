@@ -32,7 +32,6 @@ export interface BatchUpdateRecommendationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables you to include or exclude one or more operational recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface BatchUpdateRecommendationStatusCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class BatchUpdateRecommendationStatusCommand extends $Command
   .classBuilder<

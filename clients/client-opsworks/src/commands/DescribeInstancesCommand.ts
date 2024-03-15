@@ -27,7 +27,6 @@ export interface DescribeInstancesCommandInput extends DescribeInstancesRequest 
 export interface DescribeInstancesCommandOutput extends DescribeInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a description of a set of instances.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -138,6 +137,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeInstancesCommand extends $Command
   .classBuilder<

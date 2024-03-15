@@ -27,7 +27,6 @@ export interface CancelArchivalCommandInput extends CancelArchivalInput {}
 export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
  *          process is initiated. This operation is only supported in the tape gateway type.</p>
  * @example
@@ -65,6 +64,7 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To cancel virtual tape archiving
  * ```javascript
  * // Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.

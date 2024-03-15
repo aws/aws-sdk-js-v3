@@ -27,7 +27,6 @@ export interface AddNotificationChannelsCommandInput extends AddNotificationChan
 export interface AddNotificationChannelsCommandOutput extends AddNotificationChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add up to 2 anomaly notifications channels for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class AddNotificationChannelsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListServiceVersionsCommandInput extends ListServiceVersionsRequ
 export interface ListServiceVersionsCommandOutput extends ListServiceVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all supported versions for Snow on-device services. Returns an
  *       array of <code>ServiceVersion</code> object containing the supported versions for a particular service.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  */
 export class ListServiceVersionsCommand extends $Command
   .classBuilder<

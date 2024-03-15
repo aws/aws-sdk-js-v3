@@ -27,7 +27,6 @@ export interface ListAutoshiftsCommandInput extends ListAutoshiftsRequest {}
 export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the active autoshifts for a specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __M
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class ListAutoshiftsCommand extends $Command
   .classBuilder<

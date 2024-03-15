@@ -27,7 +27,6 @@ export interface CreateCertificateProviderCommandInput extends CreateCertificate
 export interface CreateCertificateProviderCommandOutput extends CreateCertificateProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services IoT Core certificate provider. You can use Amazon Web Services IoT Core certificate provider to
  *          customize how to sign a certificate signing request (CSR) in IoT fleet provisioning. For
  *          more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provisioning-cert-provider.html">Customizing certificate
@@ -100,6 +99,7 @@ export interface CreateCertificateProviderCommandOutput extends CreateCertificat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateCertificateProviderCommand extends $Command
   .classBuilder<

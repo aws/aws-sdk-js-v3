@@ -35,7 +35,6 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a dominant language detection job. Use this operation
  *       to get the status of a detection job.</p>
  * @example
@@ -109,6 +108,7 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeDominantLanguageDetectionJobCommand extends $Command
   .classBuilder<

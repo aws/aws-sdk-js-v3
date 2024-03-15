@@ -35,7 +35,6 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetAutomatedDiscoveryConfigurationCommand extends $Command
   .classBuilder<

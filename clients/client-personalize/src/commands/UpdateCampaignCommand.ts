@@ -27,7 +27,6 @@ export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Updates a campaign to deploy a retrained solution version with an existing campaign, change your campaign's <code>minProvisionedTPS</code>,
  *       or modify your campaign's configuration, such as the exploration configuration.
@@ -84,6 +83,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class UpdateCampaignCommand extends $Command
   .classBuilder<

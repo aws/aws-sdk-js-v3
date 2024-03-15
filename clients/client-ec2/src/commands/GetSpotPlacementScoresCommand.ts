@@ -27,7 +27,6 @@ export interface GetSpotPlacementScoresCommandInput extends GetSpotPlacementScor
 export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementScoresResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Calculates the Spot placement score for a Region or Availability Zone based on the
  *          specified target capacity and compute requirements.</p>
  *          <p>You can specify your compute requirements either by using
@@ -157,6 +156,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetSpotPlacementScoresCommand extends $Command
   .classBuilder<

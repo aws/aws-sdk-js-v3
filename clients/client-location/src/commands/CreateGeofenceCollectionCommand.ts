@@ -27,7 +27,6 @@ export interface CreateGeofenceCollectionCommandInput extends CreateGeofenceColl
 export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a geofence collection, which manages and stores geofences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CreateGeofenceCollectionCommand extends $Command
   .classBuilder<

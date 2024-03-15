@@ -31,7 +31,6 @@ export interface GetBotsCommandInput extends GetBotsRequest {}
 export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns bot information as follows: </p>
  *          <ul>
  *             <li>
@@ -100,6 +99,7 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To get a list of bots
  * ```javascript
  * // This example shows how to get a list of all of the bots in your account.

@@ -32,7 +32,6 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new
  *          virtual tapes must be created manually. Use the Amazon Resource Name (ARN) of the gateway
  *          in your request to remove the policy.</p>
@@ -70,6 +69,7 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DeleteAutomaticTapeCreationPolicyCommand extends $Command
   .classBuilder<

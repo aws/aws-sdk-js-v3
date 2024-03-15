@@ -36,7 +36,6 @@ export interface SearchAvailablePhoneNumbersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for phone numbers that can be ordered. For US numbers, provide at least one of
  *             the following search filters: <code>AreaCode</code>, <code>City</code>,
  *                 <code>State</code>, or <code>TollFreePrefix</code>. If you provide
@@ -99,6 +98,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command
   .classBuilder<

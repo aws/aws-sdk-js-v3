@@ -28,7 +28,6 @@ export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequ
 export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -105,6 +104,7 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example Set versioning configuration on a bucket
  * ```javascript
  * // The following example sets versioning configuration on bucket. The configuration enables versioning on the bucket.

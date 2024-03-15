@@ -27,7 +27,6 @@ export interface GetPackageVersionReadmeCommandInput extends GetPackageVersionRe
 export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionReadmeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Gets the readme file or descriptive text for a package version.
  *       </p>
@@ -94,6 +93,7 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class GetPackageVersionReadmeCommand extends $Command
   .classBuilder<

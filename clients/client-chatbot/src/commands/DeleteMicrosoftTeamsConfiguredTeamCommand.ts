@@ -32,7 +32,6 @@ export interface DeleteMicrosoftTeamsConfiguredTeamCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Deletes the Microsoft Teams team authorization allowing for channels to be configured in that Microsoft Teams team. Note that the Microsoft Teams team must have no channels configured to remove it.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteMicrosoftTeamsConfiguredTeamCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class DeleteMicrosoftTeamsConfiguredTeamCommand extends $Command
   .classBuilder<

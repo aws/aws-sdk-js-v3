@@ -36,7 +36,6 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of importing resources to an application version.</p>
  *          <note>
  *             <p>If you get a 404 error with
@@ -93,6 +92,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Command
   .classBuilder<

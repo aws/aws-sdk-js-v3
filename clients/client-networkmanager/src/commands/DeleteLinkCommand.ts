@@ -27,7 +27,6 @@ export interface DeleteLinkCommandInput extends DeleteLinkRequest {}
 export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing link. You must first disassociate the link from any devices and
  *             customer gateways.</p>
  * @example
@@ -96,6 +95,7 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteLinkCommand extends $Command
   .classBuilder<

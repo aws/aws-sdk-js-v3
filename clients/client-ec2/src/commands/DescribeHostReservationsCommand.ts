@@ -27,7 +27,6 @@ export interface DescribeHostReservationsCommandInput extends DescribeHostReserv
 export interface DescribeHostReservationsCommandOutput extends DescribeHostReservationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes reservations that are associated with Dedicated Hosts in your
  *             account.</p>
  * @example
@@ -93,6 +92,7 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeHostReservationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetKxUserCommandInput extends GetKxUserRequest {}
 export interface GetKxUserCommandOutput extends GetKxUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified kdb user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetKxUserCommandOutput extends GetKxUserResponse, __MetadataBea
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxUserCommand extends $Command
   .classBuilder<

@@ -40,7 +40,6 @@ export interface UpdateApplicationComponentConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the configuration of an application component. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class UpdateApplicationComponentConfigCommand extends $Command
   .classBuilder<

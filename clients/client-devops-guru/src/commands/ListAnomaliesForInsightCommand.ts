@@ -27,7 +27,6 @@ export interface ListAnomaliesForInsightCommandInput extends ListAnomaliesForIns
 export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForInsightResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of the anomalies that belong to an insight that you specify using its
  * 			ID. </p>
  * @example
@@ -343,6 +342,7 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class ListAnomaliesForInsightCommand extends $Command
   .classBuilder<

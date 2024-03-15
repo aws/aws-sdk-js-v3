@@ -27,7 +27,6 @@ export interface UpdatePermissionSetCommandInput extends UpdatePermissionSetRequ
 export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetRes
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class UpdatePermissionSetCommand extends $Command
   .classBuilder<

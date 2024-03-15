@@ -27,7 +27,6 @@ export interface ListDataSetImportHistoryCommandInput extends ListDataSetImportH
 export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImportHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the data set imports for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class ListDataSetImportHistoryCommand extends $Command
   .classBuilder<

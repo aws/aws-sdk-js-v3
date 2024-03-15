@@ -27,7 +27,6 @@ export interface ChatSyncCommandInput extends ChatSyncInput {}
 export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts or continues a non-streaming Amazon Q conversation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -235,6 +234,7 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ChatSyncCommand extends $Command
   .classBuilder<

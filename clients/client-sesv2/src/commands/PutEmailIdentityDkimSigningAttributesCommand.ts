@@ -37,7 +37,6 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to configure or change the DKIM authentication settings for an email domain
  *             identity. You can use this operation to do any of the following:</p>
  *          <ul>
@@ -105,6 +104,7 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command
   .classBuilder<

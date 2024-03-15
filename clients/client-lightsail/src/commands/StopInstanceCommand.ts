@@ -27,7 +27,6 @@ export interface StopInstanceCommandInput extends StopInstanceRequest {}
 export interface StopInstanceCommandOutput extends StopInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a specific Amazon Lightsail instance that is currently running.</p>
  *          <note>
  *             <p>When you start a stopped instance, Lightsail assigns a new public IP address to the
@@ -112,6 +111,7 @@ export interface StopInstanceCommandOutput extends StopInstanceResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class StopInstanceCommand extends $Command
   .classBuilder<

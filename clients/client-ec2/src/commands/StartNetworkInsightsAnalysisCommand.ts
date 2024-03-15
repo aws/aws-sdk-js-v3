@@ -29,7 +29,6 @@ export interface StartNetworkInsightsAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts analyzing the specified path. If the path is reachable, the
  *          operation returns the shortest feasible path.</p>
  * @example
@@ -790,6 +789,7 @@ export interface StartNetworkInsightsAnalysisCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class StartNetworkInsightsAnalysisCommand extends $Command
   .classBuilder<

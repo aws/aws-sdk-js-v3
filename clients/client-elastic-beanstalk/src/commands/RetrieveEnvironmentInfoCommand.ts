@@ -27,7 +27,6 @@ export interface RetrieveEnvironmentInfoCommandInput extends RetrieveEnvironment
 export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmentInfoResultMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a>
  *       request.</p>
  *          <p>Related Topics</p>
@@ -73,6 +72,7 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To retrieve tailed logs
  * ```javascript
  * // The following operation retrieves a link to logs from an environment named my-env:

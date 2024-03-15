@@ -31,7 +31,6 @@ export interface UpdateSyncConfigurationCommandInput extends UpdateSyncConfigura
 export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the sync configuration for your connection and a specified external Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class UpdateSyncConfigurationCommand extends $Command
   .classBuilder<

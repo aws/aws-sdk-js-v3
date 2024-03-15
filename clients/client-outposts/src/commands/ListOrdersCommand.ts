@@ -27,7 +27,6 @@ export interface ListOrdersCommandInput extends ListOrdersInput {}
 export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Outpost orders for your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class ListOrdersCommand extends $Command
   .classBuilder<

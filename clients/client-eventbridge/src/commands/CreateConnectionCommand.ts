@@ -31,7 +31,6 @@ export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 export interface CreateConnectionCommandOutput extends CreateConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a connection. A connection defines the authorization type and credentials to use
  *       for authorization with an API destination HTTP endpoint.</p>
  * @example
@@ -139,6 +138,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class CreateConnectionCommand extends $Command
   .classBuilder<

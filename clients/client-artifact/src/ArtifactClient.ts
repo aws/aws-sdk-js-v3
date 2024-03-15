@@ -264,8 +264,8 @@ export type ArtifactClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface ArtifactClientResolvedConfig extends ArtifactClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This reference provides descriptions of the low-level AWS Artifact Service API.</p>
+ * @public
  */
 export class ArtifactClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface GetDataEndpointCommandInput extends GetDataEndpointInput {}
 export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an endpoint for a specified stream for either reading or writing. Use this
  *             endpoint in your application to read from the specified stream (using the
  *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
@@ -80,6 +79,7 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class GetDataEndpointCommand extends $Command
   .classBuilder<

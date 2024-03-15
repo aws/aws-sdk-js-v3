@@ -31,7 +31,6 @@ export interface CreateTemplateGroupAccessControlEntryCommandInput
 export interface CreateTemplateGroupAccessControlEntryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a group access control entry. Allow or deny Active Directory groups from enrolling and/or
  *          autoenrolling with the template based on the group security identifiers (SIDs).</p>
  * @example
@@ -94,6 +93,7 @@ export interface CreateTemplateGroupAccessControlEntryCommandOutput extends __Me
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class CreateTemplateGroupAccessControlEntryCommand extends $Command
   .classBuilder<

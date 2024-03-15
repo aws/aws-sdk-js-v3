@@ -31,7 +31,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes tags from an Application Auto Scaling scalable target. To delete a tag, specify the tag key and
  *          the Application Auto Scaling scalable target.</p>
  * @example
@@ -68,6 +67,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To remove a tag from a scalable target
  * ```javascript
  * // This example removes the tag pair with the key name "environment" from the scalable target specified by its ARN.

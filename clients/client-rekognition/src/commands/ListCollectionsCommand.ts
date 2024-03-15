@@ -27,7 +27,6 @@ export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns list of collection IDs in your account. If the result is truncated, the
  *       response also provides a <code>NextToken</code> that you can use in the subsequent request to
  *       fetch the next set of collection IDs.</p>
@@ -91,6 +90,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To list the collections
  * ```javascript
  * // This operation returns a list of Rekognition collections.

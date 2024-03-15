@@ -27,7 +27,6 @@ export interface DeleteExperimentTemplateCommandInput extends DeleteExperimentTe
 export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class DeleteExperimentTemplateCommand extends $Command
   .classBuilder<

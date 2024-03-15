@@ -31,7 +31,6 @@ export interface DescribeScalingActivitiesCommandInput extends DescribeScalingAc
 export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingActivitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides descriptive information about the scaling activities in the specified namespace
  *          from the previous six weeks.</p>
  *          <p>You can filter the results using <code>ResourceId</code> and
@@ -105,6 +104,7 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To describe scaling activities for a scalable target
  * ```javascript
  * // This example describes the scaling activities for an Amazon ECS service called web-app that is running in the default cluster.

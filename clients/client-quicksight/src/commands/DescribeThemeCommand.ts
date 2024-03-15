@@ -27,7 +27,6 @@ export interface DescribeThemeCommandInput extends DescribeThemeRequest {}
 export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -159,6 +158,7 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeThemeCommand extends $Command
   .classBuilder<

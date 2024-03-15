@@ -31,7 +31,6 @@ export interface DeclineHandshakeCommandInput extends DeclineHandshakeRequest {}
 export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code>
  *             and effectively deactivates the request.</p>
  *          <p>This operation can be called only from the account that received the handshake. The originator of the handshake can use <a>CancelHandshake</a>
@@ -227,6 +226,7 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To decline a handshake sent from the master account
  * ```javascript
  * // The following example shows Susan declining an invitation to join Bill's organization. The DeclineHandshake operation returns a handshake object, showing that the state is now DECLINED:

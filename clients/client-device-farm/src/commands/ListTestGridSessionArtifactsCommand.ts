@@ -36,7 +36,6 @@ export interface ListTestGridSessionArtifactsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of artifacts created during the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class ListTestGridSessionArtifactsCommand extends $Command
   .classBuilder<

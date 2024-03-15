@@ -31,7 +31,6 @@ export interface DeleteSafetyRuleCommandInput extends DeleteSafetyRuleRequest {}
 export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a safety rule.</p>/&gt;
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteSafetyRuleCommandOutput extends DeleteSafetyRuleResponse,
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class DeleteSafetyRuleCommand extends $Command
   .classBuilder<

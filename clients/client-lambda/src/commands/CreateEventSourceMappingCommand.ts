@@ -27,7 +27,6 @@ export interface CreateEventSourceMappingCommandInput extends CreateEventSourceM
 export interface CreateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and invokes the function.</p>
  *          <p>For details about how to configure different event sources, see the following topics. </p>
  *          <ul>
@@ -311,6 +310,7 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class CreateEventSourceMappingCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetFirewallDomainListCommandInput extends GetFirewallDomainList
 export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified firewall domain list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetFirewallDomainListCommand extends $Command
   .classBuilder<

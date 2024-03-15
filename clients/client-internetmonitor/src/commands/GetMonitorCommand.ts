@@ -27,7 +27,6 @@ export interface GetMonitorCommandInput extends GetMonitorInput {}
 export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a monitor name. The information returned includes the Amazon Resource Name (ARN), create time,
  * 			modified time, resources included in the monitor, and status information.</p>
  * @example
@@ -103,6 +102,7 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class GetMonitorCommand extends $Command
   .classBuilder<

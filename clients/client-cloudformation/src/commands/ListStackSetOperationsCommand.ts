@@ -27,7 +27,6 @@ export interface ListStackSetOperationsCommandInput extends ListStackSetOperatio
 export interface ListStackSetOperationsCommandOutput extends ListStackSetOperationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summary information about operations performed on a stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListStackSetOperationsCommand extends $Command
   .classBuilder<

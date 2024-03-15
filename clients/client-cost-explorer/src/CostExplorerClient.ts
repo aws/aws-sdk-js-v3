@@ -450,7 +450,6 @@ export type CostExplorerClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface CostExplorerClientResolvedConfig extends CostExplorerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>You can use the Cost Explorer API to programmatically query your cost and usage data.
  *       You can query for aggregated data such as total monthly costs or total daily usage. You can
  *       also query for granular data. This might include the number of daily write operations for
@@ -467,6 +466,7 @@ export interface CostExplorerClientResolvedConfig extends CostExplorerClientReso
  *          <p>For information about the costs that are associated with the Cost Explorer API, see
  *         <a href="http://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost
  *         Management Pricing</a>.</p>
+ * @public
  */
 export class CostExplorerClient extends __Client<
   __HttpHandlerOptions,

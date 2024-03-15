@@ -27,7 +27,6 @@ export interface CreateVerifiedAccessGroupCommandInput extends CreateVerifiedAcc
 export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
  *          similar security requirements. Each instance within a Verified Access group shares an Verified Access policy. For
  *          example, you can group all Verified Access instances associated with "sales" applications together and
@@ -96,6 +95,7 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVerifiedAccessGroupCommand extends $Command
   .classBuilder<

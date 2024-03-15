@@ -30,7 +30,6 @@ export interface AssociateTimeSeriesToAssetPropertyCommandInput extends Associat
 export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a time series (data stream) with an asset property.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface AssociateTimeSeriesToAssetPropertyCommandOutput extends __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class AssociateTimeSeriesToAssetPropertyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeMultiplexProgramCommandInput extends DescribeMultiplexP
 export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplexProgramResponse, __MetadataBearer {}
 
 /**
- * @public
  * Get the details for a program in a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DescribeMultiplexProgramCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetMacieSessionCommandInput extends GetMacieSessionRequest {}
 export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status and configuration settings for an Amazon Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetMacieSessionCommand extends $Command
   .classBuilder<

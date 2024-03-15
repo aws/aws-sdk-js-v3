@@ -27,7 +27,6 @@ export interface ListFraudstersCommandInput extends ListFraudstersRequest {}
 export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all fraudsters in a specified watchlist or domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __M
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class ListFraudstersCommand extends $Command
   .classBuilder<

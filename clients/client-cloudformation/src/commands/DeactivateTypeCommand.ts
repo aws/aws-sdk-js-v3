@@ -27,7 +27,6 @@ export interface DeactivateTypeCommandInput extends DeactivateTypeInput {}
 export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates a public extension that was previously activated in this account and Region.</p>
  *          <p>Once deactivated, an extension can't be used in any CloudFormation operation. This includes stack update operations
  *    where the stack template includes the extension, even if no updates are being made to the extension. In addition,
@@ -64,6 +63,7 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DeactivateTypeCommand extends $Command
   .classBuilder<

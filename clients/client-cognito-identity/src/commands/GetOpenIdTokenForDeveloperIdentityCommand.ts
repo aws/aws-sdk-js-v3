@@ -35,7 +35,6 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect
  *          token for a user authenticated by your backend authentication process. Supplying multiple
  *          logins will create an implicit linked account. You can only specify one developer provider
@@ -108,6 +107,7 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
   .classBuilder<

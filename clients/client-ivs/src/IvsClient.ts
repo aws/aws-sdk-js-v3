@@ -396,7 +396,6 @@ export type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -772,6 +771,7 @@ export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
  *                   <a>ListTagsForResource</a> — Gets information about Amazon Web Services tags for the specified ARN.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class IvsClient extends __Client<
   __HttpHandlerOptions,

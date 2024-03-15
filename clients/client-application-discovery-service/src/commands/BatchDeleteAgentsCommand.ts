@@ -31,7 +31,6 @@ export interface BatchDeleteAgentsCommandInput extends BatchDeleteAgentsRequest 
 export interface BatchDeleteAgentsCommandOutput extends BatchDeleteAgentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes one or more agents or collectors as specified by ID. Deleting an agent or collector does not
  *       delete the previously discovered data.
@@ -89,6 +88,7 @@ export interface BatchDeleteAgentsCommandOutput extends BatchDeleteAgentsRespons
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class BatchDeleteAgentsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetBucketTaggingCommandInput extends GetBucketTaggingRequest {}
 export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -93,6 +92,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To get tag set associated with a bucket
  * ```javascript
  * // The following example returns tag set associated with a bucket

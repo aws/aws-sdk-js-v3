@@ -31,7 +31,6 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows a user to delete their own user profile.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
@@ -95,6 +94,7 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<

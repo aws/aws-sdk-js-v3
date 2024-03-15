@@ -36,7 +36,6 @@ export interface AssociateTrafficDistributionGroupUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an agent with a traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface AssociateTrafficDistributionGroupUserCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class AssociateTrafficDistributionGroupUserCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateExperimentCommandInput extends UpdateExperimentRequest {}
 export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds, updates, or removes the description of an experiment. Updates the display name of an
  *       experiment.</p>
  * @example
@@ -65,6 +64,7 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateExperimentCommand extends $Command
   .classBuilder<

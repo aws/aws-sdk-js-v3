@@ -27,7 +27,6 @@ export interface AssociateCertificateCommandInput extends AssociateCertificateRe
 export interface AssociateCertificateCommandOutput extends AssociateCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class AssociateCertificateCommand extends $Command
   .classBuilder<

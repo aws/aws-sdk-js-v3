@@ -29,7 +29,6 @@ export interface StopEventDataStoreIngestionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To stop ingestion, the event data store <code>Status</code> must be <code>ENABLED</code>
  *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, or <code>ConfigurationItem</code>.</p>
  * @example
@@ -93,6 +92,7 @@ export interface StopEventDataStoreIngestionCommandOutput
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class StopEventDataStoreIngestionCommand extends $Command
   .classBuilder<

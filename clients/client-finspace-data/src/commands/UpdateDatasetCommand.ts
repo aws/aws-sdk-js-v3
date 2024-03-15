@@ -27,9 +27,6 @@ export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Updates a FinSpace Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +92,8 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class UpdateDatasetCommand extends $Command
   .classBuilder<

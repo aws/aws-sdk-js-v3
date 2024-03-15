@@ -27,7 +27,6 @@ export interface GetUsageForecastCommandInput extends GetUsageForecastRequest {}
 export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use
  *       over the forecast time period that you select, based on your past usage. </p>
  * @example
@@ -154,6 +153,7 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetUsageForecastCommand extends $Command
   .classBuilder<

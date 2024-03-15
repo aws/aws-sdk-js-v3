@@ -27,7 +27,6 @@ export interface UpdateOrganizationalUnitCommandInput extends UpdateOrganization
 export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child
  *             OUs and accounts remain in place, and any attached policies of the OU remain
  *             attached.</p>
@@ -198,6 +197,7 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To rename an organizational unit
  * ```javascript
  * // The following example shows how to rename an OU. The output confirms the new name:/n/n

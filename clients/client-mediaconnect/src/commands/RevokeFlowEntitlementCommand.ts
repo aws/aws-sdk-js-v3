@@ -27,7 +27,6 @@ export interface RevokeFlowEntitlementCommandInput extends RevokeFlowEntitlement
 export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlementResponse, __MetadataBearer {}
 
 /**
- * @public
  * Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlemen
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class RevokeFlowEntitlementCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface GetTrafficPolicyCommandInput extends GetTrafficPolicyRequest {}
 export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specific traffic policy version.</p>
  *          <p>For information about how of deleting a traffic policy affects the response from
  * 				<code>GetTrafficPolicy</code>, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>. </p>
@@ -72,6 +71,7 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetTrafficPolicyCommand extends $Command
   .classBuilder<

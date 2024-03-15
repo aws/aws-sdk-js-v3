@@ -31,7 +31,6 @@ export interface CreateHostCommandInput extends CreateHostInput {}
 export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a resource that represents the infrastructure where a third-party provider is
  *       installed. The host is used when you create connections to an installed third-party provider
  *       type, such as GitHub Enterprise Server. You create one host for all connections to that
@@ -93,6 +92,7 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class CreateHostCommand extends $Command
   .classBuilder<

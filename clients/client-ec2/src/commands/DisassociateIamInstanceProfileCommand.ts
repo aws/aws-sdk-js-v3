@@ -32,7 +32,6 @@ export interface DisassociateIamInstanceProfileCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
  *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
@@ -71,6 +70,7 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To disassociate an IAM instance profile
  * ```javascript
  * // This example disassociates the specified IAM instance profile from an instance.

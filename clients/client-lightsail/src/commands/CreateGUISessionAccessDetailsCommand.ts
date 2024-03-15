@@ -36,7 +36,6 @@ export interface CreateGUISessionAccessDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface
  *       (GUI) session. The primary URL initiates a web-based NICE DCV session to the virtual
  *       computer's application. The secondary URL initiates a web-based NICE DCV session to the
@@ -101,6 +100,7 @@ export interface CreateGUISessionAccessDetailsCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateGUISessionAccessDetailsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeDeliveryChannelStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current status of the specified delivery channel.
  * 			If a delivery channel is not specified, this action returns the
  * 			current status of all delivery channels associated with the
@@ -99,6 +98,7 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeDeliveryChannelStatusCommand extends $Command
   .classBuilder<

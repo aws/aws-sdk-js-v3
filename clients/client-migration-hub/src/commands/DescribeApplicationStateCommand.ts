@@ -27,7 +27,6 @@ export interface DescribeApplicationStateCommandInput extends DescribeApplicatio
 export interface DescribeApplicationStateCommandOutput extends DescribeApplicationStateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the migration status of an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class DescribeApplicationStateCommand extends $Command
   .classBuilder<

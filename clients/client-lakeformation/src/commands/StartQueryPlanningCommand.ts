@@ -31,7 +31,6 @@ export interface StartQueryPlanningCommandInput extends StartQueryPlanningReques
 export interface StartQueryPlanningCommandOutput extends StartQueryPlanningResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits a request to process a query statement.</p>
  *          <p>This operation generates work units that can be retrieved with the <code>GetWorkUnits</code> operation as soon as the query state is WORKUNITS_AVAILABLE or FINISHED.</p>
  * @example
@@ -81,6 +80,7 @@ export interface StartQueryPlanningCommandOutput extends StartQueryPlanningRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class StartQueryPlanningCommand extends $Command
   .classBuilder<

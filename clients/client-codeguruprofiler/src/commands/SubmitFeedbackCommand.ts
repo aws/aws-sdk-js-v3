@@ -27,7 +27,6 @@ export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
 export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends feedback to CodeGuru Profiler about whether the anomaly detected by the analysis is
  *             useful or not.</p>
  * @example
@@ -69,6 +68,7 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class SubmitFeedbackCommand extends $Command
   .classBuilder<

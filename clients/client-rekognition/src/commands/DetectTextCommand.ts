@@ -27,7 +27,6 @@ export interface DetectTextCommandInput extends DetectTextRequest {}
 export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects text in the input image and converts it into machine-readable text.</p>
  *          <p>Pass the input image as base64-encoded image bytes or as a reference to an image in an
  *       Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a
@@ -159,6 +158,7 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class DetectTextCommand extends $Command
   .classBuilder<

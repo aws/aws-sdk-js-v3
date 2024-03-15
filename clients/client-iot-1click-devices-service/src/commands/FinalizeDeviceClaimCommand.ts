@@ -31,7 +31,6 @@ export interface FinalizeDeviceClaimCommandInput extends FinalizeDeviceClaimRequ
 export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Given a device ID, finalizes the claim request for the associated device.</p><note>
  *  <p>Claiming a device consists of initiating a claim, then publishing a device event,
  *  and finalizing the claim. For a device of type button, a device event can
@@ -76,6 +75,7 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class FinalizeDeviceClaimCommand extends $Command
   .classBuilder<

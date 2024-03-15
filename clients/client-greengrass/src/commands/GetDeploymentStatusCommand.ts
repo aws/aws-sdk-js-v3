@@ -27,7 +27,6 @@ export interface GetDeploymentStatusCommandInput extends GetDeploymentStatusRequ
 export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns the status of a deployment.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetDeploymentStatusCommand extends $Command
   .classBuilder<

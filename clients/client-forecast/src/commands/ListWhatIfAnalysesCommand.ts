@@ -27,7 +27,6 @@ export interface ListWhatIfAnalysesCommandInput extends ListWhatIfAnalysesReques
 export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of what-if analyses created using the <a>CreateWhatIfAnalysis</a> operation. For each what-if analysis, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if analysis ARN with the <a>DescribeWhatIfAnalysis</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListWhatIfAnalysesCommand extends $Command
   .classBuilder<

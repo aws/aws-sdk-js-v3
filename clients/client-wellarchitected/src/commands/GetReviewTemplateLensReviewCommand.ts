@@ -30,7 +30,6 @@ export interface GetReviewTemplateLensReviewCommandInput extends GetReviewTempla
 export interface GetReviewTemplateLensReviewCommandOutput extends GetReviewTemplateLensReviewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a lens review associated with a review template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetReviewTemplateLensReviewCommandOutput extends GetReviewTempl
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class GetReviewTemplateLensReviewCommand extends $Command
   .classBuilder<

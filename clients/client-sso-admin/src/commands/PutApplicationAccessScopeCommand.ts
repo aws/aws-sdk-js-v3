@@ -27,7 +27,6 @@ export interface PutApplicationAccessScopeCommandInput extends PutApplicationAcc
 export interface PutApplicationAccessScopeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates the list of authorized targets for an IAM Identity Center access scope for an
  *             application.</p>
  * @example
@@ -81,6 +80,7 @@ export interface PutApplicationAccessScopeCommandOutput extends __MetadataBearer
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class PutApplicationAccessScopeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopInferenceSchedulerCommandInput extends StopInferenceSchedul
 export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an inference scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class StopInferenceSchedulerCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface ResendOperationAuthorizationCommandInput extends ResendOperatio
 export interface ResendOperationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Resend the form of authorization email for this operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface ResendOperationAuthorizationCommandOutput extends __MetadataBea
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class ResendOperationAuthorizationCommand extends $Command
   .classBuilder<

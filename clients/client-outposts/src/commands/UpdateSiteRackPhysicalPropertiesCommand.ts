@@ -32,7 +32,6 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the physical and logistical details for a rack at a site. For more information
  *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
  *         readiness checklist</a> in the Amazon Web Services Outposts User Guide.
@@ -113,6 +112,7 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class UpdateSiteRackPhysicalPropertiesCommand extends $Command
   .classBuilder<

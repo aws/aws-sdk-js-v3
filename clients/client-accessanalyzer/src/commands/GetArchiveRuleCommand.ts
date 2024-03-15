@@ -27,7 +27,6 @@ export interface GetArchiveRuleCommandInput extends GetArchiveRuleRequest {}
 export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an archive rule.</p>
  *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
  * @example
@@ -90,6 +89,7 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class GetArchiveRuleCommand extends $Command
   .classBuilder<

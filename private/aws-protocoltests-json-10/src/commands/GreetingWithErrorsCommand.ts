@@ -25,7 +25,6 @@ export interface GreetingWithErrorsCommandInput extends GreetingWithErrorsInput 
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * This operation has three possible return values:
  *
  * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -70,6 +69,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ * @public
  */
 export class GreetingWithErrorsCommand extends $Command
   .classBuilder<

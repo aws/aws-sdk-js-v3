@@ -28,7 +28,6 @@ export interface GetStorageLensConfigurationCommandInput extends GetStorageLensC
 export interface GetStorageLensConfigurationCommandOutput extends GetStorageLensConfigurationResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -156,6 +155,7 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetStorageLensConfigurationCommand extends $Command
   .classBuilder<

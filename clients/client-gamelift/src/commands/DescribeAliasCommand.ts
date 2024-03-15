@@ -27,7 +27,6 @@ export interface DescribeAliasCommandInput extends DescribeAliasInput {}
 export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves properties for an alias. This operation returns all alias metadata and
  *             settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p>
  *          <p>To get alias properties, specify the alias ID. If successful, the requested alias
@@ -90,6 +89,7 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeAliasCommand extends $Command
   .classBuilder<

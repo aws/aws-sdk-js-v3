@@ -32,7 +32,6 @@ export interface RemoveAttributesFromFindingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes entire attributes (key and value pairs) from the findings that are specified
  *          by the ARNs of the findings where an attribute with the specified key exists.</p>
  * @example
@@ -88,6 +87,7 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Remove attributes from findings
  * ```javascript
  * // Removes entire attributes (key and value pairs) from the findings that are specified by the ARNs of the findings where an attribute with the specified key exists.

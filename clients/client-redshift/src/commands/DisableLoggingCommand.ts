@@ -27,7 +27,6 @@ export interface DisableLoggingCommandInput extends DisableLoggingMessage {}
 export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops logging information, such as queries and connection attempts, for the
  *             specified Amazon Redshift cluster.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DisableLoggingCommand extends $Command
   .classBuilder<

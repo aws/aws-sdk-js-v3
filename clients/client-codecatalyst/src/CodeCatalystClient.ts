@@ -392,7 +392,6 @@ export type CodeCatalystClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
  *       API to work with the following objects. </p>
  *          <p>Spaces, by calling the following:</p>
@@ -568,6 +567,7 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *         For more information, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/set-up-cli.html">Setting up to use the CLI with Amazon CodeCatalyst</a>
  *       and the SSO documentation for your SDK.</p>
  *          </note>
+ * @public
  */
 export class CodeCatalystClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface ListAppInputSourcesCommandInput extends ListAppInputSourcesRequ
 export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the input sources of the Resilience Hub application. For more information about the
  *       input sources supported by Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
  *         the structure and describe your Resilience Hub application</a>.</p>
@@ -93,6 +92,7 @@ export interface ListAppInputSourcesCommandOutput extends ListAppInputSourcesRes
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppInputSourcesCommand extends $Command
   .classBuilder<

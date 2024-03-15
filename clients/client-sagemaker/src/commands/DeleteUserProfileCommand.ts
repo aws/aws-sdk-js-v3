@@ -27,7 +27,6 @@ export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest 
 export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS
  *      volume, including data, notebooks, and other artifacts.</p>
  * @example
@@ -61,6 +60,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteUserProfileCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListInferenceExecutionsCommandInput extends ListInferenceExecut
 export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists all inference executions that have been performed by the specified inference
  *          scheduler. </p>
  * @example
@@ -117,6 +116,7 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ListInferenceExecutionsCommand extends $Command
   .classBuilder<

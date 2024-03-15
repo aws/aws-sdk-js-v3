@@ -27,7 +27,6 @@ export interface SendBonusCommandInput extends SendBonusRequest {}
 export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>SendBonus</code>
@@ -76,6 +75,7 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class SendBonusCommand extends $Command
   .classBuilder<

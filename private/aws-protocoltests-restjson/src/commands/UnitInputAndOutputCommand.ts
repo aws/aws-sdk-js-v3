@@ -24,7 +24,6 @@ export interface UnitInputAndOutputCommandInput {}
 export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This test is similar to NoInputAndNoOutput, but uses explicit Unit types.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +47,7 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class UnitInputAndOutputCommand extends $Command
   .classBuilder<

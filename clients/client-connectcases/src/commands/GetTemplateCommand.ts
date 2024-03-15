@@ -27,7 +27,6 @@ export interface GetTemplateCommandInput extends GetTemplateRequest {}
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details for the requested template. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class GetTemplateCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require
  *       non-default auto scaling settings. You can share an auto scaling configuration across multiple services.</p>
  *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>AutoScalingConfigurationName</code>. The call
@@ -101,6 +100,7 @@ export interface CreateAutoScalingConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class CreateAutoScalingConfigurationCommand extends $Command
   .classBuilder<

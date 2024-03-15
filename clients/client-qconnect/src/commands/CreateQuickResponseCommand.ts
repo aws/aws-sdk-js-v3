@@ -32,7 +32,6 @@ export interface CreateQuickResponseCommandInput extends CreateQuickResponseRequ
 export interface CreateQuickResponseCommandOutput extends CreateQuickResponseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Q quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface CreateQuickResponseCommandOutput extends CreateQuickResponseRes
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class CreateQuickResponseCommand extends $Command
   .classBuilder<

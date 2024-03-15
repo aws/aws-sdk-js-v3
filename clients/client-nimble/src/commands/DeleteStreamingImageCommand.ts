@@ -31,7 +31,6 @@ export interface DeleteStreamingImageCommandInput extends DeleteStreamingImageRe
 export interface DeleteStreamingImageCommandOutput extends DeleteStreamingImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete streaming image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DeleteStreamingImageCommandOutput extends DeleteStreamingImageR
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class DeleteStreamingImageCommand extends $Command
   .classBuilder<

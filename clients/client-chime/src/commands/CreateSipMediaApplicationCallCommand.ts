@@ -36,9 +36,6 @@ export interface CreateSipMediaApplicationCallCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace
- *
  * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified
  * <code>sipMediaApplicationId</code>.</p>
  *          <important>
@@ -105,6 +102,8 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace
  */
 export class CreateSipMediaApplicationCallCommand extends $Command
   .classBuilder<

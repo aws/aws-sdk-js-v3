@@ -27,7 +27,6 @@ export interface UpdateQueueMaxContactsCommandInput extends UpdateQueueMaxContac
 export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the maximum number of contacts allowed in a queue before it is considered
  *    full.</p>
@@ -72,6 +71,7 @@ export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateQueueMaxContactsCommand extends $Command
   .classBuilder<

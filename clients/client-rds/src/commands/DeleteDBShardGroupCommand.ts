@@ -27,7 +27,6 @@ export interface DeleteDBShardGroupCommandInput extends DeleteDBShardGroupMessag
 export interface DeleteDBShardGroupCommandOutput extends DBShardGroup, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Aurora Limitless Database DB shard group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DeleteDBShardGroupCommand extends $Command
   .classBuilder<

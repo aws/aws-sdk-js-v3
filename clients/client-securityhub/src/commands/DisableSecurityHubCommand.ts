@@ -27,7 +27,6 @@ export interface DisableSecurityHubCommandInput extends DisableSecurityHubReques
 export interface DisableSecurityHubCommandOutput extends DisableSecurityHubResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables Security Hub in your account only in the current Amazon Web Services Region. To disable Security Hub in all
  *          Regions, you must submit one request per Region where you have enabled Security Hub.</p>
  *          <p>You can't disable Security Hub in an account that is currently the Security Hub administrator.</p>
@@ -74,6 +73,7 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To deactivate Security Hub
  * ```javascript
  * // The following example deactivates Security Hub for the current account and Region.

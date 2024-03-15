@@ -27,7 +27,6 @@ export interface ListStreamProcessorsCommandInput extends ListStreamProcessorsRe
 export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class ListStreamProcessorsCommand extends $Command
   .classBuilder<

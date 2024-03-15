@@ -27,7 +27,6 @@ export interface RenewDomainCommandInput extends RenewDomainRequest {}
 export interface RenewDomainCommandOutput extends RenewDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation renews a domain for the specified number of years. The cost of renewing
  * 			your domain is billed to your Amazon Web Services account.</p>
  *          <p>We recommend that you renew your domain several weeks before the expiration date. Some
@@ -82,6 +81,7 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class RenewDomainCommand extends $Command
   .classBuilder<

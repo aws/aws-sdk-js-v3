@@ -30,7 +30,6 @@ export interface DeleteRecordingConfigurationCommandInput extends DeleteRecordin
 export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the recording configuration for the specified ARN.</p>
  *          <p>If you try to delete a recording configuration that is associated with a channel, you will
  *       get an error (409 ConflictException). To avoid this, for all channels that reference the
@@ -76,6 +75,7 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class DeleteRecordingConfigurationCommand extends $Command
   .classBuilder<

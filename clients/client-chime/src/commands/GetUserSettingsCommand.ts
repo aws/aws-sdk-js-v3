@@ -27,7 +27,6 @@ export interface GetUserSettingsCommandInput extends GetUserSettingsRequest {}
 export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetUserSettingsCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Traffic Mirror filter rule.</p>
  *          <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p>
  *          <p>You need the Traffic Mirror filter ID when you create the rule.</p>
@@ -95,6 +94,7 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTrafficMirrorFilterRuleCommand extends $Command
   .classBuilder<

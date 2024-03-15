@@ -27,7 +27,6 @@ export interface UpdateFunctionDefinitionCommandInput extends UpdateFunctionDefi
 export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates a Lambda function definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDef
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class UpdateFunctionDefinitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeDocumentPermissionCommandInput extends DescribeDocument
 export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumentPermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the permissions for a Amazon Web Services Systems Manager document (SSM document). If you created the
  *    document, you are the owner. If a document is shared, it can either be shared privately (by
  *    specifying a user's Amazon Web Services account ID) or publicly (<i>All</i>). </p>
@@ -86,6 +85,7 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeDocumentPermissionCommand extends $Command
   .classBuilder<

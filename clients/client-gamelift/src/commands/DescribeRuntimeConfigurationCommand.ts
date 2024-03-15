@@ -32,7 +32,6 @@ export interface DescribeRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
  *             Amazon GameLift which server processes to run (and how) on each instance in the fleet.</p>
  *          <p>To get the runtime configuration that is currently in forces for a fleet, provide the
@@ -101,6 +100,7 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeRuntimeConfigurationCommand extends $Command
   .classBuilder<

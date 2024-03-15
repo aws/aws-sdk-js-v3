@@ -27,7 +27,6 @@ export interface DescribeOriginEndpointCommandInput extends DescribeOriginEndpoi
 export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * Gets details about an existing OriginEndpoint.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -238,6 +237,7 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class DescribeOriginEndpointCommand extends $Command
   .classBuilder<

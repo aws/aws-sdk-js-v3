@@ -27,7 +27,6 @@ export interface UpdateServerCommandInput extends UpdateServerRequest {}
 export interface UpdateServerCommandOutput extends UpdateServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Updates settings for a server.
  *     </p>
@@ -110,6 +109,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class UpdateServerCommand extends $Command
   .classBuilder<

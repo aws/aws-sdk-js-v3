@@ -27,7 +27,6 @@ export interface GetBotCommandInput extends GetBotRequest {}
 export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetBotCommand extends $Command
   .classBuilder<

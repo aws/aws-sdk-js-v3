@@ -27,7 +27,6 @@ export interface ListLocationsCommandInput extends ListLocationsInput {}
 export interface ListLocationsCommandOutput extends ListLocationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all custom and Amazon Web Services locations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ListLocationsCommand extends $Command
   .classBuilder<

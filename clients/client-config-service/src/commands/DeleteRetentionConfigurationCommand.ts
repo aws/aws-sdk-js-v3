@@ -30,7 +30,6 @@ export interface DeleteRetentionConfigurationCommandInput extends DeleteRetentio
 export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the retention configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteRetentionConfigurationCommand extends $Command
   .classBuilder<

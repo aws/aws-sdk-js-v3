@@ -27,7 +27,6 @@ export interface StartMLModelTransformJobCommandInput extends StartMLModelTransf
 export interface StartMLModelTransformJobCommandOutput extends StartMLModelTransformJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new model transform job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html">Use
  *       a trained model to generate new model artifacts</a>.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -115,6 +114,7 @@ export interface StartMLModelTransformJobCommandOutput extends StartMLModelTrans
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class StartMLModelTransformJobCommand extends $Command
   .classBuilder<

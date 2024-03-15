@@ -27,7 +27,6 @@ export interface ListVaultsCommandInput extends ListVaultsInput {}
 export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists all vaults owned by the calling user's account. The list
  *          returned in the response is ASCII-sorted by vault name.</p>
  *
@@ -98,6 +97,7 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To list all vaults owned by the calling user's account
  * ```javascript
  * // The example lists all vaults owned by the specified AWS account.

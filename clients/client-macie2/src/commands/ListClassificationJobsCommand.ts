@@ -27,7 +27,6 @@ export interface ListClassificationJobsCommandInput extends ListClassificationJo
 export interface ListClassificationJobsCommandOutput extends ListClassificationJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a subset of information about one or more classification jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -172,6 +171,7 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class ListClassificationJobsCommand extends $Command
   .classBuilder<

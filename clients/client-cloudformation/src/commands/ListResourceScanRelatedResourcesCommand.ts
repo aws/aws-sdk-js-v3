@@ -32,7 +32,6 @@ export interface ListResourceScanRelatedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the related resources for a list of resources from a resource scan. The response indicates whether each
  *    returned resource is already managed by CloudFormation.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListResourceScanRelatedResourcesCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To list resource scan related resources
  * ```javascript
  * // This example lists the resources related to the passed in resources

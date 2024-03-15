@@ -27,7 +27,6 @@ export interface DescribeImageTagsCommandInput extends DescribeImageTagsRequest 
 export interface DescribeImageTagsCommandOutput extends DescribeImageTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the image tag details for a repository in a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class DescribeImageTagsCommand extends $Command
   .classBuilder<

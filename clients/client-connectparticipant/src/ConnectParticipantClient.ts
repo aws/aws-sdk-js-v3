@@ -291,7 +291,6 @@ export type ConnectParticipantClientResolvedConfigType = __SmithyResolvedConfigu
 export interface ConnectParticipantClientResolvedConfig extends ConnectParticipantClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
  *             enables companies of any size to deliver superior customer service at a lower cost.
  *                 Amazon Connect communications capabilities make it easy for companies to deliver
@@ -301,6 +300,7 @@ export interface ConnectParticipantClientResolvedConfig extends ConnectParticipa
  *             chat contact. The APIs in the service enable the following: sending chat messages,
  *             attachment sharing, managing a participant's connection state and message events, and
  *             retrieving chat transcripts.</p>
+ * @public
  */
 export class ConnectParticipantClient extends __Client<
   __HttpHandlerOptions,

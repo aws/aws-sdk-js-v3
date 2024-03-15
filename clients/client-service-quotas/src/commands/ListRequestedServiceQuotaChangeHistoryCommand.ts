@@ -36,7 +36,6 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the quota increase requests for the specified Amazon Web Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command
   .classBuilder<

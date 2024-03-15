@@ -27,7 +27,6 @@ export interface DeleteMembershipCommandInput extends DeleteMembershipInput {}
 export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified membership. All resources under a membership must be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipOutput, _
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class DeleteMembershipCommand extends $Command
   .classBuilder<

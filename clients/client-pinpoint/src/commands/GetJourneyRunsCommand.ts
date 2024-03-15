@@ -27,7 +27,6 @@ export interface GetJourneyRunsCommandInput extends GetJourneyRunsRequest {}
 export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the runs of a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  * @example To get the runs of a journey
  * ```javascript
  * // The following example gets the runs of a journey.

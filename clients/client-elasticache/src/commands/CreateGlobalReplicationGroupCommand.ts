@@ -29,7 +29,6 @@ export interface CreateGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Global Datastore for Redis offers fully managed, fast, reliable and secure
  *             cross-region replication. Using Global Datastore for Redis, you can create cross-region
  *             read replica clusters for ElastiCache for Redis to enable low-latency reads and disaster
@@ -116,6 +115,7 @@ export interface CreateGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class CreateGlobalReplicationGroupCommand extends $Command
   .classBuilder<

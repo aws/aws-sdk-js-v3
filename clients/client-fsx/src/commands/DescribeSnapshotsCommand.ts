@@ -31,7 +31,6 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
  *                 <code>SnapshotIds</code> value is provided. Otherwise, this operation returns all
  *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
@@ -664,6 +663,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeSnapshotsCommand extends $Command
   .classBuilder<

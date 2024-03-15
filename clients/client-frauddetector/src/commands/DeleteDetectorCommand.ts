@@ -27,7 +27,6 @@ export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
 export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>
  *          <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __Met
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteDetectorCommand extends $Command
   .classBuilder<

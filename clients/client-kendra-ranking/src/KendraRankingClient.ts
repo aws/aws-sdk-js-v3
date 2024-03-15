@@ -291,10 +291,10 @@ export type KendraRankingClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface KendraRankingClientResolvedConfig extends KendraRankingClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Kendra Intelligent Ranking uses Amazon Kendra
  *             semantic search capabilities to intelligently re-rank a search
  *             service's results.</p>
+ * @public
  */
 export class KendraRankingClient extends __Client<
   __HttpHandlerOptions,

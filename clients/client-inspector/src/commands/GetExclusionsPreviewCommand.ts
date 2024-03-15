@@ -27,7 +27,6 @@ export interface GetExclusionsPreviewCommandInput extends GetExclusionsPreviewRe
 export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by
  *          the preview token. You can obtain the preview token by running the CreateExclusionsPreview
  *          API.</p>
@@ -95,6 +94,7 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  */
 export class GetExclusionsPreviewCommand extends $Command
   .classBuilder<

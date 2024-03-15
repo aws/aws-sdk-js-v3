@@ -27,7 +27,6 @@ export interface DeleteCustomLineItemCommandInput extends DeleteCustomLineItemIn
 export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes the custom line item identified by the given ARN in the current, or previous billing period.
  *     </p>
@@ -80,6 +79,7 @@ export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemO
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class DeleteCustomLineItemCommand extends $Command
   .classBuilder<

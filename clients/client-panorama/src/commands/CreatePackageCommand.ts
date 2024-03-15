@@ -27,7 +27,6 @@ export interface CreatePackageCommandInput extends CreatePackageRequest {}
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a package and storage location in an Amazon S3 access point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class CreatePackageCommand extends $Command
   .classBuilder<

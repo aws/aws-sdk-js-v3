@@ -27,7 +27,6 @@ export interface UpdateProvisioningTemplateCommandInput extends UpdateProvisioni
 export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a provisioning template.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateProvisioningTemplate</a> action.</p>
  * @example
@@ -79,6 +78,7 @@ export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvision
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateProvisioningTemplateCommand extends $Command
   .classBuilder<

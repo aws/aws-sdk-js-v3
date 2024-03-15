@@ -27,7 +27,6 @@ export interface GetDICOMImportJobCommandInput extends GetDICOMImportJobRequest 
 export interface GetDICOMImportJobCommandOutput extends GetDICOMImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the import job properties to learn more about the job or job progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetDICOMImportJobCommandOutput extends GetDICOMImportJobRespons
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class GetDICOMImportJobCommand extends $Command
   .classBuilder<

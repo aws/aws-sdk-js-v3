@@ -27,7 +27,6 @@ export interface ListGroupsCommandInput extends ListGroupsRequest {}
 export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the IAM groups that have the specified path prefix.</p>
  *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
@@ -73,6 +72,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list the IAM groups for the current account
  * ```javascript
  * // The following command lists the IAM groups in the current account:

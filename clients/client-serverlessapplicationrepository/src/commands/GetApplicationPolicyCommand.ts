@@ -31,7 +31,6 @@ export interface GetApplicationPolicyCommandInput extends GetApplicationPolicyRe
 export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the policy for the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class GetApplicationPolicyCommand extends $Command
   .classBuilder<

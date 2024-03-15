@@ -27,7 +27,6 @@ export interface DescribeFeatureGroupCommandInput extends DescribeFeatureGroupRe
 export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes
  *          information on the creation time, <code>FeatureGroup</code> name, the unique identifier for
  *          each <code>FeatureGroup</code>, and more.</p>
@@ -122,6 +121,7 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeFeatureGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeStreamCommandInput extends DescribeStreamRequest {}
 export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a stream.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeStream</a> action.</p>
  * @example
@@ -92,6 +91,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeStreamCommand extends $Command
   .classBuilder<

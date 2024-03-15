@@ -29,7 +29,6 @@ export interface CreateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Call Analytics category.</p>
  *          <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
  *             order to apply categories to your transcriptions, you must create them before submitting your
@@ -248,6 +247,7 @@ export interface CreateCallAnalyticsCategoryCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class CreateCallAnalyticsCategoryCommand extends $Command
   .classBuilder<

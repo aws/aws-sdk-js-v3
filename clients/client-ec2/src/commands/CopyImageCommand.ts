@@ -27,7 +27,6 @@ export interface CopyImageCommandInput extends CopyImageRequest {}
 export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a
  *       Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
  *       to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
@@ -93,6 +92,7 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To copy an AMI to another region
  * ```javascript
  * // This example copies the specified AMI from the us-east-1 region to the current region.

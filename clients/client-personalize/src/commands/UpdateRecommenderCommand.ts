@@ -27,7 +27,6 @@ export interface UpdateRecommenderCommandInput extends UpdateRecommenderRequest 
 export interface UpdateRecommenderCommandOutput extends UpdateRecommenderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the recommender to modify the recommender configuration.
  *       If you update the recommender to modify the columns used in training, Amazon Personalize automatically starts a full retraining of
  *       the models backing your recommender. While the update completes, you can still get recommendations from the recommender. The recommender
@@ -85,6 +84,7 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class UpdateRecommenderCommand extends $Command
   .classBuilder<

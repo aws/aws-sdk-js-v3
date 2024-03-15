@@ -27,7 +27,6 @@ export interface AssociateNetworkSettingsCommandInput extends AssociateNetworkSe
 export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a network settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface AssociateNetworkSettingsCommandOutput extends AssociateNetworkS
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class AssociateNetworkSettingsCommand extends $Command
   .classBuilder<

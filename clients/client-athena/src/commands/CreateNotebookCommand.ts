@@ -27,7 +27,6 @@ export interface CreateNotebookCommandInput extends CreateNotebookInput {}
 export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty <code>ipynb</code> file in the specified Apache Spark enabled
  *             workgroup. Throws an error if a file in the workgroup with the same name already
  *             exists.</p>
@@ -70,6 +69,7 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CreateNotebookCommand extends $Command
   .classBuilder<

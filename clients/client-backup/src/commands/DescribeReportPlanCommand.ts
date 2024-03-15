@@ -27,7 +27,6 @@ export interface DescribeReportPlanCommandInput extends DescribeReportPlanInput 
 export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all report plans for an Amazon Web Services account and Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeReportPlanCommandOutput extends DescribeReportPlanOutpu
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeReportPlanCommand extends $Command
   .classBuilder<

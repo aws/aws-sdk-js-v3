@@ -29,7 +29,6 @@ export interface ListAccessGrantsCommandInput extends ListAccessGrantsRequest {}
 export interface ListAccessGrantsCommandOutput extends ListAccessGrantsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of access grants in your S3 Access Grants instance.</p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -88,6 +87,7 @@ export interface ListAccessGrantsCommandOutput extends ListAccessGrantsResult, _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class ListAccessGrantsCommand extends $Command
   .classBuilder<

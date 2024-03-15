@@ -35,7 +35,6 @@ export interface CreateIdentitySourceCommandInput extends CreateIdentitySourceIn
 export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a reference to an Amazon Cognito user pool as an external identity provider (IdP).
  *             </p>
  *          <p>After you create an identity source, you can use the identities provided by the IdP as proxies
@@ -210,6 +209,7 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class CreateIdentitySourceCommand extends $Command
   .classBuilder<

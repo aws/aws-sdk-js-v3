@@ -32,7 +32,6 @@ export interface DescribeServerlessCacheSnapshotsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about serverless cache snapshots.
  *            By default, this API lists all of the customer’s serverless cache snapshots.
  *            It can also describe a single serverless cache snapshot, or the snapshots associated with
@@ -96,6 +95,7 @@ export interface DescribeServerlessCacheSnapshotsCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DescribeServerlessCacheSnapshotsCommand extends $Command
   .classBuilder<

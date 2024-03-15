@@ -31,7 +31,6 @@ export interface RequestSenderIdCommandInput extends RequestSenderIdRequest {}
 export interface RequestSenderIdCommandOutput extends RequestSenderIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Request a new sender ID that doesn't require registration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface RequestSenderIdCommandOutput extends RequestSenderIdResult, __M
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class RequestSenderIdCommand extends $Command
   .classBuilder<

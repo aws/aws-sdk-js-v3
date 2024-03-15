@@ -27,7 +27,6 @@ export interface PutAppsListCommandInput extends PutAppsListRequest {}
 export interface PutAppsListCommandOutput extends PutAppsListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -129,6 +128,7 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class PutAppsListCommand extends $Command
   .classBuilder<

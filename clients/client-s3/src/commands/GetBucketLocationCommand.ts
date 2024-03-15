@@ -27,7 +27,6 @@ export interface GetBucketLocationCommandInput extends GetBucketLocationRequest 
 export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -84,6 +83,7 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To get bucket location
  * ```javascript
  * // The following example returns bucket location.

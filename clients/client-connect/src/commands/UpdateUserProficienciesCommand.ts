@@ -27,7 +27,6 @@ export interface UpdateUserProficienciesCommandInput extends UpdateUserProficien
 export interface UpdateUserProficienciesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties associated with the proficiencies of a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateUserProficienciesCommandOutput extends __MetadataBearer {
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateUserProficienciesCommand extends $Command
   .classBuilder<

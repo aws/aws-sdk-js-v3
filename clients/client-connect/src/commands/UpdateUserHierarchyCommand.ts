@@ -27,7 +27,6 @@ export interface UpdateUserHierarchyCommandInput extends UpdateUserHierarchyRequ
 export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns the specified hierarchy group to the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateUserHierarchyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteAppAuthorizationCommandInput extends DeleteAppAuthorizati
 export interface DeleteAppAuthorizationCommandOutput extends DeleteAppAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an app authorization. You must delete the associated ingestion before you can
  *          delete an app authorization.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteAppAuthorizationCommandOutput extends DeleteAppAuthorizat
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class DeleteAppAuthorizationCommand extends $Command
   .classBuilder<

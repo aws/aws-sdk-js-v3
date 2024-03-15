@@ -27,7 +27,6 @@ export interface ListGremlinQueriesCommandInput extends ListGremlinQueriesInput 
 export interface ListGremlinQueriesCommandOutput extends ListGremlinQueriesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists active Gremlin queries. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status.html">Gremlin query
  *       status API</a> for details about the output.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -126,6 +125,7 @@ export interface ListGremlinQueriesCommandOutput extends ListGremlinQueriesOutpu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ListGremlinQueriesCommand extends $Command
   .classBuilder<

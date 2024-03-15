@@ -27,7 +27,6 @@ export interface ListKxScalingGroupsCommandInput extends ListKxScalingGroupsRequ
 export interface ListKxScalingGroupsCommandOutput extends ListKxScalingGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Returns a list of scaling groups in a kdb environment.</p>
  * @example
@@ -94,6 +93,7 @@ export interface ListKxScalingGroupsCommandOutput extends ListKxScalingGroupsRes
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxScalingGroupsCommand extends $Command
   .classBuilder<

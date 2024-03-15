@@ -32,9 +32,6 @@ export interface CreateSipMediaApplicationCommandInput extends CreateSipMediaApp
 export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateSipMediaApplication in the Amazon Chime SDK Voice Namespace
- *
  * <p>Creates a SIP media application.</p>
  *          <important>
  *             <p>
@@ -114,6 +111,8 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateSipMediaApplication in the Amazon Chime SDK Voice Namespace
  */
 export class CreateSipMediaApplicationCommand extends $Command
   .classBuilder<

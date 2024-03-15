@@ -36,7 +36,6 @@ export interface ModifyConversionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified schema conversion configuration using the provided parameters. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ModifyConversionConfigurationCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Modify Conversion Configuration
  * ```javascript
  * // Modifies the specified schema conversion configuration using the provided parameters.

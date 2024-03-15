@@ -13909,10 +13909,10 @@ export interface EC2 {
 }
 
 /**
- * @public
  * <fullname>Amazon Elastic Compute Cloud</fullname>
  *          <p>You can access the features of Amazon Elastic Compute Cloud (Amazon EC2) programmatically. For more information,
  *         see the <a href="https://docs.aws.amazon.com/ec2/latest/devguide">Amazon EC2 Developer Guide</a>.</p>
+ * @public
  */
 export class EC2 extends EC2Client implements EC2 {}
 createAggregatedClient(commands, EC2);

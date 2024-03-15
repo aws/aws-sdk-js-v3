@@ -27,7 +27,6 @@ export interface ModifyInstanceFleetCommandInput extends ModifyInstanceFleetInpu
 export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the
  *          specified InstanceFleetID within the cluster specified using ClusterID. The call either
  *          succeeds or fails atomically.</p>
@@ -79,6 +78,7 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ModifyInstanceFleetCommand extends $Command
   .classBuilder<

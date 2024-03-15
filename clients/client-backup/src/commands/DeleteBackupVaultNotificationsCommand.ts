@@ -30,7 +30,6 @@ export interface DeleteBackupVaultNotificationsCommandInput extends DeleteBackup
 export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes event notifications for the specified backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteBackupVaultNotificationsCommand extends $Command
   .classBuilder<

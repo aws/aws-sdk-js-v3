@@ -27,7 +27,6 @@ export interface DescribeCacheCommandInput extends DescribeCacheInput {}
 export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the cache of a gateway. This operation is only supported in
  *          the cached volume, tape, and file gateway types.</p>
  *          <p>The response includes disk IDs that are configured as cache, and it includes the amount
@@ -74,6 +73,7 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe cache information
  * ```javascript
  * // Returns information about the cache of a gateway.

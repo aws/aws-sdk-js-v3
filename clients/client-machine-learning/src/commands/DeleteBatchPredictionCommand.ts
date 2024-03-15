@@ -27,7 +27,6 @@ export interface DeleteBatchPredictionCommandInput extends DeleteBatchPrediction
 export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
  *             operation to verify that the status of the <code>BatchPrediction</code> changed to DELETED.</p>
@@ -69,6 +68,7 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DeleteBatchPredictionCommand extends $Command
   .classBuilder<

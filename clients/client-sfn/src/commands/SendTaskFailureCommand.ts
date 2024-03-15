@@ -31,7 +31,6 @@ export interface SendTaskFailureCommandInput extends SendTaskFailureInput {}
 export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by activity workers, Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
  *       pattern, and optionally Task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-sync">job run</a> pattern to report that the task identified by the <code>taskToken</code> failed.</p>
  * @example
@@ -69,6 +68,7 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class SendTaskFailureCommand extends $Command
   .classBuilder<

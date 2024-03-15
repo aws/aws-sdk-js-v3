@@ -27,7 +27,6 @@ export interface ListDeviceDefinitionsCommandInput extends ListDeviceDefinitions
 export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves a list of device definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinition
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListDeviceDefinitionsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequ
 export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all the messages in a channel. Returns a paginated list of
  *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
  *          order.</p>
@@ -134,6 +133,7 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListChannelMessagesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteImageCommandInput extends DeleteImageRequest {}
 export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified image. You cannot delete an image when it is in use.
  *             After you delete an image, you cannot provision new capacity using the image.</p>
  * @example
@@ -125,6 +124,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteImageCommand extends $Command
   .classBuilder<

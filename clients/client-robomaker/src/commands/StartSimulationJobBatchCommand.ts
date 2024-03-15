@@ -27,7 +27,6 @@ export interface StartSimulationJobBatchCommandInput extends StartSimulationJobB
 export interface StartSimulationJobBatchCommandOutput extends StartSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a new simulation job batch. The batch is defined using one or more
  *             <code>SimulationJobRequest</code> objects. </p>
  * @example
@@ -522,6 +521,7 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class StartSimulationJobBatchCommand extends $Command
   .classBuilder<

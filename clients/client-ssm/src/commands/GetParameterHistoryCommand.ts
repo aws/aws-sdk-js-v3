@@ -31,7 +31,6 @@ export interface GetParameterHistoryCommandInput extends GetParameterHistoryRequ
 export interface GetParameterHistoryCommandOutput extends GetParameterHistoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the history of all changes to a parameter.</p>
  *          <important>
  *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter,
@@ -105,6 +104,7 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetParameterHistoryCommand extends $Command
   .classBuilder<

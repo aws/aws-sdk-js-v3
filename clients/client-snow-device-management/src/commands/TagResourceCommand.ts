@@ -31,7 +31,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or replaces tags on a device or task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

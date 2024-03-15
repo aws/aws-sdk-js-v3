@@ -32,7 +32,6 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Specify VDM preferences for email that you send using the configuration set.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -76,6 +75,7 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutConfigurationSetVdmOptionsCommand extends $Command
   .classBuilder<

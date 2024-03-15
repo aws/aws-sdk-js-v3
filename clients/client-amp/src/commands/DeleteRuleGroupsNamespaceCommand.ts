@@ -27,7 +27,6 @@ export interface DeleteRuleGroupsNamespaceCommandInput extends DeleteRuleGroupsN
 export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one rule groups namespace and its associated rule groups definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteRuleGroupsNamespaceCommandOutput extends __MetadataBearer
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DeleteRuleGroupsNamespaceCommand extends $Command
   .classBuilder<

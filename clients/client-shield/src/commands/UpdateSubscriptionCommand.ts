@@ -27,7 +27,6 @@ export interface UpdateSubscriptionCommandInput extends UpdateSubscriptionReques
 export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>
  *          <note>
  *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
@@ -73,6 +72,7 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class UpdateSubscriptionCommand extends $Command
   .classBuilder<

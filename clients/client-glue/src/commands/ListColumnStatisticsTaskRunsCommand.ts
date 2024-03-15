@@ -32,7 +32,6 @@ export interface ListColumnStatisticsTaskRunsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List all task runs for a particular account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface ListColumnStatisticsTaskRunsCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListColumnStatisticsTaskRunsCommand extends $Command
   .classBuilder<

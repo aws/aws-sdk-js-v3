@@ -27,7 +27,6 @@ export interface ListUserTagsCommandInput extends ListUserTagsRequest {}
 export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags that are attached to the specified IAM user. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
  * @example
@@ -73,6 +72,7 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list the tags attached to an IAM user
  * ```javascript
  * // The following example shows how to list the tags attached to a user.

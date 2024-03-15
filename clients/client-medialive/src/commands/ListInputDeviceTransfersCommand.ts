@@ -27,7 +27,6 @@ export interface ListInputDeviceTransfersCommandInput extends ListInputDeviceTra
 export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTransfersResponse, __MetadataBearer {}
 
 /**
- * @public
  * List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ListInputDeviceTransfersCommand extends $Command
   .classBuilder<

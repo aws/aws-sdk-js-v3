@@ -4,33 +4,32 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { MarketplaceAgreementServiceException as __BaseException } from "./MarketplaceAgreementServiceException";
 
 /**
- * @public
  * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The
  *          customer won't be charged for product usage in AWS Marketplace because they already paid
  *          for the product outside of AWS Marketplace.</p>
+ * @public
  */
 export interface ByolPricingTerm {
   /**
-   * @public
    * <p>Type of the term being updated.</p>
+   * @public
    */
   type?: string;
 }
 
 /**
- * @public
  * <p>Defines the dimensions that the acceptor has purchased from the overall set of
  *          dimensions presented in the rate card.</p>
+ * @public
  */
 export interface Dimension {
   /**
-   * @public
    * <p>The name of key value of the dimension.</p>
+   * @public
    */
   dimensionKey: string | undefined;
 
   /**
-   * @public
    * <p>The number of units of the dimension the acceptor has purchased.</p>
    *          <note>
    *             <p>For Agreements with <code>ConfigurableUpfrontPricingTerm</code>, the
@@ -38,234 +37,234 @@ export interface Dimension {
    *             seller (proposer), whereas the <code>Configuration</code> section will define the actual
    *             dimensions, prices, and units the buyer has chosen to accept.</p>
    *          </note>
+   * @public
    */
   dimensionValue: number | undefined;
 }
 
 /**
- * @public
  * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they
  *          want to purchase and the duration.</p>
+ * @public
  */
 export interface ConfigurableUpfrontPricingTermConfiguration {
   /**
-   * @public
    * <p>Defines the length of time for which the particular pricing/dimension is being purchased
    *          by the acceptor.</p>
+   * @public
    */
   selectorValue: string | undefined;
 
   /**
-   * @public
    * <p>Defines the dimensions that the acceptor has purchased from the overall set of
    *          dimensions presented in the rate card.</p>
+   * @public
    */
   dimensions: Dimension[] | undefined;
 }
 
 /**
- * @public
  * <p>Defines limits on how the term can be configured by acceptors. </p>
+ * @public
  */
 export interface Constraints {
   /**
-   * @public
    * <p>Determines if buyers are allowed to select multiple dimensions in the rate card. The
    *          possible values are <code>Allowed</code> and <code>Disallowed</code>. The default value is
    *             <code>Allowed</code>.</p>
+   * @public
    */
   multipleDimensionSelection?: string;
 
   /**
-   * @public
    * <p>Determines if acceptors are allowed to configure quantity for each dimension in rate
    *          card. The possible values are <code>Allowed</code> and <code>Disallowed</code>. The default
    *          value is <code>Allowed</code>.</p>
+   * @public
    */
   quantityConfiguration?: string;
 }
 
 /**
- * @public
  * <p>Defines the per unit rates for each individual product dimension.</p>
+ * @public
  */
 export interface RateCardItem {
   /**
-   * @public
    * <p>Dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.</p>
+   * @public
    */
   dimensionKey?: string;
 
   /**
-   * @public
    * <p>Per unit price for the product dimension that’s used for calculating the amount to be charged.</p>
+   * @public
    */
   price?: string;
 }
 
 /**
- * @public
  * <p>Differentiates between the mutually exclusive rate cards in the same pricing term to be
  *          selected by the buyer.</p>
+ * @public
  */
 export interface Selector {
   /**
-   * @public
    * <p>Category of selector.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Contract duration. This field supports the ISO 8601 format. </p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>Within the prepaid payment model defined under <code>ConfigurableUpfrontPricingTerm</code>, the <code>RateCardItem</code> defines all the various rate cards (including pricing and dimensions) that have been proposed.</p>
+ * @public
  */
 export interface ConfigurableUpfrontRateCardItem {
   /**
-   * @public
    * <p>Differentiates between the mutually exclusive rate cards in the same pricing term to be selected by the buyer.</p>
+   * @public
    */
   selector?: Selector;
 
   /**
-   * @public
    * <p>Defines limits on how the term can be configured by acceptors.</p>
+   * @public
    */
   constraints?: Constraints;
 
   /**
-   * @public
    * <p>Defines the per unit rates for product dimensions.</p>
+   * @public
    */
   rateCard?: RateCardItem[];
 }
 
 /**
- * @public
  * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they
  *          want to purchase and the duration.</p>
+ * @public
  */
 export interface ConfigurableUpfrontPricingTerm {
   /**
-   * @public
    * <p>Category of selector.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Defines the currency for the prices mentioned in the term.</p>
+   * @public
    */
   currencyCode?: string;
 
   /**
-   * @public
    * <p>A rate card defines the per unit rates for product dimensions.</p>
+   * @public
    */
   rateCards?: ConfigurableUpfrontRateCardItem[];
 
   /**
-   * @public
    * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+   * @public
    */
   configuration?: ConfigurableUpfrontPricingTermConfiguration;
 }
 
 /**
- * @public
  * <p>Entitlements granted to the acceptor of fixed upfront as part of agreement execution.</p>
+ * @public
  */
 export interface GrantItem {
   /**
-   * @public
    * <p>Unique dimension key defined in the product document. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace. </p>
+   * @public
    */
   dimensionKey?: string;
 
   /**
-   * @public
    * <p>Maximum amount of capacity that the buyer can be entitled to the given dimension of the product. If <code>MaxQuantity</code> is not provided, the buyer will be able to use an unlimited amount of the given dimension. </p>
+   * @public
    */
   maxQuantity?: number;
 }
 
 /**
- * @public
  * <p>Defines a prepaid pricing model where the customers are charged a fixed upfront
  *          amount.</p>
+ * @public
  */
 export interface FixedUpfrontPricingTerm {
   /**
-   * @public
    * <p>Category of the term being updated.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Defines the currency for the prices mentioned in this term. </p>
+   * @public
    */
   currencyCode?: string;
 
   /**
-   * @public
    * <p>Contract duration for the terms.</p>
+   * @public
    */
   duration?: string;
 
   /**
-   * @public
    * <p>Fixed amount to be charged to the customer when this term is accepted.</p>
+   * @public
    */
   price?: string;
 
   /**
-   * @public
    * <p>Entitlements granted to the acceptor of fixed upfront as part of agreement
    *          execution.</p>
+   * @public
    */
   grants?: GrantItem[];
 }
 
 /**
- * @public
  * <p>Defines a short-term free pricing model where the buyers aren’t charged anything within
  *          a specified limit.</p>
+ * @public
  */
 export interface FreeTrialPricingTerm {
   /**
-   * @public
    * <p>Category of the term.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Duration of the free trial period (5–31 days). </p>
+   * @public
    */
   duration?: string;
 
   /**
-   * @public
    * <p>Entitlements granted to the acceptor of a free trial as part of an agreement
    *          execution.</p>
+   * @public
    */
   grants?: GrantItem[];
 }
 
 /**
- * @public
  * <p>Includes the list of references to legal resources proposed by the proposer to the acceptor. Each <code>DocumentItem</code> refers to an individual reference.</p>
+ * @public
  */
 export interface DocumentItem {
   /**
-   * @public
    * <p>Category of the document. Document types include:</p>
    *          <ul>
    *             <li>
@@ -293,133 +292,133 @@ export interface DocumentItem {
    *                because it’s managed by AWS Marketplace.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>A URL to the legal document for buyers to read. Required when <code>Type</code> is <code>CustomEula</code>.</p>
+   * @public
    */
   url?: string;
 
   /**
-   * @public
    * <p>Version of standard contracts provided by AWS Marketplace. Required when Type is <code>StandardEula</code> or <code>StandardDsa</code>. </p>
+   * @public
    */
   version?: string;
 }
 
 /**
- * @public
  * <p>Defines the list of text agreements proposed to the acceptors. An example is the end
  *          user license agreement (EULA).</p>
+ * @public
  */
 export interface LegalTerm {
   /**
-   * @public
    * <p>Category of the term being updated.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>List of references to legal resources proposed to the buyers. An example is the
    *          EULA.</p>
+   * @public
    */
   documents?: DocumentItem[];
 }
 
 /**
- * @public
  * <p>An individual installment of the payment that includes the date and amount of the charge.</p>
+ * @public
  */
 export interface ScheduleItem {
   /**
-   * @public
    * <p>The date that the customer would pay the price defined in this payment schedule term. Invoices are generated on the date provided.</p>
+   * @public
    */
   chargeDate?: Date;
 
   /**
-   * @public
    * <p>The price that the customer would pay on the scheduled date (chargeDate).</p>
+   * @public
    */
   chargeAmount?: string;
 }
 
 /**
- * @public
  * <p>Defines an installment-based pricing model where customers are charged a fixed price on
  *          different dates during the agreement validity period. This is used most commonly for
  *          flexible payment schedule pricing.</p>
+ * @public
  */
 export interface PaymentScheduleTerm {
   /**
-   * @public
    * <p>Type of the term.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Defines the currency for the prices mentioned in the term. </p>
+   * @public
    */
   currencyCode?: string;
 
   /**
-   * @public
    * <p>List of the payment schedule where each element defines one installment of payment. It
    *          contains the information necessary for calculating the price.</p>
+   * @public
    */
   schedule?: ScheduleItem[];
 }
 
 /**
- * @public
  * <p>Defines a pricing model where customers are charged a fixed recurring price at the end
  *          of each billing period.</p>
+ * @public
  */
 export interface RecurringPaymentTerm {
   /**
-   * @public
    * <p>Type of the term being updated.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Defines the currency for the prices mentioned in this term. </p>
+   * @public
    */
   currencyCode?: string;
 
   /**
-   * @public
    * <p>Defines the recurrence at which buyers are charged.</p>
+   * @public
    */
   billingPeriod?: string;
 
   /**
-   * @public
    * <p>Amount charged to the buyer every billing period.</p>
+   * @public
    */
   price?: string;
 }
 
 /**
- * @public
  * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+ * @public
  */
 export interface RenewalTermConfiguration {
   /**
-   * @public
    * <p>Defines whether the acceptor has chosen to auto-renew the agreement at the end of its
    *          lifecycle. Can be set to <code>True</code> or <code>False</code>.</p>
+   * @public
    */
   enableAutoRenew: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its
  *          pre-defined end date), a new agreement will be created using the accepted terms on the
  *          existing agreement. In other words, the agreement will be renewed. The presence of
@@ -428,117 +427,118 @@ export interface RenewalTermConfiguration {
  *          acceptance/agreement creation. Buyers can also change this flag from <code>True</code> to
  *             <code>False</code> or <code>False</code> to <code>True</code> at anytime during the
  *          agreement's lifecycle.</p>
+ * @public
  */
 export interface RenewalTerm {
   /**
-   * @public
    * <p>Category of the term being updated. </p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Additional parameters specified by the acceptor while accepting the term.</p>
+   * @public
    */
   configuration?: RenewalTermConfiguration;
 }
 
 /**
- * @public
  * <p>Defines the customer support available for the acceptors when they purchase the
  *          software.</p>
+ * @public
  */
 export interface SupportTerm {
   /**
-   * @public
    * <p>Category of the term being updated.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Free-text field about the refund policy description that will be shown to customers as
    *          is on the website and console.</p>
+   * @public
    */
   refundPolicy?: string;
 }
 
 /**
- * @public
  * <p>Within the pay-as-you-go model defined under <code>UsageBasedPricingTerm</code>, the <code>UsageBasedRateCardItem</code> defines an individual rate for a product dimension.</p>
+ * @public
  */
 export interface UsageBasedRateCardItem {
   /**
-   * @public
    * <p>Defines the per unit rates for product dimensions.</p>
+   * @public
    */
   rateCard?: RateCardItem[];
 }
 
 /**
- * @public
  * <p>Defines a usage-based pricing model (typically, pay-as-you-go pricing), where the
  *          customers are charged based on product usage.</p>
+ * @public
  */
 export interface UsageBasedPricingTerm {
   /**
-   * @public
    * <p>Category of the term.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Defines the currency for the prices mentioned in the term. </p>
+   * @public
    */
   currencyCode?: string;
 
   /**
-   * @public
    * <p>List of rate cards.</p>
+   * @public
    */
   rateCards?: UsageBasedRateCardItem[];
 }
 
 /**
- * @public
  * <p>Defines the conditions that will keep an agreement created from this offer valid. </p>
+ * @public
  */
 export interface ValidityTerm {
   /**
-   * @public
    * <p>Category of the term being updated. </p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Defines the duration that the agreement remains active. If
    *             <code>AgreementStartDate</code> isn’t provided, the agreement duration is relative to
    *          the agreement signature time. The duration is represented in the ISO_8601 format.</p>
+   * @public
    */
   agreementDuration?: string;
 
   /**
-   * @public
    * <p>Defines the date when agreement starts. The agreement starts at 00:00:00.000 UTC on the
    *          date provided. If <code>AgreementStartDate</code> isn’t provided, the agreement start date
    *          is determined based on agreement signature time.</p>
+   * @public
    */
   agreementStartDate?: Date;
 
   /**
-   * @public
    * <p>Defines the date when the agreement ends. The agreement ends at 23:59:59.999 UTC on the
    *          date provided. If <code>AgreementEndDate</code> isn’t provided, the agreement end date is
    *          determined by the validity of individual terms.</p>
+   * @public
    */
   agreementEndDate?: Date;
 }
 
 /**
- * @public
  * <p>A subset of terms proposed by the proposer, which have been accepted by the acceptor as part of agreement creation.</p>
+ * @public
  */
 export type AcceptedTerm =
   | AcceptedTerm.ByolPricingTermMember
@@ -559,8 +559,8 @@ export type AcceptedTerm =
  */
 export namespace AcceptedTerm {
   /**
-   * @public
    * <p>Defines the list of text agreements proposed to the acceptors. An example is the end user license agreement (EULA).</p>
+   * @public
    */
   export interface LegalTermMember {
     legalTerm: LegalTerm;
@@ -578,8 +578,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines the customer support available for the acceptors when they purchase the software.</p>
+   * @public
    */
   export interface SupportTermMember {
     legalTerm?: never;
@@ -597,8 +597,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. Buyers will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. Buyers can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code> at anytime during the agreement's lifecycle.</p>
+   * @public
    */
   export interface RenewalTermMember {
     legalTerm?: never;
@@ -616,8 +616,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines a usage-based pricing model (typically, pay-as-you-go pricing), where the customers are charged based on product usage.</p>
+   * @public
    */
   export interface UsageBasedPricingTermMember {
     legalTerm?: never;
@@ -635,8 +635,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines a prepaid payment model that allows buyers to configure the entitlements they want to purchase and the duration.</p>
+   * @public
    */
   export interface ConfigurableUpfrontPricingTermMember {
     legalTerm?: never;
@@ -654,8 +654,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Enables you and your customers to move your existing agreements to AWS Marketplace. The customer won't be charged for product usage in AWS Marketplace because they already paid for the product outside of AWS Marketplace.</p>
+   * @public
    */
   export interface ByolPricingTermMember {
     legalTerm?: never;
@@ -673,8 +673,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines a pricing model where customers are charged a fixed recurring price at the end of each billing period.</p>
+   * @public
    */
   export interface RecurringPaymentTermMember {
     legalTerm?: never;
@@ -692,8 +692,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines the conditions that will keep an agreement created from this offer valid.</p>
+   * @public
    */
   export interface ValidityTermMember {
     legalTerm?: never;
@@ -711,8 +711,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines an installment-based pricing model where customers are charged a fixed price on different dates during the agreement validity period. This is used most commonly for flexible payment schedule pricing.</p>
+   * @public
    */
   export interface PaymentScheduleTermMember {
     legalTerm?: never;
@@ -730,8 +730,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines a short-term free pricing model where the buyers aren’t charged anything within a specified limit.</p>
+   * @public
    */
   export interface FreeTrialPricingTermMember {
     legalTerm?: never;
@@ -749,8 +749,8 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * @public
    * <p>Defines a pre-paid pricing model where the customers are charged a fixed upfront amount.</p>
+   * @public
    */
   export interface FixedUpfrontPricingTermMember {
     legalTerm?: never;
@@ -819,28 +819,28 @@ export namespace AcceptedTerm {
 }
 
 /**
- * @public
  * <p>The details of the party accepting the agreement terms. This is commonly the buyer for
  *             <code>PurchaseAgreement</code>.</p>
+ * @public
  */
 export interface Acceptor {
   /**
-   * @public
    * <p>The AWS account ID of the acceptor.</p>
+   * @public
    */
   accountId?: string;
 }
 
 /**
- * @public
  * <p>User does not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The unique identifier for the error.</p>
+   * @public
    */
   requestId?: string;
 
@@ -880,121 +880,121 @@ export const AgreementStatus = {
 export type AgreementStatus = (typeof AgreementStatus)[keyof typeof AgreementStatus];
 
 /**
- * @public
  * <p>The list of resources involved in the agreement.</p>
+ * @public
  */
 export interface Resource {
   /**
-   * @public
    * <p>The unique identifier of the resource.</p>
    *          <note>
    *             <p>We mention the term resource, which is most commonly a product, so a
    *                <code>resourceId</code> is also a <code>productId</code>.</p>
    *          </note>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Type of the resource, which is the product. Values include <code>SaaSProduct</code> or
    *             <code>AmiProduct</code>.</p>
+   * @public
    */
   type?: string;
 }
 
 /**
- * @public
  * <p>A summary of the proposal received from the proposer.</p>
+ * @public
  */
 export interface ProposalSummary {
   /**
-   * @public
    * <p>The list of resources involved in the agreement.</p>
+   * @public
    */
   resources?: Resource[];
 
   /**
-   * @public
    * <p>The unique identifier of the offer in AWS Marketplace.</p>
+   * @public
    */
   offerId?: string;
 }
 
 /**
- * @public
  * <p>Details of the party proposing the agreement terms,. This is commonly the seller for
  *             <code>PurchaseAgreement</code>. </p>
+ * @public
  */
 export interface Proposer {
   /**
-   * @public
    * <p>The AWS account ID of the proposer.</p>
+   * @public
    */
   accountId?: string;
 }
 
 /**
- * @public
  * <p>A summary of the agreement, including top-level attributes (for example, the agreement
  *          ID, version, proposer, and acceptor).</p>
+ * @public
  */
 export interface AgreementViewSummary {
   /**
-   * @public
    * <p>The unique identifier of the agreement.</p>
+   * @public
    */
   agreementId?: string;
 
   /**
-   * @public
    * <p>The date and time that the agreement was accepted.</p>
+   * @public
    */
   acceptanceTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the agreement starts.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the agreement ends. The field is <code>null</code> for
    *          pay-as-you-go agreements, which don’t have end dates.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>The type of agreement. Values are <code>PurchaseAgreement</code> or
    *             <code>VendorInsightsAgreement</code>.</p>
+   * @public
    */
   agreementType?: string;
 
   /**
-   * @public
    * <p>Details of the party accepting the agreement terms. This is commonly the buyer for
    *             <code>PurchaseAgreement.</code>
    *          </p>
+   * @public
    */
   acceptor?: Acceptor;
 
   /**
-   * @public
    * <p>Details of the party proposing the agreement terms, most commonly the seller for
    *             <code>PurchaseAgreement</code>.</p>
+   * @public
    */
   proposer?: Proposer;
 
   /**
-   * @public
    * <p>A summary of the proposal</p>
+   * @public
    */
   proposalSummary?: ProposalSummary;
 
   /**
-   * @public
    * <p>The current status of the agreement. </p>
+   * @public
    */
   status?: AgreementStatus;
 }
@@ -1004,25 +1004,24 @@ export interface AgreementViewSummary {
  */
 export interface DescribeAgreementInput {
   /**
-   * @public
    * <p>The unique identifier of the agreement.</p>
+   * @public
    */
   agreementId: string | undefined;
 }
 
 /**
- * @public
  * <p>Estimated cost of the agreement.</p>
+ * @public
  */
 export interface EstimatedCharges {
   /**
-   * @public
    * <p>Defines the currency code for the charge.</p>
+   * @public
    */
   currencyCode?: string;
 
   /**
-   * @public
    * <p>The total known amount customer has to pay across the lifecycle of the agreement.</p>
    *          <note>
    *             <p>This is the total contract value if accepted terms contain
@@ -1042,6 +1041,7 @@ export interface EstimatedCharges {
    *             This occurs for usage-based pricing (such as SaaS metered or AMI/container hourly or
    *             monthly), because the exact usage is not known upfront.</p>
    *          </note>
+   * @public
    */
   agreementValue?: string;
 }
@@ -1051,70 +1051,69 @@ export interface EstimatedCharges {
  */
 export interface DescribeAgreementOutput {
   /**
-   * @public
    * <p>The unique identifier of the agreement.</p>
+   * @public
    */
   agreementId?: string;
 
   /**
-   * @public
    * <p>The details of the party accepting the agreement terms. This is commonly the buyer for
    *             <code>PurchaseAgreement</code>.</p>
+   * @public
    */
   acceptor?: Acceptor;
 
   /**
-   * @public
    * <p>The details of the party proposing the agreement terms. This is commonly the seller for
    *             <code>PurchaseAgreement</code>.</p>
+   * @public
    */
   proposer?: Proposer;
 
   /**
-   * @public
    * <p>The date and time when the agreement starts.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the agreement ends. The field is <code>null</code> for
    *          pay-as-you-go agreements, which don’t have end dates.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the offer was accepted or the agreement was created.</p>
    *          <note>
    *             <p>
    *                <code>AcceptanceTime</code> and <code>StartTime</code> can differ for future dated
    *             agreements (FDAs).</p>
    *          </note>
+   * @public
    */
   acceptanceTime?: Date;
 
   /**
-   * @public
    * <p>The type of agreement. Values are <code>PurchaseAgreement</code> or
    *             <code>VendorInsightsAgreement</code>.</p>
+   * @public
    */
   agreementType?: string;
 
   /**
-   * @public
    * <p>The estimated cost of the agreement.</p>
+   * @public
    */
   estimatedCharges?: EstimatedCharges;
 
   /**
-   * @public
    * <p>A summary of the proposal received from the proposer.</p>
+   * @public
    */
   proposalSummary?: ProposalSummary;
 
   /**
-   * @public
    * <p>The current status of the agreement.</p>
    *          <p>Statuses include:</p>
    *          <ul>
@@ -1163,20 +1162,21 @@ export interface DescribeAgreementOutput {
    *                of an AWS termination (for example, a payment failure).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: AgreementStatus;
 }
 
 /**
- * @public
  * <p>Unexpected error during processing of request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>The unique identifier for the error.</p>
+   * @public
    */
   requestId?: string;
 
@@ -1208,27 +1208,27 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * @public
  * <p>Request references a resource which does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The unique identifier for the error.</p>
+   * @public
    */
   requestId?: string;
 
   /**
-   * @public
    * <p>The unique identifier for the resource.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   resourceType?: ResourceType;
 
@@ -1249,15 +1249,15 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The unique identifier for the error.</p>
+   * @public
    */
   requestId?: string;
 
@@ -1276,19 +1276,19 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The name of the field associated with the error.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>See applicable actions.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -1317,27 +1317,27 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The unique identifier associated with the error.</p>
+   * @public
    */
   requestId?: string;
 
   /**
-   * @public
    * <p>The reason associated with the error.</p>
+   * @public
    */
   reason?: ValidationExceptionReason;
 
   /**
-   * @public
    * <p>The fields associated with the error.</p>
+   * @public
    */
   fields?: ValidationExceptionField[];
 
@@ -1362,20 +1362,20 @@ export class ValidationException extends __BaseException {
  */
 export interface GetAgreementTermsInput {
   /**
-   * @public
    * <p>The unique identifier of the agreement.</p>
+   * @public
    */
   agreementId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of agreements to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A token to specify where to start pagination</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1385,35 +1385,35 @@ export interface GetAgreementTermsInput {
  */
 export interface GetAgreementTermsOutput {
   /**
-   * @public
    * <p>A subset of terms proposed by the proposer that have been accepted by the acceptor as
    *          part of the agreement creation.</p>
+   * @public
    */
   acceptedTerms?: AcceptedTerm[];
 
   /**
-   * @public
    * <p>A token to specify where to start pagination</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The filter name and value pair that is used to return a more specific list of results.
  *          Filters can be used to match a set of resources by various criteria, such as
  *             <code>offerId</code> or <code>productId</code>.</p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>The name of the filter.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The filter value.</p>
+   * @public
    */
   values?: string[];
 }
@@ -1433,22 +1433,22 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * @public
  * <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code>
  *          attributes.</p>
+ * @public
  */
 export interface Sort {
   /**
-   * @public
    * <p>The attribute on which the data is grouped, which can be by <code>StartTime</code> and
    *             <code>EndTime</code>. The default value is <code>EndTime</code>.</p>
+   * @public
    */
   sortBy?: string;
 
   /**
-   * @public
    * <p>The sorting order, which can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
    *          default value is <code>DESCENDING</code>.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 }
@@ -1458,13 +1458,12 @@ export interface Sort {
  */
 export interface SearchAgreementsInput {
   /**
-   * @public
    * <p>The catalog in which the agreement was created.</p>
+   * @public
    */
   catalog?: string;
 
   /**
-   * @public
    * <p>The filter name and value pair used to return a specific list of results.</p>
    *          <p>The following filters are supported:</p>
    *          <ul>
@@ -1518,25 +1517,26 @@ export interface SearchAgreementsInput {
    *                   <code>PurchaseAgreement</code> or <code>VendorInsightsAgreement</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   filters?: Filter[];
 
   /**
-   * @public
    * <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code>
    *          attributes.</p>
+   * @public
    */
   sort?: Sort;
 
   /**
-   * @public
    * <p>The maximum number of agreements to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A token to specify where to start pagination.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1546,16 +1546,16 @@ export interface SearchAgreementsInput {
  */
 export interface SearchAgreementsOutput {
   /**
-   * @public
    * <p>A summary of the agreement, including top-level attributes (for example, the agreement
    *          ID, version, proposer, and acceptor).</p>
+   * @public
    */
   agreementViewSummaries?: AgreementViewSummary[];
 
   /**
-   * @public
    * <p>The token used for pagination. The field is <code>null</code> if there are no more
    *          results.</p>
+   * @public
    */
   nextToken?: string;
 }

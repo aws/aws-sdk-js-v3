@@ -27,7 +27,6 @@ export interface GetRegexPatternSetCommandInput extends GetRegexPatternSetReques
 export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified <a>RegexPatternSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetRegexPatternSetCommand extends $Command
   .classBuilder<

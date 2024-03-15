@@ -27,7 +27,6 @@ export interface ListSlotsCommandInput extends ListSlotsRequest {}
 export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of slots that match the specified criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -182,6 +181,7 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListSlotsCommand extends $Command
   .classBuilder<

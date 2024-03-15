@@ -31,7 +31,6 @@ export interface ListRoutesCommandInput extends ListRoutesRequest {}
 export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the Amazon Web Services Migration Hub Refactor Spaces routes within an application. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface ListRoutesCommandOutput extends ListRoutesResponse, __MetadataB
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class ListRoutesCommand extends $Command
   .classBuilder<

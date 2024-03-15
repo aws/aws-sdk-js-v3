@@ -27,7 +27,6 @@ export interface PutLaunchProfileMembersCommandInput extends PutLaunchProfileMem
 export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add/update users with given persona to launch profile membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class PutLaunchProfileMembersCommand extends $Command
   .classBuilder<

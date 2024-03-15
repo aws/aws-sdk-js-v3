@@ -27,7 +27,6 @@ export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest 
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a subnet group. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/ubnetGroups.Modifying.html">Updating a subnet group</a>
  *          </p>
  * @example
@@ -91,6 +90,7 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class UpdateSubnetGroupCommand extends $Command
   .classBuilder<

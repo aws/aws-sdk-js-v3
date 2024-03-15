@@ -27,7 +27,6 @@ export interface CreateBatchInferenceJobCommandInput extends CreateBatchInferenc
 export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates batch recommendations based on a list of items or users stored in Amazon S3
  *       and exports the recommendations to an Amazon S3 bucket.</p>
  *          <p>To generate batch recommendations, specify the ARN of a solution version and an Amazon S3 URI for the input and output data.
@@ -123,6 +122,7 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateBatchInferenceJobCommand extends $Command
   .classBuilder<

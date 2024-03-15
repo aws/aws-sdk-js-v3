@@ -27,7 +27,6 @@ export interface DeleteDBSnapshotCommandInput extends DeleteDBSnapshotMessage {}
 export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
  *             terminated.</p>
  *          <note>
@@ -113,6 +112,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB snapshot
  * ```javascript
  * // The following example deletes the specified DB snapshot.

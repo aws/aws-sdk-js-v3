@@ -47,7 +47,6 @@ export type InvokeCommandOutputType = Omit<InvocationResponse, "Payload"> & {
 export interface InvokeCommandOutput extends InvokeCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or
  *       asynchronously. By default, Lambda invokes your function synchronously (i.e. the<code>InvocationType</code>
  *       is <code>RequestResponse</code>). To invoke a function asynchronously, set <code>InvocationType</code> to
@@ -214,6 +213,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class InvokeCommand extends $Command
   .classBuilder<

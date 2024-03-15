@@ -36,7 +36,6 @@ export interface UpdateDeviceCommandInput extends UpdateDeviceRequest {}
 export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a thin client device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class UpdateDeviceCommand extends $Command
   .classBuilder<

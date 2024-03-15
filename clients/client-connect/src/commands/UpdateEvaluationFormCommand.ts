@@ -27,7 +27,6 @@ export interface UpdateEvaluationFormCommandInput extends UpdateEvaluationFormRe
 export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates details about a specific evaluation form version in the specified Amazon Connect
  *    instance. Question and section identifiers cannot be duplicated within the same evaluation
  *    form.</p>
@@ -210,6 +209,7 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateEvaluationFormCommand extends $Command
   .classBuilder<

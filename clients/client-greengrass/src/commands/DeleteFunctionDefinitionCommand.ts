@@ -27,7 +27,6 @@ export interface DeleteFunctionDefinitionCommandInput extends DeleteFunctionDefi
 export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a Lambda function definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteFunctionDefinitionCommandOutput extends DeleteFunctionDef
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class DeleteFunctionDefinitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribePublisherCommandInput extends DescribePublisherInput {}
 export interface DescribePublisherCommandOutput extends DescribePublisherOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a CloudFormation extension publisher.</p>
  *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension publisher,
  *    <code>DescribePublisher</code> returns information about your own publisher account.</p>
@@ -80,6 +79,7 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribePublisherCommand extends $Command
   .classBuilder<

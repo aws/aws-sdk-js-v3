@@ -27,7 +27,6 @@ export interface DescribeNamespaceCommandInput extends DescribeNamespaceRequest 
 export interface DescribeNamespaceCommandOutput extends DescribeNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeNamespaceCommand extends $Command
   .classBuilder<

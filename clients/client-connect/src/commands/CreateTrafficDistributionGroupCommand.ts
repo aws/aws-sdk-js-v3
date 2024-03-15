@@ -32,7 +32,6 @@ export interface CreateTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
  *          <note>
  *             <p>The <code>SignInConfig</code> distribution is available only on a
@@ -101,6 +100,7 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateTrafficDistributionGroupCommand extends $Command
   .classBuilder<

@@ -589,9 +589,9 @@ export interface VoiceID {
 }
 
 /**
- * @public
  * <p>Amazon Connect Voice ID provides real-time caller authentication and fraud risk detection, which
  *             make voice interactions in contact centers more secure and efficient.</p>
+ * @public
  */
 export class VoiceID extends VoiceIDClient implements VoiceID {}
 createAggregatedClient(commands, VoiceID);

@@ -30,7 +30,6 @@ export interface DeleteFunctionEventInvokeConfigCommandInput extends DeleteFunct
 export interface DeleteFunctionEventInvokeConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the configuration for asynchronous invocation for a function, version, or alias.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

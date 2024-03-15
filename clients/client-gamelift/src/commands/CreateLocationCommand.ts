@@ -27,7 +27,6 @@ export interface CreateLocationCommandInput extends CreateLocationInput {}
 export interface CreateLocationCommandOutput extends CreateLocationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom location for use in an Anywhere fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface CreateLocationCommandOutput extends CreateLocationOutput, __Met
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateLocationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetBuiltinSlotTypesCommandInput extends GetBuiltinSlotTypesRequ
 export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of built-in slot types that meet the specified
  *       criteria.</p>
  *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills
@@ -86,6 +85,7 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetBuiltinSlotTypesCommand extends $Command
   .classBuilder<

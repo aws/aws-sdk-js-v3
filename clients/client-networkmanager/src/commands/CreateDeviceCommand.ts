@@ -32,7 +32,6 @@ export interface CreateDeviceCommandInput extends CreateDeviceRequest {}
 export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new device in a global network. If you specify both a site ID and a
  *             location, the location of the site is used for visualization in the Network Manager console.</p>
  * @example
@@ -131,6 +130,7 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateDeviceCommand extends $Command
   .classBuilder<

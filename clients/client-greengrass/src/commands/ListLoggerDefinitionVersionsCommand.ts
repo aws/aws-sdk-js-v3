@@ -32,7 +32,6 @@ export interface ListLoggerDefinitionVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Lists the versions of a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListLoggerDefinitionVersionsCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListLoggerDefinitionVersionsCommand extends $Command
   .classBuilder<

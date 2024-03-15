@@ -32,7 +32,6 @@ export interface UpdateTemplateActiveVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateTemplateActiveVersionCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateTemplateActiveVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateLaunchCommandInput extends CreateLaunchRequest {}
 export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <i>launch</i> of a given feature. Before you create a launch, you
  *       must create the feature to use for the launch.</p>
  *          <p>You can use a launch to safely validate new features by serving them to a specified
@@ -178,6 +177,7 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class CreateLaunchCommand extends $Command
   .classBuilder<

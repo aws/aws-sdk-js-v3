@@ -27,9 +27,6 @@ export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
 export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Lists the device event history, including device connection status, for up to 30
  *          days.</p>
  * @example
@@ -71,6 +68,8 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ListDeviceEventsCommand extends $Command
   .classBuilder<

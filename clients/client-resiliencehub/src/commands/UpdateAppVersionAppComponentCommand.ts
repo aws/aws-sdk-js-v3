@@ -32,7 +32,6 @@ export interface UpdateAppVersionAppComponentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Application Component in the Resilience Hub application.</p>
  *          <note>
  *             <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
@@ -106,6 +105,7 @@ export interface UpdateAppVersionAppComponentCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class UpdateAppVersionAppComponentCommand extends $Command
   .classBuilder<

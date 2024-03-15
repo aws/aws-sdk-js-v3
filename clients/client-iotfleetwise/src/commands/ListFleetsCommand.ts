@@ -27,7 +27,6 @@ export interface ListFleetsCommandInput extends ListFleetsRequest {}
 export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information for each created fleet in an Amazon Web Services account. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -84,6 +83,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListFleetsCommand extends $Command
   .classBuilder<

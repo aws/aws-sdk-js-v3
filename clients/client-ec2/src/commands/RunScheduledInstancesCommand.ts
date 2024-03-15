@@ -31,7 +31,6 @@ export interface RunScheduledInstancesCommandInput extends RunScheduledInstances
 export interface RunScheduledInstancesCommandOutput extends RunScheduledInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches the specified Scheduled Instances.</p>
  *          <p>Before you can launch a Scheduled Instance, you must purchase it and obtain an identifier using <a>PurchaseScheduledInstances</a>.</p>
  *          <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance,
@@ -135,6 +134,7 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RunScheduledInstancesCommand extends $Command
   .classBuilder<

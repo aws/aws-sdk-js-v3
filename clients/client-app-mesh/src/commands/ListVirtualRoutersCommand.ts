@@ -27,7 +27,6 @@ export interface ListVirtualRoutersCommandInput extends ListVirtualRoutersInput 
 export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of existing virtual routers in a service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutpu
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class ListVirtualRoutersCommand extends $Command
   .classBuilder<

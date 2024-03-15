@@ -29,7 +29,6 @@ export interface GetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetPrincipalTagAttributeMapCommandOutput
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class GetPrincipalTagAttributeMapCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetFunctionDefinitionCommandInput extends GetFunctionDefinition
 export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a Lambda function definition, including its creation time and latest version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetFunctionDefinitionCommand extends $Command
   .classBuilder<

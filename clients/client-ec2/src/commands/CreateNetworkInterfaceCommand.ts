@@ -28,7 +28,6 @@ export interface CreateNetworkInterfaceCommandInput extends CreateNetworkInterfa
 export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterfaceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a network interface in the specified subnet.</p>
  *          <p>The number of IP addresses you can assign to a network interface varies by instance
  *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
@@ -206,6 +205,7 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a network interface
  * ```javascript
  * // This example creates a network interface for the specified subnet.

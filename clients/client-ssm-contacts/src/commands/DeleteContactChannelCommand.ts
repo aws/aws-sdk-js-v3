@@ -27,7 +27,6 @@ export interface DeleteContactChannelCommandInput extends DeleteContactChannelRe
 export interface DeleteContactChannelCommandOutput extends DeleteContactChannelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>To no longer receive engagements on a contact channel, you can delete the channel from a
  *          contact. Deleting the contact channel removes it from the contact's engagement plan. If you
  *          delete the only contact channel for a contact, you won't be able to engage that contact
@@ -72,6 +71,7 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class DeleteContactChannelCommand extends $Command
   .classBuilder<

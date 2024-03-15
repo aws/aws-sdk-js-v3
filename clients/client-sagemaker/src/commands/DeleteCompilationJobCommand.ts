@@ -27,7 +27,6 @@ export interface DeleteCompilationJobCommandInput extends DeleteCompilationJobRe
 export interface DeleteCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified compilation job. This action deletes only the compilation job
  *             resource in Amazon SageMaker. It doesn't delete other resources that are related to
  *             that job, such as the model artifacts that the job creates, the compilation logs in
@@ -63,6 +62,7 @@ export interface DeleteCompilationJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteCompilationJobCommand extends $Command
   .classBuilder<

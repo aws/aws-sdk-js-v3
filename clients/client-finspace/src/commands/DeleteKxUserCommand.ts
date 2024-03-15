@@ -27,7 +27,6 @@ export interface DeleteKxUserCommandInput extends DeleteKxUserRequest {}
 export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user in the specified kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class DeleteKxUserCommand extends $Command
   .classBuilder<

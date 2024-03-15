@@ -30,7 +30,6 @@ export interface ModifyMountTargetSecurityGroupsCommandInput extends ModifyMount
 export interface ModifyMountTargetSecurityGroupsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the set of security groups in effect for a mount target.</p>
  *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
  *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
@@ -101,6 +100,7 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To modify the security groups associated with a mount target for a file system
  * ```javascript
  * // This operation modifies the security groups associated with a mount target for a file system.

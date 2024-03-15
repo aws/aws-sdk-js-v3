@@ -31,7 +31,6 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes metadata tags from an DMS resource, including replication instance,
  *          endpoint, subnet group, and migration task. For more information, see
  *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
@@ -68,6 +67,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Remove tags from resource
  * ```javascript
  * // Removes metadata tags from an AWS DMS resource.

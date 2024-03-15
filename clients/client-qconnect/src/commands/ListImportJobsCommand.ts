@@ -27,7 +27,6 @@ export interface ListImportJobsCommandInput extends ListImportJobsRequest {}
 export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class ListImportJobsCommand extends $Command
   .classBuilder<

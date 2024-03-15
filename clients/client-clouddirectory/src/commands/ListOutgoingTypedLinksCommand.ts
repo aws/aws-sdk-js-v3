@@ -27,7 +27,6 @@ export interface ListOutgoingTypedLinksCommandInput extends ListOutgoingTypedLin
 export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLinksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
  *       information for an object. It also supports filtering by typed link facet and identity
  *       attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
@@ -148,6 +147,7 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListOutgoingTypedLinksCommand extends $Command
   .classBuilder<

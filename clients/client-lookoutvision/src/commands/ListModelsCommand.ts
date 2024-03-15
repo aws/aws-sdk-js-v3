@@ -27,7 +27,6 @@ export interface ListModelsCommandInput extends ListModelsRequest {}
 export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
  *          <p>The <code>ListModels</code> operation is eventually consistent.
  *          Recent calls to <code>CreateModel</code> might
@@ -96,6 +95,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class ListModelsCommand extends $Command
   .classBuilder<

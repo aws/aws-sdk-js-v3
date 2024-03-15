@@ -27,7 +27,6 @@ export interface UpdateHubCommandInput extends UpdateHubRequest {}
 export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -66,6 +65,7 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateHubCommand extends $Command
   .classBuilder<

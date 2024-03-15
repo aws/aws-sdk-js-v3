@@ -27,7 +27,6 @@ export interface ResetEbsDefaultKmsKeyIdCommandInput extends ResetEbsDefaultKmsK
 export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the default KMS key for EBS encryption for your account in this Region
  *       to the Amazon Web Services managed KMS key for EBS.</p>
  *          <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
@@ -60,6 +59,7 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ResetEbsDefaultKmsKeyIdCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetLicenseRecommendationsCommandInput extends GetLicenseRecomme
 export interface GetLicenseRecommendationsCommandOutput extends GetLicenseRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns license recommendations for Amazon EC2 instances that run on a specific license.</p>
  *          <p>Compute Optimizer generates recommendations for licenses that meet a specific set of requirements. For more
  *             information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
@@ -154,6 +153,7 @@ export interface GetLicenseRecommendationsCommandOutput extends GetLicenseRecomm
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetLicenseRecommendationsCommand extends $Command
   .classBuilder<

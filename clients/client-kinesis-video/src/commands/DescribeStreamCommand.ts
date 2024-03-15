@@ -27,7 +27,6 @@ export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the most current information about the specified stream. You must specify
  *             either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
  * @example
@@ -80,6 +79,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DescribeStreamCommand extends $Command
   .classBuilder<

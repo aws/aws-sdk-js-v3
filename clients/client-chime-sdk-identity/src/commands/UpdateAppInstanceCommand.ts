@@ -31,7 +31,6 @@ export interface UpdateAppInstanceCommandInput extends UpdateAppInstanceRequest 
 export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates <code>AppInstance</code> metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class UpdateAppInstanceCommand extends $Command
   .classBuilder<

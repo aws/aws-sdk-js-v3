@@ -28,7 +28,6 @@ export interface DetachVolumeCommandInput extends DetachVolumeRequest {}
 export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the
  *       device within your operating system before detaching the volume. Failure to do so can result
  *       in the volume becoming stuck in the <code>busy</code> state while detaching. If this happens,
@@ -80,6 +79,7 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To detach a volume from an instance
  * ```javascript
  * // This example detaches the volume (``vol-049df61146c4d7901``) from the instance it is attached to.

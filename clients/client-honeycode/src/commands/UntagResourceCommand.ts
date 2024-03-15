@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The UntagResource API allows you to removes tags from an ARN-able resource. Resource includes workbook, table,
  *             screen and screen-automation.
@@ -85,6 +84,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

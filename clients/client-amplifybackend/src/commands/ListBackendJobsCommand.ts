@@ -27,7 +27,6 @@ export interface ListBackendJobsCommandInput extends ListBackendJobsRequest {}
 export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the jobs for the backend of an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class ListBackendJobsCommand extends $Command
   .classBuilder<

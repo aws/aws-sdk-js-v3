@@ -27,7 +27,6 @@ export interface ReleaseStaticIpCommandInput extends ReleaseStaticIpRequest {}
 export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific static IP from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class ReleaseStaticIpCommand extends $Command
   .classBuilder<

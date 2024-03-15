@@ -27,7 +27,6 @@ export interface DeleteCisScanConfigurationCommandInput extends DeleteCisScanCon
 export interface DeleteCisScanConfigurationCommandOutput extends DeleteCisScanConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a CIS scan configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteCisScanConfigurationCommandOutput extends DeleteCisScanCo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class DeleteCisScanConfigurationCommand extends $Command
   .classBuilder<

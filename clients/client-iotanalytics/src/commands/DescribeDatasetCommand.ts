@@ -27,7 +27,6 @@ export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -161,6 +160,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class DescribeDatasetCommand extends $Command
   .classBuilder<

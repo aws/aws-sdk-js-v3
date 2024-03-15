@@ -29,7 +29,6 @@ export interface DescribeApplicationVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve a list of application versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeApplicationVersionsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view information about an application version
  * ```javascript
  * // The following operation retrieves information about an application version labeled v2:

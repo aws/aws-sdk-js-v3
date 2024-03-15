@@ -27,7 +27,6 @@ export interface StartRecommenderCommandInput extends StartRecommenderRequest {}
 export interface StartRecommenderCommandOutput extends StartRecommenderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a recommender that is INACTIVE. Starting a recommender does not
  *       create any new models, but resumes billing and automatic retraining for the recommender.</p>
  * @example
@@ -65,6 +64,7 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class StartRecommenderCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface RespondActivityTaskCompletedCommandInput extends RespondActivit
 export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> completed successfully with a <code>result</code> (if provided).
  *       The <code>result</code> appears in the <code>ActivityTaskCompleted</code> event in the
@@ -99,6 +98,7 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RespondActivityTaskCompletedCommand extends $Command
   .classBuilder<

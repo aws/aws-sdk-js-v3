@@ -663,7 +663,6 @@ export interface Glacier {
 }
 
 /**
- * @public
  * <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>
  *
  *          <p>Glacier is an extremely low-cost storage service that provides secure,
@@ -702,6 +701,7 @@ export interface Glacier {
  *                retrieving the job output, and deleting archives.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Glacier extends GlacierClient implements Glacier {}
 createAggregatedClient(commands, Glacier);

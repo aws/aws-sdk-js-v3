@@ -27,7 +27,6 @@ export interface CreateTrainingJobCommandInput extends CreateTrainingJobRequest 
 export interface CreateTrainingJobCommandOutput extends CreateTrainingJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a model training job. After training completes, SageMaker saves the resulting
  *             model artifacts to an Amazon S3 location that you specify. </p>
  *          <p>If you choose to host your model using SageMaker hosting services, you can use the
@@ -317,6 +316,7 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateTrainingJobCommand extends $Command
   .classBuilder<

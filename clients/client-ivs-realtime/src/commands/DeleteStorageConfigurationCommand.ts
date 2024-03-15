@@ -27,7 +27,6 @@ export interface DeleteStorageConfigurationCommandInput extends DeleteStorageCon
 export interface DeleteStorageConfigurationCommandOutput extends DeleteStorageConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the storage configuration for the specified ARN.</p>
  *          <p>If you try to delete a storage configuration that is used by a Composition, you will get an error (409 ConflictException).
  * 	  To avoid this, for all Compositions that reference the storage configuration, first use <a>StopComposition</a> and wait for it to complete,
@@ -74,6 +73,7 @@ export interface DeleteStorageConfigurationCommandOutput extends DeleteStorageCo
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class DeleteStorageConfigurationCommand extends $Command
   .classBuilder<

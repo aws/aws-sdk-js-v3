@@ -27,7 +27,6 @@ export interface DisableSerialConsoleAccessCommandInput extends DisableSerialCon
 export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialConsoleAccessResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables access to the EC2 serial console of all instances for your account. By default,
  * 			access to the EC2 serial console is disabled for your account. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -58,6 +57,7 @@ export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialCo
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableSerialConsoleAccessCommand extends $Command
   .classBuilder<

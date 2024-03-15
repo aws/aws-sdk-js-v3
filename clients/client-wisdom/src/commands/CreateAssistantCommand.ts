@@ -27,7 +27,6 @@ export interface CreateAssistantCommandInput extends CreateAssistantRequest {}
 export interface CreateAssistantCommandOutput extends CreateAssistantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Connect Wisdom assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class CreateAssistantCommand extends $Command
   .classBuilder<

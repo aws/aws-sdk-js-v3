@@ -27,7 +27,6 @@ export interface UpdateSipRuleCommandInput extends UpdateSipRuleRequest {}
 export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the details of the specified SIP rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class UpdateSipRuleCommand extends $Command
   .classBuilder<

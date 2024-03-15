@@ -27,7 +27,6 @@ export interface DeleteClusterPolicyCommandInput extends DeleteClusterPolicyRequ
 export interface DeleteClusterPolicyCommandOutput extends DeleteClusterPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the MSK cluster policy specified by the Amazon Resource Name (ARN) in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteClusterPolicyCommandOutput extends DeleteClusterPolicyRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class DeleteClusterPolicyCommand extends $Command
   .classBuilder<

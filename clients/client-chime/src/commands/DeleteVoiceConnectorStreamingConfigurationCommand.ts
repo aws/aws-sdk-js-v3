@@ -31,9 +31,6 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandInput
 export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace
- *
  * <p>Deletes the streaming configuration for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -87,6 +84,8 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace
  */
 export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command
   .classBuilder<

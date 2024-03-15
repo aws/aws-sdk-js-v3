@@ -32,7 +32,6 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified principal ARN with the specified portfolio.</p>
  *          <p>If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code> association is
  *          included in the share. </p>
@@ -85,6 +84,7 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class AssociatePrincipalWithPortfolioCommand extends $Command
   .classBuilder<

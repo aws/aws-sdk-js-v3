@@ -27,7 +27,6 @@ export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyReques
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets detailed information about the specified lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -239,6 +238,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * @public
  */
 export class GetLifecyclePolicyCommand extends $Command
   .classBuilder<

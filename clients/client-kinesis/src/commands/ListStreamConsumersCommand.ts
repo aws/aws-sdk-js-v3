@@ -27,7 +27,6 @@ export interface ListStreamConsumersCommandInput extends ListStreamConsumersInpu
 export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
  *             and provides information about each consumer.</p>
  *          <p>This operation has a limit of 5 transactions per second per stream.</p>
@@ -87,6 +86,7 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class ListStreamConsumersCommand extends $Command
   .classBuilder<

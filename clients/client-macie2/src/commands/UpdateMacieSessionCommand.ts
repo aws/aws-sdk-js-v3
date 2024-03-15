@@ -27,7 +27,6 @@ export interface UpdateMacieSessionCommandInput extends UpdateMacieSessionReques
 export interface UpdateMacieSessionCommandOutput extends UpdateMacieSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Suspends or re-enables Amazon Macie, or updates the configuration settings for a Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateMacieSessionCommandOutput extends UpdateMacieSessionRespo
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateMacieSessionCommand extends $Command
   .classBuilder<

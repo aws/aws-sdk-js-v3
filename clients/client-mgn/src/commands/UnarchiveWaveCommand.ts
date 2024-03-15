@@ -27,7 +27,6 @@ export interface UnarchiveWaveCommandInput extends UnarchiveWaveRequest {}
 export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
- * @public
  * <p>Unarchive wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class UnarchiveWaveCommand extends $Command
   .classBuilder<

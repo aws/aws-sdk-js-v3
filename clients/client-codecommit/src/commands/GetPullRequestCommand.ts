@@ -27,7 +27,6 @@ export interface GetPullRequestCommandInput extends GetPullRequestInput {}
 export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a pull request in a specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __Met
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetPullRequestCommand extends $Command
   .classBuilder<

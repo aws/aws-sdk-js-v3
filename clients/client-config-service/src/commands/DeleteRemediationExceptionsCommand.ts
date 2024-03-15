@@ -29,7 +29,6 @@ export interface DeleteRemediationExceptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>
  *          <note>
  *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
@@ -80,6 +79,7 @@ export interface DeleteRemediationExceptionsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteRemediationExceptionsCommand extends $Command
   .classBuilder<

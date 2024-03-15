@@ -27,7 +27,6 @@ export interface GetInsightResultsCommandInput extends GetInsightResultsRequest 
 export interface GetInsightResultsCommandOutput extends GetInsightResultsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the results of the Security Hub insight specified by the insight ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get the results of a Security Hub insight
  * ```javascript
  * // The following example returns the results of the Security Hub insight specified by the insight ARN.

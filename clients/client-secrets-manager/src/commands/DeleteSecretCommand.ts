@@ -27,7 +27,6 @@ export interface DeleteSecretCommandInput extends DeleteSecretRequest {}
 export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a secret and all of its versions. You can specify a recovery
  *       window during which you can restore the secret. The minimum recovery window is 7 days.
  *       The default recovery window is 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
@@ -114,6 +113,7 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To delete a secret
  * ```javascript
  * // The following example shows how to delete a secret. The secret stays in your account in a deprecated and inaccessible state until the recovery window ends. After the date and time in the DeletionDate response field has passed, you can no longer recover this secret with restore-secret.

@@ -27,7 +27,6 @@ export interface DeleteVcenterClientCommandInput extends DeleteVcenterClientRequ
 export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a given vCenter client by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DeleteVcenterClientCommand extends $Command
   .classBuilder<

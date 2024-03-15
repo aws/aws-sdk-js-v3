@@ -27,7 +27,6 @@ export interface ListAnalyzedResourcesCommandInput extends ListAnalyzedResources
 export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of resources of the specified type that have been analyzed by the
  *          specified external access analyzer. This action is not supported for unused access
  *          analyzers.</p>
@@ -82,6 +81,7 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class ListAnalyzedResourcesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateFunctionCommandInput extends UpdateFunctionRequest {}
 export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a CloudFront function.</p>
  *          <p>You can update a function's code or the comment that describes the function. You
  * 			cannot update a function's name.</p>
@@ -120,6 +119,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  * @example To update a function
  * ```javascript
  * // Use the following command to update a function.

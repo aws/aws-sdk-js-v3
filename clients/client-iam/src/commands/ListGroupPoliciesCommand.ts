@@ -27,7 +27,6 @@ export interface ListGroupPoliciesCommandInput extends ListGroupPoliciesRequest 
 export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the names of the inline policies that are embedded in the specified IAM
  *             group.</p>
  *          <p>An IAM group can also have managed policies attached to it. To list the managed
@@ -77,6 +76,7 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list the in-line policies for an IAM group
  * ```javascript
  * // The following command lists the names of in-line policies that are embedded in the IAM group named Admins.

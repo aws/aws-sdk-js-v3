@@ -27,7 +27,6 @@ export interface DeauthorizeDataShareCommandInput extends DeauthorizeDataShareMe
 export interface DeauthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * @public
  * <p>From a datashare producer account, removes authorization from the specified datashare. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeauthorizeDataShareCommand extends $Command
   .classBuilder<

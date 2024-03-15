@@ -31,7 +31,6 @@ export interface CreateStateMachineCommandInput extends CreateStateMachineInput 
 export interface CreateStateMachineCommandOutput extends CreateStateMachineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a state machine. A state machine consists of a collection of states that can do
  *       work (<code>Task</code> states), determine to which states to transition next
  *         (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),
@@ -148,6 +147,7 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class CreateStateMachineCommand extends $Command
   .classBuilder<

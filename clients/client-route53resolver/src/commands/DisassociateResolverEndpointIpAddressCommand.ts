@@ -36,7 +36,6 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
  * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
  *          <p>To add an IP address to an endpoint, see
@@ -113,6 +112,7 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DisassociateResolverEndpointIpAddressCommand extends $Command
   .classBuilder<

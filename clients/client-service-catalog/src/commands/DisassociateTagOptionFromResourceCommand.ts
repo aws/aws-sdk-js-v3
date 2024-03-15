@@ -32,7 +32,6 @@ export interface DisassociateTagOptionFromResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified TagOption from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DisassociateTagOptionFromResourceCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DisassociateTagOptionFromResourceCommand extends $Command
   .classBuilder<

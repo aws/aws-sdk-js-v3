@@ -31,7 +31,6 @@ export interface GetAccountSettingsCommandInput extends GetAccountSettingsReques
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns account-level settings related to OpenSearch Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class GetAccountSettingsCommand extends $Command
   .classBuilder<

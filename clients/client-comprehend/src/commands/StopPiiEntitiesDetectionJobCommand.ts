@@ -29,7 +29,6 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a PII entities detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StopPiiEntitiesDetectionJobCommand extends $Command
   .classBuilder<

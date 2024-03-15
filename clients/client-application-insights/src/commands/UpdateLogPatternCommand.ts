@@ -31,7 +31,6 @@ export interface UpdateLogPatternCommandInput extends UpdateLogPatternRequest {}
 export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a log pattern to a <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class UpdateLogPatternCommand extends $Command
   .classBuilder<

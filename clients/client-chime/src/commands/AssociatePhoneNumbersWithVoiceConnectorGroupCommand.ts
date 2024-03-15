@@ -37,9 +37,6 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by AssociatePhoneNumbersWithVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
- *
  * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
  *          <important>
  *             <p>
@@ -108,6 +105,8 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by AssociatePhoneNumbersWithVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  */
 export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Command
   .classBuilder<

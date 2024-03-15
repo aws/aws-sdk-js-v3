@@ -27,7 +27,6 @@ export interface StartMLEvaluationTaskRunCommandInput extends StartMLEvaluationT
 export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluationTaskRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a task to estimate the quality of the transform. </p>
  *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
  *       those examples to learn from them. The rest of the labels are used as a test to estimate
@@ -78,6 +77,7 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartMLEvaluationTaskRunCommand extends $Command
   .classBuilder<

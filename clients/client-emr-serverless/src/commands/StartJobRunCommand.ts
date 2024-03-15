@@ -27,7 +27,6 @@ export interface StartJobRunCommandInput extends StartJobRunRequest {}
 export interface StartJobRunCommandOutput extends StartJobRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a job run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class StartJobRunCommand extends $Command
   .classBuilder<

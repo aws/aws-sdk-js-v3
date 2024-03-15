@@ -32,7 +32,6 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the template URI of a knowledge base. This is only supported for knowledge bases
  *       of type EXTERNAL. Include a single variable in <code>$\{variable\}</code> format; this
  *       interpolated by Amazon Q using ingested content. For example, if you ingest a Salesforce
@@ -100,6 +99,7 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class UpdateKnowledgeBaseTemplateUriCommand extends $Command
   .classBuilder<

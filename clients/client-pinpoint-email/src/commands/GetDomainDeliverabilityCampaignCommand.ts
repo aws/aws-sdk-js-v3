@@ -32,7 +32,6 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -91,6 +90,7 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetDomainDeliverabilityCampaignCommand extends $Command
   .classBuilder<

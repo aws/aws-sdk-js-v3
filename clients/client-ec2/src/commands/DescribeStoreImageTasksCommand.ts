@@ -27,7 +27,6 @@ export interface DescribeStoreImageTasksCommandInput extends DescribeStoreImageT
 export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImageTasksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the progress of the AMI store tasks. You can describe the store tasks for
  *       specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from
  *       the last 31 days.</p>
@@ -90,6 +89,7 @@ export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImage
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeStoreImageTasksCommand extends $Command
   .classBuilder<

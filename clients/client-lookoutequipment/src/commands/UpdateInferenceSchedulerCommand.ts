@@ -27,7 +27,6 @@ export interface UpdateInferenceSchedulerCommandInput extends UpdateInferenceSch
 export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an inference scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer 
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class UpdateInferenceSchedulerCommand extends $Command
   .classBuilder<

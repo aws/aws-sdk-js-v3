@@ -27,7 +27,6 @@ export interface GetApprovalRuleTemplateCommandInput extends GetApprovalRuleTemp
 export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specified approval rule template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetApprovalRuleTemplateCommand extends $Command
   .classBuilder<

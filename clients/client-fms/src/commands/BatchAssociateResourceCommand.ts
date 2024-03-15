@@ -27,7 +27,6 @@ export interface BatchAssociateResourceCommandInput extends BatchAssociateResour
 export interface BatchAssociateResourceCommandOutput extends BatchAssociateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate resources to a Firewall Manager resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class BatchAssociateResourceCommand extends $Command
   .classBuilder<

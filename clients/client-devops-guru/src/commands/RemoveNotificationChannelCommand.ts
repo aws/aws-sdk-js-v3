@@ -27,7 +27,6 @@ export interface RemoveNotificationChannelCommandInput extends RemoveNotificatio
 export interface RemoveNotificationChannelCommandOutput extends RemoveNotificationChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Removes a notification channel from DevOps Guru. A notification channel is used to notify
  * 			you when DevOps Guru generates an insight that contains information about how to improve your
  * 			operations. </p>
@@ -77,6 +76,7 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class RemoveNotificationChannelCommand extends $Command
   .classBuilder<

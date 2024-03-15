@@ -27,7 +27,6 @@ export interface BatchCreatePartitionCommandInput extends BatchCreatePartitionRe
 export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more partitions in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -156,6 +155,7 @@ export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchCreatePartitionCommand extends $Command
   .classBuilder<

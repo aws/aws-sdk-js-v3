@@ -27,7 +27,6 @@ export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified tags from the specified WorkSpaces resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResult, __MetadataBea
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

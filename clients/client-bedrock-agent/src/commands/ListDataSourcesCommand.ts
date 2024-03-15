@@ -27,7 +27,6 @@ export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * List data sources
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class ListDataSourcesCommand extends $Command
   .classBuilder<

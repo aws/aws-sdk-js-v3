@@ -29,7 +29,6 @@ export interface DeleteAccessGrantsLocationCommandInput extends DeleteAccessGran
 export interface DeleteAccessGrantsLocationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters a location from your S3 Access Grants instance. You can only delete a location registration from an S3 Access Grants instance if there are no grants associated with this location. See <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html">Delete a grant</a> for information on how to delete grants. You need to have at least one registered location in your S3 Access Grants instance in order to create access grants. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -62,6 +61,7 @@ export interface DeleteAccessGrantsLocationCommandOutput extends __MetadataBeare
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteAccessGrantsLocationCommand extends $Command
   .classBuilder<

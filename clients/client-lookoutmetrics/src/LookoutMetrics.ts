@@ -604,10 +604,10 @@ export interface LookoutMetrics {
 }
 
 /**
- * @public
  * <p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service
  *       with tutorials for getting started, visit <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev">Amazon
  *         Lookout for Metrics Developer Guide</a>.</p>
+ * @public
  */
 export class LookoutMetrics extends LookoutMetricsClient implements LookoutMetrics {}
 createAggregatedClient(commands, LookoutMetrics);

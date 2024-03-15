@@ -35,7 +35,6 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the way your organization is configured in Security Hub. Only the
  *          Security Hub administrator account can invoke this operation.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get information about organization configuration
  * ```javascript
  * // This operation provides information about the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.

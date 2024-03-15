@@ -27,7 +27,6 @@ export interface DescribeCustomerGatewaysCommandInput extends DescribeCustomerGa
 export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerGatewaysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your VPN customer gateways.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -84,6 +83,7 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a customer gateway
  * ```javascript
  * // This example describes the specified customer gateway.

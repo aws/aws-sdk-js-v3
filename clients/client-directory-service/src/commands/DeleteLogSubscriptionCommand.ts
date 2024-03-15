@@ -27,7 +27,6 @@ export interface DeleteLogSubscriptionCommandInput extends DeleteLogSubscription
 export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified log subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DeleteLogSubscriptionCommand extends $Command
   .classBuilder<

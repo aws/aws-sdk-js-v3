@@ -32,7 +32,6 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests updates to the properties of the specified provisioned product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class UpdateProvisionedProductPropertiesCommand extends $Command
   .classBuilder<

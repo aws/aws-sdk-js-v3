@@ -30,7 +30,6 @@ export interface DeleteApplicationAccessScopeCommandInput extends DeleteApplicat
 export interface DeleteApplicationAccessScopeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an IAM Identity Center access scope from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteApplicationAccessScopeCommandOutput extends __MetadataBea
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteApplicationAccessScopeCommand extends $Command
   .classBuilder<

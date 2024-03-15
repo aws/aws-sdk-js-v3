@@ -27,7 +27,6 @@ export interface StartQueryCommandInput extends StartQueryRequest {}
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a CloudTrail Lake query. Use the <code>QueryStatement</code>
  *          parameter to provide your SQL query, enclosed in single quotation marks. Use the optional
  *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
@@ -114,6 +113,7 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class StartQueryCommand extends $Command
   .classBuilder<

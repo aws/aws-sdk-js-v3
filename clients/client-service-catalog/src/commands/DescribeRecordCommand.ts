@@ -27,7 +27,6 @@ export interface DescribeRecordCommandInput extends DescribeRecordInput {}
 export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified request operation.</p>
  *          <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
  *          <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>).
@@ -102,6 +101,7 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeRecordCommand extends $Command
   .classBuilder<

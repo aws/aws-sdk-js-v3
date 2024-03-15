@@ -27,7 +27,6 @@ export interface ListBatchJobExecutionsCommandInput extends ListBatchJobExecutio
 export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists historical, current, and scheduled batch job executions for a specific
  *          application.</p>
  * @example
@@ -110,6 +109,7 @@ export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecuti
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class ListBatchJobExecutionsCommand extends $Command
   .classBuilder<

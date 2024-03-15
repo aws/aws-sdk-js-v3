@@ -32,7 +32,6 @@ export interface CreateFormTypeCommandInput extends CreateFormTypeInput {}
 export interface CreateFormTypeCommandOutput extends CreateFormTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a metadata form type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface CreateFormTypeCommandOutput extends CreateFormTypeOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateFormTypeCommand extends $Command
   .classBuilder<

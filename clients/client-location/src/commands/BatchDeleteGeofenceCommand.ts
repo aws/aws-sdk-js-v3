@@ -27,7 +27,6 @@ export interface BatchDeleteGeofenceCommandInput extends BatchDeleteGeofenceRequ
 export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a batch of geofences from a geofence collection.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
@@ -85,6 +84,7 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class BatchDeleteGeofenceCommand extends $Command
   .classBuilder<

@@ -324,8 +324,8 @@ export interface IoT1ClickProjects {
 }
 
 /**
- * @public
  * <p>The AWS IoT 1-Click Projects API Reference</p>
+ * @public
  */
 export class IoT1ClickProjects extends IoT1ClickProjectsClient implements IoT1ClickProjects {}
 createAggregatedClient(commands, IoT1ClickProjects);

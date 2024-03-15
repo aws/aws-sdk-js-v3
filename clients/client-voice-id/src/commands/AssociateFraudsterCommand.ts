@@ -31,7 +31,6 @@ export interface AssociateFraudsterCommandInput extends AssociateFraudsterReques
 export interface AssociateFraudsterCommandOutput extends AssociateFraudsterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the fraudsters with the watchlist specified in the same domain. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface AssociateFraudsterCommandOutput extends AssociateFraudsterRespo
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class AssociateFraudsterCommand extends $Command
   .classBuilder<

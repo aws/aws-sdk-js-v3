@@ -27,7 +27,6 @@ export interface UpdateFunctionCommandInput extends UpdateFunctionRequest {}
 export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a <code>Function</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class UpdateFunctionCommand extends $Command
   .classBuilder<

@@ -8,13 +8,12 @@ import { RAMServiceException as __BaseException } from "./RAMServiceException";
  */
 export interface AcceptResourceShareInvitationRequest {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the invitation that you want to accept.</p>
+   * @public
    */
   resourceShareInvitationArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -26,6 +25,7 @@ export interface AcceptResourceShareInvitationRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -64,24 +64,23 @@ export type ResourceShareAssociationStatus =
   (typeof ResourceShareAssociationStatus)[keyof typeof ResourceShareAssociationStatus];
 
 /**
- * @public
  * <p>Describes an association between a resource share and either a principal or a resource.</p>
+ * @public
  */
 export interface ResourceShareAssociation {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share.</p>
+   * @public
    */
   resourceShareArn?: string;
 
   /**
-   * @public
    * <p>The name of the resource share.</p>
+   * @public
    */
   resourceShareName?: string;
 
   /**
-   * @public
    * <p>The associated entity. This can be either of the following:</p>
    *          <ul>
    *             <li>
@@ -108,43 +107,44 @@ export interface ResourceShareAssociation {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   associatedEntity?: string;
 
   /**
-   * @public
    * <p>The type of entity included in this association.</p>
+   * @public
    */
   associationType?: ResourceShareAssociationType;
 
   /**
-   * @public
    * <p>The current status of the association.</p>
+   * @public
    */
   status?: ResourceShareAssociationStatus;
 
   /**
-   * @public
    * <p>A message about the status of the association.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The date and time when the association was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the association was last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>Indicates whether the principal belongs to the same organization in Organizations as the
    *             Amazon Web Services account that owns the resource share.</p>
+   * @public
    */
   external?: boolean;
 }
@@ -167,63 +167,63 @@ export type ResourceShareInvitationStatus =
   (typeof ResourceShareInvitationStatus)[keyof typeof ResourceShareInvitationStatus];
 
 /**
- * @public
  * <p>Describes an invitation for an Amazon Web Services account to join a resource share.</p>
+ * @public
  */
 export interface ResourceShareInvitation {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the invitation.</p>
+   * @public
    */
   resourceShareInvitationArn?: string;
 
   /**
-   * @public
    * <p>The name of the resource share.</p>
+   * @public
    */
   resourceShareName?: string;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share</p>
+   * @public
    */
   resourceShareArn?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that sent the invitation.</p>
+   * @public
    */
   senderAccountId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that received the invitation.</p>
+   * @public
    */
   receiverAccountId?: string;
 
   /**
-   * @public
    * <p>The date and time when the invitation was sent.</p>
+   * @public
    */
   invitationTimestamp?: Date;
 
   /**
-   * @public
    * <p>The current status of the invitation.</p>
+   * @public
    */
   status?: ResourceShareInvitationStatus;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>To view the resources associated with a pending resource share invitation, use <a>ListPendingInvitationResources</a>.</p>
+   * @public
    */
   resourceShareAssociations?: ResourceShareAssociation[];
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the IAM user or role that received the invitation.</p>
+   * @public
    */
   receiverArn?: string;
 }
@@ -233,26 +233,26 @@ export interface ResourceShareInvitation {
  */
 export interface AcceptResourceShareInvitationResponse {
   /**
-   * @public
    * <p>An object that contains information about the specified invitation.</p>
+   * @public
    */
   resourceShareInvitation?: ResourceShareInvitation;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because the client token input parameter matched one that was
  *             used with a previous call to the operation, but at least one of the other input
  *             parameters is different from the previous call.</p>
+ * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
   readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
@@ -271,8 +271,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the specified client token isn't valid.</p>
+ * @public
  */
 export class InvalidClientTokenException extends __BaseException {
   readonly name: "InvalidClientTokenException" = "InvalidClientTokenException";
@@ -291,9 +291,9 @@ export class InvalidClientTokenException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
  *             valid.</p>
+ * @public
  */
 export class MalformedArnException extends __BaseException {
   readonly name: "MalformedArnException" = "MalformedArnException";
@@ -312,8 +312,8 @@ export class MalformedArnException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the requested operation isn't permitted.</p>
+ * @public
  */
 export class OperationNotPermittedException extends __BaseException {
   readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
@@ -332,8 +332,8 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the specified invitation was already accepted.</p>
+ * @public
  */
 export class ResourceShareInvitationAlreadyAcceptedException extends __BaseException {
   readonly name: "ResourceShareInvitationAlreadyAcceptedException" = "ResourceShareInvitationAlreadyAcceptedException";
@@ -352,8 +352,8 @@ export class ResourceShareInvitationAlreadyAcceptedException extends __BaseExcep
 }
 
 /**
- * @public
  * <p>The operation failed because the specified invitation was already rejected.</p>
+ * @public
  */
 export class ResourceShareInvitationAlreadyRejectedException extends __BaseException {
   readonly name: "ResourceShareInvitationAlreadyRejectedException" = "ResourceShareInvitationAlreadyRejectedException";
@@ -372,9 +372,9 @@ export class ResourceShareInvitationAlreadyRejectedException extends __BaseExcep
 }
 
 /**
- * @public
  * <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
  *             found.</p>
+ * @public
  */
 export class ResourceShareInvitationArnNotFoundException extends __BaseException {
   readonly name: "ResourceShareInvitationArnNotFoundException" = "ResourceShareInvitationArnNotFoundException";
@@ -393,9 +393,9 @@ export class ResourceShareInvitationArnNotFoundException extends __BaseException
 }
 
 /**
- * @public
  * <p>The operation failed because the specified invitation is past its expiration date and
  *             time.</p>
+ * @public
  */
 export class ResourceShareInvitationExpiredException extends __BaseException {
   readonly name: "ResourceShareInvitationExpiredException" = "ResourceShareInvitationExpiredException";
@@ -414,9 +414,9 @@ export class ResourceShareInvitationExpiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the service could not respond to the request due to an
  *             internal problem. Try again later.</p>
+ * @public
  */
 export class ServerInternalException extends __BaseException {
   readonly name: "ServerInternalException" = "ServerInternalException";
@@ -435,8 +435,8 @@ export class ServerInternalException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the service isn't available. Try again later.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -459,21 +459,20 @@ export class ServiceUnavailableException extends __BaseException {
  */
 export interface AssociateResourceShareRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share that you want to add principals or resources
    *             to.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resources that you want to share. This can be
    *                 <code>null</code> if you want to add only principals.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>Specifies a list of principals to whom you want to the resource share. This can be
    *                 <code>null</code> if you want to add only resources.</p>
    *          <p>What the principals can do with the resources in the share is determined by the RAM
@@ -510,11 +509,11 @@ export interface AssociateResourceShareRequest {
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
    *          </note>
+   * @public
    */
   principals?: string[];
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -526,13 +525,14 @@ export interface AssociateResourceShareRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies from which source accounts the service principal
    *             has access to the resources in this resource share.</p>
+   * @public
    */
   sources?: string[];
 }
@@ -542,24 +542,24 @@ export interface AssociateResourceShareRequest {
  */
 export interface AssociateResourceShareResponse {
   /**
-   * @public
    * <p>An array of objects that contain information about the associations.</p>
+   * @public
    */
   resourceShareAssociations?: ResourceShareAssociation[];
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because a parameter you specified isn't valid.</p>
+ * @public
  */
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
@@ -578,9 +578,9 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the requested operation isn't valid for the resource
  *             share in its current state.</p>
+ * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
   readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
@@ -599,10 +599,10 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because it would exceed the limit for resource shares for your account. To
  *             view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the Service Quotas
  *                 console</a>.</p>
+ * @public
  */
 export class ResourceShareLimitExceededException extends __BaseException {
   readonly name: "ResourceShareLimitExceededException" = "ResourceShareLimitExceededException";
@@ -621,9 +621,9 @@ export class ResourceShareLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because it exceeded the rate at which you are allowed to perform
  *             this operation. Please try again later.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -642,8 +642,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because a specified resource couldn't be found.</p>
+ * @public
  */
 export class UnknownResourceException extends __BaseException {
   readonly name: "UnknownResourceException" = "UnknownResourceException";
@@ -666,22 +666,21 @@ export class UnknownResourceException extends __BaseException {
  */
 export interface AssociateResourceSharePermissionRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share to which you want to add or replace
    *             permissions.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the RAM permission to associate with the resource share.
    *             To find the ARN for a permission, use either the <a>ListPermissions</a> operation or go to the <a href="https://console.aws.amazon.com/ram/home#Permissions:">Permissions library</a> page in the RAM console and
    *              then choose the name of the permission. The ARN is displayed on the detail page.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the specified permission should replace the existing permission
    *             associated with the resource share. Use <code>true</code> to replace the current permissions. Use
    *                 <code>false</code> to add the permission to a resource share that currently doesn't
@@ -692,11 +691,11 @@ export interface AssociateResourceSharePermissionRequest {
    *                     <code>true</code> then the operation returns an error. This helps prevent
    *                 accidental overwriting of a permission.</p>
    *          </note>
+   * @public
    */
   replace?: boolean;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -708,11 +707,11 @@ export interface AssociateResourceSharePermissionRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the version of the RAM permission to associate with the resource share. You can
    *             specify <i>only</i> the version that is currently set as the default
    *             version for the permission. If you also set the <code>replace</code> pararameter to
@@ -723,6 +722,7 @@ export interface AssociateResourceSharePermissionRequest {
    *                 the version that is currently set as the default version for the permission. This
    *                 parameter is supported for backwards compatibility.</p>
    *          </note>
+   * @public
    */
   permissionVersion?: number;
 }
@@ -732,43 +732,43 @@ export interface AssociateResourceSharePermissionRequest {
  */
 export interface AssociateResourceSharePermissionResponse {
   /**
-   * @public
    * <p>A return value of <code>true</code> indicates that the request succeeded.
    *              A value of <code>false</code> indicates that the request failed.</p>
+   * @public
    */
   returnValue?: boolean;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>A structure containing a tag. A tag is metadata that you can attach to your resources
  *             to help organize and categorize them. You can also use them to help you secure your
  *             resources. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources
  *                 using tags</a>.</p>
  *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the
  *                 <i>Amazon Web Services General Reference Guide</i>.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key, or name, attached to the tag. Every tag must have a key. Key names are case
    *             sensitive.</p>
+   * @public
    */
   key?: string;
 
   /**
-   * @public
    * <p>The string value attached to the tag. The value can be an empty string. Key values are
    *             case sensitive.</p>
+   * @public
    */
   value?: string;
 }
@@ -778,14 +778,13 @@ export interface Tag {
  */
 export interface CreatePermissionRequest {
   /**
-   * @public
    * <p>Specifies the name of the customer managed permission. The name must be unique within the
    *             Amazon Web Services Region.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the name of the resource type that this customer managed permission applies to.</p>
    *          <p>The format is
    *                     <code>
@@ -794,11 +793,11 @@ export interface CreatePermissionRequest {
    *             and is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use the
    *             string <code>ec2:subnet</code>. To see the list of valid values for this parameter,
    *             query the <a>ListResourceTypes</a> operation.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>A string in JSON format string that contains the following elements of a
    *             resource-based policy:</p>
    *          <ul>
@@ -831,11 +830,11 @@ export interface CreatePermissionRequest {
    *             <code>Resource</code> comes from the ARN of the specific resource that you are sharing.
    *             The <code>Principal</code> comes from the list of identities added to the resource
    *             share.</p>
+   * @public
    */
   policyTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -847,13 +846,14 @@ export interface CreatePermissionRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies a list of one or more tag key and value pairs to attach to the
    *             permission.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -888,71 +888,70 @@ export const PermissionType = {
 export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 /**
- * @public
  * <p>Information about an RAM permission.</p>
+ * @public
  */
 export interface ResourceSharePermissionSummary {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the permission you want information about.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The version of the permission associated with this resource share.</p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>Specifies whether the version of the managed permission used by this resource share is the default version for
    *             this managed permission.</p>
+   * @public
    */
   defaultVersion?: boolean;
 
   /**
-   * @public
    * <p>The name of this managed permission.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The type of resource to which this permission applies. This takes the form of:
    *                 <code>service-code</code>:<code>resource-code</code>, and is case-insensitive. For
    *             example, an Amazon EC2 Subnet would be represented by the string
    *             <code>ec2:subnet</code>.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The current status of the permission.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The date and time when the permission was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the permission was last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>Specifies whether the managed permission associated with this resource share is the default managed permission for all
    *             resources of this resource type.</p>
+   * @public
    */
   isResourceTypeDefault?: boolean;
 
   /**
-   * @public
    * <p>The type of managed permission. This can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -967,11 +966,11 @@ export interface ResourceSharePermissionSummary {
    *                     new versions that have different permissions.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   permissionType?: PermissionType;
 
   /**
-   * @public
    * <p>Indicates what features are available for this resource share. This parameter can have one of
    *             the following values:</p>
    *          <ul>
@@ -1001,12 +1000,13 @@ export interface ResourceSharePermissionSummary {
    *                     complete.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   featureSet?: PermissionFeatureSet;
 
   /**
-   * @public
    * <p>A list of the tag key value pairs currently attached to the permission.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1016,24 +1016,24 @@ export interface ResourceSharePermissionSummary {
  */
 export interface CreatePermissionResponse {
   /**
-   * @public
    * <p>A structure with information about this customer managed permission.</p>
+   * @public
    */
   permission?: ResourceSharePermissionSummary;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because a policy you specified isn't valid.</p>
+ * @public
  */
 export class InvalidPolicyException extends __BaseException {
   readonly name: "InvalidPolicyException" = "InvalidPolicyException";
@@ -1052,8 +1052,8 @@ export class InvalidPolicyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the policy template that you provided isn't valid.</p>
+ * @public
  */
 export class MalformedPolicyTemplateException extends __BaseException {
   readonly name: "MalformedPolicyTemplateException" = "MalformedPolicyTemplateException";
@@ -1072,9 +1072,9 @@ export class MalformedPolicyTemplateException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because a permission with the specified name already exists in
  *             the requested Amazon Web Services Region. Choose a different name.</p>
+ * @public
  */
 export class PermissionAlreadyExistsException extends __BaseException {
   readonly name: "PermissionAlreadyExistsException" = "PermissionAlreadyExistsException";
@@ -1093,10 +1093,10 @@ export class PermissionAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because it would exceed the maximum number of permissions you can
  *             create in each Amazon Web Services Region. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
  *                 Service Quotas console</a>.</p>
+ * @public
  */
 export class PermissionLimitExceededException extends __BaseException {
   readonly name: "PermissionLimitExceededException" = "PermissionLimitExceededException";
@@ -1119,13 +1119,12 @@ export class PermissionLimitExceededException extends __BaseException {
  */
 export interface CreatePermissionVersionRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the customer managed permission you're creating a new version for.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>A string in JSON format string that contains the following elements of a
    *             resource-based policy:</p>
    *          <ul>
@@ -1158,11 +1157,11 @@ export interface CreatePermissionVersionRequest {
    *             <code>Resource</code> comes from the ARN of the specific resource that you are sharing.
    *             The <code>Principal</code> comes from the list of identities added to the resource
    *             share.</p>
+   * @public
    */
   policyTemplate: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1174,6 +1173,7 @@ export interface CreatePermissionVersionRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1195,70 +1195,69 @@ export const PermissionStatus = {
 export type PermissionStatus = (typeof PermissionStatus)[keyof typeof PermissionStatus];
 
 /**
- * @public
  * <p>Information about a RAM managed permission.</p>
+ * @public
  */
 export interface ResourceSharePermissionDetail {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of this RAM managed permission.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The version of the permission described in this response.</p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>Specifies whether the version of the permission represented in this response is the
    *             default version for this permission.</p>
+   * @public
    */
   defaultVersion?: boolean;
 
   /**
-   * @public
    * <p>The name of this permission.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The resource type to which this permission applies.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates
    *             whether the specified actions are allowed or denied. The <code>actions</code> list the
    *             operations to which the principal is granted or denied access.</p>
+   * @public
    */
   permission?: string;
 
   /**
-   * @public
    * <p>The date and time when the permission was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the permission was last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>Specifies whether the version of the permission represented in this response is the
    *             default version for all resources of this resource type.</p>
+   * @public
    */
   isResourceTypeDefault?: boolean;
 
   /**
-   * @public
    * <p>The type of managed permission. This can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -1273,11 +1272,11 @@ export interface ResourceSharePermissionDetail {
    *                     new versions that have different permissions.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   permissionType?: PermissionType;
 
   /**
-   * @public
    * <p>Indicates what features are available for this resource share. This parameter can have one of
    *             the following values:</p>
    *          <ul>
@@ -1307,11 +1306,11 @@ export interface ResourceSharePermissionDetail {
    *                     complete.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   featureSet?: PermissionFeatureSet;
 
   /**
-   * @public
    * <p>The current status of the association between the permission and the resource share.
    *             The following are the possible values:</p>
    *          <ul>
@@ -1335,12 +1334,13 @@ export interface ResourceSharePermissionDetail {
    *                   <code>DELETED</code> – This permission or version is deleted.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: PermissionStatus;
 
   /**
-   * @public
    * <p>The tag key and value pairs attached to the resource share.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1350,26 +1350,26 @@ export interface ResourceSharePermissionDetail {
  */
 export interface CreatePermissionVersionResponse {
   /**
-   * @public
    * <p>Information about a RAM managed permission.</p>
+   * @public
    */
   permission?: ResourceSharePermissionDetail;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because it would exceed the limit for the number of versions you
  *             can have for a permission. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
  *                 Service Quotas console</a>.</p>
+ * @public
  */
 export class PermissionVersionsLimitExceededException extends __BaseException {
   readonly name: "PermissionVersionsLimitExceededException" = "PermissionVersionsLimitExceededException";
@@ -1392,20 +1392,19 @@ export class PermissionVersionsLimitExceededException extends __BaseException {
  */
 export interface CreateResourceShareRequest {
   /**
-   * @public
    * <p>Specifies the name of the resource share.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a list of one or more ARNs of the resources to associate with the
    *             resource share.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>Specifies a list of one or more principals to associate with the resource share.</p>
    *          <p>You can include the following values:</p>
    *          <ul>
@@ -1439,28 +1438,28 @@ export interface CreateResourceShareRequest {
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
    *          </note>
+   * @public
    */
   principals?: string[];
 
   /**
-   * @public
    * <p>Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to
    *             the resources associated with the resource share.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>Specifies whether principals outside your organization in Organizations can be associated
    *             with a resource share. A value of <code>true</code> lets you share with individual Amazon Web Services accounts
    *             that are <i>not</i> in your organization. A value of <code>false</code>
    *             only has meaning if your account is a member of an Amazon Web Services Organization. The default value
    *             is <code>true</code>.</p>
+   * @public
    */
   allowExternalPrincipals?: boolean;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1472,22 +1471,23 @@ export interface CreateResourceShareRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the RAM permission to associate with the resource share. If you do
    *             not specify an ARN for the permission, RAM automatically attaches the default version
    *             of the permission for each resource type. You can associate only one permission with
    *             each resource type included in the resource share.</p>
+   * @public
    */
   permissionArns?: string[];
 
   /**
-   * @public
    * <p>Specifies from which source accounts the service principal
    *             has access to the resources in this resource share.</p>
+   * @public
    */
   sources?: string[];
 }
@@ -1525,30 +1525,29 @@ export const ResourceShareStatus = {
 export type ResourceShareStatus = (typeof ResourceShareStatus)[keyof typeof ResourceShareStatus];
 
 /**
- * @public
  * <p>Describes a resource share in RAM.</p>
+ * @public
  */
 export interface ResourceShare {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share</p>
+   * @public
    */
   resourceShareArn?: string;
 
   /**
-   * @public
    * <p>The name of the resource share.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account that owns the resource share.</p>
+   * @public
    */
   owningAccountId?: string;
 
   /**
-   * @public
    * <p>Indicates whether principals outside your organization in Organizations can be associated
    *             with a resource share.</p>
    *          <ul>
@@ -1564,41 +1563,41 @@ export interface ResourceShare {
    *                     share.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   allowExternalPrincipals?: boolean;
 
   /**
-   * @public
    * <p>The current status of the resource share.</p>
+   * @public
    */
   status?: ResourceShareStatus;
 
   /**
-   * @public
    * <p>A message about the status of the resource share.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The tag key and value pairs attached to the resource share.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The date and time when the resource share was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the resource share was last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>Indicates what features are available for this resource share. This parameter can have one of
    *             the following values:</p>
    *          <ul>
@@ -1628,6 +1627,7 @@ export interface ResourceShare {
    *                     complete.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   featureSet?: ResourceShareFeatureSet;
 }
@@ -1637,25 +1637,25 @@ export interface ResourceShare {
  */
 export interface CreateResourceShareResponse {
   /**
-   * @public
    * <p>An object with information about the new resource share.</p>
+   * @public
    */
   resourceShare?: ResourceShare;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because it would exceed the limit for tags for your
  *             Amazon Web Services account.</p>
+ * @public
  */
 export class TagLimitExceededException extends __BaseException {
   readonly name: "TagLimitExceededException" = "TagLimitExceededException";
@@ -1674,9 +1674,9 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the specified tag key is a reserved word and can't be
  *             used.</p>
+ * @public
  */
 export class TagPolicyViolationException extends __BaseException {
   readonly name: "TagPolicyViolationException" = "TagPolicyViolationException";
@@ -1699,13 +1699,12 @@ export class TagPolicyViolationException extends __BaseException {
  */
 export interface DeletePermissionRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the customer managed permission that you want to delete.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1717,6 +1716,7 @@ export interface DeletePermissionRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1726,24 +1726,24 @@ export interface DeletePermissionRequest {
  */
 export interface DeletePermissionResponse {
   /**
-   * @public
    * <p>A boolean that indicates whether the delete operations succeeded.</p>
+   * @public
    */
   returnValue?: boolean;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>This operation is performed asynchronously, and this response parameter indicates the
    *             current status.</p>
+   * @public
    */
   permissionStatus?: PermissionStatus;
 }
@@ -1753,13 +1753,12 @@ export interface DeletePermissionResponse {
  */
 export interface DeletePermissionVersionRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the permission with the version you want to delete.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the version number to delete.</p>
    *          <p>You can't delete the default version for a customer managed permission.</p>
    *          <p>You can't delete a version if it's the only version of the permission. You must either
@@ -1768,11 +1767,11 @@ export interface DeletePermissionVersionRequest {
    *             the default, you must first use <a>SetDefaultPermissionVersion</a> to set a
    *             different version as the default for the customer managed permission, and then use <a>AssociateResourceSharePermission</a> to update your resource shares to use
    *             the new default version.</p>
+   * @public
    */
   permissionVersion: number | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1784,6 +1783,7 @@ export interface DeletePermissionVersionRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1793,24 +1793,24 @@ export interface DeletePermissionVersionRequest {
  */
 export interface DeletePermissionVersionResponse {
   /**
-   * @public
    * <p>A boolean value that indicates whether the operation is successful.</p>
+   * @public
    */
   returnValue?: boolean;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>This operation is performed asynchronously, and this response parameter indicates the
    *             current status.</p>
+   * @public
    */
   permissionStatus?: PermissionStatus;
 }
@@ -1820,13 +1820,12 @@ export interface DeletePermissionVersionResponse {
  */
 export interface DeleteResourceShareRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share to delete.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1838,6 +1837,7 @@ export interface DeleteResourceShareRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1847,18 +1847,18 @@ export interface DeleteResourceShareRequest {
  */
 export interface DeleteResourceShareResponse {
   /**
-   * @public
    * <p>A return value of <code>true</code> indicates that the request succeeded.
    *              A value of <code>false</code> indicates that the request failed.</p>
+   * @public
    */
   returnValue?: boolean;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1868,22 +1868,21 @@ export interface DeleteResourceShareResponse {
  */
 export interface DisassociateResourceShareRequest {
   /**
-   * @public
    * <p>Specifies <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share that you want to remove resources or principals
    *             from.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for one or more resources that you want to remove from
    *             the resource share. After the operation runs, these resources are no longer shared with principals
    *             associated with the resource share.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>Specifies a list of one or more principals that no longer are to have access to the
    *             resources in this resource share.</p>
    *          <p>You can include the following values:</p>
@@ -1918,11 +1917,11 @@ export interface DisassociateResourceShareRequest {
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
    *          </note>
+   * @public
    */
   principals?: string[];
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1934,13 +1933,14 @@ export interface DisassociateResourceShareRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies from which source accounts the
    *             service principal no longer has access to the resources in this resource share.</p>
+   * @public
    */
   sources?: string[];
 }
@@ -1950,18 +1950,18 @@ export interface DisassociateResourceShareRequest {
  */
 export interface DisassociateResourceShareResponse {
   /**
-   * @public
    * <p>An array of objects with information about the updated associations for this
    *             resource share.</p>
+   * @public
    */
   resourceShareAssociations?: ResourceShareAssociation[];
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1971,20 +1971,19 @@ export interface DisassociateResourceShareResponse {
  */
 export interface DisassociateResourceSharePermissionRequest {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share that you want to remove the managed permission from.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission to disassociate from the resource share. Changes to permissions take
    *             effect immediately.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1996,6 +1995,7 @@ export interface DisassociateResourceSharePermissionRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2005,18 +2005,18 @@ export interface DisassociateResourceSharePermissionRequest {
  */
 export interface DisassociateResourceSharePermissionResponse {
   /**
-   * @public
    * <p>A return value of <code>true</code> indicates that the request succeeded.
    *              A value of <code>false</code> indicates that the request failed.</p>
+   * @public
    */
   returnValue?: boolean;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2031,9 +2031,9 @@ export interface EnableSharingWithAwsOrganizationRequest {}
  */
 export interface EnableSharingWithAwsOrganizationResponse {
   /**
-   * @public
    * <p>A return value of <code>true</code> indicates that the request succeeded.
    *              A value of <code>false</code> indicates that the request failed.</p>
+   * @public
    */
   returnValue?: boolean;
 }
@@ -2043,18 +2043,18 @@ export interface EnableSharingWithAwsOrganizationResponse {
  */
 export interface GetPermissionRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the permission whose contents you want to retrieve.
    *             To find the ARN for a permission, use either the <a>ListPermissions</a> operation or go to the <a href="https://console.aws.amazon.com/ram/home#Permissions:">Permissions library</a> page in the RAM console and
    *              then choose the name of the permission. The ARN is displayed on the detail page.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the version number of the RAM permission to retrieve. If you don't specify
    *             this parameter, the operation retrieves the default version.</p>
    *          <p>To see the list of available versions, use <a>ListPermissionVersions</a>.</p>
+   * @public
    */
   permissionVersion?: number;
 }
@@ -2064,8 +2064,8 @@ export interface GetPermissionRequest {
  */
 export interface GetPermissionResponse {
   /**
-   * @public
    * <p>An object with details about the permission.</p>
+   * @public
    */
   permission?: ResourceSharePermissionDetail;
 }
@@ -2075,29 +2075,28 @@ export interface GetPermissionResponse {
  */
 export interface GetResourcePoliciesRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resources whose policies you want to retrieve.</p>
+   * @public
    */
   resourceArns: string[] | undefined;
 
   /**
-   * @public
    * <p>Specifies the principal.</p>
+   * @public
    */
   principal?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -2107,6 +2106,7 @@ export interface GetResourcePoliciesRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2116,27 +2116,27 @@ export interface GetResourcePoliciesRequest {
  */
 export interface GetResourcePoliciesResponse {
   /**
-   * @public
    * <p>An array of resource policy documents in JSON format.</p>
+   * @public
    */
   policies?: string[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because the specified value for <code>NextToken</code> isn't
  *             valid. You must specify a value you received in the <code>NextToken</code> response of a
  *             previous call to this operation.</p>
+ * @public
  */
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
@@ -2155,8 +2155,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> was not found.</p>
+ * @public
  */
 export class ResourceArnNotFoundException extends __BaseException {
   readonly name: "ResourceArnNotFoundException" = "ResourceArnNotFoundException";
@@ -2179,7 +2179,6 @@ export class ResourceArnNotFoundException extends __BaseException {
  */
 export interface GetResourceShareAssociationsRequest {
   /**
-   * @public
    * <p>Specifies whether you want to retrieve the associations that involve a specified
    *             resource or principal.</p>
    *          <ul>
@@ -2194,52 +2193,52 @@ export interface GetResourceShareAssociationsRequest {
    *                     to see.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   associationType: ResourceShareAssociationType | undefined;
 
   /**
-   * @public
    * <p>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resource share whose associations you want to
    *             retrieve.</p>
+   * @public
    */
   resourceShareArns?: string[];
 
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p>
    *          <p>You cannot specify this parameter if the association type is
    *             <code>PRINCIPAL</code>.</p>
+   * @public
    */
   resourceArn?: string;
 
   /**
-   * @public
    * <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an
    *             Amazon Web Services account ID, an organization ID, an organizational unit ID, or the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
    *             individual IAM role or user.</p>
    *          <p>You cannot specify this parameter if the association type is
    *             <code>RESOURCE</code>.</p>
+   * @public
    */
   principal?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to retrieve only associations that have this status.</p>
+   * @public
    */
   associationStatus?: ResourceShareAssociationStatus;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -2249,6 +2248,7 @@ export interface GetResourceShareAssociationsRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2258,18 +2258,18 @@ export interface GetResourceShareAssociationsRequest {
  */
 export interface GetResourceShareAssociationsResponse {
   /**
-   * @public
    * <p>An array of objects that contain the details about the associations.</p>
+   * @public
    */
   resourceShareAssociations?: ResourceShareAssociation[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2279,31 +2279,30 @@ export interface GetResourceShareAssociationsResponse {
  */
 export interface GetResourceShareInvitationsRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resource share invitations you want information about.</p>
+   * @public
    */
   resourceShareInvitationArns?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want details about invitations only for the resource shares described by this
    *             list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
    *          </p>
+   * @public
    */
   resourceShareArns?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -2313,6 +2312,7 @@ export interface GetResourceShareInvitationsRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2322,26 +2322,26 @@ export interface GetResourceShareInvitationsRequest {
  */
 export interface GetResourceShareInvitationsResponse {
   /**
-   * @public
    * <p>An array of objects that contain the details about the invitations.</p>
+   * @public
    */
   resourceShareInvitations?: ResourceShareInvitation[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because the specified value for <code>MaxResults</code> isn't
  *             valid.</p>
+ * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
   readonly name: "InvalidMaxResultsException" = "InvalidMaxResultsException";
@@ -2374,21 +2374,21 @@ export const ResourceOwner = {
 export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
 
 /**
- * @public
  * <p>A tag key and optional list of possible values that you can use to filter results for
  *             tagged resources.</p>
+ * @public
  */
 export interface TagFilter {
   /**
-   * @public
    * <p>The tag key. This must have a valid string value and can't be empty.</p>
+   * @public
    */
   tagKey?: string;
 
   /**
-   * @public
    * <p>A list of zero or more tag values. If no values are provided, then the filter matches
    *             any tag with the specified key, regardless of its value.</p>
+   * @public
    */
   tagValues?: string[];
 }
@@ -2398,20 +2398,19 @@ export interface TagFilter {
  */
 export interface GetResourceSharesRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of individual resource shares that you want information about.</p>
+   * @public
    */
   resourceShareArns?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want to retrieve details of only those resource shares that have this
    *             status.</p>
+   * @public
    */
   resourceShareStatus?: ResourceShareStatus;
 
   /**
-   * @public
    * <p>Specifies that you want to retrieve details of only those resource shares that match the
    *             following:</p>
    *          <ul>
@@ -2430,35 +2429,35 @@ export interface GetResourceSharesRequest {
    *                     that other accounts share with your account</p>
    *             </li>
    *          </ul>
+   * @public
    */
   resourceOwner: ResourceOwner | undefined;
 
   /**
-   * @public
    * <p>Specifies the name of an individual resource share that you want to retrieve details
    *             about.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to retrieve details of only those resource shares that match the
    *             specified tag keys and values.</p>
+   * @public
    */
   tagFilters?: TagFilter[];
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -2468,20 +2467,21 @@ export interface GetResourceSharesRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specifies that you want to retrieve details of only those resource shares that use the managed permission with
    *             this <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>.</p>
+   * @public
    */
   permissionArn?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to retrieve details for only those resource shares that use the
    *             specified version of the managed permission.</p>
+   * @public
    */
   permissionVersion?: number;
 }
@@ -2491,18 +2491,18 @@ export interface GetResourceSharesRequest {
  */
 export interface GetResourceSharesResponse {
   /**
-   * @public
    * <p>An array of objects that contain the information about the resource shares.</p>
+   * @public
    */
   resourceShares?: ResourceShare[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2527,23 +2527,22 @@ export type ResourceRegionScopeFilter = (typeof ResourceRegionScopeFilter)[keyof
  */
 export interface ListPendingInvitationResourcesRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the invitation. You can use <a>GetResourceShareInvitations</a> to find the ARN of the invitation.</p>
+   * @public
    */
   resourceShareInvitationArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -2553,11 +2552,11 @@ export interface ListPendingInvitationResourcesRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specifies that you want the results to include only
    *             resources that have the specified scope.</p>
    *          <ul>
@@ -2578,6 +2577,7 @@ export interface ListPendingInvitationResourcesRequest {
    *             </li>
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
+   * @public
    */
   resourceRegionScope?: ResourceRegionScopeFilter;
 }
@@ -2614,65 +2614,64 @@ export const ResourceStatus = {
 export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
 
 /**
- * @public
  * <p>Describes a resource associated with a resource share in RAM.</p>
+ * @public
  */
 export interface Resource {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The resource type. This takes the form of:
    *                 <code>service-code</code>:<code>resource-code</code>, and is case-insensitive. For
    *             example, an Amazon EC2 Subnet would be represented by the string
    *             <code>ec2:subnet</code>.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share this resource is associated with.</p>
+   * @public
    */
   resourceShareArn?: string;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource group. This value is available only if the resource is
    *             part of a resource group.</p>
+   * @public
    */
   resourceGroupArn?: string;
 
   /**
-   * @public
    * <p>The current status of the resource.</p>
+   * @public
    */
   status?: ResourceStatus;
 
   /**
-   * @public
    * <p>A message about the status of the resource.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The date and time when the resource was associated with the resource share.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The date an time when the association between the resource and the resource share was
    *             last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>Specifies the scope of visibility of this resource:</p>
    *          <ul>
    *             <li>
@@ -2687,6 +2686,7 @@ export interface Resource {
    *                     from any Amazon Web Services Region.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   resourceRegionScope?: ResourceRegionScope;
 }
@@ -2696,26 +2696,26 @@ export interface Resource {
  */
 export interface ListPendingInvitationResourcesResponse {
   /**
-   * @public
    * <p>An array of objects that contain the information about the resources included the
    *             specified resource share.</p>
+   * @public
    */
   resources?: Resource[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because a required input parameter is missing.</p>
+ * @public
  */
 export class MissingRequiredParameterException extends __BaseException {
   readonly name: "MissingRequiredParameterException" = "MissingRequiredParameterException";
@@ -2738,62 +2738,61 @@ export class MissingRequiredParameterException extends __BaseException {
  */
 export interface ListPermissionAssociationsRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission.</p>
+   * @public
    */
   permissionArn?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to list only those associations with resource shares that use this
    *             version of the managed permission. If you don't provide a value for this parameter, then the operation
    *             returns information about associations with resource shares that use any version of the
    *             managed permission.</p>
+   * @public
    */
   permissionVersion?: number;
 
   /**
-   * @public
    * <p>Specifies that you want to list only those associations with resource shares that match this
    *             status.</p>
+   * @public
    */
   associationStatus?: ResourceShareAssociationStatus;
 
   /**
-   * @public
    * <p>Specifies that you want to list only those associations with resource shares that include at
    *             least one resource of this resource type.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to list only those associations with resource shares that have a
    *                 <code>featureSet</code> with this value.</p>
+   * @public
    */
   featureSet?: PermissionFeatureSet;
 
   /**
-   * @public
    * <p>When <code>true</code>, specifies that you want to list only those associations with
    *             resource shares that use the default version of the specified managed permission.</p>
    *          <p>When <code>false</code> (the default value), lists associations with resource shares that use
    *             any version of the specified managed permission.</p>
+   * @public
    */
   defaultVersion?: boolean;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -2803,42 +2802,42 @@ export interface ListPermissionAssociationsRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>An object that describes a managed permission associated with a resource share.</p>
+ * @public
  */
 export interface AssociatedPermission {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the associated managed permission.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The version of the permission currently associated with the resource share.</p>
+   * @public
    */
   permissionVersion?: string;
 
   /**
-   * @public
    * <p>Indicates whether the associated resource share is using the default version of the
    *             permission.</p>
+   * @public
    */
   defaultVersion?: boolean;
 
   /**
-   * @public
    * <p>The resource type to which this permission applies.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The current status of the association between the permission and the resource share.
    *             The following are the possible values:</p>
    *          <ul>
@@ -2862,11 +2861,11 @@ export interface AssociatedPermission {
    *                   <code>DELETED</code> – This permission or version is deleted.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>Indicates what features are available for this resource share. This parameter can have one of
    *             the following values:</p>
    *          <ul>
@@ -2896,19 +2895,20 @@ export interface AssociatedPermission {
    *                     complete.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   featureSet?: PermissionFeatureSet;
 
   /**
-   * @public
    * <p>The date and time when the association between the permission and the resource share
    *             was last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource share associated with this permission.</p>
+   * @public
    */
   resourceShareArn?: string;
 }
@@ -2918,18 +2918,18 @@ export interface AssociatedPermission {
  */
 export interface ListPermissionAssociationsResponse {
   /**
-   * @public
    * <p>A structure with information about this customer managed permission.</p>
+   * @public
    */
   permissions?: AssociatedPermission[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2954,27 +2954,26 @@ export type PermissionTypeFilter = (typeof PermissionTypeFilter)[keyof typeof Pe
  */
 export interface ListPermissionsRequest {
   /**
-   * @public
    * <p>Specifies that you want to list only those permissions that apply to the specified
    *             resource type. This parameter is not case sensitive.</p>
    *          <p>For example, to list only permissions that apply to Amazon EC2 subnets, specify
    *                 <code>ec2:subnet</code>. You can use the <a>ListResourceTypes</a>
    *             operation to get the specific string required.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -2984,11 +2983,11 @@ export interface ListPermissionsRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specifies that you want to list only permissions of this type:</p>
    *          <ul>
    *             <li>
@@ -3005,6 +3004,7 @@ export interface ListPermissionsRequest {
    *             </li>
    *          </ul>
    *          <p>If you don't specify this parameter, the default is <code>All</code>.</p>
+   * @public
    */
   permissionType?: PermissionTypeFilter;
 }
@@ -3014,18 +3014,18 @@ export interface ListPermissionsRequest {
  */
 export interface ListPermissionsResponse {
   /**
-   * @public
    * <p>An array of objects with information about the permissions.</p>
+   * @public
    */
   permissions?: ResourceSharePermissionSummary[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3035,25 +3035,24 @@ export interface ListPermissionsResponse {
  */
 export interface ListPermissionVersionsRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the RAM permission whose versions you want to list. You
    *             can use the <code>permissionVersion</code> parameter on the <a>AssociateResourceSharePermission</a> operation to specify a non-default
    *             version to attach.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -3063,6 +3062,7 @@ export interface ListPermissionVersionsRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -3072,18 +3072,18 @@ export interface ListPermissionVersionsRequest {
  */
 export interface ListPermissionVersionsResponse {
   /**
-   * @public
    * <p>An array of objects that contain details for each of the available versions.</p>
+   * @public
    */
   permissions?: ResourceSharePermissionSummary[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3093,7 +3093,6 @@ export interface ListPermissionVersionsResponse {
  */
 export interface ListPrincipalsRequest {
   /**
-   * @public
    * <p>Specifies that you want to list information for only resource shares that match the
    *             following:</p>
    *          <ul>
@@ -3112,18 +3111,18 @@ export interface ListPrincipalsRequest {
    *                     principals that are sharing resources with your account</p>
    *             </li>
    *          </ul>
+   * @public
    */
   resourceOwner: ResourceOwner | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to list principal information for the resource share with the specified
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>.</p>
+   * @public
    */
   resourceArn?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to list information for only the listed principals.</p>
    *          <p>You can include the following values:</p>
    *          <ul>
@@ -3157,37 +3156,37 @@ export interface ListPrincipalsRequest {
    *              For more information, see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing with IAM roles and users</a> in the <i>Resource Access Manager User
    *                     Guide</i>.</p>
    *          </note>
+   * @public
    */
   principals?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want to list information for only principals associated with resource shares
    *             that include the specified resource type.</p>
    *          <p>For a list of valid values, query the <a>ListResourceTypes</a>
    *             operation.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to list information for only principals associated with the
    *             resource shares specified by a list the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * @public
    */
   resourceShareArns?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -3197,42 +3196,42 @@ export interface ListPrincipalsRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Describes a principal for use with Resource Access Manager.</p>
+ * @public
  */
 export interface Principal {
   /**
-   * @public
    * <p>The ID of the principal that can be associated with a resource share.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource share the principal is associated with.</p>
+   * @public
    */
   resourceShareArn?: string;
 
   /**
-   * @public
    * <p>The date and time when the principal was associated with the resource share.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the association between the resource share and the principal
    *             was last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>Indicates the relationship between the Amazon Web Services account the principal belongs to and the
    *             account that owns the resource share:</p>
    *          <ul>
@@ -3247,6 +3246,7 @@ export interface Principal {
    *                     organization.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   external?: boolean;
 }
@@ -3256,18 +3256,18 @@ export interface Principal {
  */
 export interface ListPrincipalsResponse {
   /**
-   * @public
    * <p>An array of objects that contain the details about the principals.</p>
+   * @public
    */
   principals?: Principal[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3293,31 +3293,30 @@ export type ReplacePermissionAssociationsWorkStatus =
  */
 export interface ListReplacePermissionAssociationsWorkRequest {
   /**
-   * @public
    * <p>A list of IDs. These values come from the <code>id</code>field of the
    *                 <code>replacePermissionAssociationsWork</code>structure returned by the <a>ReplacePermissionAssociations</a> operation. </p>
+   * @public
    */
   workIds?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want to see only the details about requests with a status that
    *             matches this value.</p>
+   * @public
    */
   status?: ReplacePermissionAssociationsWorkStatus;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -3327,51 +3326,51 @@ export interface ListReplacePermissionAssociationsWorkRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>A structure that represents the background work that RAM performs when you invoke
  *             the <a>ReplacePermissionAssociations</a> operation.</p>
+ * @public
  */
 export interface ReplacePermissionAssociationsWork {
   /**
-   * @public
    * <p>The unique identifier for the background task associated with one <a>ReplacePermissionAssociations</a> request.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission that this background task is replacing.</p>
+   * @public
    */
   fromPermissionArn?: string;
 
   /**
-   * @public
    * <p>The version of the managed permission that this background task is replacing.</p>
+   * @public
    */
   fromPermissionVersion?: string;
 
   /**
-   * @public
    * <p>The ARN of the managed permission that this background task is associating with the resource shares in place
    *             of the managed permission and version specified in <code>fromPermissionArn</code> and
    *                 <code>fromPermissionVersion</code>.</p>
+   * @public
    */
   toPermissionArn?: string;
 
   /**
-   * @public
    * <p>The version of the managed permission that this background task is associating with the resource shares. This
    *             is always the version that is currently the default for this managed permission.</p>
+   * @public
    */
   toPermissionVersion?: string;
 
   /**
-   * @public
    * <p>Specifies the current status of the background tasks for the specified ID. The output
    *             is one of the following strings:</p>
    *          <ul>
@@ -3391,25 +3390,26 @@ export interface ReplacePermissionAssociationsWork {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: ReplacePermissionAssociationsWorkStatus;
 
   /**
-   * @public
    * <p>Specifies the reason for a <code>FAILED</code> status. This field is present only when
    *             there <code>status</code> is <code>FAILED</code>.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The date and time when this asynchronous background task was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time when the status of this background task was last updated.</p>
+   * @public
    */
   lastUpdatedTime?: Date;
 }
@@ -3419,25 +3419,25 @@ export interface ReplacePermissionAssociationsWork {
  */
 export interface ListReplacePermissionAssociationsWorkResponse {
   /**
-   * @public
    * <p>An array of data structures that provide details of the matching work IDs.</p>
+   * @public
    */
   replacePermissionAssociationsWorks?: ReplacePermissionAssociationsWork[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The operation failed because the specified resource type isn't valid.</p>
+ * @public
  */
 export class InvalidResourceTypeException extends __BaseException {
   readonly name: "InvalidResourceTypeException" = "InvalidResourceTypeException";
@@ -3460,7 +3460,6 @@ export class InvalidResourceTypeException extends __BaseException {
  */
 export interface ListResourcesRequest {
   /**
-   * @public
    * <p>Specifies that you want to list only the resource shares that match the following:</p>
    *          <ul>
    *             <li>
@@ -3478,50 +3477,50 @@ export interface ListResourcesRequest {
    *                     resources that other accounts share with your account</p>
    *             </li>
    *          </ul>
+   * @public
    */
   resourceOwner: ResourceOwner | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to list only the resource shares that are associated with the specified
    *             principal.</p>
+   * @public
    */
   principal?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to list only the resource shares that include resources of the specified
    *             resource type.</p>
    *          <p>For valid values, query the <a>ListResourceTypes</a> operation.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>Specifies that you want to list only the resource shares that include resources with the
    *             specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want to list only resources in the resource shares identified by the
    *             specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * @public
    */
   resourceShareArns?: string[];
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -3531,11 +3530,11 @@ export interface ListResourcesRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specifies that you want the results to include only
    *             resources that have the specified scope.</p>
    *          <ul>
@@ -3556,6 +3555,7 @@ export interface ListResourcesRequest {
    *             </li>
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
+   * @public
    */
   resourceRegionScope?: ResourceRegionScopeFilter;
 }
@@ -3565,18 +3565,18 @@ export interface ListResourcesRequest {
  */
 export interface ListResourcesResponse {
   /**
-   * @public
    * <p>An array of objects that contain information about the resources.</p>
+   * @public
    */
   resources?: Resource[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3586,24 +3586,23 @@ export interface ListResourcesResponse {
  */
 export interface ListResourceSharePermissionsRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share for which you want to retrieve the associated
    *             permissions.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -3613,6 +3612,7 @@ export interface ListResourceSharePermissionsRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -3622,18 +3622,18 @@ export interface ListResourceSharePermissionsRequest {
  */
 export interface ListResourceSharePermissionsResponse {
   /**
-   * @public
    * <p>An array of objects that describe the permissions associated with the resource share.</p>
+   * @public
    */
   permissions?: ResourceSharePermissionSummary[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3643,17 +3643,16 @@ export interface ListResourceSharePermissionsResponse {
  */
 export interface ListResourceTypesRequest {
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included on each page
    *              of the response. If you do not include this parameter, it defaults to a value that is
    *              specific to the operation. If additional items exist beyond the number you specify, the
@@ -3663,11 +3662,11 @@ export interface ListResourceTypesRequest {
    *              return fewer results than the maximum even when there are more results available. You
    *              should check <code>NextToken</code> after every operation to ensure that you receive all
    *              of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specifies that you want the results to include only
    *             resources that have the specified scope.</p>
    *          <ul>
@@ -3688,33 +3687,33 @@ export interface ListResourceTypesRequest {
    *             </li>
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
+   * @public
    */
   resourceRegionScope?: ResourceRegionScopeFilter;
 }
 
 /**
- * @public
  * <p>Information about a shareable resource type and the Amazon Web Services service to which resources
  *             of that type belong.</p>
+ * @public
  */
 export interface ServiceNameAndResourceType {
   /**
-   * @public
    * <p>The type of the resource. This takes the form of:
    *                 <code>service-code</code>:<code>resource-code</code>, and is case-insensitive. For
    *             example, an Amazon EC2 Subnet would be represented by the string
    *             <code>ec2:subnet</code>.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon Web Services service to which resources of this type belong.</p>
+   * @public
    */
   serviceName?: string;
 
   /**
-   * @public
    * <p>Specifies the scope of visibility of resources of this type:</p>
    *          <ul>
    *             <li>
@@ -3729,6 +3728,7 @@ export interface ServiceNameAndResourceType {
    *                     from any Amazon Web Services Region.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   resourceRegionScope?: ResourceRegionScope;
 }
@@ -3738,19 +3738,19 @@ export interface ServiceNameAndResourceType {
  */
 export interface ListResourceTypesResponse {
   /**
-   * @public
    * <p>An array of objects that contain information about the resource types that can be
    *             shared using RAM.</p>
+   * @public
    */
   resourceTypes?: ServiceNameAndResourceType[];
 
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3760,20 +3760,19 @@ export interface ListResourceTypesResponse {
  */
 export interface PromotePermissionCreatedFromPolicyRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the <code>CREATED_FROM_POLICY</code> permission that you
    *             want to promote. You can get this <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> by calling the <a>ListResourceSharePermissions</a> operation.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a name for the promoted customer managed permission.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -3785,6 +3784,7 @@ export interface PromotePermissionCreatedFromPolicyRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3794,17 +3794,17 @@ export interface PromotePermissionCreatedFromPolicyRequest {
  */
 export interface PromotePermissionCreatedFromPolicyResponse {
   /**
-   * @public
    * <p>Information about an RAM permission.</p>
+   * @public
    */
   permission?: ResourceSharePermissionSummary;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3814,8 +3814,8 @@ export interface PromotePermissionCreatedFromPolicyResponse {
  */
 export interface PromoteResourceShareCreatedFromPolicyRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share to promote.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 }
@@ -3825,17 +3825,17 @@ export interface PromoteResourceShareCreatedFromPolicyRequest {
  */
 export interface PromoteResourceShareCreatedFromPolicyResponse {
   /**
-   * @public
    * <p>A return value of <code>true</code> indicates that the request succeeded.
    *              A value of <code>false</code> indicates that the request failed.</p>
+   * @public
    */
   returnValue?: boolean;
 }
 
 /**
- * @public
  * <p>There isn't an existing managed permission defined in RAM that has the same IAM permissions as
  *             the resource-based policy attached to the resource. You should first run <a>PromotePermissionCreatedFromPolicy</a> to create that managed permission.</p>
+ * @public
  */
 export class UnmatchedPolicyPermissionException extends __BaseException {
   readonly name: "UnmatchedPolicyPermissionException" = "UnmatchedPolicyPermissionException";
@@ -3858,13 +3858,12 @@ export class UnmatchedPolicyPermissionException extends __BaseException {
  */
 export interface RejectResourceShareInvitationRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the invitation that you want to reject.</p>
+   * @public
    */
   resourceShareInvitationArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -3876,6 +3875,7 @@ export interface RejectResourceShareInvitationRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3885,17 +3885,17 @@ export interface RejectResourceShareInvitationRequest {
  */
 export interface RejectResourceShareInvitationResponse {
   /**
-   * @public
    * <p>An object that contains the details about the rejected invitation.</p>
+   * @public
    */
   resourceShareInvitation?: ResourceShareInvitation;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3905,30 +3905,29 @@ export interface RejectResourceShareInvitationResponse {
  */
 export interface ReplacePermissionAssociationsRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission that you want to replace.</p>
+   * @public
    */
   fromPermissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to updated the permissions for only those resource shares that use the
    *             specified version of the managed permission.</p>
+   * @public
    */
   fromPermissionVersion?: number;
 
   /**
-   * @public
    * <p>Specifies the ARN of the managed permission that you want to associate with resource
    *             shares in place of the one specified by <code>fromPerssionArn</code> and
    *                 <code>fromPermissionVersion</code>.</p>
    *          <p>The operation always associates the version that is currently the default for the
    *             specified managed permission.</p>
+   * @public
    */
   toPermissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -3940,6 +3939,7 @@ export interface ReplacePermissionAssociationsRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3949,19 +3949,19 @@ export interface ReplacePermissionAssociationsRequest {
  */
 export interface ReplacePermissionAssociationsResponse {
   /**
-   * @public
    * <p>Specifies a data structure that you can use to track the asynchronous tasks that RAM
    *             performs to complete this operation. You can use the <a>ListReplacePermissionAssociationsWork</a> operation and pass the
    *                 <code>id</code> value returned in this structure.</p>
+   * @public
    */
   replacePermissionAssociationsWork?: ReplacePermissionAssociationsWork;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3971,20 +3971,19 @@ export interface ReplacePermissionAssociationsResponse {
  */
 export interface SetDefaultPermissionVersionRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the customer managed permission whose default version you want to change.</p>
+   * @public
    */
   permissionArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the version number that you want to designate as the default for customer managed permission. To
    *             see a list of all available version numbers, use <a>ListPermissionVersions</a>.</p>
+   * @public
    */
   permissionVersion: number | undefined;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -3996,6 +3995,7 @@ export interface SetDefaultPermissionVersionRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4005,17 +4005,17 @@ export interface SetDefaultPermissionVersionRequest {
  */
 export interface SetDefaultPermissionVersionResponse {
   /**
-   * @public
    * <p>A boolean value that indicates whether the operation was successful.</p>
+   * @public
    */
   returnValue?: boolean;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4025,25 +4025,25 @@ export interface SetDefaultPermissionVersionResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share that you want to add tags to. You must specify
    *                 <i>either</i>
    *             <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
+   * @public
    */
   resourceShareArn?: string;
 
   /**
-   * @public
    * <p>A list of one or more tag key and value pairs. The tag key must be present and not be
    *             an empty string. The tag value must be present but can be an empty string.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission that you want to add tags to. You must specify
    *                 <i>either</i>
    *             <code>resourceArn</code>, or <code>resourceShareArn</code>, but not both.</p>
+   * @public
    */
   resourceArn?: string;
 }
@@ -4058,24 +4058,24 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share that you want to remove tags from. The tags are
    *             removed from the resource share, not the resources in the resource share. You must specify either
    *                 <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
+   * @public
    */
   resourceShareArn?: string;
 
   /**
-   * @public
    * <p>Specifies a list of one or more tag keys that you want to remove.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission that you want to remove tags from. You must
    *             specify either <code>resourceArn</code>, or <code>resourceShareArn</code>, but not
    *             both.</p>
+   * @public
    */
   resourceArn?: string;
 }
@@ -4090,26 +4090,25 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateResourceShareRequest {
   /**
-   * @public
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share that you want to modify.</p>
+   * @public
    */
   resourceShareArn: string | undefined;
 
   /**
-   * @public
    * <p>If specified, the new name that you want to attach to the resource share.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies whether principals outside your organization in Organizations can be associated
    *             with a resource share.</p>
+   * @public
    */
   allowExternalPrincipals?: boolean;
 
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive identifier that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -4121,6 +4120,7 @@ export interface UpdateResourceShareRequest {
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
    *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
    *              error.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4130,17 +4130,17 @@ export interface UpdateResourceShareRequest {
  */
 export interface UpdateResourceShareResponse {
   /**
-   * @public
    * <p>Information about the resource share.</p>
+   * @public
    */
   resourceShare?: ResourceShare;
 
   /**
-   * @public
    * <p>The idempotency identifier associated with this request. If you
    *              want to repeat the same operation in an idempotent manner then you must include this
    *              value in the <code>clientToken</code> request parameter of that later call. All other
    *              parameters must also have the same values that you used in the first call.</p>
+   * @public
    */
   clientToken?: string;
 }

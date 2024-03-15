@@ -303,9 +303,9 @@ export type ElasticTranscoderClientResolvedConfigType = __SmithyResolvedConfigur
 export interface ElasticTranscoderClientResolvedConfig extends ElasticTranscoderClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>AWS Elastic Transcoder Service</fullname>
  *         <p>The AWS Elastic Transcoder Service.</p>
+ * @public
  */
 export class ElasticTranscoderClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DescribeTableCommandInput extends DescribeTableRequest {}
 export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the detailed information about a table from metadata in the cluster. The
  *       information includes its columns.
  *       A token is returned to page through the column list.
@@ -128,6 +127,7 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class DescribeTableCommand extends $Command
   .classBuilder<

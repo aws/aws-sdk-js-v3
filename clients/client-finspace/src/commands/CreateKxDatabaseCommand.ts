@@ -27,7 +27,6 @@ export interface CreateKxDatabaseCommandInput extends CreateKxDatabaseRequest {}
 export interface CreateKxDatabaseCommandOutput extends CreateKxDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new kdb database in the environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface CreateKxDatabaseCommandOutput extends CreateKxDatabaseResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class CreateKxDatabaseCommand extends $Command
   .classBuilder<

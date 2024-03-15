@@ -27,7 +27,6 @@ export interface CreateCompilationJobCommandInput extends CreateCompilationJobRe
 export interface CreateCompilationJobCommandOutput extends CreateCompilationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
  *             resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p>
  *          <p>If
@@ -130,6 +129,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateCompilationJobCommand extends $Command
   .classBuilder<

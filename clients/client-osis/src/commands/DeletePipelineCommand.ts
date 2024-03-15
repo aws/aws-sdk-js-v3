@@ -27,7 +27,6 @@ export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html">Deleting Amazon OpenSearch Ingestion pipelines</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class DeletePipelineCommand extends $Command
   .classBuilder<

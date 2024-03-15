@@ -27,7 +27,6 @@ export interface UpdateMapRunCommandInput extends UpdateMapRunInput {}
 export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class UpdateMapRunCommand extends $Command
   .classBuilder<

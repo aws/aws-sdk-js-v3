@@ -27,9 +27,6 @@ export interface PublishMetricsCommandInput extends PublishMetricsInput {}
 export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This API is for internal use and not meant for public use, and is no longer available.
- *
  * <p>
  *             <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
  * @example
@@ -82,6 +79,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * @public
+ * @deprecated This API is for internal use and not meant for public use, and is no longer available.
  */
 export class PublishMetricsCommand extends $Command
   .classBuilder<

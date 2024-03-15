@@ -27,7 +27,6 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services
  *       account.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListInvitationsCommand extends $Command
   .classBuilder<

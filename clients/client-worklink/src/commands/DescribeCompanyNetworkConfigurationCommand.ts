@@ -35,9 +35,6 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Describes the networking configuration to access the internal websites associated with
  *             the specified fleet.</p>
  * @example
@@ -87,6 +84,8 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DescribeCompanyNetworkConfigurationCommand extends $Command
   .classBuilder<

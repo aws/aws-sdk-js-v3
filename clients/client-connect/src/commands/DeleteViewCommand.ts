@@ -27,7 +27,6 @@ export interface DeleteViewCommandInput extends DeleteViewRequest {}
 export interface DeleteViewCommandOutput extends DeleteViewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the view entirely. It deletes the view and all associated qualifiers (versions and
  *    aliases).</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteViewCommandOutput extends DeleteViewResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteViewCommand extends $Command
   .classBuilder<

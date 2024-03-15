@@ -27,7 +27,6 @@ export interface DeleteClientVpnRouteCommandInput extends DeleteClientVpnRouteRe
 export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using
  * 			the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were
  * 			automatically added when associating a subnet. To remove routes that have been automatically added,
@@ -64,6 +63,7 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteClientVpnRouteCommand extends $Command
   .classBuilder<

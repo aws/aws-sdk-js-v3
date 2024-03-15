@@ -27,7 +27,6 @@ export interface DeletePackageCommandInput extends DeletePackageRequest {}
 export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
  *     packages for Amazon OpenSearch Service</a>.</p>
  * @example
@@ -95,6 +94,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DeletePackageCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to
  *       initiate the process of Amazon FSx attempting to reconnect to the file system.</p>
  * @example
@@ -631,6 +630,7 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class StartMisconfiguredStateRecoveryCommand extends $Command
   .classBuilder<

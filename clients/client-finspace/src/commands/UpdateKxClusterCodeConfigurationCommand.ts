@@ -32,7 +32,6 @@ export interface UpdateKxClusterCodeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Allows you to update code configuration on a running cluster. By using this API you can update the code, the initialization script path, and the command line arguments for a specific cluster.
  *       The configuration that you want to update will override any existing configurations on the cluster.
@@ -100,6 +99,7 @@ export interface UpdateKxClusterCodeConfigurationCommandOutput
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxClusterCodeConfigurationCommand extends $Command
   .classBuilder<

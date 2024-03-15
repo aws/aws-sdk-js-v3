@@ -32,7 +32,6 @@ export interface DeleteMicrosoftTeamsUserIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Deletes a Teams user identity
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteMicrosoftTeamsUserIdentityCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class DeleteMicrosoftTeamsUserIdentityCommand extends $Command
   .classBuilder<

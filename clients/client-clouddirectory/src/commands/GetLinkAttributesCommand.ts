@@ -27,7 +27,6 @@ export interface GetLinkAttributesCommandInput extends GetLinkAttributesRequest 
 export interface GetLinkAttributesCommandOutput extends GetLinkAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves attributes that are associated with a typed link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class GetLinkAttributesCommand extends $Command
   .classBuilder<

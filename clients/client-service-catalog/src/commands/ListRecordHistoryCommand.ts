@@ -27,7 +27,6 @@ export interface ListRecordHistoryCommandInput extends ListRecordHistoryInput {}
 export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the specified requests or all performed requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput,
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListRecordHistoryCommand extends $Command
   .classBuilder<

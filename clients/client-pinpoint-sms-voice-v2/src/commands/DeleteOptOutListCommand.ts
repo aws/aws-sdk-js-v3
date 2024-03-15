@@ -31,7 +31,6 @@ export interface DeleteOptOutListCommandInput extends DeleteOptOutListRequest {}
 export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing opt-out list. All opted out phone numbers in the opt-out list are
  *             deleted.</p>
  *          <p>If the specified opt-out list name doesn't exist or is in-use by an origination phone
@@ -88,6 +87,7 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteOptOutListCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface ApplyPendingMaintenanceActionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command
   .classBuilder<

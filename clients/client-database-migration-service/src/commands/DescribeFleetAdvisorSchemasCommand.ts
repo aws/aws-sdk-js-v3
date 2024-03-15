@@ -33,7 +33,6 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of schemas detected by Fleet Advisor Collectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeFleetAdvisorSchemasCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeFleetAdvisorSchemasCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPlaybackKeyPairsCommandInput extends ListPlaybackKeyPairsRe
 export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
  *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
@@ -72,6 +71,7 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class ListPlaybackKeyPairsCommand extends $Command
   .classBuilder<

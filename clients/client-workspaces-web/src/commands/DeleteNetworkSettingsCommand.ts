@@ -27,7 +27,6 @@ export interface DeleteNetworkSettingsCommandInput extends DeleteNetworkSettings
 export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes network settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DeleteNetworkSettingsCommand extends $Command
   .classBuilder<

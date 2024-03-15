@@ -27,7 +27,6 @@ export interface UpdateEventSourcesConfigCommandInput extends UpdateEventSources
 export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSourcesConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or disables integration with a service that can be integrated with DevOps Guru. The
  * 			one service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which
  * 			can produce proactive recommendations which can be stored and viewed in DevOps Guru.</p>
@@ -75,6 +74,7 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class UpdateEventSourcesConfigCommand extends $Command
   .classBuilder<

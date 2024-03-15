@@ -642,8 +642,8 @@ export interface AmplifyBackend {
 }
 
 /**
- * @public
  * <p>AWS Amplify Admin API</p>
+ * @public
  */
 export class AmplifyBackend extends AmplifyBackendClient implements AmplifyBackend {}
 createAggregatedClient(commands, AmplifyBackend);

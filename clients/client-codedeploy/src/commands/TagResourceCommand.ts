@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Associates the list of tags in the input <code>Tags</code> parameter with the
  *             resource identified by the <code>ResourceArn</code> input parameter. </p>
  * @example
@@ -86,6 +85,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

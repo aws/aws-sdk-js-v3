@@ -31,7 +31,6 @@ export interface BatchGetRecordCommandInput extends BatchGetRecordRequest {}
 export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * @public
  */
 export class BatchGetRecordCommand extends $Command
   .classBuilder<

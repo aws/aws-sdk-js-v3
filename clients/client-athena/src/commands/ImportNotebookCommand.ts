@@ -27,7 +27,6 @@ export interface ImportNotebookCommandInput extends ImportNotebookInput {}
 export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a single <code>ipynb</code> file to a Spark enabled workgroup. To import the
  *             notebook, the request must specify a value for either <code>Payload</code> or <code>NoteBookS3LocationUri</code>. If neither is specified or both are specified, an
  *             <code>InvalidRequestException</code> occurs. The maximum file size that can be imported is 10
@@ -75,6 +74,7 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ImportNotebookCommand extends $Command
   .classBuilder<

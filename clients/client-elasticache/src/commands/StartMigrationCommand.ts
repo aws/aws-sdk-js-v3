@@ -27,7 +27,6 @@ export interface StartMigrationCommandInput extends StartMigrationMessage {}
 export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start the migration of data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -192,6 +191,7 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class StartMigrationCommand extends $Command
   .classBuilder<

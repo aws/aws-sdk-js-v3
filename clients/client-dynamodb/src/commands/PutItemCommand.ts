@@ -27,7 +27,6 @@ export interface PutItemCommandInput extends PutItemInput {}
 export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new item, or replaces an old item with a new item. If an item that has the
  *             same primary key as the new item already exists in the specified table, the new item
  *             completely replaces the existing item. You can perform a conditional put operation (add
@@ -251,6 +250,7 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To add an item to a table
  * ```javascript
  * // This example adds a new item to the Music table.

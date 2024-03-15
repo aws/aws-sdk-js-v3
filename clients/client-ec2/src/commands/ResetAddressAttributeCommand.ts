@@ -27,7 +27,6 @@ export interface ResetAddressAttributeCommandInput extends ResetAddressAttribute
 export interface ResetAddressAttributeCommandOutput extends ResetAddressAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the attribute of the specified IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ResetAddressAttributeCommand extends $Command
   .classBuilder<

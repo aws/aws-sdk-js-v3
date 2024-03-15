@@ -27,7 +27,6 @@ export interface CreateConfigurationPolicyCommandInput extends CreateConfigurati
 export interface CreateConfigurationPolicyCommandOutput extends CreateConfigurationPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Creates a configuration policy with the defined configuration. Only the Security Hub delegated administrator
  *             can invoke this operation from the home Region.
@@ -171,6 +170,7 @@ export interface CreateConfigurationPolicyCommandOutput extends CreateConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To create a configuration policy
  * ```javascript
  * // This operation creates a configuration policy in Security Hub.

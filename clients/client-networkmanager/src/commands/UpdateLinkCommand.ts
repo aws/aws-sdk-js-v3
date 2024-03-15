@@ -27,7 +27,6 @@ export interface UpdateLinkCommandInput extends UpdateLinkRequest {}
 export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the details for an existing link. To remove information for any of the
  *             parameters, specify an empty string.</p>
  * @example
@@ -106,6 +105,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class UpdateLinkCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetPackageVersionAssetCommandOutput
 }
 
 /**
- * @public
  * <p>
  *       Returns an asset (or file) that is in a package. For example, for a Maven package version, use
  *       <code>GetPackageVersionAsset</code> to download a <code>JAR</code> file, a <code>POM</code> file,
@@ -106,6 +105,7 @@ export interface GetPackageVersionAssetCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class GetPackageVersionAssetCommand extends $Command
   .classBuilder<

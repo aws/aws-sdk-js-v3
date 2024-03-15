@@ -27,7 +27,6 @@ export interface UpdateRegionSettingsCommandInput extends UpdateRegionSettingsIn
 export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the current service opt-in settings for the Region.</p>
  *          <p>Use
  *          the <code>DescribeRegionSettings</code> API to determine the resource types that are
@@ -71,6 +70,7 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateRegionSettingsCommand extends $Command
   .classBuilder<

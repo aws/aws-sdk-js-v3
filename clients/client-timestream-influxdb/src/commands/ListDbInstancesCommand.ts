@@ -31,7 +31,6 @@ export interface ListDbInstancesCommandInput extends ListDbInstancesInput {}
 export interface ListDbInstancesCommandOutput extends ListDbInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Timestream for InfluxDB DB instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListDbInstancesCommandOutput extends ListDbInstancesOutput, __M
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * @public
  */
 export class ListDbInstancesCommand extends $Command
   .classBuilder<

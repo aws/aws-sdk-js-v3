@@ -711,7 +711,6 @@ export type ServiceCatalogClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface ServiceCatalogClientResolvedConfig extends ServiceCatalogClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Service Catalog</fullname>
  *          <p>
  *             <a href="http://aws.amazon.com/servicecatalog">Service Catalog</a> enables
@@ -719,6 +718,7 @@ export interface ServiceCatalogClientResolvedConfig extends ServiceCatalogClient
  *          get the most out of this documentation, you should be familiar with the terminology
  *          discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">Service Catalog
  *          Concepts</a>.</p>
+ * @public
  */
 export class ServiceCatalogClient extends __Client<
   __HttpHandlerOptions,

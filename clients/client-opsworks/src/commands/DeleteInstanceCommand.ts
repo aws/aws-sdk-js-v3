@@ -27,7 +27,6 @@ export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html">Deleting
  *         Instances</a>.</p>
@@ -68,6 +67,7 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeleteInstanceCommand extends $Command
   .classBuilder<

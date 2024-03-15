@@ -32,7 +32,6 @@ export interface DisableAWSOrganizationsAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disable portfolio sharing through the Organizations service. This command will not
  *          delete your current shares, but prevents you from creating new shares throughout your
  *          organization. Current shares are not kept in sync with your organization structure if the structure
@@ -78,6 +77,7 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DisableAWSOrganizationsAccessCommand extends $Command
   .classBuilder<

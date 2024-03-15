@@ -27,7 +27,6 @@ export interface DeleteBucketPolicyCommandInput extends DeleteBucketPolicyReques
 export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the
  *          policy of a specified bucket.</p>
  *          <note>
@@ -115,6 +114,7 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To delete bucket policy
  * ```javascript
  * // The following example deletes bucket policy on the specified bucket.

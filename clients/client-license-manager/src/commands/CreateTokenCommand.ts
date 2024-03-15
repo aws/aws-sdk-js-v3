@@ -27,7 +27,6 @@ export interface CreateTokenCommandInput extends CreateTokenRequest {}
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a long-lived token.</p>
  *          <p>A refresh token is a JWT token used to get an access token. With an access token,
  *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
@@ -93,6 +92,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CreateTokenCommand extends $Command
   .classBuilder<

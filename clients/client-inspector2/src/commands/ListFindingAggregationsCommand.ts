@@ -27,7 +27,6 @@ export interface ListFindingAggregationsCommandInput extends ListFindingAggregat
 export interface ListFindingAggregationsCommandOutput extends ListFindingAggregationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists aggregated finding data for your environment based on specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -289,6 +288,7 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListFindingAggregationsCommand extends $Command
   .classBuilder<

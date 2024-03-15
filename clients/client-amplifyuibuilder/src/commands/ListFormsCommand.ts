@@ -27,7 +27,6 @@ export interface ListFormsCommandInput extends ListFormsRequest {}
 export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of forms for a specified Amplify app and backend environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ListFormsCommand extends $Command
   .classBuilder<

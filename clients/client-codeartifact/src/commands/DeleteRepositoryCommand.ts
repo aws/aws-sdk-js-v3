@@ -27,7 +27,6 @@ export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Deletes a repository.
  *        </p>
@@ -107,6 +106,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DeleteRepositoryCommand extends $Command
   .classBuilder<

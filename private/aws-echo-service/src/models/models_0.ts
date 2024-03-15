@@ -18,8 +18,8 @@ export interface EchoOutput {
 }
 
 /**
- * @public
  * For some reason, this service does not like palindromes!
+ * @public
  */
 export class PalindromeException extends __BaseException {
   readonly name: "PalindromeException" = "PalindromeException";

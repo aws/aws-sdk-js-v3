@@ -27,7 +27,6 @@ export interface DescribeLocationsCommandInput {}
 export interface DescribeLocationsCommandOutput extends Locations, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Direct Connect locations in the current Amazon Web Services Region. These are the locations that can be selected when calling
  *       <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeLocationsCommand extends $Command
   .classBuilder<

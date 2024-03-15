@@ -27,7 +27,6 @@ export interface ModifyInstanceEventWindowCommandInput extends ModifyInstanceEve
 export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEventWindowResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified event window.</p>
  *          <p>You can define either a set of time ranges or a cron expression when modifying the event
  *          window, but not both.</p>
@@ -106,6 +105,7 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyInstanceEventWindowCommand extends $Command
   .classBuilder<

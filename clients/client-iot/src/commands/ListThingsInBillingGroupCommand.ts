@@ -27,7 +27,6 @@ export interface ListThingsInBillingGroupCommandInput extends ListThingsInBillin
 export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBillingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the things you have added to the given billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInBillingGroup</a> action.</p>
  * @example
@@ -73,6 +72,7 @@ export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBilli
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListThingsInBillingGroupCommand extends $Command
   .classBuilder<

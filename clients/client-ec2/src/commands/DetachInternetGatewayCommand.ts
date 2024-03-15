@@ -27,7 +27,6 @@ export interface DetachInternetGatewayCommandInput extends DetachInternetGateway
 export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches an internet gateway from a VPC, disabling connectivity between the internet
  * 			and the VPC. The VPC must not contain any running instances with Elastic IP addresses or
  * 			public IPv4 addresses.</p>
@@ -57,6 +56,7 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To detach an Internet gateway from a VPC
  * ```javascript
  * // This example detaches the specified Internet gateway from the specified VPC.

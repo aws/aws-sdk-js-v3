@@ -31,7 +31,6 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the auto-grouped, standalone, and custom components of the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class ListComponentsCommand extends $Command
   .classBuilder<

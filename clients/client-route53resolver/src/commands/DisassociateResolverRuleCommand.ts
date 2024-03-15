@@ -27,7 +27,6 @@ export interface DisassociateResolverRuleCommandInput extends DisassociateResolv
 export interface DisassociateResolverRuleCommandOutput extends DisassociateResolverRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
  *          <important>
  *             <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
@@ -79,6 +78,7 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DisassociateResolverRuleCommand extends $Command
   .classBuilder<

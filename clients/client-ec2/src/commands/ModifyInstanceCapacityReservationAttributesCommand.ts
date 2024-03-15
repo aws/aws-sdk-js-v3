@@ -36,7 +36,6 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an
  * 			instance to target a specific Capacity Reservation, run in any <code>open</code> Capacity Reservation with matching
  * 			attributes, or run On-Demand Instance capacity.</p>
@@ -74,6 +73,7 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
   .classBuilder<

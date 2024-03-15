@@ -27,7 +27,6 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a group resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class DeleteGroupCommand extends $Command
   .classBuilder<

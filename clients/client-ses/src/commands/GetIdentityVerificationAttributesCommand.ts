@@ -35,7 +35,6 @@ export interface GetIdentityVerificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Given a list of identities (email addresses and/or domains), returns the verification
  *             status and (for domain identities) the verification token for each identity.</p>
  *          <p>The verification status of an email address is "Pending" until the email address owner
@@ -85,6 +84,7 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetIdentityVerificationAttributes
  * ```javascript
  * // The following example returns the verification status and the verification token for a domain identity:

@@ -27,7 +27,6 @@ export interface StopDataSourceSyncJobCommandInput extends StopDataSourceSyncJob
 export interface StopDataSourceSyncJobCommandOutput extends StopDataSourceSyncJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an Amazon Q data source connector synchronization job already in
  *             progress.</p>
  * @example
@@ -76,6 +75,7 @@ export interface StopDataSourceSyncJobCommandOutput extends StopDataSourceSyncJo
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class StopDataSourceSyncJobCommand extends $Command
   .classBuilder<

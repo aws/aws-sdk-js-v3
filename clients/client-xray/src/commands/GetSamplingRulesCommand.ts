@@ -27,7 +27,6 @@ export interface GetSamplingRulesCommandInput extends GetSamplingRulesRequest {}
 export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all sampling rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetSamplingRulesCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface RegisterInstancesWithLoadBalancerCommandInput extends RegisterE
 export interface RegisterInstancesWithLoadBalancerCommandOutput extends RegisterEndPointsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified instances to the specified load balancer.</p>
  *
  *         <p>The instance must be a running instance in the same network as the load balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and a load balancer in a VPC with ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register the linked EC2-Classic instances with the load balancer in the VPC.</p>
@@ -95,6 +94,7 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To register instances with a load balancer
  * ```javascript
  * // This example registers the specified instance with the specified load balancer.

@@ -35,7 +35,6 @@ export type GetCodeBindingSourceCommandOutputType = Omit<GetCodeBindingSourceRes
 export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the code binding source URI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceC
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class GetCodeBindingSourceCommand extends $Command
   .classBuilder<

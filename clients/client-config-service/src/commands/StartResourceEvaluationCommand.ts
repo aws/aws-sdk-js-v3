@@ -27,7 +27,6 @@ export interface StartResourceEvaluationCommandInput extends StartResourceEvalua
 export interface StartResourceEvaluationCommandOutput extends StartResourceEvaluationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs an on-demand evaluation for the specified resource to determine whether the resource details will comply with configured Config rules.
  * 			You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
  * 			of the Config rules in your account that match with the specified proactive mode and resource type.</p>
@@ -83,6 +82,7 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class StartResourceEvaluationCommand extends $Command
   .classBuilder<

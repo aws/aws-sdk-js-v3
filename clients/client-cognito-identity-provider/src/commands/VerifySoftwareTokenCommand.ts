@@ -36,7 +36,6 @@ export interface VerifySoftwareTokenCommandInput extends VerifySoftwareTokenRequ
 export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this API to register a user's entered time-based one-time password (TOTP) code and
  *             mark the user's software token MFA status as "verified" if successful. The request takes
  *             an access token or a session string, but not both.</p>
@@ -122,6 +121,7 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class VerifySoftwareTokenCommand extends $Command
   .classBuilder<

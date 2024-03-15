@@ -27,7 +27,6 @@ export interface PollForJobsCommandInput extends PollForJobsInput {}
 export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about any jobs for CodePipeline to act on.
  *                 <code>PollForJobs</code> is valid only for action types with "Custom" in the owner
  *             field. If the action type contains <code>AWS</code> or <code>ThirdParty</code> in the
@@ -146,6 +145,7 @@ export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataB
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class PollForJobsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the most recent high availability monitoring test that was
  *          performed on the host in a cluster. If a test isn't performed, the status and start
  *          time in the response would be null.</p>
@@ -72,6 +71,7 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DescribeAvailabilityMonitorTestCommand extends $Command
   .classBuilder<

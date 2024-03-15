@@ -27,7 +27,6 @@ export interface UpdateResourceProfileCommandInput extends UpdateResourceProfile
 export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the sensitivity score for an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateResourceProfileCommand extends $Command
   .classBuilder<

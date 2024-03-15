@@ -31,7 +31,6 @@ export interface GetTokenBalanceCommandInput extends GetTokenBalanceInput {}
 export interface GetTokenBalanceCommandOutput extends GetTokenBalanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the balance of a specific token, including native tokens, for a given address (wallet or contract) on the blockchain.</p>
  *          <note>
  *             <p>Only the native tokens BTC and ETH, and the ERC-20,
@@ -108,6 +107,7 @@ export interface GetTokenBalanceCommandOutput extends GetTokenBalanceOutput, __M
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class GetTokenBalanceCommand extends $Command
   .classBuilder<

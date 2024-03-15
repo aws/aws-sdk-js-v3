@@ -27,7 +27,6 @@ export interface ApplySchemaCommandInput extends ApplySchemaRequest {}
 export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the input published schema, at the specified version, into the <a>Directory</a> with the same
  *       name and version as that of the published schema.</p>
  * @example
@@ -88,6 +87,7 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ApplySchemaCommand extends $Command
   .classBuilder<

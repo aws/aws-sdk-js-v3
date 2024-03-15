@@ -32,7 +32,6 @@ export interface SetIdentityPoolConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the necessary configuration for push sync.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
  *       <examples>
  *          <example>
@@ -155,6 +154,7 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class SetIdentityPoolConfigurationCommand extends $Command
   .classBuilder<

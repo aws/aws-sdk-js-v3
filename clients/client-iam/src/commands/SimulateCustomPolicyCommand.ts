@@ -27,7 +27,6 @@ export interface SimulateCustomPolicyCommandInput extends SimulateCustomPolicyRe
 export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with
  *             a list of API operations and Amazon Web Services resources to determine the policies' effective
  *             permissions. The policies are provided as strings.</p>
@@ -175,6 +174,7 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class SimulateCustomPolicyCommand extends $Command
   .classBuilder<

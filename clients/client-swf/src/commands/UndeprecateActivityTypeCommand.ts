@@ -27,7 +27,6 @@ export interface UndeprecateActivityTypeCommandInput extends UndeprecateActivity
 export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Undeprecates a previously deprecated <i>activity type</i>. After an activity type has
  *       been undeprecated, you can create new tasks of that activity type.</p>
  *          <note>
@@ -107,6 +106,7 @@ export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class UndeprecateActivityTypeCommand extends $Command
   .classBuilder<

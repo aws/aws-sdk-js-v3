@@ -27,7 +27,6 @@ export interface DescribeDBClusterSnapshotsCommandInput extends DescribeDBCluste
 export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapshotMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about DB cluster snapshots. This API action supports
  *       pagination.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the associations for the transit gateway multicast domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdatePackagingGroupCommandInput extends UpdatePackagingGroupRe
 export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupR
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class UpdatePackagingGroupCommand extends $Command
   .classBuilder<

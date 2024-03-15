@@ -27,7 +27,6 @@ export interface DeleteClusterSecurityGroupCommandInput extends DeleteClusterSec
 export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Redshift security group.</p>
  *          <note>
  *             <p>You cannot delete a security group that is associated with any clusters. You
@@ -68,6 +67,7 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteClusterSecurityGroupCommand extends $Command
   .classBuilder<

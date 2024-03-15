@@ -27,7 +27,6 @@ export interface DescribeBandwidthRateLimitCommandInput extends DescribeBandwidt
 export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
  *          which means no bandwidth rate limiting is in effect. This operation is supported only for
  *          the stored volume, cached volume, and tape gateway types. To describe bandwidth rate limits
@@ -72,6 +71,7 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe the bandwidth rate limits of a gateway
  * ```javascript
  * // Returns a value for a bandwidth rate limit if set. If not set, then only the gateway ARN is returned.

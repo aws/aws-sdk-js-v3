@@ -31,7 +31,6 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the DMS attributes for a customer account. These attributes include DMS
  *          quotas for the account and a unique account identifier in a particular DMS region. DMS
  *          quotas include a list of resource quotas supported by the account, such as the number of
@@ -70,6 +69,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe acount attributes
  * ```javascript
  * // Lists all of the AWS DMS attributes for a customer account. The attributes include AWS DMS quotas for the account, such as the number of replication instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value. This operation does not take any parameters.

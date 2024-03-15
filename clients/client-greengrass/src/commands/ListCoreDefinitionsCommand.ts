@@ -27,7 +27,6 @@ export interface ListCoreDefinitionsCommandInput extends ListCoreDefinitionsRequ
 export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves a list of core definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListCoreDefinitionsCommand extends $Command
   .classBuilder<

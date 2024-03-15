@@ -31,7 +31,6 @@ export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
 export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class DeleteRouteCommand extends $Command
   .classBuilder<

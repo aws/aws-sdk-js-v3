@@ -32,7 +32,6 @@ export interface CreateServiceTemplateCommandInput extends CreateServiceTemplate
 export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a service template. The administrator creates a service template to define
  *       standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn,
  *       select the service template from Proton. If the selected service template includes a
@@ -104,6 +103,7 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateServiceTemplateCommand extends $Command
   .classBuilder<

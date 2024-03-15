@@ -27,7 +27,6 @@ export interface DeletePartnerCommandInput extends PartnerIntegrationInputMessag
 export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeletePartnerCommand extends $Command
   .classBuilder<

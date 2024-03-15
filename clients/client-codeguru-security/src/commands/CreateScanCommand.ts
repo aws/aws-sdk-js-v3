@@ -27,7 +27,6 @@ export interface CreateScanCommandInput extends CreateScanRequest {}
 export interface CreateScanCommandOutput extends CreateScanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use to create a scan using code uploaded to an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface CreateScanCommandOutput extends CreateScanResponse, __MetadataB
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class CreateScanCommand extends $Command
   .classBuilder<

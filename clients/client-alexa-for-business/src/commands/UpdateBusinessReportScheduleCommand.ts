@@ -32,9 +32,6 @@ export interface UpdateBusinessReportScheduleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Updates the configuration of the report delivery schedule with the specified schedule
  *          ARN.</p>
  * @example
@@ -74,6 +71,8 @@ export interface UpdateBusinessReportScheduleCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateBusinessReportScheduleCommand extends $Command
   .classBuilder<

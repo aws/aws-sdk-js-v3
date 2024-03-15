@@ -27,7 +27,6 @@ export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
 export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeUsersCommand extends $Command
   .classBuilder<

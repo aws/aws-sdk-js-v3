@@ -27,7 +27,6 @@ export interface DescribeLoggingStatusCommandInput extends DescribeLoggingStatus
 export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes whether information, such as queries and connection attempts, is being
  *             logged for the specified Amazon Redshift cluster.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeLoggingStatusCommand extends $Command
   .classBuilder<

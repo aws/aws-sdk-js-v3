@@ -27,7 +27,6 @@ export interface GetTableMetadataCommandInput extends GetTableMetadataInput {}
 export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns table metadata for the specified catalog, database, and table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetTableMetadataCommand extends $Command
   .classBuilder<

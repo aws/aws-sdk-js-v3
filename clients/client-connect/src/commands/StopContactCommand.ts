@@ -27,7 +27,6 @@ export interface StopContactCommandInput extends StopContactRequest {}
 export interface StopContactCommandOutput extends StopContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Ends the specified contact. Use this API to stop queued callbacks. It does not work for
  *    voice contacts that use the following initiation methods:</p>
  *          <ul>
@@ -87,6 +86,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StopContactCommand extends $Command
   .classBuilder<

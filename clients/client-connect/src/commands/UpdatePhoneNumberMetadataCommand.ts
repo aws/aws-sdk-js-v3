@@ -27,7 +27,6 @@ export interface UpdatePhoneNumberMetadataCommandInput extends UpdatePhoneNumber
 export interface UpdatePhoneNumberMetadataCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a phone number’s metadata.</p>
  *          <important>
  *             <p>To verify the status of a previous UpdatePhoneNumberMetadata operation, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API.</p>
@@ -82,6 +81,7 @@ export interface UpdatePhoneNumberMetadataCommandOutput extends __MetadataBearer
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdatePhoneNumberMetadataCommand extends $Command
   .classBuilder<

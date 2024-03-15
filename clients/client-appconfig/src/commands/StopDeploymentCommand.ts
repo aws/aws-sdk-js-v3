@@ -27,7 +27,6 @@ export interface StopDeploymentCommandInput extends StopDeploymentRequest {}
 export interface StopDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a deployment. This API action works only on deployments that have a status of
  *             <code>DEPLOYING</code>. This action moves the deployment to a status of
  *             <code>ROLLED_BACK</code>.</p>
@@ -116,6 +115,7 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To stop configuration deployment
  * ```javascript
  * // The following stop-deployment example stops the deployment of an application configuration to the specified environment.

@@ -280,8 +280,8 @@ export interface ResourceGroupsTaggingAPIClientResolvedConfig
   extends ResourceGroupsTaggingAPIClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Resource Groups Tagging API</fullname>
+ * @public
  */
 export class ResourceGroupsTaggingAPIClient extends __Client<
   __HttpHandlerOptions,

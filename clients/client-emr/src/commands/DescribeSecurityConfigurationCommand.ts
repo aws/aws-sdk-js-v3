@@ -32,7 +32,6 @@ export interface DescribeSecurityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the details of a security configuration by returning the configuration
  *          JSON.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DescribeSecurityConfigurationCommandOutput
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DescribeSecurityConfigurationCommand extends $Command
   .classBuilder<

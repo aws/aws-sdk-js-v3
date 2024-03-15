@@ -27,7 +27,6 @@ export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
 export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a custom <code>DomainName</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class UpdateDomainNameCommand extends $Command
   .classBuilder<

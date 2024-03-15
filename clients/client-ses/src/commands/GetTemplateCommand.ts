@@ -27,7 +27,6 @@ export interface GetTemplateCommandInput extends GetTemplateRequest {}
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays the template object (which includes the Subject line, HTML part and text
  *             part) for the template you specify.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -66,6 +65,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class GetTemplateCommand extends $Command
   .classBuilder<

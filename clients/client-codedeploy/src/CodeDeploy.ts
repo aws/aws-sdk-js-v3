@@ -1071,7 +1071,6 @@ export interface CodeDeploy {
 }
 
 /**
- * @public
  * <p>CodeDeploy is a deployment service that automates application deployments
  *             to Amazon EC2 instances, on-premises instances running in your own facility,
  *             serverless Lambda functions, or applications in an Amazon ECS
@@ -1165,6 +1164,7 @@ export interface CodeDeploy {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CodeDeploy extends CodeDeployClient implements CodeDeploy {}
 createAggregatedClient(commands, CodeDeploy);

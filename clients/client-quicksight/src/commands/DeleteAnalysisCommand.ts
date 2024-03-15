@@ -27,7 +27,6 @@ export interface DeleteAnalysisCommandInput extends DeleteAnalysisRequest {}
 export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
  *             which you can restore the analysis. If you don't specify a recovery window value, the
  *             operation defaults to 30 days. Amazon QuickSight attaches a <code>DeletionTime</code> stamp to
@@ -94,6 +93,7 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteAnalysisCommand extends $Command
   .classBuilder<

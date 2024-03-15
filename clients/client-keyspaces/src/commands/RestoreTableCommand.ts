@@ -27,7 +27,6 @@ export interface RestoreTableCommandInput extends RestoreTableRequest {}
 export interface RestoreTableCommandOutput extends RestoreTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores the table to the specified point in time within the
  *          <code>earliest_restorable_timestamp</code> and the current time. For more information about restore points, see
  *          <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window">
@@ -190,6 +189,7 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class RestoreTableCommand extends $Command
   .classBuilder<

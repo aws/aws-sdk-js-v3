@@ -27,7 +27,6 @@ export interface UpdateCoreDefinitionCommandInput extends UpdateCoreDefinitionRe
 export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates a core definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class UpdateCoreDefinitionCommand extends $Command
   .classBuilder<

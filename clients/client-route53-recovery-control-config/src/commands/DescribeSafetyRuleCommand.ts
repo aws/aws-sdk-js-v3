@@ -31,7 +31,6 @@ export interface DescribeSafetyRuleCommandInput extends DescribeSafetyRuleReques
 export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a safety rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class DescribeSafetyRuleCommand extends $Command
   .classBuilder<

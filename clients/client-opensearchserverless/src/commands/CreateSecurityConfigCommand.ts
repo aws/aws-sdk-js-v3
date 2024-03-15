@@ -31,7 +31,6 @@ export interface CreateSecurityConfigCommandInput extends CreateSecurityConfigRe
 export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>. </p>
@@ -98,6 +97,7 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class CreateSecurityConfigCommand extends $Command
   .classBuilder<

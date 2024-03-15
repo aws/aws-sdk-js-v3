@@ -1279,7 +1279,6 @@ export interface DataSync {
 }
 
 /**
- * @public
  * <fullname>DataSync</fullname>
  *          <p>DataSync is an online data movement and discovery service that simplifies data migration
  *       and helps you quickly, easily, and securely transfer your file or object data to, from, and
@@ -1289,6 +1288,7 @@ export interface DataSync {
  *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
  *           Guide</a>
  *             </i>.</p>
+ * @public
  */
 export class DataSync extends DataSyncClient implements DataSync {}
 createAggregatedClient(commands, DataSync);

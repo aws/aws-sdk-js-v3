@@ -27,7 +27,6 @@ export interface ListWorldExportJobsCommandInput extends ListWorldExportJobsRequ
 export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists world export jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class ListWorldExportJobsCommand extends $Command
   .classBuilder<

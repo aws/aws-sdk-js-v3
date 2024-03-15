@@ -27,7 +27,6 @@ export interface ConfirmConnectionCommandInput extends ConfirmConnectionRequest 
 export interface ConfirmConnectionCommandOutput extends ConfirmConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Confirms the creation of the specified hosted connection on an interconnect.</p>
  *          <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and
  *       remains in this state until the owner confirms creation of the hosted connection.</p>
@@ -63,6 +62,7 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class ConfirmConnectionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateSamplingRuleCommandInput extends UpdateSamplingRuleReques
 export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a sampling rule's configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class UpdateSamplingRuleCommand extends $Command
   .classBuilder<

@@ -32,9 +32,6 @@ export interface GetVoiceConnectorOriginationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace
- *
  * <p>Retrieves origination setting details for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -101,6 +98,8 @@ export interface GetVoiceConnectorOriginationCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace
  */
 export class GetVoiceConnectorOriginationCommand extends $Command
   .classBuilder<

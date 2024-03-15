@@ -36,7 +36,6 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DescribeLaunchConfigurationTemplatesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifyCertificatesCommandInput extends ModifyCertificatesMessag
 export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
  *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
  *          <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
@@ -94,6 +93,7 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To temporarily override the system-default SSL/TLS certificate for new DB instances
  * ```javascript
  * // The following example temporarily overrides the system-default SSL/TLS certificate for new DB instances.

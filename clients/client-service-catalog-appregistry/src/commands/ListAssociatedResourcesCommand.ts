@@ -31,7 +31,6 @@ export interface ListAssociatedResourcesCommandInput extends ListAssociatedResou
 export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Lists all
  *        of the resources
@@ -103,6 +102,7 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class ListAssociatedResourcesCommand extends $Command
   .classBuilder<

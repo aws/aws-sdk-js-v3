@@ -27,7 +27,6 @@ export interface DisableProfileCommandInput extends ScalarProfileRequest {}
 export interface DisableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables a profile. When disabled, temporary credential requests with this profile fail.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -82,6 +81,7 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class DisableProfileCommand extends $Command
   .classBuilder<

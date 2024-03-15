@@ -27,7 +27,6 @@ export interface UpdateManagedInstanceRoleCommandInput extends UpdateManagedInst
 export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedInstanceRoleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the Identity and Access Management (IAM) role that is assigned to the
  *    on-premises server, edge device, or virtual machines (VM). IAM roles are first
  *    assigned to these hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.</p>
@@ -79,6 +78,7 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateManagedInstanceRoleCommand extends $Command
   .classBuilder<

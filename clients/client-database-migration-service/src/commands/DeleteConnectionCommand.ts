@@ -31,7 +31,6 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionMessage {}
 export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the connection between a replication instance and an endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Connection
  * ```javascript
  * // Deletes the connection between the replication instance and the endpoint.

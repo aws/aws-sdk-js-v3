@@ -32,7 +32,6 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies the extended metrics and custom metrics that you want a CloudWatch RUM app monitor to send to a destination. Valid
  *          destinations include CloudWatch and Evidently.</p>
  *          <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics
@@ -163,6 +162,7 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class BatchCreateRumMetricDefinitionsCommand extends $Command
   .classBuilder<

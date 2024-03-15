@@ -27,7 +27,6 @@ export interface DeleteEntitlementCommandInput extends DeleteEntitlementRequest 
 export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified entitlement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteEntitlementCommand extends $Command
   .classBuilder<

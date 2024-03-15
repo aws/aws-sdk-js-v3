@@ -36,7 +36,6 @@ export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a configured audience model association within a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetCollaborationConfiguredAudienceModelAssociationCommand extends $Command
   .classBuilder<

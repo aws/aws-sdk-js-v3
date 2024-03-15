@@ -31,7 +31,6 @@ export interface ListNotificationsCommandInput extends ListNotificationsRequest 
 export interface ListNotificationsCommandOutput extends ListNotificationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of all Audit Manager notifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListNotificationsCommand extends $Command
   .classBuilder<

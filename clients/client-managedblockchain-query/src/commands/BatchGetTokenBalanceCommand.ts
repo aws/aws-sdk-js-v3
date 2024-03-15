@@ -31,7 +31,6 @@ export interface BatchGetTokenBalanceCommandInput extends BatchGetTokenBalanceIn
 export interface BatchGetTokenBalanceCommandOutput extends BatchGetTokenBalanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the token balance for a batch of tokens by using the <code>BatchGetTokenBalance</code>
  *          action for every token in the request.</p>
  *          <note>
@@ -135,6 +134,7 @@ export interface BatchGetTokenBalanceCommandOutput extends BatchGetTokenBalanceO
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class BatchGetTokenBalanceCommand extends $Command
   .classBuilder<

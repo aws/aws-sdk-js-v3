@@ -32,7 +32,6 @@ export interface GetBlockCommandInput extends GetBlockRequest {}
 export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a block object at a specified address in a journal. Also returns a proof of the
  *          specified block for verification if <code>DigestTipAddress</code> is provided.</p>
  *          <p>For information about the data contents in a block, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/journal-contents.html">Journal contents</a> in the
@@ -89,6 +88,7 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class GetBlockCommand extends $Command
   .classBuilder<

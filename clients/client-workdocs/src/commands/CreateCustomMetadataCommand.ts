@@ -31,7 +31,6 @@ export interface CreateCustomMetadataCommandInput extends CreateCustomMetadataRe
 export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more custom properties to the specified resource (a folder, document,
  *             or version).</p>
  * @example
@@ -87,6 +86,7 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class CreateCustomMetadataCommand extends $Command
   .classBuilder<

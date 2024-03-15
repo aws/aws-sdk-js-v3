@@ -36,7 +36,6 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the transfer of a domain from the current Amazon Web Services account to
  * 			another Amazon Web Services account. You initiate a transfer betweenAmazon Web Services accounts using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>. </p>
  *          <important>
@@ -84,6 +83,7 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command
   .classBuilder<

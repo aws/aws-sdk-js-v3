@@ -31,7 +31,6 @@ export interface ModifyTargetGroupCommandInput extends ModifyTargetGroupInput {}
 export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the health checks used when evaluating the health state of the targets in the
  *       specified target group.</p>
  * @example
@@ -104,6 +103,7 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To modify the health check configuration for a target group
  * ```javascript
  * // This example changes the configuration of the health checks used to evaluate the health of the targets for the specified target group.

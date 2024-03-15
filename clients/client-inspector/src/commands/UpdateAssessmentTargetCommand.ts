@@ -27,7 +27,6 @@ export interface UpdateAssessmentTargetCommandInput extends UpdateAssessmentTarg
 export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the assessment target that is specified by the ARN of the assessment
  *          target.</p>
  *          <p>If resourceGroupArn is not specified, all EC2 instances in the current AWS account
@@ -75,6 +74,7 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Update assessment target
  * ```javascript
  * // Updates the assessment target that is specified by the ARN of the assessment target.

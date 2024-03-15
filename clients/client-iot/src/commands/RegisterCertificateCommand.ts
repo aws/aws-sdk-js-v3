@@ -27,7 +27,6 @@ export interface RegisterCertificateCommandInput extends RegisterCertificateRequ
 export interface RegisterCertificateCommandOutput extends RegisterCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a device certificate with IoT in the same <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">certificate mode</a> as the signing CA. If you have more than one CA certificate that has the same subject field, you must
  *          specify the CA certificate that was used to sign the device certificate being
  *          registered.</p>
@@ -91,6 +90,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class RegisterCertificateCommand extends $Command
   .classBuilder<

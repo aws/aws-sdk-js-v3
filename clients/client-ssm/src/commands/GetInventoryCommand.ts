@@ -28,7 +28,6 @@ export interface GetInventoryCommandInput extends GetInventoryRequest {}
 export interface GetInventoryCommandOutput extends GetInventoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
  *    or <code>Terminated</code>.</p>
  * @example
@@ -144,6 +143,7 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetInventoryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateFleetLocationsCommandInput extends CreateFleetLocationsIn
 export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds remote locations to a fleet and begins populating the new locations with EC2
  *             instances. The new instances conform to the fleet's instance type, auto-scaling, and
  *             other configuration settings. </p>
@@ -122,6 +121,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateFleetLocationsCommand extends $Command
   .classBuilder<

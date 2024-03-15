@@ -27,7 +27,6 @@ export interface DeleteChapCredentialsCommandInput extends DeleteChapCredentials
 export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredentialsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified
  *          iSCSI target and initiator pair. This operation is supported in volume and tape gateway
  *          types.</p>
@@ -67,6 +66,7 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To delete CHAP credentials
  * ```javascript
  * // Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair.

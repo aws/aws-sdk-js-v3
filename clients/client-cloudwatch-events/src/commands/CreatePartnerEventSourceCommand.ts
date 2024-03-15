@@ -27,7 +27,6 @@ export interface CreatePartnerEventSourceCommandInput extends CreatePartnerEvent
 export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEventSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Called by an SaaS partner to create a partner event source. This operation is not used by
  *       Amazon Web Services customers.</p>
  *          <p>Each partner event source can be used by one Amazon Web Services account to create a matching partner
@@ -95,6 +94,7 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class CreatePartnerEventSourceCommand extends $Command
   .classBuilder<

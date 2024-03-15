@@ -27,7 +27,6 @@ export interface SearchDashboardsCommandInput extends SearchDashboardsRequest {}
 export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for dashboards that belong to a user. </p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -101,6 +100,7 @@ export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class SearchDashboardsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListStudioLifecycleConfigsCommandInput extends ListStudioLifecy
 export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifecycleConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon SageMaker Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListStudioLifecycleConfigsCommand extends $Command
   .classBuilder<

@@ -25,7 +25,6 @@ export interface JsonMapsCommandInput extends JsonMapsInputOutput {}
 export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * The example tests basic map serialization.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class JsonMapsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeCertificateProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a certificate provider.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeCertificateProvider</a> action.
  *       </p>
@@ -87,6 +86,7 @@ export interface DescribeCertificateProviderCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeCertificateProviderCommand extends $Command
   .classBuilder<

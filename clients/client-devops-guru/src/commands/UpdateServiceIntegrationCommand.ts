@@ -27,7 +27,6 @@ export interface UpdateServiceIntegrationCommandInput extends UpdateServiceInteg
 export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Enables or disables integration with a service that can be integrated with DevOps Guru. The
  * 			one service that can be integrated with DevOps Guru is Amazon Web Services Systems Manager, which can be used to create
  * 			an OpsItem for each generated insight. </p>
@@ -86,6 +85,7 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class UpdateServiceIntegrationCommand extends $Command
   .classBuilder<

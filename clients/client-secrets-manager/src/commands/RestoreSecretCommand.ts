@@ -27,7 +27,6 @@ export interface RestoreSecretCommandInput extends RestoreSecretRequest {}
 export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
  *       stamp. You can access a secret again after it has been restored.</p>
  *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -91,6 +90,7 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To restore a previously deleted secret
  * ```javascript
  * // The following example shows how to restore a secret that you previously scheduled for deletion.

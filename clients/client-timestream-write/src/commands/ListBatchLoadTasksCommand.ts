@@ -28,7 +28,6 @@ export interface ListBatchLoadTasksCommandInput extends ListBatchLoadTasksReques
 export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of batch load tasks, along with the name, status, when the task is
  *          resumable until, and other details. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-batch-load-tasks.html">code
  *             sample</a> for details.</p>
@@ -89,6 +88,7 @@ export interface ListBatchLoadTasksCommandOutput extends ListBatchLoadTasksRespo
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class ListBatchLoadTasksCommand extends $Command
   .classBuilder<

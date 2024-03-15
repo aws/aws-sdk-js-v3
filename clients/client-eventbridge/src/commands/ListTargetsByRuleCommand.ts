@@ -31,7 +31,6 @@ export interface ListTargetsByRuleCommandInput extends ListTargetsByRuleRequest 
 export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the targets assigned to the specified rule.</p>
  *          <p>The maximum number of results per page for requests is 100.</p>
  * @example
@@ -197,6 +196,7 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class ListTargetsByRuleCommand extends $Command
   .classBuilder<

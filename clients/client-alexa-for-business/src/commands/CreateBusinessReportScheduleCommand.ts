@@ -32,9 +32,6 @@ export interface CreateBusinessReportScheduleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
  *          location with a specified daily or weekly interval.</p>
  * @example
@@ -82,6 +79,8 @@ export interface CreateBusinessReportScheduleCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class CreateBusinessReportScheduleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListGatewaysCommandInput extends ListGatewaysRequest {}
 export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListGatewaysCommand extends $Command
   .classBuilder<

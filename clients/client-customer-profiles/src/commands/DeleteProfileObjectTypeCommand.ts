@@ -27,7 +27,6 @@ export interface DeleteProfileObjectTypeCommandInput extends DeleteProfileObject
 export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a ProfileObjectType from a specific domain as well as removes all the
  *          ProfileObjects of that type. It also disables integrations from this specific
  *          ProfileObjectType. In addition, it scrubs all of the fields of the standard profile that
@@ -74,6 +73,7 @@ export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjec
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class DeleteProfileObjectTypeCommand extends $Command
   .classBuilder<

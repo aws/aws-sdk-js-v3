@@ -27,7 +27,6 @@ export interface DisassociateResourceCommandInput extends DisassociateResourceRe
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a canary from a group. You must run this operation in the Region where the canary exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class DisassociateResourceCommand extends $Command
   .classBuilder<

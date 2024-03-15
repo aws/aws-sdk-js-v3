@@ -32,7 +32,6 @@ export interface DescribeDBClusterAutomatedBackupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays backups for both current and deleted DB clusters. For example, use this operation to find details
  *             about automated backups for previously deleted clusters. Current clusters are returned for both the
  *             <code>DescribeDBClusterAutomatedBackups</code> and <code>DescribeDBClusters</code> operations.</p>
@@ -111,6 +110,7 @@ export interface DescribeDBClusterAutomatedBackupsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterAutomatedBackupsCommand extends $Command
   .classBuilder<

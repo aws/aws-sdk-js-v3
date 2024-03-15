@@ -27,7 +27,6 @@ export interface ListEventActionsCommandInput extends ListEventActionsRequest {}
 export interface ListEventActionsCommandOutput extends ListEventActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists your event actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class ListEventActionsCommand extends $Command
   .classBuilder<

@@ -327,7 +327,6 @@ export type SupportClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface SupportClientResolvedConfig extends SupportClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Web Services Support</fullname>
  *          <p>The <i>Amazon Web Services Support API Reference</i> is intended for programmers who need detailed
  *             information about the Amazon Web Services Support operations and data types. You can use the API to manage
@@ -372,6 +371,7 @@ export interface SupportClientResolvedConfig extends SupportClientResolvedConfig
  *                 Process</a>.</p>
  *          <p>For more information about this service and the endpoints to use, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html">About the
  *                 Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+ * @public
  */
 export class SupportClient extends __Client<
   __HttpHandlerOptions,

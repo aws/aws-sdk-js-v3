@@ -31,7 +31,6 @@ export interface CreateBrowserSettingsCommandInput extends CreateBrowserSettings
 export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a browser settings resource that can be associated with a web portal. Once
  *          associated with a web portal, browser settings control how the browser will behave once a
  *          user starts a streaming session for the web portal. </p>
@@ -93,6 +92,7 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class CreateBrowserSettingsCommand extends $Command
   .classBuilder<

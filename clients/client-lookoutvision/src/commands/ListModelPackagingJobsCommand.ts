@@ -27,7 +27,6 @@ export interface ListModelPackagingJobsCommandInput extends ListModelPackagingJo
 export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Lists the model packaging jobs created for an Amazon Lookout for Vision project.
  * </p>
@@ -93,6 +92,7 @@ export interface ListModelPackagingJobsCommandOutput extends ListModelPackagingJ
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class ListModelPackagingJobsCommand extends $Command
   .classBuilder<

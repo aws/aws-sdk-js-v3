@@ -735,8 +735,8 @@ export type PinpointClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface PinpointClientResolvedConfig extends PinpointClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Doc Engage API - Amazon Pinpoint API</p>
+ * @public
  */
 export class PinpointClient extends __Client<
   __HttpHandlerOptions,

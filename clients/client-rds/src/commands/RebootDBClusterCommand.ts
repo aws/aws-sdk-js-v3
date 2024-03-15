@@ -27,7 +27,6 @@ export interface RebootDBClusterCommandInput extends RebootDBClusterMessage {}
 export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>You might need to reboot your DB cluster, usually for maintenance reasons.
  *           For example, if you make certain modifications,
  *           or if you change the DB cluster parameter group associated with the DB cluster,
@@ -260,6 +259,7 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class RebootDBClusterCommand extends $Command
   .classBuilder<

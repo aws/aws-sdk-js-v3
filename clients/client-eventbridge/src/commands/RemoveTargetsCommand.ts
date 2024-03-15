@@ -27,7 +27,6 @@ export interface RemoveTargetsCommandInput extends RemoveTargetsRequest {}
 export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified targets from the specified rule. When the rule is triggered, those
  *       targets are no longer be invoked.</p>
  *          <note>
@@ -94,6 +93,7 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class RemoveTargetsCommand extends $Command
   .classBuilder<

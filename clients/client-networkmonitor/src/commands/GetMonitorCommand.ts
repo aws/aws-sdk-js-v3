@@ -27,7 +27,6 @@ export interface GetMonitorCommandInput extends GetMonitorInput {}
 export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a specific monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class GetMonitorCommand extends $Command
   .classBuilder<

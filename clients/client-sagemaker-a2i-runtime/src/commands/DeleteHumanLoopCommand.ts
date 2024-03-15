@@ -31,7 +31,6 @@ export interface DeleteHumanLoopCommandInput extends DeleteHumanLoopRequest {}
 export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified human loop for a flow definition.</p>
  *          <p>If the human loop was deleted, this operation will return a
  *         <code>ResourceNotFoundException</code>. </p>
@@ -76,6 +75,7 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ * @public
  */
 export class DeleteHumanLoopCommand extends $Command
   .classBuilder<

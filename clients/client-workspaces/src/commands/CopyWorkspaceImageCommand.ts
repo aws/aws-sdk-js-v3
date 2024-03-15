@@ -27,7 +27,6 @@ export interface CopyWorkspaceImageCommandInput extends CopyWorkspaceImageReques
 export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified image from the specified Region to the current Region. For more
  *          information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html"> Copy a Custom WorkSpaces
  *             Image</a>.</p>
@@ -94,6 +93,7 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CopyWorkspaceImageCommand extends $Command
   .classBuilder<

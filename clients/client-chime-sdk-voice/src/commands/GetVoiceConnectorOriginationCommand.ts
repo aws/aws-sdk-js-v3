@@ -32,7 +32,6 @@ export interface GetVoiceConnectorOriginationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the origination settings for the specified Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetVoiceConnectorOriginationCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorOriginationCommand extends $Command
   .classBuilder<

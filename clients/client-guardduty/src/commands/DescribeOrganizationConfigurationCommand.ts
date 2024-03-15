@@ -35,7 +35,6 @@ export interface DescribeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the account selected as the delegated administrator for
  *       GuardDuty.</p>
  *          <p>There might be regional differences because some data sources might not be
@@ -107,6 +106,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConfigurationCommand extends $Command
   .classBuilder<

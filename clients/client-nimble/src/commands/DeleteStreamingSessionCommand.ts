@@ -27,7 +27,6 @@ export interface DeleteStreamingSessionCommandInput extends DeleteStreamingSessi
 export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes streaming session resource.</p>
  *         <p>After invoking this operation, use GetStreamingSession to poll the resource until it
  *             transitions to a <code>DELETED</code> state.</p>
@@ -119,6 +118,7 @@ export interface DeleteStreamingSessionCommandOutput extends DeleteStreamingSess
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class DeleteStreamingSessionCommand extends $Command
   .classBuilder<

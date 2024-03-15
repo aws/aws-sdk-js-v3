@@ -27,7 +27,6 @@ export interface GetTagsCommandInput extends GetTagsInput {}
 export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of tags that are associated with a resource group, specified by an
  *             ARN.</p>
  *          <p>
@@ -89,6 +88,7 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class GetTagsCommand extends $Command
   .classBuilder<

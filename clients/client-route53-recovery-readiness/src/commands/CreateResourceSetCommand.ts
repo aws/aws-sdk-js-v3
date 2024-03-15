@@ -31,7 +31,6 @@ export interface CreateResourceSetCommandInput extends CreateResourceSetRequest 
 export interface CreateResourceSetCommandOutput extends CreateResourceSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class CreateResourceSetCommand extends $Command
   .classBuilder<

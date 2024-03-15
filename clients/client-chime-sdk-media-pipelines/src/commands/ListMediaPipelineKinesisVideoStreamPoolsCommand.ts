@@ -41,7 +41,6 @@ export interface ListMediaPipelineKinesisVideoStreamPoolsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the video stream pools in the media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface ListMediaPipelineKinesisVideoStreamPoolsCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class ListMediaPipelineKinesisVideoStreamPoolsCommand extends $Command
   .classBuilder<

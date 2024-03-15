@@ -27,7 +27,6 @@ export interface DetectDocumentTextCommandInput extends DetectDocumentTextReques
 export interface DetectDocumentTextCommandOutput extends DetectDocumentTextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
  *          words that make up a line of text. The input document must be in one of the following image
  *          formats:  JPEG, PNG, PDF, or TIFF. <code>DetectDocumentText</code> returns the detected
@@ -162,6 +161,7 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class DetectDocumentTextCommand extends $Command
   .classBuilder<

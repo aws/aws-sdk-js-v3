@@ -291,8 +291,8 @@ export type PinpointSMSVoiceClientResolvedConfigType = __SmithyResolvedConfigura
 export interface PinpointSMSVoiceClientResolvedConfig extends PinpointSMSVoiceClientResolvedConfigType {}
 
 /**
- * @public
  * Pinpoint SMS and Voice Messaging public facing APIs
+ * @public
  */
 export class PinpointSMSVoiceClient extends __Client<
   __HttpHandlerOptions,

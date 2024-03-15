@@ -281,7 +281,6 @@ export interface SimSpaceWeaver {
 }
 
 /**
- * @public
  * <p>SimSpace Weaver (SimSpace Weaver)  is a service that you can use to build and run
  *          large-scale spatial simulations in the Amazon Web Services Cloud. For example, you can create
  *          crowd simulations, large real-world environments, and immersive and interactive experiences.
@@ -293,6 +292,7 @@ export interface SimSpaceWeaver {
  *          <p>SimSpace Weaver also provides the SimSpace Weaver app SDK, which you use for app development. The
  *          SimSpace Weaver app SDK API reference is included in the SimSpace Weaver app SDK documentation. This
  *          documentation is part of the SimSpace Weaver app SDK distributable package.</p>
+ * @public
  */
 export class SimSpaceWeaver extends SimSpaceWeaverClient implements SimSpaceWeaver {}
 createAggregatedClient(commands, SimSpaceWeaver);

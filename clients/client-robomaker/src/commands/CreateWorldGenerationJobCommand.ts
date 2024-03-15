@@ -27,7 +27,6 @@ export interface CreateWorldGenerationJobCommandInput extends CreateWorldGenerat
 export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates worlds using the specified template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class CreateWorldGenerationJobCommand extends $Command
   .classBuilder<

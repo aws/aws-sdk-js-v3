@@ -27,7 +27,6 @@ export interface DecodeAuthorizationMessageCommandInput extends DecodeAuthorizat
 export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthorizationMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Decodes additional information about the authorization status of a request from an
  *          encoded message returned in response to an Amazon Web Services request.</p>
  *          <p>For example, if a user is not authorized to perform an operation that he or she has
@@ -95,6 +94,7 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  * @example To decode information about an authorization status of a request
  * ```javascript
  * //

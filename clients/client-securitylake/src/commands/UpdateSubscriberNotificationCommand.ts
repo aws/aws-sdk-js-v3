@@ -32,7 +32,6 @@ export interface UpdateSubscriberNotificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or
  *          switches the notification subscription endpoint for a subscriber.</p>
  * @example
@@ -96,6 +95,7 @@ export interface UpdateSubscriberNotificationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class UpdateSubscriberNotificationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetMemberCommandInput extends GetMemberRequest {}
 export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an account that's associated with an Amazon Macie administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetMemberCommand extends $Command
   .classBuilder<

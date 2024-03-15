@@ -31,7 +31,6 @@ export interface ListRxNormInferenceJobsCommandInput extends ListRxNormInference
 export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenceJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenc
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class ListRxNormInferenceJobsCommand extends $Command
   .classBuilder<

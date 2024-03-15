@@ -27,7 +27,6 @@ export interface GetDeploymentStrategyCommandInput extends GetDeploymentStrategy
 export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a deployment strategy. A deployment strategy defines
  *          important criteria for rolling out your configuration to the designated targets. A
  *          deployment strategy includes the overall duration required, a percentage of targets to
@@ -75,6 +74,7 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To retrieve details of a deployment strategy
  * ```javascript
  * // The following get-deployment-strategy example lists the details of the specified deployment strategy.

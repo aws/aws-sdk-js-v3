@@ -27,7 +27,6 @@ export interface DescribeServerCommandInput extends DescribeServerRequest {}
 export interface DescribeServerCommandOutput extends DescribeServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a file transfer protocol-enabled server that you specify by passing the
  *         <code>ServerId</code> parameter.</p>
  *          <p>The response contains a description of a server's properties. When you set
@@ -146,6 +145,7 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeServerCommand extends $Command
   .classBuilder<

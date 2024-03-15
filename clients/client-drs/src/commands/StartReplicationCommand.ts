@@ -31,7 +31,6 @@ export interface StartReplicationCommandInput extends StartReplicationRequest {}
 export interface StartReplicationCommandOutput extends StartReplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts replication for a stopped Source Server. This action would make the Source Server protected again and restart billing for it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -177,6 +176,7 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StartReplicationCommand extends $Command
   .classBuilder<

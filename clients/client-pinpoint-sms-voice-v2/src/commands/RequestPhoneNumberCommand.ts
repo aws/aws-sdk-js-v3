@@ -31,7 +31,6 @@ export interface RequestPhoneNumberCommandInput extends RequestPhoneNumberReques
 export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Request an origination phone number for use in your account. For more information on
  *             phone number request see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-request-number.html"> Requesting a
  *                 number </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
@@ -129,6 +128,7 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class RequestPhoneNumberCommand extends $Command
   .classBuilder<

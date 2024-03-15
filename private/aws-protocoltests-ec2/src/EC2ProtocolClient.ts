@@ -349,8 +349,8 @@ export type EC2ProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface EC2ProtocolClientResolvedConfig extends EC2ProtocolClientResolvedConfigType {}
 
 /**
- * @public
  * An EC2 query service that sends query requests and XML responses.
+ * @public
  */
 export class EC2ProtocolClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface UpdateTemplateAliasCommandInput extends UpdateTemplateAliasRequ
 export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the template alias of a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateTemplateAliasCommand extends $Command
   .classBuilder<

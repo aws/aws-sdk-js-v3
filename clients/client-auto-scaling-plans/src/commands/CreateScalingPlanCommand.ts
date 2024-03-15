@@ -27,7 +27,6 @@ export interface CreateScalingPlanCommandInput extends CreateScalingPlanRequest 
 export interface CreateScalingPlanCommandOutput extends CreateScalingPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a scaling plan. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * @public
  */
 export class CreateScalingPlanCommand extends $Command
   .classBuilder<

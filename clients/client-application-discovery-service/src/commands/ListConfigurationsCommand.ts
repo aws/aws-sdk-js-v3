@@ -31,7 +31,6 @@ export interface ListConfigurationsCommandInput extends ListConfigurationsReques
 export interface ListConfigurationsCommandOutput extends ListConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of configuration items as specified by the value passed to the
  *       required parameter <code>configurationType</code>. Optional filtering may be applied to refine
  *       search results.</p>
@@ -104,6 +103,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class ListConfigurationsCommand extends $Command
   .classBuilder<

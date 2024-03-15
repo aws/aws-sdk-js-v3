@@ -27,7 +27,6 @@ export interface IncreaseReplicationFactorCommandInput extends IncreaseReplicati
 export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more nodes to a DAX cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class IncreaseReplicationFactorCommand extends $Command
   .classBuilder<

@@ -167,8 +167,8 @@ export interface ResourceGroupsTaggingAPI {
 }
 
 /**
- * @public
  * <fullname>Resource Groups Tagging API</fullname>
+ * @public
  */
 export class ResourceGroupsTaggingAPI extends ResourceGroupsTaggingAPIClient implements ResourceGroupsTaggingAPI {}
 createAggregatedClient(commands, ResourceGroupsTaggingAPI);

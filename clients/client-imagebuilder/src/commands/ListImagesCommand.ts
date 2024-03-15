@@ -27,7 +27,6 @@ export interface ListImagesCommandInput extends ListImagesRequest {}
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of images that you have access to. Newly created images can take up
  * 			to two minutes to appear in the ListImages API Results.</p>
  * @example
@@ -107,6 +106,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListImagesCommand extends $Command
   .classBuilder<

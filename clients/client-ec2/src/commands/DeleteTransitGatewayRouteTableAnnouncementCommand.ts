@@ -36,7 +36,6 @@ export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Advertises to the transit gateway that a transit gateway route table is deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteTransitGatewayRouteTableAnnouncementCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteTransitGatewayRouteTableAnnouncementCommand extends $Command
   .classBuilder<

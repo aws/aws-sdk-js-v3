@@ -31,7 +31,6 @@ export interface SignUpCommandInput extends SignUpRequest {}
 export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers the user in the specified user pool and creates a user name, password, and
  *             user attributes.</p>
  *          <note>
@@ -172,6 +171,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class SignUpCommand extends $Command
   .classBuilder<

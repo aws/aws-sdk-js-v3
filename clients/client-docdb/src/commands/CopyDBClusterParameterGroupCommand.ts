@@ -27,7 +27,6 @@ export interface CopyDBClusterParameterGroupCommandInput extends CopyDBClusterPa
 export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified cluster parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class CopyDBClusterParameterGroupCommand extends $Command
   .classBuilder<

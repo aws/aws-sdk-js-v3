@@ -27,7 +27,6 @@ export interface DeleteDeviceDefinitionCommandInput extends DeleteDeviceDefiniti
 export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a device definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class DeleteDeviceDefinitionCommand extends $Command
   .classBuilder<

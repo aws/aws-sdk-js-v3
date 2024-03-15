@@ -27,7 +27,6 @@ export interface ImportBackendStorageCommandInput extends ImportBackendStorageRe
 export interface ImportBackendStorageCommandOutput extends ImportBackendStorageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports an existing backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class ImportBackendStorageCommand extends $Command
   .classBuilder<

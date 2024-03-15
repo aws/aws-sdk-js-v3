@@ -27,7 +27,6 @@ export interface GetCanaryRunsCommandInput extends GetCanaryRunsRequest {}
 export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of runs for a specified canary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class GetCanaryRunsCommand extends $Command
   .classBuilder<

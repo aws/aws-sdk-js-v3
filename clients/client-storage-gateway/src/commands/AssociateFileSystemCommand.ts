@@ -31,7 +31,6 @@ export interface AssociateFileSystemCommandInput extends AssociateFileSystemInpu
 export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate an Amazon FSx file system with the FSx File Gateway. After the
  *          association process is complete, the file shares on the Amazon FSx file system are
  *          available for access through the gateway. This operation only supports the FSx File Gateway
@@ -89,6 +88,7 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class AssociateFileSystemCommand extends $Command
   .classBuilder<

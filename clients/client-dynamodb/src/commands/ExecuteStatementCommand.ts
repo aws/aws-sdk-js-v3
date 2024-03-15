@@ -27,7 +27,6 @@ export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation allows you to perform reads and singleton writes on data stored in
  *             DynamoDB, using PartiQL.</p>
  *          <p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
@@ -225,6 +224,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ExecuteStatementCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDeploymentCommandInput extends GetDeploymentInput {}
 export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed data for a deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -153,6 +152,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetDeploymentCommand extends $Command
   .classBuilder<

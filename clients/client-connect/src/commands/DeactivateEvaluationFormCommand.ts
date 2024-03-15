@@ -27,7 +27,6 @@ export interface DeactivateEvaluationFormCommandInput extends DeactivateEvaluati
 export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluationFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates an evaluation form in the specified Amazon Connect instance. After a form is deactivated,
  *    it is no longer available for users to start new evaluations based on the form. </p>
  * @example
@@ -75,6 +74,7 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeactivateEvaluationFormCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
 export interface DeleteLabelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a label. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteLabelCommandOutput extends __MetadataBearer {}
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DeleteLabelCommand extends $Command
   .classBuilder<

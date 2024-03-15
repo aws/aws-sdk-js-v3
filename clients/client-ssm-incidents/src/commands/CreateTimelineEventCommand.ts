@@ -27,7 +27,6 @@ export interface CreateTimelineEventCommandInput extends CreateTimelineEventInpu
 export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom timeline event on the incident details page of an incident record.
  *       Incident Manager automatically creates timeline events that mark key moments during an incident.
  *       You can create custom timeline events to mark important events that Incident Manager can detect
@@ -89,6 +88,7 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class CreateTimelineEventCommand extends $Command
   .classBuilder<

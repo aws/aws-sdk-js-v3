@@ -30,7 +30,6 @@ export interface GetSignalingChannelEndpointCommandInput extends GetSignalingCha
 export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingChannelEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides an endpoint for the specified signaling channel to send and receive messages.
  *             This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
  *             which consists of the <code>Protocols</code> and <code>Role</code> properties.</p>
@@ -115,6 +114,7 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class GetSignalingChannelEndpointCommand extends $Command
   .classBuilder<

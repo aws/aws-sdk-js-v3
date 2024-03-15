@@ -36,7 +36,6 @@ export interface GetTrustStoreRevocationContentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified revocation file.</p>
  *          <p>This action returns a pre-signed S3 URI which is
  *       active for ten minutes.</p>
@@ -73,6 +72,7 @@ export interface GetTrustStoreRevocationContentCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class GetTrustStoreRevocationContentCommand extends $Command
   .classBuilder<

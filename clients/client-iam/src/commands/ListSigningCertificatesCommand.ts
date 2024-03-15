@@ -27,7 +27,6 @@ export interface ListSigningCertificatesCommandInput extends ListSigningCertific
 export interface ListSigningCertificatesCommandOutput extends ListSigningCertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the signing certificates associated with the specified IAM
  *             user. If none exists, the operation returns an empty list.</p>
  *          <p>Although each user is limited to a small number of signing certificates, you can still
@@ -84,6 +83,7 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list the signing certificates for an IAM user
  * ```javascript
  * // The following command lists the signing certificates for the IAM user named Bob.

@@ -27,7 +27,6 @@ export interface DescribeAccountHealthCommandInput extends DescribeAccountHealth
 export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns the number of open reactive insights, the number of open proactive insights,
  * 			and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the
  * 			health of operations in your Amazon Web Services account. </p>
@@ -75,6 +74,7 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeAccountHealthCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisassociateRouteTableCommandInput extends DisassociateRouteTab
 export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a subnet or gateway from a route table.</p>
  *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
  * 				Instead, it uses the routes in the VPC's main route table. For more information
@@ -58,6 +57,7 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To disassociate a route table
  * ```javascript
  * // This example disassociates the specified route table from its associated subnet.

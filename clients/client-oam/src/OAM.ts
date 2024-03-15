@@ -239,7 +239,6 @@ export interface OAM {
 }
 
 /**
- * @public
  * <p>Use Amazon CloudWatch Observability Access Manager to create and manage links between source accounts and
  *             monitoring accounts by using <i>CloudWatch cross-account observability</i>. With
  *             CloudWatch cross-account observability, you can monitor and troubleshoot applications that span
@@ -251,6 +250,7 @@ export interface OAM {
  *             observability data generated from source accounts. A source account is an individual Amazon Web Services account that generates observability data for the resources that reside in it.
  *             Source accounts share their observability data with the monitoring account. The shared
  *             observability data can include metrics in Amazon CloudWatch, logs in Amazon CloudWatch Logs, traces in X-Ray, and applications in Amazon CloudWatch Application Insights.</p>
+ * @public
  */
 export class OAM extends OAMClient implements OAM {}
 createAggregatedClient(commands, OAM);

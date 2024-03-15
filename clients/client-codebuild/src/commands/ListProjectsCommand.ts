@@ -27,7 +27,6 @@ export interface ListProjectsCommandInput extends ListProjectsInput {}
 export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of build project names, with each build project name representing a single
  *             build project.</p>
  * @example
@@ -64,6 +63,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ListProjectsCommand extends $Command
   .classBuilder<

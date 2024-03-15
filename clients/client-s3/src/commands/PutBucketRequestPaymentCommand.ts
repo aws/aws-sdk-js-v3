@@ -28,7 +28,6 @@ export interface PutBucketRequestPaymentCommandInput extends PutBucketRequestPay
 export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -80,6 +79,7 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example Set request payment configuration on a bucket.
  * ```javascript
  * // The following example sets request payment configuration on a bucket so that person requesting the download is charged.

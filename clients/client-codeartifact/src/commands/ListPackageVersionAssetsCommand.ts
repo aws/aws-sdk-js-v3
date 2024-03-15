@@ -27,7 +27,6 @@ export interface ListPackageVersionAssetsCommandInput extends ListPackageVersion
 export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersionAssetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Returns a list of
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a>
@@ -104,6 +103,7 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class ListPackageVersionAssetsCommand extends $Command
   .classBuilder<

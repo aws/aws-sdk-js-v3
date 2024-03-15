@@ -27,7 +27,6 @@ export interface CreateIdentityPoolCommandInput extends CreateIdentityPoolInput 
 export interface CreateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new identity pool. The identity pool is a store of user identity
  *          information that is specific to your AWS account. The keys for <code>SupportedLoginProviders</code> are as follows:</p>
  *
@@ -145,6 +144,7 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class CreateIdentityPoolCommand extends $Command
   .classBuilder<

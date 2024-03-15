@@ -40,7 +40,6 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
  *           Amazon Web Services account.  This action always returns the
  *          latest results.</p>
@@ -90,6 +89,7 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
   .classBuilder<

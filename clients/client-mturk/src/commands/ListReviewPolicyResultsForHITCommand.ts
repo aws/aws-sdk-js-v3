@@ -32,7 +32,6 @@ export interface ListReviewPolicyResultsForHITCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>ListReviewPolicyResultsForHIT</code> operation retrieves the computed results
  *             and the actions taken in the course of executing your Review Policies for a given HIT.
@@ -166,6 +165,7 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListReviewPolicyResultsForHITCommand extends $Command
   .classBuilder<

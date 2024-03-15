@@ -32,7 +32,6 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all rule groups that are managed by Firewall Manager for the specified web ACL. </p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
  *             <a>WebACL</a>. </p>
@@ -102,6 +101,7 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DeleteFirewallManagerRuleGroupsCommand extends $Command
   .classBuilder<

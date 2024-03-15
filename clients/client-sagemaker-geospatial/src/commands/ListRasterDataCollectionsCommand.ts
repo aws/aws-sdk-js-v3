@@ -36,7 +36,6 @@ export interface ListRasterDataCollectionsCommandInput extends ListRasterDataCol
 export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCollectionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to get raster data collections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class ListRasterDataCollectionsCommand extends $Command
   .classBuilder<

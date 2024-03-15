@@ -36,7 +36,6 @@ export interface AdminGetDeviceCommandInput extends AdminGetDeviceRequest {}
 export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the device, as an administrator.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -118,6 +117,7 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminGetDeviceCommand extends $Command
   .classBuilder<

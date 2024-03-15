@@ -35,7 +35,6 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class UpdateFirewallRuleGroupAssociationCommand extends $Command
   .classBuilder<

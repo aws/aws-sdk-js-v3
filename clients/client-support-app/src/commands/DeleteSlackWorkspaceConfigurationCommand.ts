@@ -32,7 +32,6 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Slack workspace configuration from your Amazon Web Services account. This operation doesn't
  *       delete your Slack workspace.</p>
  * @example
@@ -101,6 +100,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * @public
  */
 export class DeleteSlackWorkspaceConfigurationCommand extends $Command
   .classBuilder<

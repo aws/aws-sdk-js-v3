@@ -31,7 +31,6 @@ export interface StartICD10CMInferenceJobCommandInput extends StartICD10CMInfere
 export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM
  *       ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a
  *       job.</p>
@@ -89,6 +88,7 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StartICD10CMInferenceJobCommand extends $Command
   .classBuilder<

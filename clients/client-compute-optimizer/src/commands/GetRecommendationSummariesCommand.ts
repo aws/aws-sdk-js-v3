@@ -27,7 +27,6 @@ export interface GetRecommendationSummariesCommandInput extends GetRecommendatio
 export interface GetRecommendationSummariesCommandOutput extends GetRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the optimization findings for an account.</p>
  *          <p>It returns the number of:</p>
  *          <ul>
@@ -147,6 +146,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetRecommendationSummariesCommand extends $Command
   .classBuilder<

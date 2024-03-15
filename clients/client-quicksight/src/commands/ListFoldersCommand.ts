@@ -27,7 +27,6 @@ export interface ListFoldersCommandInput extends ListFoldersRequest {}
 export interface ListFoldersCommandOutput extends ListFoldersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all folders in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListFoldersCommandOutput extends ListFoldersResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListFoldersCommand extends $Command
   .classBuilder<

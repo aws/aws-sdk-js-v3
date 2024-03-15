@@ -36,7 +36,6 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
  *          filters to narrow results.</p>
  *          <p class="title">
@@ -115,6 +114,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListChannelsCommand extends $Command
   .classBuilder<

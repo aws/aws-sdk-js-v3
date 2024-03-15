@@ -27,7 +27,6 @@ export interface DeleteRouteTableCommandInput extends DeleteRouteTableRequest {}
 export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +53,7 @@ export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a route table
  * ```javascript
  * // This example deletes the specified route table.

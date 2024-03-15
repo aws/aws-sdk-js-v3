@@ -34,7 +34,6 @@ export interface UploadReadSetPartCommandInput extends Omit<UploadReadSetPartReq
 export interface UploadReadSetPartCommandOutput extends UploadReadSetPartResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       This operation uploads a specific part of a read set. If you upload a new part using a previously used part number, the previously uploaded part will be overwritten.
  *     </p>
@@ -94,6 +93,7 @@ export interface UploadReadSetPartCommandOutput extends UploadReadSetPartRespons
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class UploadReadSetPartCommand extends $Command
   .classBuilder<

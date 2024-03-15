@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { HealthLakeServiceException as __BaseException } from "./HealthLakeServiceException";
 
 /**
- * @public
  * <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -54,8 +54,8 @@ export const CmkType = {
 export type CmkType = (typeof CmkType)[keyof typeof CmkType];
 
 /**
- * @public
  * <p>The data store is in a transition state and the user requested action can not be performed.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -89,24 +89,23 @@ export const FHIRVersion = {
 export type FHIRVersion = (typeof FHIRVersion)[keyof typeof FHIRVersion];
 
 /**
- * @public
  * <p>The identity provider configuration that you gave when the data store was created.</p>
+ * @public
  */
 export interface IdentityProviderConfiguration {
   /**
-   * @public
    * <p>The authorization strategy that you selected when you created the data store.</p>
+   * @public
    */
   AuthorizationStrategy: AuthorizationStrategy | undefined;
 
   /**
-   * @public
    * <p>If you enabled fine-grained authorization when you created the data store.</p>
+   * @public
    */
   FineGrainedAuthorizationEnabled?: boolean;
 
   /**
-   * @public
    * <p>The JSON metadata elements that you want to use in your identity provider configuration. Required elements are listed based on the launch specification of the SMART application. For more information on all possible elements, see <a href="https://build.fhir.org/ig/HL7/smart-app-launch/conformance.html#metadata">Metadata</a> in SMART's App Launch specification.</p>
    *          <p>
    *             <code>authorization_endpoint</code>: The URL to the OAuth2 authorization endpoint.</p>
@@ -118,12 +117,13 @@ export interface IdentityProviderConfiguration {
    *             <code>capabilities</code>: An array of strings of the SMART capabilities that the authorization server supports.</p>
    *          <p>
    *             <code>code_challenge_methods_supported</code>: An array of strings of supported PKCE code challenge methods. You must include the <code>S256</code> method in the array of PKCE code challenge methods.</p>
+   * @public
    */
   Metadata?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Lambda function that you want to use to decode the access token created by the authorization server.</p>
+   * @public
    */
   IdpLambdaArn?: string;
 }
@@ -142,77 +142,77 @@ export const PreloadDataType = {
 export type PreloadDataType = (typeof PreloadDataType)[keyof typeof PreloadDataType];
 
 /**
- * @public
  * <p> The input properties for the preloaded data store. Only data preloaded from Synthea is supported.</p>
+ * @public
  */
 export interface PreloadDataConfig {
   /**
-   * @public
    * <p>The type of preloaded data. Only Synthea preloaded data is supported.</p>
+   * @public
    */
   PreloadDataType: PreloadDataType | undefined;
 }
 
 /**
- * @public
  * <p>
  *             The customer-managed-key(CMK) used when creating a data store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
  *          </p>
+ * @public
  */
 export interface KmsEncryptionConfig {
   /**
-   * @public
    * <p>
    *             The type of customer-managed-key(CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
    *          </p>
+   * @public
    */
   CmkType: CmkType | undefined;
 
   /**
-   * @public
    * <p>
    *             The KMS encryption key id/alias used to encrypt the data store contents at rest.
    *          </p>
+   * @public
    */
   KmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>
  *             The server-side encryption key configuration for a customer provided encryption key.
  *          </p>
+ * @public
  */
 export interface SseConfiguration {
   /**
-   * @public
    * <p>
    *             The KMS encryption configuration used to provide details for data encryption.
    *          </p>
+   * @public
    */
   KmsEncryptionConfig: KmsEncryptionConfig | undefined;
 }
 
 /**
- * @public
  * <p>
  *             A tag is a label consisting of a user-defined key and value. The form for tags is \{"Key", "Value"\}
  *          </p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>
    *             The key portion of a tag. Tag keys are case sensitive.
    *          </p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The value portion of a tag. Tag values are case sensitive.
    *          </p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -222,49 +222,49 @@ export interface Tag {
  */
 export interface CreateFHIRDatastoreRequest {
   /**
-   * @public
    * <p>The user generated name for the data store.</p>
+   * @public
    */
   DatastoreName?: string;
 
   /**
-   * @public
    * <p>The FHIR version of the data store. The only supported version is R4.</p>
+   * @public
    */
   DatastoreTypeVersion: FHIRVersion | undefined;
 
   /**
-   * @public
    * <p>
    *             The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
    *          </p>
+   * @public
    */
   SseConfiguration?: SseConfiguration;
 
   /**
-   * @public
    * <p>Optional parameter to preload data upon creation of the data store. Currently, the only
    *          supported preloaded data is synthetic data generated from Synthea.</p>
+   * @public
    */
   PreloadDataConfig?: PreloadDataConfig;
 
   /**
-   * @public
    * <p>Optional user provided token used for ensuring idempotency.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>
    *             Resource tags that are applied to a data store when it is created.
    *          </p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The configuration of the identity provider that you want to use for your data store.</p>
+   * @public
    */
   IdentityProviderConfiguration?: IdentityProviderConfiguration;
 }
@@ -290,35 +290,35 @@ export type DatastoreStatus = (typeof DatastoreStatus)[keyof typeof DatastoreSta
  */
 export interface CreateFHIRDatastoreResponse {
   /**
-   * @public
    * <p>The AWS-generated data store id. This id is in the output from the initial data store
    *          creation call.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The data store ARN is generated during the creation of the data store and can be found in
    *          the output from the initial data store creation call.</p>
+   * @public
    */
   DatastoreArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the FHIR data store.</p>
+   * @public
    */
   DatastoreStatus: DatastoreStatus | undefined;
 
   /**
-   * @public
    * <p>The AWS endpoint for the created data store.</p>
+   * @public
    */
   DatastoreEndpoint: string | undefined;
 }
 
 /**
- * @public
  * <p>Unknown error occurs in the service.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -339,8 +339,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -361,8 +361,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The user input parameter was invalid.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -383,101 +383,101 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The filters applied to data store query.</p>
+ * @public
  */
 export interface DatastoreFilter {
   /**
-   * @public
    * <p>Allows the user to filter data store results by name.</p>
+   * @public
    */
   DatastoreName?: string;
 
   /**
-   * @public
    * <p>Allows the user to filter data store results by status.</p>
+   * @public
    */
   DatastoreStatus?: DatastoreStatus;
 
   /**
-   * @public
    * <p>A filter that allows the user to set cutoff dates for records. All data stores created
    *          before the specified date will be included in the results. </p>
+   * @public
    */
   CreatedBefore?: Date;
 
   /**
-   * @public
    * <p>A filter that allows the user to set cutoff dates for records. All data stores created
    *          after the specified date will be included in the results.</p>
+   * @public
    */
   CreatedAfter?: Date;
 }
 
 /**
- * @public
  * <p>Displays the properties of the data store, including the ID, ARN, name, and the status of the data store.</p>
+ * @public
  */
 export interface DatastoreProperties {
   /**
-   * @public
    * <p>The AWS-generated ID number for the data store.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name used in the creation of the data store.</p>
+   * @public
    */
   DatastoreArn: string | undefined;
 
   /**
-   * @public
    * <p>The user-generated name for the data store.</p>
+   * @public
    */
   DatastoreName?: string;
 
   /**
-   * @public
    * <p>The status of the data store.</p>
+   * @public
    */
   DatastoreStatus: DatastoreStatus | undefined;
 
   /**
-   * @public
    * <p>The time that a data store was created. </p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The FHIR version. Only R4 version data is supported.</p>
+   * @public
    */
   DatastoreTypeVersion: FHIRVersion | undefined;
 
   /**
-   * @public
    * <p>The AWS endpoint for the data store. Each data store will have it's own endpoint with data store ID in the endpoint URL.</p>
+   * @public
    */
   DatastoreEndpoint: string | undefined;
 
   /**
-   * @public
    * <p>
    *          The server-side encryption key configuration for a customer provided encryption key (CMK).
    *       </p>
+   * @public
    */
   SseConfiguration?: SseConfiguration;
 
   /**
-   * @public
    * <p>The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.</p>
+   * @public
    */
   PreloadDataConfig?: PreloadDataConfig;
 
   /**
-   * @public
    * <p>The identity provider that you selected when you created the data store.</p>
+   * @public
    */
   IdentityProviderConfiguration?: IdentityProviderConfiguration;
 }
@@ -487,8 +487,8 @@ export interface DatastoreProperties {
  */
 export interface DeleteFHIRDatastoreRequest {
   /**
-   * @public
    * <p> The AWS-generated ID for the data store to be deleted.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 }
@@ -498,34 +498,34 @@ export interface DeleteFHIRDatastoreRequest {
  */
 export interface DeleteFHIRDatastoreResponse {
   /**
-   * @public
    * <p>The AWS-generated ID for the data store to be deleted.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that gives AWS HealthLake access permission.</p>
+   * @public
    */
   DatastoreArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data store that the user has requested to be deleted.
    *       </p>
+   * @public
    */
   DatastoreStatus: DatastoreStatus | undefined;
 
   /**
-   * @public
    * <p>The AWS endpoint for the data store the user has requested to be deleted.</p>
+   * @public
    */
   DatastoreEndpoint: string | undefined;
 }
 
 /**
- * @public
  * <p> The requested data store was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -550,8 +550,8 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeFHIRDatastoreRequest {
   /**
-   * @public
    * <p>The AWS-generated data store ID.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 }
@@ -561,9 +561,9 @@ export interface DescribeFHIRDatastoreRequest {
  */
 export interface DescribeFHIRDatastoreResponse {
   /**
-   * @public
    * <p>All properties associated with a data store, including the data store ID, data store ARN,
    *          data store name, data store status, when the data store was created, data store type version, and the data store's endpoint.</p>
+   * @public
    */
   DatastoreProperties: DatastoreProperties | undefined;
 }
@@ -573,14 +573,14 @@ export interface DescribeFHIRDatastoreResponse {
  */
 export interface DescribeFHIRExportJobRequest {
   /**
-   * @public
    * <p>The AWS generated ID for the data store from which files are being exported from for an export job.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The AWS generated ID for an export job.</p>
+   * @public
    */
   JobId: string | undefined;
 }
@@ -607,32 +607,32 @@ export const JobStatus = {
 export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
- * @public
  * <p>
  *             The configuration of the S3 bucket for either an import or export job. This includes assigning permissions for access.
  *          </p>
+ * @public
  */
 export interface S3Configuration {
   /**
-   * @public
    * <p>
    *             The S3Uri is the user specified S3 location of the FHIR data to be imported into AWS HealthLake.
    *          </p>
+   * @public
    */
   S3Uri: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The KMS key ID used to access the S3 bucket.
    *          </p>
+   * @public
    */
   KmsKeyId: string | undefined;
 }
 
 /**
- * @public
  * <p>The output data configuration that was supplied when the export job was created.</p>
+ * @public
  */
 export type OutputDataConfig = OutputDataConfig.S3ConfigurationMember | OutputDataConfig.$UnknownMember;
 
@@ -641,10 +641,10 @@ export type OutputDataConfig = OutputDataConfig.S3ConfigurationMember | OutputDa
  */
 export namespace OutputDataConfig {
   /**
-   * @public
    * <p>
    *             The output data configuration that was supplied when the export job was created.
    *          </p>
+   * @public
    */
   export interface S3ConfigurationMember {
     S3Configuration: S3Configuration;
@@ -671,61 +671,61 @@ export namespace OutputDataConfig {
 }
 
 /**
- * @public
  * <p>The properties of a FHIR export job, including the ID, ARN, name, and the status of the job.</p>
+ * @public
  */
 export interface ExportJobProperties {
   /**
-   * @public
    * <p>The AWS generated ID for an export job.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The user generated name for an export job.</p>
+   * @public
    */
   JobName?: string;
 
   /**
-   * @public
    * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
+   * @public
    */
   JobStatus: JobStatus | undefined;
 
   /**
-   * @public
    * <p>The time an export job was initiated.</p>
+   * @public
    */
   SubmitTime: Date | undefined;
 
   /**
-   * @public
    * <p>The time an export job completed.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The AWS generated ID for the data store from which files are being exported for an export job.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The output data configuration that was supplied when the export job was created.</p>
+   * @public
    */
   OutputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name used during the initiation of the job.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>An explanation of any errors that may have occurred during the export job.</p>
+   * @public
    */
   Message?: string;
 }
@@ -735,8 +735,8 @@ export interface ExportJobProperties {
  */
 export interface DescribeFHIRExportJobResponse {
   /**
-   * @public
    * <p>Displays the properties of the export job, including the ID, Arn, Name, and the status of the job. </p>
+   * @public
    */
   ExportJobProperties: ExportJobProperties | undefined;
 }
@@ -746,21 +746,21 @@ export interface DescribeFHIRExportJobResponse {
  */
 export interface DescribeFHIRImportJobRequest {
   /**
-   * @public
    * <p>The AWS-generated ID of the data store.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The AWS-generated job ID.</p>
+   * @public
    */
   JobId: string | undefined;
 }
 
 /**
- * @public
  * <p> The input properties for an import job.</p>
+ * @public
  */
 export type InputDataConfig = InputDataConfig.S3UriMember | InputDataConfig.$UnknownMember;
 
@@ -769,8 +769,8 @@ export type InputDataConfig = InputDataConfig.S3UriMember | InputDataConfig.$Unk
  */
 export namespace InputDataConfig {
   /**
-   * @public
    * <p>The S3Uri is the user specified S3 location of the FHIR data to be imported into AWS HealthLake. </p>
+   * @public
    */
   export interface S3UriMember {
     S3Uri: string;
@@ -797,127 +797,127 @@ export namespace InputDataConfig {
 }
 
 /**
- * @public
  * <p>The progress report of an import job.</p>
+ * @public
  */
 export interface JobProgressReport {
   /**
-   * @public
    * <p>The number of files scanned from input S3 bucket.</p>
+   * @public
    */
   TotalNumberOfScannedFiles?: number;
 
   /**
-   * @public
    * <p>The size (in MB) of the files scanned from the input S3 bucket.</p>
+   * @public
    */
   TotalSizeOfScannedFilesInMB?: number;
 
   /**
-   * @public
    * <p>The number of files imported so far.</p>
+   * @public
    */
   TotalNumberOfImportedFiles?: number;
 
   /**
-   * @public
    * <p>The number of resources scanned from the input S3 bucket.</p>
+   * @public
    */
   TotalNumberOfResourcesScanned?: number;
 
   /**
-   * @public
    * <p>The number of resources imported so far.</p>
+   * @public
    */
   TotalNumberOfResourcesImported?: number;
 
   /**
-   * @public
    * <p>The number of resources that failed due to customer error.</p>
+   * @public
    */
   TotalNumberOfResourcesWithCustomerError?: number;
 
   /**
-   * @public
    * <p>The number of files that failed to be read from the input S3 bucket due to customer error.</p>
+   * @public
    */
   TotalNumberOfFilesReadWithCustomerError?: number;
 
   /**
-   * @public
    * <p>The throughput (in MB/sec) of the import job.</p>
+   * @public
    */
   Throughput?: number;
 }
 
 /**
- * @public
  * <p>Displays the properties of the import job, including the ID, Arn, Name, the status of the job, and the progress report of the job.</p>
+ * @public
  */
 export interface ImportJobProperties {
   /**
-   * @public
    * <p>The AWS-generated id number for the Import job.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The user-generated name for an Import job.</p>
+   * @public
    */
   JobName?: string;
 
   /**
-   * @public
    * <p>The job status for an Import job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED_WITH_ERRORS, COMPLETED, FAILED.</p>
+   * @public
    */
   JobStatus: JobStatus | undefined;
 
   /**
-   * @public
    * <p>The time that the Import job was submitted for processing.</p>
+   * @public
    */
   SubmitTime: Date | undefined;
 
   /**
-   * @public
    * <p>The time that the Import job was completed.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The datastore id used when the Import job was created. </p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The input data configuration that was supplied when the Import job was created.</p>
+   * @public
    */
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The output data configuration that was supplied when the export job was created.</p>
+   * @public
    */
   JobOutputDataConfig?: OutputDataConfig;
 
   /**
-   * @public
    * <p>Displays the progress of the import job, including total resources scanned, total resources ingested, and total size of data ingested.</p>
+   * @public
    */
   JobProgressReport?: JobProgressReport;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that gives AWS HealthLake access to your input data.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>An explanation of any errors that may have occurred during the FHIR import job. </p>
+   * @public
    */
   Message?: string;
 }
@@ -927,8 +927,8 @@ export interface ImportJobProperties {
  */
 export interface DescribeFHIRImportJobResponse {
   /**
-   * @public
    * <p>The properties of the Import job request, including the ID, ARN, name, status of the job, and the progress report of the job.</p>
+   * @public
    */
   ImportJobProperties: ImportJobProperties | undefined;
 }
@@ -938,20 +938,20 @@ export interface DescribeFHIRImportJobResponse {
  */
 export interface ListFHIRDatastoresRequest {
   /**
-   * @public
    * <p>Lists all filters associated with a FHIR data store request.</p>
+   * @public
    */
   Filter?: DatastoreFilter;
 
   /**
-   * @public
    * <p>Fetches the next page of data stores when results are paginated.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of data stores returned in a single page of a ListFHIRDatastoresRequest call.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -961,14 +961,14 @@ export interface ListFHIRDatastoresRequest {
  */
 export interface ListFHIRDatastoresResponse {
   /**
-   * @public
    * <p>All properties associated with the listed data stores.</p>
+   * @public
    */
   DatastorePropertiesList: DatastoreProperties[] | undefined;
 
   /**
-   * @public
    * <p>Pagination token that can be used to retrieve the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -978,58 +978,58 @@ export interface ListFHIRDatastoresResponse {
  */
 export interface ListFHIRExportJobsRequest {
   /**
-   * @public
    * <p>
    *             This parameter limits the response to the export job with the specified data store ID.
    *          </p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             A pagination token used to identify the next page of results to return for a ListFHIRExportJobs query.
    *          </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the number of results returned for a ListFHIRExportJobs to a maximum quantity specified by the user.
    *          </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to the export job with the specified job name.
    *          </p>
+   * @public
    */
   JobName?: string;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to the export jobs with the specified job status.
    *          </p>
+   * @public
    */
   JobStatus?: JobStatus;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to FHIR export jobs submitted before a user specified date.
    *          </p>
+   * @public
    */
   SubmittedBefore?: Date;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to FHIR export jobs submitted after a user specified date.
    *          </p>
+   * @public
    */
   SubmittedAfter?: Date;
 }
@@ -1039,18 +1039,18 @@ export interface ListFHIRExportJobsRequest {
  */
 export interface ListFHIRExportJobsResponse {
   /**
-   * @public
    * <p>
    *             The properties of listed FHIR export jobs, including the ID, ARN, name, and the status of the job.
    *          </p>
+   * @public
    */
   ExportJobPropertiesList: ExportJobProperties[] | undefined;
 
   /**
-   * @public
    * <p>
    *             A pagination token used to identify the next page of results to return for a ListFHIRExportJobs query.
    *          </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1060,58 +1060,58 @@ export interface ListFHIRExportJobsResponse {
  */
 export interface ListFHIRImportJobsRequest {
   /**
-   * @public
    * <p>
    *             This parameter limits the response to the import job with the specified data store ID.
    *          </p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             A pagination token used to identify the next page of results to return for a ListFHIRImportJobs query.
    *          </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the number of results returned for a ListFHIRImportJobs to a maximum quantity specified by the user.
    *          </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to the import job with the specified job name.
    *          </p>
+   * @public
    */
   JobName?: string;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to the import job with the specified job status.
    *          </p>
+   * @public
    */
   JobStatus?: JobStatus;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to FHIR import jobs submitted before a user specified date.
    *          </p>
+   * @public
    */
   SubmittedBefore?: Date;
 
   /**
-   * @public
    * <p>
    *             This parameter limits the response to FHIR import jobs submitted after a user specified date.
    *          </p>
+   * @public
    */
   SubmittedAfter?: Date;
 }
@@ -1121,18 +1121,18 @@ export interface ListFHIRImportJobsRequest {
  */
 export interface ListFHIRImportJobsResponse {
   /**
-   * @public
    * <p>
    *             The properties of a listed FHIR import jobs, including the ID, ARN, name, the status of the job, and the progress report of the job.
    *          </p>
+   * @public
    */
   ImportJobPropertiesList: ImportJobProperties[] | undefined;
 
   /**
-   * @public
    * <p>
    *             A pagination token used to identify the next page of results to return for a ListFHIRImportJobs query.
    *          </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1142,10 +1142,10 @@ export interface ListFHIRImportJobsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name(ARN) of the data store for which tags are being added.
    *          </p>
+   * @public
    */
   ResourceARN: string | undefined;
 }
@@ -1155,10 +1155,10 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>
    *             Returns a list of tags associated with a data store.
    *          </p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1168,32 +1168,32 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartFHIRExportJobRequest {
   /**
-   * @public
    * <p>The user generated name for an export job.</p>
+   * @public
    */
   JobName?: string;
 
   /**
-   * @public
    * <p>The output data configuration that was supplied when the export job was created.</p>
+   * @public
    */
   OutputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The AWS generated ID for the data store from which files are being exported for an export job.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name used during the initiation of the job.</p>
+   * @public
    */
   DataAccessRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>An optional user provided token used for ensuring idempotency.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -1203,20 +1203,20 @@ export interface StartFHIRExportJobRequest {
  */
 export interface StartFHIRExportJobResponse {
   /**
-   * @public
    * <p>The AWS generated ID for an export job.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
+   * @public
    */
   JobStatus: JobStatus | undefined;
 
   /**
-   * @public
    * <p>The AWS generated ID for the data store from which files are being exported for an export job.</p>
+   * @public
    */
   DatastoreId?: string;
 }
@@ -1226,38 +1226,38 @@ export interface StartFHIRExportJobResponse {
  */
 export interface StartFHIRImportJobRequest {
   /**
-   * @public
    * <p>The name of the FHIR Import job in the StartFHIRImport job request.</p>
+   * @public
    */
   JobName?: string;
 
   /**
-   * @public
    * <p>The input properties of the FHIR Import job in the StartFHIRImport job request.</p>
+   * @public
    */
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The output data configuration that was supplied when the export job was created.</p>
+   * @public
    */
   JobOutputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The AWS-generated data store ID.</p>
+   * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that gives AWS HealthLake access permission.</p>
+   * @public
    */
   DataAccessRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Optional user provided token used for ensuring idempotency.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -1267,20 +1267,20 @@ export interface StartFHIRImportJobRequest {
  */
 export interface StartFHIRImportJobResponse {
   /**
-   * @public
    * <p>The AWS-generated job ID.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The status of an import job.</p>
+   * @public
    */
   JobStatus: JobStatus | undefined;
 
   /**
-   * @public
    * <p>The AWS-generated data store ID.</p>
+   * @public
    */
   DatastoreId?: string;
 }
@@ -1290,18 +1290,18 @@ export interface StartFHIRImportJobResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>
    *             The Amazon Resource Name(ARN)that gives AWS HealthLake access to the data store which tags are being added to.
    *          </p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The user specified key and value pair tags being added to a data store.
    *          </p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -1316,16 +1316,16 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name(ARN) of the data store for which tags are being removed.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The keys for the tags to be removed from the HealthLake data store.
    *          </p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

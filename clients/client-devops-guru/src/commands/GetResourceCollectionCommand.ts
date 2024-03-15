@@ -27,7 +27,6 @@ export interface GetResourceCollectionCommandInput extends GetResourceCollection
 export interface GetResourceCollectionCommandOutput extends GetResourceCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns lists Amazon Web Services resources that are of the specified resource collection type.
  * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
  *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
@@ -93,6 +92,7 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class GetResourceCollectionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListBotAliasesCommandInput extends ListBotAliasesRequest {}
 export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of aliases for the specified bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotAliasesCommand extends $Command
   .classBuilder<

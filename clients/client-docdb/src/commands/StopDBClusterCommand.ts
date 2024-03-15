@@ -27,7 +27,6 @@ export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
  *             cluster must be in the <i>available</i> state. For more information, see
  *                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
@@ -126,6 +125,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class StopDBClusterCommand extends $Command
   .classBuilder<

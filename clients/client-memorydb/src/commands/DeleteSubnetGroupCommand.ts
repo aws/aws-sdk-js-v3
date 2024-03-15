@@ -27,7 +27,6 @@ export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest 
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a subnet group. You cannot delete a default subnet group or one that is associated with any clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DeleteSubnetGroupCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateLoadBalancerCommandInput extends CreateLoadBalancerInput 
 export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
  *       Balancer.</p>
  *          <p>For more information, see the following:</p>
@@ -182,6 +181,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To create an Internet-facing load balancer
  * ```javascript
  * // This example creates an Internet-facing load balancer and enables the Availability Zones for the specified subnets.

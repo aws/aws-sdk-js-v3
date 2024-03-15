@@ -27,7 +27,6 @@ export interface DescribeGlobalSettingsCommandInput extends DescribeGlobalSettin
 export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes whether the Amazon Web Services account is opted in to cross-account backup.
  *          Returns an error if the account is not a member of an Organizations organization.
  *          Example: <code>describe-global-settings --region us-west-2</code>
@@ -66,6 +65,7 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeGlobalSettingsCommand extends $Command
   .classBuilder<

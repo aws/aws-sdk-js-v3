@@ -27,7 +27,6 @@ export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
 export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>You might need to reboot your DB instance, usually for maintenance reasons. For example,
  *       if you make certain modifications, or if you change the DB parameter group associated with the
  *       DB instance, you must reboot the instance for the changes to take effect.</p>
@@ -202,6 +201,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class RebootDBInstanceCommand extends $Command
   .classBuilder<

@@ -943,7 +943,6 @@ export interface PinpointEmail {
 }
 
 /**
- * @public
  * <fullname>Amazon Pinpoint Email Service</fullname>
  *         <p>Welcome to the <i>Amazon Pinpoint Email API Reference</i>. This guide provides
  *             information about the Amazon Pinpoint Email API (version 1.0), including supported
@@ -973,6 +972,7 @@ export interface PinpointEmail {
  *             enable us to provide very high levels of availability and redundancy, while also
  *             minimizing latency. To learn more about the number of Availability Zones that are
  *             available in each Region, see <a href="http://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>.</p>
+ * @public
  */
 export class PinpointEmail extends PinpointEmailClient implements PinpointEmail {}
 createAggregatedClient(commands, PinpointEmail);

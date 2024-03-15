@@ -27,7 +27,6 @@ export interface GenerateChangeSetCommandInput extends GenerateChangeSetRequest 
 export interface GenerateChangeSetCommandOutput extends GenerateChangeSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
  *             object in the customer’s Amazon S3 bucket.</p>
  * @example
@@ -76,6 +75,7 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class GenerateChangeSetCommand extends $Command
   .classBuilder<

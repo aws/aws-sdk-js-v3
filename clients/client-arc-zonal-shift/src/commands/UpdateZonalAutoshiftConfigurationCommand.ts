@@ -35,7 +35,6 @@ export interface UpdateZonalAutoshiftConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>You can update the zonal autoshift status for a resource, to enable or disable zonal
  * 			autoshift. When zonal autoshift is <code>ENABLED</code>, Amazon Web Services shifts away
  * 			resource traffic from an Availability Zone, on your behalf, when Amazon Web Services
@@ -86,6 +85,7 @@ export interface UpdateZonalAutoshiftConfigurationCommandOutput
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class UpdateZonalAutoshiftConfigurationCommand extends $Command
   .classBuilder<

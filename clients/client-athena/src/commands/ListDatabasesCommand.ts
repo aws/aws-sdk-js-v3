@@ -27,7 +27,6 @@ export interface ListDatabasesCommandInput extends ListDatabasesInput {}
 export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the databases in the specified data catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListDatabasesCommand extends $Command
   .classBuilder<

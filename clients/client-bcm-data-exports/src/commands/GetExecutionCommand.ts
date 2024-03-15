@@ -27,7 +27,6 @@ export interface GetExecutionCommandInput extends GetExecutionRequest {}
 export interface GetExecutionCommandOutput extends GetExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports data based on the source data update.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetExecutionCommandOutput extends GetExecutionResponse, __Metad
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class GetExecutionCommand extends $Command
   .classBuilder<

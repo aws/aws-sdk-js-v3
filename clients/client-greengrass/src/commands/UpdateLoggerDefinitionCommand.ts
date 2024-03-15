@@ -27,7 +27,6 @@ export interface UpdateLoggerDefinitionCommandInput extends UpdateLoggerDefiniti
 export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class UpdateLoggerDefinitionCommand extends $Command
   .classBuilder<

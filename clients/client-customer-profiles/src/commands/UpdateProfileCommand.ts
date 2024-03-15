@@ -31,7 +31,6 @@ export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties of a profile. The ProfileId is required for updating a customer
  *          profile.</p>
  *          <p>When calling the UpdateProfile API, specifying an empty string value means that any
@@ -148,6 +147,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class UpdateProfileCommand extends $Command
   .classBuilder<

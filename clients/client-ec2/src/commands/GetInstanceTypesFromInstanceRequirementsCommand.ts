@@ -36,7 +36,6 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of instance types with the specified instance attributes. You can
  *          use the response to preview the instance types without launching instances. Note
  *          that the response does not consider capacity.</p>
@@ -155,6 +154,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
   .classBuilder<

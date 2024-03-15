@@ -27,7 +27,6 @@ export interface ListLFTagsCommandInput extends ListLFTagsRequest {}
 export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists LF-tags that the requester has permission to view. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class ListLFTagsCommand extends $Command
   .classBuilder<

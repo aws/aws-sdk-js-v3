@@ -27,7 +27,6 @@ export interface PutFileSystemPolicyCommandInput extends PutFileSystemPolicyRequ
 export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies an Amazon EFS
  *       <code>FileSystemPolicy</code> to an Amazon EFS file system. A file system policy is an
  *       IAM resource-based policy and can contain multiple policy statements. A file system always has
@@ -88,6 +87,7 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class PutFileSystemPolicyCommand extends $Command
   .classBuilder<

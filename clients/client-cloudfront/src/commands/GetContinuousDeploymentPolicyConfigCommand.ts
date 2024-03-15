@@ -35,7 +35,6 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets configuration information about a continuous deployment policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetContinuousDeploymentPolicyConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetContinuousDeploymentPolicyConfigCommand extends $Command
   .classBuilder<

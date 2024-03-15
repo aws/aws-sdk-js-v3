@@ -27,7 +27,6 @@ export interface GetAccessKeyLastUsedCommandInput extends GetAccessKeyLastUsedRe
 export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about when the specified access key was last used. The
  *             information includes the date and time of last use, along with the Amazon Web Services service and
  *             Region that were specified in the last request made with that key.</p>
@@ -62,6 +61,7 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetAccessKeyLastUsedCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ValidatePipelineCommandInput extends ValidatePipelineRequest {}
 export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to creation. For
  *    more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html">Creating Amazon OpenSearch
  *     Ingestion pipelines</a>.</p>
@@ -72,6 +71,7 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class ValidatePipelineCommand extends $Command
   .classBuilder<

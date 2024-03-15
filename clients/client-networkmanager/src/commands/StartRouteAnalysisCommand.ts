@@ -27,7 +27,6 @@ export interface StartRouteAnalysisCommandInput extends StartRouteAnalysisReques
 export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts analyzing the routing path between the specified source and destination. For more information,
  *             see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html">Route Analyzer</a>.</p>
  * @example
@@ -149,6 +148,7 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class StartRouteAnalysisCommand extends $Command
   .classBuilder<

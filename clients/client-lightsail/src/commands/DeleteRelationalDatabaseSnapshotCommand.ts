@@ -32,7 +32,6 @@ export interface DeleteRelationalDatabaseSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a database snapshot in Amazon Lightsail.</p>
  *          <p>The <code>delete relational database snapshot</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by relationalDatabaseName. For
@@ -111,6 +110,7 @@ export interface DeleteRelationalDatabaseSnapshotCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteRelationalDatabaseSnapshotCommand extends $Command
   .classBuilder<

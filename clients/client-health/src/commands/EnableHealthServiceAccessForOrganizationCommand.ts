@@ -29,7 +29,6 @@ export interface EnableHealthServiceAccessForOrganizationCommandInput {}
 export interface EnableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables Health to work with Organizations. You can use the organizational view feature
  *          to aggregate events from all Amazon Web Services accounts in your organization in a centralized location. </p>
  *          <p>This operation also creates a service-linked role for the management account in the
@@ -80,6 +79,7 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class EnableHealthServiceAccessForOrganizationCommand extends $Command
   .classBuilder<

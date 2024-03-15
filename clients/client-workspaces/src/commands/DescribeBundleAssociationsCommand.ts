@@ -27,7 +27,6 @@ export interface DescribeBundleAssociationsCommandInput extends DescribeBundleAs
 export interface DescribeBundleAssociationsCommandOutput extends DescribeBundleAssociationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the associations between the applications and the specified bundle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeBundleAssociationsCommandOutput extends DescribeBundleA
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeBundleAssociationsCommand extends $Command
   .classBuilder<

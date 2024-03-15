@@ -27,7 +27,6 @@ export interface GetSchemaMappingCommandInput extends GetSchemaMappingInput {}
 export interface GetSchemaMappingCommandOutput extends GetSchemaMappingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the SchemaMapping of a given name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetSchemaMappingCommandOutput extends GetSchemaMappingOutput, _
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class GetSchemaMappingCommand extends $Command
   .classBuilder<

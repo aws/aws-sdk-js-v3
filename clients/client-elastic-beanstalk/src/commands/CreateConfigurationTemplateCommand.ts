@@ -27,7 +27,6 @@ export interface CreateConfigurationTemplateCommandInput extends CreateConfigura
 export interface CreateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
  *       application. You define application configuration settings in a configuration template. You
  *       can then use the configuration template to deploy different versions of the application with
@@ -127,6 +126,7 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To create a configuration template
  * ```javascript
  * // The following operation creates a configuration template named my-app-v1 from the settings applied to an environment with the id e-rpqsewtp2j:

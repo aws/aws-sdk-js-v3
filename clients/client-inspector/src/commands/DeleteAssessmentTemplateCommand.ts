@@ -27,7 +27,6 @@ export interface DeleteAssessmentTemplateCommandInput extends DeleteAssessmentTe
 export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the assessment template that is specified by the ARN of the assessment
  *          template.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Delete assessment template
  * ```javascript
  * // Deletes the assessment template that is specified by the ARN of the assessment template.

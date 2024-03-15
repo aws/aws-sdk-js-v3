@@ -27,7 +27,6 @@ export interface ListChunksCommandInput extends ListChunksInput {}
 export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBearer {}
 
 /**
- * @public
  * List chunks in a given Object
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class ListChunksCommand extends $Command
   .classBuilder<

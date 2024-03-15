@@ -32,7 +32,6 @@ export interface CreateAgentCommandInput extends CreateAgentRequest {}
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates an Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -152,6 +151,7 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class CreateAgentCommand extends $Command
   .classBuilder<

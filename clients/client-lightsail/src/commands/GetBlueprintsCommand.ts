@@ -27,7 +27,6 @@ export interface GetBlueprintsCommandInput extends GetBlueprintsRequest {}
 export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of available instance images, or <i>blueprints</i>. You can
  *       use a blueprint to create a new instance already running a specific operating system, as well
  *       as a preinstalled app or development stack. The software each instance is running depends on
@@ -113,6 +112,7 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetBlueprintsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateJobTemplateCommandInput extends UpdateJobTemplateRequest 
 export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * Modify one of your existing job templates.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -2945,6 +2944,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class UpdateJobTemplateCommand extends $Command
   .classBuilder<

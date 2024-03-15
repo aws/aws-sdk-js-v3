@@ -27,7 +27,6 @@ export interface EnableAddOnCommandInput extends EnableAddOnRequest {}
 export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see
  *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
@@ -110,6 +109,7 @@ export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataB
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class EnableAddOnCommand extends $Command
   .classBuilder<

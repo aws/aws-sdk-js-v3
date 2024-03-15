@@ -27,7 +27,6 @@ export interface UpdateGroupCommandInput extends UpdateGroupInput {}
 export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description for an existing group. You cannot update the name of a
  *             resource group.</p>
  *          <p>
@@ -92,6 +91,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class UpdateGroupCommand extends $Command
   .classBuilder<

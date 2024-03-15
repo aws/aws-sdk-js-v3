@@ -27,7 +27,6 @@ export interface UpdateContactFlowNameCommandInput extends UpdateContactFlowName
 export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNameResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The name of the flow.</p>
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
@@ -76,6 +75,7 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateContactFlowNameCommand extends $Command
   .classBuilder<

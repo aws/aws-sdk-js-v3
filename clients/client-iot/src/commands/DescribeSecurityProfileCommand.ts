@@ -27,7 +27,6 @@ export interface DescribeSecurityProfileCommandInput extends DescribeSecurityPro
 export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a Device Defender security profile.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeSecurityProfile</a> action.</p>
  * @example
@@ -136,6 +135,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeSecurityProfileCommand extends $Command
   .classBuilder<

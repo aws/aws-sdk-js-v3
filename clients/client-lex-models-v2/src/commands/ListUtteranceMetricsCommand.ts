@@ -27,7 +27,6 @@ export interface ListUtteranceMetricsCommandInput extends ListUtteranceMetricsRe
 export interface ListUtteranceMetricsCommandOutput extends ListUtteranceMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>To use this API operation, your IAM role must have permissions to
  *             perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, which provides access to
@@ -167,6 +166,7 @@ export interface ListUtteranceMetricsCommandOutput extends ListUtteranceMetricsR
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListUtteranceMetricsCommand extends $Command
   .classBuilder<

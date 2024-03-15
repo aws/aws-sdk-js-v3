@@ -40,7 +40,6 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.
  *             At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.</p>
  *         <p>Each time you use <code>SetLoadBalancerPoliciesForBackendServer</code> to enable the policies,
@@ -89,6 +88,7 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To replace the policies associated with a port for a backend instance
  * ```javascript
  * // This example replaces the policies that are currently associated with the specified port.

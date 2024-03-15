@@ -27,7 +27,6 @@ export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
 export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings of a pipeline. You must specify both a <code>channel</code> and a
  *         <code>datastore</code> activity and, optionally, as many as 23 additional activities in the
  *         <code>pipelineActivities</code> array.</p>
@@ -138,6 +137,7 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class UpdatePipelineCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchGetIncidentFindingsCommandInput extends BatchGetIncidentFi
 export interface BatchGetIncidentFindingsCommandOutput extends BatchGetIncidentFindingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about all specified findings for an incident, including descriptive details about each finding. A finding
  *       represents a recent application environment change made by an CodeDeploy
  *       deployment or an CloudFormation stack creation or update that can be investigated as a
@@ -104,6 +103,7 @@ export interface BatchGetIncidentFindingsCommandOutput extends BatchGetIncidentF
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class BatchGetIncidentFindingsCommand extends $Command
   .classBuilder<

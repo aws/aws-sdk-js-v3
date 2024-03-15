@@ -32,7 +32,6 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,
  *       to make copies of a database, and to save data before deleting a database.</p>
  *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
@@ -118,6 +117,7 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateRelationalDatabaseSnapshotCommand extends $Command
   .classBuilder<

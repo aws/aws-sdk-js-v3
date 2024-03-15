@@ -32,7 +32,6 @@ export interface ListRecoveryPointsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about all the recovery points of the type specified by a
  *          resource Amazon Resource Name (ARN).</p>
  *          <note>
@@ -94,6 +93,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListRecoveryPointsByResourceCommand extends $Command
   .classBuilder<

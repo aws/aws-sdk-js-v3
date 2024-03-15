@@ -295,7 +295,6 @@ export interface Cloud9 {
 }
 
 /**
- * @public
  * <fullname>Cloud9</fullname>
  *          <p>Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and
  *       release software in the cloud.</p>
@@ -363,6 +362,7 @@ export interface Cloud9 {
  *           environment member for an environment.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Cloud9 extends Cloud9Client implements Cloud9 {}
 createAggregatedClient(commands, Cloud9);

@@ -27,7 +27,6 @@ export interface ListResourceCatalogsCommandInput extends ListResourceCatalogsRe
 export interface ListResourceCatalogsCommandOutput extends ListResourceCatalogsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum number of
  *                 <code>ResourceCatalog</code>s viewable is 1000. </p>
  * @example
@@ -70,6 +69,7 @@ export interface ListResourceCatalogsCommandOutput extends ListResourceCatalogsR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListResourceCatalogsCommand extends $Command
   .classBuilder<

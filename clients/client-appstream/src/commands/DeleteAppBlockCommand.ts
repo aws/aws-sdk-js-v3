@@ -27,7 +27,6 @@ export interface DeleteAppBlockCommandInput extends DeleteAppBlockRequest {}
 export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an app block.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteAppBlockCommand extends $Command
   .classBuilder<

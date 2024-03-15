@@ -27,7 +27,6 @@ export interface GetImagePipelineCommandInput extends GetImagePipelineRequest {}
 export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an image pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -129,6 +128,7 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetImagePipelineCommand extends $Command
   .classBuilder<

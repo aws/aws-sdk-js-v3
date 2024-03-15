@@ -27,7 +27,6 @@ export interface GetKxDatabaseCommandInput extends GetKxDatabaseRequest {}
 export interface GetKxDatabaseCommandOutput extends GetKxDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns database information for the specified environment ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetKxDatabaseCommandOutput extends GetKxDatabaseResponse, __Met
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxDatabaseCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
  *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
  *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
@@ -113,6 +112,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe all volumes
  * ```javascript
  * // This example describes all of your volumes in the default region.

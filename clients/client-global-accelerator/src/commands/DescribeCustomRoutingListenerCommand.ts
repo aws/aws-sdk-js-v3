@@ -36,7 +36,6 @@ export interface DescribeCustomRoutingListenerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The description of a listener for a custom routing accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeCustomRoutingListenerCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DescribeCustomRoutingListenerCommand extends $Command
   .classBuilder<

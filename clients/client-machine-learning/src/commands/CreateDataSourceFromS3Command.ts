@@ -27,7 +27,6 @@ export interface CreateDataSourceFromS3CommandInput extends CreateDataSourceFrom
 export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFromS3Output, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>DataSource</code> object. A <code>DataSource</code> references data that
  *           can be used to perform  <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or
  *           <code>CreateBatchPrediction</code> operations.</p>
@@ -102,6 +101,7 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class CreateDataSourceFromS3Command extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDocumentTextDetectionCommandInput extends GetDocumentTextDet
 export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
  *      Amazon Textract can detect lines of text and the words that make up a line of text.</p>
  *          <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier
@@ -175,6 +174,7 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class GetDocumentTextDetectionCommand extends $Command
   .classBuilder<

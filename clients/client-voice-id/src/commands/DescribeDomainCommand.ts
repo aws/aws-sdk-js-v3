@@ -31,7 +31,6 @@ export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
 export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DescribeDomainCommand extends $Command
   .classBuilder<

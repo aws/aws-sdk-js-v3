@@ -27,7 +27,6 @@ export interface UpdateAccountConfigurationCommandInput extends UpdateAccountCon
 export interface UpdateAccountConfigurationCommandOutput extends UpdateAccountConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use to update account-level configuration with an encryption key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateAccountConfigurationCommandOutput extends UpdateAccountCo
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class UpdateAccountConfigurationCommand extends $Command
   .classBuilder<

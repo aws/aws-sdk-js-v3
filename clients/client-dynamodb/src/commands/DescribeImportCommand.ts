@@ -27,7 +27,6 @@ export interface DescribeImportCommandInput extends DescribeImportInput {}
 export interface DescribeImportCommandOutput extends DescribeImportOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Represents the properties of the import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DescribeImportCommand extends $Command
   .classBuilder<

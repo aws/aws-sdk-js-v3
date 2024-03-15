@@ -27,7 +27,6 @@ export interface CreateTrafficPolicyCommandInput extends CreateTrafficPolicyRequ
 export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets
  * 			for one domain name (such as example.com) or one subdomain name (such as
  * 			www.example.com).</p>
@@ -86,6 +85,7 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateTrafficPolicyCommand extends $Command
   .classBuilder<

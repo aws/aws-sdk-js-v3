@@ -27,7 +27,6 @@ export interface GetConnectivityInfoCommandInput extends GetConnectivityInfoRequ
 export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves connectivity information for a Greengrass core device.</p>
  *          <p>Connectivity information includes endpoints and ports where client devices
  *       can connect to an MQTT broker on the core device. When a client device
@@ -76,6 +75,7 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class GetConnectivityInfoCommand extends $Command
   .classBuilder<

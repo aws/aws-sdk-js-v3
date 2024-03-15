@@ -27,7 +27,6 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the Amazon Web Services cloud.</p>
  *          <note>
  *             <p>You cannot take snapshots of AD Connector directories.</p>
@@ -76,6 +75,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateSnapshotCommand extends $Command
   .classBuilder<

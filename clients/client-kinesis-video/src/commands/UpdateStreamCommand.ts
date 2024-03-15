@@ -27,7 +27,6 @@ export interface UpdateStreamCommandInput extends UpdateStreamInput {}
 export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates stream metadata, such as the device name and media type.</p>
  *          <p>You must provide the stream name or the Amazon Resource Name (ARN) of the
  *             stream.</p>
@@ -104,6 +103,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class UpdateStreamCommand extends $Command
   .classBuilder<

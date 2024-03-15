@@ -32,7 +32,6 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a root volume replacement task. For more information, see
  *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -92,6 +91,7 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeReplaceRootVolumeTasksCommand extends $Command
   .classBuilder<

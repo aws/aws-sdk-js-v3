@@ -27,7 +27,6 @@ export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
 export interface DescribeProjectCommandOutput extends DescribeProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Gets details about a project in AWS Mobile Hub.
  *         </p>
@@ -111,6 +110,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class DescribeProjectCommand extends $Command
   .classBuilder<

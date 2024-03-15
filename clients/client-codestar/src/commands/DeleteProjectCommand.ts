@@ -27,7 +27,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a project, including project resources. Does not delete users associated with
  *       the project, but does delete the IAM roles that allowed access to the project.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

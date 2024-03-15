@@ -27,7 +27,6 @@ export interface ExecuteFastResetCommandInput extends ExecuteFastResetInput {}
 export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The fast reset REST API lets you reset a Neptune graph quicky
  *       and easily, removing all of its data.</p>
  *          <p>Neptune fast reset is a two-step process. First you call <code>ExecuteFastReset</code>
@@ -109,6 +108,7 @@ export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, _
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ExecuteFastResetCommand extends $Command
   .classBuilder<

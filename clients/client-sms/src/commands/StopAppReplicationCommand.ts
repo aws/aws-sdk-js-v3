@@ -27,7 +27,6 @@ export interface StopAppReplicationCommandInput extends StopAppReplicationReques
 export interface StopAppReplicationCommandOutput extends StopAppReplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops replicating the specified application by deleting the replication job for each server in
  *             the application.</p>
  * @example
@@ -70,6 +69,7 @@ export interface StopAppReplicationCommandOutput extends StopAppReplicationRespo
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class StopAppReplicationCommand extends $Command
   .classBuilder<

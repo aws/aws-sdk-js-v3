@@ -27,7 +27,6 @@ export interface EnterStandbyCommandInput extends EnterStandbyQuery {}
 export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Moves the specified instances into the standby state.</p>
  *          <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can
  *             enter standby as long as the desired capacity of the Auto Scaling group after the instances are
@@ -87,6 +86,7 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To move instances into standby mode
  * ```javascript
  * // This example puts the specified instance into standby mode.

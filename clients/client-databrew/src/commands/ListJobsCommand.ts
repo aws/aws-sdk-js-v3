@@ -27,7 +27,6 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the DataBrew jobs that are defined.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -157,6 +156,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class ListJobsCommand extends $Command
   .classBuilder<

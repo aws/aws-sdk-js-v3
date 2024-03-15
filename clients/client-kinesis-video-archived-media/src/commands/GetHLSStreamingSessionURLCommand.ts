@@ -31,7 +31,6 @@ export interface GetHLSStreamingSessionURLCommandInput extends GetHLSStreamingSe
 export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL
  *             in a browser or media player to view the stream contents.</p>
  *          <p>Both the <code>StreamName</code> and the <code>StreamARN</code> parameters are
@@ -299,6 +298,7 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * @public
  */
 export class GetHLSStreamingSessionURLCommand extends $Command
   .classBuilder<

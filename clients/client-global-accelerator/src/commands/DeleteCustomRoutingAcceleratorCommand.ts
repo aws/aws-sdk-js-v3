@@ -34,7 +34,6 @@ export interface DeleteCustomRoutingAcceleratorCommandInput extends DeleteCustom
 export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a custom routing accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources
  * 		(listeners and endpoint groups). To disable the accelerator, update the accelerator to set <code>Enabled</code> to false.</p>
  *          <important>
@@ -89,6 +88,7 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DeleteCustomRoutingAcceleratorCommand extends $Command
   .classBuilder<

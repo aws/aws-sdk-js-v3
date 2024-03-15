@@ -630,8 +630,8 @@ export type Macie2ClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface Macie2ClientResolvedConfig extends Macie2ClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Macie</p>
+ * @public
  */
 export class Macie2Client extends __Client<
   __HttpHandlerOptions,

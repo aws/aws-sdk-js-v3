@@ -27,7 +27,6 @@ export interface GetDownloadUrlForLayerCommandInput extends GetDownloadUrlForLay
 export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLayerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can
  *             only get URLs for image layers that are referenced in an image.</p>
  *          <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
@@ -88,6 +87,7 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class GetDownloadUrlForLayerCommand extends $Command
   .classBuilder<

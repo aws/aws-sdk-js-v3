@@ -32,7 +32,6 @@ export interface GetFunctionCodeSigningConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the code signing configuration for the specified function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetFunctionCodeSigningConfigCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetFunctionCodeSigningConfigCommand extends $Command
   .classBuilder<

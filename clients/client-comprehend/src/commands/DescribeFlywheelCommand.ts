@@ -27,7 +27,6 @@ export interface DescribeFlywheelCommandInput extends DescribeFlywheelRequest {}
 export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides configuration information about the flywheel. For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  * @example
@@ -108,6 +107,7 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeFlywheelCommand extends $Command
   .classBuilder<

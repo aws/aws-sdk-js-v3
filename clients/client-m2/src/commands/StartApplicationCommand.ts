@@ -27,7 +27,6 @@ export interface StartApplicationCommandInput extends StartApplicationRequest {}
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an application that is currently stopped.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class StartApplicationCommand extends $Command
   .classBuilder<

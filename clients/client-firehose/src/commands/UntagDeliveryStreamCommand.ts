@@ -27,7 +27,6 @@ export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInpu
 export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
  *          can't recover them after this operation successfully completes.</p>
  *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
@@ -71,6 +70,7 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class UntagDeliveryStreamCommand extends $Command
   .classBuilder<

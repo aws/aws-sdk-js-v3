@@ -32,7 +32,6 @@ export interface ChangeMessageVisibilityBatchCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the visibility timeout of multiple messages. This is a batch version of
  *                     <code>
  *                <a>ChangeMessageVisibility</a>.</code> The result of the action
@@ -135,6 +134,7 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class ChangeMessageVisibilityBatchCommand extends $Command
   .classBuilder<

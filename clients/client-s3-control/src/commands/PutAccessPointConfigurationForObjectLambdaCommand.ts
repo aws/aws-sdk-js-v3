@@ -32,7 +32,6 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandInput
 export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -91,6 +90,7 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command
   .classBuilder<

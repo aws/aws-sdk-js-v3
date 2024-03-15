@@ -36,7 +36,6 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a quota increase request to your quota request template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command
   .classBuilder<

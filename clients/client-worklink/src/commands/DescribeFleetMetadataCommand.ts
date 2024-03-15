@@ -27,9 +27,6 @@ export interface DescribeFleetMetadataCommandInput extends DescribeFleetMetadata
 export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Provides basic information for the specified fleet, excluding identity provider,
  *             networking, and device configuration details.</p>
  * @example
@@ -82,6 +79,8 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DescribeFleetMetadataCommand extends $Command
   .classBuilder<

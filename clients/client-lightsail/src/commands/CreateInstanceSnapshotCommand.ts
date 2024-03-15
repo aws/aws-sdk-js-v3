@@ -27,7 +27,6 @@ export interface CreateInstanceSnapshotCommandInput extends CreateInstanceSnapsh
 export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of a specific virtual private server, or <i>instance</i>.
  *       You can use a snapshot to create a new instance that is based on that snapshot.</p>
  *          <p>The <code>create instance snapshot</code> operation supports tag-based access control via
@@ -113,6 +112,7 @@ export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnaps
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateInstanceSnapshotCommand extends $Command
   .classBuilder<

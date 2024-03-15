@@ -30,7 +30,6 @@ export interface UpdateServiceSpecificCredentialCommandInput extends UpdateServi
 export interface UpdateServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the status of a service-specific credential to <code>Active</code> or
  *                 <code>Inactive</code>. Service-specific credentials that are inactive cannot be used
  *             for authentication to the service. This operation can be used to disable a user's
@@ -65,6 +64,7 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UpdateServiceSpecificCredentialCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelQueryCommandInput extends CancelQueryInput {}
 export interface CancelQueryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a specified query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface CancelQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class CancelQueryCommand extends $Command
   .classBuilder<

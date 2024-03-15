@@ -27,7 +27,6 @@ export interface CreateCustomMetricCommandInput extends CreateCustomMetricReques
 export interface CreateCustomMetricCommandOutput extends CreateCustomMetricResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Use this API to define a
  *       Custom
  *       Metric
@@ -84,6 +83,7 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateCustomMetricCommand extends $Command
   .classBuilder<

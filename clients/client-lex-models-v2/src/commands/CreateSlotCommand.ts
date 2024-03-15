@@ -27,7 +27,6 @@ export interface CreateSlotCommandInput extends CreateSlotRequest {}
 export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a slot in an intent. A slot is a variable needed to fulfill
  *          an intent. For example, an <code>OrderPizza</code> intent might need
  *          slots for size, crust, and number of pizzas. For each slot, you define
@@ -886,6 +885,7 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateSlotCommand extends $Command
   .classBuilder<

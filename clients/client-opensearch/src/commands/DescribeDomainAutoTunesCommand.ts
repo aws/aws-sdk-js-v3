@@ -27,7 +27,6 @@ export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoT
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service
  *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
  *     Service</a>.</p>
@@ -84,6 +83,7 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainAutoTunesCommand extends $Command
   .classBuilder<

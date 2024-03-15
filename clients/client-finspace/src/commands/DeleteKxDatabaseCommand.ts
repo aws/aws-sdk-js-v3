@@ -27,7 +27,6 @@ export interface DeleteKxDatabaseCommandInput extends DeleteKxDatabaseRequest {}
 export interface DeleteKxDatabaseCommandOutput extends DeleteKxDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified database and all of its associated data. This action is irreversible. You must copy any data out of the database before deleting it if the data is to be retained.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteKxDatabaseCommandOutput extends DeleteKxDatabaseResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class DeleteKxDatabaseCommand extends $Command
   .classBuilder<

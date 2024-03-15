@@ -32,7 +32,6 @@ export interface GetServiceLastAccessedDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a service last accessed report that was created using the
  *                 <code>GenerateServiceLastAccessedDetails</code> operation. You can use the
  *                 <code>JobId</code> parameter in <code>GetServiceLastAccessedDetails</code> to
@@ -148,6 +147,7 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To get details from a previously-generated report
  * ```javascript
  * // The following operation gets details about the report with the job ID: examplef-1305-c245-eba4-71fe298bcda7

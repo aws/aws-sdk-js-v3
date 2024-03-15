@@ -27,7 +27,6 @@ export interface GetMembershipCommandInput extends GetMembershipInput {}
 export interface GetMembershipCommandOutput extends GetMembershipOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a specified membership for an identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetMembershipCommand extends $Command
   .classBuilder<

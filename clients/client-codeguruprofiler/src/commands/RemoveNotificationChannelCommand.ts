@@ -27,7 +27,6 @@ export interface RemoveNotificationChannelCommandInput extends RemoveNotificatio
 export interface RemoveNotificationChannelCommandOutput extends RemoveNotificationChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove one anomaly notifications channel for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class RemoveNotificationChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RollbackStackCommandInput extends RollbackStackInput {}
 export interface RollbackStackCommandOutput extends RollbackStackOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously provisioned resources when an
  *    operation fails. You can check the status of the stack through the <a>DescribeStacks</a> operation.</p>
  *          <p>Rolls back the specified stack to the last known stable state from <code>CREATE_FAILED</code> or
@@ -93,6 +92,7 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class RollbackStackCommand extends $Command
   .classBuilder<

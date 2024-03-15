@@ -27,7 +27,6 @@ export interface DescribeMatchmakingRuleSetsCommandInput extends DescribeMatchma
 export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchmakingRuleSetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
  *             rule sets for the Region, or provide a list of one or more rule set names. When
  *             requesting multiple items, use the pagination parameters to retrieve results as a set of
@@ -95,6 +94,7 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeMatchmakingRuleSetsCommand extends $Command
   .classBuilder<

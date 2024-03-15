@@ -27,7 +27,6 @@ export interface CreateEmailTemplateCommandInput extends CreateEmailTemplateRequ
 export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an email template. Email templates enable you to send personalized email to
  *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -73,6 +72,7 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateEmailTemplateCommand extends $Command
   .classBuilder<

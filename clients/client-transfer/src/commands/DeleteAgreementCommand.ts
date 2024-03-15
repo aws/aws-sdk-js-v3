@@ -27,7 +27,6 @@ export interface DeleteAgreementCommandInput extends DeleteAgreementRequest {}
 export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the agreement that's specified in the provided <code>AgreementId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteAgreementCommand extends $Command
   .classBuilder<

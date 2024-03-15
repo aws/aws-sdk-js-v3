@@ -32,7 +32,6 @@ export interface CreateServerCommandInput extends CreateServerRequest {}
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates and immedately starts a new server. The server is ready to use when it is in the <code>HEALTHY</code> state. By default, you can create a maximum of 10 servers.
  *     </p>
@@ -171,6 +170,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class CreateServerCommand extends $Command
   .classBuilder<

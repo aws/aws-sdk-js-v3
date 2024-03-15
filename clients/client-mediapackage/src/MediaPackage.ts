@@ -398,8 +398,8 @@ export interface MediaPackage {
 }
 
 /**
- * @public
  * AWS Elemental MediaPackage
+ * @public
  */
 export class MediaPackage extends MediaPackageClient implements MediaPackage {}
 createAggregatedClient(commands, MediaPackage);

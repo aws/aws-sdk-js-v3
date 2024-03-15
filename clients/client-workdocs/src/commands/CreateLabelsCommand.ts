@@ -27,7 +27,6 @@ export interface CreateLabelsCommandInput extends CreateLabelsRequest {}
 export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified list of labels to the given resource (a document or
  *             folder)</p>
  * @example
@@ -79,6 +78,7 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class CreateLabelsCommand extends $Command
   .classBuilder<

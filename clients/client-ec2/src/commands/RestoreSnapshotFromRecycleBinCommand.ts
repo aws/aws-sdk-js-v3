@@ -29,7 +29,6 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
  *       snapshots from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example
@@ -69,6 +68,7 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RestoreSnapshotFromRecycleBinCommand extends $Command
   .classBuilder<

@@ -33,7 +33,6 @@ export interface ModifyLoadBalancerAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified attributes of the specified Application Load Balancer, Network Load
  *       Balancer, or Gateway Load Balancer.</p>
  *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
@@ -81,6 +80,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To enable deletion protection
  * ```javascript
  * // This example enables deletion protection for the specified load balancer.

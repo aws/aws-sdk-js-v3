@@ -27,7 +27,6 @@ export interface ValidatePolicyCommandInput extends ValidatePolicyRequest {}
 export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests the validation of a policy and returns a list of findings. The findings help
  *          you identify issues and provide actionable recommendations to resolve the issue and enable
  *          you to author functional policies that meet security best practices. </p>
@@ -109,6 +108,7 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class ValidatePolicyCommand extends $Command
   .classBuilder<

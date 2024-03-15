@@ -27,7 +27,6 @@ export interface ListUpdatesCommandInput extends ListUpdatesRequest {}
 export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the updates associated with an Amazon EKS resource in your Amazon Web Services account, in the specified Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListUpdatesCommand extends $Command
   .classBuilder<

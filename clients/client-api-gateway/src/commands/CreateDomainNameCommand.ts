@@ -27,7 +27,6 @@ export interface CreateDomainNameCommandInput extends CreateDomainNameRequest {}
 export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateDomainNameCommand extends $Command
   .classBuilder<

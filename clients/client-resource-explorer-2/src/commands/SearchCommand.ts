@@ -31,7 +31,6 @@ export interface SearchCommandInput extends SearchInput {}
 export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for resources and displays details about all resources that match the
  *             specified criteria. You must specify a query string.</p>
  *          <p>All search queries must use a view. If you don't explicitly specify a view, then
@@ -120,6 +119,7 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class SearchCommand extends $Command
   .classBuilder<

@@ -40,7 +40,6 @@ export interface RejectInboundCrossClusterSearchConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface RejectInboundCrossClusterSearchConnectionCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class RejectInboundCrossClusterSearchConnectionCommand extends $Command
   .classBuilder<

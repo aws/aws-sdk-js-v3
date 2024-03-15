@@ -31,7 +31,6 @@ export interface AssociateLicenseCommandInput extends AssociateLicenseRequest {}
 export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns a Grafana Enterprise license to a workspace. Upgrading to Grafana Enterprise
  *             incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade a
  *                 workspace to Grafana Enterprise</a>.</p>
@@ -131,6 +130,7 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class AssociateLicenseCommand extends $Command
   .classBuilder<

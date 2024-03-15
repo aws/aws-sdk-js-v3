@@ -35,7 +35,6 @@ export interface DescribeChannelBanCommandInput extends DescribeChannelBanReques
 export interface DescribeChannelBanCommandOutput extends DescribeChannelBanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the full details of a channel ban.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -102,6 +101,7 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DescribeChannelBanCommand extends $Command
   .classBuilder<

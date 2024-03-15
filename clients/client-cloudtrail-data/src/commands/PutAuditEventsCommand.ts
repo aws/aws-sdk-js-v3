@@ -27,7 +27,6 @@ export interface PutAuditEventsCommandInput extends PutAuditEventsRequest {}
 export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Ingests your application events into CloudTrail Lake. A required parameter,
  *             <code>auditEvents</code>, accepts the JSON records (also called
  *             <i>payload</i>) of events that you want CloudTrail to ingest. You
@@ -98,6 +97,7 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * @throws {@link CloudTrailDataServiceException}
  * <p>Base exception class for all service exceptions from CloudTrailData service.</p>
  *
+ * @public
  */
 export class PutAuditEventsCommand extends $Command
   .classBuilder<

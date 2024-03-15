@@ -27,7 +27,6 @@ export interface GetSubscriptionCommandInput extends GetSubscriptionRequest {}
 export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the Amazon Web Services account used for billing purposes
  *       and the billing plan for the space.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class GetSubscriptionCommand extends $Command
   .classBuilder<

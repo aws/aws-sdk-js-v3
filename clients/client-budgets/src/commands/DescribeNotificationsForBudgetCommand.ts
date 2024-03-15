@@ -32,7 +32,6 @@ export interface DescribeNotificationsForBudgetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the notifications that are associated with a budget.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeNotificationsForBudgetCommandOutput
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DescribeNotificationsForBudgetCommand extends $Command
   .classBuilder<

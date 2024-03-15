@@ -31,7 +31,6 @@ export interface ListLifecyclePoliciesCommandInput extends ListLifecyclePolicies
 export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of OpenSearch Serverless lifecycle policies. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePolicie
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class ListLifecyclePoliciesCommand extends $Command
   .classBuilder<

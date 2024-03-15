@@ -27,7 +27,6 @@ export interface ListGroupResourcesCommandInput extends ListGroupResourcesReques
 export interface ListGroupResourcesCommandOutput extends ListGroupResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns a list of the ARNs of the canaries that are associated with the specified group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class ListGroupResourcesCommand extends $Command
   .classBuilder<

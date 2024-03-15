@@ -27,7 +27,6 @@ export interface UpdateImpersonationRoleCommandInput extends UpdateImpersonation
 export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonationRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an impersonation role for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class UpdateImpersonationRoleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeVirtualInterfacesCommandInput extends DescribeVirtualIn
 export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterfaces, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer
  *       than 15 minutes before you make the request are also returned. If you specify a
  *       connection ID, only the virtual interfaces associated with the connection are returned.
@@ -117,6 +116,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeVirtualInterfacesCommand extends $Command
   .classBuilder<

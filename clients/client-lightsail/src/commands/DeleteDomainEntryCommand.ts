@@ -27,7 +27,6 @@ export interface DeleteDomainEntryCommandInput extends DeleteDomainEntryRequest 
 export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific domain entry.</p>
  *          <p>The <code>delete domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -114,6 +113,7 @@ export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteDomainEntryCommand extends $Command
   .classBuilder<

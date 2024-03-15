@@ -27,7 +27,6 @@ export interface GetBucketWebsiteCommandInput extends GetBucketWebsiteRequest {}
 export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -102,6 +101,7 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To get bucket website configuration
  * ```javascript
  * // The following example retrieves website configuration of a bucket.

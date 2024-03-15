@@ -27,7 +27,6 @@ export interface CreateCaseCommandInput extends CreateCaseRequest {}
 export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a case in the Amazon Web Services Support Center. This operation is similar to how you create a case
  *             in the Amazon Web Services Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
  *                 Case</a> page.</p>
@@ -110,6 +109,7 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class CreateCaseCommand extends $Command
   .classBuilder<

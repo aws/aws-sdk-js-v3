@@ -31,7 +31,6 @@ export interface SubmitRegistrationVersionCommandInput extends SubmitRegistratio
 export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrationVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Submit the specified registration for review and approval.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface SubmitRegistrationVersionCommandOutput extends SubmitRegistrati
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class SubmitRegistrationVersionCommand extends $Command
   .classBuilder<

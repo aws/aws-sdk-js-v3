@@ -27,7 +27,6 @@ export interface DeleteAppCommandInput extends DeleteAppInput {}
 export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the instance of the given custom app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class DeleteAppCommand extends $Command
   .classBuilder<

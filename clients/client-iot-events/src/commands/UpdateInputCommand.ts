@@ -27,7 +27,6 @@ export interface UpdateInputCommandInput extends UpdateInputRequest {}
 export interface UpdateInputCommandOutput extends UpdateInputResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class UpdateInputCommand extends $Command
   .classBuilder<

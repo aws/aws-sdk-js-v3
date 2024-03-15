@@ -32,7 +32,6 @@ export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
 export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to update the configuration of an existing Amazon FSx file
  *       system. You can update multiple properties in a single request.</p>
  *          <p>For FSx for Windows File Server file systems, you can update the following
@@ -937,6 +936,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To update an existing file system
  * ```javascript
  * // This operation updates an existing file system.

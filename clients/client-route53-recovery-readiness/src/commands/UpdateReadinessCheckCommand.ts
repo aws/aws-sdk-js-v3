@@ -31,7 +31,6 @@ export interface UpdateReadinessCheckCommandInput extends UpdateReadinessCheckRe
 export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckR
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class UpdateReadinessCheckCommand extends $Command
   .classBuilder<

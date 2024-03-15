@@ -27,7 +27,6 @@ export interface RestoreBackupCommandInput extends RestoreBackupRequest {}
 export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a specified AWS CloudHSM backup that is in the
  *                 <code>PENDING_DELETION</code> state. For mor information on deleting a backup, see
  *                 <a>DeleteBackup</a>.</p>
@@ -92,6 +91,7 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class RestoreBackupCommand extends $Command
   .classBuilder<

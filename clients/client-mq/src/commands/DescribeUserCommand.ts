@@ -27,7 +27,6 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an ActiveMQ user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class DescribeUserCommand extends $Command
   .classBuilder<

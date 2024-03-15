@@ -27,9 +27,6 @@ export interface DetachPrincipalPolicyCommandInput extends DetachPrincipalPolicy
 export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Removes the specified policy from the specified certificate.</p>
  *          <p>
  *             <b>Note:</b> This action is deprecated and works as
@@ -78,6 +75,8 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class DetachPrincipalPolicyCommand extends $Command
   .classBuilder<

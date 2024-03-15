@@ -11,8 +11,8 @@ export interface DeleteConnectionRequest {
 }
 
 /**
- * @public
  * <p>The caller is not authorized to invoke this operation.</p>
+ * @public
  */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
@@ -31,8 +31,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The connection with the provided id no longer exists.</p>
+ * @public
  */
 export class GoneException extends __BaseException {
   readonly name: "GoneException" = "GoneException";
@@ -51,8 +51,8 @@ export class GoneException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -82,14 +82,14 @@ export interface GetConnectionRequest {
  */
 export interface Identity {
   /**
-   * @public
    * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
+   * @public
    */
   SourceIp: string | undefined;
 
   /**
-   * @public
    * <p>The User Agent of the API caller.</p>
+   * @public
    */
   UserAgent: string | undefined;
 }
@@ -99,22 +99,22 @@ export interface Identity {
  */
 export interface GetConnectionResponse {
   /**
-   * @public
    * <p>The time in ISO 8601 format for when the connection was established.</p>
+   * @public
    */
   ConnectedAt?: Date;
 
   Identity?: Identity;
   /**
-   * @public
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
+   * @public
    */
   LastActiveAt?: Date;
 }
 
 /**
- * @public
  * <p>The data has exceeded the maximum size allowed.</p>
+ * @public
  */
 export class PayloadTooLargeException extends __BaseException {
   readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
@@ -139,14 +139,14 @@ export class PayloadTooLargeException extends __BaseException {
  */
 export interface PostToConnectionRequest {
   /**
-   * @public
    * <p>The data to be sent to the client specified by its connection id.</p>
+   * @public
    */
   Data: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The identifier of the connection that a specific client is using.</p>
+   * @public
    */
   ConnectionId: string | undefined;
 }

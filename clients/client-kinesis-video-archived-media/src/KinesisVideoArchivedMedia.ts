@@ -128,8 +128,8 @@ export interface KinesisVideoArchivedMedia {
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient implements KinesisVideoArchivedMedia {}
 createAggregatedClient(commands, KinesisVideoArchivedMedia);

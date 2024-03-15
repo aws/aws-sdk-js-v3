@@ -27,7 +27,6 @@ export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
 export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends an event to a specific room which directs clients to delete a specific message;
  *          that is, unrender it from view and delete it from the client’s chat history. This event’s
  *             <code>EventName</code> is <code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
@@ -75,6 +74,7 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class DeleteMessageCommand extends $Command
   .classBuilder<

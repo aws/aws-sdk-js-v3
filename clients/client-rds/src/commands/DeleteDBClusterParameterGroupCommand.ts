@@ -30,7 +30,6 @@ export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClust
 export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
  *          <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -72,6 +71,7 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB cluster parameter group
  * ```javascript
  * // The following example deletes the specified DB cluster parameter group.

@@ -27,7 +27,6 @@ export interface UpdateWorkloadCommandInput extends UpdateWorkloadInput {}
 export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an existing workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -160,6 +159,7 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class UpdateWorkloadCommand extends $Command
   .classBuilder<

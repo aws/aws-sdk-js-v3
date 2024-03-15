@@ -27,7 +27,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the tags associated with the specified Direct Connect resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

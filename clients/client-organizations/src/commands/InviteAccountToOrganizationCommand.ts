@@ -34,7 +34,6 @@ export interface InviteAccountToOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends an invitation to another account to join your organization as a member account.
  *             Organizations sends email on your behalf to the email address that is associated with the
  *             other account's owner. The invitation is implemented as a <a>Handshake</a>
@@ -527,6 +526,7 @@ export interface InviteAccountToOrganizationCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To invite an account to join an organization
  * ```javascript
  * // The following example shows the admin of the master account owned by bill@example.com inviting the account owned by juan@example.com to join an organization.

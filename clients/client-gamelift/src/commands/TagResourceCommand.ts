@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns a tag to an Amazon GameLift resource. You can use tags to organize resources, create
  *             IAM permissions policies to manage access to groups of resources, customize Amazon Web Services cost
  *             breakdowns, and more. This operation handles the permissions necessary to manage tags
@@ -98,6 +97,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

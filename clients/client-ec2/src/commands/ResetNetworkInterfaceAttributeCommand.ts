@@ -30,7 +30,6 @@ export interface ResetNetworkInterfaceAttributeCommandInput extends ResetNetwork
 export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets a network interface attribute. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ResetNetworkInterfaceAttributeCommand extends $Command
   .classBuilder<

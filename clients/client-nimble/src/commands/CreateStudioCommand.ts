@@ -32,7 +32,6 @@ export interface CreateStudioCommandInput extends CreateStudioRequest {}
 export interface CreateStudioCommandOutput extends CreateStudioResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new studio.</p>
  *         <p>When creating a studio, two IAM roles must be provided: the admin role
  *             and the user role. These roles are assumed by your users when they log in to the Nimble Studio portal.</p>
@@ -136,6 +135,7 @@ export interface CreateStudioCommandOutput extends CreateStudioResponse, __Metad
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class CreateStudioCommand extends $Command
   .classBuilder<

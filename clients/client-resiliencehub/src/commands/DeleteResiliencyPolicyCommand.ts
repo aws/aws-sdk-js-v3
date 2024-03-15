@@ -27,7 +27,6 @@ export interface DeleteResiliencyPolicyCommandInput extends DeleteResiliencyPoli
 export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a resiliency policy. This is a destructive action that can't be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DeleteResiliencyPolicyCommand extends $Command
   .classBuilder<

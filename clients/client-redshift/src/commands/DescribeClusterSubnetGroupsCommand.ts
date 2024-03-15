@@ -27,7 +27,6 @@ export interface DescribeClusterSubnetGroupsCommandInput extends DescribeCluster
 export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetGroupMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns one or more cluster subnet group objects, which contain metadata about your
  *             cluster subnet groups. By default, this operation returns information about all cluster
  *             subnet groups that are defined in your Amazon Web Services account.</p>
@@ -111,6 +110,7 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterSubnetGroupsCommand extends $Command
   .classBuilder<

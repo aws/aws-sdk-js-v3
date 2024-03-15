@@ -31,7 +31,6 @@ export interface SetSMBGuestPasswordCommandInput extends SetSMBGuestPasswordInpu
 export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
  *          user is the user when the authentication method for the file share is set to
  *             <code>GuestAccess</code>. This operation only supported for S3 File Gateways</p>
@@ -70,6 +69,7 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class SetSMBGuestPasswordCommand extends $Command
   .classBuilder<

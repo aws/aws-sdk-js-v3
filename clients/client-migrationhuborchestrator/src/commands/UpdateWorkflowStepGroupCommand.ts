@@ -31,7 +31,6 @@ export interface UpdateWorkflowStepGroupCommandInput extends UpdateWorkflowStepG
 export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateWorkflowStepGroupCommandOutput extends UpdateWorkflowStep
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class UpdateWorkflowStepGroupCommand extends $Command
   .classBuilder<

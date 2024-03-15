@@ -30,7 +30,6 @@ export interface DeregisterDelegatedAdministratorCommandInput extends Deregister
 export interface DeregisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified member Amazon Web Services account as a delegated administrator for the
  *             specified Amazon Web Services service.</p>
  *          <important>
@@ -407,6 +406,7 @@ export interface DeregisterDelegatedAdministratorCommandOutput extends __Metadat
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class DeregisterDelegatedAdministratorCommand extends $Command
   .classBuilder<

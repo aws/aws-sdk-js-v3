@@ -27,7 +27,6 @@ export interface PutAccountSettingDefaultCommandInput extends PutAccountSettingD
 export interface PutAccountSettingDefaultCommandOutput extends PutAccountSettingDefaultResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an account setting for all users on an account for whom no individual account
  * 			setting has been specified. Account settings are set on a per-Region basis.</p>
  * @example
@@ -74,6 +73,7 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To modify the default account settings for all IAM users or roles on an account
  * ```javascript
  * // This example modifies the default account setting for the specified resource for all IAM users or roles on an account. These changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.

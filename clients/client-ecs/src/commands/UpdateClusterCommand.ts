@@ -27,7 +27,6 @@ export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -161,6 +160,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class UpdateClusterCommand extends $Command
   .classBuilder<

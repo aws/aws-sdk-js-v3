@@ -27,7 +27,6 @@ export interface ListStreamingDistributionsCommandInput extends ListStreamingDis
 export interface ListStreamingDistributionsCommandOutput extends ListStreamingDistributionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>List streaming distributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListStreamingDistributionsCommand extends $Command
   .classBuilder<

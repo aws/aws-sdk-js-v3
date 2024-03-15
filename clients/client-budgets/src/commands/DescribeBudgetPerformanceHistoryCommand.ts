@@ -32,7 +32,6 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the history for <code>DAILY</code>, <code>MONTHLY</code>, and <code>QUARTERLY</code> budgets. Budget history isn't available for <code>ANNUAL</code> budgets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DescribeBudgetPerformanceHistoryCommand extends $Command
   .classBuilder<

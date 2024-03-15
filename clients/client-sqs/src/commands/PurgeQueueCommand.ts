@@ -27,7 +27,6 @@ export interface PurgeQueueCommandInput extends PurgeQueueRequest {}
 export interface PurgeQueueCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes available messages in a queue (including in-flight messages) specified by the
  *                 <code>QueueURL</code> parameter.</p>
  *          <important>
@@ -101,6 +100,7 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class PurgeQueueCommand extends $Command
   .classBuilder<

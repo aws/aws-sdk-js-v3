@@ -27,7 +27,6 @@ export interface GetThemeCommandInput extends GetThemeRequest {}
 export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an existing theme for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBeare
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class GetThemeCommand extends $Command
   .classBuilder<

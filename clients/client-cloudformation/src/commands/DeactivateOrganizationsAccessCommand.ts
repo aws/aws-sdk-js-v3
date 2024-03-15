@@ -32,7 +32,6 @@ export interface DeactivateOrganizationsAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates trusted access with Organizations. If trusted access is deactivated, the management account does not have permissions to create and manage service-managed StackSets for your
  *    organization.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeactivateOrganizationsAccessCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DeactivateOrganizationsAccessCommand extends $Command
   .classBuilder<

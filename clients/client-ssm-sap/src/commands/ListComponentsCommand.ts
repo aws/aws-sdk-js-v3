@@ -27,7 +27,6 @@ export interface ListComponentsCommandInput extends ListComponentsInput {}
 export interface ListComponentsCommandOutput extends ListComponentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the components registered with AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class ListComponentsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateVPCConnectionCommandInput extends CreateVPCConnectionRequ
 export interface CreateVPCConnectionCommandOutput extends CreateVPCConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new VPC connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface CreateVPCConnectionCommandOutput extends CreateVPCConnectionRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateVPCConnectionCommand extends $Command
   .classBuilder<

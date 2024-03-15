@@ -31,7 +31,6 @@ export interface CreateAppAuthorizationCommandInput extends CreateAppAuthorizati
 export interface CreateAppAuthorizationCommandOutput extends CreateAppAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an app authorization within an app bundle, which allows AppFabric to connect to an
  *          application.</p>
  * @example
@@ -118,6 +117,7 @@ export interface CreateAppAuthorizationCommandOutput extends CreateAppAuthorizat
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class CreateAppAuthorizationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateGcmChannelCommandInput extends UpdateGcmChannelRequest {}
 export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the GCM channel for an application or updates the status and settings of the GCM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateGcmChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can
  *          use the request parameters as selection criteria to return a subset of the objects in a
  *          bucket. A <code>200 OK</code> response can contain valid or invalid XML. Make sure to
@@ -183,6 +182,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To get object list
  * ```javascript
  * // The following example retrieves object list. The request specifies max keys to limit response to include only 2 object keys.

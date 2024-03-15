@@ -31,7 +31,6 @@ export interface GetKeyCommandInput extends GetKeyInput {}
 export interface GetKeyCommandOutput extends GetKeyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the key material for an Amazon Web Services Payment Cryptography key, including the immutable and mutable data specified when the key was created.</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
@@ -128,6 +127,7 @@ export interface GetKeyCommandOutput extends GetKeyOutput, __MetadataBearer {}
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class GetKeyCommand extends $Command
   .classBuilder<

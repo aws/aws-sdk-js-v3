@@ -27,7 +27,6 @@ export interface CreateKxVolumeCommandInput extends CreateKxVolumeRequest {}
 export interface CreateKxVolumeCommandOutput extends CreateKxVolumeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Creates a new volume with a specific amount of throughput and storage capacity. </p>
  * @example
@@ -111,6 +110,7 @@ export interface CreateKxVolumeCommandOutput extends CreateKxVolumeResponse, __M
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class CreateKxVolumeCommand extends $Command
   .classBuilder<

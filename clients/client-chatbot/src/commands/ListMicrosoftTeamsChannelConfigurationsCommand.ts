@@ -32,7 +32,6 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Lists MS Teams Channel Configurations optionally filtered by TeamId
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class ListMicrosoftTeamsChannelConfigurationsCommand extends $Command
   .classBuilder<

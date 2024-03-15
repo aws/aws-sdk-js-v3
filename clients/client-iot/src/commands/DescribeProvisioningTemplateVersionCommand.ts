@@ -35,7 +35,6 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a provisioning template version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeProvisioningTemplateVersion</a> action.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeProvisioningTemplateVersionCommand extends $Command
   .classBuilder<

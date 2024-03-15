@@ -31,7 +31,6 @@ export interface ListNetworkResourcesCommandInput extends ListNetworkResourcesRe
 export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists network resources. Add filters to your request to return a more specific list of
  *             results. Use filters to match the Amazon Resource Name (ARN) of an order or the status
  *             of network resources.</p>
@@ -135,6 +134,7 @@ export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesR
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ListNetworkResourcesCommand extends $Command
   .classBuilder<

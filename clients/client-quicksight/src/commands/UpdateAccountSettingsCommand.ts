@@ -27,7 +27,6 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Amazon QuickSight settings in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateAccountSettingsCommand extends $Command
   .classBuilder<

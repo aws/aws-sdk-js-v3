@@ -27,7 +27,6 @@ export interface SetDefaultAuthorizerCommandInput extends SetDefaultAuthorizerRe
 export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the default authorizer. This will be used if a websocket connection is made
  *          without specifying an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SetDefaultAuthorizer</a> action.</p>
@@ -79,6 +78,7 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class SetDefaultAuthorizerCommand extends $Command
   .classBuilder<

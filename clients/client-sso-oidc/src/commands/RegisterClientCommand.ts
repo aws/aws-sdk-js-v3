@@ -31,7 +31,6 @@ export interface RegisterClientCommandInput extends RegisterClientRequest {}
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
  *       The output should be persisted for reuse through many authentication requests.</p>
  * @example
@@ -84,6 +83,7 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @public
  * @example Call OAuth/OIDC /register-client endpoint
  * ```javascript
  * //

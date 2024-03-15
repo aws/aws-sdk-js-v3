@@ -37,9 +37,6 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
- *
  * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -97,6 +94,8 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
  */
 export class ListVoiceConnectorTerminationCredentialsCommand extends $Command
   .classBuilder<

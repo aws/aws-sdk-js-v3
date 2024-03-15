@@ -27,7 +27,6 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release and subject to change.</p>
  *          <p>Get an Application resource.</p>
  * @example
@@ -104,6 +103,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  * @example To get an application
  * ```javascript
  * // The following retrives an application.

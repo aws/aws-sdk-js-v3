@@ -32,7 +32,6 @@ export interface CreateGlossaryTermCommandInput extends CreateGlossaryTermInput 
 export interface CreateGlossaryTermCommandOutput extends CreateGlossaryTermOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a business glossary term.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface CreateGlossaryTermCommandOutput extends CreateGlossaryTermOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateGlossaryTermCommand extends $Command
   .classBuilder<

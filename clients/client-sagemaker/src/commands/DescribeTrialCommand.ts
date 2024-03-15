@@ -27,7 +27,6 @@ export interface DescribeTrialCommandInput extends DescribeTrialRequest {}
 export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of a trial's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeTrialCommand extends $Command
   .classBuilder<

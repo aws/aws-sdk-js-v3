@@ -27,7 +27,6 @@ export interface ListEntitledApplicationsCommandInput extends ListEntitledApplic
 export interface ListEntitledApplicationsCommandOutput extends ListEntitledApplicationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of entitled applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class ListEntitledApplicationsCommand extends $Command
   .classBuilder<

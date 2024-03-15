@@ -35,7 +35,6 @@ export interface AdminConfirmSignUpCommandInput extends AdminConfirmSignUpReques
 export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This IAM-authenticated API operation provides a code that Amazon Cognito sent to your user
  *             when they signed up in your user pool. After your user enters their code, they confirm
  *             ownership of the email address or phone number that they provided, and their user
@@ -133,6 +132,7 @@ export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpRespo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminConfirmSignUpCommand extends $Command
   .classBuilder<

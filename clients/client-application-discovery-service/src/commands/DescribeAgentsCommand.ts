@@ -35,7 +35,6 @@ export interface DescribeAgentsCommandInput extends DescribeAgentsRequest {}
 export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists agents or collectors as specified by ID or other filters. All agents/collectors
  *       associated with your user can be listed if you call <code>DescribeAgents</code> as is
  *       without passing any parameters.</p>
@@ -114,6 +113,7 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DescribeAgentsCommand extends $Command
   .classBuilder<

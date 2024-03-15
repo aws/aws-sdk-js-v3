@@ -27,7 +27,6 @@ export interface GetDataCellsFilterCommandInput extends GetDataCellsFilterReques
 export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a data cells filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetDataCellsFilterCommandOutput extends GetDataCellsFilterRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetDataCellsFilterCommand extends $Command
   .classBuilder<

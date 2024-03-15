@@ -32,7 +32,6 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that's
  * 			associated with the specified cache policy.</p>
  *          <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -86,6 +85,7 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListDistributionsByCachePolicyIdCommand extends $Command
   .classBuilder<

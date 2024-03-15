@@ -27,7 +27,6 @@ export interface RegisterTransitGatewayCommandInput extends RegisterTransitGatew
 export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a transit gateway in your global network. Not all Regions support transit
  *             gateways for global networks. For a list of the supported Regions, see <a href="https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions">Region Availability</a> in the <i>Amazon Web Services Transit Gateways for Global
  *                 Networks User Guide</i>. The transit gateway can be in any of the supported
@@ -86,6 +85,7 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class RegisterTransitGatewayCommand extends $Command
   .classBuilder<

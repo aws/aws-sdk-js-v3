@@ -27,7 +27,6 @@ export interface ListModelsCommandInput extends ListModelsInput {}
 export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists models created with the <code>CreateModel</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListModelsCommand extends $Command
   .classBuilder<

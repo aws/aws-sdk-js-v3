@@ -27,7 +27,6 @@ export interface CreateHsmCommandInput extends CreateHsmRequest {}
 export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM
  *       cluster.</p>
  * @example
@@ -85,6 +84,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class CreateHsmCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteActionCommandInput extends DeleteActionRequest {}
 export interface DeleteActionCommandOutput extends DeleteActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteActionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListComplianceItemsCommandInput extends ListComplianceItemsRequ
 export interface ListComplianceItemsCommandOutput extends ListComplianceItemsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a specified resource ID, this API operation returns a list of compliance statuses for
  *    different resource types. Currently, you can only specify one resource ID per call. List results
  *    depend on the criteria specified in the filter.</p>
@@ -108,6 +107,7 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListComplianceItemsCommand extends $Command
   .classBuilder<

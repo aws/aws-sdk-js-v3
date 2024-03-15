@@ -27,7 +27,6 @@ export interface PutProjectPolicyCommandInput extends PutProjectPolicyRequest {}
 export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -117,6 +116,7 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example PutProjectPolicy
  * ```javascript
  * // This operation attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account.

@@ -27,7 +27,6 @@ export interface DeleteOutpostCommandInput extends DeleteOutpostInput {}
 export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class DeleteOutpostCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SetTagsForResourceCommandInput extends SetTagsForResourceReques
 export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
  *          ARN of the assessment template.</p>
  * @example
@@ -77,6 +76,7 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Set tags for resource
  * ```javascript
  * // Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.

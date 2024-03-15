@@ -27,7 +27,6 @@ export interface ListReservationsCommandInput extends ListReservationsRequest {}
 export interface ListReservationsCommandOutput extends ListReservationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays a list of all reservations that have been purchased by this account in the current AWS Region. This list includes all reservations in all states (such as active and expired).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class ListReservationsCommand extends $Command
   .classBuilder<

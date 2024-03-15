@@ -27,7 +27,6 @@ export interface DeleteExtensionAssociationCommandInput extends DeleteExtensionA
 export interface DeleteExtensionAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an extension association. This action doesn't delete extensions defined in the
  *          association.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteExtensionAssociationCommandOutput extends __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class DeleteExtensionAssociationCommand extends $Command
   .classBuilder<

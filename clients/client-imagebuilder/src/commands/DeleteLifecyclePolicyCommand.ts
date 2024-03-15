@@ -27,7 +27,6 @@ export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicy
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the specified lifecycle policy resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class DeleteLifecyclePolicyCommand extends $Command
   .classBuilder<

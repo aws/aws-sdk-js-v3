@@ -27,7 +27,6 @@ export interface StartStackCommandInput extends StartStackRequest {}
 export interface StartStackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a stack's instances.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -64,6 +63,7 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class StartStackCommand extends $Command
   .classBuilder<

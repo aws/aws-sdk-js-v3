@@ -27,7 +27,6 @@ export interface TestWirelessDeviceCommandInput extends TestWirelessDeviceReques
 export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Simulates a provisioned device by sending an uplink data payload of
  *             <code>Hello</code>.</p>
  * @example
@@ -68,6 +67,7 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class TestWirelessDeviceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopSimulationCommandInput extends StopSimulationInput {}
 export interface StopSimulationCommandOutput extends StopSimulationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the given simulation.</p>
  *          <important>
  *             <p>You can't restart a simulation after you stop it. If you want to restart a simulation, then
@@ -72,6 +71,7 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class StopSimulationCommand extends $Command
   .classBuilder<

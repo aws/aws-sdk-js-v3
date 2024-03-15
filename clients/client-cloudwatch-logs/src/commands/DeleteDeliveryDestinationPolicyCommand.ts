@@ -30,7 +30,6 @@ export interface DeleteDeliveryDestinationPolicyCommandInput extends DeleteDeliv
 export interface DeleteDeliveryDestinationPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a delivery destination policy. For more information about these policies,
  *         see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteDeliveryDestinationPolicyCommandOutput extends __Metadata
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteDeliveryDestinationPolicyCommand extends $Command
   .classBuilder<

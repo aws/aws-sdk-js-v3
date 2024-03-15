@@ -27,7 +27,6 @@ export interface SearchPromptsCommandInput extends SearchPromptsRequest {}
 export interface SearchPromptsCommandOutput extends SearchPromptsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches prompts in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface SearchPromptsCommandOutput extends SearchPromptsResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchPromptsCommand extends $Command
   .classBuilder<

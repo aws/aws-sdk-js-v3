@@ -27,7 +27,6 @@ export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Q data source connectors that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ListDataSourcesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteCrawlerCommandInput extends DeleteCrawlerRequest {}
 export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a specified crawler from the Glue Data Catalog, unless the crawler state is
  *         <code>RUNNING</code>.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteCrawlerCommand extends $Command
   .classBuilder<

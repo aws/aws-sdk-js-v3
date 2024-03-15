@@ -27,7 +27,6 @@ export interface GetSMSSandboxAccountStatusCommandInput extends GetSMSSandboxAcc
 export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAccountStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target
  *             Amazon Web Services Region.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -71,6 +70,7 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class GetSMSSandboxAccountStatusCommand extends $Command
   .classBuilder<

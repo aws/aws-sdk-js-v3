@@ -27,7 +27,6 @@ export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoli
 export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all scaling policies applied to a fleet.</p>
  *          <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
  *             by policy status, such as to retrieve only active scaling policies. Use the pagination
@@ -102,6 +101,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeScalingPoliciesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetRunCommandInput extends GetRunRequest {}
 export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -163,6 +162,7 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a test run
  * ```javascript
  * // The following example gets information about a specific test run.

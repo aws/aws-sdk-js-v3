@@ -27,7 +27,6 @@ export interface SearchHoursOfOperationsCommandInput extends SearchHoursOfOperat
 export interface SearchHoursOfOperationsCommandOutput extends SearchHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches the hours of operation in an Amazon Connect instance, with optional
  *    filtering.</p>
  * @example
@@ -145,6 +144,7 @@ export interface SearchHoursOfOperationsCommandOutput extends SearchHoursOfOpera
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchHoursOfOperationsCommand extends $Command
   .classBuilder<

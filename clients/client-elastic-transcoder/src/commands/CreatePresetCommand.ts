@@ -31,7 +31,6 @@ export interface CreatePresetCommandInput extends CreatePresetRequest {}
 export interface CreatePresetCommandOutput extends CreatePresetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The CreatePreset operation creates a preset with settings that you specify.</p>
  *         <important>
  *             <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements
@@ -207,6 +206,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class CreatePresetCommand extends $Command
   .classBuilder<

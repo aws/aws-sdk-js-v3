@@ -33,7 +33,6 @@ export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, 
 }
 
 /**
- * @public
  * <p>Get an image frame (pixel data) for an image set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, 
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class GetImageFrameCommand extends $Command
   .classBuilder<

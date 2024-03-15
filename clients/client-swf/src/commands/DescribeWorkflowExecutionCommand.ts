@@ -27,7 +27,6 @@ export interface DescribeWorkflowExecutionCommandInput extends DescribeWorkflowE
 export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutionDetail, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified workflow execution including its type and some
  *       statistics.</p>
  *          <note>
@@ -133,6 +132,7 @@ export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutio
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class DescribeWorkflowExecutionCommand extends $Command
   .classBuilder<

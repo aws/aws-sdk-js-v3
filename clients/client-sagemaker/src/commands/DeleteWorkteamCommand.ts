@@ -27,7 +27,6 @@ export interface DeleteWorkteamCommandInput extends DeleteWorkteamRequest {}
 export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing work team. This operation can't be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteWorkteamCommand extends $Command
   .classBuilder<

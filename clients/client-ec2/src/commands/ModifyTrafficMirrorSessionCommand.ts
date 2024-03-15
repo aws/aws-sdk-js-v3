@@ -27,7 +27,6 @@ export interface ModifyTrafficMirrorSessionCommandInput extends ModifyTrafficMir
 export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a Traffic Mirror session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyTrafficMirrorSessionCommand extends $Command
   .classBuilder<

@@ -37,7 +37,6 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the individual task executions (one per target) for a particular task run as part
  *    of a maintenance window execution.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeMaintenanceWindowExecutionTaskInvocationsCommand extends $Command
   .classBuilder<

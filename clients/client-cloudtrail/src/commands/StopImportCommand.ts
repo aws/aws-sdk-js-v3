@@ -27,7 +27,6 @@ export interface StopImportCommandInput extends StopImportRequest {}
 export interface StopImportCommandOutput extends StopImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Stops a specified import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface StopImportCommandOutput extends StopImportResponse, __MetadataB
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class StopImportCommand extends $Command
   .classBuilder<

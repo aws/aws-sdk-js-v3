@@ -27,7 +27,6 @@ export interface FailoverGlobalClusterCommandInput extends FailoverGlobalCluster
 export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates the failover process for a Neptune global database.</p>
  *          <p>A failover for a Neptune global database promotes one of secondary
  *       read-only DB clusters to be the primary DB cluster and demotes the
@@ -100,6 +99,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class FailoverGlobalClusterCommand extends $Command
   .classBuilder<

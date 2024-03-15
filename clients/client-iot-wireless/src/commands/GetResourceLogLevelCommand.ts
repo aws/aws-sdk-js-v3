@@ -27,7 +27,6 @@ export interface GetResourceLogLevelCommandInput extends GetResourceLogLevelRequ
 export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Fetches the log-level override, if any, for a given resource-ID and resource-type. It
  *             can be used for a wireless device or a wireless gateway.</p>
  * @example
@@ -72,6 +71,7 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetResourceLogLevelCommand extends $Command
   .classBuilder<

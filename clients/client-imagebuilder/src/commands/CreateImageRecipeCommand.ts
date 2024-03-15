@@ -27,7 +27,6 @@ export interface CreateImageRecipeCommandInput extends CreateImageRecipeRequest 
 export interface CreateImageRecipeCommandOutput extends CreateImageRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new image recipe. Image recipes define how images are configured, tested,
  * 			and assessed.</p>
  * @example
@@ -142,6 +141,7 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class CreateImageRecipeCommand extends $Command
   .classBuilder<

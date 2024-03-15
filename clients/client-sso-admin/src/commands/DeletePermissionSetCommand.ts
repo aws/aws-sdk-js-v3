@@ -27,7 +27,6 @@ export interface DeletePermissionSetCommandInput extends DeletePermissionSetRequ
 export interface DeletePermissionSetCommandOutput extends DeletePermissionSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeletePermissionSetCommand extends $Command
   .classBuilder<

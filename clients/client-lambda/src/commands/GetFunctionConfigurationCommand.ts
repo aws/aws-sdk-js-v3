@@ -31,7 +31,6 @@ export interface GetFunctionConfigurationCommandInput extends GetFunctionConfigu
 export interface GetFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that
  *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
  *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
@@ -174,6 +173,7 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetFunctionConfigurationCommand extends $Command
   .classBuilder<

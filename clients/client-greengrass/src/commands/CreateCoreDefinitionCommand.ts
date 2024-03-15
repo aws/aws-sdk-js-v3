@@ -27,7 +27,6 @@ export interface CreateCoreDefinitionCommandInput extends CreateCoreDefinitionRe
 export interface CreateCoreDefinitionCommandOutput extends CreateCoreDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each contain exactly one Greengrass core.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CreateCoreDefinitionCommandOutput extends CreateCoreDefinitionR
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateCoreDefinitionCommand extends $Command
   .classBuilder<

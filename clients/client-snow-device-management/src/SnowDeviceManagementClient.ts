@@ -294,8 +294,8 @@ export type SnowDeviceManagementClientResolvedConfigType = __SmithyResolvedConfi
 export interface SnowDeviceManagementClientResolvedConfig extends SnowDeviceManagementClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Web Services Snow Device Management documentation.</p>
+ * @public
  */
 export class SnowDeviceManagementClient extends __Client<
   __HttpHandlerOptions,

@@ -31,7 +31,6 @@ export interface RegisterTargetsCommandInput extends RegisterTargetsInput {}
 export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers the specified targets with the specified target group.</p>
  *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
  *       register it.</p>
@@ -87,6 +86,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To register targets with a target group
  * ```javascript
  * // This example registers the specified instances with the specified target group.

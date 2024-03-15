@@ -27,7 +27,6 @@ export interface DeleteCertificateAuthorityCommandInput extends DeleteCertificat
 export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource
  * 			Name (ARN) of the private CA that you want to delete. You can find the ARN by calling
  * 			the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. </p>
@@ -87,6 +86,7 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class DeleteCertificateAuthorityCommand extends $Command
   .classBuilder<

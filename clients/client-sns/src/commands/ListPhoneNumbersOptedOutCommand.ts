@@ -31,7 +31,6 @@ export interface ListPhoneNumbersOptedOutCommandInput extends ListPhoneNumbersOp
 export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersOptedOutResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
  *             messages to them.</p>
  *          <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
@@ -82,6 +81,7 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ListPhoneNumbersOptedOutCommand extends $Command
   .classBuilder<

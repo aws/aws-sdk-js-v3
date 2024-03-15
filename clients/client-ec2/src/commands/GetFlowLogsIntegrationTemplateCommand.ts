@@ -32,7 +32,6 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
  *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
  *             Based on the information that you provide, we configure resources in the template to do the following:</p>
@@ -94,6 +93,7 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetFlowLogsIntegrationTemplateCommand extends $Command
   .classBuilder<

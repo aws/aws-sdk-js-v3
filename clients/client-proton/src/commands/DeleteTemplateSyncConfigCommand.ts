@@ -27,7 +27,6 @@ export interface DeleteTemplateSyncConfigCommandInput extends DeleteTemplateSync
 export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a template sync configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteTemplateSyncConfigCommand extends $Command
   .classBuilder<

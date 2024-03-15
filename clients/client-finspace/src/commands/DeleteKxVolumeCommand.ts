@@ -27,7 +27,6 @@ export interface DeleteKxVolumeCommandInput extends DeleteKxVolumeRequest {}
 export interface DeleteKxVolumeCommandOutput extends DeleteKxVolumeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *    Deletes a volume. You can only delete a volume if it's not attached to a cluster or a dataview. When a volume is deleted, any data on the volume is lost. This action is irreversible.
  *
@@ -80,6 +79,7 @@ export interface DeleteKxVolumeCommandOutput extends DeleteKxVolumeResponse, __M
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class DeleteKxVolumeCommand extends $Command
   .classBuilder<

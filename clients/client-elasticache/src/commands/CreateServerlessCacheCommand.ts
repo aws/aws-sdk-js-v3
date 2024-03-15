@@ -27,7 +27,6 @@ export interface CreateServerlessCacheCommandInput extends CreateServerlessCache
 export interface CreateServerlessCacheCommandOutput extends CreateServerlessCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a serverless cache.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -157,6 +156,7 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class CreateServerlessCacheCommand extends $Command
   .classBuilder<

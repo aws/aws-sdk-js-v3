@@ -27,7 +27,6 @@ export interface DeleteRealtimeLogConfigCommandInput extends DeleteRealtimeLogCo
 export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a real-time log configuration.</p>
  *          <p>You cannot delete a real-time log configuration if it's attached to a cache behavior.
  * 			First update your distributions to remove the real-time log configuration from all cache
@@ -73,6 +72,7 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteRealtimeLogConfigCommand extends $Command
   .classBuilder<

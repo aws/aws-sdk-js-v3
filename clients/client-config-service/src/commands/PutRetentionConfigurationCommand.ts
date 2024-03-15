@@ -27,7 +27,6 @@ export interface PutRetentionConfigurationCommandInput extends PutRetentionConfi
 export interface PutRetentionConfigurationCommandOutput extends PutRetentionConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and updates the retention configuration with details
  * 			about retention period (number of days) that Config stores your
  * 			historical information. The API creates the
@@ -75,6 +74,7 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutRetentionConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetGraphqlApiCommandInput extends GetGraphqlApiRequest {}
 export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a <code>GraphqlApi</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __Met
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetGraphqlApiCommand extends $Command
   .classBuilder<

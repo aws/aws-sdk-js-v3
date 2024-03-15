@@ -27,7 +27,6 @@ export interface DeleteEmailIdentityCommandInput extends DeleteEmailIdentityRequ
 export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an email identity that you previously verified for use with Amazon Pinpoint. An identity
  *             can be either an email address or a domain name.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class DeleteEmailIdentityCommand extends $Command
   .classBuilder<

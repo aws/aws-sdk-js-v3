@@ -56,8 +56,8 @@ export interface MarketplaceCommerceAnalytics {
 }
 
 /**
- * @public
  * Provides AWS Marketplace business intelligence data on-demand.
+ * @public
  */
 export class MarketplaceCommerceAnalytics
   extends MarketplaceCommerceAnalyticsClient

@@ -27,7 +27,6 @@ export interface GetDatabasesCommandInput extends GetDatabasesRequest {}
 export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all databases defined in a given Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetDatabasesCommand extends $Command
   .classBuilder<

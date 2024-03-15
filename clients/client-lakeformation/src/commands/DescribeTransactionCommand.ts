@@ -27,7 +27,6 @@ export interface DescribeTransactionCommandInput extends DescribeTransactionRequ
 export interface DescribeTransactionCommandOutput extends DescribeTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of a single transaction.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DescribeTransactionCommandOutput extends DescribeTransactionRes
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DescribeTransactionCommand extends $Command
   .classBuilder<

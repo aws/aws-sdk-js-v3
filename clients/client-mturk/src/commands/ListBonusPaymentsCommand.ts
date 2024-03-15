@@ -27,7 +27,6 @@ export interface ListBonusPaymentsCommandInput extends ListBonusPaymentsRequest 
 export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>ListBonusPayments</code>
@@ -79,6 +78,7 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListBonusPaymentsCommand extends $Command
   .classBuilder<

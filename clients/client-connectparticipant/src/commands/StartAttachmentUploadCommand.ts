@@ -31,7 +31,6 @@ export interface StartAttachmentUploadCommandInput extends StartAttachmentUpload
 export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  *             S3.</p>
  *          <note>
@@ -93,6 +92,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * @public
  */
 export class StartAttachmentUploadCommand extends $Command
   .classBuilder<

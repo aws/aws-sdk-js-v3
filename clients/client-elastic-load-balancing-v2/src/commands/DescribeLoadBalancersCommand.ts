@@ -31,7 +31,6 @@ export interface DescribeLoadBalancersCommandInput extends DescribeLoadBalancers
 export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified load balancers or all of your load balancers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe a load balancer
  * ```javascript
  * // This example describes the specified load balancer.

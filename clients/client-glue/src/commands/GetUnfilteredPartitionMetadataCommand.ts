@@ -32,7 +32,6 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves partition metadata from the Data Catalog that contains unfiltered
  *           metadata.</p>
  *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.</p>
@@ -182,6 +181,7 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetUnfilteredPartitionMetadataCommand extends $Command
   .classBuilder<

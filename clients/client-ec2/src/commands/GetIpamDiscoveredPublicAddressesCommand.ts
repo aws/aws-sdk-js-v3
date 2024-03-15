@@ -32,7 +32,6 @@ export interface GetIpamDiscoveredPublicAddressesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the public IP addresses that have been discovered by IPAM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface GetIpamDiscoveredPublicAddressesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetIpamDiscoveredPublicAddressesCommand extends $Command
   .classBuilder<

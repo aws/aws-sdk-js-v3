@@ -27,7 +27,6 @@ export interface StartTextDetectionCommandInput extends StartTextDetectionReques
 export interface StartTextDetectionCommandOutput extends StartTextDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts asynchronous detection of text in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect text in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
  *        the filename of the video. <code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
@@ -132,6 +131,7 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartTextDetectionCommand extends $Command
   .classBuilder<

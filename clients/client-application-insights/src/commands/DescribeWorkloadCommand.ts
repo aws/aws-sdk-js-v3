@@ -31,7 +31,6 @@ export interface DescribeWorkloadCommandInput extends DescribeWorkloadRequest {}
 export interface DescribeWorkloadCommandOutput extends DescribeWorkloadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a workload and its configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeWorkloadCommandOutput extends DescribeWorkloadResponse,
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeWorkloadCommand extends $Command
   .classBuilder<

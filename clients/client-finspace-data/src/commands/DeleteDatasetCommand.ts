@@ -27,9 +27,6 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Deletes a FinSpace Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +77,8 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class DeleteDatasetCommand extends $Command
   .classBuilder<

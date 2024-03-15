@@ -27,7 +27,6 @@ export interface ImportDatasetCommandInput extends ImportDatasetRequest {}
 export interface ImportDatasetCommandOutput extends ImportDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ImportDatasetCommandOutput extends ImportDatasetResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ImportDatasetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteCustomPluginCommandInput extends DeleteCustomPluginReques
 export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom plugin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class DeleteCustomPluginCommand extends $Command
   .classBuilder<

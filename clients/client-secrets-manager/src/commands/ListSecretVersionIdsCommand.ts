@@ -27,7 +27,6 @@ export interface ListSecretVersionIdsCommandInput extends ListSecretVersionIdsRe
 export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the versions of a secret. Secrets Manager uses staging labels to indicate the different versions
  *     of a secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">
  *     Secrets Manager concepts: Versions</a>.</p>
@@ -95,6 +94,7 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To list all of the secret versions associated with a secret
  * ```javascript
  * // The following example shows how to retrieve a list of all of the versions of a secret, including those without any staging labels.

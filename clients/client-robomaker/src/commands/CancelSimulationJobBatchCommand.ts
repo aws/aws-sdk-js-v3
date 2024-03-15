@@ -27,7 +27,6 @@ export interface CancelSimulationJobBatchCommandInput extends CancelSimulationJo
 export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a simulation job batch. When you cancel a simulation job batch, you are also
  *          cancelling all of the active simulation jobs created as part of the batch. </p>
  * @example
@@ -67,6 +66,7 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class CancelSimulationJobBatchCommand extends $Command
   .classBuilder<

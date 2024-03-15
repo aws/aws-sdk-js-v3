@@ -31,7 +31,6 @@ export interface DescribeKeywordsCommandInput extends DescribeKeywordsRequest {}
 export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified keywords or all keywords on your origination phone number or
  *             pool.</p>
  *          <p>A keyword is a word that you can search for on a particular phone number or pool. It
@@ -106,6 +105,7 @@ export interface DescribeKeywordsCommandOutput extends DescribeKeywordsResult, _
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeKeywordsCommand extends $Command
   .classBuilder<

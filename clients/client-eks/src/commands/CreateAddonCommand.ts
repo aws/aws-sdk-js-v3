@@ -27,7 +27,6 @@ export interface CreateAddonCommandInput extends CreateAddonRequest {}
 export interface CreateAddonCommandOutput extends CreateAddonResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon EKS add-on.</p>
  *          <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
  *             of common operational software for Amazon EKS clusters. For more information,
@@ -121,6 +120,7 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class CreateAddonCommand extends $Command
   .classBuilder<

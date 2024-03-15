@@ -27,7 +27,6 @@ export interface DeleteMLModelCommandInput extends DeleteMLModelInput {}
 export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>
  *         <p>After using the <code>DeleteMLModel</code> operation, you can use the
  *           <code>GetMLModel</code> operation to verify that the status of the <code>MLModel</code> changed to DELETED.</p>
@@ -69,6 +68,7 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DeleteMLModelCommand extends $Command
   .classBuilder<

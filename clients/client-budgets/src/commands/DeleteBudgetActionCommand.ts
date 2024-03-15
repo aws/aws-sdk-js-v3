@@ -31,7 +31,6 @@ export interface DeleteBudgetActionCommandInput extends DeleteBudgetActionReques
 export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Deletes a budget action.
  *       </p>
@@ -130,6 +129,7 @@ export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DeleteBudgetActionCommand extends $Command
   .classBuilder<

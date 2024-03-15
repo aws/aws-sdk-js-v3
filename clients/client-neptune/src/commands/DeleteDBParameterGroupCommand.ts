@@ -27,7 +27,6 @@ export interface DeleteDBParameterGroupCommandInput extends DeleteDBParameterGro
 export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
  *       associated with any DB instances.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteDBParameterGroupCommand extends $Command
   .classBuilder<

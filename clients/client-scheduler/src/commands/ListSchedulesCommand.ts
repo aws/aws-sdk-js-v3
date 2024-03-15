@@ -27,7 +27,6 @@ export interface ListSchedulesCommandInput extends ListSchedulesInput {}
 export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of your EventBridge Scheduler schedules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __Metad
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * @public
  */
 export class ListSchedulesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetInstanceCommandInput extends GetInstanceRequest {}
 export interface GetInstanceCommandOutput extends GetInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example GetInstance example
  * ```javascript
  * // This example gets information about a specified instance.

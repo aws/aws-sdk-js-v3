@@ -27,7 +27,6 @@ export interface GetSuiteRunCommandInput extends GetSuiteRunRequest {}
 export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a Device Advisor test suite run.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteRun</a> action.</p>
  * @example
@@ -117,6 +116,7 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * @public
  */
 export class GetSuiteRunCommand extends $Command
   .classBuilder<

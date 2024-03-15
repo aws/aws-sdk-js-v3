@@ -179,11 +179,11 @@ export interface IoTFleetHub {
 }
 
 /**
- * @public
  * <p>With Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
  *          </note>
+ * @public
  */
 export class IoTFleetHub extends IoTFleetHubClient implements IoTFleetHub {}
 createAggregatedClient(commands, IoTFleetHub);

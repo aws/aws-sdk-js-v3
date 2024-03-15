@@ -27,7 +27,6 @@ export interface UpdateJobExecutionCommandInput extends UpdateJobExecutionReques
 export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status of a job execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ * @public
  */
 export class UpdateJobExecutionCommand extends $Command
   .classBuilder<

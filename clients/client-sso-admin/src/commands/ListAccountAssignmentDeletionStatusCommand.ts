@@ -35,7 +35,6 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the status of the Amazon Web Services account assignment deletion requests for a specified
  *             IAM Identity Center instance.</p>
  * @example
@@ -93,6 +92,7 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListAccountAssignmentDeletionStatusCommand extends $Command
   .classBuilder<

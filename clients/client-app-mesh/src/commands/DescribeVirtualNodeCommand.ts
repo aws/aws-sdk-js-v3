@@ -27,7 +27,6 @@ export interface DescribeVirtualNodeCommandInput extends DescribeVirtualNodeInpu
 export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing virtual node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -318,6 +317,7 @@ export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOut
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DescribeVirtualNodeCommand extends $Command
   .classBuilder<

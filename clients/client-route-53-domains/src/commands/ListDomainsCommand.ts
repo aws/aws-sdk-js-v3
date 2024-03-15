@@ -27,7 +27,6 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns all the domain names registered with Amazon Route 53 for the
  * 			current Amazon Web Services account if no filtering conditions are used.</p>
  * @example
@@ -84,6 +83,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class ListDomainsCommand extends $Command
   .classBuilder<

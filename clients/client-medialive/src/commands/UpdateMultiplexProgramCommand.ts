@@ -27,7 +27,6 @@ export interface UpdateMultiplexProgramCommandInput extends UpdateMultiplexProgr
 export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProgramResponse, __MetadataBearer {}
 
 /**
- * @public
  * Update a program in a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class UpdateMultiplexProgramCommand extends $Command
   .classBuilder<

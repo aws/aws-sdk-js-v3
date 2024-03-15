@@ -31,7 +31,6 @@ export interface CancelResourceRequestCommandInput extends CancelResourceRequest
 export interface CancelResourceRequestCommandOutput extends CancelResourceRequestOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified resource operation request. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel">Canceling resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>Only resource operations requests with a status of <code>PENDING</code> or
@@ -79,6 +78,7 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * @public
  */
 export class CancelResourceRequestCommand extends $Command
   .classBuilder<

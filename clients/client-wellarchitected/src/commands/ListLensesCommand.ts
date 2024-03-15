@@ -27,7 +27,6 @@ export interface ListLensesCommandInput extends ListLensesInput {}
 export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the available lenses.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBea
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListLensesCommand extends $Command
   .classBuilder<

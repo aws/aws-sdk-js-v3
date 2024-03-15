@@ -27,7 +27,6 @@ export interface GetTestGridProjectCommandInput extends GetTestGridProjectReques
 export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a Selenium testing project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class GetTestGridProjectCommand extends $Command
   .classBuilder<

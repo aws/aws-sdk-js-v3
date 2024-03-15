@@ -27,7 +27,6 @@ export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
  *       specified by the account IDs.</p>
  *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
@@ -73,6 +72,7 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DeleteMembersCommand extends $Command
   .classBuilder<

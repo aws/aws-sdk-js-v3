@@ -27,7 +27,6 @@ export interface StartMediaAnalysisJobCommandInput extends StartMediaAnalysisJob
 export interface StartMediaAnalysisJobCommandOutput extends StartMediaAnalysisJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a new media analysis job. Accepts a manifest file in an Amazon S3 bucket. The
  *             output is a manifest file and a summary of the manifest stored in the Amazon S3 bucket.</p>
  * @example
@@ -117,6 +116,7 @@ export interface StartMediaAnalysisJobCommandOutput extends StartMediaAnalysisJo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example StartMediaAnalysisJob
  * ```javascript
  * // Initiates a new media analysis job.

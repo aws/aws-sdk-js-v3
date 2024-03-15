@@ -27,7 +27,6 @@ export interface CreateCommitCommandInput extends CreateCommitInput {}
 export interface CreateCommitCommandOutput extends CreateCommitOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a commit for a repository on the tip of a specified branch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -243,6 +242,7 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class CreateCommitCommand extends $Command
   .classBuilder<

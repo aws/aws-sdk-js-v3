@@ -27,7 +27,6 @@ export interface DescribeAccountLimitsCommandInput {}
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
  *          <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum
  *             number of Auto Scaling groups and launch configurations that you can create in a given Region.
@@ -64,6 +63,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe your Auto Scaling account limits
  * ```javascript
  * // This example describes the Amazon EC2 Auto Scaling service quotas for your account.

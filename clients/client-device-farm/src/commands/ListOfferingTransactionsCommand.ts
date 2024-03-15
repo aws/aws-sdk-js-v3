@@ -27,7 +27,6 @@ export interface ListOfferingTransactionsCommandInput extends ListOfferingTransa
 export interface ListOfferingTransactionsCommandOutput extends ListOfferingTransactionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS
  *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
  *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
@@ -105,6 +104,7 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about device offering transactions
  * ```javascript
  * // The following example returns information about Device Farm offering transactions.

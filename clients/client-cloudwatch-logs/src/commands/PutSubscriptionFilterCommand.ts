@@ -27,7 +27,6 @@ export interface PutSubscriptionFilterCommandInput extends PutSubscriptionFilter
 export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a subscription filter and associates it with the specified log
  *       group. With subscription filters, you can subscribe to a real-time stream of log events
  *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>
@@ -102,6 +101,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutSubscriptionFilterCommand extends $Command
   .classBuilder<

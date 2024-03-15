@@ -27,7 +27,6 @@ export interface DeleteDirectConnectGatewayCommandInput extends DeleteDirectConn
 export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are
  *       attached to the Direct Connect gateway and disassociate all virtual private gateways associated
  *       with the Direct Connect gateway.</p>
@@ -70,6 +69,7 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteDirectConnectGatewayCommand extends $Command
   .classBuilder<

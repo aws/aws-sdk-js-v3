@@ -27,7 +27,6 @@ export interface ListModelCardExportJobsCommandInput extends ListModelCardExport
 export interface ListModelCardExportJobsCommandOutput extends ListModelCardExportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the export jobs for the Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListModelCardExportJobsCommand extends $Command
   .classBuilder<

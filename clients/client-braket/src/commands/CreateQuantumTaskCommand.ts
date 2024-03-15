@@ -27,7 +27,6 @@ export interface CreateQuantumTaskCommandInput extends CreateQuantumTaskRequest 
 export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a quantum task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class CreateQuantumTaskCommand extends $Command
   .classBuilder<

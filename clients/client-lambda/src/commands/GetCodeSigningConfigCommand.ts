@@ -27,7 +27,6 @@ export interface GetCodeSigningConfigCommandInput extends GetCodeSigningConfigRe
 export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified code signing configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetCodeSigningConfigCommand extends $Command
   .classBuilder<

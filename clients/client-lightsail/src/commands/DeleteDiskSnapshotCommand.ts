@@ -27,7 +27,6 @@ export interface DeleteDiskSnapshotCommandInput extends DeleteDiskSnapshotReques
 export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified disk snapshot.</p>
  *          <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the
  *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
@@ -111,6 +110,7 @@ export interface DeleteDiskSnapshotCommandOutput extends DeleteDiskSnapshotResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteDiskSnapshotCommand extends $Command
   .classBuilder<

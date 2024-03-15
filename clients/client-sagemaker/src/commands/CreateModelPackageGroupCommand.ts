@@ -27,7 +27,6 @@ export interface CreateModelPackageGroupCommandInput extends CreateModelPackageG
 export interface CreateModelPackageGroupCommandOutput extends CreateModelPackageGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a model group. A model group contains a group of model versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateModelPackageGroupCommand extends $Command
   .classBuilder<

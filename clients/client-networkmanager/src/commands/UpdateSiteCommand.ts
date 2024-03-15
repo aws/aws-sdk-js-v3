@@ -32,7 +32,6 @@ export interface UpdateSiteCommandInput extends UpdateSiteRequest {}
 export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the information for an existing site. To remove information for any of the
  *             parameters, specify an empty string.</p>
  * @example
@@ -105,6 +104,7 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class UpdateSiteCommand extends $Command
   .classBuilder<

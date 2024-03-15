@@ -32,7 +32,6 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the transition lifecycle of a recovery point.</p>
  *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
  *          it expires. Backup transitions and expires backups automatically according to
@@ -105,6 +104,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command
   .classBuilder<

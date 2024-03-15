@@ -27,7 +27,6 @@ export interface ActivateTypeCommandInput extends ActivateTypeInput {}
 export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates a public third-party extension, making it available for use in stack templates. For more information,
  *    see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using public
  *    extensions</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -78,6 +77,7 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ActivateTypeCommand extends $Command
   .classBuilder<

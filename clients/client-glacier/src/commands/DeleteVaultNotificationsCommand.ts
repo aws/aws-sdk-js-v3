@@ -27,7 +27,6 @@ export interface DeleteVaultNotificationsCommandInput extends DeleteVaultNotific
 export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes the notification configuration set for a vault. The operation
  *          is eventually consistent; that is, it might take some time for Amazon S3 Glacier to completely
  *          disable the notifications and you might still receive some notifications for a short time
@@ -79,6 +78,7 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To delete the notification configuration set for a vault
  * ```javascript
  * // The example deletes the notification configuration set for the vault named examplevault.

@@ -31,7 +31,6 @@ export interface CreateReplicationInstanceCommandInput extends CreateReplication
 export interface CreateReplicationInstanceCommandOutput extends CreateReplicationInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the replication instance using the specified parameters.</p>
  *          <p>DMS requires that your account have certain roles with appropriate permissions
  *          before you can create a replication instance. For information on the required roles, see
@@ -183,6 +182,7 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Create replication instance
  * ```javascript
  * // Creates the replication instance using the specified parameters.

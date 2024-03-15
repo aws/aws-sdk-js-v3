@@ -27,7 +27,6 @@ export interface GetMailDomainCommandInput extends GetMailDomainRequest {}
 export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details for a mail domain, including domain records required to configure your domain with recommended security.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class GetMailDomainCommand extends $Command
   .classBuilder<

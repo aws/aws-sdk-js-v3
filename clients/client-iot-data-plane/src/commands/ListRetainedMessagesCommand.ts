@@ -27,7 +27,6 @@ export interface ListRetainedMessagesCommandInput extends ListRetainedMessagesRe
 export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists summary information about the retained messages stored for the account.</p>
  *          <p>This action returns only the topic names of the retained messages. It doesn't
  *       return any message payloads. Although this action doesn't return a message payload,
@@ -91,6 +90,7 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * @public
  */
 export class ListRetainedMessagesCommand extends $Command
   .classBuilder<

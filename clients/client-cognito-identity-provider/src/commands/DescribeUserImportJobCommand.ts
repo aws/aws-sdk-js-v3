@@ -31,7 +31,6 @@ export interface DescribeUserImportJobCommandInput extends DescribeUserImportJob
 export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the user import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DescribeUserImportJobCommand extends $Command
   .classBuilder<

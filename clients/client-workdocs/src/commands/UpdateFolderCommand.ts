@@ -27,7 +27,6 @@ export interface UpdateFolderCommandInput extends UpdateFolderRequest {}
 export interface UpdateFolderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified attributes of the specified folder. The user must have access
  *             to both the folder and its parent folder, if applicable.</p>
  * @example
@@ -90,6 +89,7 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class UpdateFolderCommand extends $Command
   .classBuilder<

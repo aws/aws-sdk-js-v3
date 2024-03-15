@@ -37,9 +37,6 @@ export interface PutVoiceConnectorTerminationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
- *
  * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
  *          <note>
  *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off termination settings.</p>
@@ -122,6 +119,8 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
  */
 export class PutVoiceConnectorTerminationCommand extends $Command
   .classBuilder<

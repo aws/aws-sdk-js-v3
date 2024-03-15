@@ -27,7 +27,6 @@ export interface GetGeneratedPolicyCommandInput extends GetGeneratedPolicyReques
 export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
  *       </p>
  * @example
@@ -103,6 +102,7 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class GetGeneratedPolicyCommand extends $Command
   .classBuilder<

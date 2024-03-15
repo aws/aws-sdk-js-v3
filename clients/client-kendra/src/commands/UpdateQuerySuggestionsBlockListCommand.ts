@@ -30,7 +30,6 @@ export interface UpdateQuerySuggestionsBlockListCommandInput extends UpdateQuery
 export interface UpdateQuerySuggestionsBlockListCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a block list used for query suggestions for an index.</p>
  *          <p>Updates to a block list might not take effect right away. Amazon Kendra
  *             needs to refresh the entire suggestions list to apply any updates to the
@@ -98,6 +97,7 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateQuerySuggestionsBlockListCommand extends $Command
   .classBuilder<

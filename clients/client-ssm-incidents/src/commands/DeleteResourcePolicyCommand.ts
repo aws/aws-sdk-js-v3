@@ -27,7 +27,6 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyIn
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the resource policy that Resource Access Manager uses to share your Incident Manager
  *       resource.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface SearchUserProfilesCommandInput extends SearchUserProfilesInput 
 export interface SearchUserProfilesCommandOutput extends SearchUserProfilesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches user profiles in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface SearchUserProfilesCommandOutput extends SearchUserProfilesOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class SearchUserProfilesCommand extends $Command
   .classBuilder<

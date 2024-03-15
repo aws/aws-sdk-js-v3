@@ -31,7 +31,6 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a standard profile.</p>
  *          <p>A standard profile represents the following attributes for a customer profile in a
  *          domain.</p>
@@ -145,6 +144,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class CreateProfileCommand extends $Command
   .classBuilder<

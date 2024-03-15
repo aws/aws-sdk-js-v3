@@ -1570,7 +1570,6 @@ export interface Rekognition {
 }
 
 /**
- * @public
  * <p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
  *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored
  *         Video</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common
@@ -1945,6 +1944,7 @@ export interface Rekognition {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Rekognition extends RekognitionClient implements Rekognition {}
 createAggregatedClient(commands, Rekognition);

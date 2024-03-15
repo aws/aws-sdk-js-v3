@@ -32,7 +32,6 @@ export interface UpdateEmergencyContactSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the details of the list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UpdateEmergencyContactSettingsCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class UpdateEmergencyContactSettingsCommand extends $Command
   .classBuilder<

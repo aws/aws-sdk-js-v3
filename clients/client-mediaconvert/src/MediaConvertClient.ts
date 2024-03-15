@@ -339,8 +339,8 @@ export type MediaConvertClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface MediaConvertClientResolvedConfig extends MediaConvertClientResolvedConfigType {}
 
 /**
- * @public
  * AWS Elemental MediaConvert
+ * @public
  */
 export class MediaConvertClient extends __Client<
   __HttpHandlerOptions,

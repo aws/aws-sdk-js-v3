@@ -27,7 +27,6 @@ export interface AssumeImpersonationRoleCommandInput extends AssumeImpersonation
 export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonationRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assumes an impersonation role for the given WorkMail organization. This method returns an
  *          authentication token you can use to make impersonated calls.</p>
  * @example
@@ -72,6 +71,7 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class AssumeImpersonationRoleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateVirtualRouterCommandInput extends CreateVirtualRouterInpu
 export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a virtual router within a service mesh.</p>
  *          <p>Specify a <code>listener</code> for any inbound traffic that your virtual router
  *          receives. Create a virtual router for each protocol and port that you need to route.
@@ -134,6 +133,7 @@ export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOut
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class CreateVirtualRouterCommand extends $Command
   .classBuilder<

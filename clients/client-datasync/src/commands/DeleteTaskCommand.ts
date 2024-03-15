@@ -27,7 +27,6 @@ export interface DeleteTaskCommandInput extends DeleteTaskRequest {}
 export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a transfer task resource from DataSync.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DeleteTaskCommand extends $Command
   .classBuilder<

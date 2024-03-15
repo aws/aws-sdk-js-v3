@@ -27,7 +27,6 @@ export interface SearchProductsAsAdminCommandInput extends SearchProductsAsAdmin
 export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdminOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the products for the specified portfolio or all products.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class SearchProductsAsAdminCommand extends $Command
   .classBuilder<

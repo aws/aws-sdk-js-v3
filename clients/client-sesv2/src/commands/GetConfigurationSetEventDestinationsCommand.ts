@@ -35,7 +35,6 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve a list of event destinations that are associated with a configuration
  *             set.</p>
  *          <p>
@@ -106,6 +105,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command
   .classBuilder<

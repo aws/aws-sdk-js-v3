@@ -27,7 +27,6 @@ export interface DescribeAutoPredictorCommandInput extends DescribeAutoPredictor
 export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredictorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a predictor created using the CreateAutoPredictor operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredicto
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeAutoPredictorCommand extends $Command
   .classBuilder<

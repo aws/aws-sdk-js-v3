@@ -27,7 +27,6 @@ export interface ResetDistributionCacheCommandInput extends ResetDistributionCac
 export interface ResetDistributionCacheCommandOutput extends ResetDistributionCacheResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes currently cached content from your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After resetting the cache, the next time a content request is made, your distribution
@@ -102,6 +101,7 @@ export interface ResetDistributionCacheCommandOutput extends ResetDistributionCa
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class ResetDistributionCacheCommand extends $Command
   .classBuilder<

@@ -552,7 +552,6 @@ export type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
  *       the following foundational data sources - VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
  *       logs, EKS audit logs, DNS logs, Amazon EBS volume data, runtime activity belonging to container workloads, such
@@ -573,6 +572,7 @@ export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedCo
  *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
  *           GuardDuty User Guide</a>
  *             </i>. </p>
+ * @public
  */
 export class GuardDutyClient extends __Client<
   __HttpHandlerOptions,

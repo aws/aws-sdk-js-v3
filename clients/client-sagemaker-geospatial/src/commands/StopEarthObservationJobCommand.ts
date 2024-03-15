@@ -31,7 +31,6 @@ export interface StopEarthObservationJobCommandInput extends StopEarthObservatio
 export interface StopEarthObservationJobCommandOutput extends StopEarthObservationJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to stop an existing earth observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface StopEarthObservationJobCommandOutput extends StopEarthObservati
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class StopEarthObservationJobCommand extends $Command
   .classBuilder<

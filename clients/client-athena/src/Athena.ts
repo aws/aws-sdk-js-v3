@@ -1476,7 +1476,6 @@ export interface Athena {
 }
 
 /**
- * @public
  * <p>Amazon Athena is an interactive query service that lets you use standard SQL
  *             to analyze data directly in Amazon S3. You can point Athena at your
  *             data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay
@@ -1488,6 +1487,7 @@ export interface Athena {
  *             driver or later with the Amazon Athena API. Earlier version drivers do not
  *             support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
  *                     Amazon Athena with JDBC</a>.</p>
+ * @public
  */
 export class Athena extends AthenaClient implements Athena {}
 createAggregatedClient(commands, Athena);

@@ -27,7 +27,6 @@ export interface GetVehicleStatusCommandInput extends GetVehicleStatusRequest {}
 export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about the status of a vehicle with any associated campaigns.
  *         </p>
  * @example
@@ -80,6 +79,7 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetVehicleStatusCommand extends $Command
   .classBuilder<

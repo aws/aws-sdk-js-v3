@@ -27,7 +27,6 @@ export interface UpdateVoiceChannelCommandInput extends UpdateVoiceChannelReques
 export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateVoiceChannelCommand extends $Command
   .classBuilder<

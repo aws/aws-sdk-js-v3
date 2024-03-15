@@ -27,7 +27,6 @@ export interface DescribeDBClusterEndpointsCommandInput extends DescribeDBCluste
 export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpointMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about endpoints for an Amazon Neptune DB cluster.</p>
  *          <note>
  *             <p>This operation can also return information for Amazon RDS clusters
@@ -92,6 +91,7 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterEndpointsCommand extends $Command
   .classBuilder<

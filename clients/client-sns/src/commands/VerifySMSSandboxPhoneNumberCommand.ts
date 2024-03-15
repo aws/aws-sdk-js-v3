@@ -31,7 +31,6 @@ export interface VerifySMSSandboxPhoneNumberCommandInput extends VerifySMSSandbo
 export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
  *             Amazon Web Services account.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -87,6 +86,7 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class VerifySMSSandboxPhoneNumberCommand extends $Command
   .classBuilder<

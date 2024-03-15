@@ -27,7 +27,6 @@ export interface ListContentsCommandInput extends ListContentsRequest {}
 export interface ListContentsCommandOutput extends ListContentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListContentsCommandOutput extends ListContentsResponse, __Metad
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class ListContentsCommand extends $Command
   .classBuilder<

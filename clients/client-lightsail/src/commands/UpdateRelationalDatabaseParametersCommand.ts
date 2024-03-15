@@ -35,7 +35,6 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>
  *          <p>Parameter updates don't cause outages; therefore, their application is not subject to the
  *       preferred maintenance window. However, there are two ways in which parameter updates are
@@ -132,6 +131,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateRelationalDatabaseParametersCommand extends $Command
   .classBuilder<

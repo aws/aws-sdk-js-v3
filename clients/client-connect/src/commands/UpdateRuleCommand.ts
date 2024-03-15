@@ -27,7 +27,6 @@ export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 export interface UpdateRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a rule for the specified Amazon Connect instance.</p>
  *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
  *    code conditions for the rule. </p>
@@ -139,6 +138,7 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateRuleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ReportInstanceStatusCommandInput extends ReportInstanceStatusRe
 export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits feedback about the status of an instance. The instance must be in the
  *                 <code>running</code> state. If your experience with the instance differs from the
  *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
@@ -67,6 +66,7 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ReportInstanceStatusCommand extends $Command
   .classBuilder<

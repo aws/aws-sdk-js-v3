@@ -27,7 +27,6 @@ export interface CreateCrawlerCommandInput extends CreateCrawlerRequest {}
 export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
  *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
  *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
@@ -175,6 +174,7 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateCrawlerCommand extends $Command
   .classBuilder<

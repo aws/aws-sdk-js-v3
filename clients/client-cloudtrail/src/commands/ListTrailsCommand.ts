@@ -27,7 +27,6 @@ export interface ListTrailsCommandInput extends ListTrailsRequest {}
 export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists trails that are in the current account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListTrailsCommand extends $Command
   .classBuilder<

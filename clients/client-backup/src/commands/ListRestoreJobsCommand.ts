@@ -27,7 +27,6 @@ export interface ListRestoreJobsCommandInput extends ListRestoreJobsInput {}
 export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of jobs that Backup initiated to restore a saved resource,
  *          including details about the recovery process.</p>
  * @example
@@ -103,6 +102,7 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListRestoreJobsCommand extends $Command
   .classBuilder<

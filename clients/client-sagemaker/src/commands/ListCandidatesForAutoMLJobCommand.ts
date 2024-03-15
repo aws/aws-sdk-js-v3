@@ -27,7 +27,6 @@ export interface ListCandidatesForAutoMLJobCommandInput extends ListCandidatesFo
 export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesForAutoMLJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the candidates created for the job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListCandidatesForAutoMLJobCommand extends $Command
   .classBuilder<

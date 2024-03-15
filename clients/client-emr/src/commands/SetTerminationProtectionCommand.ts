@@ -27,7 +27,6 @@ export interface SetTerminationProtectionCommandInput extends SetTerminationProt
 export interface SetTerminationProtectionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>SetTerminationProtection locks a cluster (job flow) so the Amazon EC2 instances
  *          in the cluster cannot be terminated by user intervention, an API call, or in the event of a
  *          job-flow error. The cluster still terminates upon successful completion of the job flow.
@@ -76,6 +75,7 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class SetTerminationProtectionCommand extends $Command
   .classBuilder<

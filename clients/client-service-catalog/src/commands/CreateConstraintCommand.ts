@@ -27,7 +27,6 @@ export interface CreateConstraintCommandInput extends CreateConstraintInput {}
 export interface CreateConstraintCommandOutput extends CreateConstraintOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a constraint.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -84,6 +83,7 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreateConstraintCommand extends $Command
   .classBuilder<

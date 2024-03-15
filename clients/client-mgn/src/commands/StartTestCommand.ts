@@ -32,7 +32,6 @@ export interface StartTestCommandInput extends StartTestRequest {}
 export interface StartTestCommandOutput extends StartTestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class StartTestCommand extends $Command
   .classBuilder<

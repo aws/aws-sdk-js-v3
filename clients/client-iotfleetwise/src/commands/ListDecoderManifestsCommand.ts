@@ -27,7 +27,6 @@ export interface ListDecoderManifestsCommandInput extends ListDecoderManifestsRe
 export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists decoder manifests. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -84,6 +83,7 @@ export interface ListDecoderManifestsCommandOutput extends ListDecoderManifestsR
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListDecoderManifestsCommand extends $Command
   .classBuilder<

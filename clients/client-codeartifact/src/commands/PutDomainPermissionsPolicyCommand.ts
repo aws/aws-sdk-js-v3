@@ -27,7 +27,6 @@ export interface PutDomainPermissionsPolicyCommandInput extends PutDomainPermiss
 export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Sets a resource policy on a domain that specifies permissions to access it.
  *       </p>
@@ -102,6 +101,7 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class PutDomainPermissionsPolicyCommand extends $Command
   .classBuilder<

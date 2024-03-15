@@ -27,7 +27,6 @@ export interface UpdateRuleGroupCommandInput extends UpdateRuleGroupRequest {}
 export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified <a>RuleGroup</a>.</p>
  *          <note>
  *             <p>This operation completely replaces the mutable specifications that you already have for the rule group with the ones that you provide to this call. </p>
@@ -1130,6 +1129,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class UpdateRuleGroupCommand extends $Command
   .classBuilder<

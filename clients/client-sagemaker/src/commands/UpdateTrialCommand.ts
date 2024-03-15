@@ -27,7 +27,6 @@ export interface UpdateTrialCommandInput extends UpdateTrialRequest {}
 export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the display name of a trial.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateTrialCommand extends $Command
   .classBuilder<

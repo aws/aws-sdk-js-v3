@@ -29,7 +29,6 @@ export interface BatchModifyClusterSnapshotsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for a set of cluster snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface BatchModifyClusterSnapshotsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class BatchModifyClusterSnapshotsCommand extends $Command
   .classBuilder<

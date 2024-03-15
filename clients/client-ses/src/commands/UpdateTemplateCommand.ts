@@ -27,7 +27,6 @@ export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an email template. Email templates enable you to send personalized email to
  *             one or more destinations in a single operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/send-personalized-email-api.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -69,6 +68,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class UpdateTemplateCommand extends $Command
   .classBuilder<

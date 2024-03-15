@@ -27,7 +27,6 @@ export interface EnableAWSServiceAccessCommandInput extends EnableAWSServiceAcce
 export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the integration of an Amazon Web Services service (the service that is specified by
  *                 <code>ServicePrincipal</code>) with Organizations. When you enable integration, you allow
  *             the specified service to create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
@@ -400,6 +399,7 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class EnableAWSServiceAccessCommand extends $Command
   .classBuilder<

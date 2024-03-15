@@ -36,7 +36,6 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command
   .classBuilder<

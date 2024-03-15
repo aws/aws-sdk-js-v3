@@ -27,7 +27,6 @@ export interface ListMedicalScribeJobsCommandInput extends ListMedicalScribeJobs
 export interface ListMedicalScribeJobsCommandOutput extends ListMedicalScribeJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of Medical Scribe jobs that match the specified criteria. If no
  *             criteria are specified, all Medical Scribe jobs are returned.</p>
  *          <p>To get detailed information about a specific Medical Scribe job, use the  operation.</p>
@@ -86,6 +85,7 @@ export interface ListMedicalScribeJobsCommandOutput extends ListMedicalScribeJob
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListMedicalScribeJobsCommand extends $Command
   .classBuilder<

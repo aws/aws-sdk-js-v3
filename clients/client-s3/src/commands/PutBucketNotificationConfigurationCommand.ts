@@ -30,7 +30,6 @@ export interface PutBucketNotificationConfigurationCommandInput extends PutBucke
 export interface PutBucketNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -172,6 +171,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example Set notification configuration for a bucket
  * ```javascript
  * // The following example sets notification configuration on a bucket to publish the object created events to an SNS topic.

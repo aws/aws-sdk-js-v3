@@ -31,7 +31,6 @@ export interface GetEventPredictionMetadataCommandInput extends GetEventPredicti
 export interface GetEventPredictionMetadataCommandOutput extends GetEventPredictionMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Gets details of the past fraud predictions for the specified event ID, event type, detector ID, and detector version ID that was generated in the specified time period.
  * </p>
@@ -153,6 +152,7 @@ export interface GetEventPredictionMetadataCommandOutput extends GetEventPredict
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetEventPredictionMetadataCommand extends $Command
   .classBuilder<

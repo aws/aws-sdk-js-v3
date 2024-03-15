@@ -27,7 +27,6 @@ export interface DescribeWorkspaceImagesCommandInput extends DescribeWorkspaceIm
 export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceImagesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more specified images, if the image identifiers
  *          are provided. Otherwise, all images in the account are described. </p>
  * @example
@@ -90,6 +89,7 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceImagesCommand extends $Command
   .classBuilder<

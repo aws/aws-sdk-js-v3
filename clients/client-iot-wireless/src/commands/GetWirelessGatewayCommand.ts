@@ -27,7 +27,6 @@ export interface GetWirelessGatewayCommandInput extends GetWirelessGatewayReques
 export interface GetWirelessGatewayCommandOutput extends GetWirelessGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetWirelessGatewayCommandOutput extends GetWirelessGatewayRespo
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetWirelessGatewayCommand extends $Command
   .classBuilder<

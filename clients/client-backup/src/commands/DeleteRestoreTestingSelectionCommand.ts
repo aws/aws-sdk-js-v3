@@ -30,7 +30,6 @@ export interface DeleteRestoreTestingSelectionCommandInput extends DeleteRestore
 export interface DeleteRestoreTestingSelectionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Input the Restore Testing Plan name and Restore Testing Selection
  *          name.</p>
  *          <p>All testing selections associated with a restore testing plan must
@@ -66,6 +65,7 @@ export interface DeleteRestoreTestingSelectionCommandOutput extends __MetadataBe
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteRestoreTestingSelectionCommand extends $Command
   .classBuilder<

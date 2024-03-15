@@ -31,7 +31,6 @@ export interface CreateAppInstanceBotCommandInput extends CreateAppInstanceBotRe
 export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a bot under an Amazon Chime <code>AppInstance</code>. The request consists of a
  *          unique <code>Configuration</code> and <code>Name</code> for that bot.</p>
  * @example
@@ -106,6 +105,7 @@ export interface CreateAppInstanceBotCommandOutput extends CreateAppInstanceBotR
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class CreateAppInstanceBotCommand extends $Command
   .classBuilder<

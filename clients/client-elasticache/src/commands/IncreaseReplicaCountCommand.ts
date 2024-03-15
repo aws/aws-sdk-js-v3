@@ -27,7 +27,6 @@ export interface IncreaseReplicaCountCommandInput extends IncreaseReplicaCountMe
 export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Dynamically increases the number of replicas in a Redis (cluster mode disabled)
  *             replication group or the number of replica nodes in one or more node groups (shards) of
  *             a Redis (cluster mode enabled) replication group. This operation is performed with no
@@ -231,6 +230,7 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class IncreaseReplicaCountCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDatasetContentCommandInput extends CreateDatasetContentRe
 export interface CreateDatasetContentCommandOutput extends CreateDatasetContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the content of a dataset by applying a <code>queryAction</code> (a SQL query) or a
  *         <code>containerAction</code> (executing a containerized application).</p>
  * @example
@@ -72,6 +71,7 @@ export interface CreateDatasetContentCommandOutput extends CreateDatasetContentR
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class CreateDatasetContentCommand extends $Command
   .classBuilder<

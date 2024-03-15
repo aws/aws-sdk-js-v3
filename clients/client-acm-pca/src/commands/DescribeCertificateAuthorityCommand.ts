@@ -32,7 +32,6 @@ export interface DescribeCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about your private certificate authority (CA) or one that has been
  * 			shared with you. You specify the private CA on input by its ARN (Amazon Resource Name).
  * 			The output contains the status of your CA. This can be any of the following: </p>
@@ -222,6 +221,7 @@ export interface DescribeCertificateAuthorityCommandOutput
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class DescribeCertificateAuthorityCommand extends $Command
   .classBuilder<

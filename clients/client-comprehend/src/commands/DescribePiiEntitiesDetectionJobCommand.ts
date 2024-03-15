@@ -32,7 +32,6 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a PII entities detection job. For example, you can use
  *       this operation to get the job status.</p>
  * @example
@@ -106,6 +105,7 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribePiiEntitiesDetectionJobCommand extends $Command
   .classBuilder<

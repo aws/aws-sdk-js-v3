@@ -45,7 +45,6 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
 }
 
 /**
- * @public
  * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to
  *       send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the
  *       user input using the machine learning model that it built for the bot. </p>
@@ -229,6 +228,7 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  * @throws {@link LexRuntimeServiceServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ * @public
  */
 export class PostContentCommand extends $Command
   .classBuilder<

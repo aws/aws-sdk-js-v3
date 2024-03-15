@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists tags for Amazon FSx resources.</p>
  *          <p>When retrieving all tags, you can optionally specify the <code>MaxResults</code>
  *             parameter to limit the number of tags in a response. If more tags remain, Amazon FSx
@@ -102,6 +101,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To list tags for a resource
  * ```javascript
  * // This operation lists tags for an Amazon FSx resource.

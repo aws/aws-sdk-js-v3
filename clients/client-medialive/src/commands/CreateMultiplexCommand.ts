@@ -27,7 +27,6 @@ export interface CreateMultiplexCommandInput extends CreateMultiplexRequest {}
 export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a new multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CreateMultiplexCommand extends $Command
   .classBuilder<

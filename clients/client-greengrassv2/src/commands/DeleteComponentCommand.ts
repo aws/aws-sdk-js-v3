@@ -27,7 +27,6 @@ export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
 export interface DeleteComponentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a version of a component from IoT Greengrass.</p>
  *          <note>
  *             <p>This operation deletes the component's recipe and artifacts. As a result, deployments
@@ -80,6 +79,7 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class DeleteComponentCommand extends $Command
   .classBuilder<

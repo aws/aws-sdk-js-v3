@@ -27,7 +27,6 @@ export interface DescribeReservedNodesCommandInput extends DescribeReservedNodes
 export interface DescribeReservedNodesCommandOutput extends DescribeReservedNodesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeReservedNodesCommand extends $Command
   .classBuilder<

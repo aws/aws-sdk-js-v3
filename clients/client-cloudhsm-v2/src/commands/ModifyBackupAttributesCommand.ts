@@ -27,7 +27,6 @@ export interface ModifyBackupAttributesCommandInput extends ModifyBackupAttribut
 export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies attributes for AWS CloudHSM backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class ModifyBackupAttributesCommand extends $Command
   .classBuilder<

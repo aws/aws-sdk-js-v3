@@ -27,7 +27,6 @@ export interface DeletePluginCommandInput extends DeletePluginRequest {}
 export interface DeletePluginCommandOutput extends DeletePluginResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Q plugin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeletePluginCommandOutput extends DeletePluginResponse, __Metad
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class DeletePluginCommand extends $Command
   .classBuilder<

@@ -25,7 +25,6 @@ export interface XmlListsCommandInput {}
 export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
 
 /**
- * @public
  * This test case serializes XML lists for the following cases for both
  * input and output:
  *
@@ -106,6 +105,7 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class XmlListsCommand extends $Command
   .classBuilder<

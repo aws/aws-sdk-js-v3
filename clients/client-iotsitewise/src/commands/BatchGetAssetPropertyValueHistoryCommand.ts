@@ -35,7 +35,6 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the historical values for one or more asset properties. For more information, see
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -132,6 +131,7 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class BatchGetAssetPropertyValueHistoryCommand extends $Command
   .classBuilder<

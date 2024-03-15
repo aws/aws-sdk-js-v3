@@ -36,7 +36,6 @@ export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command
   .classBuilder<

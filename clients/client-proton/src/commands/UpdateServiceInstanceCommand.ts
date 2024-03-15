@@ -32,7 +32,6 @@ export interface UpdateServiceInstanceCommandInput extends UpdateServiceInstance
 export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a service instance.</p>
  *          <p>There are a few modes for updating a service instance. The <code>deploymentType</code>
  *       field defines the mode.</p>
@@ -110,6 +109,7 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateServiceInstanceCommand extends $Command
   .classBuilder<

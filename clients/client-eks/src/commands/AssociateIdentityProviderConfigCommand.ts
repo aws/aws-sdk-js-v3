@@ -32,7 +32,6 @@ export interface AssociateIdentityProviderConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an identity provider configuration to a cluster.</p>
  *          <p>If you want to authenticate identities using an identity provider, you can create an
  *             identity provider configuration and associate it to your cluster. After configuring
@@ -130,6 +129,7 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class AssociateIdentityProviderConfigCommand extends $Command
   .classBuilder<

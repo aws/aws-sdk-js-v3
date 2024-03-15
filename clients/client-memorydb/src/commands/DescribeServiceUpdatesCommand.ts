@@ -27,7 +27,6 @@ export interface DescribeServiceUpdatesCommandInput extends DescribeServiceUpdat
 export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpdatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details of the service updates</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeServiceUpdatesCommand extends $Command
   .classBuilder<

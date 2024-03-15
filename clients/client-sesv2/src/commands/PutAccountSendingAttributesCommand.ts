@@ -32,7 +32,6 @@ export interface PutAccountSendingAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable or disable the ability of your account to send email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface PutAccountSendingAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutAccountSendingAttributesCommand extends $Command
   .classBuilder<

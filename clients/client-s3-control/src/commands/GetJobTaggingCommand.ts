@@ -28,7 +28,6 @@ export interface GetJobTaggingCommandInput extends GetJobTaggingRequest {}
 export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the tags on an S3 Batch Operations job. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -99,6 +98,7 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetJobTaggingCommand extends $Command
   .classBuilder<

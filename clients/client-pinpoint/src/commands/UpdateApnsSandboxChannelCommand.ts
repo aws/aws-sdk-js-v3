@@ -27,7 +27,6 @@ export interface UpdateApnsSandboxChannelCommandInput extends UpdateApnsSandboxC
 export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandboxChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandbox
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateApnsSandboxChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeImageScanFindingsCommandInput extends DescribeImageScan
 export interface DescribeImageScanFindingsCommandOutput extends DescribeImageScanFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the scan findings for the specified image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -206,6 +205,7 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DescribeImageScanFindingsCommand extends $Command
   .classBuilder<

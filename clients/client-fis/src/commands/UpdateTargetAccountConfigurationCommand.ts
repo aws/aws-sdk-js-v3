@@ -32,7 +32,6 @@ export interface UpdateTargetAccountConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the target account configuration for the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UpdateTargetAccountConfigurationCommandOutput
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class UpdateTargetAccountConfigurationCommand extends $Command
   .classBuilder<

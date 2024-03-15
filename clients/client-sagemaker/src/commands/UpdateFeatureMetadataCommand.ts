@@ -27,7 +27,6 @@ export interface UpdateFeatureMetadataCommandInput extends UpdateFeatureMetadata
 export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description and parameters of the feature group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateFeatureMetadataCommand extends $Command
   .classBuilder<

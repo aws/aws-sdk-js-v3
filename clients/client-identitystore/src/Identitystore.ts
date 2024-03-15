@@ -335,7 +335,6 @@ export interface Identitystore {
 }
 
 /**
- * @public
  * <p>The Identity Store service used by IAM Identity Center provides a single place to retrieve all of
  *          your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
  *             Guide</a>.</p>
@@ -344,6 +343,7 @@ export interface Identitystore {
  *          <note>
  *             <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API namespaces.</p>
  *          </note>
+ * @public
  */
 export class Identitystore extends IdentitystoreClient implements Identitystore {}
 createAggregatedClient(commands, Identitystore);

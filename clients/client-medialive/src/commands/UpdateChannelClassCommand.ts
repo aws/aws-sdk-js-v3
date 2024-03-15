@@ -27,7 +27,6 @@ export interface UpdateChannelClassCommandInput extends UpdateChannelClassReques
 export interface UpdateChannelClassCommandOutput extends UpdateChannelClassResponse, __MetadataBearer {}
 
 /**
- * @public
  * Changes the class of the channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1134,6 +1133,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class UpdateChannelClassCommand extends $Command
   .classBuilder<

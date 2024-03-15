@@ -32,7 +32,6 @@ export interface UpdateMediaStorageConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are
  *             two signaling modes that you can specify :</p>
  *          <ul>
@@ -116,6 +115,7 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class UpdateMediaStorageConfigurationCommand extends $Command
   .classBuilder<

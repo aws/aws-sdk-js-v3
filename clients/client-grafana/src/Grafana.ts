@@ -412,7 +412,6 @@ export interface Grafana {
 }
 
 /**
- * @public
  * <p>Amazon Managed Grafana is a fully managed and secure data visualization service that
  *             you can use to instantly query, correlate, and visualize operational metrics, logs, and
  *             traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and
@@ -422,6 +421,7 @@ export interface Grafana {
  *                 <i>workspaces</i>. In a workspace, you can create Grafana dashboards
  *             and visualizations to analyze your metrics, logs, and traces without having to build,
  *             package, or deploy any hardware to run Grafana servers. </p>
+ * @public
  */
 export class Grafana extends GrafanaClient implements Grafana {}
 createAggregatedClient(commands, Grafana);

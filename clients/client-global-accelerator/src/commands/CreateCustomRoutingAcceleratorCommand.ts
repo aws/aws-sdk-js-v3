@@ -36,7 +36,6 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands
  * 	    of Amazon EC2 instance destinations running in a single or multiple virtual private clouds (VPC) subnet endpoints.</p>
  *          <p>Be aware that, by default, all destination EC2 instances in a VPC subnet endpoint cannot receive
@@ -116,6 +115,7 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class CreateCustomRoutingAcceleratorCommand extends $Command
   .classBuilder<

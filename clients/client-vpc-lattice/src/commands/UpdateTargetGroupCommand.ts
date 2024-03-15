@@ -27,7 +27,6 @@ export interface UpdateTargetGroupCommandInput extends UpdateTargetGroupRequest 
 export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified target group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class UpdateTargetGroupCommand extends $Command
   .classBuilder<

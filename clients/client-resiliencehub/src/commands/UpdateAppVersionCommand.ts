@@ -27,7 +27,6 @@ export interface UpdateAppVersionCommandInput extends UpdateAppVersionRequest {}
 export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Resilience Hub application version.</p>
  *          <note>
  *             <p>This API updates the Resilience Hub application draft version. To use this information
@@ -95,6 +94,7 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class UpdateAppVersionCommand extends $Command
   .classBuilder<

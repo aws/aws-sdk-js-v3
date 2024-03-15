@@ -27,7 +27,6 @@ export interface VerifyEmailAddressCommandInput extends VerifyEmailAddressReques
 export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
  *             address.</p>
  * @example
@@ -54,6 +53,7 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example VerifyEmailAddress
  * ```javascript
  * // The following example starts the email address verification process with Amazon SES:

@@ -31,7 +31,6 @@ export interface ListDomainNamesCommandInput extends ListDomainNamesRequest {}
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class ListDomainNamesCommand extends $Command
   .classBuilder<

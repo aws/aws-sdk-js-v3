@@ -32,7 +32,6 @@ export interface CreatePracticeRunConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>A practice run configuration for zonal autoshift is required when you enable zonal autoshift.
  * 			A practice run configuration includes specifications for blocked dates and blocked time windows,
  * 		and for Amazon CloudWatch alarms that you create to use with practice runs. The alarms that you specify are an
@@ -125,6 +124,7 @@ export interface CreatePracticeRunConfigurationCommandOutput
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class CreatePracticeRunConfigurationCommand extends $Command
   .classBuilder<

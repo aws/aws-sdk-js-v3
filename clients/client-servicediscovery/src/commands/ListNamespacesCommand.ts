@@ -27,7 +27,6 @@ export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
 export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists summary information about the namespaces that were created by the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: List namespaces
  * ```javascript
  * // Example: List namespaces

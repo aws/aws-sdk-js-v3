@@ -27,7 +27,6 @@ export interface TerminateInstancesCommandInput extends TerminateInstancesReques
 export interface TerminateInstancesCommandOutput extends TerminateInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
  *             instance more than once, each call succeeds. </p>
  *          <p>If you specify multiple instances and the request fails (for example, because of a
@@ -129,6 +128,7 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To terminate an EC2 instance
  * ```javascript
  * // This example terminates the specified EC2 instance.

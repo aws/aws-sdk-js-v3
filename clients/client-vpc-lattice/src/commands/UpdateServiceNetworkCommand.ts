@@ -27,7 +27,6 @@ export interface UpdateServiceNetworkCommandInput extends UpdateServiceNetworkRe
 export interface UpdateServiceNetworkCommandOutput extends UpdateServiceNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified service network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateServiceNetworkCommandOutput extends UpdateServiceNetworkR
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class UpdateServiceNetworkCommand extends $Command
   .classBuilder<

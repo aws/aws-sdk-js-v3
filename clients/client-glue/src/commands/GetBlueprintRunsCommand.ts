@@ -27,7 +27,6 @@ export interface GetBlueprintRunsCommandInput extends GetBlueprintRunsRequest {}
 export interface GetBlueprintRunsCommandOutput extends GetBlueprintRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of blueprint runs for a specified blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetBlueprintRunsCommandOutput extends GetBlueprintRunsResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetBlueprintRunsCommand extends $Command
   .classBuilder<

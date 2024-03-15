@@ -36,7 +36,6 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or removes the specified license configurations for the specified Amazon Web Services resource.</p>
  *          <p>You can update the license specifications of AMIs, instances, and hosts.
  *          You cannot update the license specifications for launch templates and CloudFormation templates,
@@ -101,6 +100,7 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class UpdateLicenseSpecificationsForResourceCommand extends $Command
   .classBuilder<

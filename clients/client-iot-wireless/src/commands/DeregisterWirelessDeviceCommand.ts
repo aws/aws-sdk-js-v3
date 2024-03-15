@@ -27,7 +27,6 @@ export interface DeregisterWirelessDeviceCommandInput extends DeregisterWireless
 export interface DeregisterWirelessDeviceCommandOutput extends DeregisterWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregister a wireless device from AWS IoT Wireless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeregisterWirelessDeviceCommandOutput extends DeregisterWireles
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeregisterWirelessDeviceCommand extends $Command
   .classBuilder<

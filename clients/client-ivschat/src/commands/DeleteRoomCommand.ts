@@ -27,7 +27,6 @@ export interface DeleteRoomCommandInput extends DeleteRoomRequest {}
 export interface DeleteRoomCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class DeleteRoomCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateNotificationCommandInput extends UpdateNotificationReques
 export interface UpdateNotificationCommandOutput extends UpdateNotificationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class UpdateNotificationCommand extends $Command
   .classBuilder<

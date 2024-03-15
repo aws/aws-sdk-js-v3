@@ -27,7 +27,6 @@ export interface DisassociateElasticIpCommandInput extends DisassociateElasticIp
 export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an Elastic IP address from its instance. The address remains registered with
  *       the stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
@@ -65,6 +64,7 @@ export interface DisassociateElasticIpCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DisassociateElasticIpCommand extends $Command
   .classBuilder<

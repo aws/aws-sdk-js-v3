@@ -27,7 +27,6 @@ export interface ListHITsCommandInput extends ListHITsRequest {}
 export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>ListHITs</code>
@@ -110,6 +109,7 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListHITsCommand extends $Command
   .classBuilder<

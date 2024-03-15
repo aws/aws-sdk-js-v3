@@ -27,7 +27,6 @@ export interface PutSchemaFromJsonCommandInput extends PutSchemaFromJsonRequest 
 export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows a schema to be updated using JSON upload. Only available for development schemas. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonRespons
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class PutSchemaFromJsonCommand extends $Command
   .classBuilder<

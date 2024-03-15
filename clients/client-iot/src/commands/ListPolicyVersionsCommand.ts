@@ -27,7 +27,6 @@ export interface ListPolicyVersionsCommandInput extends ListPolicyVersionsReques
 export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the versions of the specified policy and identifies the default
  *          version.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPolicyVersions</a> action.</p>
@@ -81,6 +80,7 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListPolicyVersionsCommand extends $Command
   .classBuilder<

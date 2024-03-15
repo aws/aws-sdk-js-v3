@@ -27,7 +27,6 @@ export interface UpdateTableCommandInput extends UpdateTableInput {}
 export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
  *             Streams settings for a given table.</p>
  *          <important>
@@ -342,6 +341,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To modify a table's provisioned throughput
  * ```javascript
  * // This example increases the provisioned read and write capacity on the Music table.

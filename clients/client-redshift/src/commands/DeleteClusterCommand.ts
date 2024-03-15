@@ -27,7 +27,6 @@ export interface DeleteClusterCommandInput extends DeleteClusterMessage {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web
  *             service indicates that the request was received correctly. Use <a>DescribeClusters</a> to monitor the status of the deletion. The delete
  *             operation cannot be canceled or reverted once submitted.
@@ -280,6 +279,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteClusterCommand extends $Command
   .classBuilder<

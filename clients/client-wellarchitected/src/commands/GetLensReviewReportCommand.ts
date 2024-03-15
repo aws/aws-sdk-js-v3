@@ -27,7 +27,6 @@ export interface GetLensReviewReportCommandInput extends GetLensReviewReportInpu
 export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get lens review report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetLensReviewReportCommandOutput extends GetLensReviewReportOut
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class GetLensReviewReportCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreatePartnerInputCommandInput extends CreatePartnerInputReques
 export interface CreatePartnerInputCommandOutput extends CreatePartnerInputResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a partner input
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CreatePartnerInputCommand extends $Command
   .classBuilder<

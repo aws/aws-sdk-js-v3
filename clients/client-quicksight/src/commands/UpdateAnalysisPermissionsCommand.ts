@@ -27,7 +27,6 @@ export interface UpdateAnalysisPermissionsCommandInput extends UpdateAnalysisPer
 export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the read and write permissions for an analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateAnalysisPermissionsCommand extends $Command
   .classBuilder<

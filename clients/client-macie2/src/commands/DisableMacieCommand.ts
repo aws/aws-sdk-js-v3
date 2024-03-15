@@ -27,7 +27,6 @@ export interface DisableMacieCommandInput extends DisableMacieRequest {}
 export interface DisableMacieCommandOutput extends DisableMacieResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables Amazon Macie and deletes all settings and resources for a Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DisableMacieCommand extends $Command
   .classBuilder<

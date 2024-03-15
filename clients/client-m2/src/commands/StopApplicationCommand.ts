@@ -27,7 +27,6 @@ export interface StopApplicationCommandInput extends StopApplicationRequest {}
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a running application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class StopApplicationCommand extends $Command
   .classBuilder<

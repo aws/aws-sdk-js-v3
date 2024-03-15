@@ -27,7 +27,6 @@ export interface GetVaultNotificationsCommandInput extends GetVaultNotifications
 export interface GetVaultNotificationsCommandOutput extends GetVaultNotificationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation retrieves the <code>notification-configuration</code> subresource of
  *          the specified vault.</p>
  *
@@ -89,6 +88,7 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To get the notification-configuration for the specified vault
  * ```javascript
  * // The example retrieves the notification-configuration for the vault named my-vault.

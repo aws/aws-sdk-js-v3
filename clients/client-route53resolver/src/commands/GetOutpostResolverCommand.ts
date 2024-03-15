@@ -27,7 +27,6 @@ export interface GetOutpostResolverCommandInput extends GetOutpostResolverReques
 export interface GetOutpostResolverCommandOutput extends GetOutpostResolverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified Resolver on the Outpost, such as its instance count and
  * 			type, name, and the current status of the Resolver.</p>
  * @example
@@ -84,6 +83,7 @@ export interface GetOutpostResolverCommandOutput extends GetOutpostResolverRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetOutpostResolverCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateLiveSourceCommandInput extends UpdateLiveSourceRequest {}
 export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a live source's configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UpdateLiveSourceCommandOutput extends UpdateLiveSourceResponse,
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class UpdateLiveSourceCommand extends $Command
   .classBuilder<

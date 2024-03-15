@@ -27,7 +27,6 @@ export interface DeleteAccessControlRuleCommandInput extends DeleteAccessControl
 export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessControlRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an access control rule for the specified WorkMail organization.</p>
  *          <note>
  *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -65,6 +64,7 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteAccessControlRuleCommand extends $Command
   .classBuilder<

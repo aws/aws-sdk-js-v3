@@ -27,7 +27,6 @@ export interface ListBuildsCommandInput extends ListBuildsInput {}
 export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ListBuildsCommand extends $Command
   .classBuilder<

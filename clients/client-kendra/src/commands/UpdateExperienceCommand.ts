@@ -27,7 +27,6 @@ export interface UpdateExperienceCommandInput extends UpdateExperienceRequest {}
 export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates your Amazon Kendra experience such as a search application. For more information on
  *             creating a search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
  *                 search experience with no code</a>.</p>
@@ -97,6 +96,7 @@ export interface UpdateExperienceCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateExperienceCommand extends $Command
   .classBuilder<

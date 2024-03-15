@@ -27,7 +27,6 @@ export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
 export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a workplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class CreateWorkspaceCommand extends $Command
   .classBuilder<

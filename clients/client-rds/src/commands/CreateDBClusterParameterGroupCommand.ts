@@ -32,7 +32,6 @@ export interface CreateDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB cluster parameter group.</p>
  *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.</p>
  *          <p>A DB cluster parameter group is initially created with the default parameters for the
@@ -109,6 +108,7 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a DB cluster parameter group
  * ```javascript
  * // The following example creates a DB cluster parameter group.

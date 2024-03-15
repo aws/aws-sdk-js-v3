@@ -27,7 +27,6 @@ export interface DescribeExecutionCommandInput extends DescribeExecutionRequest 
 export interface DescribeExecutionCommandOutput extends DescribeExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p>
  *          <note>
  *             <p>This API call only returns details for in-progress workflows.</p>
@@ -132,6 +131,7 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionRespons
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeExecutionCommand extends $Command
   .classBuilder<

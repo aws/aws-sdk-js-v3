@@ -27,7 +27,6 @@ export interface RegisterCertificateCommandInput extends RegisterCertificateRequ
 export interface RegisterCertificateCommandOutput extends RegisterCertificateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a certificate for a secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class RegisterCertificateCommand extends $Command
   .classBuilder<

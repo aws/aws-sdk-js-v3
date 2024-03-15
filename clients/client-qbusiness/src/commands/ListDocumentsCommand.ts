@@ -27,7 +27,6 @@ export interface ListDocumentsCommandInput extends ListDocumentsRequest {}
 export interface ListDocumentsCommandOutput extends ListDocumentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of documents attached to an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResponse, __Met
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ListDocumentsCommand extends $Command
   .classBuilder<

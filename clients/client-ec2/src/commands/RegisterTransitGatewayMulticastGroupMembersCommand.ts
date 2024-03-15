@@ -36,7 +36,6 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers members (network interfaces) with the  transit gateway multicast group. A member is a network interface associated
  *             with a supported EC2 instance that receives multicast traffic. For information about
  *             supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
@@ -80,6 +79,7 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
   .classBuilder<

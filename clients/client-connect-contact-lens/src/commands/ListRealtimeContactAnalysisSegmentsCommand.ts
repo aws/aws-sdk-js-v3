@@ -39,7 +39,6 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of analysis segments for a real-time analysis session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * @throws {@link ConnectContactLensServiceException}
  * <p>Base exception class for all service exceptions from ConnectContactLens service.</p>
  *
+ * @public
  */
 export class ListRealtimeContactAnalysisSegmentsCommand extends $Command
   .classBuilder<

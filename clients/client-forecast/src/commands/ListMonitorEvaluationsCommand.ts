@@ -27,7 +27,6 @@ export interface ListMonitorEvaluationsCommandInput extends ListMonitorEvaluatio
 export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the monitoring evaluation results and predictor events collected by
  *          the monitor resource during different windows of time.</p>
  *          <p>For information about monitoring see <a>predictor-monitoring</a>. For
@@ -105,6 +104,7 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListMonitorEvaluationsCommand extends $Command
   .classBuilder<

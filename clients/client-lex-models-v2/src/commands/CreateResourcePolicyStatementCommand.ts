@@ -32,7 +32,6 @@ export interface CreateResourcePolicyStatementCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new resource policy statement to a bot or bot alias. If a
  *          resource policy exists, the statement is added to the current resource
  *          policy. If a policy doesn't exist, a new policy is created.</p>
@@ -111,6 +110,7 @@ export interface CreateResourcePolicyStatementCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateResourcePolicyStatementCommand extends $Command
   .classBuilder<

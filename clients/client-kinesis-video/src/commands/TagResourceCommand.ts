@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to a signaling channel. A <i>tag</i> is a
  *             key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources.
  *             If you specify a tag that already exists, the tag value is replaced with the value that
@@ -81,6 +80,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetIpamPoolAllocationsCommandInput extends GetIpamPoolAllocatio
 export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a list of all the CIDR allocations in an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.</p>
  *          <note>
  *             <p>If you use this action after <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">AllocateIpamPoolCidr</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>, note that all EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual consistency</a> model.</p>
@@ -81,6 +80,7 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetIpamPoolAllocationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeProfileCommandInput extends DescribeProfileRequest {}
 export interface DescribeProfileCommandOutput extends DescribeProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeProfileCommand extends $Command
   .classBuilder<

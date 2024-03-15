@@ -27,7 +27,6 @@ export interface UpdateFileCacheCommandInput extends UpdateFileCacheRequest {}
 export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing Amazon File Cache resource.
  *             You can update multiple properties in a single request.</p>
  * @example
@@ -121,6 +120,7 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class UpdateFileCacheCommand extends $Command
   .classBuilder<

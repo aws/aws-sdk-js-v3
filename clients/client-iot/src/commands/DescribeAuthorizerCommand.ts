@@ -27,7 +27,6 @@ export interface DescribeAuthorizerCommandInput extends DescribeAuthorizerReques
 export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeAuthorizer</a> action.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeAuthorizerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchGetFindingsCommandInput extends BatchGetFindingsRequest {}
 export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all requested findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse,
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class BatchGetFindingsCommand extends $Command
   .classBuilder<

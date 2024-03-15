@@ -27,7 +27,6 @@ export interface UpdateFacetCommandInput extends UpdateFacetRequest {}
 export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Does the following:</p>
  *          <ol>
  *             <li>
@@ -134,6 +133,7 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class UpdateFacetCommand extends $Command
   .classBuilder<

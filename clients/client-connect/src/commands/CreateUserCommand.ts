@@ -27,7 +27,6 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user account for the specified Amazon Connect instance.</p>
  *          <important>
  *             <p>Certain <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html">UserIdentityInfo</a> parameters
@@ -108,6 +107,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateUserCommand extends $Command
   .classBuilder<

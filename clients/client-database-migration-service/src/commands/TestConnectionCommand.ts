@@ -31,7 +31,6 @@ export interface TestConnectionCommandInput extends TestConnectionMessage {}
 export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests the connection between the replication instance and the endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Test conection
  * ```javascript
  * // Tests the connection between the replication instance and the endpoint.

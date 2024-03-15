@@ -27,7 +27,6 @@ export interface CreateCloudFormationStackCommandInput extends CreateCloudFormat
 export interface CreateCloudFormationStackCommandOutput extends CreateCloudFormationStackResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported
  *       Amazon Lightsail snapshot. This operation results in a CloudFormation stack record that can be
  *       used to track the AWS CloudFormation stack created. Use the <code>get cloud formation stack
@@ -118,6 +117,7 @@ export interface CreateCloudFormationStackCommandOutput extends CreateCloudForma
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateCloudFormationStackCommand extends $Command
   .classBuilder<

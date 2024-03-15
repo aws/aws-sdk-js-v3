@@ -261,8 +261,8 @@ export type PersonalizeRuntimeClientResolvedConfigType = __SmithyResolvedConfigu
 export interface PersonalizeRuntimeClientResolvedConfig extends PersonalizeRuntimeClientResolvedConfigType {}
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class PersonalizeRuntimeClient extends __Client<
   __HttpHandlerOptions,

@@ -32,7 +32,6 @@ export interface GetRightsizingRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates recommendations that help you save cost by identifying idle and underutilized
  *       Amazon EC2 instances.</p>
  *          <p>Recommendations are generated to either downsize or terminate instances, along with
@@ -282,6 +281,7 @@ export interface GetRightsizingRecommendationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetRightsizingRecommendationCommand extends $Command
   .classBuilder<

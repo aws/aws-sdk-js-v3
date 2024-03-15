@@ -32,7 +32,6 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an inline policy to a permission set.</p>
  *          <note>
  *             <p>If the permission set is already referenced by one or more account assignments,
@@ -95,6 +94,7 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class PutInlinePolicyToPermissionSetCommand extends $Command
   .classBuilder<

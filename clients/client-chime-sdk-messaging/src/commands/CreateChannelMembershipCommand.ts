@@ -35,7 +35,6 @@ export interface CreateChannelMembershipCommandInput extends CreateChannelMember
 export interface CreateChannelMembershipCommandOutput extends CreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
  *          is derived from the request header. A channel member can:</p>
  *          <ul>
@@ -133,6 +132,7 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class CreateChannelMembershipCommand extends $Command
   .classBuilder<

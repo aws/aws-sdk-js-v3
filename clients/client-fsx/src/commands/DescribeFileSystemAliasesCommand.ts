@@ -27,7 +27,6 @@ export interface DescribeFileSystemAliasesCommandInput extends DescribeFileSyste
 export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of
  *             all DNS aliases that have been associated with and disassociated from the file system is available in the list of <a>AdministrativeAction</a>
  *         provided in the <a>DescribeFileSystems</a> operation response.</p>
@@ -75,6 +74,7 @@ export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSyst
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeFileSystemAliasesCommand extends $Command
   .classBuilder<

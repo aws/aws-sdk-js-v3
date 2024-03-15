@@ -27,7 +27,6 @@ export interface DeletePartitionIndexCommandInput extends DeletePartitionIndexRe
 export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified partition index from an existing table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeletePartitionIndexCommand extends $Command
   .classBuilder<

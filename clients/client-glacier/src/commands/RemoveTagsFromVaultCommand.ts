@@ -27,7 +27,6 @@ export interface RemoveTagsFromVaultCommandInput extends RemoveTagsFromVaultInpu
 export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation removes one or more tags from the set of tags attached to a vault. For
  *          more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier Resources</a>.
  *          This operation is idempotent. The operation will be successful, even if there are no tags
@@ -73,6 +72,7 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To remove tags from a vault
  * ```javascript
  * // The example removes two tags from the vault named examplevault.

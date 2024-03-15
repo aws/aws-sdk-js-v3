@@ -27,7 +27,6 @@ export interface UpdateTestSetCommandInput extends UpdateTestSetRequest {}
 export interface UpdateTestSetCommandOutput extends UpdateTestSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The action to update the test set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface UpdateTestSetCommandOutput extends UpdateTestSetResponse, __Met
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class UpdateTestSetCommand extends $Command
   .classBuilder<

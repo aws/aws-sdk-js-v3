@@ -32,7 +32,6 @@ export interface DeleteServerlessCacheSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing serverless cache snapshot. Available for Redis only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DeleteServerlessCacheSnapshotCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DeleteServerlessCacheSnapshotCommand extends $Command
   .classBuilder<

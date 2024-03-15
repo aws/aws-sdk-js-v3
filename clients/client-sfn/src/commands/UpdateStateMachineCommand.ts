@@ -31,7 +31,6 @@ export interface UpdateStateMachineCommandInput extends UpdateStateMachineInput 
 export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing state machine by modifying its <code>definition</code>,
  *         <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue
  *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
@@ -158,6 +157,7 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class UpdateStateMachineCommand extends $Command
   .classBuilder<

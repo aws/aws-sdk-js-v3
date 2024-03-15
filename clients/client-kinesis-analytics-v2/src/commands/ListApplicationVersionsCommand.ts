@@ -31,7 +31,6 @@ export interface ListApplicationVersionsCommandInput extends ListApplicationVers
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration
  *       associated with each version.</p>
  *
@@ -83,6 +82,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class ListApplicationVersionsCommand extends $Command
   .classBuilder<

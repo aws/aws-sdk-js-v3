@@ -32,7 +32,6 @@ export interface ListAppInstanceAdminsCommandInput extends ListAppInstanceAdmins
 export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdminsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class ListAppInstanceAdminsCommand extends $Command
   .classBuilder<

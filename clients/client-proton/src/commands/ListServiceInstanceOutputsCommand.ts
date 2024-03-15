@@ -31,7 +31,6 @@ export interface ListServiceInstanceOutputsCommandInput extends ListServiceInsta
 export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInstanceOutputsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a list service of instance Infrastructure as Code (IaC) outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInst
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListServiceInstanceOutputsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateEntityRecognizerCommandInput extends CreateEntityRecogniz
 export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecognizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an entity recognizer using submitted files. After your
  *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
  *         <code>DescribeEntityRecognizer</code> API. </p>
@@ -141,6 +140,7 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class CreateEntityRecognizerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutInsightSelectorsCommandInput extends PutInsightSelectorsRequ
 export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lets you enable Insights event logging by specifying the Insights selectors that you
  *          want to enable on an existing trail or event data store. You also use <code>PutInsightSelectors</code> to turn
  *          off Insights event logging, by passing an empty list of Insights types. The valid Insights
@@ -177,6 +176,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class PutInsightSelectorsCommand extends $Command
   .classBuilder<

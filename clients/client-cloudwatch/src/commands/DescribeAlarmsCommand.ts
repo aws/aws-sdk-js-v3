@@ -27,7 +27,6 @@ export interface DescribeAlarmsCommandInput extends DescribeAlarmsInput {}
 export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
  * 			name, the alarm state, or a prefix for any action.</p>
  *          <p>To use this operation and return information about composite alarms, you must be signed on with
@@ -169,6 +168,7 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DescribeAlarmsCommand extends $Command
   .classBuilder<

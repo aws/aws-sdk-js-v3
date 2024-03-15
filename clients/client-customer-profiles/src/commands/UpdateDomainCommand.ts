@@ -27,7 +27,6 @@ export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
  *          or an encryption key.</p>
  *          <p>After a domain is created, the name can’t be changed.</p>
@@ -217,6 +216,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class UpdateDomainCommand extends $Command
   .classBuilder<

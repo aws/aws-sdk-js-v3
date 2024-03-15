@@ -27,7 +27,6 @@ export interface DeleteKeyspaceCommandInput extends DeleteKeyspaceRequest {}
 export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>DeleteKeyspace</code> operation deletes a keyspace and all of its tables. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class DeleteKeyspaceCommand extends $Command
   .classBuilder<

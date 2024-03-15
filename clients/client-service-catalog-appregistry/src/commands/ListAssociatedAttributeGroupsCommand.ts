@@ -36,7 +36,6 @@ export interface ListAssociatedAttributeGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListAssociatedAttributeGroupsCommandOutput
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class ListAssociatedAttributeGroupsCommand extends $Command
   .classBuilder<

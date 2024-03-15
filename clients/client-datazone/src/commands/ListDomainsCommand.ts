@@ -27,7 +27,6 @@ export interface ListDomainsCommandInput extends ListDomainsInput {}
 export interface ListDomainsCommandOutput extends ListDomainsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists Amazon DataZone domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListDomainsCommandOutput extends ListDomainsOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class ListDomainsCommand extends $Command
   .classBuilder<

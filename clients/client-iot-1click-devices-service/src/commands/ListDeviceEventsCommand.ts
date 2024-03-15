@@ -31,7 +31,6 @@ export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
 export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Using a device ID, returns a DeviceEventsResponse object containing an
  *  array of events for the device.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class ListDeviceEventsCommand extends $Command
   .classBuilder<

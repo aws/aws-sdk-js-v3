@@ -27,7 +27,6 @@ export interface DeleteWorldTemplateCommandInput extends DeleteWorldTemplateRequ
 export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a world template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class DeleteWorldTemplateCommand extends $Command
   .classBuilder<

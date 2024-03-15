@@ -27,7 +27,6 @@ export interface DeleteSnapshotCopyGrantCommandInput extends DeleteSnapshotCopyG
 export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified snapshot copy grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteSnapshotCopyGrantCommand extends $Command
   .classBuilder<

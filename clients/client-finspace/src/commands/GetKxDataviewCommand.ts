@@ -27,7 +27,6 @@ export interface GetKxDataviewCommandInput extends GetKxDataviewRequest {}
 export interface GetKxDataviewCommandOutput extends GetKxDataviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Retrieves details of the dataview.
  * </p>
@@ -112,6 +111,7 @@ export interface GetKxDataviewCommandOutput extends GetKxDataviewResponse, __Met
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxDataviewCommand extends $Command
   .classBuilder<

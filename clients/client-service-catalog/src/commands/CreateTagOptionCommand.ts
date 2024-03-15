@@ -27,7 +27,6 @@ export interface CreateTagOptionCommandInput extends CreateTagOptionInput {}
 export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreateTagOptionCommand extends $Command
   .classBuilder<

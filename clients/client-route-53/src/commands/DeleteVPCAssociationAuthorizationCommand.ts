@@ -36,7 +36,6 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to
  * 			associate a specified VPC with a hosted zone that was created by a different account.
  * 			You must use the account that created the hosted zone to submit a
@@ -95,6 +94,7 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteVPCAssociationAuthorizationCommand extends $Command
   .classBuilder<

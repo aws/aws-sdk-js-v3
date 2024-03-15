@@ -27,7 +27,6 @@ export interface GetAccountSummaryCommandInput {}
 export interface GetAccountSummaryCommandOutput extends GetAccountSummaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about IAM entity usage and IAM quotas in the Amazon Web Services
  *             account.</p>
  *          <p> For information about IAM quotas, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the
@@ -62,6 +61,7 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To get information about IAM entity quotas and usage in the current account
  * ```javascript
  * // The following command returns information about the IAM entity quotas and usage in the current AWS account.

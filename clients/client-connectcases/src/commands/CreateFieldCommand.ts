@@ -27,7 +27,6 @@ export interface CreateFieldCommandInput extends CreateFieldRequest {}
 export interface CreateFieldCommandOutput extends CreateFieldResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a field in the Cases domain. This field is used to define the case object
  *       model (that is, defines what data can be captured on cases) in a Cases domain. </p>
  * @example
@@ -86,6 +85,7 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class CreateFieldCommand extends $Command
   .classBuilder<

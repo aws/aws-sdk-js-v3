@@ -27,7 +27,6 @@ export interface UnshareDirectoryCommandInput extends UnshareDirectoryRequest {}
 export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class UnshareDirectoryCommand extends $Command
   .classBuilder<

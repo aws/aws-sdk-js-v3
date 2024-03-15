@@ -36,7 +36,6 @@ export interface ExportMetadataModelAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can save
  *          your assessment report as a comma-separated value (CSV) or a PDF file. </p>
  * @example
@@ -80,6 +79,7 @@ export interface ExportMetadataModelAssessmentCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Export Metadata Model Assessment
  * ```javascript
  * // Saves a copy of a database migration assessment report to your S3 bucket. DMS can save your assessment report as a comma-separated value (CSV) or a PDF file.

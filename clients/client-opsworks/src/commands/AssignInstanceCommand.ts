@@ -27,7 +27,6 @@ export interface AssignInstanceCommandInput extends AssignInstanceRequest {}
 export interface AssignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assign a registered instance to a layer.</p>
  *          <ul>
  *             <li>
@@ -79,6 +78,7 @@ export interface AssignInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class AssignInstanceCommand extends $Command
   .classBuilder<

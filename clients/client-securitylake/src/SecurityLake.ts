@@ -691,7 +691,6 @@ export interface SecurityLake {
 }
 
 /**
- * @public
  * <p>Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to
  *          automatically centralize security data from cloud, on-premises, and custom sources into a
  *          data lake that's stored in your Amazon Web Services account. Amazon Web Services Organizations
@@ -718,6 +717,7 @@ export interface SecurityLake {
  *          the Open Cybersecurity Schema Framework (OCSF).</p>
  *          <p>Other Amazon Web Services and third-party services can subscribe to the data that's stored in Security Lake for
  *          incident response and security data analytics.</p>
+ * @public
  */
 export class SecurityLake extends SecurityLakeClient implements SecurityLake {}
 createAggregatedClient(commands, SecurityLake);

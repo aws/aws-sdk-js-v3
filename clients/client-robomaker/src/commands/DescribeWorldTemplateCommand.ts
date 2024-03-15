@@ -27,7 +27,6 @@ export interface DescribeWorldTemplateCommandInput extends DescribeWorldTemplate
 export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a world template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class DescribeWorldTemplateCommand extends $Command
   .classBuilder<

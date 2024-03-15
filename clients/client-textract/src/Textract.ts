@@ -521,10 +521,10 @@ export interface Textract {
 }
 
 /**
- * @public
  * <p>Amazon Textract detects and analyzes text in documents and converts it
  *          into machine-readable text. This is the API reference documentation for
  *          Amazon Textract.</p>
+ * @public
  */
 export class Textract extends TextractClient implements Textract {}
 createAggregatedClient(commands, Textract);

@@ -27,7 +27,6 @@ export interface PutPipelineDefinitionCommandInput extends PutPipelineDefinition
 export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p>
  *         <p>
  *             <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one
@@ -272,6 +271,7 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class PutPipelineDefinitionCommand extends $Command
   .classBuilder<

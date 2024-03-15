@@ -27,7 +27,6 @@ export interface DisassociateApiCommandInput extends DisassociateApiRequest {}
 export interface DisassociateApiCommandOutput extends DisassociateApiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an <code>ApiAssociation</code> object from a custom domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DisassociateApiCommandOutput extends DisassociateApiResponse, _
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class DisassociateApiCommand extends $Command
   .classBuilder<

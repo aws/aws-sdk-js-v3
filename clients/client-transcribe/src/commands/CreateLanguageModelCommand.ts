@@ -27,7 +27,6 @@ export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequ
 export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom language model.</p>
  *          <p>When creating a new custom language model, you must specify:</p>
  *          <ul>
@@ -110,6 +109,7 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class CreateLanguageModelCommand extends $Command
   .classBuilder<

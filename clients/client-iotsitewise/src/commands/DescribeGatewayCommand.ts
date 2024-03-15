@@ -27,7 +27,6 @@ export interface DescribeGatewayCommandInput extends DescribeGatewayRequest {}
 export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeGatewayCommand extends $Command
   .classBuilder<

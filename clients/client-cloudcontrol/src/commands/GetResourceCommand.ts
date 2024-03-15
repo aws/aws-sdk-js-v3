@@ -27,7 +27,6 @@ export interface GetResourceCommandInput extends GetResourceInput {}
 export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the current state of the specified resource. For details, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html">Reading a resource's current state</a>.</p>
  *          <p>You can use this action to return information about an existing resource in your account
@@ -130,6 +129,7 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * @public
  */
 export class GetResourceCommand extends $Command
   .classBuilder<

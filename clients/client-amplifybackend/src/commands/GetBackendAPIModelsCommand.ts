@@ -27,7 +27,6 @@ export interface GetBackendAPIModelsCommandInput extends GetBackendAPIModelsRequ
 export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a model introspection schema for an existing backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class GetBackendAPIModelsCommand extends $Command
   .classBuilder<

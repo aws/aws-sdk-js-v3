@@ -27,7 +27,6 @@ export interface GetInstanceProfileCommandInput extends GetInstanceProfileReques
 export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified instance profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class GetInstanceProfileCommand extends $Command
   .classBuilder<

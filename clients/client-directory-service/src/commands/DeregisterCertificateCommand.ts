@@ -27,7 +27,6 @@ export interface DeregisterCertificateCommandInput extends DeregisterCertificate
 export interface DeregisterCertificateCommandOutput extends DeregisterCertificateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes from the system the certificate that was registered for secure LDAP or client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DeregisterCertificateCommand extends $Command
   .classBuilder<

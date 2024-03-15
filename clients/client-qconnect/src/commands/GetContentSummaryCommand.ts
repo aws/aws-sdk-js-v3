@@ -27,7 +27,6 @@ export interface GetContentSummaryCommandInput extends GetContentSummaryRequest 
 export interface GetContentSummaryCommandOutput extends GetContentSummaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves summary information about the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class GetContentSummaryCommand extends $Command
   .classBuilder<

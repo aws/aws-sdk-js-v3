@@ -32,7 +32,6 @@ export interface CreateConfiguredTableAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a configured table association. A configured table association links a
  *          configured table with a collaboration.</p>
  * @example
@@ -101,6 +100,7 @@ export interface CreateConfiguredTableAssociationCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class CreateConfiguredTableAssociationCommand extends $Command
   .classBuilder<

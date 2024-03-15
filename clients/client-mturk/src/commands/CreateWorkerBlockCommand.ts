@@ -27,7 +27,6 @@ export interface CreateWorkerBlockCommandInput extends CreateWorkerBlockRequest 
 export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateWorkerBlock</code> operation allows you to prevent a Worker from working on your HITs. For example, you can block a Worker who is producing poor quality work. You can block up to 100,000 Workers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockRespons
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class CreateWorkerBlockCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ImportVmImageCommandInput extends ImportVmImageRequest {}
 export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>When you export your virtual machine (VM) from its virtualization environment, that
  * 			process creates a set of one or more disk container files that act as snapshots of your
  * 			VM’s environment, settings, and data. The Amazon EC2 API <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
@@ -85,6 +84,7 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ImportVmImageCommand extends $Command
   .classBuilder<

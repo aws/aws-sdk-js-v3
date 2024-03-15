@@ -27,7 +27,6 @@ export interface ListCheckSummariesCommandInput extends ListCheckSummariesInput 
 export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List of Trusted Advisor checks summarized for all accounts related to the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListCheckSummariesCommand extends $Command
   .classBuilder<

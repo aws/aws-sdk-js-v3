@@ -27,7 +27,6 @@ export interface ListPlaceIndexesCommandInput extends ListPlaceIndexesRequest {}
 export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists place index resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class ListPlaceIndexesCommand extends $Command
   .classBuilder<

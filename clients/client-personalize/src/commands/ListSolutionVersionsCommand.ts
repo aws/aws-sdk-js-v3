@@ -27,7 +27,6 @@ export interface ListSolutionVersionsCommandInput extends ListSolutionVersionsRe
 export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of solution versions for the given solution. When a solution is not
  *       specified, all the solution versions associated with the account are listed. The response
  *       provides the properties for each solution version, including the Amazon Resource Name (ARN).</p>
@@ -77,6 +76,7 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListSolutionVersionsCommand extends $Command
   .classBuilder<

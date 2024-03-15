@@ -27,7 +27,6 @@ export interface CreateKxClusterCommandInput extends CreateKxClusterRequest {}
 export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new kdb cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -277,6 +276,7 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class CreateKxClusterCommand extends $Command
   .classBuilder<

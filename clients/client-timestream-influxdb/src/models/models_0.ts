@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TimestreamInfluxDBServiceException as __BaseException } from "./TimestreamInfluxDBServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,21 +24,21 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request conflicts with an existing resource in Timestream for InfluxDB.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The identifier for the Timestream for InfluxDB resource associated with the request.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of Timestream for InfluxDB resource associated with the request.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -107,31 +107,31 @@ export const DeploymentType = {
 export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
 
 /**
- * @public
  * <p>Configuration for S3 bucket log delivery.</p>
+ * @public
  */
 export interface S3Configuration {
   /**
-   * @public
    * <p>The name of the S3 bucket to deliver logs to.</p>
+   * @public
    */
   bucketName: string | undefined;
 
   /**
-   * @public
    * <p>Indicates whether log delivery to the S3 bucket is enabled.</p>
+   * @public
    */
   enabled: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+ * @public
  */
 export interface LogDeliveryConfiguration {
   /**
-   * @public
    * <p>Configuration for S3 bucket log delivery.</p>
+   * @public
    */
   s3Configuration: S3Configuration | undefined;
 }
@@ -141,61 +141,60 @@ export interface LogDeliveryConfiguration {
  */
 export interface CreateDbInstanceInput {
   /**
-   * @public
    * <p>The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Secrets Manager in your account.</p>
+   * @public
    */
   username?: string;
 
   /**
-   * @public
    * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in AWS SecretManager in your account.</p>
+   * @public
    */
   password: string | undefined;
 
   /**
-   * @public
    * <p>The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.</p>
+   * @public
    */
   organization?: string;
 
   /**
-   * @public
    * <p>The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization.</p>
+   * @public
    */
   bucket?: string;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
+   * @public
    */
   dbInstanceType: DbInstanceType | undefined;
 
   /**
-   * @public
    * <p>A list of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.</p>
+   * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of VPC security group IDs to associate with the DB instance.</p>
+   * @public
    */
   vpcSecurityGroupIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Configures the DB instance with a public IP to facilitate access.</p>
+   * @public
    */
   publiclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB DB storage type to read and write InfluxDB data.</p>
    *          <p>You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements:</p>
    *          <ul>
@@ -209,36 +208,37 @@ export interface CreateDbInstanceInput {
    *                <p>Influx IO Included 16000 IOPS</p>
    *             </li>
    *          </ul>
+   * @public
    */
   dbStorageType?: DbStorageType;
 
   /**
-   * @public
    * <p>The amount of storage to allocate for your DB storage type in GiB (gibibytes).</p>
+   * @public
    */
   allocatedStorage: number | undefined;
 
   /**
-   * @public
    * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * @public
    */
   dbParameterGroupIdentifier?: string;
 
   /**
-   * @public
    * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
+   * @public
    */
   deploymentType?: DeploymentType;
 
   /**
-   * @public
    * <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
+   * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration;
 
   /**
-   * @public
    * <p>A list of key-value pairs to associate with the DB instance.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -267,111 +267,111 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface CreateDbInstanceOutput {
   /**
-   * @public
    * <p>A service-generated unique identifier.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the DB instance.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
    */
   endpoint?: string;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * @public
    */
   dbInstanceType?: DbInstanceType;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
    */
   dbStorageType?: DbStorageType;
 
   /**
-   * @public
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
    */
   allocatedStorage?: number;
 
   /**
-   * @public
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * @public
    */
   deploymentType?: DeploymentType;
 
   /**
-   * @public
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * @public
    */
   publiclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * @public
    */
   dbParameterGroupIdentifier?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the DB instance resides.</p>
+   * @public
    */
   availabilityZone?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * @public
    */
   secondaryAvailabilityZone?: string;
 
   /**
-   * @public
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * @public
    */
   influxAuthParametersSecretArn?: string;
 }
 
 /**
- * @public
  * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -391,21 +391,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested resource was not found or does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The identifier for the Timestream for InfluxDB resource associated with the request.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of Timestream for InfluxDB resource associated with the request.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -425,8 +425,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request exceeds the service quota.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -445,16 +445,16 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
-   * @public
    * <p>The number of seconds the caller should wait before retrying.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -487,15 +487,15 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The reason that validation failed.</p>
+   * @public
    */
   reason: ValidationExceptionReason | undefined;
 
@@ -518,8 +518,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteDbInstanceInput {
   /**
-   * @public
    * <p>The id of the DB instance.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -529,104 +529,104 @@ export interface DeleteDbInstanceInput {
  */
 export interface DeleteDbInstanceOutput {
   /**
-   * @public
    * <p>A service-generated unique identifier.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the DB instance.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
    */
   endpoint?: string;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * @public
    */
   dbInstanceType?: DbInstanceType;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
    */
   dbStorageType?: DbStorageType;
 
   /**
-   * @public
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
    */
   allocatedStorage?: number;
 
   /**
-   * @public
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * @public
    */
   deploymentType?: DeploymentType;
 
   /**
-   * @public
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * @public
    */
   publiclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * @public
    */
   dbParameterGroupIdentifier?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the DB instance resides.</p>
+   * @public
    */
   availabilityZone?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * @public
    */
   secondaryAvailabilityZone?: string;
 
   /**
-   * @public
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * @public
    */
   influxAuthParametersSecretArn?: string;
 }
@@ -636,8 +636,8 @@ export interface DeleteDbInstanceOutput {
  */
 export interface GetDbInstanceInput {
   /**
-   * @public
    * <p>The id of the DB instance.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -647,104 +647,104 @@ export interface GetDbInstanceInput {
  */
 export interface GetDbInstanceOutput {
   /**
-   * @public
    * <p>A service-generated unique identifier.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the DB instance.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
    */
   endpoint?: string;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * @public
    */
   dbInstanceType?: DbInstanceType;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
    */
   dbStorageType?: DbStorageType;
 
   /**
-   * @public
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
    */
   allocatedStorage?: number;
 
   /**
-   * @public
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * @public
    */
   deploymentType?: DeploymentType;
 
   /**
-   * @public
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * @public
    */
   publiclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * @public
    */
   dbParameterGroupIdentifier?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the DB instance resides.</p>
+   * @public
    */
   availabilityZone?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * @public
    */
   secondaryAvailabilityZone?: string;
 
   /**
-   * @public
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * @public
    */
   influxAuthParametersSecretArn?: string;
 }
@@ -754,74 +754,74 @@ export interface GetDbInstanceOutput {
  */
 export interface ListDbInstancesInput {
   /**
-   * @public
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains a summary of a DB instance.</p>
+ * @public
  */
 export interface DbInstanceSummary {
   /**
-   * @public
    * <p>The service-generated unique identifier of the DB instance.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and AWS CLI commands.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the DB instance.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
    */
   endpoint?: string;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB instance type to run InfluxDB on.</p>
+   * @public
    */
   dbInstanceType?: DbInstanceType;
 
   /**
-   * @public
    * <p>The storage type for your DB instance.</p>
+   * @public
    */
   dbStorageType?: DbStorageType;
 
   /**
-   * @public
    * <p>The amount of storage to allocate for your DbStorageType in GiB (gibibytes).</p>
+   * @public
    */
   allocatedStorage?: number;
 
   /**
-   * @public
    * <p>Single-Instance or with a MultiAZ Standby for High availability.</p>
+   * @public
    */
   deploymentType?: DeploymentType;
 }
@@ -831,15 +831,15 @@ export interface DbInstanceSummary {
  */
 export interface ListDbInstancesOutput {
   /**
-   * @public
    * <p>A list of Timestream for InfluxDB DB instance summaries.</p>
+   * @public
    */
   items: DbInstanceSummary[] | undefined;
 
   /**
-   * @public
    * <p>Token from a previous call of the operation. When this value is provided, the
    *             service returns results from where the previous response left off.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -849,20 +849,20 @@ export interface ListDbInstancesOutput {
  */
 export interface UpdateDbInstanceInput {
   /**
-   * @public
    * <p>The id of the DB instance.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration;
 
   /**
-   * @public
    * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * @public
    */
   dbParameterGroupIdentifier?: string;
 }
@@ -872,104 +872,104 @@ export interface UpdateDbInstanceInput {
  */
 export interface UpdateDbInstanceOutput {
   /**
-   * @public
    * <p>A service-generated unique identifier.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and AWS CLI commands.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the DB instance.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * @public
    */
   endpoint?: string;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * @public
    */
   dbInstanceType?: DbInstanceType;
 
   /**
-   * @public
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * @public
    */
   dbStorageType?: DbStorageType;
 
   /**
-   * @public
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * @public
    */
   allocatedStorage?: number;
 
   /**
-   * @public
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * @public
    */
   deploymentType?: DeploymentType;
 
   /**
-   * @public
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * @public
    */
   publiclyAccessible?: boolean;
 
   /**
-   * @public
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * @public
    */
   vpcSecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * @public
    */
   dbParameterGroupIdentifier?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the DB instance resides.</p>
+   * @public
    */
   availabilityZone?: string;
 
   /**
-   * @public
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * @public
    */
   secondaryAvailabilityZone?: string;
 
   /**
-   * @public
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * @public
    */
   influxAuthParametersSecretArn?: string;
 }
@@ -1004,62 +1004,62 @@ export const TracingType = {
 export type TracingType = (typeof TracingType)[keyof typeof TracingType];
 
 /**
- * @public
  * <p>All the customer-modifiable InfluxDB v2 parameters in Timestream for InfluxDB.</p>
+ * @public
  */
 export interface InfluxDBv2Parameters {
   /**
-   * @public
    * <p>Include option to show detailed logs for Flux queries.</p>
    *          <p>Default: false</p>
+   * @public
    */
   fluxLogEnabled?: boolean;
 
   /**
-   * @public
    * <p>Log output level. InfluxDB outputs log entries with severity levels greater than or equal to the level specified.</p>
    *          <p>Default: info</p>
+   * @public
    */
   logLevel?: LogLevel;
 
   /**
-   * @public
    * <p>Disable the task scheduler. If problematic tasks prevent InfluxDB from starting, use this option to start InfluxDB without scheduling or executing tasks.</p>
    *          <p>Default: false</p>
+   * @public
    */
   noTasks?: boolean;
 
   /**
-   * @public
    * <p>Number of queries allowed to execute concurrently. Setting to 0 allows an unlimited number of concurrent queries.</p>
    *          <p>Default: 0</p>
+   * @public
    */
   queryConcurrency?: number;
 
   /**
-   * @public
    * <p>Maximum number of queries allowed in execution queue. When queue limit is reached, new queries are rejected. Setting to 0 allows an unlimited number of queries in the queue.</p>
    *          <p>Default: 0</p>
+   * @public
    */
   queryQueueSize?: number;
 
   /**
-   * @public
    * <p>Enable tracing in InfluxDB and specifies the tracing type. Tracing is disabled by default.</p>
+   * @public
    */
   tracingType?: TracingType;
 
   /**
-   * @public
    * <p>Disable the HTTP /metrics endpoint which exposes <a href="https://docs.influxdata.com/influxdb/v2/reference/internals/metrics/">internal InfluxDB metrics</a>.</p>
    *          <p>Default: false</p>
+   * @public
    */
   metricsDisabled?: boolean;
 }
 
 /**
- * @public
  * <p>The parameters that comprise the parameter group.</p>
+ * @public
  */
 export type _Parameters = _Parameters.InfluxDBv2Member | _Parameters.$UnknownMember;
 
@@ -1068,8 +1068,8 @@ export type _Parameters = _Parameters.InfluxDBv2Member | _Parameters.$UnknownMem
  */
 export namespace _Parameters {
   /**
-   * @public
    * <p>All the customer-modifiable InfluxDB v2 parameters in Timestream for InfluxDB.</p>
+   * @public
    */
   export interface InfluxDBv2Member {
     InfluxDBv2: InfluxDBv2Parameters;
@@ -1100,26 +1100,26 @@ export namespace _Parameters {
  */
 export interface CreateDbParameterGroupInput {
   /**
-   * @public
    * <p>The name of the DB parameter group. The name must be unique per customer and per region.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the DB parameter group.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A list of the parameters that comprise the DB parameter group.</p>
+   * @public
    */
   parameters?: _Parameters;
 
   /**
-   * @public
    * <p>A list of key-value pairs to associate with the DB parameter group.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1129,32 +1129,32 @@ export interface CreateDbParameterGroupInput {
  */
 export interface CreateDbParameterGroupOutput {
   /**
-   * @public
    * <p>A service-generated unique identifier.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The customer-supplied name that uniquely identifies the DB parameter group when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARM) of the DB parameter group.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The description of the DB parameter group.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A list of the parameters that comprise the DB parameter group.</p>
+   * @public
    */
   parameters?: _Parameters;
 }
@@ -1164,8 +1164,8 @@ export interface CreateDbParameterGroupOutput {
  */
 export interface GetDbParameterGroupInput {
   /**
-   * @public
    * <p>The id of the DB parameter group.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -1175,32 +1175,32 @@ export interface GetDbParameterGroupInput {
  */
 export interface GetDbParameterGroupOutput {
   /**
-   * @public
    * <p>A service-generated unique identifier.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The customer-supplied name that uniquely identifies the DB parameter group when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DB parameter group.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A description of the DB parameter group.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The parameters that comprise the DB parameter group.</p>
+   * @public
    */
   parameters?: _Parameters;
 }
@@ -1210,44 +1210,44 @@ export interface GetDbParameterGroupOutput {
  */
 export interface ListDbParameterGroupsInput {
   /**
-   * @public
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains a summary of a DB parameter group.</p>
+ * @public
  */
 export interface DbParameterGroupSummary {
   /**
-   * @public
    * <p>A service-generated unique identifier.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>This customer-supplied name uniquely identifies the parameter group.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the DB parameter group.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A description of the DB parameter group.</p>
+   * @public
    */
   description?: string;
 }
@@ -1257,15 +1257,15 @@ export interface DbParameterGroupSummary {
  */
 export interface ListDbParameterGroupsOutput {
   /**
-   * @public
    * <p>A list of Timestream for InfluxDB DB parameter group summaries.</p>
+   * @public
    */
   items: DbParameterGroupSummary[] | undefined;
 
   /**
-   * @public
    * <p>Token from a previous call of the operation. When this value is provided, the
    *             service returns results from where the previous response left off.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1275,8 +1275,8 @@ export interface ListDbParameterGroupsOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1286,8 +1286,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A list of tags used to categorize and track resources.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1297,14 +1297,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags used to categorize and track resources.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1314,14 +1314,14 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The keys used to identify the tags.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

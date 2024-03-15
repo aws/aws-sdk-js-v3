@@ -27,7 +27,6 @@ export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndp
 export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>
  *          <note>
  *             <p>This action applies only to Aurora DB clusters.</p>
@@ -105,6 +104,7 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a custom DB cluster endpoint
  * ```javascript
  * // The following example creates a custom DB cluster endpoint and associate it with the specified Aurora DB cluster.

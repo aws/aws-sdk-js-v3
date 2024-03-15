@@ -27,7 +27,6 @@ export interface ListFirewallRulesCommandInput extends ListFirewallRulesRequest 
 export interface ListFirewallRulesCommandOutput extends ListFirewallRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
  *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -93,6 +92,7 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListFirewallRulesCommand extends $Command
   .classBuilder<

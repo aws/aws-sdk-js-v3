@@ -27,7 +27,6 @@ export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitMessage {}
 export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a usage limit from a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteUsageLimitCommand extends $Command
   .classBuilder<

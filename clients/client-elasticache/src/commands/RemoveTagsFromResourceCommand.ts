@@ -27,7 +27,6 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the tags identified by the <code>TagKeys</code> list from the named resource.
  *             A tag is a key-value pair where the key and value are case-sensitive. You can use tags
  *             to categorize and track all your ElastiCache resources, with the exception of global
@@ -119,6 +118,7 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example RemoveTagsFromResource
  * ```javascript
  * // Removes tags identified by a list of tag keys from the list of tags on the specified resource.

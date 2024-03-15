@@ -27,7 +27,6 @@ export interface ListWaitingWorkflowStepsCommandInput extends ListWaitingWorkflo
 export interface ListWaitingWorkflowStepsCommandOutput extends ListWaitingWorkflowStepsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a list of workflow steps that are waiting for action for workflows
  * 			in your Amazon Web Services account.</p>
  * @example
@@ -92,6 +91,7 @@ export interface ListWaitingWorkflowStepsCommandOutput extends ListWaitingWorkfl
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListWaitingWorkflowStepsCommand extends $Command
   .classBuilder<

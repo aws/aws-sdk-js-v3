@@ -27,7 +27,6 @@ export interface CreateStreamCommandInput extends CreateStreamInput {}
 export interface CreateStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Kinesis data stream. A stream captures and transports data records that are
  *             continuously emitted from different data sources or <i>producers</i>.
  *             Scale-out within a stream is explicitly supported by means of shards, which are uniquely
@@ -112,6 +111,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class CreateStreamCommand extends $Command
   .classBuilder<

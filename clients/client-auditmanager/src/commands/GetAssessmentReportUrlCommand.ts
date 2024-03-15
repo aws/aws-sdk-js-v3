@@ -27,7 +27,6 @@ export interface GetAssessmentReportUrlCommandInput extends GetAssessmentReportU
 export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReportUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets the URL of an assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReport
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetAssessmentReportUrlCommand extends $Command
   .classBuilder<

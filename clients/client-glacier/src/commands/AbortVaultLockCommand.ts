@@ -27,7 +27,6 @@ export interface AbortVaultLockCommandInput extends AbortVaultLockInput {}
 export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation aborts the vault locking process if the vault lock is not in the
  *             <code>Locked</code> state. If the vault lock is in the <code>Locked</code> state when
  *          this operation is requested, the operation returns an <code>AccessDeniedException</code>
@@ -80,6 +79,7 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To abort a vault lock
  * ```javascript
  * // The example aborts the vault locking process if the vault lock is not in the Locked state for the vault named examplevault.

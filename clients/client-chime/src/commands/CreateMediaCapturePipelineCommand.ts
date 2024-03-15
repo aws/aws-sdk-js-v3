@@ -32,9 +32,6 @@ export interface CreateMediaCapturePipelineCommandInput extends CreateMediaCaptu
 export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapturePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace
- *
  * <p>Creates a media capture pipeline.</p>
  *          <important>
  *             <p>
@@ -153,6 +150,8 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace
  */
 export class CreateMediaCapturePipelineCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SearchQueuesCommandInput extends SearchQueuesRequest {}
 export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches queues in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -140,6 +139,7 @@ export interface SearchQueuesCommandOutput extends SearchQueuesResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchQueuesCommand extends $Command
   .classBuilder<

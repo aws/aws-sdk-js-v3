@@ -27,7 +27,6 @@ export interface GetBackupSelectionCommandInput extends GetBackupSelectionInput 
 export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns selection metadata and a document in JSON format that specifies a list of
  *          resources that are associated with a backup plan.</p>
  * @example
@@ -116,6 +115,7 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetBackupSelectionCommand extends $Command
   .classBuilder<

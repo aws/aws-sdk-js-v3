@@ -27,7 +27,6 @@ export interface CreateInternetGatewayCommandInput extends CreateInternetGateway
 export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an internet gateway for use with a VPC. After creating the internet gateway,
  * 			you attach it to a VPC using <a>AttachInternetGateway</a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet gateways</a> in the
@@ -84,6 +83,7 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create an Internet gateway
  * ```javascript
  * // This example creates an Internet gateway.

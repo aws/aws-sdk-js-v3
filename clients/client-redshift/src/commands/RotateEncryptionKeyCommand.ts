@@ -31,7 +31,6 @@ export interface RotateEncryptionKeyCommandInput extends RotateEncryptionKeyMess
 export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rotates the encryption keys for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -261,6 +260,7 @@ export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyRes
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class RotateEncryptionKeyCommand extends $Command
   .classBuilder<

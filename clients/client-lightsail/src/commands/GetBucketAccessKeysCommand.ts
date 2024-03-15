@@ -31,7 +31,6 @@ export interface GetBucketAccessKeysCommandInput extends GetBucketAccessKeysRequ
 export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the existing access key IDs for the specified Amazon Lightsail bucket.</p>
  *          <important>
  *             <p>This action does not return the secret access key value of an access key. You can get a
@@ -99,6 +98,7 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetBucketAccessKeysCommand extends $Command
   .classBuilder<

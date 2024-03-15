@@ -27,7 +27,6 @@ export interface ImportWorkspaceImageCommandInput extends ImportWorkspaceImageRe
 export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports the specified Windows 10 or 11 Bring Your Own License (BYOL)
  *          image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is
  *          in your Amazon Web Services account, and you must own the image. For more information about
@@ -89,6 +88,7 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ImportWorkspaceImageCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteVirtualRouterCommandInput extends DeleteVirtualRouterInpu
 export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing virtual router.</p>
  *          <p>You must delete any routes associated with the virtual router before you can delete the
  *          router itself.</p>
@@ -109,6 +108,7 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DeleteVirtualRouterCommand extends $Command
   .classBuilder<

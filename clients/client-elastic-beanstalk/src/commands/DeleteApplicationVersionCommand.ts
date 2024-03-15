@@ -27,7 +27,6 @@ export interface DeleteApplicationVersionCommandInput extends DeleteApplicationV
 export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified version from the specified application.</p>
  *          <note>
  *             <p>You cannot delete an application version that is associated with a running
@@ -86,6 +85,7 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To delete an application version
  * ```javascript
  * // The following operation deletes an application version named 22a0-stage-150819_182129 for an application named my-app:

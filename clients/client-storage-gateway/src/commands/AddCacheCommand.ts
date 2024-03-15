@@ -27,7 +27,6 @@ export interface AddCacheCommandInput extends AddCacheInput {}
 export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures one or more gateway local disks as cache for a gateway. This operation is
  *          only supported in the cached volume, tape, and file gateway type (see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">How Storage Gateway works (architecture)</a>.</p>
  *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
@@ -69,6 +68,7 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To add a cache
  * ```javascript
  * // The following example shows a request that activates a gateway-stored volume.

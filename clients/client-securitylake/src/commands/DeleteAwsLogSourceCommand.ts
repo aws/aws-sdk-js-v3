@@ -27,7 +27,6 @@ export interface DeleteAwsLogSourceCommandInput extends DeleteAwsLogSourceReques
 export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. You
  *          can remove a source for one or more Regions. When you remove the source, Security Lake stops
  *          collecting data from that source in the specified Regions and accounts, and subscribers can
@@ -99,6 +98,7 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class DeleteAwsLogSourceCommand extends $Command
   .classBuilder<

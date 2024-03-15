@@ -27,7 +27,6 @@ export interface AuthorizeDataShareCommandInput extends AuthorizeDataShareMessag
 export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * @public
  * <p>From a data producer account, authorizes the sharing of a datashare with one or more
  *             consumer accounts or managing entities. To authorize a datashare for a data consumer,
  *             the producer account must have the correct access permissions.</p>
@@ -76,6 +75,7 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class AuthorizeDataShareCommand extends $Command
   .classBuilder<

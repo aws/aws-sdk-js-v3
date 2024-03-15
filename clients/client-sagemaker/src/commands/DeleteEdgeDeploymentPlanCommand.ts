@@ -27,7 +27,6 @@ export interface DeleteEdgeDeploymentPlanCommandInput extends DeleteEdgeDeployme
 export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an edge deployment plan if (and only if) all the stages in the plan are
  *             inactive or there are no stages in the plan.</p>
  * @example
@@ -57,6 +56,7 @@ export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer 
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteEdgeDeploymentPlanCommand extends $Command
   .classBuilder<

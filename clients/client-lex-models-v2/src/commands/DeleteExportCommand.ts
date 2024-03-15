@@ -27,7 +27,6 @@ export interface DeleteExportCommandInput extends DeleteExportRequest {}
 export interface DeleteExportCommandOutput extends DeleteExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a previous export and the associated files stored in an S3
  *          bucket.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteExportCommandOutput extends DeleteExportResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteExportCommand extends $Command
   .classBuilder<

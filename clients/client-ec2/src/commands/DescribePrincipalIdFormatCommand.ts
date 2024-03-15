@@ -27,7 +27,6 @@ export interface DescribePrincipalIdFormatCommandInput extends DescribePrincipal
 export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipalIdFormatResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the ID format settings for the root user and all IAM roles and IAM users
  *             that have explicitly specified a longer ID (17-character ID) preference. </p>
  *          <p>By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they
@@ -89,6 +88,7 @@ export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribePrincipalIdFormatCommand extends $Command
   .classBuilder<

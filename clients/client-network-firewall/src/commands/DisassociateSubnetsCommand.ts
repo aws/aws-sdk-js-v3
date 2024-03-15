@@ -27,7 +27,6 @@ export interface DisassociateSubnetsCommandInput extends DisassociateSubnetsRequ
 export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified subnet associations from the firewall. This removes the
  *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
  *           were providing.
@@ -104,6 +103,7 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DisassociateSubnetsCommand extends $Command
   .classBuilder<

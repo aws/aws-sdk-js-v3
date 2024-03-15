@@ -27,7 +27,6 @@ export interface ListFleetMetricsCommandInput extends ListFleetMetricsRequest {}
 export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all your fleet metrics. </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListFleetMetrics</a> action.</p>
  * @example
@@ -78,6 +77,7 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListFleetMetricsCommand extends $Command
   .classBuilder<

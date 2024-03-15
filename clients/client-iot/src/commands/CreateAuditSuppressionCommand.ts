@@ -27,7 +27,6 @@ export interface CreateAuditSuppressionCommandInput extends CreateAuditSuppressi
 export interface CreateAuditSuppressionCommandOutput extends CreateAuditSuppressionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a Device Defender audit suppression.
  *     </p>
@@ -94,6 +93,7 @@ export interface CreateAuditSuppressionCommandOutput extends CreateAuditSuppress
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateAuditSuppressionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelSigningProfileCommandInput extends CancelSigningProfileRe
 export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.
  * 			A canceled profile is still viewable with the <code>ListSigningProfiles</code>
  * 			operation, but it cannot perform new signing jobs, and is deleted two years after
@@ -69,6 +68,7 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class CancelSigningProfileCommand extends $Command
   .classBuilder<

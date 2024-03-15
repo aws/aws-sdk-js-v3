@@ -32,7 +32,6 @@ export interface DescribeDomainEndpointOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see  <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeDomainEndpointOptionsCommandOutput
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainEndpointOptionsCommand extends $Command
   .classBuilder<

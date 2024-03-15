@@ -33,7 +33,6 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to enable or disable feedback forwarding for an identity. This setting determines
  *             what happens when an identity is used to send an email that results in a bounce or
  *             complaint event.</p>
@@ -78,6 +77,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutEmailIdentityFeedbackAttributesCommand extends $Command
   .classBuilder<

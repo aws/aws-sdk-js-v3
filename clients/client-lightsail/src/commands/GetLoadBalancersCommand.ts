@@ -27,7 +27,6 @@ export interface GetLoadBalancersCommandInput extends GetLoadBalancersRequest {}
 export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all load balancers in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetLoadBalancersCommand extends $Command
   .classBuilder<

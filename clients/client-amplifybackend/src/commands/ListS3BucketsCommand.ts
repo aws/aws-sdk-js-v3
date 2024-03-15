@@ -27,7 +27,6 @@ export interface ListS3BucketsCommandInput extends ListS3BucketsRequest {}
 export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The list of S3 buckets in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class ListS3BucketsCommand extends $Command
   .classBuilder<

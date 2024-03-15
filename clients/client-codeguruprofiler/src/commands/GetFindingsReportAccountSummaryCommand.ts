@@ -32,7 +32,6 @@ export interface GetFindingsReportAccountSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Returns a list of
  *             <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_FindingsReportSummary.html">
@@ -86,6 +85,7 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class GetFindingsReportAccountSummaryCommand extends $Command
   .classBuilder<

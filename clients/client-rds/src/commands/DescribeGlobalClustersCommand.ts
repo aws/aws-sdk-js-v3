@@ -27,7 +27,6 @@ export interface DescribeGlobalClustersCommandInput extends DescribeGlobalCluste
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about Aurora global database clusters. This API supports pagination.</p>
  *          <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
  *         <i>Amazon Aurora User Guide</i>.</p>
@@ -103,6 +102,7 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe global DB clusters
  * ```javascript
  * // The following example lists Aurora global DB clusters in the current AWS Region.

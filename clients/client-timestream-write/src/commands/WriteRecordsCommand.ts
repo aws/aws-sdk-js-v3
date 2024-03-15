@@ -28,7 +28,6 @@ export interface WriteRecordsCommandInput extends WriteRecordsRequest {}
 export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables you to write your time-series data into Timestream. You can specify a
  *          single data point or a batch of data points to be inserted into the system. Timestream offers you a flexible schema that auto detects the column names and data
  *          types for your Timestream tables based on the dimension names and data types of
@@ -199,6 +198,7 @@ export interface WriteRecordsCommandOutput extends WriteRecordsResponse, __Metad
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class WriteRecordsCommand extends $Command
   .classBuilder<

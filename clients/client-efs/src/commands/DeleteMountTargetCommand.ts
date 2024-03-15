@@ -27,7 +27,6 @@ export interface DeleteMountTargetCommandInput extends DeleteMountTargetRequest 
 export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified mount target.</p>
  *          <p>This operation forcibly breaks any mounts of the file system by using the mount target
  *       that is being deleted, which might disrupt instances or applications using those mounts. To
@@ -98,6 +97,7 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To delete a mount target
  * ```javascript
  * // This operation deletes a mount target.

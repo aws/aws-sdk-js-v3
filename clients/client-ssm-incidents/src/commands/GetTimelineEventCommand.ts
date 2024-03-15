@@ -27,7 +27,6 @@ export interface GetTimelineEventCommandInput extends GetTimelineEventInput {}
 export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a timeline event based on its ID and incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class GetTimelineEventCommand extends $Command
   .classBuilder<

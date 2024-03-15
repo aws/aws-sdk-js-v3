@@ -27,7 +27,6 @@ export interface ModifyFpgaImageAttributeCommandInput extends ModifyFpgaImageAtt
 export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified attribute of the specified Amazon FPGA Image (AFI).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyFpgaImageAttributeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateRotationOverrideCommandInput extends CreateRotationOverri
 export interface CreateRotationOverrideCommandOutput extends CreateRotationOverrideResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an override for a rotation in an on-call schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateRotationOverrideCommandOutput extends CreateRotationOverr
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class CreateRotationOverrideCommand extends $Command
   .classBuilder<

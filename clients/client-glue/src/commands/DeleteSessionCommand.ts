@@ -27,7 +27,6 @@ export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
 export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteSessionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateRestApiCommandInput extends CreateRestApiRequest {}
 export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new RestApi resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateRestApiCommand extends $Command
   .classBuilder<

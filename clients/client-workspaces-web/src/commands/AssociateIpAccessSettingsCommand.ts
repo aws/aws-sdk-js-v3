@@ -27,7 +27,6 @@ export interface AssociateIpAccessSettingsCommandInput extends AssociateIpAccess
 export interface AssociateIpAccessSettingsCommandOutput extends AssociateIpAccessSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an IP access settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface AssociateIpAccessSettingsCommandOutput extends AssociateIpAcces
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class AssociateIpAccessSettingsCommand extends $Command
   .classBuilder<

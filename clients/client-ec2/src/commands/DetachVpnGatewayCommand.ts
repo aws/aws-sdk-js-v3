@@ -27,7 +27,6 @@ export interface DetachVpnGatewayCommandInput extends DetachVpnGatewayRequest {}
 export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn
  *             off the VPC and not use it anymore. You can confirm a virtual private gateway has been
  *             completely detached from a VPC by describing the virtual private gateway (any
@@ -60,6 +59,7 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DetachVpnGatewayCommand extends $Command
   .classBuilder<

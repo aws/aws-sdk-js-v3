@@ -27,7 +27,6 @@ export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
 export interface UpdateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class UpdateAliasCommand extends $Command
   .classBuilder<

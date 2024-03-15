@@ -31,7 +31,6 @@ export interface GetPortfolioPreferencesCommandInput extends GetPortfolioPrefere
 export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPreferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves your migration and modernization preferences. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetPortfolioPreferencesCommand extends $Command
   .classBuilder<

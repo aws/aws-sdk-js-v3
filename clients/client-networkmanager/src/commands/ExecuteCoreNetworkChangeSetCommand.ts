@@ -32,7 +32,6 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes a change set on your core network. Deploys changes globally based on the policy submitted..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ExecuteCoreNetworkChangeSetCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class ExecuteCoreNetworkChangeSetCommand extends $Command
   .classBuilder<

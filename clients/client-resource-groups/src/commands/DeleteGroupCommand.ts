@@ -27,7 +27,6 @@ export interface DeleteGroupCommandInput extends DeleteGroupInput {}
 export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified resource group. Deleting a resource group does not delete any
  *             resources that are members of the group; it only deletes the group structure.</p>
  *          <p>
@@ -91,6 +90,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class DeleteGroupCommand extends $Command
   .classBuilder<

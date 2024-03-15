@@ -27,7 +27,6 @@ export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest 
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a VPC endpoint. A VPC endpoint provides a private connection between the
  *             specified VPC and the specified endpoint service. You can use an endpoint service
  *             provided by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another
@@ -144,6 +143,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVpcEndpointCommand extends $Command
   .classBuilder<

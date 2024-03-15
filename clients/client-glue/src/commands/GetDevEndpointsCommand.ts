@@ -27,7 +27,6 @@ export interface GetDevEndpointsCommandInput extends GetDevEndpointsRequest {}
 export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all the development endpoints in this Amazon Web Services account.</p>
  *          <note>
  *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
@@ -108,6 +107,7 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetDevEndpointsCommand extends $Command
   .classBuilder<

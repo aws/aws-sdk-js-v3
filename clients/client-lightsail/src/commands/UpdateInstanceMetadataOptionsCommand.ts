@@ -32,7 +32,6 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
  *       instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
  *       or <code>GetInstances</code> API operation initially responds with a state of
@@ -115,6 +114,7 @@ export interface UpdateInstanceMetadataOptionsCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateInstanceMetadataOptionsCommand extends $Command
   .classBuilder<

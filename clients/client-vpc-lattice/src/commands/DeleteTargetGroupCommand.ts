@@ -27,7 +27,6 @@ export interface DeleteTargetGroupCommandInput extends DeleteTargetGroupRequest 
 export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a target group. You can't delete a target group if it is used in a listener rule or
  *    if the target group creation is in progress.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteTargetGroupCommand extends $Command
   .classBuilder<

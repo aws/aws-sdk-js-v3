@@ -31,7 +31,6 @@ export interface AssociatePackageCommandInput extends AssociatePackageRequest {}
 export interface AssociatePackageCommandOutput extends AssociatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a package with an Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class AssociatePackageCommand extends $Command
   .classBuilder<

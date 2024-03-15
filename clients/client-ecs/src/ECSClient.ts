@@ -501,7 +501,6 @@ export type ECSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface ECSClientResolvedConfig extends ECSClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Elastic Container Service</fullname>
  *          <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service. It makes
  * 			it easy to run, stop, and manage Docker containers. You can host your cluster on a
@@ -515,6 +514,7 @@ export interface ECSClientResolvedConfig extends ECSClientResolvedConfigType {}
  * 			your resource needs, isolation policies, and availability requirements. With Amazon ECS, you
  * 			don't need to operate your own cluster management and configuration management systems.
  * 			You also don't need to worry about scaling your management infrastructure. </p>
+ * @public
  */
 export class ECSClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DescribePageCommandInput extends DescribePageRequest {}
 export interface DescribePageCommandOutput extends DescribePageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists details of the engagement to a contact channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class DescribePageCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified inbound (ingress) rules to a security group.</p>
  *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
  *        address range, the IP address ranges that are specified by a prefix list, or the instances
@@ -152,6 +151,7 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To add a rule that allows inbound SSH traffic from an IPv4 address range
  * ```javascript
  * // This example enables inbound traffic on TCP port 22 (SSH). The rule includes a description to help you identify it later.

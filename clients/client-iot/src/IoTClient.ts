@@ -1461,7 +1461,6 @@ export type IoTClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface IoTClientResolvedConfig extends IoTClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>IoT</fullname>
  *          <p>IoT provides secure, bi-directional communication between Internet-connected
  *             devices (such as sensors, actuators, embedded devices, or smart appliances) and the Amazon Web Services
@@ -1478,6 +1477,7 @@ export interface IoTClientResolvedConfig extends IoTClientResolvedConfigType {}
  *          <p>For more information about how IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
  *             Guide</a>.</p>
  *          <p>For information about how to use the credentials provider for IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to Amazon Web Services Services</a>.</p>
+ * @public
  */
 export class IoTClient extends __Client<
   __HttpHandlerOptions,

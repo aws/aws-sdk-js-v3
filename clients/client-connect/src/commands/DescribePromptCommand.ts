@@ -27,7 +27,6 @@ export interface DescribePromptCommandInput extends DescribePromptRequest {}
 export interface DescribePromptCommandOutput extends DescribePromptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the prompt.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribePromptCommandOutput extends DescribePromptResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribePromptCommand extends $Command
   .classBuilder<

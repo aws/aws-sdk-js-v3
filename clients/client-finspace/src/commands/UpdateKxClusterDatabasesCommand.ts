@@ -27,7 +27,6 @@ export interface UpdateKxClusterDatabasesCommandInput extends UpdateKxClusterDat
 export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDatabasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the databases mounted on a kdb cluster, which includes the <code>changesetId</code> and all the dbPaths to be cached. This API does not allow you to change a database name or add a database if you created a cluster without one. </p>
  *          <p>Using this API you can point a cluster to a different changeset and modify a list of partitions being cached.</p>
  * @example
@@ -110,6 +109,7 @@ export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDa
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxClusterDatabasesCommand extends $Command
   .classBuilder<

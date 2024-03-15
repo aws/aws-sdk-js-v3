@@ -35,7 +35,6 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListDataQualityRulesetEvaluationRunsCommand extends $Command
   .classBuilder<

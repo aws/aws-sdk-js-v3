@@ -27,7 +27,6 @@ export interface DeleteAgentAliasCommandInput extends DeleteAgentAliasRequest {}
 export interface DeleteAgentAliasCommandOutput extends DeleteAgentAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes an Alias for a Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteAgentAliasCommandOutput extends DeleteAgentAliasResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class DeleteAgentAliasCommand extends $Command
   .classBuilder<

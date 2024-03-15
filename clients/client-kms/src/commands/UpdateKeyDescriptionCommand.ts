@@ -27,7 +27,6 @@ export interface UpdateKeyDescriptionCommandInput extends UpdateKeyDescriptionRe
 export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description of a KMS key. To see the description of a KMS key, use <a>DescribeKey</a>. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -114,6 +113,7 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To update the description of a KMS key
  * ```javascript
  * // The following example updates the description of the specified KMS key.

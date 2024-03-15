@@ -27,7 +27,6 @@ export interface DeleteCustomVocabularyCommandInput extends DeleteCustomVocabula
 export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a custom vocabulary from the specified locale
  *       in the specified bot.</p>
  * @example
@@ -86,6 +85,7 @@ export interface DeleteCustomVocabularyCommandOutput extends DeleteCustomVocabul
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteCustomVocabularyCommand extends $Command
   .classBuilder<

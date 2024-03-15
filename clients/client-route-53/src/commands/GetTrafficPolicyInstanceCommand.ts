@@ -28,7 +28,6 @@ export interface GetTrafficPolicyInstanceCommandInput extends GetTrafficPolicyIn
 export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified traffic policy instance.</p>
  *          <note>
  *             <p>
@@ -83,6 +82,7 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetTrafficPolicyInstanceCommand extends $Command
   .classBuilder<

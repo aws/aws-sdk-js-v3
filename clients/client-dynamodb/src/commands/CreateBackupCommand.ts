@@ -27,7 +27,6 @@ export interface CreateBackupCommandInput extends CreateBackupInput {}
 export interface CreateBackupCommandOutput extends CreateBackupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a backup for an existing table.</p>
  *          <p> Each time you create an on-demand backup, the entire table data is backed up. There
  *             is no limit to the number of on-demand backups that can be taken. </p>
@@ -129,6 +128,7 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class CreateBackupCommand extends $Command
   .classBuilder<

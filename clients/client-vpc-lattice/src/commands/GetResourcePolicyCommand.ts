@@ -27,7 +27,6 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the resource policy. The resource policy is an IAM policy
  *    created by AWS RAM on behalf of the resource owner when they share a resource.</p>
  * @example
@@ -72,6 +71,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<

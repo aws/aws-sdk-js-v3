@@ -8,42 +8,42 @@ import { LaunchWizardServiceException as __BaseException } from "./LaunchWizardS
  */
 export interface CreateDeploymentInput {
   /**
-   * @public
    * <p>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html">
    *                <code>ListWorkloadDeploymentPatterns</code>
    *             </a> operation to discover supported
    *          values for this parameter.</p>
+   * @public
    */
   workloadName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the deployment pattern supported by a given workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html">
    *                <code>ListWorkloadDeploymentPatterns</code>
    *             </a> operation to discover supported
    *          values for this parameter. </p>
+   * @public
    */
   deploymentPatternName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the deployment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The settings specified for the deployment. For more information on the specifications
    *          required for creating a deployment, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications.html">Workload specifications</a>.</p>
+   * @public
    */
   specifications: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making
    *          the request, and provides an error response. If you have the required permissions, the
    *          error response is <code>DryRunOperation</code>. Otherwise, it is
    *             <code>UnauthorizedOperation</code>.</p>
+   * @public
    */
   dryRun?: boolean;
 }
@@ -53,16 +53,16 @@ export interface CreateDeploymentInput {
  */
 export interface CreateDeploymentOutput {
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   deploymentId?: string;
 }
 
 /**
- * @public
  * <p>An internal error has occurred. Retry your request, but if the problem persists, contact
  *          us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -81,9 +81,9 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many
  *          deployments in progress.</p>
+ * @public
  */
 export class ResourceLimitException extends __BaseException {
   readonly name: "ResourceLimitException" = "ResourceLimitException";
@@ -102,8 +102,8 @@ export class ResourceLimitException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified workload or deployment resource can't be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -122,8 +122,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -146,8 +146,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteDeploymentInput {
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   deploymentId: string | undefined;
 }
@@ -178,14 +178,14 @@ export type DeploymentStatus = (typeof DeploymentStatus)[keyof typeof Deployment
  */
 export interface DeleteDeploymentOutput {
   /**
-   * @public
    * <p>The status of the deployment.</p>
+   * @public
    */
   status?: DeploymentStatus;
 
   /**
-   * @public
    * <p>The reason for the deployment status.</p>
+   * @public
    */
   statusReason?: string;
 }
@@ -195,22 +195,22 @@ export interface DeleteDeploymentOutput {
  */
 export interface ListDeploymentEventsInput {
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. To get the next page of items,
    *          make another request with the token returned in the output.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -236,37 +236,37 @@ export const EventStatus = {
 export type EventStatus = (typeof EventStatus)[keyof typeof EventStatus];
 
 /**
- * @public
  * <p>A summary of the deployment event data.</p>
+ * @public
  */
 export interface DeploymentEventDataSummary {
   /**
-   * @public
    * <p>The name of the deployment event.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description of the deployment event.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the deployment event.</p>
+   * @public
    */
   status?: EventStatus;
 
   /**
-   * @public
    * <p>The reason of the deployment event status.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The timestamp of the deployment event.</p>
+   * @public
    */
   timestamp?: Date;
 }
@@ -276,15 +276,15 @@ export interface DeploymentEventDataSummary {
  */
 export interface ListDeploymentEventsOutput {
   /**
-   * @public
    * <p>Lists the deployment events.</p>
+   * @public
    */
   deploymentEvents?: DeploymentEventDataSummary[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -294,69 +294,69 @@ export interface ListDeploymentEventsOutput {
  */
 export interface GetDeploymentInput {
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   deploymentId: string | undefined;
 }
 
 /**
- * @public
  * <p>The data associated with a deployment.</p>
+ * @public
  */
 export interface DeploymentData {
   /**
-   * @public
    * <p>The name of the deployment.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the workload.</p>
+   * @public
    */
   workloadName?: string;
 
   /**
-   * @public
    * <p>The pattern name of the deployment.</p>
+   * @public
    */
   patternName?: string;
 
   /**
-   * @public
    * <p>The status of the deployment.</p>
+   * @public
    */
   status?: DeploymentStatus;
 
   /**
-   * @public
    * <p>The time the deployment was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The specifications of the deployment. For more information on specifications for each
    *          deployment, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications.html">Workload specifications</a>.</p>
+   * @public
    */
   specifications?: Record<string, string>;
 
   /**
-   * @public
    * <p>The resource group of the deployment.</p>
+   * @public
    */
   resourceGroup?: string;
 
   /**
-   * @public
    * <p>The time the deployment was deleted.</p>
+   * @public
    */
   deletedAt?: Date;
 }
@@ -366,8 +366,8 @@ export interface DeploymentData {
  */
 export interface GetDeploymentOutput {
   /**
-   * @public
    * <p>An object that details the deployment.</p>
+   * @public
    */
   deployment?: DeploymentData;
 }
@@ -387,23 +387,23 @@ export const DeploymentFilterKey = {
 export type DeploymentFilterKey = (typeof DeploymentFilterKey)[keyof typeof DeploymentFilterKey];
 
 /**
- * @public
  * <p>A filter name and value pair that is used to return more specific results from a
  *          describe operation. Filters can be used to match a set of resources by specific
  *          criteria.</p>
+ * @public
  */
 export interface DeploymentFilter {
   /**
-   * @public
    * <p>The name of the filter. Filter names are case-sensitive.</p>
+   * @public
    */
   name?: DeploymentFilterKey;
 
   /**
-   * @public
    * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for
    *          a filter, the values are joined with an <code>OR</code>, and the request returns all
    *          results that match any of the specified values.</p>
+   * @public
    */
   values?: string[];
 }
@@ -413,7 +413,6 @@ export interface DeploymentFilter {
  */
 export interface ListDeploymentsInput {
   /**
-   * @public
    * <p>Filters to scope the results. The following filters are supported:</p>
    *          <ul>
    *             <li>
@@ -427,62 +426,63 @@ export interface ListDeploymentsInput {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   filters?: DeploymentFilter[];
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. To get the next page of items,
    *          make another request with the token returned in the output.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A summary of the deployment data.</p>
+ * @public
  */
 export interface DeploymentDataSummary {
   /**
-   * @public
    * <p>The name of the deployment</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The ID of the deployment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the workload.</p>
+   * @public
    */
   workloadName?: string;
 
   /**
-   * @public
    * <p>The name of the workload deployment pattern.</p>
+   * @public
    */
   patternName?: string;
 
   /**
-   * @public
    * <p>The status of the deployment.</p>
+   * @public
    */
   status?: DeploymentStatus;
 
   /**
-   * @public
    * <p>The time the deployment was created.</p>
+   * @public
    */
   createdAt?: Date;
 }
@@ -492,15 +492,15 @@ export interface DeploymentDataSummary {
  */
 export interface ListDeploymentsOutput {
   /**
-   * @public
    * <p>Lists the deployments.</p>
+   * @public
    */
   deployments?: DeploymentDataSummary[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -510,8 +510,8 @@ export interface ListDeploymentsOutput {
  */
 export interface GetWorkloadInput {
   /**
-   * @public
    * <p>The name of the workload.</p>
+   * @public
    */
   workloadName: string | undefined;
 }
@@ -533,49 +533,49 @@ export const WorkloadStatus = {
 export type WorkloadStatus = (typeof WorkloadStatus)[keyof typeof WorkloadStatus];
 
 /**
- * @public
  * <p>Describes a workload.</p>
+ * @public
  */
 export interface WorkloadData {
   /**
-   * @public
    * <p>The name of the workload.</p>
+   * @public
    */
   workloadName?: string;
 
   /**
-   * @public
    * <p>The display name of a workload.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The description of a workload.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The URL of a workload document.</p>
+   * @public
    */
   documentationUrl?: string;
 
   /**
-   * @public
    * <p>The URL of a workload icon.</p>
+   * @public
    */
   iconUrl?: string;
 
   /**
-   * @public
    * <p>The status of a workload.</p>
+   * @public
    */
   status?: WorkloadStatus;
 
   /**
-   * @public
    * <p>The message about a workload's status.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -585,8 +585,8 @@ export interface WorkloadData {
  */
 export interface GetWorkloadOutput {
   /**
-   * @public
    * <p>Information about the workload.</p>
+   * @public
    */
   workload?: WorkloadData;
 }
@@ -596,34 +596,34 @@ export interface GetWorkloadOutput {
  */
 export interface ListWorkloadsInput {
   /**
-   * @public
    * <p>The maximum number of items to return for this request. To get the next page of items,
    *          make another request with the token returned in the output.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Describes workload data.</p>
+ * @public
  */
 export interface WorkloadDataSummary {
   /**
-   * @public
    * <p>The name of the workload.</p>
+   * @public
    */
   workloadName?: string;
 
   /**
-   * @public
    * <p>The display name of the workload data.</p>
+   * @public
    */
   displayName?: string;
 }
@@ -633,15 +633,15 @@ export interface WorkloadDataSummary {
  */
 export interface ListWorkloadsOutput {
   /**
-   * @public
    * <p>Information about the workloads.</p>
+   * @public
    */
   workloads?: WorkloadDataSummary[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -651,22 +651,22 @@ export interface ListWorkloadsOutput {
  */
 export interface ListWorkloadDeploymentPatternsInput {
   /**
-   * @public
    * <p>The name of the workload.</p>
+   * @public
    */
   workloadName: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of items to return for this request. To get the next page of items,
    *          make another request with the token returned in the output.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -689,49 +689,49 @@ export type WorkloadDeploymentPatternStatus =
   (typeof WorkloadDeploymentPatternStatus)[keyof typeof WorkloadDeploymentPatternStatus];
 
 /**
- * @public
  * <p>Describes a workload deployment pattern.</p>
+ * @public
  */
 export interface WorkloadDeploymentPatternDataSummary {
   /**
-   * @public
    * <p>The name of the workload.</p>
+   * @public
    */
   workloadName?: string;
 
   /**
-   * @public
    * <p>The name of a workload deployment pattern.</p>
+   * @public
    */
   deploymentPatternName?: string;
 
   /**
-   * @public
    * <p>The name of the workload deployment pattern version.</p>
+   * @public
    */
   workloadVersionName?: string;
 
   /**
-   * @public
    * <p>The display name of a workload deployment pattern.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The description of a workload deployment pattern.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of a workload deployment pattern.</p>
+   * @public
    */
   status?: WorkloadDeploymentPatternStatus;
 
   /**
-   * @public
    * <p>A message about a workload deployment pattern's status.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -741,15 +741,15 @@ export interface WorkloadDeploymentPatternDataSummary {
  */
 export interface ListWorkloadDeploymentPatternsOutput {
   /**
-   * @public
    * <p>Describes the workload deployment patterns.</p>
+   * @public
    */
   workloadDeploymentPatterns?: WorkloadDeploymentPatternDataSummary[];
 
   /**
-   * @public
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
+   * @public
    */
   nextToken?: string;
 }

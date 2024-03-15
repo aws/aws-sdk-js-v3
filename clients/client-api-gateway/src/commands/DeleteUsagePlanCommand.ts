@@ -27,7 +27,6 @@ export interface DeleteUsagePlanCommandInput extends DeleteUsagePlanRequest {}
 export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a usage plan of a given plan Id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class DeleteUsagePlanCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeletePullThroughCacheRuleCommandInput extends DeletePullThroug
 export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a pull through cache rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DeletePullThroughCacheRuleCommand extends $Command
   .classBuilder<

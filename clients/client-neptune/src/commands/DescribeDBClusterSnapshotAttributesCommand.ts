@@ -35,7 +35,6 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
  *       snapshot.</p>
  *          <p>When sharing snapshots with other Amazon accounts,
@@ -87,6 +86,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RebootRelationalDatabaseCommandInput extends RebootRelationalDa
 export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restarts a specific database in Amazon Lightsail.</p>
  *          <p>The <code>reboot relational database</code> operation supports tag-based access control
  *       via resource tags applied to the resource identified by relationalDatabaseName. For more
@@ -106,6 +105,7 @@ export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalD
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class RebootRelationalDatabaseCommand extends $Command
   .classBuilder<

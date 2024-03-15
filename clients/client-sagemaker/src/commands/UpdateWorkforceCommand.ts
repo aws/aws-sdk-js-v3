@@ -31,7 +31,6 @@ export interface UpdateWorkforceCommandInput extends UpdateWorkforceRequest {}
 export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to update your workforce. You can use this operation to
  *         require that workers use specific IP addresses to work on tasks
  *         and to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.</p>
@@ -148,6 +147,7 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateWorkforceCommand extends $Command
   .classBuilder<

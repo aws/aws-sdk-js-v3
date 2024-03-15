@@ -35,7 +35,6 @@ export interface DescribeOrganizationConformancePacksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of organization conformance packs. </p>
  *          <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
@@ -136,6 +135,7 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConformancePacksCommand extends $Command
   .classBuilder<

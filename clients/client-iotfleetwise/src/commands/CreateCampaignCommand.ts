@@ -27,7 +27,6 @@ export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an orchestration of data collection rules. The Amazon Web Services IoT FleetWise Edge Agent software
  *             running in vehicles uses campaigns to decide how to collect and transfer data to the
  *             cloud. You create campaigns in the cloud. After you or your team approve campaigns,
@@ -134,6 +133,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class CreateCampaignCommand extends $Command
   .classBuilder<

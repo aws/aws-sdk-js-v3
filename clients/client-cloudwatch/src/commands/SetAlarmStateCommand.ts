@@ -27,7 +27,6 @@ export interface SetAlarmStateCommandInput extends SetAlarmStateInput {}
 export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Temporarily sets the state of an alarm for testing purposes. When the updated
  * 			state differs from the previous value, the action configured for
  * 			the appropriate state is invoked. For example, if your alarm is configured to send an
@@ -77,6 +76,7 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class SetAlarmStateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeregisterAdminCommandInput extends DeregisterAdminInput {}
 export interface DeregisterAdminCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the user or group from the list of administrators of the private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeregisterAdminCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class DeregisterAdminCommand extends $Command
   .classBuilder<

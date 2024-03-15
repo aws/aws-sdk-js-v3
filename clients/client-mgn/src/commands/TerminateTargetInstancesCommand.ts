@@ -32,7 +32,6 @@ export interface TerminateTargetInstancesCommandInput extends TerminateTargetIns
 export interface TerminateTargetInstancesCommandOutput extends TerminateTargetInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a job that terminates specific launched EC2 Test and Cutover instances. This command will not work for any Source Server with a lifecycle.state of TESTING, CUTTING_OVER, or CUTOVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class TerminateTargetInstancesCommand extends $Command
   .classBuilder<

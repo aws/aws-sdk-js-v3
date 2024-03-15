@@ -1146,8 +1146,8 @@ export interface Location {
 }
 
 /**
- * @public
  * <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
+ * @public
  */
 export class Location extends LocationClient implements Location {}
 createAggregatedClient(commands, Location);

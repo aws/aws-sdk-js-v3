@@ -35,7 +35,6 @@ export interface ListProtectedResourcesByBackupVaultCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This request lists the protected resources corresponding to each backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListProtectedResourcesByBackupVaultCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListProtectedResourcesByBackupVaultCommand extends $Command
   .classBuilder<

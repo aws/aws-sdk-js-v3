@@ -27,7 +27,6 @@ export interface GetDefaultPatchBaselineCommandInput extends GetDefaultPatchBase
 export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the default patch baseline. Amazon Web Services Systems Manager supports creating multiple default patch
  *    baselines. For example, you can create a default patch baseline for each operating system.</p>
  *          <p>If you don't specify an operating system value, the default patch baseline for Windows is
@@ -62,6 +61,7 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetDefaultPatchBaselineCommand extends $Command
   .classBuilder<

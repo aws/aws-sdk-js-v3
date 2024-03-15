@@ -31,7 +31,6 @@ export interface UpdateConnectorProfileCommandInput extends UpdateConnectorProfi
 export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a given connector profile associated with your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -314,6 +313,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class UpdateConnectorProfileCommand extends $Command
   .classBuilder<

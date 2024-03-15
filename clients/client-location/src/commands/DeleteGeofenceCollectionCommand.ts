@@ -27,7 +27,6 @@ export interface DeleteGeofenceCollectionCommandInput extends DeleteGeofenceColl
 export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a geofence collection from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the geofence collection is the
@@ -73,6 +72,7 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DeleteGeofenceCollectionCommand extends $Command
   .classBuilder<

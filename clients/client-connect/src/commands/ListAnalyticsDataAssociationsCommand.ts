@@ -32,7 +32,6 @@ export interface ListAnalyticsDataAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists the association status of requested dataset ID for a given Amazon Connect
  *    instance.</p>
@@ -88,6 +87,7 @@ export interface ListAnalyticsDataAssociationsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListAnalyticsDataAssociationsCommand extends $Command
   .classBuilder<

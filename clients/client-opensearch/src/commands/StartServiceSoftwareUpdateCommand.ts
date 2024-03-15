@@ -27,7 +27,6 @@ export interface StartServiceSoftwareUpdateCommandInput extends StartServiceSoft
 export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSoftwareUpdateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Schedules a service software update for an Amazon OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in
  *     Amazon OpenSearch Service</a>.</p>
@@ -80,6 +79,7 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class StartServiceSoftwareUpdateCommand extends $Command
   .classBuilder<

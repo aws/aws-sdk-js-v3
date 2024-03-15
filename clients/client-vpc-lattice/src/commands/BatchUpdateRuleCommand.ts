@@ -27,7 +27,6 @@ export interface BatchUpdateRuleCommandInput extends BatchUpdateRuleRequest {}
 export interface BatchUpdateRuleCommandOutput extends BatchUpdateRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the listener rules in a batch. You can use this operation to change the priority of
  *    listener rules. This can be useful when bulk updating or swapping rule priority. </p>
  * @example
@@ -170,6 +169,7 @@ export interface BatchUpdateRuleCommandOutput extends BatchUpdateRuleResponse, _
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class BatchUpdateRuleCommand extends $Command
   .classBuilder<

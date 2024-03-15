@@ -27,7 +27,6 @@ export interface BatchGetDeploymentTargetsCommandInput extends BatchGetDeploymen
 export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns an array of one or more targets associated with a deployment. This method
  *             works with all compute types and should be used instead of the deprecated
  *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
@@ -225,6 +224,7 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class BatchGetDeploymentTargetsCommand extends $Command
   .classBuilder<

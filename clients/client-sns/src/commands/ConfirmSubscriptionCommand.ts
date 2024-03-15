@@ -27,7 +27,6 @@ export interface ConfirmSubscriptionCommandInput extends ConfirmSubscriptionInpu
 export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent
  *             to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the
  *             action creates a new subscription and returns its Amazon Resource Name (ARN). This call
@@ -86,6 +85,7 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ConfirmSubscriptionCommand extends $Command
   .classBuilder<

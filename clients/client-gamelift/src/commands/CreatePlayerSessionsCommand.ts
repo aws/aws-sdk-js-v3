@@ -32,7 +32,6 @@ export interface CreatePlayerSessionsCommandInput extends CreatePlayerSessionsIn
 export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reserves open slots in a game session for a group of players. New player sessions can
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. To add a single player to a
@@ -128,6 +127,7 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreatePlayerSessionsCommand extends $Command
   .classBuilder<

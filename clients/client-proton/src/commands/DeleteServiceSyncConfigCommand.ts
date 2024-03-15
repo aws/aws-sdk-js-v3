@@ -27,7 +27,6 @@ export interface DeleteServiceSyncConfigCommandInput extends DeleteServiceSyncCo
 export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the Proton Ops file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncC
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteServiceSyncConfigCommand extends $Command
   .classBuilder<

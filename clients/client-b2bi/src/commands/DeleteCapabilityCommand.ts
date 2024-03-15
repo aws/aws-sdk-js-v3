@@ -27,7 +27,6 @@ export interface DeleteCapabilityCommandInput extends DeleteCapabilityRequest {}
 export interface DeleteCapabilityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified capability. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteCapabilityCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample DeleteCapabilty call
  * ```javascript
  * //

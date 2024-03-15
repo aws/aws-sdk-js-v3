@@ -27,7 +27,6 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of components that can be filtered by name, or by using the listed
  * 				<code>filters</code> to streamline results. Newly created components can take up to
  * 			two minutes to appear in the ListComponents API Results.</p>
@@ -117,6 +116,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListComponentsCommand extends $Command
   .classBuilder<

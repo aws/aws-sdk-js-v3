@@ -27,7 +27,6 @@ export interface GetFunctionConcurrencyCommandInput extends GetFunctionConcurren
 export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurrencyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
  *       function, use <a>PutFunctionConcurrency</a>.</p>
  * @example
@@ -68,6 +67,7 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetFunctionConcurrencyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AssociateAccountsCommandInput extends AssociateAccountsInput {}
 export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Connects an array of account IDs in a consolidated billing family to a predefined
  *       billing group. The account IDs must be a part of the consolidated billing family during the
  *       current month, and not already associated with another billing group. The maximum number of
@@ -88,6 +87,7 @@ export interface AssociateAccountsCommandOutput extends AssociateAccountsOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class AssociateAccountsCommand extends $Command
   .classBuilder<

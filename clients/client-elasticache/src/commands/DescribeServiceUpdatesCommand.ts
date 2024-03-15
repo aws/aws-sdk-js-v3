@@ -27,7 +27,6 @@ export interface DescribeServiceUpdatesCommandInput extends DescribeServiceUpdat
 export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details of the service updates</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DescribeServiceUpdatesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteHsmClientCertificateCommandInput extends DeleteHsmClientC
 export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified HSM client certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteHsmClientCertificateCommand extends $Command
   .classBuilder<

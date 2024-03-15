@@ -27,7 +27,6 @@ export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
 export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a CloudFront function.</p>
  *          <p>You cannot delete a function if it's associated with a cache behavior. First, update
  * 			your distributions to remove the function association from all cache behaviors, then
@@ -77,6 +76,7 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteFunctionCommand extends $Command
   .classBuilder<

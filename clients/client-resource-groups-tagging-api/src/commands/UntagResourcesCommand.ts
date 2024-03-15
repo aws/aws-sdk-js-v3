@@ -31,7 +31,6 @@ export interface UntagResourcesCommandInput extends UntagResourcesInput {}
 export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from the specified resources. When you specify a tag key,
  *             the action removes both that key and its associated value. The operation succeeds even
  *             if you attempt to remove tags from a resource that were already removed. Note the
@@ -135,6 +134,7 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * @public
  */
 export class UntagResourcesCommand extends $Command
   .classBuilder<

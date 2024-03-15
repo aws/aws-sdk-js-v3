@@ -27,7 +27,6 @@ export interface StartFlowCommandInput extends StartFlowRequest {}
 export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * Starts a flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class StartFlowCommand extends $Command
   .classBuilder<

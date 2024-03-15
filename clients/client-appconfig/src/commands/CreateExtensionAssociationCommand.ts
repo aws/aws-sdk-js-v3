@@ -27,7 +27,6 @@ export interface CreateExtensionAssociationCommandInput extends CreateExtensionA
 export interface CreateExtensionAssociationCommandOutput extends ExtensionAssociation, __MetadataBearer {}
 
 /**
- * @public
  * <p>When you create an extension or configure an Amazon Web Services authored extension, you
  *          associate the extension with an AppConfig application, environment, or
  *          configuration profile. For example, you can choose to run the <code>AppConfig
@@ -101,6 +100,7 @@ export interface CreateExtensionAssociationCommandOutput extends ExtensionAssoci
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class CreateExtensionAssociationCommand extends $Command
   .classBuilder<

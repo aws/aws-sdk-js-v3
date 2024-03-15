@@ -27,7 +27,6 @@ export interface DeleteClassifierCommandInput extends DeleteClassifierRequest {}
 export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a classifier from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteClassifierCommand extends $Command
   .classBuilder<

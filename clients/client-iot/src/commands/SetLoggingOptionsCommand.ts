@@ -27,7 +27,6 @@ export interface SetLoggingOptionsCommandInput extends SetLoggingOptionsRequest 
 export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the logging options.</p>
  *          <p>NOTE: use of this command is not recommended. Use <code>SetV2LoggingOptions</code>
  *          instead.</p>
@@ -68,6 +67,7 @@ export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class SetLoggingOptionsCommand extends $Command
   .classBuilder<

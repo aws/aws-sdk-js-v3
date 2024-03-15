@@ -28,7 +28,6 @@ export interface GetContainerServicesCommandInput extends GetContainerServicesRe
 export interface GetContainerServicesCommandOutput extends ContainerServicesListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one or more of your Amazon Lightsail container services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -181,6 +180,7 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetContainerServicesCommand extends $Command
   .classBuilder<

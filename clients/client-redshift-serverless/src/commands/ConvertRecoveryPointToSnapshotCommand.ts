@@ -36,7 +36,6 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots,
  *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">Working with snapshots and recovery points</a>.</p>
  * @example
@@ -118,6 +117,7 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class ConvertRecoveryPointToSnapshotCommand extends $Command
   .classBuilder<

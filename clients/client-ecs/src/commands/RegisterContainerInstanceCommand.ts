@@ -27,7 +27,6 @@ export interface RegisterContainerInstanceCommandInput extends RegisterContainer
 export interface RegisterContainerInstanceCommandOutput extends RegisterContainerInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -190,6 +189,7 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class RegisterContainerInstanceCommand extends $Command
   .classBuilder<

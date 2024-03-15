@@ -27,7 +27,6 @@ export interface ListParticipantEventsCommandInput extends ListParticipantEvents
 export interface ListParticipantEventsCommandOutput extends ListParticipantEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists events for a specified participant that occurred during a specified stage
  *          session.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListParticipantEventsCommandOutput extends ListParticipantEvent
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class ListParticipantEventsCommand extends $Command
   .classBuilder<

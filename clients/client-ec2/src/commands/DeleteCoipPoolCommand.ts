@@ -27,7 +27,6 @@ export interface DeleteCoipPoolCommandInput extends DeleteCoipPoolRequest {}
 export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a pool of customer-owned IP (CoIP) addresses. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteCoipPoolCommand extends $Command
   .classBuilder<

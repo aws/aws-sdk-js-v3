@@ -27,7 +27,6 @@ export interface GetAuthorizationTokenCommandInput extends GetAuthorizationToken
 export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an authorization token. An authorization token represents your IAM
  *             authentication credentials and can be used to access any Amazon ECR registry that your IAM
  *             principal has access to. The authorization token is valid for 12 hours.</p>
@@ -77,6 +76,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To obtain an authorization token
  * ```javascript
  * // This example gets an authorization token for your default registry.

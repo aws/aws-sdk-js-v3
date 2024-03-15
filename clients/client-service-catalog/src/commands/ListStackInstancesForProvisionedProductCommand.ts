@@ -36,7 +36,6 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific Amazon Web Services account name or Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListStackInstancesForProvisionedProductCommand extends $Command
   .classBuilder<

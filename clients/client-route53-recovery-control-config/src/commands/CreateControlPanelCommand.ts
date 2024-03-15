@@ -31,7 +31,6 @@ export interface CreateControlPanelCommandInput extends CreateControlPanelReques
 export interface CreateControlPanelCommandOutput extends CreateControlPanelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new control panel. A control panel represents a group of routing controls that can be changed together in a single transaction. You can use a control panel to centrally view the operational status of applications across your organization, and trigger multi-app failovers in a single transaction, for example, to fail over an Availability Zone or Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class CreateControlPanelCommand extends $Command
   .classBuilder<

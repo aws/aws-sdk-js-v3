@@ -27,7 +27,6 @@ export interface GetFindingCommandInput extends GetFindingRequest {}
 export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use
  *             <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM
  *          policy statement. You must have permission to perform the
@@ -103,6 +102,7 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class GetFindingCommand extends $Command
   .classBuilder<

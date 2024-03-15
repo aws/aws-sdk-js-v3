@@ -31,7 +31,6 @@ export interface DeleteServiceTemplateCommandInput extends DeleteServiceTemplate
 export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>If no other major or minor versions of the service template exist, delete the service
  *       template.</p>
  * @example
@@ -88,6 +87,7 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteServiceTemplateCommand extends $Command
   .classBuilder<

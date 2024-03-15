@@ -27,7 +27,6 @@ export interface DescribePolicyCommandInput extends DescribePolicyRequest {}
 export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a policy.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -197,6 +196,7 @@ export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __M
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To get information about a policy
  * ```javascript
  * // The following example shows how to request information about a policy:/n/n

@@ -27,7 +27,6 @@ export interface DeleteFindingsFilterCommandInput extends DeleteFindingsFilterRe
 export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a findings filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DeleteFindingsFilterCommand extends $Command
   .classBuilder<

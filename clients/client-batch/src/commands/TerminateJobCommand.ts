@@ -27,7 +27,6 @@ export interface TerminateJobCommandInput extends TerminateJobRequest {}
 export interface TerminateJobCommandOutput extends TerminateJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or
  *         <code>RUNNING</code> state are terminated, which causes them to transition to
  *         <code>FAILED</code>. Jobs that have not progressed to the <code>STARTING</code> state are
@@ -65,6 +64,7 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To terminate a job
  * ```javascript
  * // This example terminates a job with the specified job ID.

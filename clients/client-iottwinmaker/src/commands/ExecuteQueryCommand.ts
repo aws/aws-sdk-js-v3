@@ -27,7 +27,6 @@ export interface ExecuteQueryCommandInput extends ExecuteQueryRequest {}
 export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Run queries to access information from your knowledge graph of entities within
  *          individual workspaces.</p>
  *          <note>
@@ -94,6 +93,7 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class ExecuteQueryCommand extends $Command
   .classBuilder<

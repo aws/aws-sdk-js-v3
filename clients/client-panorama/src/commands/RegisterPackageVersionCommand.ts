@@ -27,7 +27,6 @@ export interface RegisterPackageVersionCommandInput extends RegisterPackageVersi
 export interface RegisterPackageVersionCommandOutput extends RegisterPackageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a package version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface RegisterPackageVersionCommandOutput extends RegisterPackageVers
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class RegisterPackageVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelStatementCommandInput extends CancelStatementRequest {}
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CancelStatementCommand extends $Command
   .classBuilder<

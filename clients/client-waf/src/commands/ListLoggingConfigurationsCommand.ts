@@ -27,7 +27,6 @@ export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfig
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -124,6 +123,7 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  */
 export class ListLoggingConfigurationsCommand extends $Command
   .classBuilder<

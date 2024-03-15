@@ -27,7 +27,6 @@ export interface DescribeProtectedResourceCommandInput extends DescribeProtected
 export interface DescribeProtectedResourceCommandOutput extends DescribeProtectedResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a saved resource, including the last time it was backed up,
  *          its Amazon Resource Name (ARN), and the Amazon Web Services service type of the saved
  *          resource.</p>
@@ -78,6 +77,7 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeProtectedResourceCommand extends $Command
   .classBuilder<

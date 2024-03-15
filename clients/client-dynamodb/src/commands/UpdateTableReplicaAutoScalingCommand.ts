@@ -32,7 +32,6 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates auto scaling settings on your global tables at once.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
@@ -223,6 +222,7 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class UpdateTableReplicaAutoScalingCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMess
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify a setting for an Amazon Neptune global cluster. You can change one
  *       or more database configuration parameters by specifying these parameters
  *       and their new values in the request.</p>
@@ -85,6 +84,7 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyGlobalClusterCommand extends $Command
   .classBuilder<

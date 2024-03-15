@@ -32,7 +32,6 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most
  *             of the source's original configuration, including the default security group and DB parameter group. By default, the new DB
  *             instance is created as a Single-AZ deployment, except when the instance is a SQL Server instance that has an option group
@@ -433,6 +432,7 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To restore a DB instance from a DB snapshot
  * ```javascript
  * // The following example creates a new DB instance named db7-new-instance with the db.t3.small DB instance class from the specified DB snapshot. The source DB instance from which the snapshot was taken uses a deprecated DB instance class, so you can't upgrade it.

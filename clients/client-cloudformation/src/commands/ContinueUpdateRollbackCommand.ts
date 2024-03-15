@@ -27,7 +27,6 @@ export interface ContinueUpdateRollbackCommandInput extends ContinueUpdateRollba
 export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollbackOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a specified stack that's in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues rolling it back to the
  *    <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the cause of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed"> fix the
  *    error</a> and continue the rollback. By continuing the rollback, you can return your stack to a working state
@@ -68,6 +67,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ContinueUpdateRollbackCommand extends $Command
   .classBuilder<

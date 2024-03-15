@@ -31,7 +31,6 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Managed Service for Apache Flink application. Using this operation, you
  *       can update application code, input configuration, and output configuration. </p>
  *          <p>Managed Service for Apache Flink updates the <code>ApplicationVersionId</code> each time you update
@@ -524,6 +523,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class UpdateApplicationCommand extends $Command
   .classBuilder<

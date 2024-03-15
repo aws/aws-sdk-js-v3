@@ -27,7 +27,6 @@ export interface CreateChannelCommandInput extends CreateChannelRequest {}
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a channel for CloudTrail to ingest events from a partner or external source.
  *          After you create a channel, a CloudTrail Lake event data store can log events
  *       from the partner or source that you specify.</p>
@@ -128,6 +127,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class CreateChannelCommand extends $Command
   .classBuilder<

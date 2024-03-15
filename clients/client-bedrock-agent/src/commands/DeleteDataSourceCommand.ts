@@ -27,7 +27,6 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Delete an existing data source
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class DeleteDataSourceCommand extends $Command
   .classBuilder<

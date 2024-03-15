@@ -27,7 +27,6 @@ export interface PutImagePolicyCommandInput extends PutImagePolicyRequest {}
 export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
  * 				<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be
  * 			visible to all principals with whom the resource is shared.</p>
@@ -86,6 +85,7 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class PutImagePolicyCommand extends $Command
   .classBuilder<

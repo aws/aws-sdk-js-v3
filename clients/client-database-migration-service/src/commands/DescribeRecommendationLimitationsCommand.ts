@@ -39,7 +39,6 @@ export interface DescribeRecommendationLimitationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of limitations for recommendations of target Amazon Web Services
  *             engines.</p>
  * @example
@@ -94,6 +93,7 @@ export interface DescribeRecommendationLimitationsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeRecommendationLimitationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteInstanceSnapshotCommandInput extends DeleteInstanceSnapsh
 export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific snapshot of a virtual private server (or
  *       <i>instance</i>).</p>
  *          <p>The <code>delete instance snapshot</code> operation supports tag-based access control via
@@ -107,6 +106,7 @@ export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnaps
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteInstanceSnapshotCommand extends $Command
   .classBuilder<

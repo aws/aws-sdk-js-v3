@@ -27,7 +27,6 @@ export interface ListEnabledControlsCommandInput extends ListEnabledControlsInpu
 export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and
  *          the accounts it contains. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
  *                <i>the Amazon Web Services Control Tower User Guide</i>
@@ -89,6 +88,7 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class ListEnabledControlsCommand extends $Command
   .classBuilder<

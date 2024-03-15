@@ -27,7 +27,6 @@ export interface CreateInstanceProfileCommandInput extends CreateInstanceProfile
 export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a new instance profile. For information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">Using
  *                 roles for applications on Amazon EC2</a> in the
  *                 <i>IAM User Guide</i>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#ec2-instance-profile">Instance profiles</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -124,6 +123,7 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To create an instance profile
  * ```javascript
  * // The following command creates an instance profile named Webserver that is ready to have a role attached and then be associated with an EC2 instance.

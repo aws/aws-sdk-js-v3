@@ -27,7 +27,6 @@ export interface UpdateArchiveCommandInput extends UpdateArchiveRequest {}
 export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class UpdateArchiveCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelMLTaskRunCommandInput extends CancelMLTaskRunRequest {}
 export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that Glue runs on your behalf as part of various machine learning workflows. You can cancel a
  *       machine learning task run at any time by calling <code>CancelMLTaskRun</code> with a task
  *       run's parent transform's <code>TransformID</code> and the task run's <code>TaskRunId</code>. </p>
@@ -72,6 +71,7 @@ export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CancelMLTaskRunCommand extends $Command
   .classBuilder<

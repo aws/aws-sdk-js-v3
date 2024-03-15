@@ -32,7 +32,6 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeCapacityBlockOfferingsCommand extends $Command
   .classBuilder<

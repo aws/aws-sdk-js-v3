@@ -27,7 +27,6 @@ export interface DeregisterTaskDefinitionCommandInput extends DeregisterTaskDefi
 export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the specified task definition by family and revision. Upon deregistration,
  * 			the task definition is marked as <code>INACTIVE</code>. Existing tasks and services that
  * 			reference an <code>INACTIVE</code> task definition continue to run without disruption.
@@ -346,6 +345,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class DeregisterTaskDefinitionCommand extends $Command
   .classBuilder<

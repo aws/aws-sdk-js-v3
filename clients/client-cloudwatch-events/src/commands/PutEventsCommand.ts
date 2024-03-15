@@ -27,7 +27,6 @@ export interface PutEventsCommandInput extends PutEventsRequest {}
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class PutEventsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the current configuration for anomaly notifications for a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetNotificationConfigurationCommandOutput
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class GetNotificationConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateDomainConfigCommandInput extends UpdateDomainConfigReques
 export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service
  *    domain.</p>
  * @example
@@ -432,6 +431,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class UpdateDomainConfigCommand extends $Command
   .classBuilder<

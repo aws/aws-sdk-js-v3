@@ -29,7 +29,6 @@ export interface StartLifecyclePolicyPreviewCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a preview of a lifecycle policy for the specified repository. This allows you
  *             to see the results before associating the lifecycle policy with the repository.</p>
  * @example
@@ -85,6 +84,7 @@ export interface StartLifecyclePolicyPreviewCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class StartLifecyclePolicyPreviewCommand extends $Command
   .classBuilder<

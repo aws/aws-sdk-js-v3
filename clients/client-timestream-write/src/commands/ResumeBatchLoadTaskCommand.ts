@@ -28,7 +28,6 @@ export interface ResumeBatchLoadTaskCommandInput extends ResumeBatchLoadTaskRequ
 export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       </p>
  * @example
@@ -77,6 +76,7 @@ export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskRes
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class ResumeBatchLoadTaskCommand extends $Command
   .classBuilder<

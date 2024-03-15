@@ -27,7 +27,6 @@ export interface DeleteAppsListCommandInput extends DeleteAppsListRequest {}
 export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes an Firewall Manager applications list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class DeleteAppsListCommand extends $Command
   .classBuilder<

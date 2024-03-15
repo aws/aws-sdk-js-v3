@@ -31,7 +31,6 @@ export interface UpdateMemberCommandInput extends UpdateMemberInput {}
 export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a member configuration with new parameters.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -86,6 +85,7 @@ export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __Metadat
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class UpdateMemberCommand extends $Command
   .classBuilder<

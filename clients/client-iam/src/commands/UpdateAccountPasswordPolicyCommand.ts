@@ -27,7 +27,6 @@ export interface UpdateAccountPasswordPolicyCommandInput extends UpdateAccountPa
 export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the password policy settings for the Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation does not support partial updates. No parameters are required, but
@@ -87,6 +86,7 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To set or change the current account password policy
  * ```javascript
  * // The following command sets the password policy to require a minimum length of eight characters and to require one or more numbers in the password:

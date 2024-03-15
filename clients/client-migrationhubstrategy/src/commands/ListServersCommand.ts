@@ -31,7 +31,6 @@ export interface ListServersCommandInput extends ListServersRequest {}
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of all the servers. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class ListServersCommand extends $Command
   .classBuilder<

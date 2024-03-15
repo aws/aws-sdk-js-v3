@@ -268,10 +268,10 @@ export type MediaStoreDataClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface MediaStoreDataClientResolvedConfig extends MediaStoreDataClientResolvedConfigType {}
 
 /**
- * @public
  * <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3
  *          service. Objects are the fundamental entities that are stored in AWS Elemental
  *          MediaStore.</p>
+ * @public
  */
 export class MediaStoreDataClient extends __Client<
   __HttpHandlerOptions,

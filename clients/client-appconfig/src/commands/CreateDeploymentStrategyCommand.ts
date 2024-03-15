@@ -27,7 +27,6 @@ export interface CreateDeploymentStrategyCommandInput extends CreateDeploymentSt
 export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a deployment strategy that defines important criteria for rolling out your
  *          configuration to the designated targets. A deployment strategy includes the overall
  *          duration required, a percentage of targets to receive the deployment during each interval,
@@ -91,6 +90,7 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To create a deployment strategy
  * ```javascript
  * // The following create-deployment-strategy example creates a deployment strategy called Example-Deployment that takes 15 minutes and deploys the configuration to 25% of the application at a time. The strategy is also copied to an SSM Document.

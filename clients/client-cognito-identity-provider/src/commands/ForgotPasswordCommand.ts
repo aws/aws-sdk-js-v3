@@ -35,7 +35,6 @@ export interface ForgotPasswordCommandInput extends ForgotPasswordRequest {}
 export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Calling this API causes a message to be sent to the end user with a confirmation code
  *             that is required to change the user's password. For the <code>Username</code> parameter,
  *             you can use the username or user alias. The method used to send the confirmation code is
@@ -171,6 +170,7 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ForgotPasswordCommand extends $Command
   .classBuilder<

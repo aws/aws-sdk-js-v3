@@ -27,7 +27,6 @@ export interface ListAppVersionsCommandInput extends ListAppVersionsRequest {}
 export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the different versions for the Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListAppVersionsCommandOutput extends ListAppVersionsResponse, _
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppVersionsCommand extends $Command
   .classBuilder<

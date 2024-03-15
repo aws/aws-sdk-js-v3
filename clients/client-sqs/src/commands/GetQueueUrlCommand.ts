@@ -27,7 +27,6 @@ export interface GetQueueUrlCommandInput extends GetQueueUrlRequest {}
 export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the URL of an existing Amazon SQS queue.</p>
  *          <p>To access a queue that belongs to another AWS account, use the
  *                 <code>QueueOwnerAWSAccountId</code> parameter to specify the account ID of the
@@ -95,6 +94,7 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class GetQueueUrlCommand extends $Command
   .classBuilder<

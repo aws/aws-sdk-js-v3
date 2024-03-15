@@ -31,7 +31,6 @@ export interface DeleteReportDefinitionCommandInput extends DeleteReportDefiniti
 export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified report definition in AWS Application Cost Profiler. This stops the report from being
  *       generated.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * @public
  */
 export class DeleteReportDefinitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ReplaceTopicRuleCommandInput extends ReplaceTopicRuleRequest {}
 export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
  *          is an administrator-level action. Any user who has permission to create rules will be able
  *          to access data processed by the rule.</p>
@@ -495,6 +494,7 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ReplaceTopicRuleCommand extends $Command
   .classBuilder<

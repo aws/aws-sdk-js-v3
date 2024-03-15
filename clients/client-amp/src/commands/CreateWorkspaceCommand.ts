@@ -27,7 +27,6 @@ export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
 export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the
  *             storage and querying of Prometheus metrics. You can have one or more workspaces in each
  *             Region in your account.</p>
@@ -89,6 +88,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class CreateWorkspaceCommand extends $Command
   .classBuilder<

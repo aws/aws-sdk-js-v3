@@ -27,7 +27,6 @@ export interface GetTemplateSyncStatusCommandInput extends GetTemplateSyncStatus
 export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the status of a template sync.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatu
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetTemplateSyncStatusCommand extends $Command
   .classBuilder<

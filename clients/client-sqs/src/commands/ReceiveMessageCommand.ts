@@ -28,7 +28,6 @@ export interface ReceiveMessageCommandInput extends ReceiveMessageRequest {}
 export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the
  *                 <code>WaitTimeSeconds</code> parameter enables long-poll support. For more
  *             information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon
@@ -209,6 +208,7 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class ReceiveMessageCommand extends $Command
   .classBuilder<

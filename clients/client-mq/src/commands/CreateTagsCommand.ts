@@ -27,7 +27,6 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Add a tag to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class CreateTagsCommand extends $Command
   .classBuilder<

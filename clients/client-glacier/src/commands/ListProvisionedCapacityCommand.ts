@@ -27,7 +27,6 @@ export interface ListProvisionedCapacityCommandInput extends ListProvisionedCapa
 export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCapacityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists the provisioned capacity units for the specified AWS
  *          account.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To list the provisioned capacity units for an account
  * ```javascript
  * // The example lists the provisioned capacity units for an account.

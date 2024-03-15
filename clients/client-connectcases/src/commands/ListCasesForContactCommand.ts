@@ -27,7 +27,6 @@ export interface ListCasesForContactCommandInput extends ListCasesForContactRequ
 export interface ListCasesForContactCommandOutput extends ListCasesForContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists cases for a given contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListCasesForContactCommandOutput extends ListCasesForContactRes
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class ListCasesForContactCommand extends $Command
   .classBuilder<

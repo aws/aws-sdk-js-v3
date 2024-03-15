@@ -27,7 +27,6 @@ export interface StopDiscovererCommandInput extends StopDiscovererRequest {}
 export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the discoverer</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class StopDiscovererCommand extends $Command
   .classBuilder<

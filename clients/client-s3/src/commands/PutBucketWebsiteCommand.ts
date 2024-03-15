@@ -28,7 +28,6 @@ export interface PutBucketWebsiteCommandInput extends PutBucketWebsiteRequest {}
 export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -209,6 +208,7 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example Set website configuration on a bucket
  * ```javascript
  * // The following example adds website configuration to a bucket.

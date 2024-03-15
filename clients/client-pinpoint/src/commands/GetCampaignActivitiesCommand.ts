@@ -27,7 +27,6 @@ export interface GetCampaignActivitiesCommandInput extends GetCampaignActivities
 export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about all the activities for a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetCampaignActivitiesCommand extends $Command
   .classBuilder<

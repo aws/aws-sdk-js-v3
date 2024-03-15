@@ -27,7 +27,6 @@ export interface UpdateAccountSendingEnabledCommandInput extends UpdateAccountSe
 export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or disables email sending across your entire Amazon SES account in the current
  *             Amazon Web Services Region. You can use this operation in conjunction with Amazon CloudWatch alarms to
  *             temporarily pause email sending across your Amazon SES account in a given Amazon Web Services Region when
@@ -58,6 +57,7 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example UpdateAccountSendingEnabled
  * ```javascript
  * // The following example updated the sending status for this account.

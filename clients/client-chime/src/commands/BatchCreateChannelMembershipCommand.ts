@@ -36,9 +36,6 @@ export interface BatchCreateChannelMembershipCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by BatchCreateChannelMembership in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Adds a specified number of users to a channel.</p>
  *          <important>
  *             <p>
@@ -116,6 +113,8 @@ export interface BatchCreateChannelMembershipCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by BatchCreateChannelMembership in the Amazon Chime SDK Messaging Namespace
  */
 export class BatchCreateChannelMembershipCommand extends $Command
   .classBuilder<

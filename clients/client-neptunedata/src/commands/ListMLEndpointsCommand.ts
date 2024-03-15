@@ -27,7 +27,6 @@ export interface ListMLEndpointsCommandInput extends ListMLEndpointsInput {}
 export interface ListMLEndpointsCommandOutput extends ListMLEndpointsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists existing inference endpoints. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html">Managing
  *       inference endpoints using the endpoints command</a>.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -96,6 +95,7 @@ export interface ListMLEndpointsCommandOutput extends ListMLEndpointsOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ListMLEndpointsCommand extends $Command
   .classBuilder<

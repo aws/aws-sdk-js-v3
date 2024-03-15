@@ -27,7 +27,6 @@ export interface GetAgentConfigurationCommandInput extends GetAgentConfiguration
 export interface GetAgentConfigurationCommandOutput extends GetAgentConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
  *          </note>
@@ -68,6 +67,7 @@ export interface GetAgentConfigurationCommandOutput extends GetAgentConfiguratio
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class GetAgentConfigurationCommand extends $Command
   .classBuilder<

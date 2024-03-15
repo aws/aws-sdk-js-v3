@@ -27,7 +27,6 @@ export interface GetAssistantCommandInput extends GetAssistantRequest {}
 export interface GetAssistantCommandOutput extends GetAssistantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class GetAssistantCommand extends $Command
   .classBuilder<

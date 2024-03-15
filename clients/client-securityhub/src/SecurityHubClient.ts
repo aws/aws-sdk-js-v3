@@ -636,7 +636,6 @@ export type SecurityHubClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Security Hub provides you with a comprehensive view of your security state in Amazon Web Services and helps
  *            you assess your Amazon Web Services environment against security industry standards and best practices.</p>
  *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services, and
@@ -709,6 +708,7 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *                   <code>BurstLimit</code> of 30 requests per second.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SecurityHubClient extends __Client<
   __HttpHandlerOptions,

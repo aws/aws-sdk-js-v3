@@ -28,7 +28,6 @@ export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshot
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies a snapshot of a DB cluster.</p>
  *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
  *       <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the
@@ -113,6 +112,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CopyDBClusterSnapshotCommand extends $Command
   .classBuilder<

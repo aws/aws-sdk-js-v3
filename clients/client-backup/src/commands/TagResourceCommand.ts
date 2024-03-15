@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
  *          identified by an Amazon Resource Name (ARN).</p>
  * @example
@@ -74,6 +73,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

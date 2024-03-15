@@ -27,7 +27,6 @@ export interface UnpeerVpcCommandInput extends UnpeerVpcRequest {}
 export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Unpeers the Lightsail VPC from the user's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBeare
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UnpeerVpcCommand extends $Command
   .classBuilder<

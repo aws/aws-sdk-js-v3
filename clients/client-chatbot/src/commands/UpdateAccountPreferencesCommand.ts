@@ -27,7 +27,6 @@ export interface UpdateAccountPreferencesCommandInput extends UpdateAccountPrefe
 export interface UpdateAccountPreferencesCommandOutput extends UpdateAccountPreferencesResult, __MetadataBearer {}
 
 /**
- * @public
  * Update Chatbot account level preferences
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface UpdateAccountPreferencesCommandOutput extends UpdateAccountPref
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class UpdateAccountPreferencesCommand extends $Command
   .classBuilder<

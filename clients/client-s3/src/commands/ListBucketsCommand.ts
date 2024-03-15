@@ -27,7 +27,6 @@ export interface ListBucketsCommandInput {}
 export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -68,6 +67,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To list all buckets
  * ```javascript
  * // The following example returns all the buckets owned by the sender of this request.

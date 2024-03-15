@@ -31,7 +31,6 @@ export interface CreateApplicationSnapshotCommandInput extends CreateApplication
 export interface CreateApplicationSnapshotCommandOutput extends CreateApplicationSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of the application's state data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class CreateApplicationSnapshotCommand extends $Command
   .classBuilder<

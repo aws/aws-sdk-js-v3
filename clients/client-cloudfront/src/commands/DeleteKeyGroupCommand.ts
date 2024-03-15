@@ -27,7 +27,6 @@ export interface DeleteKeyGroupCommandInput extends DeleteKeyGroupRequest {}
 export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a key group.</p>
  *          <p>You cannot delete a key group that is referenced in a cache behavior. First update
  * 			your distributions to remove the key group from all cache behaviors, then delete the key
@@ -73,6 +72,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteKeyGroupCommand extends $Command
   .classBuilder<

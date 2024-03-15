@@ -27,7 +27,6 @@ export interface StopCisSessionCommandInput extends StopCisSessionRequest {}
 export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Stops a CIS session.
  *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
@@ -95,6 +94,7 @@ export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __M
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class StopCisSessionCommand extends $Command
   .classBuilder<

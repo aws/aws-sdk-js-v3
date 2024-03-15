@@ -27,7 +27,6 @@ export interface CreateIntentCommandInput extends CreateIntentRequest {}
 export interface CreateIntentCommandOutput extends CreateIntentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an intent.</p>
  *          <p>To define the interaction between the user and your bot, you define
  *          one or more intents. For example, for a pizza ordering bot you would
@@ -1029,6 +1028,7 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateIntentCommand extends $Command
   .classBuilder<

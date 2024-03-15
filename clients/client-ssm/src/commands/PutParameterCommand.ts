@@ -27,7 +27,6 @@ export interface PutParameterCommandInput extends PutParameterRequest {}
 export interface PutParameterCommandOutput extends PutParameterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add a parameter to the system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -138,6 +137,7 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class PutParameterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteInboundConnectionCommandInput extends DeleteInboundConnec
 export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the destination Amazon OpenSearch Service domain owner to delete an existing inbound
  *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -84,6 +83,7 @@ export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConne
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DeleteInboundConnectionCommand extends $Command
   .classBuilder<

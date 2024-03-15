@@ -27,7 +27,6 @@ export interface ListAddonsCommandInput extends ListAddonsRequest {}
 export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the installed add-ons.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListAddonsCommand extends $Command
   .classBuilder<

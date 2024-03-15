@@ -27,7 +27,6 @@ export interface ListLexBotsCommandInput extends ListLexBotsRequest {}
 export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all the Amazon Lex V1 bots currently associated with the
  *    instance. To return both Amazon Lex V1 and V2 bots, use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListBots.html">ListBots</a> API.
@@ -81,6 +80,7 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListLexBotsCommand extends $Command
   .classBuilder<

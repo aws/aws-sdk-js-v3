@@ -27,7 +27,6 @@ export interface DescribeProductsCommandInput extends DescribeProductsRequest {}
 export interface DescribeProductsCommandOutput extends DescribeProductsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about product integrations in Security Hub.</p>
  *          <p>You can optionally provide an integration ARN. If you provide an integration ARN, then
  *          the results only include that integration.</p>
@@ -92,6 +91,7 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get information about Security Hub integrations
  * ```javascript
  * // The following example returns details about AWS services and third-party products that Security Hub integrates with.

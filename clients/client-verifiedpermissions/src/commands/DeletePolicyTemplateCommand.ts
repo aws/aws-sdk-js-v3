@@ -31,7 +31,6 @@ export interface DeletePolicyTemplateCommandInput extends DeletePolicyTemplateIn
 export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified policy template from the policy store.</p>
  *          <important>
  *             <p>This operation also deletes any policies that were created from the specified
@@ -163,6 +162,7 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class DeletePolicyTemplateCommand extends $Command
   .classBuilder<

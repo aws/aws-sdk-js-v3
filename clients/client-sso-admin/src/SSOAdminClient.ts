@@ -648,7 +648,6 @@ export type SSOAdminClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface SSOAdminClientResolvedConfig extends SSOAdminClientResolvedConfigType {}
 
 /**
- * @public
  * <p>IAM Identity Center (successor to Single Sign-On) helps you securely create, or connect, your workforce identities and manage
  *             their access centrally across Amazon Web Services accounts and applications. IAM Identity Center is the recommended
  *             approach for workforce authentication and authorization in Amazon Web Services, for organizations of
@@ -673,6 +672,7 @@ export interface SSOAdminClientResolvedConfig extends SSOAdminClientResolvedConf
  *                 install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
  *                     Services</a>.</p>
  *          </note>
+ * @public
  */
 export class SSOAdminClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface CreateOpsMetadataCommandInput extends CreateOpsMetadataRequest 
 export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>If you create a new application in Application Manager, Amazon Web Services Systems Manager calls this API operation to specify
  *    information about the new application, including the application type.</p>
  * @example
@@ -84,6 +83,7 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreateOpsMetadataCommand extends $Command
   .classBuilder<

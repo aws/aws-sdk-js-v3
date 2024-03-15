@@ -31,7 +31,6 @@ export interface PutRetentionPolicyCommandInput extends PutRetentionPolicyReques
 export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts a retention policy to the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class PutRetentionPolicyCommand extends $Command
   .classBuilder<

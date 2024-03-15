@@ -27,7 +27,6 @@ export interface GetSpaceCommandInput extends GetSpaceRequest {}
 export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class GetSpaceCommand extends $Command
   .classBuilder<

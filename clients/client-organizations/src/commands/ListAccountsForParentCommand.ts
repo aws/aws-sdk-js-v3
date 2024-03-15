@@ -31,7 +31,6 @@ export interface ListAccountsForParentCommandInput extends ListAccountsForParent
 export interface ListAccountsForParentCommandOutput extends ListAccountsForParentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the accounts in an organization that are contained by the specified target root
  *             or organizational unit (OU). If you specify the root, you get a list of all the accounts
  *             that aren't in any OU. If you specify an OU, you get a list of all the accounts in only
@@ -213,6 +212,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of all of the accounts in a root or OU
  * ```javascript
  * // The following example shows how to request a list of the accounts in an OU:/n/n

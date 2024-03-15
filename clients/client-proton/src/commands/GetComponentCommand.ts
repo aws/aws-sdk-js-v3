@@ -27,7 +27,6 @@ export interface GetComponentCommandInput extends GetComponentInput {}
 export interface GetComponentCommandOutput extends GetComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed data for a component.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -90,6 +89,7 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetComponentCommand extends $Command
   .classBuilder<

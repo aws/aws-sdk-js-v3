@@ -40,7 +40,6 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records
  *       on the input stream before the
  *       application's SQL code executes. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">Amazon Lambda</a>.</p>
@@ -102,6 +101,7 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class AddApplicationInputProcessingConfigurationCommand extends $Command
   .classBuilder<

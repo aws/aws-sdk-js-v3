@@ -27,7 +27,6 @@ export interface EnableMFADeviceCommandInput extends EnableMFADeviceRequest {}
 export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the specified MFA device and associates it with the specified IAM user. When
  *             enabled, the MFA device is required for every subsequent login by the IAM user
  *             associated with the device.</p>
@@ -88,6 +87,7 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class EnableMFADeviceCommand extends $Command
   .classBuilder<

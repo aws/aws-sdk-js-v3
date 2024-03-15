@@ -31,7 +31,6 @@ export interface ListDistributionsByWebACLIdCommandInput extends ListDistributio
 export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributionsByWebACLIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the distributions that are associated with a specified WAF web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -368,6 +367,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListDistributionsByWebACLIdCommand extends $Command
   .classBuilder<

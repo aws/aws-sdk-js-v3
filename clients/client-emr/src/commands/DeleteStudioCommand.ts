@@ -27,7 +27,6 @@ export interface DeleteStudioCommandInput extends DeleteStudioInput {}
 export interface DeleteStudioCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DeleteStudioCommand extends $Command
   .classBuilder<

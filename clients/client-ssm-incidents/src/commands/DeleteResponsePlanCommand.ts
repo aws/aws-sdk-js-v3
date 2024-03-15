@@ -27,7 +27,6 @@ export interface DeleteResponsePlanCommandInput extends DeleteResponsePlanInput 
 export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this response
  *       plan.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class DeleteResponsePlanCommand extends $Command
   .classBuilder<

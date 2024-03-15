@@ -36,7 +36,6 @@ export interface ResendContactReachabilityEmailCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>For operations that require confirmation that the email address for the registrant
  * 			contact is valid, such as registering a new domain, this operation resends the
  * 			confirmation email to the current email address for the registrant contact.</p>
@@ -81,6 +80,7 @@ export interface ResendContactReachabilityEmailCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class ResendContactReachabilityEmailCommand extends $Command
   .classBuilder<

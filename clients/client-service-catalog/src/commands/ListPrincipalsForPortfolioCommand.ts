@@ -27,7 +27,6 @@ export interface ListPrincipalsForPortfolioCommandInput extends ListPrincipalsFo
 export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsForPortfolioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the specified portfolio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListPrincipalsForPortfolioCommand extends $Command
   .classBuilder<

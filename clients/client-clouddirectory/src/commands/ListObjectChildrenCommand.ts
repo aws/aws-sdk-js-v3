@@ -27,7 +27,6 @@ export interface ListObjectChildrenCommandInput extends ListObjectChildrenReques
 export interface ListObjectChildrenCommandOutput extends ListObjectChildrenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of child objects that are associated with a given
  *       object.</p>
  * @example
@@ -97,6 +96,7 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListObjectChildrenCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsIn
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates whether the Amazon Web Services account is opted in to cross-account backup.
  *          Returns an error if the account is not an Organizations management account. Use the
  *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
@@ -71,6 +70,7 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateGlobalSettingsCommand extends $Command
   .classBuilder<

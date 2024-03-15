@@ -27,7 +27,6 @@ export interface RestoreClusterFromSnapshotCommandInput extends RestoreClusterFr
 export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterFromSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores an elastic cluster from a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class RestoreClusterFromSnapshotCommand extends $Command
   .classBuilder<

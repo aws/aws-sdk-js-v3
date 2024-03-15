@@ -36,7 +36,6 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Disassociates a list of evidence from an assessment report in Audit Manager.
  *       </p>
  * @example
@@ -92,6 +91,7 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command
   .classBuilder<

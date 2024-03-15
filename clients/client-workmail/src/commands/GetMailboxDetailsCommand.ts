@@ -27,7 +27,6 @@ export interface GetMailboxDetailsCommandInput extends GetMailboxDetailsRequest 
 export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a user's mailbox details for a specified organization and user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class GetMailboxDetailsCommand extends $Command
   .classBuilder<

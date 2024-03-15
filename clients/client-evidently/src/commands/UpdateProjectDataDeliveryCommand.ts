@@ -27,7 +27,6 @@ export interface UpdateProjectDataDeliveryCommandInput extends UpdateProjectData
 export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDataDeliveryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the data storage options for this project. If you store evaluation events, you an
  *       keep them and analyze them on your own. If you choose not to store evaluation events,
  *       Evidently deletes them after using them to produce metrics and other experiment results that
@@ -110,6 +109,7 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class UpdateProjectDataDeliveryCommand extends $Command
   .classBuilder<

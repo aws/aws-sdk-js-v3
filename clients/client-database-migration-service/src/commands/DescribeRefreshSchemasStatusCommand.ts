@@ -36,7 +36,6 @@ export interface DescribeRefreshSchemasStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the status of the RefreshSchemas operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe refresh schema status
  * ```javascript
  * // Returns the status of the refresh-schemas operation.

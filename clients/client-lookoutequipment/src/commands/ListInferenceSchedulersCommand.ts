@@ -27,7 +27,6 @@ export interface ListInferenceSchedulersCommandInput extends ListInferenceSchedu
 export interface ListInferenceSchedulersCommandOutput extends ListInferenceSchedulersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all inference schedulers currently available for your account.
  *       </p>
  * @example
@@ -87,6 +86,7 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ListInferenceSchedulersCommand extends $Command
   .classBuilder<

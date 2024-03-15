@@ -27,7 +27,6 @@ export interface UpdateSMBFileShareCommandInput extends UpdateSMBFileShareInput 
 export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for S3
  *          File Gateways.</p>
  *          <note>
@@ -105,6 +104,7 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateSMBFileShareCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the default values for the quotas for the specified Amazon Web Service. A default
  *             value does not reflect any quota increases.</p>
  * @example
@@ -114,6 +113,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class ListAWSDefaultServiceQuotasCommand extends $Command
   .classBuilder<

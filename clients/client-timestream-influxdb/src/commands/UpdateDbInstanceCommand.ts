@@ -31,7 +31,6 @@ export interface UpdateDbInstanceCommandInput extends UpdateDbInstanceInput {}
 export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a Timestream for InfluxDB DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * @public
  */
 export class UpdateDbInstanceCommand extends $Command
   .classBuilder<

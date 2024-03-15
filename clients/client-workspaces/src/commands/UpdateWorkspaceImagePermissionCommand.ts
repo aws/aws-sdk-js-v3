@@ -32,7 +32,6 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by
  *          specifying whether that account has permission to copy the image. If the copy image
  *          permission is granted, the image is shared with that account. If the copy image permission
@@ -97,6 +96,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class UpdateWorkspaceImagePermissionCommand extends $Command
   .classBuilder<

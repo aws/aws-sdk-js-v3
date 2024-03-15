@@ -27,7 +27,6 @@ export interface CreateDefaultSubnetCommandInput extends CreateDefaultSubnetRequ
 export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
  *             specified Availability Zone in your default VPC. You can have only one default subnet
  *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Create a default
@@ -100,6 +99,7 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateDefaultSubnetCommand extends $Command
   .classBuilder<

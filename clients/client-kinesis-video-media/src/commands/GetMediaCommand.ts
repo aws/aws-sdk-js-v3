@@ -33,7 +33,6 @@ export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, 
 }
 
 /**
- * @public
  * <p> Use this API to retrieve media content from a Kinesis video stream. In the request,
  *       you identify the stream name or stream Amazon Resource Name (ARN), and the starting chunk.
  *       Kinesis Video Streams then returns a stream of chunks in order by fragment number.</p>
@@ -138,6 +137,7 @@ export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, 
  * @throws {@link KinesisVideoMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoMedia service.</p>
  *
+ * @public
  */
 export class GetMediaCommand extends $Command
   .classBuilder<

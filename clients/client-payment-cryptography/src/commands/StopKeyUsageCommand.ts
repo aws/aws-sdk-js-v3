@@ -31,7 +31,6 @@ export interface StopKeyUsageCommandInput extends StopKeyUsageInput {}
 export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables an Amazon Web Services Payment Cryptography key, which makes it inactive within Amazon Web Services Payment Cryptography.</p>
  *          <p>You can use this operation instead of <a>DeleteKey</a> to deactivate a key. You can enable the key in the future by calling <a>StartKeyUsage</a>.</p>
  *          <p>
@@ -130,6 +129,7 @@ export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __Metadat
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class StopKeyUsageCommand extends $Command
   .classBuilder<

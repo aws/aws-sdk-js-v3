@@ -32,7 +32,6 @@ export interface CreateAssessmentReportCommandInput extends CreateAssessmentRepo
 export interface CreateAssessmentReportCommandOutput extends CreateAssessmentReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates an assessment report for the specified assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class CreateAssessmentReportCommand extends $Command
   .classBuilder<

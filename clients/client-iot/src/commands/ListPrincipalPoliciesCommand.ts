@@ -27,9 +27,6 @@ export interface ListPrincipalPoliciesCommandInput extends ListPrincipalPolicies
 export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Lists the policies attached to the specified principal. If you use an Cognito
  *          identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
  *          <p>
@@ -89,6 +86,8 @@ export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPolicie
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class ListPrincipalPoliciesCommand extends $Command
   .classBuilder<

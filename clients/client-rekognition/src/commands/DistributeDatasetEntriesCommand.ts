@@ -27,7 +27,6 @@ export interface DistributeDatasetEntriesCommandInput extends DistributeDatasetE
 export interface DistributeDatasetEntriesCommandOutput extends DistributeDatasetEntriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -95,6 +94,7 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To distribute an Amazon Rekognition Custom Labels dataset
  * ```javascript
  * // Distributes an Amazon Rekognition Custom Labels training dataset to a test dataset.

@@ -27,7 +27,6 @@ export interface CreateInferenceSchedulerCommandInput extends CreateInferenceSch
 export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a scheduled inference. Scheduling an inference is setting up a continuous
  *          real-time inference plan to analyze new measurement data. When setting up the schedule, you
  *          provide an S3 bucket location for the input data, assign it a delimiter between separate
@@ -118,6 +117,7 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class CreateInferenceSchedulerCommand extends $Command
   .classBuilder<

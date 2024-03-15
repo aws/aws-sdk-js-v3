@@ -36,7 +36,6 @@ export interface DescribeElasticsearchDomainCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -205,6 +204,7 @@ export interface DescribeElasticsearchDomainCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeElasticsearchDomainCommand extends $Command
   .classBuilder<

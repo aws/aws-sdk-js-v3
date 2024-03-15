@@ -31,7 +31,6 @@ export interface ResolveCustomerCommandInput extends ResolveCustomerRequest {}
 export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>ResolveCustomer</code> is called by a SaaS application during the registration
  *             process. When a buyer visits your website during the registration process, the buyer
@@ -94,6 +93,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ * @public
  */
 export class ResolveCustomerCommand extends $Command
   .classBuilder<

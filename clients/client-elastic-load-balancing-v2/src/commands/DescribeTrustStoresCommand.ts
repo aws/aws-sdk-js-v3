@@ -31,7 +31,6 @@ export interface DescribeTrustStoresCommandInput extends DescribeTrustStoresInpu
 export interface DescribeTrustStoresCommandOutput extends DescribeTrustStoresOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes all trust stores for a given account
  *       by trust store arn’s or name.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DescribeTrustStoresCommandOutput extends DescribeTrustStoresOut
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class DescribeTrustStoresCommand extends $Command
   .classBuilder<

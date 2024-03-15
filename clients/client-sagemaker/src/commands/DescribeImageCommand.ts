@@ -27,7 +27,6 @@ export interface DescribeImageCommandInput extends DescribeImageRequest {}
 export interface DescribeImageCommandOutput extends DescribeImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a SageMaker image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeImageCommand extends $Command
   .classBuilder<

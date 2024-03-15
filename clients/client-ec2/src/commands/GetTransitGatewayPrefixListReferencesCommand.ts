@@ -36,7 +36,6 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetTransitGatewayPrefixListReferencesCommand extends $Command
   .classBuilder<

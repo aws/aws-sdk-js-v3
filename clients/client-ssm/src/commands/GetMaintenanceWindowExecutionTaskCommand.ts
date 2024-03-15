@@ -36,7 +36,6 @@ export interface GetMaintenanceWindowExecutionTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details about a specific task run as part of a maintenance window
  *    execution.</p>
  * @example
@@ -109,6 +108,7 @@ export interface GetMaintenanceWindowExecutionTaskCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetMaintenanceWindowExecutionTaskCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteChannelMessageCommandInput extends DeleteChannelMessageRe
 export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
  *          inaccessible immediately. A background process deletes any revisions created by
  *             <code>UpdateChannelMessage</code>.</p>
@@ -85,6 +84,7 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DeleteChannelMessageCommand extends $Command
   .classBuilder<

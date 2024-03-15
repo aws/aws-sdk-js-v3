@@ -27,7 +27,6 @@ export interface DescribeStandardsCommandInput extends DescribeStandardsRequest 
 export interface DescribeStandardsCommandOutput extends DescribeStandardsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the available standards in Security Hub.</p>
  *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
  * @example
@@ -79,6 +78,7 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get available Security Hub standards
  * ```javascript
  * // The following example returns a list of available security standards in Security Hub.

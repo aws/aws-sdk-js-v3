@@ -27,7 +27,6 @@ export interface ModifyReservedInstancesCommandInput extends ModifyReservedInsta
 export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone,
  *        instance count, or instance type. The Reserved Instances to be modified must be identical,
  *        except for Availability Zone, network platform, and instance type.</p>
@@ -71,6 +70,7 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyReservedInstancesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateFargateProfileCommandInput extends CreateFargateProfileRe
 export interface CreateFargateProfileCommandOutput extends CreateFargateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Fargate profile for your Amazon EKS cluster. You
  *             must have at least one Fargate profile in a cluster to be able to run
  *             pods on Fargate.</p>
@@ -144,6 +143,7 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class CreateFargateProfileCommand extends $Command
   .classBuilder<

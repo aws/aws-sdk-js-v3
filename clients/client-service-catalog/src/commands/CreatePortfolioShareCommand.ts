@@ -27,7 +27,6 @@ export interface CreatePortfolioShareCommandInput extends CreatePortfolioShareIn
 export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shares the specified portfolio with the specified account or organization node.
  *          Shares to an organization node can only be created by the management account of an
  *          organization or by a delegated administrator. You can share portfolios to an organization,
@@ -98,6 +97,7 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreatePortfolioShareCommand extends $Command
   .classBuilder<

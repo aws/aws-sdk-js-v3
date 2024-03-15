@@ -27,7 +27,6 @@ export interface SuspendContactRecordingCommandInput extends SuspendContactRecor
 export interface SuspendContactRecordingCommandOutput extends SuspendContactRecordingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>When a contact is being recorded, this API suspends recording whatever is selected in the
  *    flow configuration: call, screen, or both. If only call recording or only screen recording is
  *    enabled, then it would be suspended. For example, you might suspend the screen recording while
@@ -71,6 +70,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SuspendContactRecordingCommand extends $Command
   .classBuilder<

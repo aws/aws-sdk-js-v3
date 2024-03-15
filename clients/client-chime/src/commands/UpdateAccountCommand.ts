@@ -27,7 +27,6 @@ export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
 export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates account details for the specified Amazon Chime account. Currently, only account name and default license updates are supported for this action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class UpdateAccountCommand extends $Command
   .classBuilder<

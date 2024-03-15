@@ -31,7 +31,6 @@ export interface DescribeApplicationCommandInput extends DescribeApplicationRequ
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeApplicationCommand extends $Command
   .classBuilder<

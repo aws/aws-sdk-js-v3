@@ -31,7 +31,6 @@ export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 export interface CreateFunctionCommandOutput extends CreateFunctionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a CloudFront function.</p>
  *          <p>To create a function, you provide the function code and some configuration information
  * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
@@ -125,6 +124,7 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  * @example To create a function
  * ```javascript
  * // Use the following command to create a function.

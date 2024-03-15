@@ -27,7 +27,6 @@ export interface DescribeTaskSetsCommandInput extends DescribeTaskSetsRequest {}
 export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the task sets in the specified cluster and service. This is used when a
  * 			service uses the <code>EXTERNAL</code> deployment controller type. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
@@ -166,6 +165,7 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class DescribeTaskSetsCommand extends $Command
   .classBuilder<

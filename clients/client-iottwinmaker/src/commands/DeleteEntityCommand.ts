@@ -27,7 +27,6 @@ export interface DeleteEntityCommandInput extends DeleteEntityRequest {}
 export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class DeleteEntityCommand extends $Command
   .classBuilder<

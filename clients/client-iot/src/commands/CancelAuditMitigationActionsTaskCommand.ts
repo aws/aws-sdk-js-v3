@@ -32,7 +32,6 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a mitigation action task that is in progress. If the task
  *       is not
  *       in progress, an InvalidRequestException occurs.</p>
@@ -73,6 +72,7 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CancelAuditMitigationActionsTaskCommand extends $Command
   .classBuilder<

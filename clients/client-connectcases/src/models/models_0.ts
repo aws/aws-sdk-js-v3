@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { ConnectCasesServiceException as __BaseException } from "./ConnectCasesServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,10 +24,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested operation would cause a conflict with the current state of a service
  *       resource associated with the request. Resolve the conflict before retrying this request. See
  *       the accompanying error message for details.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -46,21 +46,21 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An empty value. You cannot set <code>EmptyFieldValue</code> on a field that is required on
  *       a case template.</p>
  *          <p>This structure will never have any data members. It signifies an empty value on a case
  *       field.</p>
+ * @public
  */
 export interface EmptyFieldValue {}
 
 /**
- * @public
  * <p>Object to store union of Field values.</p>
  *          <note>
  *             <p>The <code>Summary</code> system field accepts 1500 characters while all other fields
  *         accept 500 characters.</p>
  *          </note>
+ * @public
  */
 export type FieldValueUnion =
   | FieldValueUnion.BooleanValueMember
@@ -75,8 +75,8 @@ export type FieldValueUnion =
  */
 export namespace FieldValueUnion {
   /**
-   * @public
    * <p>String value type.</p>
+   * @public
    */
   export interface StringValueMember {
     stringValue: string;
@@ -88,9 +88,9 @@ export namespace FieldValueUnion {
   }
 
   /**
-   * @public
    * <p>Can be either null, or have a Double number value type. Only one value can be
    *       provided.</p>
+   * @public
    */
   export interface DoubleValueMember {
     stringValue?: never;
@@ -102,8 +102,8 @@ export namespace FieldValueUnion {
   }
 
   /**
-   * @public
    * <p>Can be either null, or have a Boolean value type. Only one value can be provided.</p>
+   * @public
    */
   export interface BooleanValueMember {
     stringValue?: never;
@@ -115,8 +115,8 @@ export namespace FieldValueUnion {
   }
 
   /**
-   * @public
    * <p>An empty value.</p>
+   * @public
    */
   export interface EmptyValueMember {
     stringValue?: never;
@@ -128,8 +128,8 @@ export namespace FieldValueUnion {
   }
 
   /**
-   * @public
    * <p>Represents the user that performed the audit.</p>
+   * @public
    */
   export interface UserArnValueMember {
     stringValue?: never;
@@ -172,26 +172,26 @@ export namespace FieldValueUnion {
 }
 
 /**
- * @public
  * <p>Object for case field values.</p>
+ * @public
  */
 export interface FieldValue {
   /**
-   * @public
    * <p>Unique identifier of a field.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>Union of potential field value types.</p>
+   * @public
    */
   value: FieldValueUnion | undefined;
 }
 
 /**
- * @public
  * <p>Represents the identity of the person who performed the action.</p>
+ * @public
  */
 export type UserUnion = UserUnion.UserArnMember | UserUnion.$UnknownMember;
 
@@ -200,8 +200,8 @@ export type UserUnion = UserUnion.UserArnMember | UserUnion.$UnknownMember;
  */
 export namespace UserUnion {
   /**
-   * @public
    * <p>Represents the Amazon Connect ARN of the user.</p>
+   * @public
    */
   export interface UserArnMember {
     userArn: string;
@@ -232,36 +232,36 @@ export namespace UserUnion {
  */
 export interface CreateCaseRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of a template.</p>
+   * @public
    */
   templateId: string | undefined;
 
   /**
-   * @public
    * <p>An array of objects with field ID (matching ListFields/DescribeField) and value union
    *       data.</p>
+   * @public
    */
   fields: FieldValue[] | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Represents the identity of the person who performed the action.</p>
+   * @public
    */
   performedBy?: UserUnion;
 }
@@ -271,30 +271,30 @@ export interface CreateCaseRequest {
  */
 export interface CreateCaseResponse {
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the case.</p>
+   * @public
    */
   caseArn: string | undefined;
 }
 
 /**
- * @public
  * <p>We couldn't process your request because of an issue with the server. Try again
  *       later.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -313,22 +313,22 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We couldn't find the requested resource. Check that your resources exists and were created
  *       in the same Amazon Web Services Region as your request, and try your request again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Unique identifier of the resource affected.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>Type of the resource affected.</p>
+   * @public
    */
   resourceType: string | undefined;
 
@@ -348,8 +348,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The rate has been exceeded for this API. Please try again after a few minutes.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -369,8 +369,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request isn't valid. Check the syntax and try again.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -389,13 +389,13 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Object for unique identifier of a field.</p>
+ * @public
  */
 export interface FieldIdentifier {
   /**
-   * @public
    * <p>Unique identifier of a field.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -405,27 +405,27 @@ export interface FieldIdentifier {
  */
 export interface GetCaseRequest {
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A list of unique field identifiers. </p>
+   * @public
    */
   fields: FieldIdentifier[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -435,26 +435,26 @@ export interface GetCaseRequest {
  */
 export interface GetCaseResponse {
   /**
-   * @public
    * <p>A list of detailed field information. </p>
+   * @public
    */
   fields: FieldValue[] | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of a template.</p>
+   * @public
    */
   templateId: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -464,39 +464,39 @@ export interface GetCaseResponse {
  */
 export interface GetCaseAuditEventsRequest {
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the Cases domain.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of audit events to return. The current maximum supported value is 25.
    *       This is also the default when no other value is provided.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *       the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Object to store union of Field values.</p>
  *          <important>
  *             <p>This data type is a UNION, so only one of the following members can be specified when
  *         used or returned.</p>
  *          </important>
+ * @public
  */
 export type AuditEventFieldValueUnion =
   | AuditEventFieldValueUnion.BooleanValueMember
@@ -511,8 +511,8 @@ export type AuditEventFieldValueUnion =
  */
 export namespace AuditEventFieldValueUnion {
   /**
-   * @public
    * <p>Can be either null, or have a String value type. Only one value can be provided.</p>
+   * @public
    */
   export interface StringValueMember {
     stringValue: string;
@@ -524,8 +524,8 @@ export namespace AuditEventFieldValueUnion {
   }
 
   /**
-   * @public
    * <p>Can be either null, or have a Double value type. Only one value can be provided.</p>
+   * @public
    */
   export interface DoubleValueMember {
     stringValue?: never;
@@ -537,8 +537,8 @@ export namespace AuditEventFieldValueUnion {
   }
 
   /**
-   * @public
    * <p>Can be either null, or have a Boolean value type. Only one value can be provided.</p>
+   * @public
    */
   export interface BooleanValueMember {
     stringValue?: never;
@@ -550,11 +550,11 @@ export namespace AuditEventFieldValueUnion {
   }
 
   /**
-   * @public
    * <p>An empty value. You cannot set <code>EmptyFieldValue</code> on a field that is required on
    *       a case template.</p>
    *          <p>This structure will never have any data members. It signifies an empty value on a case
    *       field.</p>
+   * @public
    */
   export interface EmptyValueMember {
     stringValue?: never;
@@ -566,9 +566,9 @@ export namespace AuditEventFieldValueUnion {
   }
 
   /**
-   * @public
    * <p>Can be either null, or have a String value type formatted as an ARN. Only one value can be
    *       provided.</p>
+   * @public
    */
   export interface UserArnValueMember {
     stringValue?: never;
@@ -611,43 +611,43 @@ export namespace AuditEventFieldValueUnion {
 }
 
 /**
- * @public
  * <p>Fields for audit event.</p>
+ * @public
  */
 export interface AuditEventField {
   /**
-   * @public
    * <p>Unique identifier of field in an Audit History entry.</p>
+   * @public
    */
   eventFieldId: string | undefined;
 
   /**
-   * @public
    * <p>Union of potential field value types.</p>
+   * @public
    */
   oldValue?: AuditEventFieldValueUnion;
 
   /**
-   * @public
    * <p>Union of potential field value types.</p>
+   * @public
    */
   newValue: AuditEventFieldValueUnion | undefined;
 }
 
 /**
- * @public
  * <p>Information of the user which performed the audit.</p>
+ * @public
  */
 export interface AuditEventPerformedBy {
   /**
-   * @public
    * <p>Represents the identity of the person who performed the action.</p>
+   * @public
    */
   user?: UserUnion;
 
   /**
-   * @public
    * <p>Unique identifier of an IAM role.</p>
+   * @public
    */
   iamPrincipalArn: string | undefined;
 }
@@ -682,43 +682,43 @@ export const AuditEventType = {
 export type AuditEventType = (typeof AuditEventType)[keyof typeof AuditEventType];
 
 /**
- * @public
  * <p>Represents the content of a particular audit event.</p>
+ * @public
  */
 export interface AuditEvent {
   /**
-   * @public
    * <p>Unique identifier of a case audit history event.</p>
+   * @public
    */
   eventId: string | undefined;
 
   /**
-   * @public
    * <p>The Type of an audit history event.</p>
+   * @public
    */
   type: AuditEventType | undefined;
 
   /**
-   * @public
    * <p>The Type of the related item.</p>
+   * @public
    */
   relatedItemType?: RelatedItemType;
 
   /**
-   * @public
    * <p>Time at which an Audit History event took place.</p>
+   * @public
    */
   performedTime: Date | undefined;
 
   /**
-   * @public
    * <p>A list of Case Audit History event fields.</p>
+   * @public
    */
   fields: AuditEventField[] | undefined;
 
   /**
-   * @public
    * <p>Information of the user which performed the audit.</p>
+   * @public
    */
   performedBy?: AuditEventPerformedBy;
 }
@@ -728,15 +728,15 @@ export interface AuditEvent {
  */
 export interface GetCaseAuditEventsResponse {
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to
    *       return.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of case audits where each represents a particular edit of the case.</p>
+   * @public
    */
   auditEvents: AuditEvent[] | undefined;
 }
@@ -746,45 +746,45 @@ export interface GetCaseAuditEventsResponse {
  */
 export interface ListCasesForContactRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * @public
    */
   contactArn: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Case summary information.</p>
+ * @public
  */
 export interface CaseSummary {
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of a template.</p>
+   * @public
    */
   templateId: string | undefined;
 }
@@ -794,14 +794,14 @@ export interface CaseSummary {
  */
 export interface ListCasesForContactResponse {
   /**
-   * @public
    * <p>A list of Case summary information.</p>
+   * @public
    */
   cases: CaseSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -820,38 +820,38 @@ export const CommentBodyTextType = {
 export type CommentBodyTextType = (typeof CommentBodyTextType)[keyof typeof CommentBodyTextType];
 
 /**
- * @public
  * <p>Represents the content of a <code>Comment</code> to be returned to agents.</p>
+ * @public
  */
 export interface CommentContent {
   /**
-   * @public
    * <p>Text in the body of a <code>Comment</code> on a case.</p>
+   * @public
    */
   body: string | undefined;
 
   /**
-   * @public
    * <p>Type of the text in the box of a <code>Comment</code> on a case.</p>
+   * @public
    */
   contentType: CommentBodyTextType | undefined;
 }
 
 /**
- * @public
  * <p>An object that represents an Amazon Connect contact object. </p>
+ * @public
  */
 export interface Contact {
   /**
-   * @public
    * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * @public
    */
   contactArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the content of a related item to be created.</p>
+ * @public
  */
 export type RelatedItemInputContent =
   | RelatedItemInputContent.CommentMember
@@ -863,8 +863,8 @@ export type RelatedItemInputContent =
  */
 export namespace RelatedItemInputContent {
   /**
-   * @public
    * <p>Object representing a contact in Amazon Connect as an API request field.</p>
+   * @public
    */
   export interface ContactMember {
     contact: Contact;
@@ -873,8 +873,8 @@ export namespace RelatedItemInputContent {
   }
 
   /**
-   * @public
    * <p>Represents the content of a comment to be returned to agents.</p>
+   * @public
    */
   export interface CommentMember {
     contact?: never;
@@ -909,32 +909,32 @@ export namespace RelatedItemInputContent {
  */
 export interface CreateRelatedItemRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>The type of a related item.</p>
+   * @public
    */
   type: RelatedItemType | undefined;
 
   /**
-   * @public
    * <p>The content of a related item to be created.</p>
+   * @public
    */
   content: RelatedItemInputContent | undefined;
 
   /**
-   * @public
    * <p>Represents the creator of the related item.</p>
+   * @public
    */
   performedBy?: UserUnion;
 }
@@ -944,22 +944,22 @@ export interface CreateRelatedItemRequest {
  */
 export interface CreateRelatedItemResponse {
   /**
-   * @public
    * <p>The unique identifier of the related item.</p>
+   * @public
    */
   relatedItemId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the related item.</p>
+   * @public
    */
   relatedItemArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The service quota has been exceeded. For a list of service quotas, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect
  *         Administrator Guide</i>.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -978,32 +978,32 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A filter for related items of type <code>Comment</code>.</p>
+ * @public
  */
 export interface CommentFilter {}
 
 /**
- * @public
  * <p>A filter for related items of type <code>Contact</code>.</p>
+ * @public
  */
 export interface ContactFilter {
   /**
-   * @public
    * <p>A list of channels to filter on for related items of type <code>Contact</code>.</p>
+   * @public
    */
   channel?: string[];
 
   /**
-   * @public
    * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * @public
    */
   contactArn?: string;
 }
 
 /**
- * @public
  * <p>The list of types of related items and their parameters to use for filtering.</p>
+ * @public
  */
 export type RelatedItemTypeFilter =
   | RelatedItemTypeFilter.CommentMember
@@ -1015,8 +1015,8 @@ export type RelatedItemTypeFilter =
  */
 export namespace RelatedItemTypeFilter {
   /**
-   * @public
    * <p>A filter for related items of type <code>Contact</code>.</p>
+   * @public
    */
   export interface ContactMember {
     contact: ContactFilter;
@@ -1025,8 +1025,8 @@ export namespace RelatedItemTypeFilter {
   }
 
   /**
-   * @public
    * <p>A filter for related items of type <code>Comment</code>.</p>
+   * @public
    */
   export interface CommentMember {
     contact?: never;
@@ -1061,65 +1061,65 @@ export namespace RelatedItemTypeFilter {
  */
 export interface SearchRelatedItemsRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The list of types of related items and their parameters to use for filtering.</p>
+   * @public
    */
   filters?: RelatedItemTypeFilter[];
 }
 
 /**
- * @public
  * <p>An object that represents a content of an Amazon Connect contact object.</p>
+ * @public
  */
 export interface ContactContent {
   /**
-   * @public
    * <p>A unique identifier of a contact in Amazon Connect.</p>
+   * @public
    */
   contactArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of channels to filter on for related items of type <code>Contact</code>.</p>
+   * @public
    */
   channel: string | undefined;
 
   /**
-   * @public
    * <p>The difference between the <code>InitiationTimestamp</code> and the
    *         <code>DisconnectTimestamp</code> of the contact.</p>
+   * @public
    */
   connectedToSystemTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>Represents the content of a particular type of related item.</p>
+ * @public
  */
 export type RelatedItemContent =
   | RelatedItemContent.CommentMember
@@ -1131,8 +1131,8 @@ export type RelatedItemContent =
  */
 export namespace RelatedItemContent {
   /**
-   * @public
    * <p>Represents the content of a contact to be returned to agents.</p>
+   * @public
    */
   export interface ContactMember {
     contact: ContactContent;
@@ -1141,8 +1141,8 @@ export namespace RelatedItemContent {
   }
 
   /**
-   * @public
    * <p>Represents the content of a comment to be returned to agents.</p>
+   * @public
    */
   export interface CommentMember {
     contact?: never;
@@ -1173,43 +1173,43 @@ export namespace RelatedItemContent {
 }
 
 /**
- * @public
  * <p>A list of items that represent RelatedItems.</p>
+ * @public
  */
 export interface SearchRelatedItemsResponseItem {
   /**
-   * @public
    * <p>Unique identifier of a related item.</p>
+   * @public
    */
   relatedItemId: string | undefined;
 
   /**
-   * @public
    * <p>Type of a related item.</p>
+   * @public
    */
   type: RelatedItemType | undefined;
 
   /**
-   * @public
    * <p>Time at which a related item was associated with a case.</p>
+   * @public
    */
   associationTime: Date | undefined;
 
   /**
-   * @public
    * <p>Represents the content of a particular type of related item.</p>
+   * @public
    */
   content: RelatedItemContent | undefined;
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Represents the creator of the related item.</p>
+   * @public
    */
   performedBy?: UserUnion;
 }
@@ -1219,21 +1219,21 @@ export interface SearchRelatedItemsResponseItem {
  */
 export interface SearchRelatedItemsResponse {
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of items related to a case. </p>
+   * @public
    */
   relatedItems: SearchRelatedItemsResponseItem[] | undefined;
 }
 
 /**
- * @public
  * <p>A filter for fields. Only one value can be provided.</p>
+ * @public
  */
 export type FieldFilter =
   | FieldFilter.ContainsMember
@@ -1249,8 +1249,8 @@ export type FieldFilter =
  */
 export namespace FieldFilter {
   /**
-   * @public
    * <p>Object containing field identifier and value information.</p>
+   * @public
    */
   export interface EqualToMember {
     equalTo: FieldValue;
@@ -1263,8 +1263,8 @@ export namespace FieldFilter {
   }
 
   /**
-   * @public
    * <p>Object containing field identifier and value information.</p>
+   * @public
    */
   export interface ContainsMember {
     equalTo?: never;
@@ -1277,8 +1277,8 @@ export namespace FieldFilter {
   }
 
   /**
-   * @public
    * <p>Object containing field identifier and value information.</p>
+   * @public
    */
   export interface GreaterThanMember {
     equalTo?: never;
@@ -1291,8 +1291,8 @@ export namespace FieldFilter {
   }
 
   /**
-   * @public
    * <p>Object containing field identifier and value information.</p>
+   * @public
    */
   export interface GreaterThanOrEqualToMember {
     equalTo?: never;
@@ -1305,8 +1305,8 @@ export namespace FieldFilter {
   }
 
   /**
-   * @public
    * <p>Object containing field identifier and value information.</p>
+   * @public
    */
   export interface LessThanMember {
     equalTo?: never;
@@ -1319,8 +1319,8 @@ export namespace FieldFilter {
   }
 
   /**
-   * @public
    * <p>Object containing field identifier and value information. </p>
+   * @public
    */
   export interface LessThanOrEqualToMember {
     equalTo?: never;
@@ -1381,49 +1381,49 @@ export const Order = {
 export type Order = (typeof Order)[keyof typeof Order];
 
 /**
- * @public
  * <p>A structured set of sort terms.</p>
+ * @public
  */
 export interface Sort {
   /**
-   * @public
    * <p>Unique identifier of a field.</p>
+   * @public
    */
   fieldId: string | undefined;
 
   /**
-   * @public
    * <p>A structured set of sort terms</p>
+   * @public
    */
   sortOrder: Order | undefined;
 }
 
 /**
- * @public
  * <p>A list of items that represent cases.</p>
+ * @public
  */
 export interface SearchCasesResponseItem {
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of a template.</p>
+   * @public
    */
   templateId: string | undefined;
 
   /**
-   * @public
    * <p>List of case field values.</p>
+   * @public
    */
   fields: FieldValue[] | undefined;
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1433,15 +1433,15 @@ export interface SearchCasesResponseItem {
  */
 export interface SearchCasesResponse {
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of case documents where each case contains the properties <code>CaseId</code> and
    *         <code>Fields</code> where each field is a complex union structure. </p>
+   * @public
    */
   cases: SearchCasesResponseItem[] | undefined;
 }
@@ -1451,27 +1451,27 @@ export interface SearchCasesResponse {
  */
 export interface UpdateCaseRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of the case.</p>
+   * @public
    */
   caseId: string | undefined;
 
   /**
-   * @public
    * <p>An array of objects with <code>fieldId</code> (matching ListFields/DescribeField) and
    *       value union data, structured identical to <code>CreateCase</code>.</p>
+   * @public
    */
   fields: FieldValue[] | undefined;
 
   /**
-   * @public
    * <p>Represents the identity of the person who performed the action.</p>
+   * @public
    */
   performedBy?: UserUnion;
 }
@@ -1486,9 +1486,9 @@ export interface UpdateCaseResponse {}
  */
 export interface CreateDomainRequest {
   /**
-   * @public
    * <p>The name for your Cases domain. It must be unique for your Amazon Web Services
    *       account.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -1513,20 +1513,20 @@ export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
  */
 export interface CreateDomainResponse {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the Cases domain.</p>
+   * @public
    */
   domainArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the domain.</p>
+   * @public
    */
   domainStatus: DomainStatus | undefined;
 }
@@ -1536,8 +1536,8 @@ export interface CreateDomainResponse {
  */
 export interface DeleteDomainRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 }
@@ -1552,71 +1552,71 @@ export interface DeleteDomainResponse {}
  */
 export interface GetCaseEventConfigurationRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 }
 
 /**
- * @public
  * <p>Details of what case data is published through the case event stream.</p>
+ * @public
  */
 export interface CaseEventIncludedData {
   /**
-   * @public
    * <p>List of field identifiers.</p>
+   * @public
    */
   fields: FieldIdentifier[] | undefined;
 }
 
 /**
- * @public
  * <p>Details of what related item data is published through the case event stream.</p>
+ * @public
  */
 export interface RelatedItemEventIncludedData {
   /**
-   * @public
    * <p>Details of what related item data is published through the case event stream.</p>
+   * @public
    */
   includeContent: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Details of what case and related item data is published through the case event
  *       stream.</p>
+ * @public
  */
 export interface EventIncludedData {
   /**
-   * @public
    * <p>Details of what case data is published through the case event stream.</p>
+   * @public
    */
   caseData?: CaseEventIncludedData;
 
   /**
-   * @public
    * <p>Details of what related item data is published through the case event stream.</p>
+   * @public
    */
   relatedItemData?: RelatedItemEventIncludedData;
 }
 
 /**
- * @public
  * <p>Configuration to enable EventBridge case event delivery and determine what data is
  *       delivered.</p>
+ * @public
  */
 export interface EventBridgeConfiguration {
   /**
-   * @public
    * <p>Indicates whether the to broadcast case event data to the customer.</p>
+   * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * @public
    * <p>Details of what case and related item data is published through the case event
    *       stream.</p>
+   * @public
    */
   includedData?: EventIncludedData;
 }
@@ -1626,9 +1626,9 @@ export interface EventBridgeConfiguration {
  */
 export interface GetCaseEventConfigurationResponse {
   /**
-   * @public
    * <p>Configuration to enable EventBridge case event delivery and determine what data is
    *       delivered.</p>
+   * @public
    */
   eventBridge: EventBridgeConfiguration | undefined;
 }
@@ -1638,8 +1638,8 @@ export interface GetCaseEventConfigurationResponse {
  */
 export interface GetDomainRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 }
@@ -1649,38 +1649,38 @@ export interface GetDomainRequest {
  */
 export interface GetDomainResponse {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the Cases domain.</p>
+   * @public
    */
   domainArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Cases domain.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the Cases domain was created.</p>
+   * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * @public
    * <p>The status of the Cases domain.</p>
+   * @public
    */
   domainStatus: DomainStatus | undefined;
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1690,39 +1690,39 @@ export interface GetDomainResponse {
  */
 export interface ListDomainsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Object for the summarized details of the domain.</p>
+ * @public
  */
 export interface DomainSummary {
   /**
-   * @public
    * <p>The unique identifier of the domain.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the domain.</p>
+   * @public
    */
   domainArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the domain.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -1732,14 +1732,14 @@ export interface DomainSummary {
  */
 export interface ListDomainsResponse {
   /**
-   * @public
    * <p>The Cases domain.</p>
+   * @public
    */
   domains: DomainSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1749,15 +1749,15 @@ export interface ListDomainsResponse {
  */
 export interface PutCaseEventConfigurationRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>Configuration to enable EventBridge case event delivery and determine what data is
    *       delivered.</p>
+   * @public
    */
   eventBridge: EventBridgeConfiguration | undefined;
 }
@@ -1772,38 +1772,38 @@ export interface PutCaseEventConfigurationResponse {}
  */
 export interface BatchGetFieldRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A list of unique field identifiers. </p>
+   * @public
    */
   fields: FieldIdentifier[] | undefined;
 }
 
 /**
- * @public
  * <p>Object for errors on fields.</p>
+ * @public
  */
 export interface FieldError {
   /**
-   * @public
    * <p>The field identifier that caused the error.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The error code from getting a field.</p>
+   * @public
    */
   errorCode: string | undefined;
 
   /**
-   * @public
    * <p>The error message from getting a field.</p>
+   * @public
    */
   message?: string;
 }
@@ -1842,49 +1842,49 @@ export const FieldType = {
 export type FieldType = (typeof FieldType)[keyof typeof FieldType];
 
 /**
- * @public
  * <p>Object to store detailed field information.</p>
+ * @public
  */
 export interface GetFieldResponse {
   /**
-   * @public
    * <p>Unique identifier of the field.</p>
+   * @public
    */
   fieldId: string | undefined;
 
   /**
-   * @public
    * <p>Name of the field.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the field.</p>
+   * @public
    */
   fieldArn: string | undefined;
 
   /**
-   * @public
    * <p>Description of the field.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Type of the field.</p>
+   * @public
    */
   type: FieldType | undefined;
 
   /**
-   * @public
    * <p>Namespace of the field.</p>
+   * @public
    */
   namespace: FieldNamespace | undefined;
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1894,41 +1894,41 @@ export interface GetFieldResponse {
  */
 export interface BatchGetFieldResponse {
   /**
-   * @public
    * <p>A list of detailed field information. </p>
+   * @public
    */
   fields: GetFieldResponse[] | undefined;
 
   /**
-   * @public
    * <p>A list of field errors. </p>
+   * @public
    */
   errors: FieldError[] | undefined;
 }
 
 /**
- * @public
  * <p>Object for field Options information.</p>
+ * @public
  */
 export interface FieldOption {
   /**
-   * @public
    * <p>
    *             <code>FieldOptionName</code> has max length 100 and disallows trailing spaces.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    *             <code>FieldOptionValue</code> has max length 100 and must be alphanumeric with hyphens and
    *       underscores.</p>
+   * @public
    */
   value: string | undefined;
 
   /**
-   * @public
    * <p>Describes whether the <code>FieldOption</code> is active (displayed) or inactive.</p>
+   * @public
    */
   active: boolean | undefined;
 }
@@ -1938,44 +1938,44 @@ export interface FieldOption {
  */
 export interface BatchPutFieldOptionsRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of a field.</p>
+   * @public
    */
   fieldId: string | undefined;
 
   /**
-   * @public
    * <p>A list of <code>FieldOption</code> objects.</p>
+   * @public
    */
   options: FieldOption[] | undefined;
 }
 
 /**
- * @public
  * <p>Object for field Options errors.</p>
+ * @public
  */
 export interface FieldOptionError {
   /**
-   * @public
    * <p>Error message from creating or updating field option.</p>
+   * @public
    */
   message: string | undefined;
 
   /**
-   * @public
    * <p>Error code from creating or updating field option.</p>
+   * @public
    */
   errorCode: string | undefined;
 
   /**
-   * @public
    * <p>The field option value that caused the error.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -1985,8 +1985,8 @@ export interface FieldOptionError {
  */
 export interface BatchPutFieldOptionsResponse {
   /**
-   * @public
    * <p>A list of field errors. </p>
+   * @public
    */
   errors?: FieldOptionError[];
 }
@@ -1996,26 +1996,26 @@ export interface BatchPutFieldOptionsResponse {
  */
 export interface CreateFieldRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the field.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Defines the data type, some system constraints, and default display of the field.</p>
+   * @public
    */
   type: FieldType | undefined;
 
   /**
-   * @public
    * <p>The description of the field.</p>
+   * @public
    */
   description?: string;
 }
@@ -2025,14 +2025,14 @@ export interface CreateFieldRequest {
  */
 export interface CreateFieldResponse {
   /**
-   * @public
    * <p>The unique identifier of a field.</p>
+   * @public
    */
   fieldId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the field.</p>
+   * @public
    */
   fieldArn: string | undefined;
 }
@@ -2042,34 +2042,34 @@ export interface CreateFieldResponse {
  */
 export interface ListFieldOptionsRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of a field.</p>
+   * @public
    */
   fieldId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of <code>FieldOption</code> values to filter on for
    *       <code>ListFieldOptions</code>.</p>
+   * @public
    */
   values?: string[];
 }
@@ -2079,14 +2079,14 @@ export interface ListFieldOptionsRequest {
  */
 export interface ListFieldOptionsResponse {
   /**
-   * @public
    * <p>A list of <code>FieldOption</code> objects.</p>
+   * @public
    */
   options: FieldOption[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2096,57 +2096,57 @@ export interface ListFieldOptionsResponse {
  */
 export interface ListFieldsRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Object for the summarized details of the field.</p>
+ * @public
  */
 export interface FieldSummary {
   /**
-   * @public
    * <p>The unique identifier of a field.</p>
+   * @public
    */
   fieldId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the field.</p>
+   * @public
    */
   fieldArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the field.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of a field.</p>
+   * @public
    */
   type: FieldType | undefined;
 
   /**
-   * @public
    * <p>The namespace of a field.</p>
+   * @public
    */
   namespace: FieldNamespace | undefined;
 }
@@ -2156,14 +2156,14 @@ export interface FieldSummary {
  */
 export interface ListFieldsResponse {
   /**
-   * @public
    * <p>List of detailed field information.</p>
+   * @public
    */
   fields: FieldSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2173,26 +2173,26 @@ export interface ListFieldsResponse {
  */
 export interface UpdateFieldRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of a field.</p>
+   * @public
    */
   fieldId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the field.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description of a field.</p>
+   * @public
    */
   description?: string;
 }
@@ -2203,38 +2203,38 @@ export interface UpdateFieldRequest {
 export interface UpdateFieldResponse {}
 
 /**
- * @public
  * <p>Object for field related information.</p>
+ * @public
  */
 export interface FieldItem {
   /**
-   * @public
    * <p>Unique identifier of a field.</p>
+   * @public
    */
   id: string | undefined;
 }
 
 /**
- * @public
  * <p>Object for a group of fields and associated properties.</p>
+ * @public
  */
 export interface FieldGroup {
   /**
-   * @public
    * <p>Name of the field group.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Represents an ordered list containing field related information.</p>
+   * @public
    */
   fields: FieldItem[] | undefined;
 }
 
 /**
- * @public
  * <p>This represents a sections within a panel or tab of the page layout.</p>
+ * @public
  */
 export type Section = Section.FieldGroupMember | Section.$UnknownMember;
 
@@ -2243,8 +2243,8 @@ export type Section = Section.FieldGroupMember | Section.$UnknownMember;
  */
 export namespace Section {
   /**
-   * @public
    * <p>Consists of a group of fields and associated properties.</p>
+   * @public
    */
   export interface FieldGroupMember {
     fieldGroup: FieldGroup;
@@ -2271,40 +2271,40 @@ export namespace Section {
 }
 
 /**
- * @public
  * <p>Ordered list containing different kinds of sections that can be added. A LayoutSections
  *       object can only contain one section.</p>
+ * @public
  */
 export interface LayoutSections {
   /**
-   * @public
    * <p>Ordered list containing different kinds of sections that can be added.</p>
+   * @public
    */
   sections?: Section[];
 }
 
 /**
- * @public
  * <p>Content specific to <code>BasicLayout</code> type. It configures fields in the top panel
  *       and More Info tab of agent application. </p>
+ * @public
  */
 export interface BasicLayout {
   /**
-   * @public
    * <p>This represents sections in a panel of the page layout.</p>
+   * @public
    */
   topPanel?: LayoutSections;
 
   /**
-   * @public
    * <p>This represents sections in a tab of the page layout.</p>
+   * @public
    */
   moreInfo?: LayoutSections;
 }
 
 /**
- * @public
  * <p>Object to store union of different versions of layout content.</p>
+ * @public
  */
 export type LayoutContent = LayoutContent.BasicMember | LayoutContent.$UnknownMember;
 
@@ -2313,9 +2313,9 @@ export type LayoutContent = LayoutContent.BasicMember | LayoutContent.$UnknownMe
  */
 export namespace LayoutContent {
   /**
-   * @public
    * <p>Content specific to <code>BasicLayout</code> type. It configures fields in the top panel
    *       and More Info tab of Cases user interface.</p>
+   * @public
    */
   export interface BasicMember {
     basic: BasicLayout;
@@ -2346,21 +2346,21 @@ export namespace LayoutContent {
  */
 export interface CreateLayoutRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the layout. It must be unique for the Cases domain.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Information about which fields will be present in the layout, and information about the
    *       order of the fields.</p>
+   * @public
    */
   content: LayoutContent | undefined;
 }
@@ -2370,14 +2370,14 @@ export interface CreateLayoutRequest {
  */
 export interface CreateLayoutResponse {
   /**
-   * @public
    * <p>The unique identifier of the layout.</p>
+   * @public
    */
   layoutId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the newly created layout.</p>
+   * @public
    */
   layoutArn: string | undefined;
 }
@@ -2387,14 +2387,14 @@ export interface CreateLayoutResponse {
  */
 export interface GetLayoutRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the layout.</p>
+   * @public
    */
   layoutId: string | undefined;
 }
@@ -2404,33 +2404,33 @@ export interface GetLayoutRequest {
  */
 export interface GetLayoutResponse {
   /**
-   * @public
    * <p>The unique identifier of the layout.</p>
+   * @public
    */
   layoutId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the newly created layout.</p>
+   * @public
    */
   layoutArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the layout. It must be unique.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Information about which fields will be present in the layout, the order of the fields, and
    *       read-only attribute of the field. </p>
+   * @public
    */
   content: LayoutContent | undefined;
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2440,45 +2440,45 @@ export interface GetLayoutResponse {
  */
 export interface ListLayoutsRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Object for the summarized details of the layout.</p>
+ * @public
  */
 export interface LayoutSummary {
   /**
-   * @public
    * <p>The unique identifier for of the layout.</p>
+   * @public
    */
   layoutId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the layout.</p>
+   * @public
    */
   layoutArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the layout.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -2488,14 +2488,14 @@ export interface LayoutSummary {
  */
 export interface ListLayoutsResponse {
   /**
-   * @public
    * <p>The layouts for the domain.</p>
+   * @public
    */
   layouts: LayoutSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2505,27 +2505,27 @@ export interface ListLayoutsResponse {
  */
 export interface UpdateLayoutRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the layout.</p>
+   * @public
    */
   layoutId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the layout. It must be unique per domain.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Information about which fields will be present in the layout, the order of the
    *       fields.</p>
+   * @public
    */
   content?: LayoutContent;
 }
@@ -2540,8 +2540,8 @@ export interface UpdateLayoutResponse {}
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN)</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -2551,8 +2551,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2562,38 +2562,38 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN)</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * @public
  * <p>Object to store configuration of layouts associated to the template.</p>
+ * @public
  */
 export interface LayoutConfiguration {
   /**
-   * @public
    * <p> Unique identifier of a layout. </p>
+   * @public
    */
   defaultLayout?: string;
 }
 
 /**
- * @public
  * <p>List of fields that must have a value provided to create a case.</p>
+ * @public
  */
 export interface RequiredField {
   /**
-   * @public
    * <p>Unique identifier of a field.</p>
+   * @public
    */
   fieldId: string | undefined;
 }
@@ -2617,39 +2617,39 @@ export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus
  */
 export interface CreateTemplateRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A name for the template. It must be unique per domain.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A brief description of the template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Configuration of layouts associated to the template.</p>
+   * @public
    */
   layoutConfiguration?: LayoutConfiguration;
 
   /**
-   * @public
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
+   * @public
    */
   requiredFields?: RequiredField[];
 
   /**
-   * @public
    * <p>The status of the template.</p>
+   * @public
    */
   status?: TemplateStatus;
 }
@@ -2659,14 +2659,14 @@ export interface CreateTemplateRequest {
  */
 export interface CreateTemplateResponse {
   /**
-   * @public
    * <p>A unique identifier of a template.</p>
+   * @public
    */
   templateId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the newly created template.</p>
+   * @public
    */
   templateArn: string | undefined;
 }
@@ -2676,14 +2676,14 @@ export interface CreateTemplateResponse {
  */
 export interface GetTemplateRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of a template.</p>
+   * @public
    */
   templateId: string | undefined;
 }
@@ -2693,51 +2693,51 @@ export interface GetTemplateRequest {
  */
 export interface GetTemplateResponse {
   /**
-   * @public
    * <p>A unique identifier of a template.</p>
+   * @public
    */
   templateId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * @public
    */
   templateArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A brief description of the template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Configuration of layouts associated to the template.</p>
+   * @public
    */
   layoutConfiguration?: LayoutConfiguration;
 
   /**
-   * @public
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
+   * @public
    */
   requiredFields?: RequiredField[];
 
   /**
-   * @public
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The status of the template.</p>
+   * @public
    */
   status: TemplateStatus | undefined;
 }
@@ -2747,57 +2747,57 @@ export interface GetTemplateResponse {
  */
 export interface ListTemplatesRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of status values to filter on.</p>
+   * @public
    */
   status?: TemplateStatus[];
 }
 
 /**
- * @public
  * <p>Template summary information.</p>
+ * @public
  */
 export interface TemplateSummary {
   /**
-   * @public
    * <p>The unique identifier for the template.</p>
+   * @public
    */
   templateId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * @public
    */
   templateArn: string | undefined;
 
   /**
-   * @public
    * <p>The template name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The status of the template.</p>
+   * @public
    */
   status: TemplateStatus | undefined;
 }
@@ -2807,14 +2807,14 @@ export interface TemplateSummary {
  */
 export interface ListTemplatesResponse {
   /**
-   * @public
    * <p>List of template summary objects.</p>
+   * @public
    */
   templates: TemplateSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2824,45 +2824,45 @@ export interface ListTemplatesResponse {
  */
 export interface UpdateTemplateRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier for the template.</p>
+   * @public
    */
   templateId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the template. It must be unique per domain.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A brief description of the template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Configuration of layouts associated to the template.</p>
+   * @public
    */
   layoutConfiguration?: LayoutConfiguration;
 
   /**
-   * @public
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
+   * @public
    */
   requiredFields?: RequiredField[];
 
   /**
-   * @public
    * <p>The status of the template.</p>
+   * @public
    */
   status?: TemplateStatus;
 }
@@ -2877,21 +2877,21 @@ export interface UpdateTemplateResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN)</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>List of tag keys.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
 
 /**
- * @public
  * <p>A filter for cases. Only one value can be provided.</p>
+ * @public
  */
 export type CaseFilter =
   | CaseFilter.AndAllMember
@@ -2905,8 +2905,8 @@ export type CaseFilter =
  */
 export namespace CaseFilter {
   /**
-   * @public
    * <p>A list of fields to filter on.</p>
+   * @public
    */
   export interface FieldMember {
     field: FieldFilter;
@@ -2917,8 +2917,8 @@ export namespace CaseFilter {
   }
 
   /**
-   * @public
    * <p>A filter for cases. Only one value can be provided.</p>
+   * @public
    */
   export interface NotMember {
     field?: never;
@@ -2929,8 +2929,8 @@ export namespace CaseFilter {
   }
 
   /**
-   * @public
    * <p>Provides "and all" filtering.</p>
+   * @public
    */
   export interface AndAllMember {
     field?: never;
@@ -2941,8 +2941,8 @@ export namespace CaseFilter {
   }
 
   /**
-   * @public
    * <p>Provides "or all" filtering.</p>
+   * @public
    */
   export interface OrAllMember {
     field?: never;
@@ -2985,47 +2985,47 @@ export namespace CaseFilter {
  */
 export interface SearchCasesRequest {
   /**
-   * @public
    * <p>The unique identifier of the Cases domain. </p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of cases to return. The current maximum supported value is 25. This is
    *       also the default value when no other value is provided.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A word or phrase used to perform a quick search.</p>
+   * @public
    */
   searchTerm?: string;
 
   /**
-   * @public
    * <p>A list of filter objects.</p>
+   * @public
    */
   filter?: CaseFilter;
 
   /**
-   * @public
    * <p>A list of sorts where each sort specifies a field and their sort order to be applied to
    *       the results. </p>
+   * @public
    */
   sorts?: Sort[];
 
   /**
-   * @public
    * <p>The list of field identifiers to be returned as part of the response.</p>
+   * @public
    */
   fields?: FieldIdentifier[];
 }

@@ -27,7 +27,6 @@ export interface DescribeSubscriptionCommandInput extends DescribeSubscriptionRe
 export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about the Shield Advanced subscription for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DescribeSubscriptionCommand extends $Command
   .classBuilder<

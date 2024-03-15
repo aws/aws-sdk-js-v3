@@ -27,7 +27,6 @@ export interface GetJourneyCommandInput extends GetJourneyRequest {}
 export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -462,6 +461,7 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetJourneyCommand extends $Command
   .classBuilder<

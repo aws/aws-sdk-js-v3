@@ -27,7 +27,6 @@ export interface StartCanaryCommandInput extends StartCanaryRequest {}
 export interface StartCanaryCommandOutput extends StartCanaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to run a canary that has already been created.
  *          The frequency of the canary runs is determined by the value of the canary's <code>Schedule</code>. To see a canary's schedule,
  *          use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanary.html">GetCanary</a>.</p>
@@ -67,6 +66,7 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class StartCanaryCommand extends $Command
   .classBuilder<

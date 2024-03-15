@@ -27,7 +27,6 @@ export interface UpdateDocumentMetadataCommandInput extends UpdateDocumentMetada
 export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information related to approval reviews for a specific version of a change template
  *    in Change Manager.</p>
  * @example
@@ -77,6 +76,7 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateDocumentMetadataCommand extends $Command
   .classBuilder<

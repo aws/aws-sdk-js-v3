@@ -27,7 +27,6 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyIn
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a policy for the specified data stream or consumer. Request patterns can be one of the following:</p>
  *          <ul>
  *             <li>
@@ -83,6 +82,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

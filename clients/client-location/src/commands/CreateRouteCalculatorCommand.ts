@@ -27,7 +27,6 @@ export interface CreateRouteCalculatorCommandInput extends CreateRouteCalculator
 export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a route calculator resource in your Amazon Web Services account.</p>
  *          <p>You can send requests to a route calculator resource to estimate travel time,
  *             distance, and get directions. A route calculator sources traffic and road network data
@@ -92,6 +91,7 @@ export interface CreateRouteCalculatorCommandOutput extends CreateRouteCalculato
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CreateRouteCalculatorCommand extends $Command
   .classBuilder<

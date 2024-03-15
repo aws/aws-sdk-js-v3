@@ -27,7 +27,6 @@ export interface ListLicenseConversionTasksCommandInput extends ListLicenseConve
 export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConversionTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the license type conversion tasks for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListLicenseConversionTasksCommand extends $Command
   .classBuilder<

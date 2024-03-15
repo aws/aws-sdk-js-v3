@@ -31,7 +31,6 @@ export interface DeleteTargetGroupCommandInput extends DeleteTargetGroupInput {}
 export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified target group.</p>
  *          <p>You can delete a target group if it is not referenced by any actions. Deleting a target
  *       group also deletes any associated health checks. Deleting a target group does not affect its
@@ -64,6 +63,7 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To delete a target group
  * ```javascript
  * // This example deletes the specified target group.

@@ -31,7 +31,6 @@ export interface ListSpeakerEnrollmentJobsCommandInput extends ListSpeakerEnroll
 export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrollmentJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the speaker enrollment jobs in the domain with the specified
  *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
  *             jobs with all possible speaker enrollment job statuses.</p>
@@ -102,6 +101,7 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class ListSpeakerEnrollmentJobsCommand extends $Command
   .classBuilder<

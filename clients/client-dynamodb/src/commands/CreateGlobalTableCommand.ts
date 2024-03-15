@@ -27,7 +27,6 @@ export interface CreateGlobalTableCommandInput extends CreateGlobalTableInput {}
 export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a global table from an existing table. A global table creates a replication
  *             relationship between two or more DynamoDB tables with the same table name in the
  *             provided Regions. </p>
@@ -180,6 +179,7 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class CreateGlobalTableCommand extends $Command
   .classBuilder<

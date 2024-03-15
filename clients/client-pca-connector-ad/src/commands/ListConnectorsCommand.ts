@@ -27,7 +27,6 @@ export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the connectors that you created by using the <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class ListConnectorsCommand extends $Command
   .classBuilder<

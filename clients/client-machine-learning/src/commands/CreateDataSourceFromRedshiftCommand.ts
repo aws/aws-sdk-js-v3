@@ -36,7 +36,6 @@ export interface CreateDataSourceFromRedshiftCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A
  * 		<code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code>
  * 		operations.</p>
@@ -123,6 +122,7 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class CreateDataSourceFromRedshiftCommand extends $Command
   .classBuilder<

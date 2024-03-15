@@ -31,7 +31,6 @@ export interface StartDashboardSnapshotJobCommandInput extends StartDashboardSna
 export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSnapshotJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous job that generates a dashboard snapshot. You can request one of the following format configurations per API call.</p>
  *          <ul>
  *             <li>
@@ -194,6 +193,7 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class StartDashboardSnapshotJobCommand extends $Command
   .classBuilder<

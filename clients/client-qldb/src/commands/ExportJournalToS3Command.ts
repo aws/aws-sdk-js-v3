@@ -27,7 +27,6 @@ export interface ExportJournalToS3CommandInput extends ExportJournalToS3Request 
 export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports journal contents within a date and time range from a ledger into a specified
  *          Amazon Simple Storage Service (Amazon S3) bucket. A journal export job can write the data objects in either the text
  *          or binary representation of Amazon Ion format, or in <i>JSON Lines</i> text
@@ -82,6 +81,7 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class ExportJournalToS3Command extends $Command
   .classBuilder<

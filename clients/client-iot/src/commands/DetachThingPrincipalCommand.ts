@@ -27,7 +27,6 @@ export interface DetachThingPrincipalCommandInput extends DetachThingPrincipalRe
 export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches the specified principal from the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
@@ -79,6 +78,7 @@ export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DetachThingPrincipalCommand extends $Command
   .classBuilder<

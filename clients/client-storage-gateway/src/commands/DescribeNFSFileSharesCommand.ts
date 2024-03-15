@@ -27,7 +27,6 @@ export interface DescribeNFSFileSharesCommandInput extends DescribeNFSFileShares
 export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileSharesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a description for one or more Network File System (NFS) file shares from an S3 File
  *          Gateway. This operation is only supported for S3 File Gateways.</p>
  * @example
@@ -107,6 +106,7 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DescribeNFSFileSharesCommand extends $Command
   .classBuilder<

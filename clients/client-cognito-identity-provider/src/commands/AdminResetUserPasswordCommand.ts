@@ -35,7 +35,6 @@ export interface AdminResetUserPasswordCommandInput extends AdminResetUserPasswo
 export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the specified user's password in a user pool as an administrator. Works on any
  *             user.</p>
  *          <p>To use this API operation, your user pool must have self-service account recovery
@@ -163,6 +162,7 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminResetUserPasswordCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface PutKeywordCommandInput extends PutKeywordRequest {}
 export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a keyword configuration on an origination phone number or
  *             pool.</p>
  *          <p> A keyword is a word that you can search for on a particular phone number or pool. It
@@ -100,6 +99,7 @@ export interface PutKeywordCommandOutput extends PutKeywordResult, __MetadataBea
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class PutKeywordCommand extends $Command
   .classBuilder<

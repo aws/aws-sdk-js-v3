@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { WorkSpacesWebServiceException as __BaseException } from "./WorkSpacesWebServiceException";
 
 /**
- * @public
  * <p>Access is denied.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -28,14 +28,14 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AssociateBrowserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 }
@@ -45,34 +45,34 @@ export interface AssociateBrowserSettingsRequest {
  */
 export interface AssociateBrowserSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 }
 
 /**
- * @public
  * <p>There is a conflict.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Identifier of the resource affected.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>Type of the resource affected.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -92,15 +92,15 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>There is an internal server error.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -119,21 +119,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource cannot be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Hypothetical identifier of the resource affected.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>Hypothetical type of the resource affected.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -153,27 +153,27 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>There is a throttling error.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The originating service.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The originating quota.</p>
+   * @public
    */
   quotaCode?: string;
 
   /**
-   * @public
    * <p>Advice to clients on when the call can be safely retried.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -194,19 +194,19 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Information about a field passed inside a request that resulted in an exception.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The name of the field that failed validation.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The message describing why the field failed validation.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -228,21 +228,21 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>There is a validation error.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Reason the request failed validation</p>
+   * @public
    */
   reason?: ValidationExceptionReason;
 
   /**
-   * @public
    * <p>The field that caused the error.</p>
+   * @public
    */
   fieldList?: ValidationExceptionField[];
 
@@ -266,14 +266,14 @@ export class ValidationException extends __BaseException {
  */
 export interface AssociateIpAccessSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IP access settings.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 }
@@ -283,14 +283,14 @@ export interface AssociateIpAccessSettingsRequest {
  */
 export interface AssociateIpAccessSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IP access settings resource.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 }
@@ -300,14 +300,14 @@ export interface AssociateIpAccessSettingsResponse {
  */
 export interface AssociateNetworkSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 }
@@ -317,14 +317,14 @@ export interface AssociateNetworkSettingsRequest {
  */
 export interface AssociateNetworkSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 }
@@ -334,14 +334,14 @@ export interface AssociateNetworkSettingsResponse {
  */
 export interface AssociateTrustStoreRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 }
@@ -351,14 +351,14 @@ export interface AssociateTrustStoreRequest {
  */
 export interface AssociateTrustStoreResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 }
@@ -368,14 +368,14 @@ export interface AssociateTrustStoreResponse {
  */
 export interface AssociateUserAccessLoggingSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 }
@@ -385,14 +385,14 @@ export interface AssociateUserAccessLoggingSettingsRequest {
  */
 export interface AssociateUserAccessLoggingSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 }
@@ -402,14 +402,14 @@ export interface AssociateUserAccessLoggingSettingsResponse {
  */
 export interface AssociateUserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 }
@@ -419,14 +419,14 @@ export interface AssociateUserSettingsRequest {
  */
 export interface AssociateUserSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 }
@@ -446,19 +446,19 @@ export const AuthenticationType = {
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 /**
- * @public
  * <p>The tag.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key of the tag.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value of the tag</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -468,37 +468,37 @@ export interface Tag {
  */
 export interface CreateBrowserSettingsRequest {
   /**
-   * @public
    * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The custom managed key of the browser settings.</p>
+   * @public
    */
   customerManagedKey?: string;
 
   /**
-   * @public
    * <p>Additional encryption context of the browser settings.</p>
+   * @public
    */
   additionalEncryptionContext?: Record<string, string>;
 
   /**
-   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions.</p>
+   * @public
    */
   browserPolicy: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request.</p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS SDK. </p>
+   * @public
    */
   clientToken?: string;
 }
@@ -508,40 +508,40 @@ export interface CreateBrowserSettingsRequest {
  */
 export interface CreateBrowserSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The service quota has been exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Identifier of the resource affected.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p> Type of the resource affected.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>The originating service.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The originating quota.</p>
+   * @public
    */
   quotaCode?: string;
 
@@ -567,8 +567,8 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface DeleteBrowserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 }
@@ -583,35 +583,35 @@ export interface DeleteBrowserSettingsResponse {}
  */
 export interface GetBrowserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The browser settings resource that can be associated with a web portal. Once associated
  *          with a web portal, browser settings control how the browser will behave once a user starts
  *          a streaming session for the web portal. </p>
+ * @public
  */
 export interface BrowserSettings {
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of web portal ARNs that this browser settings is associated with.</p>
+   * @public
    */
   associatedPortalArns?: string[];
 
   /**
-   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions.</p>
+   * @public
    */
   browserPolicy?: string;
 }
@@ -621,8 +621,8 @@ export interface BrowserSettings {
  */
 export interface GetBrowserSettingsResponse {
   /**
-   * @public
    * <p>The browser settings.</p>
+   * @public
    */
   browserSettings?: BrowserSettings;
 }
@@ -632,26 +632,26 @@ export interface GetBrowserSettingsResponse {
  */
 export interface ListBrowserSettingsRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The summary for browser settings.</p>
+ * @public
  */
 export interface BrowserSettingsSummary {
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 }
@@ -661,14 +661,14 @@ export interface BrowserSettingsSummary {
  */
 export interface ListBrowserSettingsResponse {
   /**
-   * @public
    * <p>The browser settings.</p>
+   * @public
    */
   browserSettings?: BrowserSettingsSummary[];
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -678,26 +678,26 @@ export interface ListBrowserSettingsResponse {
  */
 export interface UpdateBrowserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the browser settings.</p>
+   * @public
    */
   browserSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>A JSON string containing Chrome Enterprise policies that will be applied to all
    *          streaming sessions. </p>
+   * @public
    */
   browserPolicy?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token return the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -707,8 +707,8 @@ export interface UpdateBrowserSettingsRequest {
  */
 export interface UpdateBrowserSettingsResponse {
   /**
-   * @public
    * <p>The browser settings.</p>
+   * @public
    */
   browserSettings: BrowserSettings | undefined;
 }
@@ -736,25 +736,24 @@ export type IdentityProviderType = (typeof IdentityProviderType)[keyof typeof Id
  */
 export interface CreateIdentityProviderRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The identity provider name.</p>
+   * @public
    */
   identityProviderName: string | undefined;
 
   /**
-   * @public
    * <p>The identity provider type.</p>
+   * @public
    */
   identityProviderType: IdentityProviderType | undefined;
 
   /**
-   * @public
    * <p>The identity provider details. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -908,17 +907,18 @@ export interface CreateIdentityProviderRequest {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   identityProviderDetails: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request.</p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -928,8 +928,8 @@ export interface CreateIdentityProviderRequest {
  */
 export interface CreateIdentityProviderResponse {
   /**
-   * @public
    * <p>The ARN of the identity provider.</p>
+   * @public
    */
   identityProviderArn: string | undefined;
 }
@@ -939,8 +939,8 @@ export interface CreateIdentityProviderResponse {
  */
 export interface DeleteIdentityProviderRequest {
   /**
-   * @public
    * <p>The ARN of the identity provider.</p>
+   * @public
    */
   identityProviderArn: string | undefined;
 }
@@ -955,37 +955,36 @@ export interface DeleteIdentityProviderResponse {}
  */
 export interface GetIdentityProviderRequest {
   /**
-   * @public
    * <p>The ARN of the identity provider.</p>
+   * @public
    */
   identityProviderArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The identity provider.</p>
+ * @public
  */
 export interface IdentityProvider {
   /**
-   * @public
    * <p>The ARN of the identity provider.</p>
+   * @public
    */
   identityProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>The identity provider name.</p>
+   * @public
    */
   identityProviderName?: string;
 
   /**
-   * @public
    * <p>The identity provider type.</p>
+   * @public
    */
   identityProviderType?: IdentityProviderType;
 
   /**
-   * @public
    * <p>The identity provider details. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -1139,6 +1138,7 @@ export interface IdentityProvider {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   identityProviderDetails?: Record<string, string>;
 }
@@ -1148,8 +1148,8 @@ export interface IdentityProvider {
  */
 export interface GetIdentityProviderResponse {
   /**
-   * @public
    * <p>The identity provider.</p>
+   * @public
    */
   identityProvider?: IdentityProvider;
 }
@@ -1159,44 +1159,44 @@ export interface GetIdentityProviderResponse {
  */
 export interface ListIdentityProvidersRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The summary of the identity provider.</p>
+ * @public
  */
 export interface IdentityProviderSummary {
   /**
-   * @public
    * <p>The ARN of the identity provider.</p>
+   * @public
    */
   identityProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>The identity provider name.</p>
+   * @public
    */
   identityProviderName?: string;
 
   /**
-   * @public
    * <p>The identity provider type.</p>
+   * @public
    */
   identityProviderType?: IdentityProviderType;
 }
@@ -1206,14 +1206,14 @@ export interface IdentityProviderSummary {
  */
 export interface ListIdentityProvidersResponse {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The identity providers.</p>
+   * @public
    */
   identityProviders?: IdentityProviderSummary[];
 }
@@ -1223,25 +1223,24 @@ export interface ListIdentityProvidersResponse {
  */
 export interface UpdateIdentityProviderRequest {
   /**
-   * @public
    * <p>The ARN of the identity provider.</p>
+   * @public
    */
   identityProviderArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the identity provider.</p>
+   * @public
    */
   identityProviderName?: string;
 
   /**
-   * @public
    * <p>The type of the identity provider.</p>
+   * @public
    */
   identityProviderType?: IdentityProviderType;
 
   /**
-   * @public
    * <p>The details of the identity provider. The following list describes the provider detail keys for
    *          each identity provider type. </p>
    *          <ul>
@@ -1395,17 +1394,18 @@ export interface UpdateIdentityProviderRequest {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   identityProviderDetails?: Record<string, string>;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token return the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1415,26 +1415,26 @@ export interface UpdateIdentityProviderRequest {
  */
 export interface UpdateIdentityProviderResponse {
   /**
-   * @public
    * <p>The identity provider.</p>
+   * @public
    */
   identityProvider: IdentityProvider | undefined;
 }
 
 /**
- * @public
  * <p>The IP rules of the IP access settings.</p>
+ * @public
  */
 export interface IpRule {
   /**
-   * @public
    * <p>The IP range of the IP rule.</p>
+   * @public
    */
   ipRange: string | undefined;
 
   /**
-   * @public
    * <p>The description of the IP rule.</p>
+   * @public
    */
   description?: string;
 }
@@ -1444,49 +1444,49 @@ export interface IpRule {
  */
 export interface CreateIpAccessSettingsRequest {
   /**
-   * @public
    * <p>The display name of the IP access settings.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The description of the IP access settings.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The custom managed key of the IP access settings.</p>
+   * @public
    */
   customerManagedKey?: string;
 
   /**
-   * @public
    * <p>Additional encryption context of the IP access settings.</p>
+   * @public
    */
   additionalEncryptionContext?: Record<string, string>;
 
   /**
-   * @public
    * <p>The IP rules of the IP access settings.</p>
+   * @public
    */
   ipRules: IpRule[] | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1496,8 +1496,8 @@ export interface CreateIpAccessSettingsRequest {
  */
 export interface CreateIpAccessSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the IP access settings resource.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 }
@@ -1507,8 +1507,8 @@ export interface CreateIpAccessSettingsResponse {
  */
 export interface DeleteIpAccessSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the IP access settings.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 }
@@ -1523,50 +1523,50 @@ export interface DeleteIpAccessSettingsResponse {}
  */
 export interface GetIpAccessSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the IP access settings.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The IP access settings resource that can be associated with a web portal. </p>
+ * @public
  */
 export interface IpAccessSettings {
   /**
-   * @public
    * <p>The ARN of the IP access settings resource.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of web portal ARNs that this IP access settings resource is associated with.</p>
+   * @public
    */
   associatedPortalArns?: string[];
 
   /**
-   * @public
    * <p>The IP rules of the IP access settings.</p>
+   * @public
    */
   ipRules?: IpRule[];
 
   /**
-   * @public
    * <p> The display name of the IP access settings.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The description of the IP access settings.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The creation date timestamp of the IP access settings.</p>
+   * @public
    */
   creationDate?: Date;
 }
@@ -1576,8 +1576,8 @@ export interface IpAccessSettings {
  */
 export interface GetIpAccessSettingsResponse {
   /**
-   * @public
    * <p>The IP access settings.</p>
+   * @public
    */
   ipAccessSettings?: IpAccessSettings;
 }
@@ -1587,44 +1587,44 @@ export interface GetIpAccessSettingsResponse {
  */
 export interface ListIpAccessSettingsRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The summary of IP access settings.</p>
+ * @public
  */
 export interface IpAccessSettingsSummary {
   /**
-   * @public
    * <p>The ARN of IP access settings.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>The display name of the IP access settings.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The description of the IP access settings.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The creation date timestamp of the IP access settings.</p>
+   * @public
    */
   creationDate?: Date;
 }
@@ -1634,14 +1634,14 @@ export interface IpAccessSettingsSummary {
  */
 export interface ListIpAccessSettingsResponse {
   /**
-   * @public
    * <p>The IP access settings.</p>
+   * @public
    */
   ipAccessSettings?: IpAccessSettingsSummary[];
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1651,37 +1651,37 @@ export interface ListIpAccessSettingsResponse {
  */
 export interface UpdateIpAccessSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the IP access settings.</p>
+   * @public
    */
   ipAccessSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>The display name of the IP access settings.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The description of the IP access settings.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The updated IP rules of the IP access settings.</p>
+   * @public
    */
   ipRules?: IpRule[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token return the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1691,8 +1691,8 @@ export interface UpdateIpAccessSettingsRequest {
  */
 export interface UpdateIpAccessSettingsResponse {
   /**
-   * @public
    * <p>The IP access settings.</p>
+   * @public
    */
   ipAccessSettings: IpAccessSettings | undefined;
 }
@@ -1702,8 +1702,8 @@ export interface UpdateIpAccessSettingsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1713,8 +1713,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags of the resource.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1724,37 +1724,37 @@ export interface ListTagsForResourceResponse {
  */
 export interface CreateNetworkSettingsRequest {
   /**
-   * @public
    * <p>The VPC that streaming instances will connect to.</p>
+   * @public
    */
   vpcId: string | undefined;
 
   /**
-   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
+   * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC.</p>
+   * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The tags to add to the network settings resource. A tag is a key-value pair.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1764,8 +1764,8 @@ export interface CreateNetworkSettingsRequest {
  */
 export interface CreateNetworkSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 }
@@ -1775,8 +1775,8 @@ export interface CreateNetworkSettingsResponse {
  */
 export interface DeleteNetworkSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 }
@@ -1791,46 +1791,46 @@ export interface DeleteNetworkSettingsResponse {}
  */
 export interface GetNetworkSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 }
 
 /**
- * @public
  * <p>A network settings resource that can be associated with a web portal. Once associated
  *          with a web portal, network settings define how streaming instances will connect with your
  *          specified VPC. </p>
+ * @public
  */
 export interface NetworkSettings {
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of web portal ARNs that this network settings is associated with.</p>
+   * @public
    */
   associatedPortalArns?: string[];
 
   /**
-   * @public
    * <p>The VPC that streaming instances will connect to.</p>
+   * @public
    */
   vpcId?: string;
 
   /**
-   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
+   * @public
    */
   subnetIds?: string[];
 
   /**
-   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC. </p>
+   * @public
    */
   securityGroupIds?: string[];
 }
@@ -1840,8 +1840,8 @@ export interface NetworkSettings {
  */
 export interface GetNetworkSettingsResponse {
   /**
-   * @public
    * <p>The network settings.</p>
+   * @public
    */
   networkSettings?: NetworkSettings;
 }
@@ -1851,32 +1851,32 @@ export interface GetNetworkSettingsResponse {
  */
 export interface ListNetworkSettingsRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The summary of network settings.</p>
+ * @public
  */
 export interface NetworkSettingsSummary {
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>The VPC ID of the network settings.</p>
+   * @public
    */
   vpcId?: string;
 }
@@ -1886,14 +1886,14 @@ export interface NetworkSettingsSummary {
  */
 export interface ListNetworkSettingsResponse {
   /**
-   * @public
    * <p>The network settings.</p>
+   * @public
    */
   networkSettings?: NetworkSettingsSummary[];
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1903,37 +1903,37 @@ export interface ListNetworkSettingsResponse {
  */
 export interface UpdateNetworkSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the network settings.</p>
+   * @public
    */
   networkSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>The VPC that streaming instances will connect to.</p>
+   * @public
    */
   vpcId?: string;
 
   /**
-   * @public
    * <p>The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.</p>
+   * @public
    */
   subnetIds?: string[];
 
   /**
-   * @public
    * <p>One or more security groups used to control access from streaming instances to your VPC.</p>
+   * @public
    */
   securityGroupIds?: string[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token return the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1943,8 +1943,8 @@ export interface UpdateNetworkSettingsRequest {
  */
 export interface UpdateNetworkSettingsResponse {
   /**
-   * @public
    * <p>The network settings.</p>
+   * @public
    */
   networkSettings: NetworkSettings | undefined;
 }
@@ -1967,42 +1967,41 @@ export type BrowserType = (typeof BrowserType)[keyof typeof BrowserType];
  */
 export interface CreatePortalRequest {
   /**
-   * @public
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The tags to add to the web portal. A tag is a key-value pair.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The customer managed key of the web portal.</p>
+   * @public
    */
   customerManagedKey?: string;
 
   /**
-   * @public
    * <p>The additional encryption context of the portal.</p>
+   * @public
    */
   additionalEncryptionContext?: Record<string, string>;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -2016,6 +2015,7 @@ export interface CreatePortalRequest {
    *          IdP-initiated authentication. Identity sources (including external identity provider
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
+   * @public
    */
   authenticationType?: AuthenticationType;
 }
@@ -2025,14 +2025,14 @@ export interface CreatePortalRequest {
  */
 export interface CreatePortalResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming sessions.</p>
+   * @public
    */
   portalEndpoint: string | undefined;
 }
@@ -2042,8 +2042,8 @@ export interface CreatePortalResponse {
  */
 export interface DeletePortalRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2058,8 +2058,8 @@ export interface DeletePortalResponse {}
  */
 export interface DisassociateBrowserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2074,8 +2074,8 @@ export interface DisassociateBrowserSettingsResponse {}
  */
 export interface DisassociateIpAccessSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2090,8 +2090,8 @@ export interface DisassociateIpAccessSettingsResponse {}
  */
 export interface DisassociateNetworkSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2106,8 +2106,8 @@ export interface DisassociateNetworkSettingsResponse {}
  */
 export interface DisassociateTrustStoreRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2122,8 +2122,8 @@ export interface DisassociateTrustStoreResponse {}
  */
 export interface DisassociateUserAccessLoggingSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2138,8 +2138,8 @@ export interface DisassociateUserAccessLoggingSettingsResponse {}
  */
 export interface DisassociateUserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2154,8 +2154,8 @@ export interface DisassociateUserSettingsResponse {}
  */
 export interface GetPortalRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2189,91 +2189,90 @@ export const RendererType = {
 export type RendererType = (typeof RendererType)[keyof typeof RendererType];
 
 /**
- * @public
  * <p>The web portal.</p>
+ * @public
  */
 export interface Portal {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The renderer that is used in streaming sessions.</p>
+   * @public
    */
   rendererType?: RendererType;
 
   /**
-   * @public
    * <p>The browser that users see when using a streaming session.</p>
+   * @public
    */
   browserType?: BrowserType;
 
   /**
-   * @public
    * <p>The status of the web portal.</p>
+   * @public
    */
   portalStatus?: PortalStatus;
 
   /**
-   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
+   * @public
    */
   portalEndpoint?: string;
 
   /**
-   * @public
    * <p>The name of the web portal.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The creation date of the web portal.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The ARN of the browser settings that is associated with this web portal.</p>
+   * @public
    */
   browserSettingsArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the user settings that is associated with the web portal.</p>
+   * @public
    */
   userSettingsArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the network settings that is associated with the web portal.</p>
+   * @public
    */
   networkSettingsArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the trust store that is associated with the web portal.</p>
+   * @public
    */
   trustStoreArn?: string;
 
   /**
-   * @public
    * <p>A message that explains why the web portal is in its current status.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
+   * @public
    */
   userAccessLoggingSettingsArn?: string;
 
   /**
-   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -2287,12 +2286,13 @@ export interface Portal {
    *          IdP-initiated authentication. Identity sources (including external identity provider
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
+   * @public
    */
   authenticationType?: AuthenticationType;
 
   /**
-   * @public
    * <p>The ARN of the IP access settings.</p>
+   * @public
    */
   ipAccessSettingsArn?: string;
 }
@@ -2302,8 +2302,8 @@ export interface Portal {
  */
 export interface GetPortalResponse {
   /**
-   * @public
    * <p>The web portal.</p>
+   * @public
    */
   portal?: Portal;
 }
@@ -2313,8 +2313,8 @@ export interface GetPortalResponse {
  */
 export interface GetPortalServiceProviderMetadataRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 }
@@ -2324,14 +2324,14 @@ export interface GetPortalServiceProviderMetadataRequest {
  */
 export interface GetPortalServiceProviderMetadataResponse {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The service provider SAML metadata.</p>
+   * @public
    */
   serviceProviderSamlMetadata?: string;
 }
@@ -2341,98 +2341,97 @@ export interface GetPortalServiceProviderMetadataResponse {
  */
 export interface ListPortalsRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The summary of the portal.</p>
+ * @public
  */
 export interface PortalSummary {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The renderer that is used in streaming sessions.</p>
+   * @public
    */
   rendererType?: RendererType;
 
   /**
-   * @public
    * <p>The browser type of the web portal.</p>
+   * @public
    */
   browserType?: BrowserType;
 
   /**
-   * @public
    * <p>The status of the web portal.</p>
+   * @public
    */
   portalStatus?: PortalStatus;
 
   /**
-   * @public
    * <p>The endpoint URL of the web portal that users access in order to start streaming
    *          sessions.</p>
+   * @public
    */
   portalEndpoint?: string;
 
   /**
-   * @public
    * <p>The name of the web portal.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The creation date of the web portal.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The ARN of the browser settings that is associated with the web portal.</p>
+   * @public
    */
   browserSettingsArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the user settings that is associated with the web portal.</p>
+   * @public
    */
   userSettingsArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the network settings that is associated with the web portal.</p>
+   * @public
    */
   networkSettingsArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the trust that is associated with this web portal.</p>
+   * @public
    */
   trustStoreArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the user access logging settings that is associated with the web portal.</p>
+   * @public
    */
   userAccessLoggingSettingsArn?: string;
 
   /**
-   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -2446,12 +2445,13 @@ export interface PortalSummary {
    *          IdP-initiated authentication. Identity sources (including external identity provider
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
+   * @public
    */
   authenticationType?: AuthenticationType;
 
   /**
-   * @public
    * <p>The ARN of the IP access settings.</p>
+   * @public
    */
   ipAccessSettingsArn?: string;
 }
@@ -2461,14 +2461,14 @@ export interface PortalSummary {
  */
 export interface ListPortalsResponse {
   /**
-   * @public
    * <p>The portals in the list.</p>
+   * @public
    */
   portals?: PortalSummary[];
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2478,19 +2478,18 @@ export interface ListPortalsResponse {
  */
 export interface UpdatePortalRequest {
   /**
-   * @public
    * <p>The ARN of the web portal.</p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the web portal. This is not visible to users who log into the web portal.</p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>The type of authentication integration points used when signing into the web portal.
    *          Defaults to <code>Standard</code>.</p>
    *          <p>
@@ -2504,6 +2503,7 @@ export interface UpdatePortalRequest {
    *          IdP-initiated authentication. Identity sources (including external identity provider
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
+   * @public
    */
   authenticationType?: AuthenticationType;
 }
@@ -2513,8 +2513,8 @@ export interface UpdatePortalRequest {
  */
 export interface UpdatePortalResponse {
   /**
-   * @public
    * <p>The web portal.</p>
+   * @public
    */
   portal?: Portal;
 }
@@ -2524,25 +2524,25 @@ export interface UpdatePortalResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags of the resource.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2553,15 +2553,15 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p>There are too many tags.</p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Name of the resource affected.</p>
+   * @public
    */
   resourceName?: string;
 
@@ -2580,37 +2580,37 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The summary of the certificate.</p>
+ * @public
  */
 export interface CertificateSummary {
   /**
-   * @public
    * <p>A hexadecimal identifier for the certificate.</p>
+   * @public
    */
   thumbprint?: string;
 
   /**
-   * @public
    * <p>The entity the certificate belongs to.</p>
+   * @public
    */
   subject?: string;
 
   /**
-   * @public
    * <p>The entity that issued the certificate.</p>
+   * @public
    */
   issuer?: string;
 
   /**
-   * @public
    * <p>The certificate is not valid before this date.</p>
+   * @public
    */
   notValidBefore?: Date;
 
   /**
-   * @public
    * <p>The certificate is not valid after this date.</p>
+   * @public
    */
   notValidAfter?: Date;
 }
@@ -2620,25 +2620,25 @@ export interface CertificateSummary {
  */
 export interface CreateTrustStoreRequest {
   /**
-   * @public
    * <p>A list of CA certificates to be added to the trust store.</p>
+   * @public
    */
   certificateList: Uint8Array[] | undefined;
 
   /**
-   * @public
    * <p>The tags to add to the trust store. A tag is a key-value pair.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2648,8 +2648,8 @@ export interface CreateTrustStoreRequest {
  */
 export interface CreateTrustStoreResponse {
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 }
@@ -2659,8 +2659,8 @@ export interface CreateTrustStoreResponse {
  */
 export interface DeleteTrustStoreRequest {
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 }
@@ -2675,30 +2675,30 @@ export interface DeleteTrustStoreResponse {}
  */
 export interface GetTrustStoreRequest {
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 }
 
 /**
- * @public
  * <p>A trust store that can be associated with a web portal. A trust store contains
  *          certificate authority (CA) certificates. Once associated with a web portal, the browser in
  *          a streaming session will recognize certificates that have been issued using any of the CAs
  *          in the trust store. If your organization has internal websites that use certificates issued
  *          by private CAs, you should add the private CA certificate to the trust store. </p>
+ * @public
  */
 export interface TrustStore {
   /**
-   * @public
    * <p>A list of web portal ARNs that this trust store is associated with.</p>
+   * @public
    */
   associatedPortalArns?: string[];
 
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 }
@@ -2708,8 +2708,8 @@ export interface TrustStore {
  */
 export interface GetTrustStoreResponse {
   /**
-   * @public
    * <p>The trust store.</p>
+   * @public
    */
   trustStore?: TrustStore;
 }
@@ -2719,56 +2719,56 @@ export interface GetTrustStoreResponse {
  */
 export interface GetTrustStoreCertificateRequest {
   /**
-   * @public
    * <p>The ARN of the trust store certificate.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 
   /**
-   * @public
    * <p>The thumbprint of the trust store certificate.</p>
+   * @public
    */
   thumbprint: string | undefined;
 }
 
 /**
- * @public
  * <p>The certificate.</p>
+ * @public
  */
 export interface Certificate {
   /**
-   * @public
    * <p>A hexadecimal identifier for the certificate.</p>
+   * @public
    */
   thumbprint?: string;
 
   /**
-   * @public
    * <p>The entity the certificate belongs to.</p>
+   * @public
    */
   subject?: string;
 
   /**
-   * @public
    * <p>The entity that issued the certificate.</p>
+   * @public
    */
   issuer?: string;
 
   /**
-   * @public
    * <p>The certificate is not valid before this date.</p>
+   * @public
    */
   notValidBefore?: Date;
 
   /**
-   * @public
    * <p>The certificate is not valid after this date.</p>
+   * @public
    */
   notValidAfter?: Date;
 
   /**
-   * @public
    * <p>The body of the certificate.</p>
+   * @public
    */
   body?: Uint8Array;
 }
@@ -2778,14 +2778,14 @@ export interface Certificate {
  */
 export interface GetTrustStoreCertificateResponse {
   /**
-   * @public
    * <p>The ARN of the trust store certificate.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 
   /**
-   * @public
    * <p>The certificate of the trust store certificate.</p>
+   * @public
    */
   certificate?: Certificate;
 }
@@ -2795,20 +2795,20 @@ export interface GetTrustStoreCertificateResponse {
  */
 export interface ListTrustStoreCertificatesRequest {
   /**
-   * @public
    * <p>The ARN of the trust store</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2818,20 +2818,20 @@ export interface ListTrustStoreCertificatesRequest {
  */
 export interface ListTrustStoreCertificatesResponse {
   /**
-   * @public
    * <p>The certificate list.</p>
+   * @public
    */
   certificateList?: CertificateSummary[];
 
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.&gt;</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2841,26 +2841,26 @@ export interface ListTrustStoreCertificatesResponse {
  */
 export interface ListTrustStoresRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The summary of the trust store.</p>
+ * @public
  */
 export interface TrustStoreSummary {
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn?: string;
 }
@@ -2870,14 +2870,14 @@ export interface TrustStoreSummary {
  */
 export interface ListTrustStoresResponse {
   /**
-   * @public
    * <p>The trust stores.</p>
+   * @public
    */
   trustStores?: TrustStoreSummary[];
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2887,31 +2887,31 @@ export interface ListTrustStoresResponse {
  */
 export interface UpdateTrustStoreRequest {
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of CA certificates to add to the trust store.</p>
+   * @public
    */
   certificatesToAdd?: Uint8Array[];
 
   /**
-   * @public
    * <p>A list of CA certificates to delete from a trust store.</p>
+   * @public
    */
   certificatesToDelete?: string[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token return the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2921,8 +2921,8 @@ export interface UpdateTrustStoreRequest {
  */
 export interface UpdateTrustStoreResponse {
   /**
-   * @public
    * <p>The ARN of the trust store.</p>
+   * @public
    */
   trustStoreArn: string | undefined;
 }
@@ -2932,14 +2932,14 @@ export interface UpdateTrustStoreResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of tag keys to remove from the resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -2954,25 +2954,25 @@ export interface UntagResourceResponse {}
  */
 export interface CreateUserAccessLoggingSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the Kinesis stream.</p>
+   * @public
    */
   kinesisStreamArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2982,8 +2982,8 @@ export interface CreateUserAccessLoggingSettingsRequest {
  */
 export interface CreateUserAccessLoggingSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 }
@@ -2993,8 +2993,8 @@ export interface CreateUserAccessLoggingSettingsResponse {
  */
 export interface DeleteUserAccessLoggingSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 }
@@ -3009,32 +3009,32 @@ export interface DeleteUserAccessLoggingSettingsResponse {}
  */
 export interface GetUserAccessLoggingSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 }
 
 /**
- * @public
  * <p>A user access logging settings resource that can be associated with a web portal.</p>
+ * @public
  */
 export interface UserAccessLoggingSettings {
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of web portal ARNs that this user access logging settings is associated with.</p>
+   * @public
    */
   associatedPortalArns?: string[];
 
   /**
-   * @public
    * <p>The ARN of the Kinesis stream.</p>
+   * @public
    */
   kinesisStreamArn?: string;
 }
@@ -3044,8 +3044,8 @@ export interface UserAccessLoggingSettings {
  */
 export interface GetUserAccessLoggingSettingsResponse {
   /**
-   * @public
    * <p>The user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettings?: UserAccessLoggingSettings;
 }
@@ -3055,32 +3055,32 @@ export interface GetUserAccessLoggingSettingsResponse {
  */
 export interface ListUserAccessLoggingSettingsRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The summary of user access logging settings.</p>
+ * @public
  */
 export interface UserAccessLoggingSettingsSummary {
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the Kinesis stream.</p>
+   * @public
    */
   kinesisStreamArn?: string;
 }
@@ -3090,14 +3090,14 @@ export interface UserAccessLoggingSettingsSummary {
  */
 export interface ListUserAccessLoggingSettingsResponse {
   /**
-   * @public
    * <p>The user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettings?: UserAccessLoggingSettingsSummary[];
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3107,25 +3107,25 @@ export interface ListUserAccessLoggingSettingsResponse {
  */
 export interface UpdateUserAccessLoggingSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the Kinesis stream.</p>
+   * @public
    */
   kinesisStreamArn?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token return the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3135,50 +3135,50 @@ export interface UpdateUserAccessLoggingSettingsRequest {
  */
 export interface UpdateUserAccessLoggingSettingsResponse {
   /**
-   * @public
    * <p>The user access logging settings.</p>
+   * @public
    */
   userAccessLoggingSettings: UserAccessLoggingSettings | undefined;
 }
 
 /**
- * @public
  * <p>Specifies a single cookie or set of cookies in an end user's browser.</p>
+ * @public
  */
 export interface CookieSpecification {
   /**
-   * @public
    * <p>The domain of the cookie.</p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>The name of the cookie.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The path of the cookie.</p>
+   * @public
    */
   path?: string;
 }
 
 /**
- * @public
  * <p>The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.</p>
+ * @public
  */
 export interface CookieSynchronizationConfiguration {
   /**
-   * @public
    * <p>The list of cookie specifications that are allowed to be synchronized to the remote browser.</p>
+   * @public
    */
   allowlist: CookieSpecification[] | undefined;
 
   /**
-   * @public
    * <p>The list of cookie specifications that are blocked from being synchronized to the remote browser.</p>
+   * @public
    */
   blocklist?: CookieSpecification[];
 }
@@ -3202,83 +3202,83 @@ export type EnabledType = (typeof EnabledType)[keyof typeof EnabledType];
  */
 export interface CreateUserSettingsRequest {
   /**
-   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
+   * @public
    */
   copyAllowed: EnabledType | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
+   * @public
    */
   pasteAllowed: EnabledType | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
+   * @public
    */
   downloadAllowed: EnabledType | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
+   * @public
    */
   uploadAllowed: EnabledType | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user can print to the local device.</p>
+   * @public
    */
   printAllowed: EnabledType | undefined;
 
   /**
-   * @public
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
+   * @public
    */
   tags?: Tag[];
 
   /**
-   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   * @public
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   * @public
    */
   idleDisconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token returns the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.</p>
+   * @public
    */
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
 
   /**
-   * @public
    * <p>The customer managed key used to encrypt sensitive information in the user settings.</p>
+   * @public
    */
   customerManagedKey?: string;
 
   /**
-   * @public
    * <p>The additional encryption context of the user settings.</p>
+   * @public
    */
   additionalEncryptionContext?: Record<string, string>;
 }
@@ -3288,8 +3288,8 @@ export interface CreateUserSettingsRequest {
  */
 export interface CreateUserSettingsResponse {
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 }
@@ -3299,8 +3299,8 @@ export interface CreateUserSettingsResponse {
  */
 export interface DeleteUserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 }
@@ -3315,80 +3315,80 @@ export interface DeleteUserSettingsResponse {}
  */
 export interface GetUserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 }
 
 /**
- * @public
  * <p>A user settings resource that can be associated with a web portal. Once associated with
  *          a web portal, user settings control how users can transfer data between a streaming session
  *          and the their local devices. </p>
+ * @public
  */
 export interface UserSettings {
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of web portal ARNs that this user settings is associated with.</p>
+   * @public
    */
   associatedPortalArns?: string[];
 
   /**
-   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
+   * @public
    */
   copyAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
+   * @public
    */
   pasteAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
+   * @public
    */
   downloadAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
+   * @public
    */
   uploadAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can print to the local device.</p>
+   * @public
    */
   printAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   * @public
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   * @public
    */
   idleDisconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.</p>
+   * @public
    */
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
 }
@@ -3398,8 +3398,8 @@ export interface UserSettings {
  */
 export interface GetUserSettingsResponse {
   /**
-   * @public
    * <p>The user settings.</p>
+   * @public
    */
   userSettings?: UserSettings;
 }
@@ -3409,78 +3409,78 @@ export interface GetUserSettingsResponse {
  */
 export interface ListUserSettingsRequest {
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be included in the next page.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The summary of user settings.</p>
+ * @public
  */
 export interface UserSettingsSummary {
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
+   * @public
    */
   copyAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
+   * @public
    */
   pasteAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
+   * @public
    */
   downloadAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
+   * @public
    */
   uploadAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can print to the local device.</p>
+   * @public
    */
   printAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   * @public
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   * @public
    */
   idleDisconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.</p>
+   * @public
    */
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
 }
@@ -3490,14 +3490,14 @@ export interface UserSettingsSummary {
  */
 export interface ListUserSettingsResponse {
   /**
-   * @public
    * <p>The user settings.</p>
+   * @public
    */
   userSettings?: UserSettingsSummary[];
 
   /**
-   * @public
    * <p>The pagination token used to retrieve the next page of results for this operation. </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3507,72 +3507,72 @@ export interface ListUserSettingsResponse {
  */
 export interface UpdateUserSettingsRequest {
   /**
-   * @public
    * <p>The ARN of the user settings.</p>
+   * @public
    */
   userSettingsArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
+   * @public
    */
   copyAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
+   * @public
    */
   pasteAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
+   * @public
    */
   downloadAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
+   * @public
    */
   uploadAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>Specifies whether the user can print to the local device.</p>
+   * @public
    */
   printAllowed?: EnabledType;
 
   /**
-   * @public
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   * @public
    */
   disconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   * @public
    */
   idleDisconnectTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
    *          client token return the result from the original successful request. </p>
    *          <p>If you do not specify a client token, one is automatically generated by the AWS
    *          SDK.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.</p>
    *          <p>If the allowlist and blocklist are empty, the configuration becomes null.</p>
+   * @public
    */
   cookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
 }
@@ -3582,8 +3582,8 @@ export interface UpdateUserSettingsRequest {
  */
 export interface UpdateUserSettingsResponse {
   /**
-   * @public
    * <p>The user settings.</p>
+   * @public
    */
   userSettings: UserSettings | undefined;
 }

@@ -32,7 +32,6 @@ export interface DisassociateInstanceEventWindowCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates one or more targets from an event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -110,6 +109,7 @@ export interface DisassociateInstanceEventWindowCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateInstanceEventWindowCommand extends $Command
   .classBuilder<

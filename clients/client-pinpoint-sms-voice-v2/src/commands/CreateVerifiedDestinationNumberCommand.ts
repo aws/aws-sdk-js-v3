@@ -36,7 +36,6 @@ export interface CreateVerifiedDestinationNumberCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>You can only send messages to verified destination numbers when your account is in the sandbox. You can add up to 10 verified destination
  *             numbers.</p>
  * @example
@@ -106,6 +105,7 @@ export interface CreateVerifiedDestinationNumberCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateVerifiedDestinationNumberCommand extends $Command
   .classBuilder<

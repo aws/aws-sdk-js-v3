@@ -27,7 +27,6 @@ export interface DeleteSpeakerCommandInput extends DeleteSpeakerRequest {}
 export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified speaker from Voice ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DeleteSpeakerCommand extends $Command
   .classBuilder<

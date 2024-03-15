@@ -27,7 +27,6 @@ export interface BatchRevokePermissionsCommandInput extends BatchRevokePermissio
 export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Batch operation to revoke permissions from the principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -204,6 +203,7 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class BatchRevokePermissionsCommand extends $Command
   .classBuilder<

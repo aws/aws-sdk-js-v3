@@ -27,7 +27,6 @@ export interface ListOpsItemEventsCommandInput extends ListOpsItemEventsRequest 
 export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all OpsItem events in the current Amazon Web Services Region and Amazon Web Services account. You can
  *    limit the results to events associated with specific OpsItems by specifying a filter.</p>
  * @example
@@ -92,6 +91,7 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListOpsItemEventsCommand extends $Command
   .classBuilder<

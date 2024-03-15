@@ -31,7 +31,6 @@ export interface ListAssetContractsCommandInput extends ListAssetContractsInput 
 export interface ListAssetContractsCommandOutput extends ListAssetContractsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the contracts for a given contract type deployed by an address
  *          (either a contract address or a wallet address).</p>
  *          <p>The Bitcoin blockchain networks do not support this
@@ -96,6 +95,7 @@ export interface ListAssetContractsCommandOutput extends ListAssetContractsOutpu
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class ListAssetContractsCommand extends $Command
   .classBuilder<

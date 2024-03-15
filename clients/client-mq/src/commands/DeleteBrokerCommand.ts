@@ -27,7 +27,6 @@ export interface DeleteBrokerCommandInput extends DeleteBrokerRequest {}
 export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a broker. Note: This API is asynchronous.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class DeleteBrokerCommand extends $Command
   .classBuilder<

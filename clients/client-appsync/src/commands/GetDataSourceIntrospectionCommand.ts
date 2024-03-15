@@ -27,7 +27,6 @@ export interface GetDataSourceIntrospectionCommandInput extends GetDataSourceInt
 export interface GetDataSourceIntrospectionCommandOutput extends GetDataSourceIntrospectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the record of an existing introspection. If the retrieval is successful, the result of the
  *          instrospection will also be returned. If the retrieval fails the operation, an error message will be returned
  *          instead.</p>
@@ -116,6 +115,7 @@ export interface GetDataSourceIntrospectionCommandOutput extends GetDataSourceIn
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetDataSourceIntrospectionCommand extends $Command
   .classBuilder<

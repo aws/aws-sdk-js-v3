@@ -27,7 +27,6 @@ export interface GetTableVersionsCommandInput extends GetTableVersionsRequest {}
 export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of strings that identify available versions of
  *       a specified table.</p>
  * @example
@@ -176,6 +175,7 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetTableVersionsCommand extends $Command
   .classBuilder<

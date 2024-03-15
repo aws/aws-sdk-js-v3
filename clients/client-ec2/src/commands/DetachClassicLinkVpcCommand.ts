@@ -27,7 +27,6 @@ export interface DetachClassicLinkVpcCommandInput extends DetachClassicLinkVpcRe
 export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
@@ -62,6 +61,7 @@ export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DetachClassicLinkVpcCommand extends $Command
   .classBuilder<

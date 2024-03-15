@@ -27,7 +27,6 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotInput {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a snapshot of a volume.</p>
  *          <p>Storage Gateway provides the ability to back up point-in-time snapshots of your
  *          data to Amazon Simple Storage (Amazon S3) for durable off-site recovery, and also
@@ -98,6 +97,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To create a snapshot of a gateway volume
  * ```javascript
  * // Initiates an ad-hoc snapshot of a gateway volume.

@@ -27,7 +27,6 @@ export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetector
 export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * 			Deletes the specified anomaly detection model
  * 			from your account.
@@ -117,6 +116,7 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DeleteAnomalyDetectorCommand extends $Command
   .classBuilder<

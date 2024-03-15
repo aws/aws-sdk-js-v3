@@ -27,7 +27,6 @@ export interface ListSpacesCommandInput extends ListSpacesRequest {}
 export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists spaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListSpacesCommand extends $Command
   .classBuilder<

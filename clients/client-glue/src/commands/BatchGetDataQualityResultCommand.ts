@@ -27,7 +27,6 @@ export interface BatchGetDataQualityResultCommandInput extends BatchGetDataQuali
 export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQualityResultResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of data quality results for the specified result IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchGetDataQualityResultCommand extends $Command
   .classBuilder<

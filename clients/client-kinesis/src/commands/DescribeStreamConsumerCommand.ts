@@ -27,7 +27,6 @@ export interface DescribeStreamConsumerCommandInput extends DescribeStreamConsum
 export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsumerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>To get the description of a registered consumer, provide the ARN of the consumer.
  *             Alternatively, you can provide the ARN of the data stream and the name you gave the
  *             consumer when you registered it. You may also provide all three parameters, as long as
@@ -85,6 +84,7 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DescribeStreamConsumerCommand extends $Command
   .classBuilder<

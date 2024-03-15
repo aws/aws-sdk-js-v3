@@ -27,7 +27,6 @@ export interface GetBucketRequestPaymentCommandInput extends GetBucketRequestPay
 export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPaymentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -69,6 +68,7 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To get bucket versioning configuration
  * ```javascript
  * // The following example retrieves bucket versioning configuration.

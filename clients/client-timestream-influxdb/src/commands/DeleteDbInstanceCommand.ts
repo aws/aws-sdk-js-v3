@@ -31,7 +31,6 @@ export interface DeleteDbInstanceCommandInput extends DeleteDbInstanceInput {}
 export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Timestream for InfluxDB DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * @public
  */
 export class DeleteDbInstanceCommand extends $Command
   .classBuilder<

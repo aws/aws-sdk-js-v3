@@ -35,7 +35,6 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
  *          Alternatively, you can filter the results.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command
   .classBuilder<

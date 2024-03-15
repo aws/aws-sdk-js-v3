@@ -27,7 +27,6 @@ export interface ListMigrationTasksCommandInput extends ListMigrationTasksReques
 export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all, or filtered by resource name, migration tasks associated with the user
  *          account making this call. This API has the following traits:</p>
  *          <ul>
@@ -111,6 +110,7 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class ListMigrationTasksCommand extends $Command
   .classBuilder<

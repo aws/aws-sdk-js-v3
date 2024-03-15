@@ -32,7 +32,6 @@ export interface DescribeMetricCollectionTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the Auto Scaling metric collection types
  * ```javascript
  * // This example describes the available metric collection types.

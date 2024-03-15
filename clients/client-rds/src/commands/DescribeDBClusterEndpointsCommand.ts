@@ -27,7 +27,6 @@ export interface DescribeDBClusterEndpointsCommandInput extends DescribeDBCluste
 export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpointMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about endpoints for an Amazon Aurora DB cluster.</p>
  *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
@@ -91,6 +90,7 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe DB cluster endpoints
  * ```javascript
  * // The following example retrieves details for your DB cluster endpoints. The most common kinds of Aurora clusters have two endpoints. One endpoint has type WRITER. You can use this endpoint for all SQL statements. The other endpoint has type READER. You can use this endpoint only for SELECT and other read-only SQL statements.

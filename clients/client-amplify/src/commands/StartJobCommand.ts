@@ -27,7 +27,6 @@ export interface StartJobCommandInput extends StartJobRequest {}
 export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Starts a new job for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class StartJobCommand extends $Command
   .classBuilder<

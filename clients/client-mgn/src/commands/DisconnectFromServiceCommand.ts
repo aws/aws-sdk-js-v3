@@ -27,7 +27,6 @@ export interface DisconnectFromServiceCommandInput extends DisconnectFromService
 export interface DisconnectFromServiceCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communicating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -180,6 +179,7 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DisconnectFromServiceCommand extends $Command
   .classBuilder<

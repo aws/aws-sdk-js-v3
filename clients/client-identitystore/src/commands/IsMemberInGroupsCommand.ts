@@ -31,7 +31,6 @@ export interface IsMemberInGroupsCommandInput extends IsMemberInGroupsRequest {}
 export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p>
  *          <note>
  *             <p>If you have administrator access to a member account, you can use this API from the member account.
@@ -93,6 +92,7 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class IsMemberInGroupsCommand extends $Command
   .classBuilder<

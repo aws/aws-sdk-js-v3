@@ -27,9 +27,6 @@ export interface DescribeInterconnectLoaCommandInput extends DescribeInterconnec
 export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconnectLoaResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
  *          <p>Gets the LOA-CFA for the specified interconnect.</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to Amazon Web Services at the colocation facility.
@@ -72,6 +69,8 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class DescribeInterconnectLoaCommand extends $Command
   .classBuilder<

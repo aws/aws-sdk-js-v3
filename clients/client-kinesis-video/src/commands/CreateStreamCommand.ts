@@ -27,7 +27,6 @@ export interface CreateStreamCommandInput extends CreateStreamInput {}
 export interface CreateStreamCommandOutput extends CreateStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Kinesis video stream. </p>
  *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
  *             When you change the stream's metadata, Kinesis Video Streams updates the version. </p>
@@ -110,6 +109,7 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class CreateStreamCommand extends $Command
   .classBuilder<

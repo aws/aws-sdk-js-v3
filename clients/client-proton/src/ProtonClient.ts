@@ -687,7 +687,6 @@ export type ProtonClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface ProtonClientResolvedConfig extends ProtonClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This is the Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the
  *     <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the Proton
  *    service.</p>
@@ -817,6 +816,7 @@ export interface ProtonClientResolvedConfig extends ProtonClientResolvedConfigTy
  *                <p>DeleteService</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class ProtonClient extends __Client<
   __HttpHandlerOptions,

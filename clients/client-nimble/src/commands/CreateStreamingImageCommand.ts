@@ -32,7 +32,6 @@ export interface CreateStreamingImageCommandInput extends CreateStreamingImageRe
 export interface CreateStreamingImageCommandOutput extends CreateStreamingImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a streaming image resource in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface CreateStreamingImageCommandOutput extends CreateStreamingImageR
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class CreateStreamingImageCommand extends $Command
   .classBuilder<

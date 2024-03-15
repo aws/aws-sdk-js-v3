@@ -36,7 +36,6 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60
  *             seconds, which gives you 60 seconds to establish a serial console connection to the
  *             instance using SSH. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html">EC2 Serial Console</a> in
@@ -112,6 +111,7 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * @throws {@link EC2InstanceConnectServiceException}
  * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
+ * @public
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command
   .classBuilder<

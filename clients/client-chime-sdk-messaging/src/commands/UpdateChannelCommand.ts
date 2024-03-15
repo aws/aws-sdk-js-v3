@@ -35,7 +35,6 @@ export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a channel's attributes.</p>
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's privacy. </p>
@@ -96,6 +95,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class UpdateChannelCommand extends $Command
   .classBuilder<

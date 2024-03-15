@@ -36,7 +36,6 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a source identifier from an existing Amazon DocumentDB event notification
  *             subscription.</p>
  * @example
@@ -87,6 +86,7 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command
   .classBuilder<

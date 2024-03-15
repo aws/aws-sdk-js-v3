@@ -27,7 +27,6 @@ export interface ListMembersCommandInput extends ListMembersInput {}
 export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all members within a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListMembersCommand extends $Command
   .classBuilder<

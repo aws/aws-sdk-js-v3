@@ -27,7 +27,6 @@ export interface CreateDocumentClassifierCommandInput extends CreateDocumentClas
 export interface CreateDocumentClassifierCommandOutput extends CreateDocumentClassifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new document classifier that you can use to categorize documents. To create a
  *       classifier, you provide a set of training documents that are labeled with the categories that you
  *       want to use. For more information, see
@@ -148,6 +147,7 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class CreateDocumentClassifierCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
 export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a place index resource in your Amazon Web Services account. Use a place index resource to
  *             geocode addresses and other text queries by using the
  *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
@@ -96,6 +95,7 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CreatePlaceIndexCommand extends $Command
   .classBuilder<

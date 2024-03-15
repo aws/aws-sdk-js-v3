@@ -577,7 +577,6 @@ export type CloudWatchLogsClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface CloudWatchLogsClientResolvedConfig extends CloudWatchLogsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from
  *       EC2 instances, CloudTrail, and other sources. You can then retrieve the associated
  *       log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use
@@ -613,6 +612,7 @@ export interface CloudWatchLogsClientResolvedConfig extends CloudWatchLogsClient
  *           into the log service. You can then access the raw log data when you need it.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CloudWatchLogsClient extends __Client<
   __HttpHandlerOptions,

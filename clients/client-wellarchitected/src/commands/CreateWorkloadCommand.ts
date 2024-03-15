@@ -27,7 +27,6 @@ export interface CreateWorkloadCommandInput extends CreateWorkloadInput {}
 export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new workload.</p>
  *          <p>The owner of a workload can share the workload with other Amazon Web Services accounts, users,
  *             an organization, and organizational units (OUs)
@@ -153,6 +152,7 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class CreateWorkloadCommand extends $Command
   .classBuilder<

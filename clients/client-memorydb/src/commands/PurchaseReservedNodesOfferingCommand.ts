@@ -32,7 +32,6 @@ export interface PurchaseReservedNodesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class PurchaseReservedNodesOfferingCommand extends $Command
   .classBuilder<

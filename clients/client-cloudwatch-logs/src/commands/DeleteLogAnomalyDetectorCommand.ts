@@ -27,7 +27,6 @@ export interface DeleteLogAnomalyDetectorCommandInput extends DeleteLogAnomalyDe
 export interface DeleteLogAnomalyDetectorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified CloudWatch Logs anomaly detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteLogAnomalyDetectorCommandOutput extends __MetadataBearer 
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteLogAnomalyDetectorCommand extends $Command
   .classBuilder<

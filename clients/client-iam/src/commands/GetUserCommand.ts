@@ -27,7 +27,6 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified IAM user, including the user's creation
  *             date, path, unique ID, and ARN.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
@@ -83,6 +82,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To get information about an IAM user
  * ```javascript
  * // The following command gets information about the IAM user named Bob.

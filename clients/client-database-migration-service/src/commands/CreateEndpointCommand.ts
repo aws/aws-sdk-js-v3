@@ -36,7 +36,6 @@ export interface CreateEndpointCommandInput extends CreateEndpointMessage {}
 export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an endpoint using the provided settings.</p>
  *          <note>
  *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
@@ -796,6 +795,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Create endpoint
  * ```javascript
  * // Creates an endpoint using the provided settings.

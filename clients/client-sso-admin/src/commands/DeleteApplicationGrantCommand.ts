@@ -27,7 +27,6 @@ export interface DeleteApplicationGrantCommandInput extends DeleteApplicationGra
 export interface DeleteApplicationGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a grant from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteApplicationGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteApplicationGrantCommand extends $Command
   .classBuilder<

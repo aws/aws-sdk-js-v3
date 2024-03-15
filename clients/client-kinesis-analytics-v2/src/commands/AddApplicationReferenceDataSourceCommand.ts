@@ -39,7 +39,6 @@ export interface AddApplicationReferenceDataSourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.</p>
  *          <p>Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an
  *       in-application table within your application. In the request, you provide the source (S3
@@ -153,6 +152,7 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command
   .classBuilder<

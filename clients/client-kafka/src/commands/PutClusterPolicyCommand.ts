@@ -27,7 +27,6 @@ export interface PutClusterPolicyCommandInput extends PutClusterPolicyRequest {}
 export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the MSK cluster policy specified by the cluster Amazon Resource Name (ARN) in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class PutClusterPolicyCommand extends $Command
   .classBuilder<

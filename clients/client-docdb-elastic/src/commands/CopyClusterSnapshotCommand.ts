@@ -27,7 +27,6 @@ export interface CopyClusterSnapshotCommandInput extends CopyClusterSnapshotInpu
 export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies a snapshot of an elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOut
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class CopyClusterSnapshotCommand extends $Command
   .classBuilder<

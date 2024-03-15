@@ -27,7 +27,6 @@ export interface CreateAccessCommandInput extends CreateAccessRequest {}
 export interface CreateAccessCommandOutput extends CreateAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by administrators to choose which groups in the directory should have access to
  *       upload and download files over the enabled protocols using Transfer Family. For example, a
  *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
@@ -96,6 +95,7 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class CreateAccessCommand extends $Command
   .classBuilder<

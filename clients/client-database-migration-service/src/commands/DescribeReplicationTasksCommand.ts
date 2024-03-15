@@ -31,7 +31,6 @@ export interface DescribeReplicationTasksCommandInput extends DescribeReplicatio
 export interface DescribeReplicationTasksCommandOutput extends DescribeReplicationTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about replication tasks for your account in the current
  *          region.</p>
  * @example
@@ -108,6 +107,7 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe replication tasks
  * ```javascript
  * // Returns information about replication tasks for your account in the current region.

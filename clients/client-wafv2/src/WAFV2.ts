@@ -1100,7 +1100,6 @@ export interface WAFV2 {
 }
 
 /**
- * @public
  * <fullname>WAF</fullname>
  *          <note>
  *             <p>This is the latest version of the <b>WAF</b> API,
@@ -1159,6 +1158,7 @@ export interface WAFV2 {
  *                maximum cost of a rule group when you use it.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class WAFV2 extends WAFV2Client implements WAFV2 {}
 createAggregatedClient(commands, WAFV2);

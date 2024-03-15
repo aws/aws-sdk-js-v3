@@ -31,7 +31,6 @@ export interface GetGroupCommandInput extends GetGroupRequest {}
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a group.</p>
  *          <p>Calling this action requires developer credentials.</p>
  * @example
@@ -87,6 +86,7 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetGroupCommand extends $Command
   .classBuilder<

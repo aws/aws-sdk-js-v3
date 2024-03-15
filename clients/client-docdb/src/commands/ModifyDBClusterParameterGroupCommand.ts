@@ -32,7 +32,6 @@ export interface ModifyDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Modifies the parameters of a cluster parameter group. To modify more than one
  *             parameter, submit a list of the following: <code>ParameterName</code>,
  *                 <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20
@@ -99,6 +98,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class ModifyDBClusterParameterGroupCommand extends $Command
   .classBuilder<

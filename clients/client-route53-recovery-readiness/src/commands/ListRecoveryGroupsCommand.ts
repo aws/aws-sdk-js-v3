@@ -31,7 +31,6 @@ export interface ListRecoveryGroupsCommandInput extends ListRecoveryGroupsReques
 export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the recovery groups in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsRespo
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class ListRecoveryGroupsCommand extends $Command
   .classBuilder<

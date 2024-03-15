@@ -27,7 +27,6 @@ export interface CloneStackCommandInput extends CloneStackRequest {}
 export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a clone of a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html">Clone a
  *         Stack</a>. By default, all parameters are set to the values used by the parent stack.</p>
  *          <p>
@@ -104,6 +103,7 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class CloneStackCommand extends $Command
   .classBuilder<
