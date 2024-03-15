@@ -28,7 +28,7 @@ export interface GetConferenceProviderCommandOutput extends GetConferenceProvide
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets details about a specific conference provider.</p>
  * @example

@@ -28,7 +28,7 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Deletes a permission group. This action is irreversible.</p>
  * @example

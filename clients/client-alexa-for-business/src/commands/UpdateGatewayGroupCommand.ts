@@ -28,7 +28,7 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates the details of a gateway group. If any optional field is not provided, the
  *          existing corresponding value is left unmodified.</p>

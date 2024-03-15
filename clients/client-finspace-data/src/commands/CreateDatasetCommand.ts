@@ -32,7 +32,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Creates a new FinSpace Dataset.</p>
  * @example

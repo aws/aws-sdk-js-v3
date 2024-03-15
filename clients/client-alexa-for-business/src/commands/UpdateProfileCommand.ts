@@ -28,7 +28,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates an existing room profile by room profile ARN.</p>
  * @example

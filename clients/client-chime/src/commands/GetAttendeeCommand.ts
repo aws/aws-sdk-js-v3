@@ -28,7 +28,7 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetAttendee in the Amazon Chime SDK Meetings Namespace
  *
  * <p>
  * Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see

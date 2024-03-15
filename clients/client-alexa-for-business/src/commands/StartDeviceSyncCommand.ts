@@ -28,7 +28,7 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Resets a device and its account to the known default settings. This clears all
  *          information and settings set by previous users in the following ways:</p>

@@ -28,7 +28,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Provides information about a user's device.</p>
  * @example

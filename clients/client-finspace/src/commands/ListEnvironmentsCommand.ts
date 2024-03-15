@@ -28,7 +28,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>A list of all of your FinSpace environments.</p>
  * @example

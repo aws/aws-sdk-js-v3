@@ -33,7 +33,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListTagsForResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces
  *
  * <p>Lists the tags applied to an Amazon Chime SDK meeting and messaging resources.</p>
  *          <important>

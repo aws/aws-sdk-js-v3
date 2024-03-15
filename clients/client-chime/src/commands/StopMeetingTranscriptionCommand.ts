@@ -28,7 +28,7 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace
  *
  * <p>Stops transcription for the specified <code>meetingId</code>.</p>
  *          <important>

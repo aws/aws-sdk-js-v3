@@ -28,7 +28,7 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates the details of a gateway. If any optional field is not provided, the existing
  *          corresponding value is left unmodified.</p>

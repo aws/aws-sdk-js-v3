@@ -28,7 +28,7 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateVoiceConnector in the Amazon Chime SDK Voice Namespace
  *
  * <p>Updates details for the specified Amazon Chime Voice Connector.</p>
  *          <important>

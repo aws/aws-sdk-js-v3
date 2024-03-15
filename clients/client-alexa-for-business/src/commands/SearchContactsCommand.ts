@@ -32,7 +32,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Searches contacts and lists the ones that meet a set of filter and sort
  *          criteria.</p>

@@ -37,7 +37,7 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace
  *
  * <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice Connector.
  *             Shows whether media streaming is enabled for sending to Amazon Kinesis. It also shows

@@ -33,7 +33,7 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateSipMediaApplication in the Amazon Chime SDK Voice Namespace
  *
  * <p>Updates the details of the specified SIP media application.</p>
  *          <important>

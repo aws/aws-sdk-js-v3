@@ -32,7 +32,7 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateAppInstance in the Amazon Chime SDK Identity Namespace
  *
  * <p>Updates <code>AppInstance</code> metadata.</p>
  *          <important>

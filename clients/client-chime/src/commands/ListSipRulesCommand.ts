@@ -28,7 +28,7 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListSipRules in the Amazon Chime SDK Voice Namespace
  *
  * <p>Lists the SIP rules under the administrator's AWS account.</p>
  *          <important>

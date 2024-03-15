@@ -28,7 +28,7 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is no longer supported.
  *
  * <p>Get the position information for a given resource.</p>
  *          <important>

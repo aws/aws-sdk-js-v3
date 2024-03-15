@@ -30,7 +30,7 @@ export interface AssociateSkillGroupWithRoomCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Associates a skill group with a given room. This enables all skills in the associated
  *          skill group on all devices in the room.</p>

@@ -28,7 +28,7 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is deprecated, use BatchGetDeploymentTargets instead.
  *
  * <note>
  *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>

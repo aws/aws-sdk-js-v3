@@ -28,7 +28,7 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  *
  * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
  *          <important>

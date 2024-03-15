@@ -28,7 +28,7 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Updates domain metadata, such as DisplayName.</p>
  * @example

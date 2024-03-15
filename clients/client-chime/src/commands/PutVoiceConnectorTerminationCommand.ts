@@ -38,7 +38,7 @@ export interface PutVoiceConnectorTerminationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by PutVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
  *
  * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
  *          <note>

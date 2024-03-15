@@ -36,7 +36,7 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace
  *
  * <important>
  *             <p>

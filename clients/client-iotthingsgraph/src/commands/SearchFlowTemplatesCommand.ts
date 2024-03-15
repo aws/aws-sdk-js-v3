@@ -28,7 +28,7 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Searches for summary information about workflows.</p>
  * @example

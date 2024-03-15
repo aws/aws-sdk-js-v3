@@ -32,7 +32,7 @@ export interface GetPermissionGroupCommandOutput extends GetPermissionGroupRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Retrieves the details of a specific permission group.</p>
  * @example

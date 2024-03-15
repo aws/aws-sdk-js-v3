@@ -28,7 +28,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated This API has been deprecated, use AcceptAdministratorInvitation API instead.
  *
  * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
  *          <p>The Security Hub console continues to use <code>AcceptInvitation</code>. It will eventually change to use <code>AcceptAdministratorInvitation</code>. Any IAM policies that specifically control access to this function must continue to use <code>AcceptInvitation</code>. You should also add <code>AcceptAdministratorInvitation</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>AcceptAdministratorInvitation</code>.</p>

@@ -28,7 +28,7 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateSipRule in the Amazon Chime SDK Voice Namespace
  *
  * <p>Updates the details of the specified SIP rule.</p>
  *          <important>

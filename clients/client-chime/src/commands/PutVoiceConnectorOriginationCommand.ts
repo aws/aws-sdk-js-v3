@@ -33,7 +33,7 @@ export interface PutVoiceConnectorOriginationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by PutVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace
  *
  * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
  *          <note>

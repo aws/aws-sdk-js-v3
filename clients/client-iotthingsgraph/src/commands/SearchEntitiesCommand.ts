@@ -28,7 +28,7 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
  * @example

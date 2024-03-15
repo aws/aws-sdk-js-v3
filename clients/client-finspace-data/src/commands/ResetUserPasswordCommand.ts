@@ -32,7 +32,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.</p>
  * @example

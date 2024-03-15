@@ -37,7 +37,7 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetSipMediaApplicationLoggingConfiguration in the Amazon Chime SDK Voice Namespace
  *
  * <p>Returns the logging configuration for the specified SIP media application.</p>
  *          <important>

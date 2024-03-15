@@ -33,7 +33,7 @@ export interface AssociateSkillWithSkillGroupCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Associates a skill with a skill group.</p>
  * @example

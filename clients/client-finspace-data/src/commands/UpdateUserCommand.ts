@@ -28,7 +28,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Modifies the details of the specified user. You cannot update the <code>userId</code> for a user.</p>
  * @example

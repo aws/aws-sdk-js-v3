@@ -28,7 +28,7 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets the contact details by the contact ARN.</p>
  * @example

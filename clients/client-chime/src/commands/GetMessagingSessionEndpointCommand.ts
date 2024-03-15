@@ -33,7 +33,7 @@ export interface GetMessagingSessionEndpointCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetMessagingSessionEndpoint in the Amazon Chime SDK Messaging Namespace
  *
  * <p>The details of the endpoint for the messaging session.</p>
  *          <important>

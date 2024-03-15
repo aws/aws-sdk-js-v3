@@ -38,7 +38,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by AssociatePhoneNumbersWithVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  *
  * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
  *          <important>

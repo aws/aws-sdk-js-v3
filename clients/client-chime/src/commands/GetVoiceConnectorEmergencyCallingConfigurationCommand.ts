@@ -38,7 +38,7 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace
  *
  * <p>Gets the emergency calling configuration details for the specified Amazon Chime Voice Connector.</p>
  *          <important>

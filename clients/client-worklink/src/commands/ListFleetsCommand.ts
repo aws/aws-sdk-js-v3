@@ -28,7 +28,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Retrieves a list of fleets for the current account and Region.</p>
  * @example

@@ -37,7 +37,7 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorLoggingConfiguration in the Amazon Chime SDK Voice Namespace
  *
  * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to
  *     Amazon CloudWatch Logs.</p>

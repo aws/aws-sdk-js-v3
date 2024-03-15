@@ -28,7 +28,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateVoiceConnector in the Amazon Chime SDK Voice Namespace
  *
  * <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>
  *          <p>Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a>

@@ -28,7 +28,7 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListVoiceConnectors in the Amazon Chime SDK Voice Namespace
  *
  * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
  *          <important>

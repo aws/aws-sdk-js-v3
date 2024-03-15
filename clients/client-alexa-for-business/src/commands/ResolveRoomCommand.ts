@@ -28,7 +28,7 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Determines the details for the room from which a skill request was invoked. This
  *          operation is used by skill developers.</p>

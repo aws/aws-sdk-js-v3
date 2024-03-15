@@ -32,7 +32,7 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput 
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes the emergency calling configuration details from the specified Amazon Chime Voice Connector.</p>
  *          <important>

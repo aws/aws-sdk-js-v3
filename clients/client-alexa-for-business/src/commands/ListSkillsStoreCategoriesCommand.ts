@@ -28,7 +28,7 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Lists all categories in the Alexa skill store.</p>
  * @example

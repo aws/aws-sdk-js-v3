@@ -32,7 +32,7 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateChannelBan in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
  *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then

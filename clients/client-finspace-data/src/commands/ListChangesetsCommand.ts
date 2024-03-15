@@ -28,7 +28,7 @@ export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Lists the FinSpace Changesets for a Dataset.</p>
  * @example

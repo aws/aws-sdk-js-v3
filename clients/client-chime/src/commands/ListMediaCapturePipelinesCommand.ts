@@ -32,7 +32,7 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListMediaCapturePipelines in the Amazon Chime SDK Media Pipelines Namespace
  *
  * <p>Returns a list of media capture pipelines.</p>
  *          <important>

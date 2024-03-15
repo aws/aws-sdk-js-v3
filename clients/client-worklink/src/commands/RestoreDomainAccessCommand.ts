@@ -28,7 +28,7 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
  * @example

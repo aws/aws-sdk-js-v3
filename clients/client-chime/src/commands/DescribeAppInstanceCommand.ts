@@ -32,7 +32,7 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeAppInstance in the Amazon Chime SDK Identity Namespace
  *
  * <p>Returns the full details of an <code>AppInstance</code>.</p>
  *          <important>

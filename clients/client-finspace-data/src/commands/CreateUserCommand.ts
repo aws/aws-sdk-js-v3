@@ -28,7 +28,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Creates a new user in FinSpace.</p>
  * @example

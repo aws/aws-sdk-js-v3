@@ -28,7 +28,7 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Deletes a system instance.
  *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>

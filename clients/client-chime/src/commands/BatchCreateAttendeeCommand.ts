@@ -33,7 +33,7 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by BatchCreateAttendee in the Amazon Chime SDK Meetings Namespace
  *
  * <p>Creates up to 100 new attendees for an active Amazon Chime SDK meeting.</p>
  *          <important>

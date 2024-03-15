@@ -28,7 +28,7 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Returns information about a Dataset.</p>
  * @example

@@ -28,7 +28,7 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
  * @example

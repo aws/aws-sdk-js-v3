@@ -28,7 +28,7 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateSipRule in the Amazon Chime SDK Voice Namespace
  *
  * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a specific trigger type.</p>
  *          <important>

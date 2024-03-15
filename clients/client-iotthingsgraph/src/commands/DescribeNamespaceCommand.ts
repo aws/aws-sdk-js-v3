@@ -28,7 +28,7 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
  * @example

@@ -28,7 +28,7 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Lists conference providers under a specific AWS account.</p>
  * @example

@@ -28,7 +28,7 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Retrieves the details of a gateway group.</p>
  * @example

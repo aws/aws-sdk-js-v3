@@ -28,7 +28,7 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Searches for system instances in the user's account.</p>
  * @example

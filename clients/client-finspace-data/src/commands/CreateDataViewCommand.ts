@@ -28,7 +28,7 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Creates a Dataview for a Dataset.</p>
  * @example

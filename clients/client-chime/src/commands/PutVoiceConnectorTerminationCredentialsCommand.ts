@@ -35,7 +35,7 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by PutVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
  *
  * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
  *          <important>

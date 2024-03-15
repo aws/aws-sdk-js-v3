@@ -28,7 +28,7 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates the device name by device ARN.</p>
  * @example

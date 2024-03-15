@@ -37,7 +37,7 @@ export interface CreateSipMediaApplicationCallCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace
  *
  * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified
  * <code>sipMediaApplicationId</code>.</p>

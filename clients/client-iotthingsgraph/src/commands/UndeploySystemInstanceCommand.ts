@@ -28,7 +28,7 @@ export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInsta
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
  * @example

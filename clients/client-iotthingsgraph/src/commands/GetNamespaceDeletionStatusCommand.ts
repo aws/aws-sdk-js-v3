@@ -28,7 +28,7 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Gets the status of a namespace deletion task.</p>
  * @example

@@ -28,7 +28,7 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Deprecates the specified system.</p>
  * @example

@@ -33,7 +33,7 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListChannelBans in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Lists all the users banned from a particular channel.</p>
  *          <note>

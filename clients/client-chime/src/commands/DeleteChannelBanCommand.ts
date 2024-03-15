@@ -28,7 +28,7 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteChannelBan in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Removes a user from a channel's ban list.</p>
  *          <note>

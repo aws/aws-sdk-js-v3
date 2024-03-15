@@ -33,7 +33,7 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Disassociates a skill from a skill group.</p>
  * @example

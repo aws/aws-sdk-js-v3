@@ -28,7 +28,7 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets the details of a room profile by profile ARN.</p>
  * @example

@@ -28,7 +28,7 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>
  *          <p>For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2.

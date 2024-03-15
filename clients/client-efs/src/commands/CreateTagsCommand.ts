@@ -28,7 +28,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Use TagResource.
  *
  * <note>
  *             <p>DEPRECATED - <code>CreateTags</code> is deprecated and not maintained. To create tags for EFS

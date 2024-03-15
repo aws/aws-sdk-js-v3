@@ -28,7 +28,7 @@ export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteChannelMembership in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Removes a member from a channel.</p>
  *          <note>

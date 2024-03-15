@@ -28,7 +28,7 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p> Allows the specified user to access the FinSpace web application and API.</p>
  * @example

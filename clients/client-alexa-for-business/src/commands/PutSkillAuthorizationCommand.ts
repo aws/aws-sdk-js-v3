@@ -32,7 +32,7 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Links a user's account to a third-party skill provider. If this API operation is
  *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the

@@ -28,7 +28,7 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Updates fleet metadata, such as DisplayName.</p>
  * @example

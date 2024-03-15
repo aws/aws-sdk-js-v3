@@ -32,7 +32,7 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetChannelMessage in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Gets the full details of a channel message.</p>
  *          <note>

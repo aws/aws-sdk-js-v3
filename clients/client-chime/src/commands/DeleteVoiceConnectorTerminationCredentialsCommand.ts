@@ -35,7 +35,7 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
  *          <important>

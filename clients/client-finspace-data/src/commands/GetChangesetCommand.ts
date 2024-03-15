@@ -28,7 +28,7 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Get information about a Changeset.</p>
  * @example

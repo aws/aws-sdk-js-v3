@@ -28,7 +28,7 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes a skill group by skill group ARN.</p>
  * @example

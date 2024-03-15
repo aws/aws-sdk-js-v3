@@ -28,7 +28,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes a specified user by user ARN and enrollment ARN.</p>
  * @example

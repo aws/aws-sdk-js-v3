@@ -28,7 +28,7 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
  * @example

@@ -28,7 +28,7 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Updates a FinSpace Dataset.</p>
  * @example

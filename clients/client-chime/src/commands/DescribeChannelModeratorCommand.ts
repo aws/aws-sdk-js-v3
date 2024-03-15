@@ -32,7 +32,7 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeChannelModerator in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Returns the full details of a single ChannelModerator.</p>
  *          <note>

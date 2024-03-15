@@ -37,7 +37,7 @@ export interface BatchCreateChannelMembershipCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by BatchCreateChannelMembership in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Adds a specified number of users to a channel.</p>
  *          <important>

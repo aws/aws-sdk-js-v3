@@ -33,7 +33,7 @@ export interface CreateBusinessReportScheduleCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
  *          location with a specified daily or weekly interval.</p>

@@ -1165,7 +1165,7 @@ export interface ChimeClientResolvedConfig extends ChimeClientResolvedConfigType
 
 /**
  * @public
- * @deprecated
+ * @deprecated This namespace has been deprecated
  *
  * <important>
  *             <p>

@@ -757,7 +757,7 @@ export interface SMS {
 
 /**
  * @public
- * @deprecated
+ * @deprecated AWS Server Migration Service is Deprecated.
  *
  * <important>
  *             <p>

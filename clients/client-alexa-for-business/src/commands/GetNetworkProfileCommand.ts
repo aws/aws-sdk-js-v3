@@ -32,7 +32,7 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets the network profile details by the network profile ARN.</p>
  * @example

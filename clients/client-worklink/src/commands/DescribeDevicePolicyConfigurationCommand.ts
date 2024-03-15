@@ -36,7 +36,7 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Describes the device policy configuration for the specified fleet.</p>
  * @example

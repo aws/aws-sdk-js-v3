@@ -32,7 +32,7 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Lists all the permission groups that are associated with a specific user.</p>
  * @example

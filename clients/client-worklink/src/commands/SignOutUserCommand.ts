@@ -28,7 +28,7 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Signs the user out from all of their devices. The user can sign in again if they have
  *             valid credentials.</p>

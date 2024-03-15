@@ -28,7 +28,7 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Retrieves the details of a gateway.</p>
  * @example

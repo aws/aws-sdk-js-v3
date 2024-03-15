@@ -28,7 +28,7 @@ export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes the specified Amazon Chime Voice Connector group. Any
  * <code>VoiceConnectorItems</code>

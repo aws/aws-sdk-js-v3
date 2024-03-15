@@ -28,7 +28,7 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  *
  * <p>
  * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>

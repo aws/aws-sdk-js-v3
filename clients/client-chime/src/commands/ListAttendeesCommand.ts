@@ -32,7 +32,7 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListAttendees in the Amazon Chime SDK Meetings Namespace
  *
  * <p>
  * Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see

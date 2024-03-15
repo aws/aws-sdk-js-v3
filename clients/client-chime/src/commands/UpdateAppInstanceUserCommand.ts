@@ -32,7 +32,7 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateAppInstanceUser in the Amazon Chime SDK Identity Namespace
  *
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
  *          <important>

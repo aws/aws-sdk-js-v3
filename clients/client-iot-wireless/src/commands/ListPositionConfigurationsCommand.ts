@@ -28,7 +28,7 @@ export interface ListPositionConfigurationsCommandOutput extends ListPositionCon
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is no longer supported.
  *
  * <p>List position configurations for a given resource, such as positioning solvers.</p>
  *          <important>

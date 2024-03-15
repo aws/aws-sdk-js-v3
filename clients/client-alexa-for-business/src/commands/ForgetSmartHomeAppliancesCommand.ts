@@ -28,7 +28,7 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Forgets smart home appliances associated to a room.</p>
  * @example

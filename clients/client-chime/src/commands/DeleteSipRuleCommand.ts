@@ -28,7 +28,7 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteSipRule in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
  *          <important>

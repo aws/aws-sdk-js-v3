@@ -28,7 +28,7 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Creates a new Changeset in a FinSpace Dataset.</p>
  * @example

@@ -28,7 +28,7 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates a skill group with a specified name and description.</p>
  * @example

@@ -28,7 +28,7 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Please use the generic tagging API TagResource
  *
  * <important>
  *             <p>The TagLogGroup operation is on the path to deprecation. We recommend that you use

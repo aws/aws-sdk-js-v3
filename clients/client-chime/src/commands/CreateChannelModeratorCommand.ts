@@ -32,7 +32,7 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateChannelModerator in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
  *          <ul>

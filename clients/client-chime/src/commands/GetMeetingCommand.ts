@@ -28,7 +28,7 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetMeeting in the Amazon Chime SDK Meetings Namespace
  *
  * <important>
  *             <p>

@@ -37,7 +37,7 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by PutVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace
  *
  * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming
  *             configuration specifies whether media streaming is enabled for sending to Kinesis.

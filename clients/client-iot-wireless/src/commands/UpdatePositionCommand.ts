@@ -28,7 +28,7 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is no longer supported.
  *
  * <p>Update the position information of a resource.</p>
  *          <important>

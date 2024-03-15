@@ -28,7 +28,7 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  *
  * <p>Deletes a robot.</p>
  *          <important>

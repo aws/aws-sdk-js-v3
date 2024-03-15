@@ -33,7 +33,7 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListAppInstanceUsers in the Amazon Chime SDK Identity Namespace
  *
  * <p>List all <code>AppInstanceUsers</code>
  *             created under a single <code>AppInstance</code>.

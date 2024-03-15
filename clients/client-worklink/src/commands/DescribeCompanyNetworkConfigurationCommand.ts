@@ -36,7 +36,7 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Describes the networking configuration to access the internal websites associated with
  *             the specified fleet.</p>

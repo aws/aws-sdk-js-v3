@@ -28,7 +28,7 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteSipMediaApplication in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes a SIP media application.</p>
  *          <important>

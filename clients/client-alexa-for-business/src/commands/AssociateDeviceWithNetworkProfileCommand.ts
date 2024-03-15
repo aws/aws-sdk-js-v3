@@ -36,7 +36,7 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Associates a device with the specified network profile.</p>
  * @example

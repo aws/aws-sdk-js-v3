@@ -28,7 +28,7 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Retrieves the configured values for the user enrollment invitation email
  *          template.</p>

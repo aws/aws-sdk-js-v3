@@ -32,7 +32,7 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Deletes the streaming configurations of an <code>AppInstance</code>.</p>
  *          <important>

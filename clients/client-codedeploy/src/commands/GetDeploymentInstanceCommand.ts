@@ -28,7 +28,7 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is deprecated, use GetDeploymentTarget instead.
  *
  * <p>Gets information about an instance as part of a deployment.</p>
  * @example

@@ -28,7 +28,7 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets skill group details by skill group ARN.</p>
  * @example

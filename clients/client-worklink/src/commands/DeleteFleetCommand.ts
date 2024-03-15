@@ -28,7 +28,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
  * @example

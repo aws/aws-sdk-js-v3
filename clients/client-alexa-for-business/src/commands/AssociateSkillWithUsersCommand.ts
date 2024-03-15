@@ -28,7 +28,7 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Makes a private skill available for enrolled users to enable on their devices.</p>
  * @example

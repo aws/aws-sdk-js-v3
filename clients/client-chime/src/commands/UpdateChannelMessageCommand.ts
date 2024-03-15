@@ -32,7 +32,7 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateChannelMessage in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Updates the content of a message.</p>
  *          <note>

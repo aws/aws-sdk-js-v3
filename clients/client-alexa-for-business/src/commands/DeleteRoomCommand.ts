@@ -28,7 +28,7 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes a room by the room ARN.</p>
  * @example

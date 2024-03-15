@@ -28,7 +28,7 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Adds a new conference provider under the user's AWS account.</p>
  * @example

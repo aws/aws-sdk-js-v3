@@ -28,7 +28,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated The ExecuteSql API is deprecated, please use the ExecuteStatement API.
  *
  * <p>Runs one or more SQL statements.</p>
  *          <note>

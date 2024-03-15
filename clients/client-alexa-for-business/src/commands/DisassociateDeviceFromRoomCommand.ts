@@ -28,7 +28,7 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Disassociates a device from its current room. The device continues to be connected to
  *          the Wi-Fi network and is still registered to the account. The device settings and skills

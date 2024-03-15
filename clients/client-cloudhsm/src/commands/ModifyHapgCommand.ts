@@ -28,7 +28,7 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated This API is deprecated.
  *
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM

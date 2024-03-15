@@ -28,7 +28,7 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace
  *
  * <p>Deletes the media capture pipeline.</p>
  *          <important>

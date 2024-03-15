@@ -28,7 +28,7 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  *
  * <p>Updates details of the specified Amazon Chime Voice Connector group, such as the name and
  *             Amazon Chime Voice Connector priority ranking.</p>

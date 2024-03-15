@@ -33,7 +33,7 @@ export interface GetVoiceConnectorOriginationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace
  *
  * <p>Retrieves origination setting details for the specified Amazon Chime Voice Connector.</p>
  *          <important>

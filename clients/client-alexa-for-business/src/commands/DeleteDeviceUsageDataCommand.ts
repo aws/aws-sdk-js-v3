@@ -28,7 +28,7 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>When this action is called for a specified shared device, it allows authorized users to
  *          delete the device's entire previous history of voice input data and associated response

@@ -28,7 +28,7 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all
  *          skills have a room skill parameter.</p>

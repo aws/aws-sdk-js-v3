@@ -28,7 +28,7 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes a conference provider.</p>
  * @example

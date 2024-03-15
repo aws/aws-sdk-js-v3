@@ -38,7 +38,7 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
  *
  * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
  *          <important>

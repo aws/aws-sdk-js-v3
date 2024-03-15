@@ -28,7 +28,7 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated AWS RoboMaker is unable to process this request as the support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  *
  * <p>Deploys a specific version of a robot application to robots in a fleet.</p>
  *          <important>

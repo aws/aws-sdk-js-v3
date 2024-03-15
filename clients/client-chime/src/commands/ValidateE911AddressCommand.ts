@@ -33,7 +33,7 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ValidateE911Address in the Amazon Chime SDK Voice Namespace
  *
  * <p>Validates an address to be used for 911 calls made with Amazon
  *             Chime Voice Connectors. You can use validated addresses

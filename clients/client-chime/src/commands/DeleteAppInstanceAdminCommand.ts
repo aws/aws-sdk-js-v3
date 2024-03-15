@@ -28,7 +28,7 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteAppInstanceAdmin in the Amazon Chime SDK Identity Namespace
  *
  * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action does not delete the user.</p>
  *          <important>

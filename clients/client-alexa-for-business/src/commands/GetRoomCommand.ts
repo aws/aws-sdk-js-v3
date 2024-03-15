@@ -28,7 +28,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets room details by room ARN.</p>
  * @example

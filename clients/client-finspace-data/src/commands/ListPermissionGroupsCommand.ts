@@ -32,7 +32,7 @@ export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsR
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Lists all available permission groups in FinSpace.</p>
  * @example

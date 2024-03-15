@@ -33,7 +33,7 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateAttendee in the Amazon Chime SDK Meetings Namespace
  *
  * <p>
  * Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
