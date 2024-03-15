@@ -30,6 +30,8 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  * <p>Disassociates a skill from the organization under a user's AWS account. If the skill
  *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill
  *          that is rejected can be added later by calling the ApproveSkill API. </p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +63,6 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class RejectSkillCommand extends $Command
   .classBuilder<

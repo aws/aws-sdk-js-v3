@@ -4857,8 +4857,9 @@ export interface InvokeAsyncRequest {
 
 /**
  * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
- * @public
+ *
  * @deprecated
+ * @public
  */
 export interface InvokeAsyncResponse {
   /**

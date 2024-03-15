@@ -29,6 +29,8 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
 /**
  * <p>Provides basic information for the specified fleet, excluding identity provider,
  *             networking, and device configuration details.</p>
+ *
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +82,6 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DescribeFleetMetadataCommand extends $Command
   .classBuilder<

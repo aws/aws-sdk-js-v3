@@ -38,6 +38,8 @@ export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Creates an HSM client.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +77,6 @@ export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse,
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class CreateLunaClientCommand extends $Command
   .classBuilder<

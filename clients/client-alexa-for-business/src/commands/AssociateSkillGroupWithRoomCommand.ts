@@ -31,6 +31,8 @@ export interface AssociateSkillGroupWithRoomCommandOutput
 /**
  * <p>Associates a skill group with a given room. This enables all skills in the associated
  *          skill group on all devices in the room.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,7 +62,6 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class AssociateSkillGroupWithRoomCommand extends $Command
   .classBuilder<

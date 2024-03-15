@@ -40,6 +40,8 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *          <p>Adds or overwrites one or more tags for the specified AWS CloudHSM resource.</p>
  *          <p>Each tag consists of a key and a value. Tag keys must be unique to each
  *       resource.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +84,6 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<

@@ -32,6 +32,8 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
 
 /**
  * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +85,6 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class CreatePermissionGroupCommand extends $Command
   .classBuilder<

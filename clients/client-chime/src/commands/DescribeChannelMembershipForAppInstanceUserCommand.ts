@@ -51,6 +51,8 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  *                <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
  *                <i>Amazon Chime SDK Developer Guide</i>.</p>
  *          </important>
+ *
+ * @deprecated Replaced by DescribeChannelMembershipForAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,7 +113,6 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by DescribeChannelMembershipForAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
   .classBuilder<

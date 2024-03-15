@@ -38,6 +38,8 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
  *             <i>Amazon Chime SDK Developer Guide</i>.</p>
  *          </important>
+ *
+ * @deprecated Replaced by DeleteAttendee in the Amazon Chime SDK Meetings Namespace
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,7 +87,6 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by DeleteAttendee in the Amazon Chime SDK Meetings Namespace
  */
 export class DeleteAttendeeCommand extends $Command
   .classBuilder<

@@ -39,6 +39,8 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  *       Reference</a>.</p>
  *          <p>Gets the configuration files necessary to connect to all high availability partition
  *       groups the client is associated with.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +83,6 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class GetConfigCommand extends $Command
   .classBuilder<

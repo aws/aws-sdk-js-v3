@@ -28,6 +28,8 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
 
 /**
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
+ *
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +71,6 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DisassociateDomainCommand extends $Command
   .classBuilder<

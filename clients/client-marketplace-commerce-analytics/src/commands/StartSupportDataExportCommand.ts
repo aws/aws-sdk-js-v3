@@ -39,6 +39,8 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  *         be overwritten by the new file.
  *         Requires a Role with an attached permissions policy providing Allow permissions for the following actions:
  *         s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
+ *
+ * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,7 +79,6 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
  * @public
- * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
  */
 export class StartSupportDataExportCommand extends $Command
   .classBuilder<

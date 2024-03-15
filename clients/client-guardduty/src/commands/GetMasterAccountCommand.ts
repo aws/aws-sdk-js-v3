@@ -29,6 +29,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
 /**
  * <p>Provides the details for the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
+ *
+ * @deprecated This operation is deprecated, use GetAdministratorAccount instead
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +69,6 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use GetAdministratorAccount instead
  */
 export class GetMasterAccountCommand extends $Command
   .classBuilder<

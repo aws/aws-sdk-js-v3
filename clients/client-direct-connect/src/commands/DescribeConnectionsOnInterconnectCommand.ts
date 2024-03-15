@@ -35,6 +35,8 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>
  *          </note>
+ *
+ * @deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,7 +107,6 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  * @public
- * @deprecated
  */
 export class DescribeConnectionsOnInterconnectCommand extends $Command
   .classBuilder<

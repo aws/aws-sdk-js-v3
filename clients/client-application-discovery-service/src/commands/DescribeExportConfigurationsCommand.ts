@@ -38,6 +38,8 @@ export interface DescribeExportConfigurationsCommandOutput
 /**
  * <p>
  *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a>, instead.</p>
+ *
+ * @deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,7 +104,6 @@ export interface DescribeExportConfigurationsCommandOutput
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  * @public
- * @deprecated
  */
 export class DescribeExportConfigurationsCommand extends $Command
   .classBuilder<

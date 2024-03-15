@@ -28,6 +28,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
 
 /**
  * <p>Deletes a permission group. This action is irreversible.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +80,6 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class DeletePermissionGroupCommand extends $Command
   .classBuilder<

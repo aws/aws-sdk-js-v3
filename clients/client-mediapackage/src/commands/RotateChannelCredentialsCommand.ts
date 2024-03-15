@@ -32,6 +32,8 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
 
 /**
  * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
+ *
+ * @deprecated This API is deprecated. Please use RotateIngestEndpointCredentials instead
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,7 +101,6 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  * @public
- * @deprecated This API is deprecated. Please use RotateIngestEndpointCredentials instead
  */
 export class RotateChannelCredentialsCommand extends $Command
   .classBuilder<

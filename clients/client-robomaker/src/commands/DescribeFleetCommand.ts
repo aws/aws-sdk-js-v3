@@ -31,6 +31,8 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
  *          <important>
  *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
  *          </important>
+ *
+ * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,7 +94,6 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  * @public
- * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  */
 export class DescribeFleetCommand extends $Command
   .classBuilder<

@@ -37,6 +37,8 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *         <i>Billing and Cost Management User Guide</i>.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
  *       action.</p>
+ *
+ * @deprecated Use UntagResource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,7 +78,6 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @public
- * @deprecated Use UntagResource.
  * @example To delete tags for an EFS file system
  * ```javascript
  * // This operation deletes tags for an EFS file system.

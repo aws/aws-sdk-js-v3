@@ -28,6 +28,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
 
 /**
  * Send an request with an empty body to the regional API endpoint to get your account API endpoint.
+ *
+ * @deprecated DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +82,6 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  * @public
- * @deprecated DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.
  */
 export class DescribeEndpointsCommand extends $Command
   .classBuilder<

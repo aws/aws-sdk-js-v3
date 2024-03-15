@@ -155,7 +155,7 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @public
  * @example To list object versions
  * ```javascript
- * // The following example return versions of an object with specific key name prefix. The request limits the number of items returned to two. If there are are more than two object version, S3 returns NextToken in the response. You can specify this token value in your next request to fetch next set of object versions.
+ * // The following example returns versions of an object with specific key name prefix.
  * const input = {
  *   "Bucket": "examplebucket",
  *   "Prefix": "HappyFace.jpg"

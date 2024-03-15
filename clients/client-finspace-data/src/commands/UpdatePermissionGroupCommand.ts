@@ -32,6 +32,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
 
 /**
  * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,7 +86,6 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class UpdatePermissionGroupCommand extends $Command
   .classBuilder<

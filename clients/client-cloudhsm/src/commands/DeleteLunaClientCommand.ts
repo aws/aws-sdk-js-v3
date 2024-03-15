@@ -38,6 +38,8 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Deletes a client.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,7 +76,6 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class DeleteLunaClientCommand extends $Command
   .classBuilder<

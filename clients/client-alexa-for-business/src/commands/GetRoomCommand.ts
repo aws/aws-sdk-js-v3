@@ -28,6 +28,8 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
 
 /**
  * <p>Gets room details by room ARN.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,7 +66,6 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class GetRoomCommand extends $Command
   .classBuilder<

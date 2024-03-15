@@ -30,6 +30,8 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * <p>When this action is called for a specified shared device, it allows authorized users to
  *          delete the device's entire previous history of voice input data and associated response
  *          data. This action can be called once every 24 hours for a specific shared device.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,7 +67,6 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteDeviceUsageDataCommand extends $Command
   .classBuilder<

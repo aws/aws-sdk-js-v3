@@ -37,6 +37,8 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  *       connections, servers, and system performance. This API returns an export ID that you can query
  *       using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of
  *       two configuration exports in six hours.</p>
+ *
+ * @deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +84,6 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
  * @public
- * @deprecated
  */
 export class ExportConfigurationsCommand extends $Command
   .classBuilder<

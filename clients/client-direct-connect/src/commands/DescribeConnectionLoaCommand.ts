@@ -33,6 +33,8 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  *       service provider uses when establishing your cross connect to Amazon Web Services at the colocation facility. For more information,
  *       see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects
  *       at Direct Connect Locations</a> in the <i>Direct Connect User Guide</i>.</p>
+ *
+ * @deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +73,6 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  * @public
- * @deprecated
  */
 export class DescribeConnectionLoaCommand extends $Command
   .classBuilder<

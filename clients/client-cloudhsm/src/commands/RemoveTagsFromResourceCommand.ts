@@ -40,6 +40,8 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *          <p>Removes one or more tags from the specified AWS CloudHSM resource.</p>
  *          <p>To remove a tag, specify only the tag key to remove (not the value). To overwrite the
  *       value for an existing tag, use <a>AddTagsToResource</a>.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +81,6 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<

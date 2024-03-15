@@ -29,6 +29,8 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
 /**
  * <p>Updates the details of a gateway group. If any optional field is not provided, the
  *          existing corresponding value is left unmodified.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +64,6 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateGatewayGroupCommand extends $Command
   .classBuilder<

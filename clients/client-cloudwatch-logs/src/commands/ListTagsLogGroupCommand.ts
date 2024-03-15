@@ -32,6 +32,8 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
  *          </important>
  *          <p>Lists the tags for the specified log group.</p>
+ *
+ * @deprecated Please use the generic tagging API ListTagsForResource
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +69,6 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  * @public
- * @deprecated Please use the generic tagging API ListTagsForResource
  */
 export class ListTagsLogGroupCommand extends $Command
   .classBuilder<

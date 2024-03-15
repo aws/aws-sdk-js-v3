@@ -436,8 +436,9 @@ export interface SMSClientResolvedConfig extends SMSClientResolvedConfigType {}
  *                </p>
  *             </li>
  *          </ul>
- * @public
+ *
  * @deprecated AWS Server Migration Service is Deprecated.
+ * @public
  */
 export class SMSClient extends __Client<
   __HttpHandlerOptions,

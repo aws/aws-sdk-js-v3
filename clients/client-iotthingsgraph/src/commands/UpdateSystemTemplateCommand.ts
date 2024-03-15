@@ -28,6 +28,8 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
 
 /**
  * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,7 +79,6 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class UpdateSystemTemplateCommand extends $Command
   .classBuilder<

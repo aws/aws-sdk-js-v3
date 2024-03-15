@@ -35,6 +35,8 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *          <p>Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that
  *       information.</p>
+ *
+ * @deprecated This operation is deprecated, use DetectEntitiesV2 instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -140,7 +142,6 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use DetectEntitiesV2 instead.
  */
 export class DetectEntitiesCommand extends $Command
   .classBuilder<

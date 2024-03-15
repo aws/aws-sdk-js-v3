@@ -28,6 +28,8 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
 
 /**
  * <p>Returns the FinSpace environment object.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,7 +92,6 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class GetEnvironmentCommand extends $Command
   .classBuilder<

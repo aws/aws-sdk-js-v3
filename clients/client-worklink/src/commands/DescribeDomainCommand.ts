@@ -28,6 +28,8 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
 
 /**
  * <p>Provides information about the domain.</p>
+ *
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +77,6 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DescribeDomainCommand extends $Command
   .classBuilder<

@@ -38,6 +38,8 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  *             <p>After 90 days, deployment jobs expire and will be deleted. They will no longer be
  *             accessible. </p>
  *          </note>
+ *
+ * @deprecated AWS RoboMaker is unable to process this request as the support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,7 +153,6 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  * @public
- * @deprecated AWS RoboMaker is unable to process this request as the support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  */
 export class CreateDeploymentJobCommand extends $Command
   .classBuilder<

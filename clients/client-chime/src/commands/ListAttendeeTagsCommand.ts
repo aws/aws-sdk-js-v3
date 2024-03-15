@@ -35,6 +35,8 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
  *          <important>
  *             <p>ListAttendeeTags is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.</p>
  *          </important>
+ *
+ * @deprecated Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,7 +91,6 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
  */
 export class ListAttendeeTagsCommand extends $Command
   .classBuilder<

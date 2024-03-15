@@ -32,6 +32,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  *          <p>Provides the details for the Security Hub administrator account for the current member account.</p>
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
+ *
+ * @deprecated This API has been deprecated, use GetAdministratorAccount API instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +81,6 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @deprecated This API has been deprecated, use GetAdministratorAccount API instead.
  */
 export class GetMasterAccountCommand extends $Command
   .classBuilder<

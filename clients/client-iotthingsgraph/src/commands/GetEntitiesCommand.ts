@@ -59,6 +59,8 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  *             </li>
  *          </ul>
  *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,7 +114,6 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class GetEntitiesCommand extends $Command
   .classBuilder<

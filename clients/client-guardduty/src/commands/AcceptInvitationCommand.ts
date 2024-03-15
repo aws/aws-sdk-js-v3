@@ -28,6 +28,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
 
 /**
  * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
+ *
+ * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +63,6 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead
  */
 export class AcceptInvitationCommand extends $Command
   .classBuilder<

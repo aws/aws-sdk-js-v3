@@ -30,6 +30,8 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * <p>Associates a device with a given room. This applies all the settings from the room
  *          profile to the device, and all the skills in any skill groups added to that room. This
  *          operation requires the device to be online, or else a manual sync is required. </p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,7 +67,6 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class AssociateDeviceWithRoomCommand extends $Command
   .classBuilder<

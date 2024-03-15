@@ -28,6 +28,8 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
 
 /**
  * <p>Get information about a Changeset.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,7 +96,6 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class GetChangesetCommand extends $Command
   .classBuilder<

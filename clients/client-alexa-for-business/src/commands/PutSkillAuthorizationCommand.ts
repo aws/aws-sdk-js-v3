@@ -34,6 +34,8 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * <p>Links a user's account to a third-party skill provider. If this API operation is
  *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the
  *          skill must be owned by the AWS account that assumed the IAM role.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +71,6 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class PutSkillAuthorizationCommand extends $Command
   .classBuilder<

@@ -28,6 +28,8 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
 
 /**
  * <p>Removes Shield Advanced from an account. Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
+ *
+ * @deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,7 +62,6 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  * @public
- * @deprecated
  */
 export class DeleteSubscriptionCommand extends $Command
   .classBuilder<

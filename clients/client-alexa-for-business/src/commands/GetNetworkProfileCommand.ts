@@ -32,6 +32,8 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
 
 /**
  * <p>Gets the network profile details by the network profile ARN.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +80,6 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class GetNetworkProfileCommand extends $Command
   .classBuilder<

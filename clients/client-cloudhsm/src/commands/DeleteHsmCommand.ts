@@ -39,6 +39,8 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  *       Reference</a>.</p>
  *          <p>Deletes an HSM. After completion, this operation cannot be undone and your key material
  *       cannot be recovered.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +77,6 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class DeleteHsmCommand extends $Command
   .classBuilder<

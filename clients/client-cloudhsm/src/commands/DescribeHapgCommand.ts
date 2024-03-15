@@ -38,6 +38,8 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Retrieves information about a high-availability partition group.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,7 +92,6 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class DescribeHapgCommand extends $Command
   .classBuilder<

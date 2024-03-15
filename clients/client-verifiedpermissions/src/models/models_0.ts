@@ -1379,8 +1379,9 @@ export type OpenIdIssuer = (typeof OpenIdIssuer)[keyof typeof OpenIdIssuer];
  * <p>A structure that contains configuration of the identity source.</p>
  *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>
  *             operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>
- * @public
+ *
  * @deprecated This shape has been replaced by ConfigurationDetail
+ * @public
  */
 export interface IdentitySourceDetails {
   /**
@@ -1875,8 +1876,9 @@ export interface ListIdentitySourcesInput {
  * <p>A structure that contains configuration of the identity source.</p>
  *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>
  *             operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a>.</p>
- * @public
+ *
  * @deprecated This shape has been replaced by ConfigurationItem
+ * @public
  */
 export interface IdentitySourceItemDetails {
   /**

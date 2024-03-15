@@ -28,6 +28,8 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
 
 /**
  * <p>Adds a new conference provider under the user's AWS account.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +81,6 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class CreateConferenceProviderCommand extends $Command
   .classBuilder<

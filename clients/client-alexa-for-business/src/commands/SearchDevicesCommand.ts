@@ -28,6 +28,8 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
 
 /**
  * <p>Searches devices and lists the ones that meet a set of filter criteria.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,7 +99,6 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class SearchDevicesCommand extends $Command
   .classBuilder<

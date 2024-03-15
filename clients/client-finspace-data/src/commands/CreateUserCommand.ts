@@ -28,6 +28,8 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 
 /**
  * <p>Creates a new user in FinSpace.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +82,6 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class CreateUserCommand extends $Command
   .classBuilder<

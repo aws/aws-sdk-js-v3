@@ -34,6 +34,8 @@ export interface DeleteBusinessReportScheduleCommandOutput
 /**
  * <p>Deletes the recurring report delivery schedule with the specified schedule
  *          ARN.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,7 +67,6 @@ export interface DeleteBusinessReportScheduleCommandOutput
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteBusinessReportScheduleCommand extends $Command
   .classBuilder<

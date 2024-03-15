@@ -41,6 +41,8 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * <i>Amazon Chime SDK Developer Guide</i>
  * .
  * </p>
+ *
+ * @deprecated Replaced by GetMeeting in the Amazon Chime SDK Meetings Namespace
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,7 +105,6 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by GetMeeting in the Amazon Chime SDK Meetings Namespace
  */
 export class GetMeetingCommand extends $Command
   .classBuilder<

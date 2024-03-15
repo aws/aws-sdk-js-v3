@@ -45,6 +45,8 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * in the
  * <i>Amazon Chime SDK Developer Guide</i>.
  * </p>
+ *
+ * @deprecated Replaced by BatchCreateAttendee in the Amazon Chime SDK Meetings Namespace
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,7 +122,6 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by BatchCreateAttendee in the Amazon Chime SDK Meetings Namespace
  */
 export class BatchCreateAttendeeCommand extends $Command
   .classBuilder<

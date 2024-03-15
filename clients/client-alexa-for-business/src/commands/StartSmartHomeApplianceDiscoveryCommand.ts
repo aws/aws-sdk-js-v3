@@ -34,6 +34,8 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
 /**
  * <p>Initiates the discovery of any smart home appliances associated with the
  *          room.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +64,6 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class StartSmartHomeApplianceDiscoveryCommand extends $Command
   .classBuilder<

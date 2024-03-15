@@ -33,6 +33,8 @@ export interface AssociateUserToPermissionGroupCommandOutput
 
 /**
  * <p>Adds a user to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +83,6 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class AssociateUserToPermissionGroupCommand extends $Command
   .classBuilder<

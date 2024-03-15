@@ -34,6 +34,8 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  *          publish your skill as a private skill to your AWS account. Skills that are hosted using a
  *          custom web service must be manually authorized. To get your skill authorized, contact AWS
  *          Support with your AWS account ID that queries the ResolveRoom API and skill ID. </p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,7 +74,6 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class ResolveRoomCommand extends $Command
   .classBuilder<

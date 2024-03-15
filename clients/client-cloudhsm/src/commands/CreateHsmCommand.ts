@@ -47,6 +47,8 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  *         status of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be
  *         initialized when the status changes to <code>RUNNING</code>.</p>
  *          </important>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,7 +92,6 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class CreateHsmCommand extends $Command
   .classBuilder<

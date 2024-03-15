@@ -1853,8 +1853,9 @@ export interface StartSigningJobResponse {
 /**
  * <p>The request was denied due to request throttling.</p>
  * 		       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
- * @public
+ *
  * @deprecated Instead of this error, TooManyRequestsException should be used.
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";

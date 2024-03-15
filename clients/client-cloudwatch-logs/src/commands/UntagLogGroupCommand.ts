@@ -38,6 +38,8 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  *       log groups using the <code>aws:Resource/<i>key-name</i>
  *             </code> or <code>aws:TagKeys</code> condition keys.
  *      </p>
+ *
+ * @deprecated Please use the generic tagging API UntagResource
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +71,6 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  * @public
- * @deprecated Please use the generic tagging API UntagResource
  */
 export class UntagLogGroupCommand extends $Command
   .classBuilder<

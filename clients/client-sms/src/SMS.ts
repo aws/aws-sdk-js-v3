@@ -781,8 +781,9 @@ export interface SMS {
  *                </p>
  *             </li>
  *          </ul>
- * @public
+ *
  * @deprecated AWS Server Migration Service is Deprecated.
+ * @public
  */
 export class SMS extends SMSClient implements SMS {}
 createAggregatedClient(commands, SMS);

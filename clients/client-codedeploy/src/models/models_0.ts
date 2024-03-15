@@ -643,8 +643,9 @@ export interface S3Location {
  * <p>A revision for an Lambda deployment that is a YAML-formatted or
  *             JSON-formatted string. For Lambda deployments, the revision is the same
  *             as the AppSpec file.</p>
- * @public
+ *
  * @deprecated RawString and String revision type are deprecated, use AppSpecContent type instead.
+ * @public
  */
 export interface RawString {
   /**
@@ -2002,8 +2003,9 @@ export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus
 
 /**
  * <p>Information about an instance in a deployment.</p>
- * @public
+ *
  * @deprecated InstanceSummary is deprecated, use DeploymentTarget instead.
+ * @public
  */
 export interface InstanceSummary {
   /**
@@ -2143,8 +2145,9 @@ export class DeploymentIdRequiredException extends __BaseException {
 
 /**
  * <p>The instance ID was not specified.</p>
- * @public
+ *
  * @deprecated This exception is deprecated, use DeploymentTargetIdRequiredException instead.
+ * @public
  */
 export class InstanceIdRequiredException extends __BaseException {
   readonly name: "InstanceIdRequiredException" = "InstanceIdRequiredException";
@@ -3349,8 +3352,9 @@ export class DeploymentTargetListSizeExceededException extends __BaseException {
 
 /**
  * <p>The specified instance does not exist in the deployment group.</p>
- * @public
+ *
  * @deprecated This exception is deprecated, use DeploymentTargetDoesNotExistException instead.
+ * @public
  */
 export class InstanceDoesNotExistException extends __BaseException {
   readonly name: "InstanceDoesNotExistException" = "InstanceDoesNotExistException";

@@ -49,6 +49,8 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  *                communications (if enabled on the room profile).</p>
  *             </li>
  *          </ul>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +83,6 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class StartDeviceSyncCommand extends $Command
   .classBuilder<

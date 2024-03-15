@@ -45,6 +45,8 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  *                <p>You must be a member of a FinSpace user group, where the dataset that you want to access has <code>Read Dataset Data</code> permissions.</p>
  *             </li>
  *          </ul>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,7 +100,6 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class GetExternalDataViewAccessDetailsCommand extends $Command
   .classBuilder<

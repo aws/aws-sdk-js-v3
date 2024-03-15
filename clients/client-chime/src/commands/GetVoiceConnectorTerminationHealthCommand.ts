@@ -44,6 +44,8 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  *          </important>
  *          <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received from
  *             your SIP infrastructure for the specified Amazon Chime Voice Connector.</p>
+ *
+ * @deprecated Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,7 +97,6 @@ export interface GetVoiceConnectorTerminationHealthCommandOutput
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace
  */
 export class GetVoiceConnectorTerminationHealthCommand extends $Command
   .classBuilder<

@@ -29,6 +29,8 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
 /**
  * <p>A temporary Amazon S3 location, where you can copy your files from a source location to stage or use
  *       as a scratch space in FinSpace notebook.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +73,6 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class GetWorkingLocationCommand extends $Command
   .classBuilder<

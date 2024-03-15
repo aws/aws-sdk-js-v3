@@ -39,6 +39,8 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  *       Reference</a>.</p>
  *          <p>Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
  *       number.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,7 +100,6 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class DescribeHsmCommand extends $Command
   .classBuilder<

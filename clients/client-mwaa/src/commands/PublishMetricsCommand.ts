@@ -29,6 +29,8 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
 /**
  * <p>
  *             <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
+ *
+ * @deprecated This API is for internal use and not meant for public use, and is no longer available.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +82,6 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  * @public
- * @deprecated This API is for internal use and not meant for public use, and is no longer available.
  */
 export class PublishMetricsCommand extends $Command
   .classBuilder<

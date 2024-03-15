@@ -35,6 +35,8 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  *             works with EC2/On-premises and Lambda compute platforms. The newer
  *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms. The maximum
  *             number of instances that can be returned is 25.</p>
+ *
+ * @deprecated This operation is deprecated, use BatchGetDeploymentTargets instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,7 +111,6 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use BatchGetDeploymentTargets instead.
  */
 export class BatchGetDeploymentInstancesCommand extends $Command
   .classBuilder<

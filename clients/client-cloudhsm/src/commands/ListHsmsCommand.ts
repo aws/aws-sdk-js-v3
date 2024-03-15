@@ -43,6 +43,8 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  *       If more results are available, the <code>NextToken</code> member of the response contains a
  *       token that you pass in the next call to <code>ListHsms</code> to retrieve the next set of
  *       items.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +84,6 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class ListHsmsCommand extends $Command
   .classBuilder<

@@ -33,6 +33,8 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
 /**
  * <p>Searches contacts and lists the ones that meet a set of filter and sort
  *          criteria.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,7 +99,6 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class SearchContactsCommand extends $Command
   .classBuilder<
